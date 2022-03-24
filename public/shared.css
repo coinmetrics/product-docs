@@ -33,7 +33,7 @@
   margin-right: 32px;
 }
 
-.Main-header-lg > div:first-child {
+.Main-header-lg > header {
   flex: none;
 }
 
