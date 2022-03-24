@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Coin Metrics Knowledge Base</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta content="utf-8" http-equiv="encoding" />
+    <link rel="stylesheet" href="/chocolate-ui.css" />
+    <link rel="stylesheet" href="/shared.css" />
+    <script type="module" defer src="/chocolate-ui.js"></script>
+    <script type="module" defer src="/exchanges.js"></script>
+    <!-- TODO Google Tag Manager -->
+  </head>
+  <body>
+    <header class="AppLayout-header">
+      <a href="https://coinmetrics.io/">
+        <img class="AppLayout-logo" src="https://cdn.coinmetrics.io/coinmetrics-default.svg" alt="Coin Metrics">
+      </a>
+    </header>
+    <main class="AppLayout-main">
+      <div class="AppLayout-row">
+        <div class="Main">
+          <section class="Main-header">
+            <h2 class="Text-heading-2">EXCHANGES</h2>
+            <hr class="Separator-v-light">
+            <p class="Text-regular">
+              The available exchanges and the metrics available for each exchange 
+              can be found by querying our /catalog/exchanges or /catalog-all/exchanges API endpoints. 
+            </p>
+          </section>
+          <div class="Panel">
+            <cm-table>
+              <table left-align>
+                <thead>
+                  <tr>
+                    <th>EXCHANGE</th>
+                    <th>MIN TIME</th>
+                    <th>MAX TIME</th>
+                    <th>TOTAL SPOT</th>
+                    <th>TOTAL FUTURES</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- table rows -->
+                </tbody>
+              </table>
+            </cm-table>
+            <span>
+              <button id="LoadMore" class="Button">
+                <span>Load More</span>
+                <cm-icon name="refresh-cw"></cm-icon>
+              </button>
+              <button id="LoadAll" class="Button">
+                Show All
+              </button>
+            </span>
+          </div>
+        </div>
+        <div class="Nav">
+          <span class="Input-with-icon">
+            <input class="Input-l" placeholder="Search...">
+            <cm-icon name="search"></cm-icon>
+          </span>
+          <a href="/assets" class="Text-large"><strong>Assets</strong></a>
+          <a href="/pairs" class="Text-large"><strong>Pairs</strong></a>
+          <a current href="/exchanges" class="Text-large"><strong>Exchanges</strong></a>
+          <a href="/asset-metrics" class="Text-large"><strong>Asset Metrics</strong></a>
+          <a href="/pair-metrics" class="Text-large"><strong>Pair Metrics</strong></a>
+          <a href="/exchange-metrics" class="Text-large"><strong>Exchange Metrics</strong></a>
+        </div>
+      </div>
+    </main>
+    <cm-sidebar>
+      <div class="Sidebar-toolbar">
+        <cm-tooltip closed-only>
+          <cm-popup id="api-key-popup">
+            <button class="Sidebar-button">
+              <cm-icon name="key"></cm-icon>
+            </button>
+          </cm-popup>
+          <span class="Tooltip-content">API key</span>
+        </cm-tooltip>
+      </div>
+    </cm-sidebar>
+    <cm-popup-content for="api-key-popup">
+      <div class="Popup-dialog Dialog Dialog-api-key">
+        <h2 class="Dialog-titlebar">CM PRO</h2>
+        <div class="Panel">
+          <p class="Text-regular">
+            Enter your visualization key to unlock CM Pro data available for your account.
+          </p>
+          <span class="Input-with-icon">
+            <input class="Input" placeholder="Visualization Key" type="password">
+            <cm-icon name="key"></cm-icon>
+          </span>
+          <button class="Button-primary">Unlock CM Pro</button>
+          <a class="Link" href="#">Need a visualization key?</a>
+        </div>
+      </div>
+    </cm-popup-content>
+  </body>
+</html>
