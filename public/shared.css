@@ -62,26 +62,26 @@ table {
   width: 100%;
 }
 
-table[availability] > thead > tr > th:not(:first-child),
-table[availability] > tbody > tr > td:not(:first-child) {
+table.Acl-availability > thead > tr > th:not(:first-child),
+table.Acl-availability > tbody > tr > td:not(:first-child) {
   text-align: center;
 }
 
-table[availability] > thead > tr > th:nth-child(3) {
+table.Acl-availability > thead > tr > th:nth-child(3) {
   background-color: var(--color-secondary-yellow);
 }
 
-table[availability] > thead > tr > th:nth-child(4) {
+table.Acl-availability > thead > tr > th:nth-child(4) {
   background-color: var(--color-primary-dark-purple);
   color: var(--color-primary-white);
 }
 
-table[availability] > thead > tr > th:nth-child(2),
-table[availability] > thead > tr > th:nth-child(3),
-table[availability] > thead > tr > th:nth-child(4),
-table[availability] > thead > tr > td:nth-child(2),
-table[availability] > thead > tr > td:nth-child(3),
-table[availability] > thead > tr > td:nth-child(4) {
+table.Acl-availability > thead > tr > th:nth-child(2),
+table.Acl-availability > thead > tr > th:nth-child(3),
+table.Acl-availability > thead > tr > th:nth-child(4),
+table.Acl-availability > thead > tr > td:nth-child(2),
+table.Acl-availability > thead > tr > td:nth-child(3),
+table.Acl-availability > thead > tr > td:nth-child(4) {
   width: 258px;
 }
 
