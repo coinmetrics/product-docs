@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Coin Metrics Knowledge Base</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta content="utf-8" http-equiv="encoding" />
+    <link rel="stylesheet" href="/chocolate-ui.css" />
+    <link rel="stylesheet" href="/shared.css" />
+    <script type="module" defer src="/chocolate-ui.js"></script>
+    <script type="module" defer src="/pair-metrics.js"></script>
+    <!-- TODO Google Tag Manager -->
+  </head>
+  <body>
+    <header class="AppLayout-header">
+      <a href="https://coinmetrics.io/">
+        <img
+          class="AppLayout-logo"
+          src="https://cdn.coinmetrics.io/coinmetrics-default.svg"
+          alt="Coin Metrics"
+        />
+      </a>
+    </header>
+    <main class="AppLayout-main">
+      <div class="AppLayout-row">
+        <div class="Main">
+          <section class="Main-header-lg">
+            <div>
+              <h2 class="Text-heading-2">PAIR METRICS</h2>
+              <h4 class="Text-heading-4">/timeseries/pair-metrics</h4>
+            </div>
+            <hr class="Separator-v-light" />
+            <p class="Text-regular">
+              Coin Metrics calculates several metrics for asset pairs such as btc-usd and eth-usd. 
+              For example, the metric volume_reported_spot_usd_1d represents the daily spot volume 
+              in U.S. dollars for all markets in our coverage universe that contain the specific pair. 
+              Metrics available at the exchange-asset level is available through the 
+              /timeseries/pair-metrics API endpoint.
+            </p>
+          </section>
+          <div class="Panel">
+            <cm-table>
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>CATEGORY</th>
+                    <th>SUBCATEGORY</th>
+                    <th>FREQUENCIES</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- table rows -->
+                </tbody>
+              </table>
+            </cm-table>
+            <span>
+              <button id="LoadMore" class="Button">
+                <span>Load More</span>
+                <cm-icon name="refresh-cw"></cm-icon>
+              </button>
+              <button id="LoadAll" class="Button">
+                Show All
+              </button>
+            </span>
+          </div>
+        </div>
+        <div class="Nav">
+          <span class="Input-with-icon">
+            <input class="Input-l" placeholder="Search..." />
+            <cm-icon name="search"></cm-icon>
+          </span>
+          <a href="/assets" class="Text-large"><strong>Assets</strong></a>
+          <a href="/pairs" class="Text-large"><strong>Pairs</strong></a>
+          <a href="/exchanges" class="Text-large"><strong>Exchanges</strong></a>
+          <a href="/asset-metrics" class="Text-large"><strong>Asset Metrics</strong></a>
+          <a current href="/pair-metrics" class="Text-large"><strong>Pair Metrics</strong></a>
+          <a href="/exchange-metrics" class="Text-large"><strong>Exchange Metrics</strong></a>
+        </div>
+      </div>
+    </main>
+    <cm-sidebar>
+      <div class="Sidebar-toolbar">
+        <cm-tooltip closed-only>
+          <cm-popup id="api-key-popup">
+            <button class="Sidebar-button">
+              <cm-icon name="key"></cm-icon>
+            </button>
+          </cm-popup>
+          <span class="Tooltip-content">API key</span>
+        </cm-tooltip>
+      </div>
+    </cm-sidebar>
+    <cm-popup-content for="api-key-popup">
+      <div class="Popup-dialog Dialog Dialog-api-key">
+        <h2 class="Dialog-titlebar">CM PRO</h2>
+        <div class="Panel">
+          <p class="Text-regular">
+            Enter your visualization key to unlock CM Pro data available for your account.
+          </p>
+          <span class="Input-with-icon">
+            <input class="Input" placeholder="Visualization Key" type="password">
+            <cm-icon name="key"></cm-icon>
+          </span>
+          <button class="Button-primary">Unlock CM Pro</button>
+          <a class="Link" href="#">Need a visualization key?</a>
+        </div>
+      </div>
+    </cm-popup-content>
+  </body>
+</html>

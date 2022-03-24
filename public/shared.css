@@ -1,0 +1,95 @@
+.Dialog-api-key {
+  max-width: 352px;
+}
+
+.Main {
+  flex-grow: 1;
+}
+
+.Main-header,
+.Main-header-lg {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.Main-header {
+  height: 48px;
+}
+
+.Main-header-lg {
+  height: 72px;
+}
+
+.Main-header > h2 {
+  flex: none;
+}
+
+.Main-header > hr,
+.Main-header-lg > hr {
+  height: 100%;
+  flex: none;
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
+.Main-header-lg > div:first-child {
+  flex: none;
+}
+
+.Nav {
+  width: 280px;
+  flex: none;
+}
+
+.Nav > span:first-child {
+  margin-bottom: 16px;
+}
+
+.Nav > a {
+  display: block;
+  padding: 8px;
+  color: var(--color-primary-dark-purple);
+  text-decoration: none;
+}
+
+.Nav > a[current] {
+  background-color: var(--color-primary-dark-purple);
+  color: var(--color-primary-white);
+}
+
+table {
+  width: 100%;
+}
+
+table[availability] > thead > tr > th:not(:first-child),
+table[availability] > tbody > tr > td:not(:first-child) {
+  text-align: center;
+}
+
+table[availability] > thead > tr > th:nth-child(3) {
+  background-color: var(--color-secondary-yellow);
+}
+
+table[availability] > thead > tr > th:nth-child(4) {
+  background-color: var(--color-primary-dark-purple);
+  color: var(--color-primary-white);
+}
+
+table[availability] > thead > tr > th:nth-child(2),
+table[availability] > thead > tr > th:nth-child(3),
+table[availability] > thead > tr > th:nth-child(4),
+table[availability] > thead > tr > td:nth-child(2),
+table[availability] > thead > tr > td:nth-child(3),
+table[availability] > thead > tr > td:nth-child(4) {
+  width: 258px;
+}
+
+table[left-align] > thead > tr > th,
+table[left-align] > tbody > tr > td {
+  text-align: left !important;
+}
+
+cm-coin.Coin-xl {
+  margin-right: 20px;
+}

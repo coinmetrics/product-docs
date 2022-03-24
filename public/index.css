@@ -1,0 +1,7 @@
+.AppLayout-row > div:first-child > div {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  margin: auto;
+  max-width: 640px;
+}
