@@ -126,7 +126,7 @@
     renderedMarkets = asset.markets.length
   }
   let renderAsset = () => {
-    $icon.innerHTML = `<cm-coin class="Coin-xl" name="${id}"></cm-coin>`
+    $icon.innerHTML = `<cm-coin class="Coin-xl" name="${id}" alt=""></cm-coin>`
     $id.textContent = id
     $name.textContent = asset.fullName
     renderNext20Metrics()

@@ -21,7 +21,10 @@
       html += `
         <tr>
           <td>
-            <a href="/asset?id=${asset.id}" class="Link Text-regular">${asset.id}</a>
+            <a href="/asset?id=${asset.id}" class="Link Text-regular">
+              <cm-coin name="${asset.id}" alt=""></cm-coin>
+              ${asset.id}
+            </a>
           </td>
           <td>
             ${asset.acl.c?.length ? `<p class="Text-regular">${asset.acl.c.join(',')}</p>` : '<cm-color-icon name="x"></cm-icon>'}
