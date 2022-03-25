@@ -22,13 +22,19 @@
             <a href="/pair-metric?id=${metric.id}" class="Link Text-regular">${metric.id}</a>
           </td>
           <td>
-            <cm-color-icon name="${metric.acl.includes('c') ? 'check' : 'x'}"></cm-icon>
+            <cm-color-icon ${metric.acl.includes('c') ? 
+              'name="check" alt="Available"'
+              : 'name="x" alt="Unavailable"'}></cm-icon>
           </td>
           <td>
-            <cm-color-icon name="${metric.acl.includes('p') ? 'check' : 'x'}"></cm-icon>
+            <cm-color-icon ${metric.acl.includes('p') ? 
+              'name="check" alt="Available"'
+              : 'name="x" alt="Unavailable"'}></cm-icon>
           </td>
           <td>
-            <cm-color-icon name="${metric.acl.includes('u') ? 'check' : 'x'}"></cm-icon>
+            <cm-color-icon ${metric.acl.includes('u') ? 
+              'name="check" alt="Available"'
+              : 'name="x" alt="Unavailable"'}></cm-icon>
           </td>
         </tr>
       `

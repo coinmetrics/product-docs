@@ -27,13 +27,19 @@
             </a>
           </td>
           <td>
-            ${asset.acl.c?.length ? `<p class="Text-regular">${asset.acl.c.join(',')}</p>` : '<cm-color-icon name="x"></cm-icon>'}
+            ${asset.acl.c?.length ? 
+              `<p class="Text-regular">${asset.acl.c.join(',')}</p>` 
+              : '<cm-color-icon name="x" alt="Unavailable"></cm-icon>'}
           </td>
           <td>
-            ${asset.acl.p?.length > 0 ? `<p class="Text-regular">${asset.acl.p.join(',')}</p>` : '<cm-color-icon name="x"></cm-icon>'}
+            ${asset.acl.p?.length > 0 ? 
+              `<p class="Text-regular">${asset.acl.p.join(',')}</p>` 
+              : '<cm-color-icon name="x" alt="Unavailable"></cm-icon>'}
           </td>
           <td>
-            ${asset.acl.u?.length > 0 ? `<p class="Text-regular">${asset.acl.u.join(',')}</p>` : '<cm-color-icon name="x"></cm-icon>'}
+            ${asset.acl.u?.length > 0 ? 
+              `<p class="Text-regular">${asset.acl.u.join(',')}</p>` 
+              : '<cm-color-icon name="x" alt="Unavailable"></cm-icon>'}
           </td>
         </tr>
       `

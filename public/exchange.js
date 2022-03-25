@@ -35,13 +35,19 @@
           <a href="/exchange-metric?id=${metric.id}" class="Link Text-regular">${metric.id}</a>
         </td>
         <td>
-          <cm-color-icon name="${metric.acl.includes('c') ? 'check' : 'x'}"></cm-icon>
+          <cm-color-icon ${metric.acl.includes('c') ? 
+            'name="check" alt="Available"'
+            : 'name="x" alt="Unavailable"'}></cm-icon>
         </td>
         <td>
-          <cm-color-icon name="${metric.acl.includes('p') ? 'check' : 'x'}"></cm-icon>
+          <cm-color-icon ${metric.acl.includes('p') ? 
+            'name="check" alt="Available"'
+            : 'name="x" alt="Unavailable"'}></cm-icon>
         </td>
         <td>
-          <cm-color-icon name="${metric.acl.includes('u') ? 'check' : 'x'}"></cm-icon>
+          <cm-color-icon ${metric.acl.includes('u') ? 
+            'name="check" alt="Available"'
+            : 'name="x" alt="Unavailable"'}></cm-icon>
         </td>
       </tr>
     `
@@ -66,13 +72,19 @@
           <a href="#" class="Link Text-regular">${market.id}</a>
         </td>
         <td>
-          <cm-color-icon name="${market.acl.includes('c') ? 'check' : 'x'}"></cm-icon>
+          <cm-color-icon ${market.acl.includes('c') ? 
+            'name="check" alt="Available"'
+            : 'name="x" alt="Unavailable"'}></cm-icon>
         </td>
         <td>
-          <cm-color-icon name="${market.acl.includes('p') ? 'check' : 'x'}"></cm-icon>
+          <cm-color-icon ${market.acl.includes('p') ? 
+            'name="check" alt="Available"'
+            : 'name="x" alt="Unavailable"'}></cm-icon>
         </td>
         <td>
-          <cm-color-icon name="${market.acl.includes('u') ? 'check' : 'x'}"></cm-icon>
+          <cm-color-icon ${market.acl.includes('u') ? 
+            'name="check" alt="Available"'
+            : 'name="x" alt="Unavailable"'}></cm-icon>
         </td>
       </tr>
     `

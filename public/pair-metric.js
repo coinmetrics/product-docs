@@ -24,13 +24,19 @@
             <a href="/pair?id=${pair.id}" class="Link Text-regular">${pair.id}</a>
           </td>
           <td>
-            <cm-color-icon name="${pair.acl.includes('c') ? 'check' : 'x'}"></cm-icon>
+            <cm-color-icon ${pair.acl.includes('c') ? 
+              'name="check" alt="Available"'
+              : 'name="x" alt="Unavailable"'}></cm-icon>
           </td>
           <td>
-            <cm-color-icon name="${pair.acl.includes('p') ? 'check' : 'x'}"></cm-icon>
+            <cm-color-icon ${pair.acl.includes('p') ? 
+              'name="check" alt="Available"'
+              : 'name="x" alt="Unavailable"'}></cm-icon>
           </td>
           <td>
-            <cm-color-icon name="${pair.acl.includes('u') ? 'check' : 'x'}"></cm-icon>
+            <cm-color-icon ${pair.acl.includes('u') ? 
+              'name="check" alt="Available"'
+              : 'name="x" alt="Unavailable"'}></cm-icon>
           </td>
         </tr>
       `

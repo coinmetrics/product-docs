@@ -37,13 +37,19 @@
           <a href="#" class="Link Text-regular">${market.id}</a>
         </td>
         <td>
-          <cm-color-icon name="${market.acl.includes('c') ? 'check' : 'x'}"></cm-icon>
+          <cm-color-icon ${market.acl.includes('c') ? 
+            'name="check" alt="Available"'
+            : 'name="x" alt="Unavailable"'}></cm-icon>
         </td>
         <td>
-          <cm-color-icon name="${market.acl.includes('p') ? 'check' : 'x'}"></cm-icon>
+          <cm-color-icon ${market.acl.includes('p') ? 
+            'name="check" alt="Available"'
+            : 'name="x" alt="Unavailable"'}></cm-icon>
         </td>
         <td>
-          <cm-color-icon name="${market.acl.includes('u') ? 'check' : 'x'}"></cm-icon>
+          <cm-color-icon ${market.acl.includes('u') ? 
+            'name="check" alt="Available"'
+            : 'name="x" alt="Unavailable"'}></cm-icon>
         </td>
       </tr>
     `
@@ -68,13 +74,19 @@
           <a href="/exchange?id=${exchange.id}" class="Link Text-regular">${exchange.id}</a>
         </td>
         <td>
-          <cm-color-icon name="${exchange.acl.includes('c') ? 'check' : 'x'}"></cm-icon>
+          <cm-color-icon ${exchange.acl.includes('c') ? 
+            'name="check" alt="Available"'
+            : 'name="x" alt="Unavailable"'}></cm-icon>
         </td>
         <td>
-          <cm-color-icon name="${exchange.acl.includes('p') ? 'check' : 'x'}"></cm-icon>
+          <cm-color-icon ${exchange.acl.includes('p') ? 
+            'name="check" alt="Available"'
+            : 'name="x" alt="Unavailable"'}></cm-icon>
         </td>
         <td>
-          <cm-color-icon name="${exchange.acl.includes('u') ? 'check' : 'x'}"></cm-icon>
+          <cm-color-icon ${exchange.acl.includes('u') ? 
+            'name="check" alt="Available"'
+            : 'name="x" alt="Unavailable"'}></cm-icon>
         </td>
       </tr>
     `
