@@ -370,8 +370,8 @@ label {
   --color-app-header-bg: var(--color-bg);
   --style-app-header-h: var(--style-sidebar-width);
 
-  /** Tooltip */
-  --color-tooltip-bg: var(--color-primary-darkest-purple);
+  /** Popup **/
+  --style-popup-gap: var(--style-gap-n);
 }
 
 .negative {
@@ -1486,14 +1486,17 @@ cm-popup {
 }
 
 cm-sidebar {
+  --sidebar-extras-max-width: 40rem;
+  --sidebar-width-without-toolbar: calc(100vw - var(--style-sidebar-width));
+  --sidebar-extras-width: min(var(--sidebar-extras-max-width), var(--sidebar-width-without-toolbar));
+  --style-popup-gap: var(--style-gap-xl);
   position: fixed;
   top: 0;
   bottom: 0;
-  right: 0;
-  transform: translateX(100%);
-  transition: transform var(--style-animation-speed-normal);
+  left: 100%;
+  transition: left var(--style-animation-speed-normal);
   z-index: 1;
-  width: calc(100vw - var(--style-sidebar-width));
+  width: var(--sidebar-extras-width);
 }
 
 @media screen and (min-width: 450px) {
@@ -1504,13 +1507,14 @@ cm-sidebar {
 }
 
 cm-sidebar[open] {
-  transform: translateX(0);
+  left: calc(100vw - var(--sidebar-extras-width));
 }
 
 .Sidebar-extras {
   padding: var(--style-sidebar-content-padding);
   background-color: var(--color-sidebar-content-bg);
   color: var(--color-sidebar-text);
+  width: var(--sidebar-extras-width);
   min-height: 100%;
   display: flex;
   gap: var(--style-gap-n);
@@ -1985,7 +1989,10 @@ cm-toast {
   overflow: hidden;
 }
 
-cm-toast > :first-child {
+.Toast-info,
+.Toast-error,
+.Toast-warning,
+.Toast-success {
   flex-grow: 0;
   display: flex;
   gap: var(--style-gap-xl);
@@ -2023,10 +2030,7 @@ cm-toast > :first-child {
   margin-left: 4px;
 }
 
-.Toast-info-separator,
-.Toast-success-separator,
-.Toast-warning-separator,
-.Toast-error-separator {
+:is(.Toast-info, .Toast-success, .Toast-warning, .Toast-error) > hr {
   display: block;
   height: 32px;
   width: 1px;
@@ -2046,7 +2050,7 @@ cm-toast > :first-child {
   box-shadow: inset 0 -1px 0 var(--color-border-info);
 }
 
-.Toast-info-separator {
+.Toast-info > hr {
   background-color: var(--color-border-info);
 }
 
@@ -2056,7 +2060,7 @@ cm-toast > :first-child {
   box-shadow: inset 0 -1px 0 var(--color-border-success);
 }
 
-.Toast-success-separator {
+.Toast-success > hr {
   background-color: var(--color-border-success);
 }
 
@@ -2066,7 +2070,7 @@ cm-toast > :first-child {
   box-shadow: inset 0 -1px 0 var(--color-border-warning);
 }
 
-.Toast-warning-separator {
+.Toast-warning > hr {
   background-color: var(--color-border-warning);
 }
 
@@ -2077,7 +2081,7 @@ cm-toast > :first-child {
   color: var(--color-label-always-white);
 }
 
-.Toast-error-separator {
+.Toast-error > hr {
   background-color: var(--color-border-error);
 }
 
@@ -2093,126 +2097,6 @@ cm-toast > :first-child {
 .Toast-content {
   width: 100%;
   flex-grow: 1;
-}
-
-:root {
-  --tooltip-gap: calc(var(--style-gap-s) * 2);
-  --tooltip-arrow-width: calc(var(--style-gap-s) + 1px);
-}
-
-cm-tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-.Tooltip-content {
-  --tooltip-top: auto;
-  --tooltip-left: auto;
-  --tooltip-right: auto;
-  --tooltip-bottom: auto;
-  position: fixed;
-  top: var(--tooltip-top);
-  left: var(--tooltip-left);
-  right: var(--tooltip-right);
-  bottom: var(--tooltip-bottom);
-  display: block;
-  background-color: var(--color-tooltip-bg);
-  color: var(--color-label-inverse);
-  width: max-content;
-  border-radius: var(--style-corner-default);
-  padding: var(--style-gap-n);
-  z-index: 1;
-  min-height: calc(2 * var(--style-gap-n) + var(--tooltip-arrow-width));
-  font-size: var(--text-size-xs);
-}
-
-.Tooltip-error {
-  background-color: var(--color-face-error);
-  color: var(--color-label-always-white);
-}
-
-.Tooltip-left::before,
-.Tooltip-left-top-aligned::before,
-.Tooltip-left-bottom-aligned::before,
-.Tooltip-right::before,
-.Tooltip-right-top-aligned::before,
-.Tooltip-right-bottom-aligned::before,
-.Tooltip-top::before,
-.Tooltip-bottom::before {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 0;
-  height: 0;
-  border: var(--tooltip-arrow-width) solid transparent;
-}
-
-.Tooltip-left::before,
-.Tooltip-left-top-aligned::before,
-.Tooltip-left-bottom-aligned::before {
-  border-left-color: var(--color-tooltip-bg);
-  left: calc(100% - 1px);
-}
-
-.Tooltip-left.Tooltip-error::before {
-  border-left-color: var(--color-face-error);
-}
-
-.Tooltip-right::before,
-.Tooltip-right-top-aligned::before,
-.Tooltip-right-bottom-aligned::before {
-  border-right-color: var(--color-tooltip-bg);
-  right: calc(100% - 1px);
-}
-
-.Tooltip-right.Tooltip-error::before {
-  border-right-color: var(--color-face-error);
-}
-
-.Tooltip-left::before,
-.Tooltip-right::before {
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.Tooltip-left-top-aligned::before,
-.Tooltip-right-top-aligned::before {
-  top: 0.3rem;
-}
-
-.Tooltip-left-bottom-aligned::before,
-.Tooltip-right-bottom-aligned::before {
-  bottom: 0.2rem;
-}
-
-.Tooltip-top::before,
-.Tooltip-bottom::before {
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.Tooltip-top::before {
-  border-top-color: var(--color-tooltip-bg);
-  top: calc(100% - 1px); /* HACK: ideally it should be 100% but then a weird gap appears */
-}
-
-.Tooltip-top.Tooltip-error::before {
-  border-top-color: var(--color-face-error);
-}
-
-.Tooltip-bottom::before {
-  border-bottom-color: var(--color-tooltip-bg);
-  bottom: calc(100% - 1px); /* HACK: ideally it should be 100% but then a weird gap appears */
-}
-
-.Tooltip-bottom.Tooltip-error::before {
-  border-bottom-color: var(--color-face-error);
-}
-
-.Tooltip-title {
-  font-weight: var(--text-weight-bold);
-  text-transform: uppercase;
-  font-size: var(--text-size-xs);
 }
 
 cm-button-group {

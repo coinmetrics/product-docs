@@ -462,7 +462,7 @@
   'use strict'
 
   const PREFIX = 'cm-icon-color-'
-  
+
   let iconCache
   let getIcons = () => iconCache || (
     iconCache = fetch('https://cdn.coinmetrics.io/cm-color-icons-v2.svg')
@@ -488,17 +488,15 @@
         },
         alt: {
           set: x => this.setAttribute('alt', x),
-          get: () => this.getAttribute('alt'),
+          get: () => this.getAttribute('alt') ?? '',
         },
       })
-
-      let getAlt = () => this.alt ?? this.name.replace(/-/g, ' ')
 
       let $icon
       let $title
 
       this.updateIcon = () => $icon.setAttribute('href', '#' + PREFIX + this.name)
-      this.updateTitle = () => { if ($title) $title.textContent = getAlt() }
+      this.updateTitle = () => $title.textContent = this.alt
 
       getIcons()
 
@@ -506,7 +504,7 @@
       this.append(Object.assign(document.createElement('template'), {
         innerHTML: `
           <svg class="Color-icon-svg" viewBox="0 0 24 24">
-            <title>${getAlt()}</title>
+            <title>${this.alt}</title>
             <use href="#${PREFIX}${this.name}"></use>
           </svg>
         `
@@ -557,7 +555,7 @@
       let currentValue = this.value || ''
 
       let $currentOption
-      this.dropdownList = this.querySelector('.Dropdown-list')
+      let $dropdownList = this.querySelector('.Dropdown-list')
       let $$options = Array.from(this.querySelectorAll('.Dropdown-option'))
       let $button = this.querySelector(':scope > .Button')
       if ($button == null) throw Error('cm-dropdown needs a button as its first element')
@@ -576,9 +574,8 @@
       }
 
       let updateCurrentOption = () => {
-        if (!this.dropdownList) return
-        if (!this.value) $currentOption = this.dropdownList.querySelector(':scope > :not([data-value])')
-        else $currentOption = this.dropdownList.querySelector(`:scope > [data-value="${this.value}"]`)
+        if (!this.value) $currentOption = $dropdownList.querySelector(':scope > :not([data-value])')
+        else $currentOption = $dropdownList.querySelector(`:scope > [data-value="${this.value}"]`)
       }
       let unmarkSelected = () => {
         if ($currentOption) $currentOption.classList.remove('Dropdown-selected')
@@ -601,17 +598,15 @@
       let getNextOption = () => ($currentOption && $currentOption.nextOption) || $$options[0]
       let getPrevOption = () => ($currentOption && $currentOption.previousOption) || $$options[$$options.length - 1]
       let updateLayout = this.updateLayout = () => {
-        let $list = this.dropdownList
-        if (!$list) return
-        $list.hidden = !this.open
+        $dropdownList.hidden = !this.open
         if (!this.open) return
-        let pos = CM.position.relPos($button, $list, gap)
+        let pos = CM.position.relPos($button, $dropdownList, gap)
         let direction = CM.position.DIR_BELOW
         let alignment = CM.position.ALIGN_LEFT
         if (!pos.clearsBottom) direction = CM.position.DIR_ABOVE
         if (!pos.overhangsRight) alignment = CM.position.ALIGN_RIGHT
         let p = CM.position.position(direction, alignment, pos)
-        let s = $list.style
+        let s = $dropdownList.style
         s.setProperty('--dropdown-top', p.top)
         s.setProperty('--dropdown-left', p.left)
         s.setProperty('--dropdown-right', p.right)
@@ -637,8 +632,8 @@
       }
       let onSelectNext = () => this.value = getNextOption().dataset.value || ''
       let onSelectPrev = () => this.value = getPrevOption().dataset.value || ''
-      let onInitList = this.initList = () => {
-        if (this.dropdownList) this.dropdownList.onclick = ev => {
+      let onInitList = () => {
+        $dropdownList.onclick = ev => {
           let $opt = ev.target.closest('.Dropdown-option')
           if (!$opt) return
           onSelectOption($opt)
@@ -694,21 +689,6 @@
       this.onStop.forEach(f => f())
     }
   })
-
-  customElements.define('cm-dropdown-list', class extends HTMLElement {
-    constructor() {
-      super()
-
-      let parentId = this.getAttribute('for')
-      let $list = this.firstElementChild
-      let $parent = document.getElementById(parentId)
-
-      if (!$parent) return console.warn('No cm-dropdown element found with ID: ' + parentId)
-
-      $parent.dropdownList = $list
-      $parent.initList()
-    }
-  })
 })(window.__CM = window.__CM || {});
 
 (() => {
@@ -741,17 +721,15 @@
         },
         alt: {
           set: x => this.setAttribute('alt', x),
-          get: () => this.getAttribute('alt'),
+          get: () => this.getAttribute('alt') ?? '',
         },
       })
-
-      let getAlt = () => this.alt ?? this.name.replace(/-/g, ' ')
 
       let $icon
       let $title
 
       this.updateIcon = () => $icon?.setAttribute('href', '#' + PREFIX + this.name)
-      this.updateTitle = () => { if ($title) $title.textContent = getAlt() }
+      this.updateTitle = () => $title.textContent = this.alt
 
       getIcons()
 
@@ -759,7 +737,7 @@
       this.append(Object.assign(document.createElement('template'), {
         innerHTML: `
           <svg class="Icon-svg" viewBox="0 0 24 24">
-            <title>${getAlt()}</title>
+            <title>${this.alt}</title>
             <use href="#${PREFIX}${this.name}"></use>
           </svg>
         `
@@ -952,8 +930,6 @@
 (CM => {
   'use strict'
 
-  let gap = parseInt(CM.properties.getCSSProp('style-gap-n'), 10)
-
   customElements.define('cm-popup', class extends HTMLElement {
     constructor() {
       super()
@@ -967,15 +943,14 @@
 
       let defaultIcon
 
-      this.popupContent = this.querySelector(':scope > .Popup-dialog')
+      let $dialog = this.querySelector(':scope > .Popup-dialog')
       let $button = this.firstElementChild
       let $icon = $button.querySelector(':scope > cm-icon')
+      let gap = parseInt(window.getComputedStyle(this).getPropertyValue('--style-popup-gap'), 10)
 
       if ($icon) defaultIcon = $icon.name
 
       let updatePopupOrientation = this.updatePopupOrientation = () => {
-        let $dialog = this.popupContent
-        if (!$dialog) return
         $dialog.hidden = !this.open
         if ($icon) $icon.name = this.open ? 'x' : defaultIcon
 
@@ -1014,7 +989,7 @@
       $button.onclick = () => onPopupToggle(!this.open)
       this.onStop = [
         CM.events.onClickOutside(this, ev => {
-          if (this.popupContent.contains(ev.target)) return
+          if ($dialog.contains(ev.target)) return
           onPopupToggle(false)
         }),
         CM.events.onLayoutChange(updatePopupOrientation),
@@ -1030,22 +1005,6 @@
 
     disconnectedCallback() {
       this.onStop.forEach(f => f())
-    }
-  })
-
-  customElements.define('cm-popup-content', class extends HTMLElement {
-    constructor() {
-      super()
-
-      let parentId = this.getAttribute('for')
-      let $content = this.firstElementChild
-      let $parent = document.getElementById(parentId)
-
-      if (!$parent) return console.warn('No cm-popup element found with ID: ' + parentId)
-
-      $content.hidden = true
-      $parent.popupContent = $content
-      $parent.updatePopupOrientation()
     }
   })
 })(window.__CM = window.__CM || {});
@@ -1230,16 +1189,16 @@
 
       let $toast = document.createElement('cm-toast')
       $toast.innerHTML = `
-        <div class="${PRIORITY_CLASSES[priority]}">
+        <article class="${PRIORITY_CLASSES[priority]}">
           ${icon ? `<cm-icon name=${icon}></cm-icon>` : ''}
-          ${title ? `<span class="Toast-title">${title}</span>` : ''}
-          ${icon || title ? `<hr class="Toast-${priority}-separator">` : ''}
-          <div class="Toast-content">${content}</div>
+          ${title ? `<h2 class="Toast-title">${title}</h2>` : ''}
+          ${icon || title ? `<hr>` : ''}
+          <p class="Toast-content">${content}</p>
           ${hasAction ? `<button class="${PRIORITY_BTN_CLASS[priority]} Toast-action-button">${actionLabel}</button>` : ''}
           <button class="${PRIORITY_BTN_CLASS[priority]} Toast-close-button">
-            <cm-icon name="x"></cm-icon>
+            <cm-icon name="x" alt="Dismiss this message"></cm-icon>
           </button>
-        </div>
+        </article>
       `
 
       if (hasAction) {
@@ -1295,142 +1254,6 @@
     }
   })
 })();
-
-(CM => {
-  'use strict'
-
-  let gap = parseInt(CM.properties.getCSSProp('style-gap-n'), 10)
-
-  customElements.define('cm-tooltip', class extends HTMLElement {
-    constructor() {
-      super()
-
-      Object.defineProperties(this, {
-        open: {
-          set: x => this.toggleAttribute('open', x),
-          get: () => this.hasAttribute('open'),
-        },
-        paused: {
-          set: x => this.toggleAttribute('paused', x),
-          get: () => this.hasAttribute('paused'),
-        },
-      })
-
-      let $target = this.firstElementChild
-      this.tooltipContent = this.querySelector('.Tooltip-content')
-
-      let updateTooltipPosition = () => {
-        let $tooltip = this.tooltipContent
-        if (!$tooltip) return
-
-        $tooltip.hidden = !this.open
-
-        if (!this.open) return
-
-        let pos = CM.position.relPos($target, $tooltip, gap)
-        let closeToLeftEdge = !pos.overhangsLeft
-        let closeToRightEdge = !pos.overhangsRight
-        let inCenter = !closeToLeftEdge && !closeToRightEdge
-        let closeToTop = !pos.clearsTop
-        let closeToBottom = !pos.clearsBottom
-        let inMiddle = !closeToTop && !closeToBottom
-
-        let cl = $tooltip.classList
-
-        cl.toggle('Tooltip-top', inCenter && !closeToTop)
-        cl.toggle('Tooltip-bottom', inCenter && closeToTop)
-        cl.toggle('Tooltip-left', closeToRightEdge && inMiddle)
-        cl.toggle('Tooltip-left-top-aligned', closeToRightEdge && closeToTop)
-        cl.toggle('Tooltip-left-bottom-aligned', closeToRightEdge && closeToBottom)
-        cl.toggle('Tooltip-right', closeToLeftEdge && inMiddle)
-        cl.toggle('Tooltip-right-top-aligned', closeToLeftEdge && closeToTop)
-        cl.toggle('Tooltip-right-bottom-aligned', closeToLeftEdge && closeToBottom)
-
-        let direction = CM.position.DIR_ABOVE
-        let alignment = CM.position.ALIGN_HCENTER
-        if (cl.contains('Tooltip-bottom')) {
-          direction = CM.position.DIR_BELOW
-        }
-        else if (cl.contains('Tooltip-left')) {
-          direction = CM.position.DIR_LEFT
-          alignment = CM.position.ALIGN_VCENTER
-        }
-        else if (cl.contains('Tooltip-left-top-aligned')) {
-          direction = CM.position.DIR_LEFT
-          alignment = CM.position.ALIGN_TOP
-        }
-        else if (cl.contains('Tooltip-left-bottom-aligned')) {
-          direction = CM.position.DIR_LEFT
-          alignment = CM.position.ALIGN_BOTTOM
-        }
-        else if (cl.contains('Tooltip-right')) {
-          direction = CM.position.DIR_RIGHT
-          alignment = CM.position.ALIGN_VCENTER
-        }
-        else if (cl.contains('Tooltip-right-top-aligned')) {
-          direction = CM.position.DIR_RIGHT
-          alignment = CM.position.ALIGN_TOP
-        }
-        else if (cl.contains('Tooltip-right-bottom-aligned')) {
-          direction = CM.position.DIR_RIGHT
-          alignment = CM.position.ALIGN_BOTTOM
-        }
-        let p = CM.position.position(direction, alignment, pos)
-        let s = $tooltip.style
-        s.setProperty('--tooltip-top', p.top)
-        s.setProperty('--tooltip-left', p.left)
-        s.setProperty('--tooltip-right', p.right)
-        s.setProperty('--tooltip-bottom', p.bottom)
-      }
-      this.toggleTooltip = () => {
-        this.tooltipContent.hidden = !this.open
-        if (this.open) updateTooltipPosition()
-      }
-
-      let onOpen = () => { this.open = true }
-      let onClose = () => { this.open = false }
-      let onTogglePause = x => {
-        this.paused = x
-        if (this.paused) this.open = false
-      }
-
-      updateTooltipPosition()
-      if (this.hasAttribute('on-click')) {
-        $target.onclick = () => this.toggleAttribute('open')
-      }
-      else if (!this.hasAttribute('manual')) {
-        this.onmouseenter = onOpen
-        this.onmouseleave = onClose
-      }
-
-      if (this.hasAttribute('closed-only')) {
-        this.paused = $target.hasAttribute('open')
-        $target.addEventListener('toggle', () => onTogglePause($target.hasAttribute('open')))
-      }
-    }
-
-    static get observedAttributes() { return ['open'] }
-
-    attributeChangedCallback() {
-      this.toggleTooltip()
-    }
-  })
-
-  customElements.define('cm-tooltip-content', class extends HTMLElement {
-    constructor() {
-      super()
-
-      let parentId = this.getAttribute('for')
-      let $parent = document.getElementById(parentId)
-      let $content = this.firstElementChild
-
-      if (!$parent) return console.warn('No cm-tooltip element found with id: ' + parentId)
-
-      $parent.tooltipContent = this.firstElementChild
-      $content.hidden = true
-    }
-  })
-})(window.__CM = window.__CM || {});
 
 (() => {
   'use strict'
