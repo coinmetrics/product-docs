@@ -73,28 +73,25 @@
     </main>
     <cm-sidebar>
       <div class="Sidebar-toolbar">
-        <cm-tooltip closed-only>
-          <cm-popup id="api-key-popup">
-            <button class="Sidebar-button">
-              <cm-icon name="key" alt="Manage visualization key"></cm-icon>
-            </button>
-            <aside class="Popup-dialog Dialog Dialog-api-key">
-              <h2 class="Dialog-titlebar">CM Pro</h2>
-              <div class="Panel">
-                <p class="Text-regular">
-                  Enter your visualization key to unlock CM Pro data available for your account.
-                </p>
-                <span class="Input-with-icon">
-                  <input class="Input" placeholder="Visualization Key" type="password">
-                  <cm-icon name="key" alt="Visualization key input"></cm-icon>
-                </span>
-                <button class="Button-primary">Unlock CM Pro</button>
-                <a class="Link" href="#">Need a visualization key?</a>
-              </div>
-            </aside>
-          </cm-popup>
-          <span class="Tooltip-content">API key</span>
-        </cm-tooltip>
+        <cm-popup id="api-key-popup">
+          <button class="Sidebar-button">
+            <cm-icon name="key" alt="Manage visualization key"></cm-icon>
+          </button>
+          <aside class="Popup-dialog Dialog Dialog-api-key">
+            <h2 class="Dialog-titlebar">CM Pro</h2>
+            <div class="Panel">
+              <p class="Text-regular">
+                Enter your visualization key to unlock CM Pro data available for your account.
+              </p>
+              <span class="Input-with-icon">
+                <input class="Input" placeholder="Visualization Key" type="password">
+                <cm-icon name="key" alt="Visualization key input"></cm-icon>
+              </span>
+              <button class="Button-primary">Unlock CM Pro</button>
+              <a class="Link" href="#">Need a visualization key?</a>
+            </div>
+          </aside>
+        </cm-popup>
       </div>
     </cm-sidebar>
   </body>
