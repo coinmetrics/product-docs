@@ -42,17 +42,17 @@
         <td>
           ${metric.acl.c?.length ? 
               `<p class="Text-regular">${metric.acl.c.join(',')}</p>` 
-              : '<cm-color-icon name="x" alt="Unavailable"></cm-icon>'}
+              : '<cm-color-icon name="x" alt="Unavailable">'}
         </td>
         <td>
           ${metric.acl.p?.length > 0 ? 
               `<p class="Text-regular">${metric.acl.p.join(',')}</p>` 
-              : '<cm-color-icon name="x" alt="Unavailable"></cm-icon>'}
+              : '<cm-color-icon name="x" alt="Unavailable">'}
         </td>
         <td>
           ${metric.acl.u?.length > 0 ? 
               `<p class="Text-regular">${metric.acl.u.join(',')}</p>` 
-              : '<cm-color-icon name="x" alt="Unavailable"></cm-icon>'}
+              : '<cm-color-icon name="x" alt="Unavailable">'}
         </td>
       </tr>
     `
@@ -79,17 +79,17 @@
         <td>
           <cm-color-icon ${exchange.acl.includes('c') ? 
             'name="check" alt="Available"'
-            : 'name="x" alt="Unavailable"'}></cm-icon>
+            : 'name="x" alt="Unavailable"'}>
         </td>
         <td>
           <cm-color-icon ${exchange.acl.includes('p') ? 
             'name="check" alt="Available"'
-            : 'name="x" alt="Unavailable"'}></cm-icon>
+            : 'name="x" alt="Unavailable"'}>
         </td>
         <td>
           <cm-color-icon ${exchange.acl.includes('u') ? 
             'name="check" alt="Available"'
-            : 'name="x" alt="Unavailable"'}></cm-icon>
+            : 'name="x" alt="Unavailable"'}>
         </td>
       </tr>
     `
@@ -116,17 +116,17 @@
         <td>
           <cm-color-icon ${market.acl.includes('c') ? 
             'name="check" alt="Available"'
-            : 'name="x" alt="Unavailable"'}></cm-icon>
+            : 'name="x" alt="Unavailable"'}>
         </td>
         <td>
           <cm-color-icon ${market.acl.includes('p') ? 
             'name="check" alt="Available"'
-            : 'name="x" alt="Unavailable"'}></cm-icon>
+            : 'name="x" alt="Unavailable"'}>
         </td>
         <td>
           <cm-color-icon ${market.acl.includes('u') ? 
             'name="check" alt="Available"'
-            : 'name="x" alt="Unavailable"'}></cm-icon>
+            : 'name="x" alt="Unavailable"'}>
         </td>
       </tr>
     `

@@ -24,17 +24,17 @@
           <td>
             <cm-color-icon ${metric.acl.includes('c') ? 
               'name="check" alt="Available"'
-              : 'name="x" alt="Unavailable"'}></cm-icon>
+              : 'name="x" alt="Unavailable"'}>
           </td>
           <td>
             <cm-color-icon ${metric.acl.includes('p') ? 
               'name="check" alt="Available"'
-              : 'name="x" alt="Unavailable"'}></cm-icon>
+              : 'name="x" alt="Unavailable"'}>
           </td>
           <td>
             <cm-color-icon ${metric.acl.includes('u') ? 
               'name="check" alt="Available"'
-              : 'name="x" alt="Unavailable"'}></cm-icon>
+              : 'name="x" alt="Unavailable"'}>
           </td>
         </tr>
       `
