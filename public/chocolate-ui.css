@@ -7,23 +7,27 @@ cm-coin {
 }
 
 .Coin-svg {
-  width: 24px;
-  height: 24px;
+  /** 24px **/
+  width: 1.71rem;
+  height: 1.71rem;
 }
 
 .Coin-s > .Coin-svg {
-  width: 16px;
-  height: 16px;
+  /** 16px **/
+  width: 1.14rem;
+  height: 1.14rem;
 }
 
 .Coin-l > .Coin-svg {
-  width: 40px;
-  height: 40px;
+  /** 40px **/
+  width: 2.86rem;
+  height: 2.86rem;
 }
 
 .Coin-xl > .Coin-svg {
-  width: 68px;
-  height: 68px;
+  /** 68px **/
+  width: 4.86rem;
+  height: 4.86rem;
 }
 
 .Coin-sprite-hider {
@@ -205,43 +209,42 @@ label {
   --color-highlighted-item: var(--color-primary-lighter-purple);
   --color-link: var(--color-secondary-darker-blue);
 
-  --style-gap-xs: 2px;
-  --style-gap-s: 4px;
-  --style-gap-n: 8px;
-  --style-gap-l: 12px;
-  --style-gap-xl: 16px;
-  --style-gap-xxl: 24px;
-  --style-gap-xxxl: 32px;
-  --style-gap-huge: 64px;
+  --style-gap-xs: 0.143em;  /* ~2px */
+  --style-gap-s: 0.285em;   /* ~4px */
+  --style-gap-n: 0.571em;   /* ~8px */
+  --style-gap-l: 0.85em;    /* ~12px */
+  --style-gap-xl: 1.14em;   /* ~16px */
+  --style-gap-xxl: 1.71em;  /* ~24px */
+  --style-gap-xxxl: 2.3em;  /* ~32px */
+  --style-gap-huge: 4.6em;  /* ~64px */
 
   --style-input-padding-n: var(--style-gap-s) var(--style-gap-n);
   --style-input-padding-l: var(--style-gap-l) var(--style-gap-xl);
-  --style-input-h-n: 32px;
-  --style-input-h-l: 48px;
-  --style-corner-default: 3px;
+  --style-input-h-n: 2.3em;
+  --style-input-h-l: 3.4em;
+  --style-corner-default: 0.214em;
   --style-separator-line: 1px solid var(--color-separator-line);
   --style-separator-line-light: 1px solid var(--color-separator-line-light);
   --style-separator-line-lighter: 1px solid var(--color-separator-line-lighter);
 
-  --text-size-base: 14px;
-  --text-size-xs: 0.7rem;  /* ~10px */
-  --text-size-s: 0.85rem;  /* ~12px */
-  --text-size-n: 1rem;      /* 14px */
-  --text-size-l: 1.3rem;  /* ~18px */
-  --text-size-xl: 1.7rem;   /* ~24px */
-  --text-size-xxl: 2.5rem; /* ~36px */
-  --text-size-xxxl: 3.5rem;   /* ~48px */
+  --text-size-xs: 0.71rem;   /* ~10px */
+  --text-size-s: 0.85rem;    /* ~12px */
+  --text-size-n: 1rem;       /* 14px (by default in most browsers) */
+  --text-size-l: 1.42rem;    /* ~20px */
+  --text-size-xl: 1.71rem;   /* ~24px */
+  --text-size-xxl: 2.85rem;  /* ~40px */
+  --text-size-xxxl: 4rem;    /* 56px */
 
   --text-weight-normal: 400;
   --text-weight-bold: 700;
-  --text-list-padding: 2.25rem;
+  --text-list-padding: 2.57rem;  /* ~36px */
 
   --text-size-input-n: var(--text-size-n);
   --text-size-input-l: var(--text-size-l);
 
   --style-border-width: 1px;
-  --style-border-type: solid;
   --style-border-pressed-wdith: 2px;
+  --style-border-type: solid;
 
   --style-animation-speed-fast: 128ms;
   --style-animation-speed-normal: 256ms;
@@ -349,8 +352,8 @@ label {
   --color-table-cell-background: var(--color-primary-white);
   --text-table-main: var(--text-size-s);
   --style-table-padding: var(--style-gap-n);
-  --style-table-header-height: 40px;
-  --style-table-cell-height: 44px;
+  --style-table-header-height: 2.86rem; /* ~40px */
+  --style-table-cell-height: 3.43em; /* ~48px */
   --text-table-numeric-cell-font: "Ubuntu Mono", monospace;
 
   /** Sidebar */
@@ -360,7 +363,7 @@ label {
   --color-sidebar-text: var(--color-primary-white);
   --color-sidebar-active-btn-bg: var(--color-primary-darkest-purple);
   --style-sidebar-padding: var(--style-gap-n);
-  --style-sidebar-width: calc(var(--style-sidebar-padding) * 2 + 32px);
+  --style-sidebar-width: calc(var(--style-sidebar-padding) * 2 + 2.3rem);
   --style-sidebar-content-padding: var(--style-gap-xxl);
 
   /** Mobile Nav */
@@ -381,17 +384,7 @@ html {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: Lato, sans-serif;
-  font-size: var(--text-size-base);
-}
-
-@media only screen
-  and (min-device-width: 375px)
-  and (max-device-width: 812px)
-  and (-webkit-min-device-pixel-ratio: 3) {
-    /* iPhone Safari zooms into inputs if font size is less than 16px. */
-    html {
-      font-size: 16px;
-    }
+  font-size: 87.5%; /* by *default*, set font size to 14px in all browsers */
 }
 
 body {
@@ -779,10 +772,12 @@ cm-dropdown[open] > .Button {
 
 cm-color-icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
   flex-shrink: 0;
   vertical-align: baseline;
+
+  /** 24px **/
+  width: 1.71rem;
+  height: 1.71rem;
 }
 
 .Color-icon-svg {
@@ -793,13 +788,14 @@ cm-color-icon {
 }
 
 .Icon-s {
-  width: 16px;
-  height: 16px;
+  /** 16px **/
+  width: 1.14rem;
+  height: 1.14rem;
 }
 
 .Icon-s > .Color-icon-svg {
-  width: 16px;
-  height: 16px;
+  width: 100%;
+  height: 100%;
 }
 
 .Icon-sprite-hider {
@@ -969,8 +965,8 @@ cm-dropdown[open] > .Button > cm-icon {
 
 cm-icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   flex-shrink: 0;
   vertical-align: baseline;
 }
@@ -983,20 +979,22 @@ cm-icon {
     stroke var(--style-animation-speed-fast),
     transform var(--style-animation-speed-fast);
 
-  stroke-width: 2px;
-  width: 24px;
-  height: 24px;
+  stroke-width: 0.125rem;
+  /** 24px **/
+  width: 1.71rem;
+  height: 1.71rem;
 }
 
 .Icon-s {
-  width: 16px;
-  height: 16px;
+  /** 16px **/
+  width: 1.14rem;
+  height: 1.14rem;
 }
 
 .Icon-s > .Icon-svg {
-  stroke-width: 3px;
-  width: 16px;
-  height: 16px;
+  stroke-width: 0.1875rem;
+  width: 100%;
+  height: 100%;
 }
 
 .Icon-sprite-hider {
@@ -1679,10 +1677,10 @@ cm-tabs {
   align-items: center;
   gap: var(--style-gap-n);
   flex-grow: 1;
-  height: 48px;
+  height: 2.5em;
   color: var(--color-label-muted);
   cursor: pointer;
-  transition: 
+  transition:
     color var(--style-animation-speed-fast),
     border var(--style-animation-speed-fast);
 }
