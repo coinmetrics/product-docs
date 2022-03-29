@@ -1,6 +1,8 @@
 {
   'use strict'
 
+  let CM = window.__CM = window.__CM || {}
+  let key = CM.auth.key
   let id = (new URLSearchParams(location.search)).get('id')
   let metric = {}
   let renderedExchanges = 0
@@ -16,9 +18,11 @@
   ]
   let $markets = $$tabs[0].querySelector('tbody')
   let $exchanges = $$tabs[1].querySelector('tbody')
+  let $marketsKeyCol = document.getElementById('markets-key-col')
+  let $exchangesKeyCol = document.getElementById('exchanges-key-col')
 
   let getExchangeMetric = () => 
-    fetch(`http://localhost:8000/exchange-metric?id=${id}`)
+    fetch(`http://localhost:8000/exchange-metric?id=${id}&api-key=${key}`)
       .then(res => res.json())
       .then(body => metric = body)
 
@@ -47,9 +51,11 @@
             : 'name="x" alt="Unavailable"'}></cm-color-icon>
         </td>
         <td>
-          <cm-color-icon ${market.acl.includes('u') ? 
-            'name="check" alt="Available"'
-            : 'name="x" alt="Unavailable"'}></cm-color-icon>
+          ${key ?
+            `<cm-color-icon ${market.acl.includes('u') ? 
+              'name="check" alt="Available"'
+              : 'name="x" alt="Unavailable"'}></cm-color-icon>`
+            : '<cm-icon name="slash" alt="Visualization key is missing"></cm-icon>'}
         </td>
       </tr>
     `
@@ -65,6 +71,12 @@
     let $remainingMarkets = renderMarketRows(remainingMarkets)
     $markets.append($remainingMarkets)
     renderedMarkets = metric.markets.length
+  }
+  let reRenderMarkets = () => {
+    let alreadyRenderedMarkets = metric.markets.slice(0, renderedMarkets)
+    let $alreadyRenderedMarkets = renderMarketRows(alreadyRenderedMarkets)
+    $markets.innerHTML = ''
+    $markets.append($alreadyRenderedMarkets)
   }
   let renderExchangeRows = (exchanges) => $renderRows(
     exchanges, 
@@ -84,9 +96,11 @@
             : 'name="x" alt="Unavailable"'}></cm-color-icon>
         </td>
         <td>
-          <cm-color-icon ${exchange.acl.includes('u') ? 
+        ${key ?
+          `<cm-color-icon ${exchange.acl.includes('u') ? 
             'name="check" alt="Available"'
-            : 'name="x" alt="Unavailable"'}></cm-color-icon>
+            : 'name="x" alt="Unavailable"'}></cm-color-icon>`
+          : '<cm-icon name="slash" alt="Visualization key is missing"></cm-icon>'}
         </td>
       </tr>
     `
@@ -103,10 +117,28 @@
     $exchanges.append($remainingExchanges)
     renderedExchanges = metric.exchanges.length
   }
+  let reRenderExchanges = () => {
+    let alreadyRenderedExchanges = metric.exchanges.slice(0, renderedExchanges)
+    let $alreadyRenderedExchanges = renderExchangeRows(alreadyRenderedExchanges)
+    $exchanges.innerHTML = ''
+    $exchanges.append($alreadyRenderedExchanges)
+  }
+  let renderKeyColumns = () => {
+    $marketsKeyCol.textContent = key ? 'your key' : 'no key'
+    $exchangesKeyCol.textContent = key ? 'your key' : 'no key'
+    $marketsKeyCol.classList.toggle('Missing-key', !key)
+    $exchangesKeyCol.classList.toggle('Missing-key', !key)
+  }
+  let reRenderTables = () => {
+    renderKeyColumns()
+    reRenderMarkets()
+    reRenderExchanges()
+  }
   let renderExchangeMetric = () => {
     $id.textContent = id
     $name.textContent = metric.fullName
     $description.textContent = metric.description
+    renderKeyColumns()
     renderNext20Exchanges()
     renderNext20Markets()
   }
@@ -119,4 +151,9 @@
   document.getElementById('LoadAll_exchanges').onclick = renderRemainingExchanges
 
   getExchangeMetric().then(renderExchangeMetric)
+
+  CM.auth.onChange = k => {
+    key = k
+    getExchangeMetric().then(reRenderTables)
+  }
 }

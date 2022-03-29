@@ -9,6 +9,7 @@
     <link rel="stylesheet" media="screen" href="/chocolate-ui.css">
     <link rel="stylesheet" media="screen" href="/shared.css">
     <script defer src="/chocolate-ui.js"></script>
+    <script defer src="/shared.js"></script>
     <script defer src="/assets.js"></script>
     <!-- TODO Google Tag Manager -->
   </head>
@@ -81,11 +82,14 @@
               <p class="Text-regular">
                 Enter your visualization key to unlock CM Pro data available for your account.
               </p>
-              <span class="Input-with-icon">
-                <input class="Input" placeholder="Visualization Key" type="password">
-                <cm-icon name="key" alt="Visualization key input"></cm-icon>
-              </span>
-              <button class="Button-primary">Unlock CM Pro</button>
+              <form id="api-key-form">
+                <span class="Input-with-icon">
+                  <label hidden for="api-key">Visualization Key</label>
+                  <input class="Input" placeholder="Visualization Key" type="password">
+                  <cm-icon name="key" alt="Visualization key input"></cm-icon>
+                </span>
+                <button class="Button-primary">Unlock CM Pro</button>
+              </form>
               <a class="Link" href="#">Need a visualization key?</a>
             </div>
           </aside>
