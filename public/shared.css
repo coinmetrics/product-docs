@@ -2,6 +2,10 @@
   max-width: 352px;
 }
 
+#api-key-popup {
+  height: 32px;
+}
+
 .Main {
   flex-grow: 1;
 }
