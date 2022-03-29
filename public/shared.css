@@ -80,6 +80,11 @@ table.Acl-availability > thead > tr > th:nth-child(4) {
   color: var(--color-primary-white);
 }
 
+table.Acl-availability > thead > tr > th:nth-child(4).Missing-key {
+  background-color: var(--color-primary-lighter-purple);
+  color: var(--color-primary-new-purple);
+}
+
 table.Acl-availability > thead > tr > th:nth-child(2),
 table.Acl-availability > thead > tr > th:nth-child(3),
 table.Acl-availability > thead > tr > th:nth-child(4),

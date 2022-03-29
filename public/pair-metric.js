@@ -1,6 +1,8 @@
 {
   'use strict'
 
+  let CM = window.__CM = window.__CM || {}
+  let key = CM.auth.key
   let id = (new URLSearchParams(location.search)).get('id')
   let metric = []
   let renderedPairs = 0
@@ -9,9 +11,10 @@
   let $name = document.getElementById('name')
   let $description = document.getElementById('description')
   let $tbody = document.querySelector('tbody')
+  let $keyCol = document.getElementById('key-col')
 
   let getPairMetric = () => 
-    fetch(`http://localhost:8000/pair-metric?id=${id}`)
+    fetch(`http://localhost:8000/pair-metric?id=${id}&api-key=${key}`)
       .then(res => res.json())
       .then(body => metric = body)
 
@@ -34,9 +37,11 @@
               : 'name="x" alt="Unavailable"'}></cm-color-icon>
           </td>
           <td>
-            <cm-color-icon ${pair.acl.includes('u') ? 
-              'name="check" alt="Available"'
-              : 'name="x" alt="Unavailable"'}></cm-color-icon>
+            ${key ?
+              `<cm-color-icon ${pair.acl.includes('u') ? 
+                'name="check" alt="Available"'
+                : 'name="x" alt="Unavailable"'}></cm-color-icon>` 
+              : '<cm-icon name="slash" alt="Visualization key is missing"></cm-icon>'}
           </td>
         </tr>
       `
@@ -57,10 +62,21 @@
     $tbody.append($remainingPairs)
     renderedPairs = metric.pairs.length
   }
+  let reRenderPairs = () => {
+    let alreadyRenderedPairs = metric.pairs.slice(0, renderedPairs)
+    let $alreadyRenderedPairs = $renderRows(alreadyRenderedPairs)
+    $tbody.innerHTML = ''
+    $tbody.append($alreadyRenderedPairs)
+  }
+  let renderKeyColumn = () => {
+    $keyCol.textContent = key ? 'your key' : 'no key'
+    $keyCol.classList.toggle('Missing-key', !key)
+  }
   let renderPairMetric = () => {
     $id.textContent = metric.id
     $name.textContent = metric.name
     $description.textContent = metric.description
+    renderKeyColumn()
     renderNext20Pairs()
   }
 
@@ -68,4 +84,12 @@
   document.getElementById('LoadAll').onclick = renderRemainingPairs
 
   getPairMetric().then(renderPairMetric)
+
+  CM.auth.onChange = k => {
+    key = k
+    getPairMetric().then(() => {
+      renderKeyColumn()
+      reRenderPairs()
+    })
+  }
 }

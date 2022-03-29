@@ -1,6 +1,8 @@
 {
   'use strict'
 
+  let CM = window.__CM = window.__CM || {}
+  let key = CM.auth.key
   let id = (new URLSearchParams(location.search)).get('id')
   let assetMetric = []
   let renderedAssets = 0
@@ -9,9 +11,10 @@
   let $name = document.getElementById('name')
   let $description = document.getElementById('description')
   let $tbody = document.querySelector('tbody')
+  let $keyCol = document.getElementById('key-col')
 
-  let getMetric = () => 
-    fetch(`http://localhost:8000/asset-metric?id=${id}`)
+  let getAssetMetric = () => 
+    fetch(`http://localhost:8000/asset-metric?id=${id}&api-key=${key}`)
       .then(res => res.json())
       .then(body => assetMetric = body)
 
@@ -37,9 +40,11 @@
               : '<cm-color-icon name="x" alt="Unavailable"></cm-color-icon>'}
           </td>
           <td>
-            ${asset.acl.u?.length > 0 ? 
-              `<p class="Text-regular">${asset.acl.u.join(',')}</p>` 
-              : '<cm-color-icon name="x" alt="Unavailable"></cm-color-icon>'}
+            ${key ? 
+              asset.acl.u?.length > 0 ? 
+                `<p class="Text-regular">${asset.acl.u.join(',')}</p>` 
+                : '<cm-color-icon name="x" alt="Unavailable"></cm-color-icon>'
+              : '<cm-icon name="slash" alt="Visualization key is missing"></cm-icon>'}
           </td>
         </tr>
       `
@@ -60,15 +65,34 @@
     $tbody.append($remainingAssets)
     renderedAssets = assetMetric.assets.length
   }
+  let reRenderAssets = () => {
+    let alreadyRenderedAssets = assetMetric.assets.slice(0, renderedAssets)
+    let $alreadyRenderedAssets = $renderRows(alreadyRenderedAssets)
+    $tbody.innerHTML = ''
+    $tbody.append($alreadyRenderedAssets)
+  }
+  let renderKeyColumn = () => {
+    $keyCol.textContent = key ? 'your key' : 'no key'
+    $keyCol.classList.toggle('Missing-key', !key)
+  }
   let renderMetric = () => {
     $id.textContent = assetMetric.id
     $name.textContent = assetMetric.name
     $description.textContent = assetMetric.description
+    renderKeyColumn()
     renderNext20Assets()
   }
 
   document.getElementById('LoadMore').onclick = renderNext20Assets
   document.getElementById('LoadAll').onclick = renderRemainingAssets
 
-  getMetric().then(renderMetric)
+  getAssetMetric().then(renderMetric)
+
+  CM.auth.onChange = k => {
+    key = k
+    getAssetMetric().then(() => {
+      renderKeyColumn()
+      reRenderAssets()
+    })
+  }
 }
