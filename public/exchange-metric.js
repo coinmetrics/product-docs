@@ -20,6 +20,10 @@
   let $exchanges = $$tabs[1].querySelector('tbody')
   let $marketsKeyCol = document.getElementById('markets-key-col')
   let $exchangesKeyCol = document.getElementById('exchanges-key-col')
+  let $marketsLoadMore = document.getElementById('markets-load-more')
+  let $marketsLoadAll = document.getElementById('markets-load-all')
+  let $exchangesLoadMore = document.getElementById('exchanges-load-more')
+  let $exchangesLoadAll = document.getElementById('exchanges-load-all')
 
   let getExchangeMetric = () => 
     fetch(`http://localhost:8000/exchange-metric?id=${id}&api-key=${key}`)
@@ -65,12 +69,18 @@
     let $next20Markets = renderMarketRows(next20Markets)
     $markets.append($next20Markets)
     renderedMarkets += 20
+    if (renderedMarkets > metric.markets.length) {
+      $marketsLoadMore.disabled = true
+      $marketsLoadAll.disabled = true
+    }
   }
   let renderRemainingMarkets = () => {
     let remainingMarkets = metric.markets.slice(renderedMarkets)
     let $remainingMarkets = renderMarketRows(remainingMarkets)
     $markets.append($remainingMarkets)
     renderedMarkets = metric.markets.length
+    $marketsLoadMore.disabled = true
+    $marketsLoadAll.disabled = true
   }
   let reRenderMarkets = () => {
     let alreadyRenderedMarkets = metric.markets.slice(0, renderedMarkets)
@@ -110,12 +120,18 @@
     let $next20Exchanges = renderExchangeRows(next20Exchanges)
     $exchanges.append($next20Exchanges)
     renderedExchanges += 20
+    if (renderedExchanges >= metric.exchanges.length) {
+      $exchangesLoadMore.disabled = true
+      $exchangesLoadAll.disabled = true
+    }
   }
   let renderRemainingExchanges = () => {
     let remainingExchanges = metric.exchanges.slice(renderedExchanges)
     let $remainingExchanges = renderExchangeRows(remainingExchanges)
     $exchanges.append($remainingExchanges)
     renderedExchanges = metric.exchanges.length
+    $exchangesLoadMore.disabled = true
+    $exchangesLoadAll.disabled = true
   }
   let reRenderExchanges = () => {
     let alreadyRenderedExchanges = metric.exchanges.slice(0, renderedExchanges)
@@ -145,10 +161,10 @@
 
   $tabs.onchange = e => $$tabs.forEach($ => $.hidden = $.id !== e.target.value)
 
-  document.getElementById('LoadMore_markets').onclick = renderNext20Markets
-  document.getElementById('LoadAll_markets').onclick = renderRemainingMarkets
-  document.getElementById('LoadMore_exchanges').onclick = renderNext20Exchanges
-  document.getElementById('LoadAll_exchanges').onclick = renderRemainingExchanges
+  $marketsLoadMore.onclick = renderNext20Markets
+  $marketsLoadAll.onclick = renderRemainingMarkets
+  $exchangesLoadMore.onclick = renderNext20Exchanges
+  $exchangesLoadAll.onclick = renderRemainingExchanges
 
   getExchangeMetric().then(renderExchangeMetric)
 

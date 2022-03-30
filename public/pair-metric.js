@@ -12,6 +12,8 @@
   let $description = document.getElementById('description')
   let $tbody = document.querySelector('tbody')
   let $keyCol = document.getElementById('key-col')
+  let $loadMore = document.getElementById('load-more')
+  let $loadAll = document.getElementById('load-all')
 
   let getPairMetric = () => 
     fetch(`http://localhost:8000/pair-metric?id=${id}&api-key=${key}`)
@@ -55,12 +57,18 @@
     let $next20Pairs = $renderRows(next20Pairs)
     $tbody.append($next20Pairs)
     renderedPairs += 20
+    if (renderedPairs >= metric.pairs.length) {
+      $loadMore.disabled = true
+      $loadAll.disabled = true
+    }
   }
   let renderRemainingPairs = () => {
     let remainingPairs = metric.pairs.slice(renderedPairs)
     let $remainingPairs = $renderRows(remainingPairs)
     $tbody.append($remainingPairs)
     renderedPairs = metric.pairs.length
+    $loadMore.disabled = true
+    $loadAll.disabled = true
   }
   let reRenderPairs = () => {
     let alreadyRenderedPairs = metric.pairs.slice(0, renderedPairs)
@@ -80,8 +88,8 @@
     renderNext20Pairs()
   }
 
-  document.getElementById('LoadMore').onclick = renderNext20Pairs
-  document.getElementById('LoadAll').onclick = renderRemainingPairs
+  $loadMore.onclick = renderNext20Pairs
+  $loadAll.onclick = renderRemainingPairs
 
   getPairMetric().then(renderPairMetric)
 

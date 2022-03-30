@@ -5,6 +5,8 @@
   let renderedAssets = 0
   
   let $tbody = document.querySelector('tbody')
+  let $loadMore = document.getElementById('load-more')
+  let $loadAll = document.getElementById('load-all')
 
   let getAssets = () => 
     fetch('http://localhost:8000/assets')
@@ -37,16 +39,22 @@
     let $next20Assets = $renderRows(next20Assets)
     $tbody.append($next20Assets)
     renderedAssets += 20
+    if (renderedAssets >= assets.length) {
+      $loadMore.disabled = true
+      $loadAll.disabled = true
+    }
   }
   let renderRemainingAssets = () => {
     let remainingAssets = assets.slice(renderedAssets)
     let $remainingAssets = $renderRows(remainingAssets)
     $tbody.append($remainingAssets)
     renderedAssets = assets.length
+    $loadMore.disabled = true
+    $loadAll.disabled = true
   }
 
-  document.getElementById('LoadMore').onclick = renderNext20Assets
-  document.getElementById('LoadAll').onclick = renderRemainingAssets
+  $loadMore.onclick = renderNext20Assets
+  $loadAll.onclick = renderRemainingAssets
 
   getAssets().then(renderNext20Assets)
 }
