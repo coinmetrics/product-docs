@@ -12,6 +12,8 @@
   let $description = document.getElementById('description')
   let $tbody = document.querySelector('tbody')
   let $keyCol = document.getElementById('key-col')
+  let $loadMore = document.getElementById('load-more')
+  let $loadAll = document.getElementById('load-all')
 
   let getAssetMetric = () => 
     fetch(`http://localhost:8000/asset-metric?id=${id}&api-key=${key}`)
@@ -58,12 +60,18 @@
     let $next20Assets = $renderRows(next20Assets)
     $tbody.append($next20Assets)
     renderedAssets += 20
+    if (renderedAssets >= assetMetric.assets.length) {
+      $loadMore.disabled = true
+      $loadAll.disabled = true
+    }
   }
   let renderRemainingAssets = () => {
     let remainingAssets = assetMetric.assets.slice(renderedAssets)
     let $remainingAssets = $renderRows(remainingAssets)
     $tbody.append($remainingAssets)
     renderedAssets = assetMetric.assets.length
+    $loadMore.disabled = true
+    $loadAll.disabled = true
   }
   let reRenderAssets = () => {
     let alreadyRenderedAssets = assetMetric.assets.slice(0, renderedAssets)
@@ -83,8 +91,8 @@
     renderNext20Assets()
   }
 
-  document.getElementById('LoadMore').onclick = renderNext20Assets
-  document.getElementById('LoadAll').onclick = renderRemainingAssets
+  $loadMore.onclick = renderNext20Assets
+  $loadAll.onclick = renderRemainingAssets
 
   getAssetMetric().then(renderMetric)
 

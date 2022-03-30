@@ -5,6 +5,8 @@
   let renderedPairs = 0
   
   let $tbody = document.querySelector('tbody')
+  let $loadMore = document.getElementById('load-more')
+  let $loadAll = document.getElementById('load-all')
 
   let getPairs = () => 
     fetch('http://localhost:8000/pairs')
@@ -40,16 +42,22 @@
     let $next20Pairs = $renderRows(next20Pairs)
     $tbody.append($next20Pairs)
     renderedPairs += 20
+    if (renderedPairs >= pairs.length) {
+      $loadMore.disabled = true
+      $loadAll.disabled = true
+    }
   }
   let renderRemainingPairs = () => {
     let remainingPairs = pairs.slice(renderedPairs)
     let $remainingPairs = $renderRows(remainingPairs)
     $tbody.append($remainingPairs)
     renderedPairs = pairs.length
+    $loadMore.disabled = true
+    $loadAll.disabled = true
   }
 
-  document.getElementById('LoadMore').onclick = renderNext20Pairs
-  document.getElementById('LoadAll').onclick = renderRemainingPairs
+  $loadMore.onclick = renderNext20Pairs
+  $loadAll.onclick = renderRemainingPairs
 
   getPairs().then(renderNext20Pairs)
 }

@@ -5,6 +5,8 @@
   let renderedMetrics = 0
   
   let $tbody = document.querySelector('tbody')
+  let $loadMore = document.getElementById('load-more')
+  let $loadAll = document.getElementById('load-all')
 
   let getMetrics = () => 
     fetch('http://localhost:8000/pair-metrics')
@@ -43,16 +45,22 @@
     let $next20Metrics = $renderRows(next20Metrics)
     $tbody.append($next20Metrics)
     renderedMetrics += 20
+    if (renderedMetrics >= metrics.length) {
+      $loadMore.disabled = true
+      $loadAll.disabled = true
+    }
   }
   let renderRemainingMetrics = () => {
     let remainingMetrics = metrics.slice(renderedMetrics)
     let $remainingMetrics = $renderRows(remainingMetrics)
     $tbody.append($remainingMetrics)
     renderedMetrics = metrics.length
+    $loadMore.disabled = true
+    $loadAll.disabled = true
   }
 
-  document.getElementById('LoadMore').onclick = renderNext20Metrics
-  document.getElementById('LoadAll').onclick = renderRemainingMetrics
+  $loadMore.onclick = renderNext20Metrics
+  $loadAll.onclick = renderRemainingMetrics
 
   getMetrics().then(renderNext20Metrics)
 }

@@ -24,6 +24,12 @@
   let $metricsKeyCol = document.getElementById('metrics-key-col')
   let $exchangesKeyCol = document.getElementById('exchanges-key-col')
   let $marketsKeyCol = document.getElementById('markets-key-col')
+  let $metricsLoadMore = document.getElementById('metrics-load-more')
+  let $metricsLoadAll = document.getElementById('metrics-load-all')
+  let $exchangesLoadMore = document.getElementById('exchanges-load-more')
+  let $exchangesLoadAll = document.getElementById('exchanges-load-all')
+  let $marketsLoadMore = document.getElementById('markets-load-more')
+  let $marketsLoadAll = document.getElementById('markets-load-all')
 
   let getAsset = () => 
     fetch(`http://localhost:8000/asset?id=${id}&api-key=${key}`)
@@ -69,12 +75,18 @@
     let $next20Metrics = renderMetricRows(next20Metrics)
     $metrics.append($next20Metrics)
     renderedMetrics += 20
+    if (renderedMetrics >= asset.metrics.length) {
+      $metricsLoadMore.disabled = true
+      $metricsLoadAll.disabled = true
+    }
   }
   let renderRemainingMetrics = () => {
     let remainingMetrics = asset.metrics.slice(renderedMetrics)
     let $remainingMetrics = renderMetricRows(remainingMetrics)
     $metrics.append($remainingMetrics)
     renderedMetrics = asset.metrics.length
+    $metricsLoadMore.disabled = true
+    $metricsLoadAll.disabled = true
   }
   let reRenderMetrics = () => {
     let alreadyRenderedMetrics = asset.metrics.slice(0, renderedMetrics)
@@ -114,12 +126,18 @@
     let $next20Exchanges = renderExchangeRows(next20Exchanges)
     $exchanges.append($next20Exchanges)
     renderedExchanges += 20
+    if (renderedExchanges >= asset.exchanges.length) {
+      $exchangesLoadMore.disabled = true
+      $exchangesLoadAll.disabled = true
+    }
   }
   let renderRemainingExchanges = () => {
     let remainingExchanges = asset.exchanges.slice(renderedExchanges)
     let $remainingExchanges = renderExchangeRows(remainingExchanges)
     $exchanges.append($remainingExchanges)
     renderedExchanges = asset.exchanges.length
+    $exchangesLoadMore.disabled = true
+    $exchangesLoadAll.disabled = true
   }
   let reRenderExchanges = () => {
     let alreadyRenderedExchanges = asset.exchanges.slice(0, renderedExchanges)
@@ -159,12 +177,18 @@
     let $next20Markets = renderMarketRows(next20Markets)
     $markets.append($next20Markets)
     renderedMarkets += 20
+    if (renderedMarkets >= asset.markets.length) {
+      $marketsLoadMore.disabled = true
+      $marketsLoadAll.disabled = true
+    }
   }
   let renderRemainingMarkets = () => {
     let remainingMarkets = asset.markets.slice(renderedMarkets)
     let $remainingMarkets = renderMarketRows(remainingMarkets)
     $markets.append($remainingMarkets)
     renderedMarkets = asset.markets.length
+    $marketsLoadMore.disabled = true
+    $marketsLoadAll.disabled = true
   }
   let reRenderMarkets = () => {
     let alreadyRenderedMarkets = asset.markets.slice(0, renderedMarkets)
@@ -198,12 +222,12 @@
 
   $tabs.onchange = e => $$tabs.forEach($ => $.hidden = $.id !== e.target.value)
 
-  document.getElementById('LoadMore_metrics').onclick = renderNext20Metrics
-  document.getElementById('LoadAll_metrics').onclick = renderRemainingMetrics
-  document.getElementById('LoadMore_exchanges').onclick = renderNext20Exchanges
-  document.getElementById('LoadAll_exchanges').onclick = renderRemainingExchanges
-  document.getElementById('LoadMore_markets').onclick = renderNext20Markets
-  document.getElementById('LoadAll_markets').onclick = renderRemainingMarkets
+  $metricsLoadMore.onclick = renderNext20Metrics
+  $metricsLoadAll.onclick = renderRemainingMetrics
+  $exchangesLoadMore.onclick = renderNext20Exchanges
+  $exchangesLoadAll.onclick = renderRemainingExchanges
+  $marketsLoadMore.onclick = renderNext20Markets
+  $marketsLoadAll.onclick = renderRemainingMarkets
 
   getAsset().then(renderAsset)
 
