@@ -53,6 +53,9 @@
         initStyles.width = initBox.width + 'px'
         finalStyles.width = finalBox.width + 'px'
       }
+      if (properties.overflow) {
+        initStyles.overflow = 'hidden'
+      }
 
       let anim = $el.animate([initStyles, finalStyles], {
         duration: options.duration,
@@ -101,11 +104,11 @@
         },
         alt: {
           set: x => this.setAttribute('alt', x),
-          get: () => this.getAttribute('alt'),
+          get: () => this.getAttribute('alt') ?? this.name?.toUpperCase(),
         },
       })
 
-      let getRealName = () => {
+      let getIconId = () => {
         let name = this.name.toLowerCase()
         if (!nameIndex) return name
         if (nameIndex.has(name)) return name
@@ -115,20 +118,19 @@
         }
         return 'generic'
       }
-      let getAlt = () => this.alt ?? this.name.toUpperCase()
 
       let $icon
       let $title
 
-      let updateIcon = this.updateIcon = () => $icon?.setAttribute('href', '#' + PREFIX + getRealName())
-      this.updateTitle = () => {if ($title) $title.textContent = getAlt()}
+      let updateIcon = this.updateIcon = () => $icon?.setAttribute('href', '#' + PREFIX + getIconId())
+      this.updateTitle = () => {if ($title) $title.textContent = this.alt}
 
       this.innerHTML = ''
       this.append(Object.assign(document.createElement('template'), {
         innerHTML: `
           <svg class="Coin-svg" viewBox="0 0 32 32">
-            <title>${getAlt()}</title>
-            <use href="#${PREFIX}${getRealName()}"></use>
+            ${this.alt && `<title>${this.alt}</title>`}
+            <use href="#${PREFIX}${getIconId()}"></use>
           </svg>
         `,
       }).content)
@@ -296,9 +298,25 @@
     return propsCache['--' + propName]
   }
 
+  let computedStyleCache = new WeakMap()
+  let getCompStyl = $target => {
+    if (!computedStyleCache.has($target)) {
+      computedStyleCache.set($target, window.getComputedStyle($target))
+    }
+    return computedStyleCache.get($target)
+  }
+
+  let getEmOrRemSize = (x, $target) => {
+    let n = parseFloat(x)
+    if (x.endsWith('rem')) $target = document.documentElement
+    return parseFloat(getCompStyl($target).fontSize) * n
+  }
+
   CM.properties = {
     getAllProps,
     getCSSProp,
+    getCompStyl,
+    getEmOrRemSize,
   }
 })(window.__CM = window.__CM || {});
 
@@ -400,34 +418,44 @@
   }
 })(window.__CM = window.__CM || {});
 
-(() => {
+(CM => {
   'use strict'
+
+  let animationFast = parseFloat(CM.properties.getCSSProp('style-animation-speed-fast'))
 
   customElements.define('cm-accordion', class extends HTMLElement {
     constructor() {
       super()
 
-      let $accordionTitle = this.querySelector('.Accordion-title')
-      let $accordionContent = this.querySelector('.Accordion-content')
+      let $details = this.querySelector(':scope > .Accordion')
+      let $summary = $details.querySelector(':scope > summary')
+      let $content = $details.querySelector(':scope > :last-child')
 
-      if (!$accordionTitle || !$accordionContent)
-        throw Error('cm-accordion needs an element to act as the accordion title and accordion content')
+      $summary.addEventListener('click', ev => {
+        ev.preventDefault()
 
-      this.toggleOpen = () => {
-        $accordionContent.style.setProperty(
-          '--accordion-height',
-          this.hasAttribute('open') ? $accordionContent.scrollHeight : 0
-        )
-        this.dispatchEvent(new CustomEvent('toggle', { bubbles: true }))
-      }
-
-      $accordionTitle.tabIndex = 0
-    }
-
-    static get observedAttributes() { return ['open'] }
-
-    attributeChangedCallback() {
-      this.toggleOpen()
+        if ($details.open) {
+          let doFlip = CM.animation.startFLIP($details, {
+            duration: animationFast,
+            properties: { height: true, overflow: true },
+          })
+          $content.classList.add('Accordion-content-collapsed')
+          doFlip().then(() => {
+            $details.open = false
+            $details.dispatchEvent(new Event('toggle', { bubbles: true }))
+          })
+        } else {
+          $content.classList.add('Accordion-content-collapsed')
+          $details.open = true
+          $details.dispatchEvent(new Event('toggle', { bubbles: true }))
+          let doFlip = CM.animation.startFLIP($details, {
+            duration: animationFast,
+            properties: { height: true, overflow: true },
+          })
+          $content.classList.remove('Accordion-content-collapsed')
+          doFlip()
+        }
+      })
     }
   })
 
@@ -435,7 +463,7 @@
     constructor() {
       super()
 
-      let $openAccordion = this.querySelector(':scope > cm-accordion[open]')
+      let $openAccordion = this.querySelector(':scope > cm-accordion > dialog[open]')
 
       let closeOpenAccordion = () => {
         if (!$openAccordion) return
@@ -452,11 +480,11 @@
       }
 
       this.addEventListener('toggle', ev => {
-        if (ev.target.parentNode === this) onAccordionToggled(ev.target)
+        if (ev.target.parentNode.parentNode === this) onAccordionToggled(ev.target)
       })
     }
   })
-})();
+})(window.__CM = window.__CM || {});
 
 (() => {
   'use strict'
@@ -496,7 +524,12 @@
       let $title
 
       this.updateIcon = () => $icon.setAttribute('href', '#' + PREFIX + this.name)
-      this.updateTitle = () => $title.textContent = this.alt
+      this.updateTitle = () => {
+        if (this.alt) {
+          if (!$title) $icon.parentNode.insertBefore($icon, $title = document.createElement('title'))
+          $title.textContent = this.alt
+        } else if ($title) $title.remove()
+      }
 
       getIcons()
 
@@ -504,7 +537,7 @@
       this.append(Object.assign(document.createElement('template'), {
         innerHTML: `
           <svg class="Color-icon-svg" viewBox="0 0 24 24">
-            <title>${this.alt}</title>
+            ${this.alt && `<title>${this.alt}</title>`}
             <use href="#${PREFIX}${this.name}"></use>
           </svg>
         `
@@ -529,78 +562,20 @@
 (CM => {
   'use strict'
 
-  let DEFAULT_LABEL = 'Select an option'
-
-  let gap = parseFloat(CM.properties.getCSSProp('style-gap-xs'))
+  let gap = CM.properties.getCSSProp('style-gap-xs')
 
   customElements.define('cm-dropdown', class extends HTMLElement {
     constructor() {
       super()
 
-      Object.defineProperties(this, {
-        open: {
-          set: x => this.toggleAttribute('open', x),
-          get: () => this.hasAttribute('open'),
-        },
-        value: {
-          set: x => this.setAttribute('value', x),
-          get: () => this.getAttribute('value'),
-        },
-        placeholder: {
-          set: x => this.setAttribute('placeholder', x),
-          get: () => this.getAttribute('placeholder'),
-        }
-      })
+      let $details = this.querySelector('.Dropdown')
+      let $dropdownList = $details.querySelector('fieldset')
+      let $button = $details.querySelector('summary')
+      let $label = $button.querySelector(':not(cm-icon)')
+      let $current = $dropdownList.querySelector('input:checked')
 
-      let currentValue = this.value || ''
-
-      let $currentOption
-      let $dropdownList = this.querySelector('.Dropdown-list')
-      let $$options = Array.from(this.querySelectorAll('.Dropdown-option'))
-      let $button = this.querySelector(':scope > .Button')
-      if ($button == null) throw Error('cm-dropdown needs a button as its first element')
-      let $label = $button.firstElementChild
-
-      {
-        let $lastOpt
-        $$options.forEach($ => {
-          $.tabIndex = 0
-          if ($lastOpt) {
-            $.previousOption = $lastOpt
-            $lastOpt.nextOption = $
-          }
-          $lastOpt = $
-        })
-      }
-
-      let updateCurrentOption = () => {
-        if (!this.value) $currentOption = $dropdownList.querySelector(':scope > :not([data-value])')
-        else $currentOption = $dropdownList.querySelector(`:scope > [data-value="${this.value}"]`)
-      }
-      let unmarkSelected = () => {
-        if ($currentOption) $currentOption.classList.remove('Dropdown-selected')
-      }
-      let markSelected = () => {
-        if ($currentOption) $currentOption.classList.add('Dropdown-selected')
-      }
-      let getOptionLabel = $opt => {
-        if (!$opt || !$opt.dataset.value) return this.placeholder || DEFAULT_LABEL
-        let lbl = $opt.dataset.label
-        if (!lbl) {
-          let $ = $opt.querySelector('.Dropdown-label')
-          if ($) lbl = $.innerHTML
-        }
-        if (!lbl) {
-          lbl = $opt.innerHTML
-        }
-        return lbl
-      }
-      let getNextOption = () => ($currentOption && $currentOption.nextOption) || $$options[0]
-      let getPrevOption = () => ($currentOption && $currentOption.previousOption) || $$options[$$options.length - 1]
       let updateLayout = this.updateLayout = () => {
-        $dropdownList.hidden = !this.open
-        if (!this.open) return
-        let pos = CM.position.relPos($button, $dropdownList, gap)
+        let pos = CM.position.relPos($button, $dropdownList, CM.properties.getEmOrRemSize(gap, $dropdownList))
         let direction = CM.position.DIR_BELOW
         let alignment = CM.position.ALIGN_LEFT
         if (!pos.clearsBottom) direction = CM.position.DIR_ABOVE
@@ -612,81 +587,75 @@
         s.setProperty('--dropdown-right', p.right)
         s.setProperty('--dropdown-bottom', p.bottom)
       }
-      let updateLabel = () => $label.innerHTML = getOptionLabel($currentOption)
 
-      this.onUpdateSelection = () => {
-        if (currentValue === this.value) return
-        currentValue = this.value
-        unmarkSelected()
-        updateCurrentOption()
-        markSelected()
-        updateLabel()
-        this.dispatchEvent(new Event('change'))
-      }
-      this.onUpdatePlaceholder = () => updateLabel()
-      let onToggle = () => this.toggleAttribute('open')
-      let onClose = () => this.removeAttribute('open')
-      let onSelectOption = $opt => {
-        this.value = $opt.dataset.value || ''
-        this.open = false
-      }
-      let onSelectNext = () => this.value = getNextOption().dataset.value || ''
-      let onSelectPrev = () => this.value = getPrevOption().dataset.value || ''
-      let onInitList = () => {
-        $dropdownList.onclick = ev => {
-          let $opt = ev.target.closest('.Dropdown-option')
-          if (!$opt) return
-          onSelectOption($opt)
-        }
-        updateCurrentOption()
-        updateLayout()
-        markSelected()
-        updateLabel()
-      }
-
-      $button.onclick = () => onToggle()
-      this.onkeydown = ev => {
+      this.addEventListener('keydown', ev => {
         switch (ev.code) {
-          case 'ArrowDown':
+          case 'ArrowDown': {
             ev.preventDefault()
-            onSelectNext()
+            if (ev.getModifierState('Alt')) {
+              $details.open = true
+              return
+            }
+            let $next = $current
+            while ($next = $next?.nextElementSibling || $dropdownList.querySelector('input')) {
+              if ($next.tagName !== 'INPUT') continue
+              $next.checked = true
+              $next.dispatchEvent(new Event('change', { bubbles: true }))
+              break
+            }
             break
-          case 'ArrowUp':
+          }
+          case 'ArrowUp': {
             ev.preventDefault()
-            onSelectPrev()
+            if (ev.getModifierState('Alt')) {
+              $details.open = true
+              return
+            }
+            let $prev = $current
+            while ($prev = $prev?.previousElementSibling || $dropdownList.querySelector('input:last-of-type')) {
+              if ($prev.tagName !== 'INPUT') continue
+              $prev.checked = true
+              $prev.dispatchEvent(new Event('change', { bubbles: true }))
+              break
+            }
+            break
+          }
+          case 'Enter':
+            ev.preventDefault()
+            $details.open = !$details.open
+            if ($details.open) updateLayout()
             break
           case 'Escape':
             ev.preventDefault()
-            onClose()
+            $details.open = false
             break
         }
-      }
-      this.onStop = [
-        CM.events.onClickOutside(this, () => this.removeAttribute('open')),
-        CM.events.onLayoutChange(updateLayout),
+      })
+      this.addEventListener('change', ev => {
+        let $input = ev.target
+        $label.innerHTML = $input.dataset.label ?? $input.nextElementSibling.innerHTML
+        $current = $input
+        updateLayout()
+      })
+      this.addEventListener('click', ev => {
+        if (ev.target.tagName === 'LABEL') $details.open = false
+      })
+      $details.addEventListener('toggle', ev => {
+        if ($details.open) updateLayout()
+      })
+      this.onstop = [
+        CM.events.onLayoutChange(() => {
+          if ($details.open) updateLayout()
+        }),
+        CM.events.onClickOutside(this, () => {
+          $details.open = false
+        })
       ]
-      $button.tabIndex = 0
-      onInitList()
-    }
-
-    static get observedAttributes() { return ['open', 'value', 'placeholder'] }
-
-    attributeChangedCallback(name) {
-      switch (name) {
-        case 'value':
-          this.onUpdateSelection()
-          break
-        case 'placeholder':
-          this.onUpdatePlaceholder()
-          break
-        case 'open':
-          this.updateLayout()
-          break
-      }
+      updateLayout()
     }
 
     disconnectedCallback() {
-      this.onStop.forEach(f => f())
+      this.onstop.forEach(fn => fn())
     }
   })
 })(window.__CM = window.__CM || {});
@@ -729,7 +698,12 @@
       let $title
 
       this.updateIcon = () => $icon?.setAttribute('href', '#' + PREFIX + this.name)
-      this.updateTitle = () => $title.textContent = this.alt
+      this.updateTitle = () => {
+        if (this.alt) {
+          if (!$title) $icon.parentNode.insertBefore($icon, $title = document.createElement('title'))
+          $title.textContent = this.alt
+        } else if ($title) $title.remove()
+      }
 
       getIcons()
 
@@ -737,7 +711,7 @@
       this.append(Object.assign(document.createElement('template'), {
         innerHTML: `
           <svg class="Icon-svg" viewBox="0 0 24 24">
-            <title>${this.alt}</title>
+            ${this.alt && `<title>${this.alt}</title>`}
             <use href="#${PREFIX}${this.name}"></use>
           </svg>
         `
@@ -828,9 +802,9 @@
 
       let renderPaginator = () => {
         this.innerHTML = `
-          <button class="Button Paginator-start" data-target="1"><cm-icon name="chevrons-left"></cm-icon></button>
-          <button class="Button Paginator-prev"><cm-icon name="chevron-left"></cm-icon></button>
-          <button class="Button Paginator-first" data-target="1">1</button>
+          <button class="Button Paginator-start" data-target="1"><cm-icon name="chevrons-left" alt="first page"></cm-icon></button>
+          <button class="Button Paginator-prev"><cm-icon name="chevron-left" alt="previous page"></cm-icon></button>
+          <button class="Button Paginator-first" data-target="1" title="page 1">1</button>
           <cm-icon class="Paginator-more-prev" name="more-horizontal"></cm-icon>
           <button class="Button Paginator-page"></button>
           <button class="Button Paginator-page"></button>
@@ -842,8 +816,8 @@
           <button class="Button Paginator-page-m"></button>
           <cm-icon class="Paginator-more-next" name="more-horizontal"></cm-icon>
           <button class="Button Paginator-last"></button>
-          <button class="Button Paginator-next"><cm-icon name="chevron-right"></cm-icon></button>
-          <button class="Button Paginator-end"><cm-icon name="chevrons-right"></cm-icon></button>
+          <button class="Button Paginator-next"><cm-icon name="chevron-right" alt="next page"></cm-icon></button>
+          <button class="Button Paginator-end"><cm-icon name="chevrons-right" alt="last page"></cm-icon></button>
         `
 
         $start = this.querySelector('.Paginator-start')
@@ -869,6 +843,7 @@
           let pageNo = pageMin + i
           $.hidden = pageNo > pageMax
           $.dataset.target = $.textContent = pageNo
+          $.title = 'page ' + pageNo + (pageNo === total ? ' (last page)' : '')
           $.disabled = pageNo === current
         })
 
@@ -902,6 +877,7 @@
         $last.hidden = !showLast || !showExtraButtons
         $last.dataset.target = $last.textContent = total
         $last.disabled = isLast
+        $last.title = 'page ' + total + ' (last page)'
         $moreNext.hidden = !hasRightGap || !showExtraButtons
       }
 
@@ -934,32 +910,36 @@
     constructor() {
       super()
 
-      Object.defineProperties(this, {
-        open: {
-          set: x => this.toggleAttribute('open', x),
-          get: () => this.hasAttribute('open')
-        }
-      })
-
       let defaultIcon
+      let defaultAlt
 
-      let $dialog = this.querySelector(':scope > .Popup-dialog')
-      let $button = this.firstElementChild
+      let $details = this.firstElementChild
+      let $button = $details.firstElementChild
+      let $dialog = $details.lastElementChild
       let $icon = $button.querySelector(':scope > cm-icon')
-      let gap = parseInt(window.getComputedStyle(this).getPropertyValue('--style-popup-gap'), 10)
+      let gap = CM.properties.getEmOrRemSize(CM.properties.getCompStyl(this).getPropertyValue('--style-popup-gap'), $button)
 
-      if ($icon) defaultIcon = $icon.name
+      if ($icon) {
+        defaultIcon = $icon.name
+        defaultAlt = $icon.alt
+      }
 
-      let updatePopupOrientation = this.updatePopupOrientation = () => {
-        $dialog.hidden = !this.open
-        if ($icon) $icon.name = this.open ? 'x' : defaultIcon
-
-        if (!this.open) return
-        let pos = CM.position.relPos(this, $dialog, gap)
-
+      let updateIcon = () => {
+        if ($icon) {
+          if ($details.open) {
+            $icon.name = 'x'
+            $icon.alt = 'close'
+          }
+          else {
+            $icon.name = defaultIcon
+            $icon.alt = defaultAlt
+          }
+        }
+      }
+      let updatePopupOrientation = () => {
+        let pos = CM.position.relPos($button, $dialog, gap)
         let direction
         let alignment
-
         if (pos.isWide) {
           direction = CM.position.DIR_BELOW
           alignment = CM.position.ALIGN_LEFT
@@ -971,7 +951,6 @@
           if (!pos.clearsRight) direction = CM.position.DIR_LEFT
           if (!pos.overhangsBottom) alignment = CM.position.ALIGN_BOTTOM
         }
-
         let p = CM.position.position(direction, alignment, pos)
         let s = $dialog.style
         s.setProperty('--popup-dialog-top', p.top)
@@ -980,27 +959,21 @@
         s.setProperty('--popup-dialog-bottom', p.bottom)
       }
 
-      let onPopupToggle = isOpen => {
-        this.open = isOpen
-        updatePopupOrientation()
-        this.dispatchEvent(new Event('toggle', { bubbles: true }))
-      }
+      $details.addEventListener('toggle', () => {
+        updateIcon()
+        if ($details.open) updatePopupOrientation()
+      })
 
-      $button.onclick = () => onPopupToggle(!this.open)
       this.onStop = [
         CM.events.onClickOutside(this, ev => {
           if ($dialog.contains(ev.target)) return
-          onPopupToggle(false)
+          $details.open = false
         }),
-        CM.events.onLayoutChange(updatePopupOrientation),
+        CM.events.onLayoutChange(() => {
+          if ($details.open) updatePopupOrientation()
+        }),
       ]
       updatePopupOrientation()
-    }
-
-    static get observedAttributes() { return ['open'] }
-
-    attributeChangedCallback() {
-      this.updatePopupOrientation()
     }
 
     disconnectedCallback() {
@@ -1113,36 +1086,28 @@
     constructor() {
       super()
 
-      Object.defineProperties(this, {
-        value: {
-          set: x => this.setAttribute('value', x),
-          get: () => this.getAttribute('value')
-        },
-      })
+      let $fieldset = this.firstElementChild
+      let $$tabs = $fieldset.querySelectorAll(`input`)
+      let $activeTab
+      let $$tabContent = {}
 
-      let $activeTab = this.querySelector(`[data-value="${this.value}"]`)
-
-      this.updateActiveTab = () => {
-        if ($activeTab) $activeTab.classList.remove('Tabs-active')
-        $activeTab = this.querySelector(`[data-value="${this.value}"]`)
-        if ($activeTab) $activeTab.classList.add('Tabs-active')
-        let evt = new Event('change', { bubbles: true })
-        Object.defineProperty(evt, 'target', { value: this, writable: false })
-        this.dispatchEvent(evt)
-        if (typeof this.onchange === 'function') this.onchange(evt)
+      // Hide the tab content and prepare for switching
+      for (let $tab of $$tabs) {
+        let tabId = $tab.value
+        let $content = document.getElementById(tabId)
+        if (!$content) continue
+        $$tabContent[tabId] = $content
+        $content.hidden = !$tab.checked
+        if ($tab.checked) $activeTab = $content
       }
-
-      this.addEventListener('click', ev => {
-        let $btn = ev.target.closest('button')
-        if (!$btn || $btn === $activeTab) return
-        this.value = $btn.dataset.value
+      $fieldset.disabled = $fieldset.hidden = false
+      this.addEventListener('change', ev => {
+        let $input = ev.target
+        if ($activeTab) $activeTab.hidden = true
+        $activeTab = $$tabContent[$input.value]
+        if (!$activeTab) return // no content associated with tabs
+        $activeTab.hidden = false
       })
-    }
-
-    static get observedAttributes() { return ['value'] }
-
-    attributeChangedCallback() {
-      this.updateActiveTab()
     }
   })
 })();
@@ -1251,63 +1216,6 @@
     connectedCallback() {
       requestAnimationFrame(() => this.classList.add('Toast-shown'))
       this.timer = setTimeout(() => this.clearToast(), TOAST_DURATION)
-    }
-  })
-})();
-
-(() => {
-  'use strict'
-
-  customElements.define('cm-button-group', class extends HTMLElement {
-    constructor() {
-      super()
-
-      let $currentOption
-      let currentValue = this.getAttribute('value') || ''
-
-      let updateCurrentOption = () => {
-        if (!this.value) $currentOption = this.querySelector(':scope > :not([data-value])')
-        else $currentOption = this.querySelector(`:scope > [data-value="${this.value}"]`)
-      }
-      let unmarkSelected = () => {
-        if ($currentOption) $currentOption.classList.remove('Button-active')
-      }
-      let markSelected = () => {
-        if ($currentOption) $currentOption.classList.add('Button-active')
-      }
-
-      this.onUpdateSelection = () => {
-        if (currentValue === this.value) return
-        currentValue = this.value
-        unmarkSelected()
-        updateCurrentOption()
-        markSelected()
-        this.dispatchEvent(new Event('change'))
-      }
-      let onSelect = $opt => this.value = $opt.dataset.value || ''
-      let onInit = () => {
-        updateCurrentOption()
-        markSelected()
-      }
-
-      this.addEventListener('click', ev => {
-        let $opt = ev.target.closest('.Button')
-        if (!$opt) return
-        onSelect($opt)
-      })
-
-      Object.defineProperty(this, 'value', {
-        set: x => this.setAttribute('value', x),
-        get: () => this.getAttribute('value'),
-      })
-
-      onInit()
-    }
-
-    static get observedAttributes() { return ['value'] }
-
-    attributeChangedCallback() {
-      this.onUpdateSelection()
     }
   })
 })();

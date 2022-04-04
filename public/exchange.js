@@ -9,13 +9,8 @@
   let renderedMarkets = 0
 
   let $id = document.getElementById('id')
-  let $tabs = document.querySelector('cm-tabs')
-  let $$tabs = [
-    document.getElementById('metrics'),
-    document.getElementById('markets')
-  ]
-  let $metrics = $$tabs[0].querySelector('tbody')
-  let $markets = $$tabs[1].querySelector('tbody')
+  let $metrics = document.getElementById('metrics').querySelector('tbody')
+  let $markets = document.getElementById('markets').querySelector('tbody')
   let $metricsKeyCol = document.getElementById('metrics-key-col')
   let $marketsKeyCol = document.getElementById('markets-key-col')
   let $metricsLoadMore = document.getElementById('metrics-load-more')
@@ -154,8 +149,6 @@
     renderNext20Metrics()
     renderNext20Markets()
   }
-
-  $tabs.onchange = e => $$tabs.forEach($ => $.hidden = $.id !== e.target.value)
 
   $metricsLoadMore.onclick = renderNext20Metrics
   $metricsLoadAll.onclick = renderRemainingMetrics

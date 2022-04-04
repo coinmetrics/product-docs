@@ -11,13 +11,8 @@
   let $id = document.getElementById('id')
   let $name = document.getElementById('name')
   let $description = document.getElementById('description')
-  let $tabs = document.querySelector('cm-tabs')
-  let $$tabs = [
-    document.getElementById('markets'),
-    document.getElementById('exchanges')
-  ]
-  let $markets = $$tabs[0].querySelector('tbody')
-  let $exchanges = $$tabs[1].querySelector('tbody')
+  let $markets = document.getElementById('markets').querySelector('tbody')
+  let $exchanges = document.getElementById('exchanges').querySelector('tbody')
   let $marketsKeyCol = document.getElementById('markets-key-col')
   let $exchangesKeyCol = document.getElementById('exchanges-key-col')
   let $marketsLoadMore = document.getElementById('markets-load-more')
@@ -158,8 +153,6 @@
     renderNext20Exchanges()
     renderNext20Markets()
   }
-
-  $tabs.onchange = e => $$tabs.forEach($ => $.hidden = $.id !== e.target.value)
 
   $marketsLoadMore.onclick = renderNext20Markets
   $marketsLoadAll.onclick = renderRemainingMarkets

@@ -15,11 +15,11 @@
   </head>
   <body>
     <header class="AppLayout-header">
-      <a href="https://coinmetrics.io/">
+      <a href="https://coinmetrics.io/" title="Go to Coin Metrics">
         <img class="AppLayout-logo" src="https://cdn.coinmetrics.io/coinmetrics-default.svg" alt="Coin Metrics">
       </a>
       <hr class="Separator-v-dark">
-      <a href="/">
+      <a href="/" title="Go to home">
         <img class="AppLayout-logo" src="wordmark.svg" alt="Knowledge Base">
       </a>
     </header>
@@ -67,41 +67,42 @@
             <input class="Input-l" placeholder="Search...">
             <cm-icon name="search" alt="Search CM Knowledge Base"></cm-icon>
           </span>
-          <a href="/assets" class="Text-large"><strong>Assets</strong></a>
-          <a href="/pairs" class="Text-large"><strong>Pairs</strong></a>
-          <a current href="/exchanges" class="Text-large"><strong>Exchanges</strong></a>
-          <a href="/asset-metrics" class="Text-large"><strong>Asset Metrics</strong></a>
-          <a href="/pair-metrics" class="Text-large"><strong>Pair Metrics</strong></a>
-          <a href="/exchange-metrics" class="Text-large"><strong>Exchange Metrics</strong></a>
+          <a href="/assets" class="Text-large" title="Go to assets"><strong>Assets</strong></a>
+          <a href="/pairs" class="Text-large" title="Go to pairs"><strong>Pairs</strong></a>
+          <a current href="/exchanges" class="Text-large" title="Go to exchanges"><strong>Exchanges</strong></a>
+          <a href="/asset-metrics" class="Text-large" title="Go to asset metrics"><strong>Asset Metrics</strong></a>
+          <a href="/pair-metrics" class="Text-large" title="Go to pair metrics"><strong>Pair Metrics</strong></a>
+          <a href="/exchange-metrics" class="Text-large" title="Go to exchange metrics"><strong>Exchange Metrics</strong></a>
         </nav>
       </div>
     </main>
     <cm-sidebar>
-      <div class="Sidebar-toolbar">
+      <article class="Sidebar-toolbar">
         <cm-popup id="api-key-popup">
-          <button class="Sidebar-button">
-            <cm-icon name="key" alt="Manage visualization key"></cm-icon>
-          </button>
-          <aside class="Popup-dialog Dialog Dialog-api-key">
-            <h2 class="Dialog-titlebar">CM Pro</h2>
-            <div class="Panel">
-              <p class="Text-regular">
-                Enter your visualization key to unlock CM Pro data available for your account.
-              </p>
-              <form id="api-key-form">
-                <span class="Input-with-icon">
-                  <label hidden for="api-key">Visualization Key</label>
-                  <input class="Input" placeholder="Visualization Key" type="password">
-                  <cm-icon name="key" alt="Visualization key input"></cm-icon>
-                </span>
-                <button class="Button-primary">Unlock CM Pro</button>
-              </form>
-              <a class="Link" href="#">Need a visualization key?</a>
-            </div>
-          </aside>
+          <details>
+            <summary class="Sidebar-button">
+              <cm-icon name="key" alt="Manage visualization key"></cm-icon>
+            </summary>
+            <article class="Popup-dialog Dialog Dialog-api-key">
+              <h2 class="Dialog-titlebar">CM Pro</h2>
+              <div class="Panel">
+                <p class="Text-regular">
+                  Enter your visualization key to unlock CM Pro data available for your account.
+                </p>
+                <form id="api-key-form">
+                  <label class="Input-with-icon">
+                    <input class="Input" placeholder="Visualization Key" type="password">
+                    <cm-icon name="key" alt="Visualization key input"></cm-icon>
+                  </label>
+                  <button class="Button-primary">Unlock CM Pro</button>
+                </form>
+                <a class="Link" href="#">Need a visualization key?</a>
+              </div>
+            </article>
+          </details>
         </cm-popup>
         <hr class="Separator-h-light">
-      </div>
+      </article>
     </cm-sidebar>
   </body>
 </html>
