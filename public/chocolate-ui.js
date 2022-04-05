@@ -96,6 +96,7 @@
       super()
 
       let nameIndex
+      this.setAttribute('alt', this.textContent.trim())
 
       Object.defineProperties(this, {
         name: {
@@ -509,6 +510,8 @@
     constructor() {
       super()
 
+      this.setAttribute('alt', this.textContent.trim())
+
       Object.defineProperties(this, {
         name: {
           set: x => this.setAttribute('name', x),
@@ -683,6 +686,8 @@
     constructor() {
       super()
 
+      this.setAttribute('alt', this.textContent.trim())
+
       Object.defineProperties(this, {
         name: {
           set: x => this.setAttribute('name', x),
@@ -802,8 +807,8 @@
 
       let renderPaginator = () => {
         this.innerHTML = `
-          <button class="Button Paginator-start" data-target="1"><cm-icon name="chevrons-left" alt="first page"></cm-icon></button>
-          <button class="Button Paginator-prev"><cm-icon name="chevron-left" alt="previous page"></cm-icon></button>
+          <button class="Button Paginator-start" data-target="1"><cm-icon name="chevrons-left">first page</cm-icon></button>
+          <button class="Button Paginator-prev"><cm-icon name="chevron-left">previous page</cm-icon></button>
           <button class="Button Paginator-first" data-target="1" title="page 1">1</button>
           <cm-icon class="Paginator-more-prev" name="more-horizontal"></cm-icon>
           <button class="Button Paginator-page"></button>
@@ -816,8 +821,8 @@
           <button class="Button Paginator-page-m"></button>
           <cm-icon class="Paginator-more-next" name="more-horizontal"></cm-icon>
           <button class="Button Paginator-last"></button>
-          <button class="Button Paginator-next"><cm-icon name="chevron-right" alt="next page"></cm-icon></button>
-          <button class="Button Paginator-end"><cm-icon name="chevrons-right" alt="last page"></cm-icon></button>
+          <button class="Button Paginator-next"><cm-icon name="chevron-right">next page</cm-icon></button>
+          <button class="Button Paginator-end"><cm-icon name="chevrons-right">last page</cm-icon></button>
         `
 
         $start = this.querySelector('.Paginator-start')
@@ -1161,7 +1166,7 @@
           <p class="Toast-content">${content}</p>
           ${hasAction ? `<button class="${PRIORITY_BTN_CLASS[priority]} Toast-action-button">${actionLabel}</button>` : ''}
           <button class="${PRIORITY_BTN_CLASS[priority]} Toast-close-button">
-            <cm-icon name="x" alt="Dismiss this message"></cm-icon>
+            <cm-icon name="x">Dismiss this message</cm-icon>
           </button>
         </article>
       `

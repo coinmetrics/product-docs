@@ -19,7 +19,7 @@
       html += `
         <tr>
           <td>
-            <cm-coin name="${asset.id}" alt=""></cm-coin>
+            <cm-coin name="${asset.id}"></cm-coin>
             <a 
               href="/asset?id=${asset.id}" 
               class="Link Text-regular">${asset.id.toUpperCase()}</a>

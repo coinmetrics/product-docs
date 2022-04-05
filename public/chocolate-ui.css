@@ -1,3 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Ubuntu+Mono&display=swap');
+
+*, *:after, *:before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  min-height: 0;
+  min-width: 0;
+}
+
+li, summary {
+  list-style: none;
+}
+
+fieldset,
+dialog {
+  border: none;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+fieldset > legend {
+  visibility: hidden;
+  pointer-events: none;
+  font-size: 0;
+}
+
+h1, h2, h3, h4, h5, h6, input, select, button, textarea {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+em, i {
+  font-style: italic;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+label,
+summary,
+button {
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none!important;
+  visibility: hidden!important;
+}
+
 cm-coin {
   display: inline-block;
   width: max-content;
@@ -114,64 +168,10 @@ cm-coin {
   }
 }
 
-*, *:after, *:before {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  outline: none;
-  min-height: 0;
-  min-width: 0;
-}
-
-li, summary {
-  list-style: none;
-}
-
-fieldset,
-dialog {
-  border: none;
-}
-
-abbr {
-  text-decoration: none;
-}
-
-fieldset > legend {
-  visibility: hidden;
-  pointer-events: none;
-  font-size: 0;
-}
-
-h1, h2, h3, h4, h5, h6, input, select, button, textarea {
-  font-weight: inherit;
-  font-size: inherit;
-}
-
-em, i {
-  font-style: italic;
-}
-
-strong, b {
-  font-weight: bold;
-}
-
-label,
-summary,
-button {
-  cursor: pointer;
-}
-
-[hidden] {
-  display: none!important;
-  visibility: hidden!important;
-}
-
 cm-toggler {
   display: inline-block;
   max-width: max-content;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
   --color-primary-white: #ffffff;
@@ -245,7 +245,6 @@ cm-toggler {
   --style-separator-line-light: 1px solid var(--color-separator-line-light);
   --style-separator-line-lighter: 1px solid var(--color-separator-line-lighter);
 
-  --text-size-xs: 0.71rem;   /* ~10px */
   --text-size-s: 0.85rem;    /* ~12px */
   --text-size-n: 1rem;       /* 14px (by default in most browsers) */
   --text-size-l: 1.42rem;    /* ~20px */
@@ -401,11 +400,11 @@ cm-toggler {
 html {
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: Lato, sans-serif;
   font-size: 87.5%; /* by *default*, set font size to 14px in all browsers */
 }
 
 body {
+  font-family: Lato, sans-serif;
   scrollbar-width: thin; /* not all browsers (any?) support px width */
   scrollbar-width: var(--style-scrollbar-w);
   scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
@@ -589,9 +588,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .Button-l {
-  height: var(--style-input-h-l);
   font-size: var(--text-size-input-l);
-  padding: var(--style-input-padding-l);
 }
 
 .Button-primary {
@@ -1066,10 +1063,12 @@ cm-dropdown > fieldset[disabled] {
 
 cm-icon {
   display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
   flex-shrink: 0;
   vertical-align: baseline;
+
+  /** 24px **/
+  width: 1.71rem;
+  height: 1.71rem;
 }
 
 .Icon-svg {
@@ -1080,22 +1079,17 @@ cm-icon {
     stroke var(--style-animation-speed-fast),
     transform var(--style-animation-speed-fast);
 
-  stroke-width: 0.125rem;
+  stroke-width: 0.11rem;
   /** 24px **/
   width: 1.71rem;
   height: 1.71rem;
 }
 
-.Icon-s {
+.Icon-s > .Icon-svg {
+  stroke-width: 0.142rem;
   /** 16px **/
   width: 1.14rem;
   height: 1.14rem;
-}
-
-.Icon-s > .Icon-svg {
-  stroke-width: 0.1875rem;
-  width: 100%;
-  height: 100%;
 }
 
 .Icon-sprite-hider {
@@ -1130,7 +1124,7 @@ cm-icon {
   font-family: inherit;
   font-size: var(--text-size-input-n);
   width: 100%;
-  transition: 
+  transition:
     border var(--style-animation-speed-fast),
     background var(--style-animation-speed-fast),
     color var(--style-animation-speed-fast);
@@ -1993,13 +1987,13 @@ cm-table thead th {
 
 .Text-content h5,
 .Text-heading-5 {
-  font-size: var(--text-size-s);
+  font-size: var(--text-size-n);
   font-weight: var(--text-weight-bold);
 }
 
 .Text-content h6,
 .Text-heading-6 {
-  font-size: var(--text-size-xs);
+  font-size: var(--text-size-s);
   font-weight: var(--text-weight-bold);
   text-transform: uppercase;
 }
@@ -2017,7 +2011,7 @@ cm-table thead th {
 }
 
 .Text-small {
-  font-size: var(--text-size-xs);
+  font-size: var(--text-size-s);
 }
 
 .Text-link {

@@ -23,11 +23,11 @@
             <a href="/pair?id=${pair.id}" class="Link Text-regular">${pair.id}</a>
           </td>
           <td>
-            <cm-coin name="${base}" alt=""></cm-coin>
+            <cm-coin name="${base}"></cm-coin>
             <a href="/asset?id=${base}" class="Link Text-regular">${base}</a>
           </td>
           <td>
-            <cm-coin name="${quote}" alt=""></cm-coin>
+            <cm-coin name="${quote}"></cm-coin>
             <a href="/asset?id=${quote}" class="Link Text-regular">${quote}</a>
           </td>
         </tr>

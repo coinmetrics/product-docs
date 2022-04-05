@@ -41,20 +41,20 @@
         </td>
         <td>
           <cm-color-icon ${market.acl.includes('c') ? 
-            'name="check" alt="Available"'
-            : 'name="x" alt="Unavailable"'}></cm-color-icon>
+            'name="check">Available' : 'name="x">Unavailable'}
+          </cm-color-icon>
         </td>
         <td>
           <cm-color-icon ${market.acl.includes('p') ? 
-            'name="check" alt="Available"'
-            : 'name="x" alt="Unavailable"'}></cm-color-icon>
+            'name="check">Available' : 'name="x">Unavailable'}
+          </cm-color-icon>
         </td>
         <td>
           ${key ?
             `<cm-color-icon ${market.acl.includes('u') ? 
-              'name="check" alt="Available"'
-              : 'name="x" alt="Unavailable"'}></cm-color-icon>`
-            : '<cm-icon name="slash" alt="Visualization key is missing"></cm-icon>'}
+              'name="check">Available' : 'name="x">Unavailable'}>
+             </cm-color-icon>`
+            : '<cm-icon name="slash">Visualization key is missing</cm-icon>'}
         </td>
       </tr>
     `
@@ -92,20 +92,20 @@
         </td>
         <td>
           <cm-color-icon ${exchange.acl.includes('c') ? 
-            'name="check" alt="Available"'
-            : 'name="x" alt="Unavailable"'}></cm-color-icon>
+            'name="check">Available' : 'name="x">Unavailable'}
+          </cm-color-icon>
         </td>
         <td>
           <cm-color-icon ${exchange.acl.includes('p') ? 
-            'name="check" alt="Available"'
-            : 'name="x" alt="Unavailable"'}></cm-color-icon>
+            'name="check">Available' : 'name="x">Unavailable'}
+          </cm-color-icon>
         </td>
         <td>
         ${key ?
           `<cm-color-icon ${exchange.acl.includes('u') ? 
-            'name="check" alt="Available"'
-            : 'name="x" alt="Unavailable"'}></cm-color-icon>`
-          : '<cm-icon name="slash" alt="Visualization key is missing"></cm-icon>'}
+            'name="check">Available' : 'name="x">Unavailable'}
+          </cm-color-icon>`
+          : '<cm-icon name="slash">Visualization key is missing</cm-icon>'}
         </td>
       </tr>
     `
