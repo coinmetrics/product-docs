@@ -1159,7 +1159,7 @@
 
       let $toast = document.createElement('cm-toast')
       $toast.innerHTML = `
-        <article class="${PRIORITY_CLASSES[priority]}">
+        <article class="${PRIORITY_CLASSES[priority]}" role="alert">
           ${icon ? `<cm-icon name=${icon}></cm-icon>` : ''}
           ${title ? `<h2 class="Toast-title">${title}</h2>` : ''}
           ${icon || title ? `<hr>` : ''}
@@ -1219,7 +1219,9 @@
     }
 
     connectedCallback() {
-      requestAnimationFrame(() => this.classList.add('Toast-shown'))
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        this.classList.add('Toast-shown')
+      }))
       this.timer = setTimeout(() => this.clearToast(), TOAST_DURATION)
     }
   })
@@ -1260,6 +1262,60 @@
           </aside>
         `
       })
+    }
+  })
+})();
+
+(() => {
+  'use strict'
+
+  let HAS_CLIPBOARD = navigator.clipboard != null
+
+  customElements.define('cm-copy', class extends HTMLElement {
+    constructor() {
+      super()
+
+      if (!HAS_CLIPBOARD) return
+
+      Object.defineProperties(this, {
+        text: {
+          set: x => this.setAttribute('text', x),
+          get: () => this.getAttribute('text'),
+        },
+      })
+
+      this.addEventListener('click', () => {
+        navigator.clipboard.writeText(this.text)
+          .then(() => {
+            let evt = new Event('copy', { bubbles: true })
+            Object.defineProperty(evt, 'target', { value: this, writable: false })
+            this.dispatchEvent(evt)
+            if (this.oncopy) this.oncopy(evt)
+          }, err => {
+            console.error(err)
+            let evt = new Event('copyerror', { bubbles: true })
+            Object.defineProperty(evt, 'target', { value: this, writable: false })
+            this.dispatchEvent(evt)
+            if (this.oncopyerror) this.oncopyerror(evt)
+          })
+      })
+    }
+
+    static get observedAttributes() { return ['text'] }
+
+    attributeChangedCallback() {
+      if (!this.firstElementChild) return
+      this.firstElementChild.title = `Copy '${this.text}' to clipboard`
+    }
+
+    connectedCallback() {
+      if (this.firstElementChild) return
+      let $btn
+      this.append($btn = Object.assign(document.createElement('button'), {
+        className: 'Button-clear',
+        title: `Copy '${this.text}' to clipboard`,
+      }))
+      $btn.innerHTML = '<cm-icon name="copy" class="Icon-s"></cm-icon>'
     }
   })
 })();

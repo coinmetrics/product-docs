@@ -106,6 +106,12 @@ cm-coin {
   flex-direction: column;
 }
 
+.Microlayout-align-v {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5ch;
+}
+
 /**
  * FIXME: !important usage is a stop-gap fix.
  * Need to figure out a solution that works for any element, even those using
@@ -392,6 +398,9 @@ cm-toggler {
 
   /** Popup **/
   --style-popup-gap: var(--style-gap-n);
+
+  /** Icons */
+  --color-border-active-default: var(--color-primary-purple);
 }
 
 .negative {
@@ -866,10 +875,6 @@ cm-color-icon {
   display: inline-block;
   flex-shrink: 0;
   vertical-align: baseline;
-
-  /** 24px **/
-  width: 1.71rem;
-  height: 1.71rem;
 }
 
 .Color-icon-svg {
@@ -877,17 +882,15 @@ cm-color-icon {
   transition:
     stroke var(--style-animation-speed-fast),
     transform var(--style-animation-speed-fast);
-}
-
-.Icon-s {
-  /** 16px **/
-  width: 1.14rem;
-  height: 1.14rem;
+  /** 24px **/
+  width: 1.71rem;
+  height: 1.71rem;
 }
 
 .Icon-s > .Color-icon-svg {
-  width: 100%;
-  height: 100%;
+  /** 16px **/
+  width: 1.14rem;
+  height: 1.14rem;
 }
 
 .Icon-sprite-hider {
@@ -1065,10 +1068,6 @@ cm-icon {
   display: inline-block;
   flex-shrink: 0;
   vertical-align: baseline;
-
-  /** 24px **/
-  width: 1.71rem;
-  height: 1.71rem;
 }
 
 .Icon-svg {
@@ -2121,7 +2120,7 @@ cm-toast {
 }
 
 .Toast-shown {
-  max-height: 50px;
+  max-height: 4rem;
 }
 
 .Toast-shown > :first-child {
@@ -2133,10 +2132,12 @@ cm-toast {
   max-height: 0;
 }
 
-.Toast-info > cm-icon:first-child,
-.Toast-success > cm-icon:first-child,
-.Toast-warning > cm-icon:first-child,
-.Toast-error > cm-icon:first-child {
+:is(
+  .Toast-info,
+  .Toast-success,
+  .Toast-warning,
+  .Toast-error
+) > cm-icon:first-child {
   margin-left: 4px;
 }
 
@@ -2247,5 +2248,22 @@ input:focus + .Button
 .ButtonGroup > .Button:first-of-type {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+cm-copy {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+cm-copy > button .Icon-svg {
+  stroke: var(--color-border-default);
+}
+
+cm-copy > button:is(:focus, :hover) .Icon-svg {
+  stroke: var(--color-border-attn-default);
+}
+
+cm-copy > button:active .Icon-svg {
+  stroke: var(--color-border-active-default);
 }
 
