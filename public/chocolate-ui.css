@@ -31,6 +31,7 @@ fieldset > legend {
 h1, h2, h3, h4, h5, h6, input, select, button, textarea {
   font-weight: inherit;
   font-size: inherit;
+  font-family: inherit;
 }
 
 em, i {
@@ -50,47 +51,6 @@ button {
 [hidden] {
   display: none!important;
   visibility: hidden!important;
-}
-
-cm-coin {
-  display: inline-block;
-  width: max-content;
-  height: max-content;
-  flex-shrink: 0;
-  vertical-align: baseline;
-}
-
-.Coin-svg {
-  /** 24px **/
-  width: 1.71rem;
-  height: 1.71rem;
-}
-
-.Coin-s > .Coin-svg {
-  /** 16px **/
-  width: 1.14rem;
-  height: 1.14rem;
-}
-
-.Coin-l > .Coin-svg {
-  /** 40px **/
-  width: 2.86rem;
-  height: 2.86rem;
-}
-
-.Coin-xl > .Coin-svg {
-  /** 68px **/
-  width: 4.86rem;
-  height: 4.86rem;
-}
-
-.Coin-sprite-hider {
-  overflow: hidden;
-  width: 0;
-  height: 0;
-  position: fixed;
-  top: -1px;
-  left: -1px;
 }
 
 .Microlayout-flex-h {
@@ -232,6 +192,7 @@ cm-toggler {
   --color-separator-line-lighter: var(--color-primary-lighter-purple);
   --color-highlighted-item: var(--color-primary-lighter-purple);
   --color-link: var(--color-secondary-darker-blue);
+  --color-focus-outline: var(--color-secondary-dark-blue);
 
   --style-gap-xs: 0.143em;  /* ~2px */
   --style-gap-s: 0.285em;   /* ~4px */
@@ -366,8 +327,9 @@ cm-toggler {
   --color-input-border-attn: var(--color-primary-new-purple);
   --color-input-border-error: var(--color-secondary-red);
 
-  /** Accordion */
-  --color-accordion-hover-color: var(--color-primary-light-purple);
+  /** Accordion and list */
+  --color-accordion-hover-face: var(--color-primary-light-purple);
+  --color-accordion-hover-label: var(--color-text);
 
   /** Table */
   --color-table-border: var(--color-primary-lighter-purple);
@@ -437,12 +399,24 @@ body::-webkit-scrollbar-thumb {
   background-color: var(--color-scrollbar-thumb);
 }
 
+body:not([data-pointer]) :is(
+  *:focus,
+  input:is([type=radio], [type=checkbox]):focus + label
+) {
+  outline: 2px solid var(--color-focus-outline);
+  outline-offset: 1px;
+}
+
 /* For assistive technology (AT) users only */
 .AT-only {
   position: absolute;
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+}
+
+body:not([data-pointer]) label:focus {
+  border-radius: var(--style-corner-default);
 }
 
 .Accordion > summary {
@@ -459,7 +433,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .Accordion > summary:is(:hover, :focus) {
-  background-color: var(--color-accordion-hover-color);
+  background-color: var(--color-accordion-hover-face);
 }
 
 .Accordion > summary {
@@ -609,7 +583,6 @@ body::-webkit-scrollbar-thumb {
 .Button:hover,
 .Button:focus,
 .Button-active,
-cm-dropdown[open] > .Button,
 input:is([type=radio], [type=checkbox]):focus + .Button {
   background-color: var(--color-face-attn-default);
   color: var(--color-label-attn-default);
@@ -845,6 +818,7 @@ input:is([type=radio], [type=checkbox])[disabled] > :is(
   background: transparent;
   cursor: pointer;
   color: var(--color-label-default);
+  border-radius: var(--style-corner-default);
 }
 
 .Button-clear-inverse {
@@ -869,6 +843,47 @@ input:checked + .Button {
   position: relative;
   top: -1px;
   box-shadow: inset 0 -1px 0 var(--color-border-attn-default);
+}
+
+cm-coin {
+  display: inline-block;
+  width: max-content;
+  height: max-content;
+  flex-shrink: 0;
+  vertical-align: baseline;
+}
+
+.Coin-svg {
+  /** 24px **/
+  width: 1.71rem;
+  height: 1.71rem;
+}
+
+.Coin-s > .Coin-svg {
+  /** 16px **/
+  width: 1.14rem;
+  height: 1.14rem;
+}
+
+.Coin-l > .Coin-svg {
+  /** 40px **/
+  width: 2.86rem;
+  height: 2.86rem;
+}
+
+.Coin-xl > .Coin-svg {
+  /** 68px **/
+  width: 4.86rem;
+  height: 4.86rem;
+}
+
+.Coin-sprite-hider {
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  position: fixed;
+  top: -1px;
+  left: -1px;
 }
 
 cm-color-icon {
@@ -1017,7 +1032,7 @@ cm-dropdown > fieldset[disabled] {
 }
 
 .Dropdown > fieldset input {
-  visibility: hidden;
+  position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
@@ -1031,6 +1046,11 @@ cm-dropdown > fieldset[disabled] {
   border-bottom: var(--style-separator-line-lighter);
 }
 
+.Dropdown > fieldset label:hover,
+.Dropdown > fieldset input:focus + label {
+  background: var(--color-highlighted-item);
+}
+
 .Dropdown > fieldset input:checked + label {
   background: var(--color-face-inverse);
   color: var(--color-label-inverse);
@@ -1038,11 +1058,6 @@ cm-dropdown > fieldset[disabled] {
 
 .Dropdown > fieldset input:checked + label cm-icon > .Icon-svg {
   stroke: var(--color-label-inverse);
-}
-
-.Dropdown > fieldset label:hover,
-.Dropdown > fieldset input:focus + label {
-  background: var(--color-highlighted-item);
 }
 
 .Dropdown > fieldset input:checked + label:hover {
@@ -1197,6 +1212,12 @@ cm-icon {
   color: var(--color-input-border-error);
 }
 
+.Input-label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--style-gap-n);
+}
+
 .Link {
   text-decoration: underline;
 }
@@ -1212,51 +1233,79 @@ cm-icon {
   color: var(--color-link);
 }
 
-.List-l1-label,
-.List-l2-label,
-:is(.List-l1, .List-l2) :is(label, a, .List-label) {
+/** Level 1 items */
+
+.List :is(
+  li > :is(a, button),
+  .List-l2-header > :is(a, button)
+) {
   display: flex;
-  padding: 8px;
   cursor: pointer;
   justify-content: space-between;
-  text-decoration: none;
   color: var(--color-text);
-}
-
-.List-l2 {
-  overflow: hidden;
-}
-
-.List-l1, .List-l2 {
+  width: 100%;
   border: none;
+  background: none;
 }
 
-:is(.List-l1, .List-l2) legend {
-  display: none;
+.List :is(
+  li > :is(a, button),
+  .List-l2-header
+) .Icon-svg {
+  stroke: var(--color-text);
 }
 
-:is(.List-l1, .List-l2) input[type="radio"] {
-  display: none;
+.List :is(a, button):is(:hover, :focus),
+.List .List-l2-header:is(:hover, :focus),
+.List .List-l2-header:is(:hover, :focus) > a,
+.List-l2-header:focus-within {
+  background-color: var(--color-accordion-hover-face);
+  color: var(--color-accordion-hover-label);
 }
 
-:is(.List-l1, .List-l2) :is(label, a, .List-label) {
-  transition:
-    color var(--style-animation-speed-fast),
-    background-color var(--style-animation-speed-fast);
+body:not([data-pointer]) :is(
+  .List :is(a, button):focus,
+  .List .List-l2-header:focus,
+  .List .List-l2-header:focus > a,
+  .List-l2-header:focus-within
+) {
+  border-radius: var(--style-corner-default);
 }
 
-:is(.List-l1 > ul, .List-l1) > li > :is(label, a, .List-label) {
-  font-weight: bold;
+:is(
+  .List .List-l2-header:is(:hover, :focus),
+  .List-l2-header:focus-within
+) .Icon-svg {
+  stroke: var(--color-accordion-hover-label);
+}
+
+.List .List-l2-header {
+  padding: 0 var(--style-gap-n) 0 0;
+}
+
+.List a {
+  text-decoration: none;
+}
+
+.List > li > :is(a, button),
+.List-l2-header > :is(a, button) {
+  font-weight: var(--text-weight-bold);
   font-size: var(--text-size-l);
+  padding: var(--style-gap-n);
 }
 
-:is(.List-l2 > ul, .List-l2) > li > :is(label, a, .List-label) {
+/** Level 2 items */
+
+.List > li ul > li > :is(a, button) {
+  padding: var(--style-gap-n);
   padding-left: var(--text-list-padding);
   position: relative;
+  border: none;
+  background: none;
 }
 
-:is(.List-l2 > ul, .List-l2) > li > :is(label, a, .List-label):before {
-  content: "";
+.List > li ul > li > :is(a, button):before {
+  content: '';
   display: block;
   position: absolute;
   width: var(--text-size-n);
@@ -1267,29 +1316,37 @@ cm-icon {
   top: calc(var(--style-gap-n) * 2);
 }
 
-input[type="radio"]:not(:checked) ~ .List-l2 {
-  height: 0;
-  visibility: hidden;
+.List > li ul > li > :is(a, button):is(:hover, :focus):before {
+  background-color: var(--color-accordion-hover-label);
 }
 
-:is(.List-l1, .List-l2) :is(input[type="radio"]:checked + label, .List-selected) {
+/* Selected */
+
+.List li {
+  transition:
+    color var(--style-animation-speed-fast),
+    background-color var(--style-animation-speed-fast);
+}
+
+.List .List-selected > :is(a, a:hover, a:focus, button, button:hover, button:focus),
+.List .List-selected :is(.List-l2-header, .List-l2-header:hover, .List-l2-header:focus),
+.List .List-selected .List-l2-header > :is(a, a:hover, a:focus, button, button:hover, button:focus) {
   background: var(--color-face-inverse);
   color: var(--color-label-inverse);
 }
 
-:is(.List-l1, .List-l2) :is(input[type="radio"]:checked + label, .List-selected) cm-icon > .Icon-svg {
+:is(
+  .List-selected > :is(a, a:hover, a:focus),
+  .List-selected > :is(button, button:hover, button:focus),
+  .List-selected :is(.List-l2-header, .List-l2-header:hover, .List-l2-header:focus),
+  .List-selected .List-l2-header
+) .Icon-svg {
   stroke: var(--color-label-inverse);
 }
 
-:is(.List-l1, .List-l2) input[type="radio"]:checked + label::before {
-  background-color: var(--color-label-inverse);
-}
-
-:is(
-  .List-selected,
-  :is(.List-l1, .List-l2) input[type="radio"]:checked + label
-) > cm-icon:last-child > .Icon-svg {
-  transform: rotateX(180deg);
+.List > li ul > li > :is(a, button):is(:hover, :focus):before,
+.List .List-selected ul > li > :is(a, button):before {
+  background-color: var(--color-accordion-hover-label);
 }
 
 .Mobile-menu-panel {
@@ -1400,6 +1457,15 @@ cm-paginator {
   align-items: center;
 }
 
+.Paginator-first,
+.Paginator-last,
+.Paginator-next,
+.Paginator-prev,
+.Paginator-page,
+.Paginator-page-m {
+  min-width: 4.5ch;
+}
+
 @media screen and (max-width: 680px) {
   .Paginator-first,
   .Paginator-last,
@@ -1409,6 +1475,7 @@ cm-paginator {
   .Paginator-prev,
   .Paginator-page {
     display: none;
+    visibility: hidden;
   }
 }
 
@@ -1417,6 +1484,7 @@ cm-paginator {
   .Paginator-end,
   .Paginator-page-m {
     display: none;
+    visibility: hidden;
   }
 }
 
@@ -1610,12 +1678,17 @@ cm-sidebar[open] {
 }
 
 .Sidebar-extras {
+  --color-text: var(--color-sidebar-text);
+  --color-face-inverse: var(--color-sidebar-text);
+  --color-label-inverse: var(--color-primary-darker-purple);
+  --color-accordion-hover-label: var(--color-primary-darker-purple);
   padding: var(--style-sidebar-content-padding);
   background-color: var(--color-sidebar-content-bg);
   color: var(--color-sidebar-text);
   width: var(--sidebar-extras-width);
   min-height: 100%;
   display: flex;
+  flex-direction: column;
   gap: var(--style-gap-n);
 }
 
@@ -1639,6 +1712,13 @@ cm-sidebar[open] {
   border: none;
   padding: var(--style-gap-s);
   cursor: pointer;
+  max-width: max-content;
+  max-height: max-content;
+  flex-shrink: 0;
+}
+
+body:not([data-pointer]) :is(.Sidebar-button, .Sidebar-toggle-button) {
+  border-radius: var(--style-corner-default);
 }
 
 .Sidebar-button[disabled] > cm-icon > svg {
@@ -1769,9 +1849,9 @@ cm-table thead th {
 
 .Tabs > input {
   position: absolute;
-  visibility: hidden;
   width: 0;
   height: 0;
+  opacity: 0;
 }
 
 .Tabs > label {
@@ -1991,7 +2071,9 @@ cm-table thead th {
 }
 
 .Text-content h6,
-.Text-heading-6 {
+.Text-heading-6,
+cm-table thead th,
+.Input-label > :not(input, select, textarea) {
   font-size: var(--text-size-s);
   font-weight: var(--text-weight-bold);
   text-transform: uppercase;

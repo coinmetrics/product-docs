@@ -1,3 +1,20 @@
+(() => {
+  'use strict'
+
+  let CUE_EVT_OPTS = { passive: true, once: true }
+
+  let kbdCueOff = () => {
+    document.body.setAttribute('data-pointer', '')
+    window.addEventListener('keydown', kbdCueOn, CUE_EVT_OPTS)
+  }
+  let kbdCueOn = () => {
+    document.body.removeAttribute('data-pointer')
+    window.addEventListener('pointerdown', kbdCueOff, CUE_EVT_OPTS)
+  }
+
+  kbdCueOff()
+})();
+
 (CM => {
   'use strict'
 
@@ -70,33 +87,13 @@
   }
 })(window.__CM = window.__CM || {});
 
-(() => {
-  'use strict'
-
-  const NO_BG_SUFFIX = '-nobg'
-  const PREFIX = 'cm-icon-coin-'
-
-  let iconIds
-
-  let getIcons = () => iconIds || (
-    iconIds = fetch('https://cdn.coinmetrics.io/crypto-icons-v2.svg')
-      .then(res => res.text())
-      .then(svg => {
-        let $d = document.createElement('div')
-        $d.className = 'Coin-sprite-hider'
-        $d.innerHTML = svg
-        document.body.append($d)
-        return new Set(Array.from(svg.matchAll(/<symbol .*?id="([^"]+)"/g)).map(x => x[1].replace(PREFIX, '')))
-      })
-      .catch(() => ({ svg: '', ids: new Set() }))
-  )
-
-  customElements.define('cm-coin', class extends HTMLElement {
+(CM => {
+  class IconBase extends HTMLElement {
     constructor() {
       super()
 
-      let nameIndex
-      this.setAttribute('alt', this.textContent.trim())
+      let $icon
+      let $title
 
       Object.defineProperties(this, {
         name: {
@@ -105,57 +102,50 @@
         },
         alt: {
           set: x => this.setAttribute('alt', x),
-          get: () => this.getAttribute('alt') ?? this.name?.toUpperCase(),
+          get: () => this.getAttribute('alt') ?? '',
         },
       })
+      this.getIcons()
+    }
 
-      let getIconId = () => {
-        let name = this.name.toLowerCase()
-        if (!nameIndex) return name
-        if (nameIndex.has(name)) return name
-        if (name.startsWith('cmbi')) {
-          if (name.endsWith(NO_BG_SUFFIX)) return 'cm' + NO_BG_SUFFIX
-          return 'cm'
-        }
-        return 'generic'
-      }
+    getIcons() {}
 
-      let $icon
-      let $title
-
-      let updateIcon = this.updateIcon = () => $icon?.setAttribute('href', '#' + PREFIX + getIconId())
-      this.updateTitle = () => {if ($title) $title.textContent = this.alt}
-
-      this.innerHTML = ''
-      this.append(Object.assign(document.createElement('template'), {
-        innerHTML: `
-          <svg class="Coin-svg" viewBox="0 0 32 32">
-            ${this.alt && `<title>${this.alt}</title>`}
-            <use href="#${PREFIX}${getIconId()}"></use>
-          </svg>
-        `,
-      }).content)
-      $icon = this.querySelector('use')
-      $title = this.querySelector('title')
-
-      getIcons().then((ids) => {
-        nameIndex = ids
-        updateIcon()
-      })
+    updateIcon() {
+      this.querySelector('use')?.setAttribute('href', '#' + this.prefix + this.name)
     }
 
     static get observedAttributes() { return ['name'] }
 
     attributeChangedCallback(name) {
-      switch (name) {
-        case 'name':
-          return this.updateIcon()
-        case 'alt':
-          return this.updateTitle()
+      if (name === 'name') this.updateIcon()
+      if (name === 'alt') this.updateTitle()
+    }
+
+    connectedCallback() {
+      this.alt = this.textContent.trim()
+    }
+
+    disconnectedCallback() {
+      this.innerHTML = ''
+      this.textContent = this.alt
+    }
+
+    updateTitle() {
+      let $icon = this.querySelector('use')
+      let $title = this.querySelector('title')
+      if (this.alt) {
+        if (!$title) $icon.parentNode.insertBefore($icon, $title = document.createElement('title'))
+        $title.textContent = this.alt
+      } else {
+        $title?.remove()
       }
     }
-  })
-})();
+  }
+
+  CM.iconBase = {
+    IconBase,
+  }
+})(window.__CM = window.__CM || {});
 
 (CM => {
   'use strict'
@@ -374,14 +364,24 @@
           get: () => this.getAttribute('for'),
         },
       })
+    }
 
-      this.onclick = () => {
+    connectedCallback() {
+      let onClick = () => {
         let $target = document.getElementById(this.htmlFor)
+        if (!$target) return
         // `setTimeout()` causes the toggling to wait until the event has
         // bubbled up to document.body and handled by elements that listen to
         // 'outside' events, so they don't self-close immediately.
-        if ($target) setTimeout(() => $target.toggleAttribute('open'))
+        setTimeout(() => $target.toggleAttribute('open'))
       }
+      this.addEventListener('click', onClick)
+      this.onstop = () => this.removeEventListener('click', onClick)
+    }
+
+    disconnectedCallback() {
+      this.onstop()
+      this.onstop = null
     }
   })
 })();
@@ -428,11 +428,15 @@
     constructor() {
       super()
 
+      this.onstop = () => {}
+    }
+
+    connectedCallback() {
       let $details = this.querySelector(':scope > .Accordion')
       let $summary = $details.querySelector(':scope > summary')
       let $content = $details.querySelector(':scope > :last-child')
 
-      $summary.addEventListener('click', ev => {
+      let onSummaryClick = ev => {
         ev.preventDefault()
 
         if ($details.open) {
@@ -456,7 +460,14 @@
           $content.classList.remove('Accordion-content-collapsed')
           doFlip()
         }
-      })
+      }
+
+      $summary.addEventListener('click', onSummaryClick)
+      this.onstop = () => $summary.removeEventListener('click', onSummaryClick)
+    }
+
+    disconnectedCallback() {
+      this.onstop()
     }
   })
 
@@ -464,33 +475,100 @@
     constructor() {
       super()
 
-      let $openAccordion = this.querySelector(':scope > cm-accordion > dialog[open]')
+      this.onstop = []
+    }
 
-      let closeOpenAccordion = () => {
-        if (!$openAccordion) return
-        $openAccordion.removeAttribute('open')
-        $openAccordion = null
+    connectedCallback() {
+      let onToggle = ev => {
+        let $$openAccordions = this.querySelectorAll('cm-accordion details[open]')
+        $$openAccordions.forEach($ => {
+          if ($ === ev.target) return
+          $.open = false
+        })
       }
-      let updateOpenAccordionRef = $el => {
-        if ($el.hasAttribute('open')) $openAccordion = $el
+      let onClick = ev => {
+        // Handle cases where accordions are mixed with non-accordion content (e.g., list)
+        if (ev.target.closest('cm-accordion')) return
+        this.dispatchEvent(new Event('toggle'))
       }
 
-      let onAccordionToggled = $el => {
-        closeOpenAccordion()
-        updateOpenAccordionRef($el)
-      }
+      this.addEventListener('toggle', onToggle)
+      this.addEventListener('click', onClick)
 
-      this.addEventListener('toggle', ev => {
-        if (ev.target.parentNode.parentNode === this) onAccordionToggled(ev.target)
-      })
+      this.onstop.push(
+        () => this.removeEventListener('toggle', onToggle),
+        () => this.removeEventListener('click', onClick)
+      )
+    }
+
+    disconnectedCallback() {
+      this.onstop.forEach(f => f())
+      this.onstop.length = 0
     }
   })
 })(window.__CM = window.__CM || {});
 
-(() => {
+(CM => {
   'use strict'
 
-  const PREFIX = 'cm-icon-color-'
+  let { IconBase } = CM.iconBase
+
+  const NO_BG_SUFFIX = '-nobg'
+  const PREFIX = 'cm-icon-coin-'
+
+  let iconIds
+  let nameIndex
+
+  let getIcons = () => iconIds || (
+    iconIds = fetch('https://cdn.coinmetrics.io/crypto-icons-v2.svg')
+      .then(res => res.text())
+      .then(svg => {
+        let $d = document.createElement('div')
+        $d.className = 'Coin-sprite-hider'
+        $d.innerHTML = svg
+        document.body.append($d)
+        nameIndex = new Set(Array.from(svg.matchAll(/<symbol .*?id="([^"]+)"/g)).map(x => x[1].replace(PREFIX, '')))
+      })
+      .catch(() => {})
+  )
+
+  customElements.define('cm-coin', class extends IconBase {
+    get prefix() { return 'cm-icon-coin-' }
+
+    getIcons() { getIcons() }
+
+    get iconId() {
+      let name = this.name.toLowerCase()
+      if (!nameIndex) return name
+      if (nameIndex.has(name)) return name
+      if (name.startsWith('cmbi')) {
+        if (name.endsWith(NO_BG_SUFFIX)) return 'cm' + NO_BG_SUFFIX
+        return 'cm'
+      }
+      return 'generic'
+    }
+
+    updateIcon() {
+      this.querySelector('use')?.setAttribute('href', '#' + this.prefix + this.iconId)
+    }
+
+    connectedCallback() {
+      super.connectedCallback()
+      this.innerHTML = `
+        <svg class="Coin-svg" viewBox="0 0 32 32" tabindex="-1">
+          ${this.alt && `<title>${this.alt}</title>`}
+          <use href="#${this.prefix}${this.name}" tabindex="-1"></use>
+        </svg>
+      `
+      getIcons().then(() => this.updateIcon())
+    }
+  })
+})(window.__CM ??= {});
+
+(CM => {
+  'use strict'
+
+  let { IconBase } = CM.iconBase
 
   let iconCache
   let getIcons = () => iconCache || (
@@ -506,61 +584,22 @@
       .catch(() => '')
   )
 
-  customElements.define('cm-color-icon', class extends HTMLElement {
-    constructor() {
-      super()
+  customElements.define('cm-color-icon', class extends IconBase {
+    get prefix() { return 'cm-icon-color-' }
 
-      this.setAttribute('alt', this.textContent.trim())
+    getIcons() { getIcons() }
 
-      Object.defineProperties(this, {
-        name: {
-          set: x => this.setAttribute('name', x),
-          get: () => this.getAttribute('name'),
-        },
-        alt: {
-          set: x => this.setAttribute('alt', x),
-          get: () => this.getAttribute('alt') ?? '',
-        },
-      })
-
-      let $icon
-      let $title
-
-      this.updateIcon = () => $icon.setAttribute('href', '#' + PREFIX + this.name)
-      this.updateTitle = () => {
-        if (this.alt) {
-          if (!$title) $icon.parentNode.insertBefore($icon, $title = document.createElement('title'))
-          $title.textContent = this.alt
-        } else if ($title) $title.remove()
-      }
-
-      getIcons()
-
-      this.innerHTML = ''
-      this.append(Object.assign(document.createElement('template'), {
-        innerHTML: `
-          <svg class="Color-icon-svg" viewBox="0 0 24 24">
-            ${this.alt && `<title>${this.alt}</title>`}
-            <use href="#${PREFIX}${this.name}"></use>
-          </svg>
-        `
-      }).content)
-      $title = this.querySelector('title')
-      $icon = this.querySelector('use')
-    }
-
-    static get observedAttributes() { return ['name'] }
-
-    attributeChangedCallback(name) {
-      switch (name) {
-        case 'name':
-          return this.updateIcon()
-        case 'alt':
-          return this.updateTitle()
-      }
+    connectedCallback() {
+      super.connectedCallback()
+      this.innerHTML = `
+        <svg class="Color-icon-svg" viewBox="0 0 24 24" tabindex="-1">
+          ${this.alt && `<title>${this.alt}</title>`}
+          <use href="#${this.prefix}${this.name}" tabindex="-1"></use>
+        </svg>
+      `
     }
   })
-})();
+})(window.__CM ??= {});
 
 (CM => {
   'use strict'
@@ -568,9 +607,7 @@
   let gap = CM.properties.getCSSProp('style-gap-xs')
 
   customElements.define('cm-dropdown', class extends HTMLElement {
-    constructor() {
-      super()
-
+    connectedCallback() {
       let $details = this.querySelector('.Dropdown')
       let $dropdownList = $details.querySelector('fieldset')
       let $button = $details.querySelector('summary')
@@ -604,6 +641,7 @@
               if ($next.tagName !== 'INPUT') continue
               $next.checked = true
               $next.dispatchEvent(new Event('change', { bubbles: true }))
+              $next.focus()
               break
             }
             break
@@ -619,6 +657,7 @@
               if ($prev.tagName !== 'INPUT') continue
               $prev.checked = true
               $prev.dispatchEvent(new Event('change', { bubbles: true }))
+              $prev.focus()
               break
             }
             break
@@ -663,10 +702,10 @@
   })
 })(window.__CM = window.__CM || {});
 
-(() => {
+(CM => {
   'use strict'
 
-  const PREFIX = 'cm-icon-'
+  let { IconBase } = CM.iconBase
 
   let iconCache
   let getIcons = () => iconCache || (
@@ -679,102 +718,75 @@
         document.body.append($d)
         return true
       })
-      .catch(() => '')
+      .catch(() => {})
   )
 
-  customElements.define('cm-icon', class extends HTMLElement {
-    constructor() {
-      super()
+  customElements.define('cm-icon', class extends IconBase {
+    get prefix() { return 'cm-icon-' }
 
-      this.setAttribute('alt', this.textContent.trim())
+    getIcons() { getIcons() }
 
-      Object.defineProperties(this, {
-        name: {
-          set: x => this.setAttribute('name', x),
-          get: () => this.getAttribute('name'),
-        },
-        alt: {
-          set: x => this.setAttribute('alt', x),
-          get: () => this.getAttribute('alt') ?? '',
-        },
-      })
-
-      let $icon
-      let $title
-
-      this.updateIcon = () => $icon?.setAttribute('href', '#' + PREFIX + this.name)
-      this.updateTitle = () => {
-        if (this.alt) {
-          if (!$title) $icon.parentNode.insertBefore($icon, $title = document.createElement('title'))
-          $title.textContent = this.alt
-        } else if ($title) $title.remove()
-      }
-
-      getIcons()
-
-      this.innerHTML = ''
-      this.append(Object.assign(document.createElement('template'), {
-        innerHTML: `
-          <svg class="Icon-svg" viewBox="0 0 24 24">
-            ${this.alt && `<title>${this.alt}</title>`}
-            <use href="#${PREFIX}${this.name}"></use>
-          </svg>
-        `
-      }).content)
-      $icon = this.querySelector('use')
-      $title = this.querySelector('title')
-    }
-
-    static get observedAttributes() { return ['name'] }
-
-    attributeChangedCallback(name) {
-      switch (name) {
-        case 'name':
-          return this.updateIcon()
-        case 'alt':
-          return this.updateTitle()
-      }
+    connectedCallback() {
+      super.connectedCallback()
+      this.innerHTML = `
+        <svg class="Icon-svg" viewBox="0 0 24 24" tabindex="-1">
+          ${this.alt && `<title>${this.alt}</title>`}
+          <use href="#${this.prefix}${this.name}" tabindex="-1"></use>
+        </svg>
+      `
     }
   })
-})();
+})(window.__CM ??= {});
 
-(CM => {
+(() => {
+  'use strict'
+
   customElements.define('cm-list', class extends HTMLElement {
     constructor() {
       super()
 
-      this.addEventListener('click', ev => {
-        let $opt = ev.target.closest('li')
-        if (!$opt) return console.warn('Click from non-list-item element', ev.target)
-
-        // Check for suboptions and/or other suboptions that are currently open
-        let $subopts = $opt.querySelector('.List-l2')
-        let $otherSubopts = $opt.closest('.List-l1').querySelector('input:checked ~ .List-l2')
-        if (!$subopts && !$otherSubopts) return // no, we don't
-
-        ev.preventDefault()
-
-        let $input = $opt.firstElementChild
-
-        let flips = []
-        if ($otherSubopts) flips.push(CM.animation.startFLIP($otherSubopts, { properties: { height: true, visibility: true }}))
-
-        let $eventTarget = $input
-
-        if ($subopts) {
-          flips.push(CM.animation.startFLIP($subopts, { properties: { height: true, visibility: true } }))
-          let $first = $subopts.querySelector('input[type=radio]')
-          if ($first) $first.checked = true
-          if ($first?.value) $eventTarget = $first
+      Object.defineProperties(this, {
+        value: {
+          set: x => this.setAttribute('value', x),
+          get: () => this.getAttribute('value'),
         }
+      })
+    }
 
-        $input.checked = true
-        $eventTarget.dispatchEvent(new Event('change', { bubbles: true }))
-        flips.forEach(f => f())
-      }, false)
+    static get observedAttributes() { return ['value'] }
+
+    attributeChangedCallback() {
+      this.querySelector('.List-selected')?.classList.remove('List-selected')
+      let $tgt = this.querySelector(`[data-value="${this.value}"],[href="${this.value}"]`)
+      if (!$tgt) return
+      $tgt.closest('li').classList.add('List-selected')
+      let $l2 = $tgt.closest('details:not([open])')
+      if ($l2) $l2.open = true
+    }
+
+    connectedCallback() {
+      let onClick = ev => {
+        let $tgt = ev.target.closest('a, button')
+        if ($tgt.tagName === 'A') ev.preventDefault()
+
+        this.querySelector('.List-selected')?.classList.remove('List-selected')
+        $tgt.closest('li').classList.add('List-selected')
+        this.value = $tgt.dataset.value || $tgt.getAttribute('href')
+        let chg = new Event('change', { bubbles: true })
+        Object.defineProperty(chg, 'target', { value: this, writable: false })
+        this.dispatchEvent(chg)
+        if (this.onchange) this.onchange(chg)
+      }
+      this.addEventListener('click', onClick)
+      this.onstop = () => this.removeEventListener('click', onClick)
+    }
+
+    disconnectedCallback() {
+      this.onstop()
+      this.onstop = null
     }
   })
-})(window.__CM = window.__CM || {});
+})();
 
 (() => {
   'use strict'
@@ -793,7 +805,15 @@
           get: () => Number(this.getAttribute('current'))
         },
       })
+    }
 
+    static get observedAttributes() { return ['total', 'current'] }
+
+    attributeChangedCallback() {
+      this.updatePaginator?.()
+    }
+
+    connectedCallback() {
       let $start
       let $prev
       let $first
@@ -805,61 +825,36 @@
       let $next
       let $end
 
-      let renderPaginator = () => {
-        this.innerHTML = `
-          <button class="Button Paginator-start" data-target="1"><cm-icon name="chevrons-left">first page</cm-icon></button>
-          <button class="Button Paginator-prev"><cm-icon name="chevron-left">previous page</cm-icon></button>
-          <button class="Button Paginator-first" data-target="1" title="page 1">1</button>
-          <cm-icon class="Paginator-more-prev" name="more-horizontal"></cm-icon>
-          <button class="Button Paginator-page"></button>
-          <button class="Button Paginator-page"></button>
-          <button class="Button Paginator-page"></button>
-          <button class="Button Paginator-page"></button>
-          <button class="Button Paginator-page"></button>
-          <button class="Button Paginator-page-m"></button>
-          <button class="Button Paginator-page-m"></button>
-          <button class="Button Paginator-page-m"></button>
-          <cm-icon class="Paginator-more-next" name="more-horizontal"></cm-icon>
-          <button class="Button Paginator-last"></button>
-          <button class="Button Paginator-next"><cm-icon name="chevron-right">next page</cm-icon></button>
-          <button class="Button Paginator-end"><cm-icon name="chevrons-right">last page</cm-icon></button>
-        `
-
-        $start = this.querySelector('.Paginator-start')
-        $prev = this.querySelector('.Paginator-prev')
-        $first = this.querySelector('.Paginator-first')
-        $morePrev = this.querySelector('.Paginator-more-prev')
-        $$pages = this.querySelectorAll('.Paginator-page')
-        $$pagesMobile = this.querySelectorAll('.Paginator-page-m')
-        $moreNext = this.querySelector('.Paginator-more-next')
-        $last = this.querySelector('.Paginator-last')
-        $next = this.querySelector('.Paginator-next')
-        $end = this.querySelector('.Paginator-end')
-      }
-      let updatePages = $$pageSet => {
+      let updatePages = ($$pageSet, min, max) => {
         let { total, current } = this
-        let pageCount = $$pageSet.length
-        let pagesOnSide = (pageCount - 1) / 2
-
-        let pageMin = Math.max(1, Math.min(total - pageCount, current - pagesOnSide))
-        let pageMax = Math.min(total, pageMin + pagesOnSide * 2)
-
         $$pageSet.forEach(($, i) => {
-          let pageNo = pageMin + i
-          $.hidden = pageNo > pageMax
+          let pageNo = min + i
+          $.hidden = pageNo > max
           $.dataset.target = $.textContent = pageNo
           $.title = 'page ' + pageNo + (pageNo === total ? ' (last page)' : '')
           $.disabled = pageNo === current
         })
-
-        return { pageMin, pageMax }
       }
       let updatePaginator = this.updatePaginator = () => {
         let { total, current } = this
 
-        // Calculate the page range to be shown
-        let { pageMin, pageMax } = updatePages($$pages)
-        updatePages($$pagesMobile)
+        let pageMin, pageMax
+
+        { // Update non-mobile pages
+          let pageCount = $$pages.length
+          let pagesOnSide = (pageCount - 1) / 2
+          pageMin = Math.max(1, Math.min(total - pageCount, current - pagesOnSide))
+          pageMax = Math.min(total, pageMin + pagesOnSide * 2)
+          updatePages($$pages, pageMin, pageMax)
+        }
+
+        { // Update mobile pages
+          let pageMobileCount = $$pagesMobile.length
+          let pageMobileOnSide = (pageMobileCount - 1) / 2
+          let pageMobileMin = Math.max(1, Math.min(total - (pageMobileOnSide * 2), current - pageMobileOnSide))
+          let pageMobileMax = Math.min(total, pageMobileMin + pageMobileOnSide * 2)
+          updatePages($$pagesMobile, pageMobileMin, pageMobileMax)
+        }
 
         let isFirst = current === 1
         let isLast = current === total
@@ -880,7 +875,7 @@
         let showLast = pageMax !== total
         let hasRightGap = pageMax < total - 1
         $last.hidden = !showLast || !showExtraButtons
-        $last.dataset.target = $last.textContent = total
+        $last.dataset.target = $end.dataset.target = $last.textContent = total
         $last.disabled = isLast
         $last.title = 'page ' + total + ' (last page)'
         $moreNext.hidden = !hasRightGap || !showExtraButtons
@@ -891,19 +886,51 @@
         this.dispatchEvent(new Event('change'))
       }
 
-      renderPaginator()
+      this.innerHTML = `
+          <button class="Button Paginator-start" data-target="1"><cm-icon name="chevrons-left">first page</cm-icon></button>
+          <button class="Button Paginator-prev"><cm-icon name="chevron-left">previous page</cm-icon></button>
+          <button class="Button Paginator-first" data-target="1" title="page 1">1</button>
+          <cm-icon class="Paginator-more-prev" name="more-horizontal"></cm-icon>
+          <button class="Button Paginator-page"></button>
+          <button class="Button Paginator-page"></button>
+          <button class="Button Paginator-page"></button>
+          <button class="Button Paginator-page"></button>
+          <button class="Button Paginator-page"></button>
+          <button class="Button Paginator-page-m"></button>
+          <button class="Button Paginator-page-m"></button>
+          <button class="Button Paginator-page-m"></button>
+          <cm-icon class="Paginator-more-next" name="more-horizontal"></cm-icon>
+          <button class="Button Paginator-last"></button>
+          <button class="Button Paginator-next"><cm-icon name="chevron-right">next page</cm-icon></button>
+          <button class="Button Paginator-end"><cm-icon name="chevrons-right">last page</cm-icon></button>
+        `
+
+      $start = this.querySelector('.Paginator-start')
+      $prev = this.querySelector('.Paginator-prev')
+      $first = this.querySelector('.Paginator-first')
+      $morePrev = this.querySelector('.Paginator-more-prev')
+      $$pages = this.querySelectorAll('.Paginator-page')
+      $$pagesMobile = this.querySelectorAll('.Paginator-page-m')
+      $moreNext = this.querySelector('.Paginator-more-next')
+      $last = this.querySelector('.Paginator-last')
+      $next = this.querySelector('.Paginator-next')
+      $end = this.querySelector('.Paginator-end')
       updatePaginator()
-      this.onclick = ev => {
+
+      let onClick = ev => {
         let $target = ev.target.closest('button[data-target]:not([disabled])')
         if (!$target) return
         onPage($target.dataset.target)
       }
+      this.addEventListener('click', onClick)
+      this.onstop = () => this.removeEventListener('click', onClick)
     }
 
-    static get observedAttributes() { return ['total', 'current'] }
-
-    attributeChangedCallback() {
-      this.updatePaginator()
+    disconnectedCallback() {
+      this.onstop()
+      this.onstop = null
+      this.updatePaginator = null
+      this.innerHTML = ''
     }
   })
 })();
@@ -911,52 +938,47 @@
 (CM => {
   'use strict'
 
+  let { position } = CM
+
   customElements.define('cm-popup', class extends HTMLElement {
     constructor() {
       super()
+      this.onstop = []
+    }
 
-      let defaultIcon
-      let defaultAlt
-
+    connectedCallback() {
       let $details = this.firstElementChild
-      let $button = $details.firstElementChild
+
+      if (!$details) throw Error('<cm-popup> must not be empty')
+
       let $dialog = $details.lastElementChild
-      let $icon = $button.querySelector(':scope > cm-icon')
+      let $button = $details.firstElementChild
+      let $icon = $button.querySelector(':scope > cm-icon') || { name: '', alt: '' }
+      let defaultIcon = $icon.name
+      let defaultAlt = $icon.alt
       let gap = CM.properties.getEmOrRemSize(CM.properties.getCompStyl(this).getPropertyValue('--style-popup-gap'), $button)
 
-      if ($icon) {
-        defaultIcon = $icon.name
-        defaultAlt = $icon.alt
-      }
-
-      let updateIcon = () => {
-        if ($icon) {
-          if ($details.open) {
-            $icon.name = 'x'
-            $icon.alt = 'close'
-          }
-          else {
-            $icon.name = defaultIcon
-            $icon.alt = defaultAlt
-          }
-        }
-      }
-      let updatePopupOrientation = () => {
-        let pos = CM.position.relPos($button, $dialog, gap)
+      let iconOpenCloseProperties = [
+        { name: defaultIcon, alt: defaultAlt },
+        { name: 'x', alt: 'close' },
+      ]
+      let updateIcon = () => Object.assign($icon, iconOpenCloseProperties[$details.open])
+      let updateOrientation = () => {
+        let pos = position.relPos($button, $dialog, gap)
         let direction
         let alignment
         if (pos.isWide) {
-          direction = CM.position.DIR_BELOW
-          alignment = CM.position.ALIGN_LEFT
-          if (!pos.clearsBottom) direction = CM.position.DIR_ABOVE
-          if (!pos.overhangsRight) alignment = CM.position.ALIGN_RIGHT
+          direction = position.DIR_BELOW
+          alignment = position.ALIGN_LEFT
+          if (!pos.clearsBottom) direction = position.DIR_ABOVE
+          if (!pos.overhangsRight) alignment = position.ALIGN_RIGHT
         } else {
-          direction = CM.position.DIR_RIGHT
-          alignment = CM.position.ALIGN_TOP
-          if (!pos.clearsRight) direction = CM.position.DIR_LEFT
-          if (!pos.overhangsBottom) alignment = CM.position.ALIGN_BOTTOM
+          direction = position.DIR_RIGHT
+          alignment = position.ALIGN_TOP
+          if (!pos.clearsRight) direction = position.DIR_LEFT
+          if (!pos.overhangsBottom) alignment = position.ALIGN_BOTTOM
         }
-        let p = CM.position.position(direction, alignment, pos)
+        let p = position.position(direction, alignment, pos)
         let s = $dialog.style
         s.setProperty('--popup-dialog-top', p.top)
         s.setProperty('--popup-dialog-left', p.left)
@@ -964,25 +986,29 @@
         s.setProperty('--popup-dialog-bottom', p.bottom)
       }
 
-      $details.addEventListener('toggle', () => {
+      let onDetailsToggle = () => {
         updateIcon()
-        if ($details.open) updatePopupOrientation()
-      })
+        if ($details.open) updateOrientation()
+      }
+      $details.addEventListener('toggle', onDetailsToggle)
 
-      this.onStop = [
+      this.onstop.push(
+        () => $details.removeEventListener('toggle', onDetailsToggle),
         CM.events.onClickOutside(this, ev => {
           if ($dialog.contains(ev.target)) return
           $details.open = false
         }),
         CM.events.onLayoutChange(() => {
-          if ($details.open) updatePopupOrientation()
-        }),
-      ]
-      updatePopupOrientation()
+          if ($details.open) updateOrientation()
+        })
+      )
+
+      updateOrientation()
     }
 
     disconnectedCallback() {
-      this.onStop.forEach(f => f())
+      this.onstop.forEach(f => f())
+      this.onstop = []
     }
   })
 })(window.__CM = window.__CM || {});
@@ -991,12 +1017,15 @@
   'use strict'
 
   customElements.define('cm-scrollbox-relay', class extends HTMLElement {
-    constructor() {
-      super()
+    connectedCallback() {
+      let onScroll = () => window.dispatchEvent(new Event('scroll'))
+      this.firstElementChild.addEventListener('scroll', onScroll)
+      this.onstop = () => this.firstElementChild.removeEventListener('scroll', onScroll)
+    }
 
-      this.firstElementChild.addEventListener('scroll', () =>
-        window.dispatchEvent(new Event('scroll'))
-      )
+    disconnectedCallback() {
+      this.onstop()
+      this.onstop = null
     }
   })
 })();
@@ -1014,14 +1043,17 @@
           set: x => this.toggleAttribute('open', x)
         }
       })
+    }
 
-      let $btn = this.querySelector('.Sidebar-toggle-button')
+    connectedCallback() {
+      this.onstop = CM.events.onClickOutside(this, () => this.removeAttribute('open'))
+      if (this.$btn) return
+      this.$btn = this.querySelector('.Sidebar-toggle-button')
+      this.$btn?.addEventListener('click', () => this.toggleAttribute('open'))
+    }
 
-      let onToggleOpenExtras = () => this.toggleAttribute('open')
-      let onCloseExtras = () => this.removeAttribute('open')
-
-      if ($btn) $btn.onclick = onToggleOpenExtras
-      CM.events.onClickOutside(this, onCloseExtras)
+    disconnectedCallback() {
+      this.onstop()
     }
   })
 })(window.__CM = window.__CM || {});
@@ -1035,6 +1067,10 @@
     constructor() {
       super()
 
+      this.onstop = []
+    }
+
+    connectedCallback() {
       let isIntersecting = false
 
       let $clearEl = document.querySelector(this.getAttribute('clear'))
@@ -1072,14 +1108,15 @@
 
       stopAdjusting()
       updateColWidth()
-      this.onStop = [
+      this.onstop.push(
         stopAdjusting,
         CM.events.onLayoutChange(updateColWidth)
-      ]
+      )
     }
 
     disconnectedCallback() {
-      this.onStop.forEach(f => f())
+      this.onstop.forEach(f => f())
+      this.onstop.length = 0
     }
   })
 })(window.__CM = window.__CM || {});
@@ -1088,9 +1125,7 @@
   'use strict'
 
   customElements.define('cm-tabs', class extends HTMLElement {
-    constructor() {
-      super()
-
+    connectedCallback() {
       let $fieldset = this.firstElementChild
       let $$tabs = $fieldset.querySelectorAll(`input`)
       let $activeTab
@@ -1106,13 +1141,21 @@
         if ($tab.checked) $activeTab = $content
       }
       $fieldset.disabled = $fieldset.hidden = false
-      this.addEventListener('change', ev => {
+
+      let onChange = ev => {
         let $input = ev.target
         if ($activeTab) $activeTab.hidden = true
         $activeTab = $$tabContent[$input.value]
         if (!$activeTab) return // no content associated with tabs
         $activeTab.hidden = false
-      })
+      }
+      this.addEventListener('change', onChange)
+      this.onstop = () => this.removeEventListener('change', onChange)
+    }
+
+    disconnectedCallback() {
+      this.onstop()
+      this.onstop = null
     }
   })
 })();
@@ -1141,40 +1184,37 @@
   }
 
   customElements.define('cm-toast-list', class extends HTMLElement {
-    constructor() {
-      super()
-
-      this.PRIORITY = {
-        info: 'info',
-        success: 'success',
-        warning: 'warning',
-        error: 'error',
-      }
+    PRIORITY = {
+      info: 'info',
+      success: 'success',
+      warning: 'warning',
+      error: 'error',
     }
 
     appendToast(content, options) {
-      let { title, icon, actionCallback, actionLabel, priority = 'info' } = options || {}
-      icon = icon ?? PRIORITY_ICONS[priority]
-      let hasAction = actionCallback && actionLabel
+      let { title = '', icon = '', actionCallback, actionLabel = '', priority = 'info' } = options || {}
+      icon = icon || PRIORITY_ICONS[priority] || ''
 
       let $toast = document.createElement('cm-toast')
       $toast.innerHTML = `
         <article class="${PRIORITY_CLASSES[priority]}" role="alert">
-          ${icon ? `<cm-icon name=${icon}></cm-icon>` : ''}
-          ${title ? `<h2 class="Toast-title">${title}</h2>` : ''}
-          ${icon || title ? `<hr>` : ''}
+          ${icon && `<cm-icon name="${icon}"></cm-icon>`}
+          ${title && `<h2 class="Toast-title">${title}</h2>`}
+          ${(icon || title) && '<hr>'}
           <p class="Toast-content">${content}</p>
-          ${hasAction ? `<button class="${PRIORITY_BTN_CLASS[priority]} Toast-action-button">${actionLabel}</button>` : ''}
+          ${actionLabel && `<button class="${PRIORITY_BTN_CLASS[priority]} Toast-action-button">${actionLabel}</button>`}
           <button class="${PRIORITY_BTN_CLASS[priority]} Toast-close-button">
             <cm-icon name="x">Dismiss this message</cm-icon>
           </button>
         </article>
       `
 
-      if (hasAction) {
-        let $btn = $toast.querySelector('.Toast-action-button')
-        if ($btn) $btn.onclick = ev => actionCallback(ev, $toast)
+      let $btn = $toast.querySelector('.Toast-action-button')
+      if ($btn) {
+        if (!actionCallback) throw Error('actionCallback must be provided if actionLabel is specified')
+        $btn.onclick = ev => actionCallback(ev, $toast)
       }
+
       this.append($toast)
     }
 
@@ -1198,18 +1238,7 @@
   customElements.define('cm-toast', class extends HTMLElement {
     constructor() {
       super()
-
-      this.onclick = ev => {
-        if (!ev.target.closest('.Toast-close-button')) return
-        clearTimeout(this.timer)
-        this.clearToast()
-      }
-      this.onmouseenter = () => {
-        clearTimeout(this.timer)
-      }
-      this.onmouseleave = () => {
-        this.connectedCallback()
-      }
+      this.onstop = []
     }
 
     clearToast() {
@@ -1219,10 +1248,36 @@
     }
 
     connectedCallback() {
+      let onClick = ev => {
+        if (!ev.target.closest('.Toast-close-button')) return
+        clearTimeout(this.timer)
+        this.clearToast()
+      }
+      let onMouseenter = () => {
+        clearTimeout(this.timer)
+      }
+      let onMouseleave = () => {
+        this.timer = setTimeout(() => this.clearToast(), TOAST_DURATION)
+      }
+      this.addEventListener('click', onClick)
+      this.addEventListener('mouseenter', onMouseenter)
+      this.addEventListener('mouseleave', onMouseleave)
+      this.onstop.push(
+        () => this.removeEventListener('click', onClick),
+        () => this.removeEventListener('mouseenter', onMouseenter),
+        () => this.removeEventListener('mouseleave', onMouseleave),
+      )
+
       requestAnimationFrame(() => requestAnimationFrame(() => {
         this.classList.add('Toast-shown')
       }))
       this.timer = setTimeout(() => this.clearToast(), TOAST_DURATION)
+    }
+
+    disconnectedCallback() {
+      clearTimeout(this.timer)
+      this.onstop.forEach(f => f())
+      this.onstop.length = 0
     }
   })
 })();
@@ -1284,7 +1339,18 @@
         },
       })
 
-      this.addEventListener('click', () => {
+      this.onstop = null
+    }
+
+    static get observedAttributes() { return ['text'] }
+
+    attributeChangedCallback() {
+      if (!this.firstElementChild) return
+      this.firstElementChild.title = `Copy '${this.text}' to clipboard`
+    }
+
+    connectedCallback() {
+      let onClick = () => {
         navigator.clipboard.writeText(this.text)
           .then(() => {
             let evt = new Event('copy', { bubbles: true })
@@ -1298,24 +1364,21 @@
             this.dispatchEvent(evt)
             if (this.oncopyerror) this.oncopyerror(evt)
           })
-      })
-    }
-
-    static get observedAttributes() { return ['text'] }
-
-    attributeChangedCallback() {
-      if (!this.firstElementChild) return
-      this.firstElementChild.title = `Copy '${this.text}' to clipboard`
-    }
-
-    connectedCallback() {
-      if (this.firstElementChild) return
+      }
+      this.addEventListener('click', onClick)
+      this.onstop = () => this.removeEventListener('click', onClick)
       let $btn
       this.append($btn = Object.assign(document.createElement('button'), {
         className: 'Button-clear',
         title: `Copy '${this.text}' to clipboard`,
       }))
       $btn.innerHTML = '<cm-icon name="copy" class="Icon-s"></cm-icon>'
+    }
+
+    disconnectedCallback() {
+      this.onstop()
+      this.onstop = null
+      this.innerHTML = ''
     }
   })
 })();
