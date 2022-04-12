@@ -39,25 +39,20 @@
   flex: none;
 }
 
-.Nav {
-  width: 280px;
-  flex: none;
+cm-sidebar {
+  --sidebar-extras-width: 300px !important;
 }
 
-.Nav > span:first-child {
-  margin-bottom: 16px;
+nav > .Input-with-icon {
+  margin-bottom: var(--style-gap-xxl);
 }
 
-.Nav > a {
-  display: block;
-  padding: 8px;
-  color: var(--color-primary-dark-purple);
-  text-decoration: none;
+nav > .Input-with-icon > input {
+  background-color: transparent;
 }
 
-.Nav > a[current] {
-  background-color: var(--color-primary-dark-purple);
-  color: var(--color-primary-white);
+nav > .Input-with-icon > cm-icon > svg {
+  stroke: var(--color-primary-white);
 }
 
 table {

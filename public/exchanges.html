@@ -62,18 +62,6 @@
             </span>
           </div>
         </div>
-        <nav class="Nav">
-          <span class="Input-with-icon">
-            <input class="Input-l" placeholder="Search...">
-            <cm-icon name="search">Search CM Knowledge Base</cm-icon>
-          </span>
-          <a href="/assets" class="Text-large" title="Go to assets"><strong>Assets</strong></a>
-          <a href="/pairs" class="Text-large" title="Go to pairs"><strong>Pairs</strong></a>
-          <a current href="/exchanges" class="Text-large" title="Go to exchanges"><strong>Exchanges</strong></a>
-          <a href="/asset-metrics" class="Text-large" title="Go to asset metrics"><strong>Asset Metrics</strong></a>
-          <a href="/pair-metrics" class="Text-large" title="Go to pair metrics"><strong>Pair Metrics</strong></a>
-          <a href="/exchange-metrics" class="Text-large" title="Go to exchange metrics"><strong>Exchange Metrics</strong></a>
-        </nav>
       </div>
     </main>
     <cm-sidebar>
@@ -102,6 +90,26 @@
           </details>
         </cm-popup>
         <hr class="Separator-h-light">
+        <hr class="Sidebar-spacer">
+        <button class="Sidebar-toggle-button" id="sidebar-toggle-button">
+          <cm-icon name="chevrons-left">Toggle extras</cm-icon>
+        </button>
+      </article>
+      <article class="Sidebar-extras">
+        <nav>
+          <span class="Input-with-icon">
+            <input class="Input-l" placeholder="Search...">
+            <cm-icon name="search">Search CM Knowledge Base</cm-icon>
+          </span>
+          <ul class="List">
+            <li><a href="/assets" title="Go to assets">Assets</a></li>
+            <li><a href="/pairs" title="Go to pairs">Pairs</a></li>
+            <li class="List-selected"><a href="/exchanges" title="Go to exchanges">Exchanges</a></li>
+            <li><a href="/asset-metrics" title="Go to assets">Asset Metrics</a></li>
+            <li><a href="/pair-metrics" title="Go to pairs">Pair Metrics</a></li>
+            <li><a href="/exchange-metrics" title="Go to exchanges">Exchange Metrics</a></li>
+          </ul>
+        </nav>
       </article>
     </cm-sidebar>
   </body>
