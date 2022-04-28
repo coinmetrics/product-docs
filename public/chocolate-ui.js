@@ -181,7 +181,8 @@
   }
 
   let relPos = ($ref, $tgt, gap) => {
-    let { clientWidth: vw, clientHeight: vh } = document.documentElement
+    let vw = window.innerWidth
+    let vh = window.innerHeight
 
     let tgtDim = getElmBox($tgt)
     let refBox = $ref.getBoundingClientRect()
@@ -190,8 +191,8 @@
     let isWide = refBox.width > refBox.height * MIN_ASPECT_FOR_WIDE
 
     // Spatial relationship
-    let overhangsRight = refBox.left + tgtDim.width < vw
-    let overhangsLeft = refBox.right - tgtDim.width > 0
+    let overhangsRight = refBox.left + tgtDim.width + gap < vw
+    let overhangsLeft = refBox.right - tgtDim.width - gap > 0
     let clearsRight = refBox.right + tgtDim.width + gap < vw
     let clearsLeft = refBox.left - tgtDim.width - gap > 0
     let overhangsBottom = refBox.top + tgtDim.height < vh
@@ -200,15 +201,17 @@
     let clearsTop = refBox.top - tgtDim.height - gap > 0
 
     // Relative position CSS rules
-    let above = { bottom: `calc(100vh - ${refBox.top - gap}px)` }
-    let below = { top: `${refBox.bottom + gap}px` }
-    let left = { right: `calc(100vw - ${refBox.left - gap}px)` }
-    let right = { left: `${refBox.right + gap}px` }
-    let leftAlign = { left: `${refBox.left}px` }
-    let rightAlign = { right: `calc(100vw - ${refBox.right}px)` }
+    let heightWithGap = tgtDim.height + gap
+    let widthWithGap = tgtDim.width + gap
+    let above = { bottom: `min(calc(100vh - ${heightWithGap}px), calc(100vh - ${refBox.top - gap}px))` }
+    let below = { top: `min(calc(100vh - ${heightWithGap}px), ${refBox.bottom + gap}px)` }
+    let left = { right: `min(calc(100vw - ${widthWithGap}px), calc(100vw - ${refBox.left - gap}px))` }
+    let right = { left: `min(calc(100vw - ${widthWithGap}px), ${refBox.right + gap}px)` }
+    let leftAlign = { left: `min(calc(100vw - ${widthWithGap}px), ${refBox.left}px)` }
+    let rightAlign = { right: `min(calc(100vw - ${widthWithGap}px), calc(100vw - ${refBox.right}px))` }
+    let topAlign = { top: `min(calc(100vh - ${heightWithGap}px), ${refBox.top}px)` }
+    let bottomAlign = { bottom: `min(calc(100vh - ${heightWithGap}px), calc(100vh - ${refBox.bottom}px))` }
     let hCenter = { left: `${refBox.left + (refBox.width / 2) - (tgtDim.width / 2)}px` }
-    let topAlign = { top: `${refBox.top}px` }
-    let bottomAlign = { bottom: `calc(100vh - ${refBox.bottom}px)` }
     let vCenter = { top: `${refBox.top + (refBox.height / 2) - (tgtDim.height / 2)}px` }
 
     return {
@@ -607,13 +610,24 @@
   let gap = CM.properties.getCSSProp('style-gap-xs')
 
   customElements.define('cm-dropdown', class extends HTMLElement {
+    constructor() {
+      super()
+      this.onstop = []
+    }
+
     connectedCallback() {
       let $details = this.querySelector('.Dropdown')
       let $dropdownList = $details.querySelector('fieldset')
       let $button = $details.querySelector('summary')
-      let $label = $button.querySelector(':not(cm-icon)')
+      let $label = $button.querySelector(':scope > :not(cm-icon)')
       let $current = $dropdownList.querySelector('input:checked')
 
+      let defaultLabel = $label.innerHTML
+
+      let updateLabel = () => {
+        if ($current) $label.innerHTML = $current.dataset.label || $current.nextElementSibling.innerHTML
+        else $label.innerHTML = defaultLabel
+      }
       let updateLayout = this.updateLayout = () => {
         let pos = CM.position.relPos($button, $dropdownList, CM.properties.getEmOrRemSize(gap, $dropdownList))
         let direction = CM.position.DIR_BELOW
@@ -672,35 +686,36 @@
             $details.open = false
             break
         }
-      })
+      }) // keydown
       this.addEventListener('change', ev => {
-        let $input = ev.target
-        $label.innerHTML = $input.dataset.label ?? $input.nextElementSibling.innerHTML
-        $current = $input
+        $current = ev.target
+        updateLabel()
         updateLayout()
       })
-      this.addEventListener('click', ev => {
-        if (ev.target.tagName === 'LABEL') $details.open = false
+      $dropdownList.addEventListener('click', ev => {
+        if (ev.target.closest('label')) $details.open = false
       })
       $details.addEventListener('toggle', ev => {
         if ($details.open) updateLayout()
       })
-      this.onstop = [
+      this.onstop.push(
         CM.events.onLayoutChange(() => {
           if ($details.open) updateLayout()
         }),
         CM.events.onClickOutside(this, () => {
           $details.open = false
         })
-      ]
+      )
+      updateLabel()
       updateLayout()
-    }
+    } // connectedCallback
 
     disconnectedCallback() {
       this.onstop.forEach(fn => fn())
+      this.onstop.length = 0
     }
   })
-})(window.__CM = window.__CM || {});
+})(window.__CM ??= {});
 
 (CM => {
   'use strict'
@@ -1061,11 +1076,17 @@
 (CM => {
   'use strict'
 
-  let gap = parseFloat(CM.properties.getCSSProp('style-gap-n'))
+  let dummyCallback = () => {}
 
   customElements.define('cm-table', class extends HTMLElement {
     constructor() {
       super()
+
+      Object.defineProperties(this, {
+        stickyCol: {
+          get: () => this.hasAttribute('sticky-col'),
+        },
+      })
 
       this.onstop = []
     }
@@ -1085,9 +1106,13 @@
 
       let startAdjusting = () => {
         window.addEventListener('scroll', $thead.scrollListener = () => {
-          let top = this.getBoundingClientRect().top - clearHeight - gap
+          let top = this.getBoundingClientRect().top - clearHeight
           if (top > 0) return stopAdjusting()
-          $thead.style.setProperty('--table-pos-adjust', -top + 'px')
+          // Make sure the table header stick to the top of the viewport. We
+          // subtract another px from it because the dimensions we obtain from
+          // the above calculation is imprecise, and we want to make sure that
+          // no content shows behind the header.
+          $thead.style.setProperty('--table-pos-adjust', (-top - 1) + 'px')
         }, { passive: true })
         obs.disconnect()
       }
@@ -1104,13 +1129,14 @@
       }
       let updateColWidth = () => {
         this.style.setProperty('--table-width', this.getBoundingClientRect().width + 'px')
+        this.style.setProperty('--table-first-col-width', this.querySelector('tr > :first-child').getBoundingClientRect().width + 'px')
       }
 
       stopAdjusting()
       updateColWidth()
       this.onstop.push(
         stopAdjusting,
-        CM.events.onLayoutChange(updateColWidth)
+        CM.events.onLayoutChange(updateColWidth),
       )
     }
 
@@ -1119,7 +1145,84 @@
       this.onstop.length = 0
     }
   })
-})(window.__CM = window.__CM || {});
+
+  customElements.define('cm-table-remote', class extends HTMLElement {
+    constructor() {
+      super()
+
+      Object.defineProperties(this, {
+        htmlFor: {
+          set: x => this.setAttribute('for', x),
+          get: () => this.getAttribute('for'),
+        },
+      })
+
+      this.updateVisibility = dummyCallback
+      this.onstop = []
+    }
+
+    connectedCallback() {
+      this.innerHTML = `
+        <button class="Button" hidden>
+          <cm-icon name="chevron-left">Go one column left</cm-icon>
+        </button>
+        <button class="Button" hidden>
+          <cm-icon name="chevron-right">Go one column right</cm-icon>
+        </button>
+      `
+
+      let $btnLeft = this.firstElementChild
+      let $btnRight = this.lastElementChild
+
+      let getTable = () => document.getElementById(this.htmlFor)
+      let updateVisibility = this.updateVisibility = () => {
+        let $table = getTable()
+        $btnLeft.hidden = $btnRight.hidden = $table && ($table.offsetWidth >= $table.scrollWidth)
+      }
+      let updateScrollOffset = (getScrollDist) => {
+        let $table = getTable()
+        if (!$table) return
+
+        let isSticky = $table.stickyCol
+        let scrollOffset = $table.scrollLeft
+        let scrollPadding = 0
+        if (isSticky) {
+          scrollPadding = $table.querySelector('tr > :first-child').offsetWidth
+          scrollOffset -= scrollPadding
+        }
+
+        let $colAtScrollPos = $table.querySelector(isSticky
+          ? 'tbody > tr > *:nth-child(2)'
+          : 'tbody > tr > *:first-child')
+        while (scrollOffset - scrollPadding >= 0) {
+          scrollOffset -= $colAtScrollPos.offsetWidth
+          $colAtScrollPos = $colAtScrollPos.nextElementSibling
+        }
+
+        $table.scrollTo({
+          left: $table.scrollLeft + getScrollDist($colAtScrollPos),
+          behavior: 'smooth',
+        })
+      }
+
+      $btnLeft.addEventListener('click', () => {
+        updateScrollOffset($col => -$col.previousElementSibling.offsetWidth)
+      })
+      $btnRight.addEventListener('click', () => {
+        updateScrollOffset($col => $col.offsetWidth)
+      })
+      updateVisibility()
+      this.onstop.push(CM.events.onLayoutChange(updateVisibility))
+    }
+
+    disconnectedCallback() {
+      this.onstop.for(f => f())
+      this.onstop.length = 0
+      this.updateVisibility = dummyCallback
+      this.innerHTML = ''
+    }
+  })
+})(window.__CM ??= {});
 
 (() => {
   'use strict'
@@ -1200,7 +1303,7 @@
         <article class="${PRIORITY_CLASSES[priority]}" role="alert">
           ${icon && `<cm-icon name="${icon}"></cm-icon>`}
           ${title && `<h2 class="Toast-title">${title}</h2>`}
-          ${(icon || title) && '<hr>'}
+          ${(icon || title) && '<div class="Toast-separator">'}
           <p class="Toast-content">${content}</p>
           ${actionLabel && `<button class="${PRIORITY_BTN_CLASS[priority]} Toast-action-button">${actionLabel}</button>`}
           <button class="${PRIORITY_BTN_CLASS[priority]} Toast-close-button">
@@ -1285,45 +1388,6 @@
 (() => {
   'use strict'
 
-  customElements.define('cm-calendar', class extends HTMLElement {
-    constructor() {
-      super()
-
-      Object.defineProperties(this, {
-        max: {
-          set: x => this.setAttribute('max', x),
-          get: () => this.getAttribute('max'),
-        },
-        min: {
-          set: x => this.setAttribute('min', x),
-          get: () => this.getAttribute('min'),
-        },
-      })
-
-      let $trigger = this.firstElementChild
-
-      if (!$trigger) return console.warn('Calendar requires at least one element child to serve as a trigger')
-
-      let $calendarBody = Object.assign(document.createElement('div'), {
-        hidden: true,
-        className: 'Panel',
-        innerHTML: `
-          <aside class="Dialog">
-            <formset>
-              <div class="Calendar-header">
-                <button class=""
-              </div>
-            </formset>
-          </aside>
-        `
-      })
-    }
-  })
-})();
-
-(() => {
-  'use strict'
-
   let HAS_CLIPBOARD = navigator.clipboard != null
 
   customElements.define('cm-copy', class extends HTMLElement {
@@ -1382,4 +1446,428 @@
     }
   })
 })();
+
+(CM => {
+  'use strict'
+
+  let DAYS_IN_CALENDAR = 42 // 6 rows x 7 days
+  let YEARS_IN_YEAR_PICKER = 18
+  let N_PREV_YEARS_IN_YEAR_PICKER = 10
+  let MONTH_NAMES = []
+  let WEEKDAY_NAMES = []
+  let WEEKDAY_SHORT_NAMES = []
+
+  for (let i = 0; i < 12; i++) {
+    let d = new Date(1, i, 1)
+    MONTH_NAMES.push(d.toLocaleDateString(navigator.language, { month: 'short' }))
+  }
+
+  {
+    let d = new Date(0)
+    while (d.getDay()) d.setDate(d.getDate() + 1)
+    for (let i = 0; i < 7; i++) {
+      WEEKDAY_NAMES.push(d.toLocaleDateString(navigator.language, { weekday: 'long' }))
+      WEEKDAY_SHORT_NAMES.push(d.toLocaleDateString(navigator.language, { weekday: 'narrow' }))
+      d.setDate(d.getDate() + 1)
+    }
+  }
+
+  let toISODate = d => d && (
+    d.getFullYear() + '-' +
+    (d.getMonth() + 1).toString().padStart(2, '0') + '-' +
+    d.getDate().toString().padStart(2, '0')
+  )
+  let toDateTimestamp = s => new Date(s).setHours(0, 0, 0, 0)
+
+  customElements.define('cm-calendar', class extends HTMLElement {
+    constructor() {
+      super()
+
+      Object.defineProperties(this, {
+        max: {
+          set: x => this.setAttribute('max', x),
+          get: () => this.getAttribute('max') || '',
+        },
+        min: {
+          set: x => this.setAttribute('min', x),
+          get: () => this.getAttribute('min') || '',
+        },
+        value: {
+          set: x => this.setAttribute('value', x),
+          get: () => this.getAttribute('value') || '',
+        },
+        limit: {
+          set: x => this.setAttribute('limit', x),
+          get: () => this.getAttribute('limit') || '',
+        },
+      })
+
+      let value = new Date(Date.parse(this.value) || Date.now())
+      this.displayYear = value.getFullYear()
+      this.displayMonth = value.getMonth()
+      this.hoverValue = ''
+    }
+
+    static get observedAttributes() { return ['value', 'max', 'min', 'range-from', 'limit'] }
+
+    attributeChangedCallback(name) {
+      if (name === 'value') {
+        let value = new Date(Date.parse(this.value) || Date.now())
+        this.displayYear = value.getFullYear()
+        this.displayMonth = value.getMonth()
+      }
+      this.updateCalendar?.()
+    }
+
+    connectedCallback() {
+      this.innerHTML = `
+        <article class="Calendar">
+          <header>
+            <button class="Button" data-target="prev">
+              <cm-icon name="chevron-left">Go to the previous month</cm-icon>
+            </button>
+            <button class="Button" data-mode="month" title="Pick a month">${MONTH_NAMES[this.displayMonth]}</button>
+            <button class="Button" data-mode="year" title="Pick a year">${this.displayYear}</button>
+            <button class="Button" data-target="next">
+              <cm-icon name="chevron-right">Go to the next month</cm-icon>
+            </button>
+          </header>
+          <fieldset class="Calendar-dates">
+            <legend>Pick a date</legend>
+            <table>
+              <thead>
+                <tr class="Text-heading-6">
+                  <th class="Calendar-sunday"><abbr title="${WEEKDAY_NAMES[0]}">${WEEKDAY_SHORT_NAMES[0]}</abbr></th>
+                  <th><abbr title="${WEEKDAY_NAMES[1]}">${WEEKDAY_SHORT_NAMES[1]}</abbr></th>
+                  <th><abbr title="${WEEKDAY_NAMES[2]}">${WEEKDAY_SHORT_NAMES[2]}</abbr></th>
+                  <th><abbr title="${WEEKDAY_NAMES[3]}">${WEEKDAY_SHORT_NAMES[3]}</abbr></th>
+                  <th><abbr title="${WEEKDAY_NAMES[4]}">${WEEKDAY_SHORT_NAMES[4]}</abbr></th>
+                  <th><abbr title="${WEEKDAY_NAMES[5]}">${WEEKDAY_SHORT_NAMES[5]}</abbr></th>
+                  <th class="Calendar-saturday"><abbr title="${WEEKDAY_NAMES[6]}">${WEEKDAY_SHORT_NAMES[6]}</abbr></th>
+                </tr>
+              </thead>
+              <tbody>
+                ${`<tr>${`<td><button class="Calendar-date"><time></time></button></td>`.repeat(7)}</tr>`.repeat(6)}
+              </tbody>
+            </table>
+          </fieldset>
+          <fieldset class="Calendar-months">
+            <legend>Pick a month</legend>
+            ${MONTH_NAMES.map((m, i) => `<button class="Calendar-month" data-value="${i}">${m}</button>`).join('')}
+          </fieldset>
+          <fieldset class="Calendar-years">
+            <legend>Pick a year</legend>
+            ${'<button class="Calendar-year"></button>'.repeat(YEARS_IN_YEAR_PICKER)}
+          </fieldset>
+        </article>
+      `
+
+      let $calendar = this.firstElementChild
+      let $header = this.querySelector('header')
+      let $monthButton = $header.querySelector('button[data-mode="month"]')
+      let $yearButton = $header.querySelector('button[data-mode="year"]')
+      let $calendarDates = $calendar.querySelector('.Calendar-dates')
+      let $$dates = Array.from($calendarDates.querySelectorAll('button'))
+      let $calendarMonths = $calendar.querySelector('.Calendar-months')
+      let $$months = Array.from($calendarMonths.querySelectorAll('button'))
+      let $calendarYears = $calendar.querySelector('.Calendar-years')
+      let $$years = Array.from($calendarYears.querySelectorAll('button'))
+
+      let updateCalendar = this.updateCalendar = () => {
+        let today = toDateTimestamp(Date.now())
+        let valueTs = this.value && toDateTimestamp(this.value)
+        let minVal = toDateTimestamp(this.min) || 0
+        let maxVal = toDateTimestamp(this.max) || Infinity
+
+        let limitTs = toDateTimestamp(this.limit)
+        let limitMin = false  // default false because undefined is truthy in classList.toggle
+        let limitMax = false
+        if (this.limit && (this.value || this.hoverValue)) {
+          let limitOtherVal = toDateTimestamp(this.hoverValue) || valueTs
+          limitMin = Math.min(limitTs, limitOtherVal)
+          limitMax = Math.max(limitTs, limitOtherVal)
+        }
+
+        // Update the dates
+        let firstDayOffset = new Date(this.displayYear, this.displayMonth, 1).getDay()
+        for (let i = 0; i < DAYS_IN_CALENDAR; i++) {
+          let d = new Date(this.displayYear, this.displayMonth, i + 1 - firstDayOffset, 0, 0, 0, 0)
+          let dTime = +d
+          let $btn = $$dates[i]
+          $btn.firstElementChild.setAttribute('datetime', toISODate(d))
+          $btn.firstElementChild.textContent = d.getDate()
+          $btn.classList.toggle('Calendar-extra', d.getMonth() !== this.displayMonth)
+          $btn.classList.toggle('Calendar-selected', dTime === valueTs)
+          $btn.classList.toggle('Calendar-range-to-left', dTime === limitMax)
+          $btn.classList.toggle('Calendar-range-to-right', dTime === limitMin)
+          $btn.classList.toggle('Calendar-today', dTime === today)
+          $btn.classList.toggle('Calendar-limit', dTime === limitTs)
+          $btn.classList.toggle('Calendar-range', limitMin && limitMax && d > limitMin && d < limitMax)
+          $btn.disabled = dTime < minVal || dTime > maxVal
+        }
+
+        // Update month buttons
+        $$months.forEach(($, i) => {
+          let targetMonthStart = new Date(this.displayYear, i, 1).getTime()
+          let targetMonthEnd = new Date(this.displayYear, i + 1, 0).getTime()
+          $.classList.toggle('Calendar-selected', i === this.displayMonth)
+        })
+
+        // Update year buttons
+        let firstYear = this.displayYear - N_PREV_YEARS_IN_YEAR_PICKER
+        $$years.forEach(($, i) => {
+          let targetYear = i + firstYear
+          let targetYearStart = new Date(targetYear, 0, 1).getTime()
+          let targetYearEnd = new Date(targetYear, 11, 31).getTime()
+          $.classList.toggle('Calendar-selected', targetYear === this.displayYear)
+          $.textContent = $.dataset.value = targetYear
+        })
+
+        // Update month/year labels
+        $monthButton.textContent = MONTH_NAMES[this.displayMonth]
+        $yearButton.textContent = this.displayYear
+      } // updateCalendar
+
+      $header.onclick = ev => {
+        let $btn = ev.target.closest('button')
+        let { target, mode } = $btn.dataset
+
+        if (target) {
+          if (target === 'prev') {
+            if (this.displayMonth) this.displayMonth--
+            else {
+              this.displayMonth = 11
+              this.displayYear--
+            }
+          }
+          else if (target === 'next') {
+            if (this.displayMonth < 11) this.displayMonth++
+            else {
+              this.displayYear++
+              this.displayMonth = 0
+            }
+          }
+          updateCalendar()
+        }
+        if (mode) {
+          $header.querySelector('.Button-active')?.classList.remove('Button-active')
+          $btn.classList.toggle('Button-active', $calendar.dataset.mode !== mode)
+          if ($calendar.dataset.mode === mode) delete $calendar.dataset.mode
+          else $calendar.dataset.mode = mode
+        }
+      }
+      $calendarDates.onclick = ev => {
+        let $btn = ev.target.closest('button')
+        if (!$btn || $btn.disabled) return
+
+        let btnVal = $btn.firstElementChild.getAttribute('datetime')
+        if (this.value === btnVal) {
+          $btn.blur()
+          this.value = ''
+        }
+        else this.value = $btn.firstElementChild.getAttribute('datetime')
+
+        let changeEv = new Event('change', { bubbles: true })
+        Object.defineProperty(changeEv, 'target', { value: this })
+        this.dispatchEvent(changeEv)
+        if (this.onchange) this.onchange(changeEv)
+      }
+      $calendarMonths.onclick = ev => {
+        let value = ev.target.dataset.value
+        if (!value) return
+        delete $calendar.dataset.mode
+        $monthButton.classList.remove('Button-active')
+        if (this.displayYear == value) return
+        this.displayMonth = Number(value)
+        updateCalendar()
+      }
+      $calendarYears.onclick = ev => {
+        let value = ev.target.dataset.value
+        if (!value) return
+        delete $calendar.dataset.mode
+        $yearButton.classList.remove('Button-active')
+        if (this.displayYear == value) return
+        this.displayYear = Number(value)
+        updateCalendar()
+      }
+
+      $$dates.forEach($btn => {
+        let $td = $btn.parentNode
+        $td.onmouseenter = () => {
+          if ($btn.disabled) return
+          this.hoverValue = $btn.firstElementChild.getAttribute('datetime')
+          updateCalendar()
+        }
+        $td.onmouseleave = () => {
+          this.hoverValue = ''
+          updateCalendar()
+        }
+      })
+
+      updateCalendar()
+    } // connectedCallback
+
+    disconnectedCallback() {
+      this.innerHTML = ''
+    }
+  }) // cm-calendar
+
+  customElements.define('cm-calendar-icon', class extends HTMLElement {
+    constructor() {
+      super()
+
+      Object.defineProperties(this, {
+        max: {
+          set: x => this.setAttribute('max', x),
+          get: () => this.getAttribute('max') || '',
+        },
+        min: {
+          set: x => this.setAttribute('min', x),
+          get: () => this.getAttribute('min') || '',
+        },
+        value: {
+          set: x => this.setAttribute('value', x),
+          get: () => this.getAttribute('value') || '',
+        },
+        htmlFor: {
+          set: x => this.setAttribute('for', x),
+          get: () => this.getAttribute('for'),
+        },
+        disabled: {
+          set: x => this.toggleAttribute('disabled', x),
+          get: x => this.hasAttribute('disabled'),
+        },
+      })
+    } // constructor
+
+    static get observedAttributes() { return ['value', 'min', 'max', 'disabled'] }
+
+    attributeChangedCallback(name) {
+      switch (name) {
+        case 'disabled':
+          this.updateFocusability?.()
+          break
+        default:
+          let $calendar = this.querySelector('cm-calendar')
+          if (!$calendar) return
+          $calendar.setAttribute(name, this.getAttribute(name))
+      }
+    }
+
+    connectedCallback() {
+      let $linkedInput = document.getElementById(this.htmlFor) || this.closest('label').querySelector('input')
+      this.value ??= $linkedInput.value
+
+      this.innerHTML = `
+        <cm-popup>
+          <details>
+            <summary class="Button-clear">
+              <cm-icon name="calendar">Open a calendar and pick a date</cm-icon>
+            </summary>
+            <div class="Popup-dialog Dialog">
+              <cm-calendar 
+                class="Panel" 
+                value="${this.value}" 
+                min="${this.min}" 
+                max="${this.max}" 
+              ></cm-calendar>
+            </div>
+          </details>
+        </cm-popup>
+      `
+
+      let $details = this.querySelector('details')
+      let $summary = $details.querySelector('summary')
+      let $calendar = this.querySelector('cm-calendar')
+
+      let updateFocusability = this.updateFocusability = () => {
+        if (this.disabled) $summary.setAttribute('tabindex', '-1')
+        else $summary.removeAttribute('tabindex')
+      }
+
+      $calendar.onchange = ev => {
+        $details.open = false
+        let val = this.value = ev.target.value
+        if (!$linkedInput) return
+        $linkedInput.value = val
+        $linkedInput.dispatchEvent(new Event('input', { bubbles: true }))
+        $linkedInput.focus()
+      }
+      if ($linkedInput) $linkedInput.addEventListener('change', () => {
+        this.value = $linkedInput.value
+      })
+      updateFocusability()
+    } // connectedCallback
+
+    disconnectedCallback() {
+      this.innerHTML = ''
+      delete this.updateFocusability
+    }
+  }) // cm-calendar-icon
+
+  customElements.define('cm-calendar-range', class extends HTMLElement {
+    constructor() {
+      super()
+
+      Object.defineProperties(this, {
+        value: {
+          set: x => this.setAttribute('value', x),
+          get: () => this.getAttribute('value'),
+        },
+      })
+
+      this.onstop = []
+    }
+
+    static get observedAttributes() { return ['value'] }
+
+    attributeChangedCallback() {
+      this.updateInputsFromValue?.()
+    }
+
+    getDateRange() {
+      let [min, max] = this.value.split(',')
+      return [min ? new Date(min.trim()) : null, max ? new Date(max.trim()) : null]
+    }
+
+    connectedCallback() {
+      let [$inputMin, $inputMax] = Array.from(this.querySelectorAll('input'))
+      let [$calendarMin, $calendarMax] = Array.from(this.querySelectorAll('cm-calendar'))
+      if ($inputMax == null || $calendarMax == null) throw Error('<cm-calendar-range> requires 2 inputs and 2 calendars to work')
+
+      let dispatchChangeEvent = () => this.dispatchEvent(new Event('change', { bubbles: true }))
+      let updateInputsFromValue = this.updateInputsFromValue = () => {
+        let [min, max] = this.value.split(',')
+        $inputMin.value = $calendarMin.value = $calendarMax.limit = $calendarMax.min = min.trim()
+        $inputMax.value = $calendarMax.value = $calendarMin.limit = $calendarMin.max = max.trim()
+      }
+      let updateValue = () => this.value = $inputMin.value.trim() + ',' + $inputMax.value.trim()
+
+      let updateMin = () => {
+        $calendarMax.limit = $calendarMax.min = $inputMin.value
+        updateValue()
+        dispatchChangeEvent()
+      }
+      let updateMax = () => {
+        $calendarMin.limit = $calendarMin.max = $inputMax.value
+        updateValue()
+        dispatchChangeEvent()
+      }
+      $inputMin.addEventListener('input', updateMin)
+      $inputMax.addEventListener('input', updateMax)
+      this.onstop.push(
+        () => $inputMin.removeEventListener('input', updateMin),
+        () => $inputMax.removeEventListener('input', updateMax),
+      )
+
+      if (this.value) updateInputsFromValue()
+      else updateValue()
+    }
+
+    disconnectedCallback() {
+      this.onstop.forEach(f => f())
+      this.onstop.length = 0
+    }
+  }) // cm-calendar-range
+})(window.__CM ??= {});
 

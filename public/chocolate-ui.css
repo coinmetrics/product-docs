@@ -187,7 +187,7 @@ cm-toggler {
 
   --color-text: var(--color-primary-dark-purple);
   --color-bg: var(--color-primary-lighter-purple);
-  --color-separator-line: var(--color-primary-dark-purple);
+  --color-line: var(--color-primary-dark-purple);
   --color-separator-line-light: var(--color-primary-light-purple);
   --color-separator-line-lighter: var(--color-primary-lighter-purple);
   --color-highlighted-item: var(--color-primary-lighter-purple);
@@ -208,9 +208,9 @@ cm-toggler {
   --style-input-h-n: 2.3em;
   --style-input-h-l: 3.4em;
   --style-corner-default: 0.214em;
-  --style-separator-line: 1px solid var(--color-separator-line);
+  --style-separator-line: 1px solid var(--color-line);
   --style-separator-line-light: 1px solid var(--color-separator-line-light);
-  --style-separator-line-lighter: 1px solid var(--color-separator-line-lighter);
+  --style-line-lighter: 1px solid var(--color-separator-line-lighter);
 
   --text-size-s: 0.85rem;    /* ~12px */
   --text-size-n: 1rem;       /* 14px (by default in most browsers) */
@@ -305,7 +305,7 @@ cm-toggler {
 
   /** Panel */
   --color-panel-face: var(--color-primary-white);
-  --style-panel-border: 1px solid var(--color-separator-line);
+  --style-panel-border: 1px solid var(--color-line);
   --style-panel-bottom-border: 2px;
   --style-panel-padding: var(--style-gap-xl);
 
@@ -333,13 +333,15 @@ cm-toggler {
 
   /** Table */
   --color-table-border: var(--color-primary-lighter-purple);
+  --color-table-header-border: var(--color-primary-new-purple);
   --color-table-header-background: var(--color-primary-light-purple);
   --color-table-cell-background: var(--color-primary-white);
   --text-table-main: var(--text-size-s);
   --style-table-padding: var(--style-gap-n);
   --style-table-header-height: 2.86rem; /* ~40px */
   --style-table-cell-height: 3.43em; /* ~48px */
-  --text-table-numeric-cell-font: "Ubuntu Mono", monospace;
+  --text-monospace-font: "Ubuntu Mono", monospace;
+  --text-table-numeric-cell-font: var(--text-monospace-font);
 
   /** Sidebar */
   --color-sidebar-separator: var(--color-primary-medium-purple);
@@ -481,7 +483,7 @@ body:not([data-pointer]) label:focus {
   left: var(--app-layout-header-padding);
   right: var(--app-layout-header-padding);
   height: var(--style-border-width);
-  background: var(--color-separator-line);
+  background: var(--color-line);
   border-radius: var(--style-border-width);
 }
 
@@ -1021,8 +1023,8 @@ cm-dropdown > fieldset[disabled] {
 .Dropdown > fieldset label {
   display: flex;
   align-items: center;
-  padding: 0 var(--style-gap-n);
-  border-top: var(--style-separator-line-lighter);
+  padding: var(--style-gap-n);
+  border-top: var(--style-line-lighter);
   cursor: pointer;
   transition:
     background-color var(--style-animation-speed-fast),
@@ -1043,7 +1045,7 @@ cm-dropdown > fieldset[disabled] {
 }
 
 .Dropdown > fieldset label:last-of-type {
-  border-bottom: var(--style-separator-line-lighter);
+  border-bottom: var(--style-line-lighter);
 }
 
 .Dropdown > fieldset label:hover,
@@ -1051,12 +1053,12 @@ cm-dropdown > fieldset[disabled] {
   background: var(--color-highlighted-item);
 }
 
-.Dropdown > fieldset input:checked + label {
+.Dropdown > fieldset input:checked + :is(label, label:hover, label:focus) {
   background: var(--color-face-inverse);
   color: var(--color-label-inverse);
 }
 
-.Dropdown > fieldset input:checked + label cm-icon > .Icon-svg {
+.Dropdown > fieldset input:checked + :is(label, label:hover, label:focus) cm-icon > .Icon-svg {
   stroke: var(--color-label-inverse);
 }
 
@@ -1159,23 +1161,16 @@ cm-icon {
   color: var(--color-input-border);
 }
 
-.Input:hover,
-.Input:focus,
-.Input-l:hover,
-.Input-l:focus {
+:is(.Input, .Input-l):not(:disabled):is(:hover, :focus) {
   border-color: var(--color-input-border-attn);
   background: var(--color-input-field-attn);
 }
 
-.Input:focus,
-.Input-l:focus {
+:is(.Input, .Input-l):not(:disabled):focus {
   box-shadow: 0 -1px 0 var(--color-input-border-attn);
 }
 
-.Input:hover::placeholder,
-.Input:focus::placeholder,
-.Input-l:hover::placeholder,
-.Input-l:focus::placeholder {
+:is(.Input, .Input-l):is(:hover, :focus)::placeholder {
   color: var(--color-input-border-attn);
 }
 
@@ -1186,13 +1181,13 @@ cm-icon {
   height: max-content;
 }
 
-.Input-with-icon > .Input + cm-icon {
+.Input-with-icon > .Input + * {
   position: absolute;
   right: calc(var(--style-gap-n) - var(--style-border-width));
   top: calc(var(--style-gap-s) - var(--style-border-width));
 }
 
-.Input-with-icon > .Input-l + cm-icon {
+.Input-with-icon > .Input-l + * {
   position: absolute;
   right: calc(var(--style-gap-xl) - var(--style-border-width));
   top: calc(var(--style-gap-l) - var(--style-border-width));
@@ -1216,6 +1211,41 @@ cm-icon {
   display: flex;
   flex-direction: column;
   gap: var(--style-gap-n);
+}
+
+.Line-h-light,
+.Line-h-dark,
+.Line-v-light,
+.Line-v-dark {
+  border-radius: 1px;
+  border: none;
+  flex-shrink: 0;
+}
+
+.Line-h-light,
+.Line-h-dark {
+  display: block;
+  width: 100%;
+  height: 1px;
+}
+
+.Line-v-light,
+.Line-v-dark {
+  display: inline-block;
+  height: 100%;
+  min-height: 1.2em;
+  width: 1px;
+  vertical-align: middle;
+}
+
+.Line-h-light,
+.Line-v-light {
+  background: var(--color-separator-line-light);
+}
+
+.Line-h-dark,
+.Line-v-dark {
+  background: var(--color-line);
 }
 
 .Link {
@@ -1617,41 +1647,6 @@ cm-popup[disabled] {
   border-top: var(--style-scrollbar-padding-l) solid transparent;
 }
 
-.Separator-h-light,
-.Separator-h-dark,
-.Separator-v-light,
-.Separator-v-dark {
-  border-radius: 1px;
-  border: none;
-  flex-shrink: 0;
-}
-
-.Separator-h-light,
-.Separator-h-dark {
-  display: block;
-  width: 100%;
-  height: 1px;
-}
-
-.Separator-v-light,
-.Separator-v-dark {
-  display: inline-block;
-  height: 100%;
-  min-height: 1.2em;
-  width: 1px;
-  vertical-align: middle;
-}
-
-.Separator-h-light,
-.Separator-v-light {
-  background: var(--color-separator-line-light);
-}
-
-.Separator-h-dark,
-.Separator-v-dark {
-  background: var(--color-separator-line);
-}
-
 cm-sidebar {
   --sidebar-extras-max-width: 40rem;
   --sidebar-width-without-toolbar: calc(100vw - var(--style-sidebar-width));
@@ -1761,6 +1756,7 @@ cm-sidebar[open] .Sidebar-toggle-button > cm-icon {
 
 cm-table {
   --table-width: calc(100vw - 4 * var(--style-panel-padding) - var(--style-sidebar-width));
+  --table-first-col-width: 0;
   display: block;
   width: 100%;
   overflow-x: auto;
@@ -1821,11 +1817,32 @@ cm-table thead th {
   background-color: var(--color-table-header-background);
 }
 
+cm-table.Scrollbox-h-n {
+  scroll-snap-type: x mandatory;
+}
+
+cm-table.Scrollbox-h-n tbody :is(th, td) {
+  scroll-snap-align: start;
+}
+
 @media screen and (min-width: 412px) {
   cm-table[sticky-col] th:first-child {
     position: sticky;
-    left: 0;
+    left: -1px; /* if we place it at 0, elements below show on the left edge for some reason */
+  }
+
+  cm-table[sticky-col] thead th:first-child {
+    /* HACK: using box-shadow instead of a border because the border will be scrolled with the cell instead of staying sticky */
+    box-shadow: inset -1px 0 0 var(--color-table-header-border);
+  }
+
+  cm-table[sticky-col] tbody :is(td, th):first-child {
+    /* HACK: using box-shadow instead of a border because the border will be scrolled with the cell instead of staying sticky */
     box-shadow: inset -1px 0 0 var(--color-table-border);
+  }
+
+  cm-table[sticky-col].Scrollbox-h-n {
+    scroll-padding-left: var(--table-first-col-width);
   }
 }
 
@@ -1858,7 +1875,7 @@ cm-table thead th {
   background: transparent;
   border: none;
   border-top: 1px solid transparent;
-  border-bottom: 1px solid var(--color-separator-line);
+  border-bottom: 1px solid var(--color-line);
   padding: var(--style-gap-xl) calc(var(--style-gap-xl) + 1px); /* comp for border missing */
   display: inline-flex;
   justify-content: center;
@@ -1889,7 +1906,7 @@ cm-table thead th {
 .Tabs > input:checked + label {
   border-top-right-radius: var(--style-corner-default);
   border-top-left-radius: var(--style-corner-default);
-  border: 1px solid var(--color-separator-line);
+  border: 1px solid var(--color-line);
   padding: var(--style-gap-xl);
   border-bottom-color: transparent;
   color: var(--color-label-default);
@@ -2073,7 +2090,7 @@ cm-table thead th {
 .Text-content h6,
 .Text-heading-6,
 cm-table thead th,
-.Input-label > :not(input, select, textarea) {
+.Input-label > :not(input, select, textarea, .Input-with-icon) {
   font-size: var(--text-size-s);
   font-weight: var(--text-weight-bold);
   text-transform: uppercase;
@@ -2223,7 +2240,7 @@ cm-toast {
   margin-left: 4px;
 }
 
-:is(.Toast-info, .Toast-success, .Toast-warning, .Toast-error) > hr {
+.Toast-separator {
   display: block;
   height: 32px;
   width: 1px;
@@ -2243,7 +2260,7 @@ cm-toast {
   box-shadow: inset 0 -1px 0 var(--color-border-info);
 }
 
-.Toast-info > hr {
+.Toast-info > .Toast-separator {
   background-color: var(--color-border-info);
 }
 
@@ -2253,7 +2270,7 @@ cm-toast {
   box-shadow: inset 0 -1px 0 var(--color-border-success);
 }
 
-.Toast-success > hr {
+.Toast-success > .Toast-separator {
   background-color: var(--color-border-success);
 }
 
@@ -2263,7 +2280,7 @@ cm-toast {
   box-shadow: inset 0 -1px 0 var(--color-border-warning);
 }
 
-.Toast-warning > hr {
+.Toast-warning > .Toast-separator {
   background-color: var(--color-border-warning);
 }
 
@@ -2274,7 +2291,7 @@ cm-toast {
   color: var(--color-label-always-white);
 }
 
-.Toast-error > hr {
+.Toast-error > .Toast-separator {
   background-color: var(--color-border-error);
 }
 
@@ -2347,5 +2364,193 @@ cm-copy > button:is(:focus, :hover) .Icon-svg {
 
 cm-copy > button:active .Icon-svg {
   stroke: var(--color-border-active-default);
+}
+
+cm-calendar-icon[disabled] {
+  pointer-events: none;
+}
+
+.Calendar {
+  --calendar-date-btn-width: 4ch;
+  --calendar-width: calc(7 * var(--calendar-date-btn-width) + 6 * var(--style-gap-n));
+  --color-calendar-today-face: var(--color-secondary-blue);
+  --color-calendar-today-attn-face: var(--color-secondary-dark-blue);
+  --color-calendar-selected-today-label: var(--color-secondary-blue);
+  --color-calendar-extra-label: var(--color-primary-new-purple);
+  --color-calendar-limit-face: var(--color-primary-purple);
+  --color-calendar-limit-label: var(--color-primary-lighter-purple);
+  --color-calendar-range-face: var(--color-primary-new-purple);
+  --calendar-date-attn-face: var(--color-primary-lighter-purple);
+  --color-calendar-extra-range-label: var(--color-primary-medium-purple);
+  max-width: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: var(--style-gap-n);
+  position: relative;
+  overflow: hidden;
+  padding: 3px;
+}
+
+.Calendar header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--style-gap-n);
+}
+
+.Calendar button[data-mode] {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.Calendar-months, .Calendar-years {
+  padding: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--style-gap-n);
+}
+
+.Calendar-dates table {
+  border-collapse: collapse;
+}
+
+.Calendar-dates :is(td, th) {
+  height: var(--calendar-date-btn-width);
+}
+
+.Calendar-sunday {
+  color: var(--color-secondary-dark-red);
+}
+
+.Calendar-saturday {
+  color: var(--color-secondary-dark-blue);
+}
+
+.Calendar-date, .Calendar-month, .Calendar-year {
+  border-radius: var(--style-corner-default);
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.Calendar-date {
+  font-family: var(--text-monospace-font);
+  width: var(--calendar-date-btn-width);
+  height: var(--calendar-date-btn-width);
+  transition: background-color var(--style-animation-speed-normal);
+}
+
+:is(.Calendar-date, .Calendar-month, .Calendar-year):is(:hover, :focus) {
+  background-color: var(--calendar-date-attn-face);
+}
+
+.Calendar-month, .Calendar-year {
+  transition: background-color var(--style-animation-speed-normal);
+  width: calc((100% - 2 * var(--style-gap-n)) / 3);
+}
+
+.Calendar-month {
+  padding: 1.3em 0;
+}
+
+.Calendar-year {
+  padding: 0.5em 0;
+}
+
+/** Date button styles */
+
+.Calendar-extra,
+.Calendar-date:disabled,
+.Calendar-date:disabled:is(:hover, :focus) {
+  color: var(--color-calendar-extra-label);
+}
+
+.Calendar-date:disabled,
+.Calendar-date:disabled:is(:hover, :focus) {
+  background-color: transparent;
+}
+
+.Calendar-limit,
+.Calendar-limit:disabled,
+.Calendar-limit:is(:focus, :hover) {
+  background-color: var(--color-calendar-limit-face);
+  color: var(--color-calendar-limit-label);
+}
+
+.Calendar-range {
+  background-color: var(--color-calendar-range-face);
+  border-radius: 0;
+}
+
+.Calendar-range-to-left {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.Calendar-range-to-right {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.Calendar-range-to-left.Calendar-range-to-right {
+  border-radius: var(--style-corner-default);
+}
+
+.Calendar-range.Calendar-extra {
+  color: var(--color-calendar-extra-range-label);
+}
+
+.Calendar-today {
+  background-color: var(--color-calendar-today-face);
+}
+
+.Calendar-today:hover {
+  background-color: var(--color-calendar-today-attn-face);
+}
+
+.Calendar-selected,
+.Calendar-selected:is(:hover, :focus) {
+  background-color: var(--color-face-inverse);
+  color: var(--color-label-inverse);
+}
+
+.Calendar-today:is(.Calendar-selected, .Calendar-limit) {
+  color: var(--color-calendar-selected-today-label);
+}
+
+
+/** Calendar mode switching */
+
+.Calendar-dates {
+  transition: all var(--style-animation-speed-normal) var(--style-animation-speed-normal);
+}
+
+.Calendar[data-mode] .Calendar-dates {
+  opacity: 0;
+  transition-delay: unset;
+  animation: delay-hide var(--style-animation-speed-normal) forwards;
+  pointer-events: none;
+}
+
+.Calendar-months, .Calendar-years {
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  left: 0;
+  transition: opacity var(--style-animation-speed-normal);
+  animation: delay-hide calc(var(--style-animation-speed-normal) * 2) forwards;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.Calendar[data-mode='month'] .Calendar-months,
+.Calendar[data-mode='year'] .Calendar-years {
+  opacity: 1;
+  animation: none;
+  transition-delay: var(--style-animation-speed-normal);
+  pointer-events: unset;
+}
+
+@keyframes delay-hide {
+  to { visibility: hidden; }
 }
 

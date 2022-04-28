@@ -20,56 +20,52 @@
       <a href="https://coinmetrics.io/" title="Go to Coin Metrics">
         <img class="AppLayout-logo" src="https://cdn.coinmetrics.io/coinmetrics-default.svg" alt="Coin Metrics">
       </a>
-      <hr class="Separator-v-dark">
+      <div class="Line-v-dark"></div>
       <a href="/" title="Go to home">
         <img class="AppLayout-logo" src="wordmark.svg" alt="Knowledge Base">
       </a>
     </header>
     <main class="AppLayout-main">
-      <div class="AppLayout-row">
-        <div class="Main">
-          <section class="Main-header-lg">
-            <header>
-              <h2 class="Text-heading-2">Pair metrics</h2>
-              <p class="Text-heading-4">/timeseries/pair-metrics</p>
-            </header>
-            <hr class="Separator-v-light">
-            <p class="Text-regular">
-              Coin Metrics calculates several metrics for asset pairs such as btc-usd and eth-usd. 
-              For example, the metric volume_reported_spot_usd_1d represents the daily spot volume 
-              in U.S. dollars for all markets in our coverage universe that contain the specific pair. 
-              Metrics available at the exchange-asset level is available through the 
-              /timeseries/pair-metrics API endpoint.
-            </p>
-          </section>
-          <div class="Panel">
-            <cm-table>
-              <table>
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>name</th>
-                    <th>category</th>
-                    <th>subcategory</th>
-                    <th>frequencies</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- table rows -->
-                </tbody>
-              </table>
-            </cm-table>
-            <span>
-              <button id="load-more" class="Button">
-                <span>Load More</span>
-                <cm-icon name="refresh-cw"></cm-icon>
-              </button>
-              <button id="load-all" class="Button">
-                Show All
-              </button>
-            </span>
-          </div>
+      <header class="Text-content">
+        <div>
+          <h2>Pair metrics</h2>
+          <p><code>/timeseries/pair-metrics</code></p>
         </div>
+        <div class="Line-v-light"></div>
+        <p>
+          Coin Metrics calculates several metrics for asset pairs such as <code>btc-usd</code> and <code>eth-usd</code>. 
+          For example, the metric <code>volume_reported_spot_usd_1d</code> represents the daily spot volume 
+          in U.S. dollars for all markets in our coverage universe that contain the specific pair. 
+          Metrics available at the exchange-asset level is available through the 
+          <code>/timeseries/pair-metrics</code> API endpoint.
+        </p>
+      </header>
+      <div class="Panel">
+        <cm-table>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>name</th>
+                <th>category</th>
+                <th>subcategory</th>
+                <th>frequencies</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- table rows -->
+            </tbody>
+          </table>
+        </cm-table>
+        <span>
+          <button id="load-more" class="Button">
+            <span>Load More</span>
+            <cm-icon name="refresh-cw"></cm-icon>
+          </button>
+          <button id="load-all" class="Button">
+            Show All
+          </button>
+        </span>
       </div>
     </main>
     <cm-sidebar>
@@ -97,7 +93,7 @@
             </article>
           </details>
         </cm-popup>
-        <hr class="Separator-h-light">
+        <div class="Line-h-light"></div>
         <hr class="Sidebar-spacer">
         <button class="Sidebar-toggle-button" id="sidebar-toggle-button">
           <cm-icon name="chevrons-left">Toggle extras</cm-icon>

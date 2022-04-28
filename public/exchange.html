@@ -20,84 +20,80 @@
       <a href="https://coinmetrics.io/" title="Go to Coin Metrics">
         <img class="AppLayout-logo" src="https://cdn.coinmetrics.io/coinmetrics-default.svg" alt="Coin Metrics">
       </a>
-      <hr class="Separator-v-dark">
+      <div class="Line-v-dark"></div>
       <a href="/" title="Go to home">
         <img class="AppLayout-logo" src="wordmark.svg" alt="Knowledge Base">
       </a>
     </header>
     <main class="AppLayout-main">
-      <div class="AppLayout-row">
-        <div class="Main">
-          <section class="Main-header">
-            <h2 id="id" class="Text-heading-2"></h2>
-            <hr class="Separator-v-light">
-            <p class="Text-regular">
-              Exchange info...
-            </p>
-          </section>
-          <div class="Panel">
-            <cm-tabs>
-              <fieldset class="Tabs" disabled hidden>
-                <input type="radio" value="metrics" name="availability" id="availability-metrics" checked>
-                <label for="availability-metrics" class="Text-heading-4">Metrics</label>
-                <input type="radio" value="markets" name="availability" id="availability-markets">
-                <label for="availability-markets" class="Text-heading-4">Markets</label>
-              </fieldset>
-            </cm-tabs>
-            <article id="metrics">
-              <cm-table>
-                <table class="Access">
-                  <thead>
-                    <tr>
-                      <th>metric</th>
-                      <th>community</th>
-                      <th>pro</th>
-                      <th id="metrics-key-col"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <!-- table rows -->
-                  </tbody>
-                </table>
-              </cm-table>
-              <span>
-                <button id="metrics-load-more" class="Button">
-                  <span>Load More</span>
-                  <cm-icon name="refresh-cw"></cm-icon>
-                </button>
-                <button id="metrics-load-all" class="Button">
-                  Show All
-                </button>
-              </span>
-            </article>
-            <article id="markets">
-              <cm-table>
-                <table class="Access">
-                  <thead>
-                    <tr>
-                      <th>market</th>
-                      <th>community</th>
-                      <th>pro</th>
-                      <th id="markets-key-col">your key</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <!-- table rows -->
-                  </tbody>
-                </table>
-              </cm-table>
-              <span>
-                <button id="markets-load-more" class="Button">
-                  <span>Load More</span>
-                  <cm-icon name="refresh-cw"></cm-icon>
-                </button>
-                <button id="markets-load-all" class="Button">
-                  Show All
-                </button>
-              </span>
-            </article>
-          </div>
-        </div>
+      <header class="Text-content">
+        <h2 id="id"></h2>
+        <div class="Line-v-light"></div>
+        <p>
+          Exchange info...
+        </p>
+      </header>
+      <div class="Panel">
+        <cm-tabs>
+          <fieldset class="Tabs" disabled hidden>
+            <input type="radio" value="metrics" name="availability" id="availability-metrics" checked>
+            <label for="availability-metrics" class="Text-heading-4">Metrics</label>
+            <input type="radio" value="markets" name="availability" id="availability-markets">
+            <label for="availability-markets" class="Text-heading-4">Markets</label>
+          </fieldset>
+        </cm-tabs>
+        <article id="metrics">
+          <cm-table>
+            <table class="Access">
+              <thead>
+                <tr>
+                  <th>metric</th>
+                  <th>community</th>
+                  <th>pro</th>
+                  <th id="metrics-key-col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- table rows -->
+              </tbody>
+            </table>
+          </cm-table>
+          <span>
+            <button id="metrics-load-more" class="Button">
+              <span>Load More</span>
+              <cm-icon name="refresh-cw"></cm-icon>
+            </button>
+            <button id="metrics-load-all" class="Button">
+              Show All
+            </button>
+          </span>
+        </article>
+        <article id="markets">
+          <cm-table>
+            <table class="Access">
+              <thead>
+                <tr>
+                  <th>market</th>
+                  <th>community</th>
+                  <th>pro</th>
+                  <th id="markets-key-col">your key</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- table rows -->
+              </tbody>
+            </table>
+          </cm-table>
+          <span>
+            <button id="markets-load-more" class="Button">
+              <span>Load More</span>
+              <cm-icon name="refresh-cw"></cm-icon>
+            </button>
+            <button id="markets-load-all" class="Button">
+              Show All
+            </button>
+          </span>
+        </article>
       </div>
     </main>
     <cm-sidebar>
@@ -125,7 +121,7 @@
             </article>
           </details>
         </cm-popup>
-        <hr class="Separator-h-light">
+        <div class="Line-h-light"></div>
         <hr class="Sidebar-spacer">
         <button class="Sidebar-toggle-button" id="sidebar-toggle-button">
           <cm-icon name="chevrons-left">Toggle extras</cm-icon>

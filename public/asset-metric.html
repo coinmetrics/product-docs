@@ -20,49 +20,45 @@
       <a href="https://coinmetrics.io/" title="Go to Coin Metrics">
         <img class="AppLayout-logo" src="https://cdn.coinmetrics.io/coinmetrics-default.svg" alt="Coin Metrics">
       </a>
-      <hr class="Separator-v-dark">
+      <div class="Line-v-dark"></div>
       <a href="/" title="Go to home">
         <img class="AppLayout-logo" src="wordmark.svg" alt="Knowledge Base">
       </a>
     </header>
     <main class="AppLayout-main">
-      <div class="AppLayout-row">
-        <div class="Main">
-          <section class="Main-header-lg">
-            <header>
-              <h2 id="id" class="Text-heading-2"></h2>
-              <p id="name" class="Text-heading-4"></p>
-            </header>
-            <hr class="Separator-v-light">
-            <p id="description" class="Text-regular"></p>
-          </section>
-          <div class="Panel">
-            <cm-table>
-              <table class="Access">
-                <thead>
-                  <tr>
-                    <th>asset</th>
-                    <th>community</th>
-                    <th>pro</th>
-                    <th id="key-col"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- table rows -->
-                </tbody>
-              </table>
-            </cm-table>
-            <span>
-              <button id="load-more" class="Button">
-                <span>Load More</span>
-                <cm-icon name="refresh-cw"></cm-icon>
-              </button>
-              <button id="load-all" class="Button">
-                Show All
-              </button>
-            </span>
-          </div>
+      <header class="Text-content">
+        <div>
+          <h2 id="id"></h2>
+          <p id="name"></p>
         </div>
+        <div class="Line-v-light"></div>
+        <p id="description"></p>
+      </header>
+      <div class="Panel">
+        <cm-table>
+          <table class="Access">
+            <thead>
+              <tr>
+                <th>asset</th>
+                <th>community</th>
+                <th>pro</th>
+                <th id="key-col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- table rows -->
+            </tbody>
+          </table>
+        </cm-table>
+        <span>
+          <button id="load-more" class="Button">
+            <span>Load More</span>
+            <cm-icon name="refresh-cw"></cm-icon>
+          </button>
+          <button id="load-all" class="Button">
+            Show All
+          </button>
+        </span>
       </div>
     </main>
     <cm-sidebar>
@@ -90,7 +86,7 @@
             </article>
           </details>
         </cm-popup>
-        <hr class="Separator-h-light">
+        <div class="Line-h-light"></div>
         <hr class="Sidebar-spacer">
         <button class="Sidebar-toggle-button" id="sidebar-toggle-button">
           <cm-icon name="chevrons-left">Toggle extras</cm-icon>
