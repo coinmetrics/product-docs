@@ -1,0 +1,85 @@
+.Main {
+  flex-grow: 1;
+}
+
+.Main-header,
+.Main-header-lg {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.Main-header {
+  height: 48px;
+}
+
+.Main-header-lg {
+  height: 72px;
+}
+
+.Main-header > h2 {
+  flex: none;
+}
+
+.Main-header > hr,
+.Main-header-lg > hr {
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
+.Main-header-lg > header {
+  flex: none;
+}
+
+cm-sidebar {
+  --sidebar-extras-width: 300px !important;
+}
+
+nav > .Input-with-icon {
+  margin-bottom: var(--style-gap-xxl);
+}
+
+nav > .Input-with-icon > input {
+  background-color: transparent;
+}
+
+nav > .Input-with-icon > cm-icon > svg {
+  stroke: var(--color-primary-white);
+}
+@media screen and (max-width: 640px) {
+  :root {
+    --color-sidebar-bg: transparent;
+  }
+
+  #api-key-popup > summary > cm-icon > svg {
+    stroke: var(--color-label-default);
+  }
+
+  cm-sidebar > .Sidebar-toolbar > article > .Line-h-light {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+.Sidebar-toolbar > cm-popup > details {
+  height: 32px;
+}
+
+.Dialog-api-key {
+  max-width: 352px;
+}
+
+.Dialog-api-key > div > a {
+  text-align: center;
+}
+
+.Dialog-api-key > div > form > button {
+  width: 100%;
+  margin-top: var(--style-gap-l);
+}
+
+@media screen and (max-width: 640px) {
+  .Dialog-api-key {
+    max-width: min(352px, 80vw);
+  }
+}
