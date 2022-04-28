@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Coin Metrics Knowledge Base</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="stylesheet" media="screen" href="/chocolate-ui.css">
+    <link rel="stylesheet" media="screen" href="/shared.css">
+    <link rel="stylesheet" media="screen" href="/app-layout.css">
+    <script defer src="/chocolate-ui.js"></script>
+    <script defer src="/shared.js"></script>
+    <!-- TODO Google Tag Manager -->
+  </head>
+  <body>
+    <header class="AppLayout-header">
+      <a href="https://coinmetrics.io/" title="Go to Coin Metrics">
+        <img class="AppLayout-logo" src="https://cdn.coinmetrics.io/coinmetrics-default.svg" alt="Coin Metrics">
+      </a>
+      <hr class="Separator-v-dark">
+      <a href="/" title="Go to home">
+        <img class="AppLayout-logo" src="wordmark.svg" alt="Knowledge Base">
+      </a>
+    </header>
+    <main class="AppLayout-main">
+      <section>
+        <div>
+          <h2 class="Text-heading-2">Oops!</h2>
+          <div class="Line-h-dark"></div>
+          <p class="Text-regular">
+            You requested something that was not found
+          </p>
+        </div>
+        <img src="https://cdn.coinmetrics.io/ship.svg" alt="Missing resources">
+      </section>
+    </main>
+    <cm-sidebar>
+      <article class="Sidebar-toolbar">
+        <cm-popup>
+          <details id="api-key-popup">
+            <summary class="Sidebar-button">
+              <cm-icon name="key">Manage visualization key</cm-icon>
+            </summary>
+            <article class="Popup-dialog Dialog Dialog-api-key">
+              <h2 class="Dialog-titlebar">CM Pro</h2>
+              <div class="Panel">
+                <p class="Text-regular">
+                  Enter your visualization key to unlock CM Pro data available for your account.
+                </p>
+                <form id="api-key-form">
+                  <label class="Input-with-icon">
+                    <input class="Input" placeholder="Visualization Key" type="password">
+                    <cm-icon name="key">Visualization key input</cm-icon>
+                  </label>
+                  <button class="Button-primary">Unlock CM Pro</button>
+                </form>
+                <a class="Link" href="#">Need a visualization key?</a>
+              </div>
+            </article>
+          </details>
+        </cm-popup>
+        <hr class="Separator-h-light">
+        <hr class="Sidebar-spacer">
+        <button class="Sidebar-toggle-button" id="sidebar-toggle-button">
+          <cm-icon name="chevrons-left">Toggle extras</cm-icon>
+        </button>
+      </article>
+      <article class="Sidebar-extras">
+        <nav>
+          <span class="Input-with-icon">
+            <input class="Input-l" placeholder="Search...">
+            <cm-icon name="search">Search CM Knowledge Base</cm-icon>
+          </span>
+          <ul class="List">
+            <li class="List-selected"><a href="/assets" title="Go to assets">Assets</a></li>
+            <li><a href="/pairs" title="Go to pairs">Pairs</a></li>
+            <li><a href="/exchanges" title="Go to exchanges">Exchanges</a></li>
+            <li><a href="/asset-metrics" title="Go to assets">Asset Metrics</a></li>
+            <li><a href="/pair-metrics" title="Go to pairs">Pair Metrics</a></li>
+            <li><a href="/exchange-metrics" title="Go to exchanges">Exchange Metrics</a></li>
+          </ul>
+        </nav>
+      </article>
+    </cm-sidebar>
+  </body>
+</html>
