@@ -1,3 +1,8 @@
+cm-table thead {
+  position: static;
+  transform: none;
+}
+
 table {
   width: 100%;
 }
