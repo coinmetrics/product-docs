@@ -1,0 +1,41 @@
+cm-table thead {
+  position: static;
+  transform: none;
+}
+
+table {
+  width: 100%;
+}
+
+table.Access > thead > tr > th:not(:first-child),
+table.Access > tbody > tr > td:not(:first-child) {
+  text-align: center;
+}
+
+table.Access > thead > tr > th:nth-child(3) {
+  background-color: var(--color-secondary-yellow);
+}
+
+table.Access > thead > tr > th:nth-child(4) {
+  background-color: var(--color-primary-dark-purple);
+  color: var(--color-primary-white);
+}
+
+table.Access > thead > tr > th:nth-child(4).Missing-key {
+  background-color: var(--color-primary-lighter-purple);
+  color: var(--color-primary-new-purple);
+}
+
+table.Access > thead > tr > th:nth-child(2),
+table.Access > thead > tr > th:nth-child(3),
+table.Access > thead > tr > th:nth-child(4),
+table.Access > thead > tr > td:nth-child(2),
+table.Access > thead > tr > td:nth-child(3),
+table.Access > thead > tr > td:nth-child(4) {
+  width: 258px;
+}
+
+table[left-align] > thead > tr > th,
+table[left-align] > tbody > tr > td {
+  text-align: left !important;
+}
