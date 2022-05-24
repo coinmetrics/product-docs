@@ -1,60 +1,86 @@
 {
   'use strict'
 
-  let assets = []
-  let renderedAssets = 0
+  let CM = window.__CM = window.__CM || {}
+
+  let canonicalAssets, 
+    renderableAssets,
+    renderedAssets = 0
   
-  let $tbody = document.querySelector('tbody')
-  let $loadMore = document.getElementById('load-more')
-  let $loadAll = document.getElementById('load-all')
+  let $tbody = document.querySelector('tbody'),
+    $filter = document.getElementById('text-filter'),
+    $loadMore = document.getElementById('load-more'),
+    $loadCount = document.getElementById('load-count'),
+    $loadTotal = document.getElementById('load-total'),
+    $loadAll = document.getElementById('load-all'),
+    $empty = document.getElementById('empty')
 
   let getAssets = () => 
-    fetch('http://localhost:8000/assets')
-      .then(res => res.json())
-      .then(body => assets = body.data)
+    fetch('/api/assets')
+      .then(res => {
+        if (res.status === 500) throw new Error(`Error from API`)
+        else return res.json()
+      })
+      .then(body => 
+        canonicalAssets = renderableAssets = Object.entries(body).map(([key, value]) => ({id: key, fullName: value})))
 
-  let $renderRows = (arr) => {
+  let $renderRows = arr => {
     let html = ''
     arr.forEach(asset => 
-      html += `
+      html += /*html*/`
         <tr>
           <td>
             <cm-coin name="${asset.id}"></cm-coin>
             <a 
-              href="/asset?id=${asset.id}" 
+              href="/assets/${asset.id}" 
               class="Link Text-regular">${asset.id.toUpperCase()}</a>
           </td>
           <td>
             <p class="Text-regular">${asset.fullName}</p>
           </td>
-        </tr>
-      `
-    )
+        </tr>`)
     let $t = document.createElement('template')
     $t.innerHTML = html
     return $t.content
   }
-  let renderNext20Assets = () => {
-    let next20Assets = assets.slice(renderedAssets, renderedAssets+20)
-    let $next20Assets = $renderRows(next20Assets)
-    $tbody.append($next20Assets)
-    renderedAssets += 20
-    if (renderedAssets >= assets.length) {
-      $loadMore.disabled = true
-      $loadAll.disabled = true
-    }
+  let renderNext20 = () => {
+    $empty.hidden = renderableAssets.length > 0
+    let next20 = renderableAssets.slice(renderedAssets, renderedAssets+CM.constants.PAGE_SIZE)
+    let $next20 = $renderRows(next20)
+    $tbody.append($next20)
+    renderedAssets += CM.constants.PAGE_SIZE
+    $loadCount.textContent = CM.string.formatNumber(renderedAssets)
+    $loadTotal.textContent = CM.string.formatNumber(renderableAssets.length)
+    $loadMore.parentNode.hidden = renderedAssets >= renderableAssets.length
   }
-  let renderRemainingAssets = () => {
-    let remainingAssets = assets.slice(renderedAssets)
-    let $remainingAssets = $renderRows(remainingAssets)
-    $tbody.append($remainingAssets)
-    renderedAssets = assets.length
-    $loadMore.disabled = true
-    $loadAll.disabled = true
+  let renderRemaining = () => {
+    let remaining = renderableAssets.slice(renderedAssets)
+    let $remaining = $renderRows(remaining)
+    $tbody.append($remaining)
+    renderedAssets = renderableAssets.length
+    $loadMore.parentNode.hidden = true
   }
 
-  $loadMore.onclick = renderNext20Assets
-  $loadAll.onclick = renderRemainingAssets
+  let onFilter = filter => {
+    if (filter)
+      renderableAssets = canonicalAssets.filter(x => x.id.toLowerCase().includes(filter.toLowerCase()))
+    else 
+      renderableAssets = canonicalAssets
 
-  getAssets().then(renderNext20Assets)
+    $tbody.innerHTML = ''
+    renderedAssets = 0
+    renderNext20()
+  }
+  let onAssets = () => {
+    if ($filter.value) onFilter($filter.value)
+    else renderNext20()
+
+    $filter.oninput = e => onFilter(e.target.value)
+    $loadMore.onclick = renderNext20
+    $loadAll.onclick = renderRemaining
+  }
+
+  getAssets()
+    .then(onAssets)
+    .catch(CM.htmlSnippets.renderUnexpectedError)
 }

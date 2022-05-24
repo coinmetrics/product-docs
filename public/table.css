@@ -1,12 +1,3 @@
-cm-table thead {
-  position: static;
-  transform: none;
-}
-
-table {
-  width: 100%;
-}
-
 table.Access > thead > tr > th:not(:first-child),
 table.Access > tbody > tr > td:not(:first-child) {
   text-align: center;

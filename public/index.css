@@ -1,7 +1,17 @@
-.AppLayout-row > div:first-child > div {
-  display: flex;
+.AppLayout-main {
   align-items: center;
-  gap: 64px;
-  margin: auto;
-  max-width: 640px;
+}
+
+.AppLayout-main > .Line-h-dark {
+  max-width: 320px;
+}
+
+.AppLayout-main > p {
+  text-align: center;
+}
+
+.AppLayout-main > form {
+  min-width: 640px;
+  display: flex;
+  gap: var(--style-gap-xl);
 }
