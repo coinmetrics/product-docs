@@ -1,0 +1,47 @@
+main > section:first-child > form {
+  display: flex;
+  flex-direction: row;
+  gap: var(--style-gap-xl);
+}
+
+main > section:first-child > form > label {
+  flex-grow: 1;
+}
+
+main > section:nth-child(2) > header {
+  display: flex;
+  align-items: center;
+  gap: var(--style-gap-xl);
+}
+
+.Results {
+  gap: var(--style-gap-xl);
+  display: flex;
+  flex-direction: column;
+}
+
+.Result {
+  border: 1px solid var(--color-border-default);
+  border-radius: 3px;
+  padding: 8px;
+  text-decoration: none;
+  color: var(--color-text);
+  width: 100%;
+  display: inline-block;
+}
+
+.Result > div {
+  display: flex;
+  align-items: center;
+  gap: var(--style-gap-l);
+}
+
+.Result:hover {
+  border-color: var(--color-border-attn-default);
+}
+
+.Result:active {
+  border-color: var(--color-border-pressed-default);
+  border-top-width: 2px;
+  margin-bottom: -1px;
+}

@@ -88,64 +88,84 @@
 })(window.__CM = window.__CM || {});
 
 (CM => {
-  class IconBase extends HTMLElement {
+  let evalDefault = x => {
+    if (typeof x === 'function') return x()
+    return x
+  }
+  let aliasStringAttr = ($el, attrName, propName = attrName, defaultValue = '') => {
+    Object.defineProperty($el, propName, {
+      set: x => $el.setAttribute(attrName, x),
+      get: () => $el.getAttribute(attrName) || evalDefault(defaultValue)
+    })
+  }
+  let aliasBooleanAttr = ($el, attrName, propName = attrName) => {
+    Object.defineProperty($el, propName, {
+      set: x => $el.toggleAttribute(attrName, x),
+      get: () => $el.hasAttribute(attrName),
+    })
+  }
+  let aliasNumericAttr = ($el, attrName, propName = attrName, defaultVal) => {
+    Object.defineProperty($el, propName, {
+      set: x => $el.setAttribute(attrName, x),
+      get: () => +($el.getAttribute(attrName) || evalDefault(defaultVal)),
+    })
+  }
+  let aliasReadOnly = ($el, attrName, propName = attrName, coerce = x => x) => {
+    Object.defineProperty($el, propName, {
+      get: () => coerce(this.getAttribute(attrName))
+    })
+  }
+  let aliasReadOnlyBoolean = ($el, attrName, propName = attrName) => {
+    Object.defineProperty($el, propName, {
+      get: () => $el.hasAttribute(attrName)
+    })
+  }
+  let dispatchEvent = ($el, eventName, evOpts) => {
+    evOpts ??= { bubbles: true }
+    let ev = new Event(eventName, evOpts)
+    Object.defineProperty(ev, 'target', { value: $el, writable: false })
+    $el.dispatchEvent(ev)
+    if ($el['on' + eventName]) $el['on' + eventName](ev)
+  }
+
+  class BaseElement extends HTMLElement {
     constructor() {
       super()
-
-      let $icon
-      let $title
-
-      Object.defineProperties(this, {
-        name: {
-          set: x => this.setAttribute('name', x),
-          get: () => this.getAttribute('name'),
-        },
-        alt: {
-          set: x => this.setAttribute('alt', x),
-          get: () => this.getAttribute('alt') ?? '',
-        },
-      })
-      this.getIcons()
+      let disconnectHooks = []
+      this.onstop = () => {
+        for (let i = 0; i < disconnectHooks.length; i++) disconnectHooks[i]()
+        disconnectHooks.length = 0
+      }
+      this.onstop.push = disconnectHooks.push.bind(disconnectHooks)
     }
 
-    getIcons() {}
-
-    updateIcon() {
-      this.querySelector('use')?.setAttribute('href', '#' + this.prefix + this.name)
+    addEventListenerWhileConnected(type, listener, options) {
+      this.addEventListener(type, listener, options)
+      this.onstop.push(() => this.removeEventListener(type, listener, options))
     }
 
-    static get observedAttributes() { return ['name'] }
-
-    attributeChangedCallback(name) {
-      if (name === 'name') this.updateIcon()
-      if (name === 'alt') this.updateTitle()
-    }
-
-    connectedCallback() {
-      this.alt = this.textContent.trim()
+    addEventListenerToElementWhileConnected($el, type, listener, options) {
+      if (typeof $el === 'string') $el = this.querySelector($el)
+      if (!$el) return
+      $el.addEventListener(type, listener, options)
+      this.onstop.push(() => $el.removeEventListener(type, listener, options))
     }
 
     disconnectedCallback() {
-      this.innerHTML = ''
-      this.textContent = this.alt
-    }
-
-    updateTitle() {
-      let $icon = this.querySelector('use')
-      let $title = this.querySelector('title')
-      if (this.alt) {
-        if (!$title) $icon.parentNode.insertBefore($icon, $title = document.createElement('title'))
-        $title.textContent = this.alt
-      } else {
-        $title?.remove()
-      }
+      this.onstop()
     }
   }
 
-  CM.iconBase = {
-    IconBase,
+  CM.customElements = {
+    aliasStringAttr,
+    aliasBooleanAttr,
+    aliasNumericAttr,
+    aliasReadOnly,
+    aliasReadOnlyBoolean,
+    dispatchEvent,
+    BaseElement,
   }
-})(window.__CM = window.__CM || {});
+})(window.__CM ??= {});
 
 (CM => {
   'use strict'
@@ -267,29 +287,55 @@
   'use strict'
 
   let propsCache
+  let $testElement = document.createElement('div') // element used for testing style values
+  let testStyle = window.getComputedStyle($testElement)
 
-  let buildPropsCache = () => {
-    propsCache = {}
+  $testElement.hidden = true
+  document.body.append($testElement)
+
+  let isLoaded = $link => {
+    for (let i = 0, s; s = document.styleSheets[i++];) if (s.href === $link.href && s.cssRules.length) return true
+    return false
+  }
+
+  let cssReady = (() => {
+    let $$links = document.head.querySelectorAll('link[rel="stylesheet"]')
+    let loadEvents = []
+    for (let i = 0, $link; $link = $$links[i++];) loadEvents.push(new Promise((resolve, reject) => {
+      if (isLoaded($link)) resolve()
+      $link.addEventListener('load', resolve)
+      $link.addEventListener('error', reject)
+    }))
+    return Promise.all(loadEvents)
+  })()
+
+  let getPropsCache = () => {
+    if (propsCache) return propsCache
+    let cache = {}
     Array.from(document.styleSheets)
       .forEach(ss => Array.from(ss.cssRules)
         .forEach(rule => {
           if (rule.selectorText !== ':root') return
           Array.from(rule.style).forEach(property => {
             if (property.startsWith('--')) {
-              propsCache[property] = rule.style.getPropertyValue(property)
+              cache[property] = rule.style.getPropertyValue(property)
             }
           })
         }))
+    return propsCache = cache
   }
 
-  let getAllProps = () => {
-    if (!propsCache) buildPropsCache()
-    return propsCache
+  let getCSSProp = propName => getPropsCache()['--' + propName]
+
+  let getCompLength = (cssVal, baseFontSize = '1rem') => {
+    $testElement.style.fontSize = baseFontSize
+    $testElement.style.width = cssVal
+    return parseFloat(testStyle.width)
   }
 
-  let getCSSProp = (propName) => {
-    if (!propsCache) buildPropsCache()
-    return propsCache['--' + propName]
+  let getCompDuration = cssVal => {
+    $testElement.style.transitionDuration = cssVal
+    return parseFloat(testStyle.transitionDuration) * 1000
   }
 
   let computedStyleCache = new WeakMap()
@@ -300,16 +346,14 @@
     return computedStyleCache.get($target)
   }
 
-  let getEmOrRemSize = (x, $target) => {
-    let n = parseFloat(x)
-    if (x.endsWith('rem')) $target = document.documentElement
-    return parseFloat(getCompStyl($target).fontSize) * n
-  }
+  let getEmOrRemSize = (x, $target) => getCompLength(x, getCompStyl($target).fontSize)
 
   CM.properties = {
-    getAllProps,
+    cssReady,
     getCSSProp,
     getCompStyl,
+    getCompLength,
+    getCompDuration,
     getEmOrRemSize,
   }
 })(window.__CM = window.__CM || {});
@@ -354,40 +398,155 @@
   }
 })(window.__CM = window.__CM || {});
 
-(() => {
-  'use strict'
+(CM => {
+  let { BaseElement, aliasStringAttr } = CM.customElements
 
-  customElements.define('cm-toggler', class extends HTMLElement {
+  class IconBase extends BaseElement {
     constructor() {
       super()
 
-      Object.defineProperties(this, {
-        htmlFor: {
-          set: x => this.setAttribute('for', x),
-          get: () => this.getAttribute('for'),
-        },
-      })
+      aliasStringAttr(this, 'name')
+      aliasStringAttr(this, 'alt')
+      this.getIcons()
+    }
+
+    static get observedAttributes() { return ['name', 'alt'] }
+
+    attributeChangedCallback(name) {
+      if (name === 'name') this.updateIcon()
+      if (name === 'alt') this.updateTitle()
     }
 
     connectedCallback() {
-      let onClick = () => {
-        let $target = document.getElementById(this.htmlFor)
-        if (!$target) return
+      this.alt = this.textContent.trim()
+      this.onstop.push(
+        () => this.innerHTML = '',
+        () => this.textContent = this.alt
+      )
+    }
+
+    getIcons() {}
+
+    updateIcon() {
+      this.querySelector('use')?.setAttribute('href', '#' + this.prefix + this.name)
+    }
+
+    updateTitle() {
+      let $icon = this.querySelector('use')
+      let $title = this.querySelector('title')
+      if (!$icon) return
+      if (this.alt) {
+        if (!$title) $icon.parentNode.prepend($title = document.createElement('title'))
+        $title.textContent = this.alt
+      } else {
+        $title?.remove()
+      }
+    }
+  }
+
+  CM.iconBase = {
+    IconBase,
+  }
+})(window.__CM = window.__CM || {});
+
+(CM => {
+  'use strict'
+
+  let { BaseElement } = CM.customElements
+
+  customElements.define('cm-inline-svg', class extends BaseElement {
+    connectedCallback() {
+      let $img = this.firstElementChild
+      if (!$img) return
+
+      fetch($img.src)
+        .then(res => res.text())
+        .then(svg => {
+          let $svg = Object.assign(document.createElement('template'), {
+            innerHTML: svg.replace(/fill="[^"]+"/g, 'fill="currentColor"'),
+          }).content
+          $svg.insertBefore(Object.assign(document.createElement('title'), { textContent: $img.alt }), $svg.firstChild)
+          this.replaceChild($svg, $img)
+        })
+    }
+  })
+})(window.__CM ??= {});
+
+(CM => {
+  'use strict'
+
+  let { BaseElement } = CM.customElements
+
+  customElements.define('cm-switch-checkbox', class extends BaseElement {
+    connectedCallback() {
+      let $icons
+      this.append($icons = Object.assign(document.createElement('span'), {
+        className: 'Switch-icons',
+        innerHTML: `
+          <cm-icon class="Switch-icon-on" name="check-square"></cm-icon>
+          <cm-icon class="Switch-icon-off" name="square"></cm-icon>
+          <cm-icon class="Switch-icon-partial" name="minus-square"></cm-icon>
+        `
+      }))
+
+      this.onstop.push(() => $icons.remove())
+    }
+  })
+
+  customElements.define('cm-switch-toggle', class extends BaseElement {
+    connectedCallback() {
+      let $icons
+      this.append($icons = Object.assign(document.createElement('span'), {
+        className: 'Switch-icons',
+        innerHTML: `
+          <cm-color-icon class="Switch-icon-on" name="toggle-left"></cm-color-icon>
+          <cm-color-icon class="Switch-icon-off" name="toggle-right"></cm-color-icon>
+        `
+      }))
+
+      this.onstop.push(() => $icons.remove())
+    }
+  })
+
+  customElements.define('cm-switch-radio', class extends BaseElement {
+    connectedCallback() {
+      let $icons
+      this.append($icons = Object.assign(document.createElement('span'), {
+        className: 'Switch-icons',
+        innerHTML: `
+          <cm-icon class="Switch-icon-on" name="circle-radio"></cm-icon>
+          <cm-icon class="Switch-icon-off Switch-icon-partial" name="circle"></cm-icon>
+        `
+      }))
+
+      this.onstop.push(() => $icons.remove())
+    }
+  })
+})(window.__CM ??= {});
+
+(CM => {
+  'use strict'
+
+  let { BaseElement, aliasStringAttr } = CM.customElements
+
+  customElements.define('cm-toggler', class extends BaseElement {
+    constructor() {
+      super()
+
+      aliasStringAttr(this, 'for', 'htmlFor')
+    }
+
+    connectedCallback() {
+      this.addEventListenerWhileConnected('click', () => {
+        let $target
         // `setTimeout()` causes the toggling to wait until the event has
         // bubbled up to document.body and handled by elements that listen to
         // 'outside' events, so they don't self-close immediately.
-        setTimeout(() => $target.toggleAttribute('open'))
-      }
-      this.addEventListener('click', onClick)
-      this.onstop = () => this.removeEventListener('click', onClick)
-    }
-
-    disconnectedCallback() {
-      this.onstop()
-      this.onstop = null
+        if ($target = document.getElementById(this.htmlFor)) setTimeout(() => $target.toggleAttribute('open'))
+      })
     }
   })
-})();
+})(window.__CM ??= {});
 
 (CM => {
   let onOutsideEvent = (eventType, $el, cb) => {
@@ -425,89 +584,131 @@
 (CM => {
   'use strict'
 
-  let animationFast = parseFloat(CM.properties.getCSSProp('style-animation-speed-fast'))
+  let { BaseElement, aliasBooleanAttr } = CM.customElements
+  let { onGlobalEvent } = CM.events
 
-  customElements.define('cm-accordion', class extends HTMLElement {
+  customElements.define('cm-modal', class extends BaseElement {
     constructor() {
       super()
+      aliasBooleanAttr(this, 'open')
+    }
 
-      this.onstop = () => {}
+    static get observedAttributes() { return ['open'] }
+
+    attributeChangedCallback() {
+      this.toggleHide?.()
     }
 
     connectedCallback() {
-      let $details = this.querySelector(':scope > .Accordion')
-      let $summary = $details.querySelector(':scope > summary')
-      let $content = $details.querySelector(':scope > :last-child')
-
-      let onSummaryClick = ev => {
-        ev.preventDefault()
-
-        if ($details.open) {
-          let doFlip = CM.animation.startFLIP($details, {
-            duration: animationFast,
-            properties: { height: true, overflow: true },
-          })
-          $content.classList.add('Accordion-content-collapsed')
-          doFlip().then(() => {
-            $details.open = false
-            $details.dispatchEvent(new Event('toggle', { bubbles: true }))
-          })
-        } else {
-          $content.classList.add('Accordion-content-collapsed')
-          $details.open = true
-          $details.dispatchEvent(new Event('toggle', { bubbles: true }))
-          let doFlip = CM.animation.startFLIP($details, {
-            duration: animationFast,
-            properties: { height: true, overflow: true },
-          })
-          $content.classList.remove('Accordion-content-collapsed')
-          doFlip()
-        }
+      let hide = () => {
+        let $modal = this.firstElementChild
+        if (!$modal) return
+        $modal.classList.remove('Modal-open')
+        $modal.addEventListener('transitionend', () => { $modal.hidden = true }, { once: true })
+      }
+      let reveal = () => {
+        let $modal = this.firstElementChild
+        if (!$modal) return
+        $modal.hidden = false
+        requestAnimationFrame(() => requestAnimationFrame(() => { // NB: double-RAF to wait for hidden to fully toggle
+          $modal.classList.add('Modal-open')
+        }))
+      }
+      this.toggleHide = () => {
+        if (!this.open) hide()
+        else reveal()
       }
 
-      $summary.addEventListener('click', onSummaryClick)
-      this.onstop = () => $summary.removeEventListener('click', onSummaryClick)
-    }
-
-    disconnectedCallback() {
-      this.onstop()
+      this.addEventListenerWhileConnected('click', ev => {
+        if (ev.target.closest('.Modal-close, .Modal-click-trap') && this.open) this.open = false
+      })
+      this.onstop.push(
+        onGlobalEvent('keydown', ev => {
+          if (ev.code !== 'Escape' || !this.open) return
+          this.open = false
+        }),
+        () => this.open = false
+      )
+      if (this.firstElementChild) {
+        let $modal = this.firstElementChild
+        $modal.hidden = !this.open
+        $modal.classList.toggle('Modal-open', this.open)
+      }
     }
   })
+})(window.__CM ??= {});
 
-  customElements.define('cm-accordion-group', class extends HTMLElement {
-    constructor() {
-      super()
+(CM => {
+  'use strict'
 
-      this.onstop = []
-    }
+  let { BaseElement } = CM.customElements
+  let { getCSSProp, getCompDuration, cssReady } = CM.properties
 
-    connectedCallback() {
-      let onToggle = ev => {
-        let $$openAccordions = this.querySelectorAll('cm-accordion details[open]')
-        $$openAccordions.forEach($ => {
-          if ($ === ev.target) return
-          $.open = false
-        })
+  cssReady.then(() => {
+    let animationFast = getCompDuration(getCSSProp('style-animation-speed-fast'))
+
+    customElements.define('cm-accordion', class extends BaseElement {
+      connectedCallback() {
+        let $details = this.querySelector(':scope > .Accordion')
+        let $summary = $details.querySelector(':scope > summary')
+        let $content = $details.querySelector(':scope > :last-child')
+
+        let toggleAccordion = ev => {
+          ev.preventDefault()
+
+          if ($details.open) {
+            let doFlip = CM.animation.startFLIP($details, {
+              duration: animationFast,
+              properties: { height: true, overflow: true },
+            })
+            $content.classList.add('Accordion-content-collapsed')
+            doFlip().then(() => {
+              $details.open = false
+              $details.dispatchEvent(new Event('toggle', { bubbles: true }))
+            })
+          }
+          else {
+            $content.classList.add('Accordion-content-collapsed')
+            $details.open = true
+            $details.dispatchEvent(new Event('toggle', { bubbles: true }))
+            let doFlip = CM.animation.startFLIP($details, {
+              duration: animationFast,
+              properties: { height: true, overflow: true },
+            })
+            $content.classList.remove('Accordion-content-collapsed')
+            doFlip()
+          }
+        } // toggleAccordion
+
+        $summary.addEventListener('click', toggleAccordion)
+        this.onstop.push(() => $summary.removeEventListener('click', toggleAccordion))
       }
-      let onClick = ev => {
-        // Handle cases where accordions are mixed with non-accordion content (e.g., list)
-        if (ev.target.closest('cm-accordion')) return
-        this.dispatchEvent(new Event('toggle'))
+    })
+
+    customElements.define('cm-accordion-group', class extends BaseElement {
+      connectedCallback() {
+        let toggleAccordion = ev => {
+          let $$openAccordions = this.querySelectorAll('cm-accordion details[open]')
+          $$openAccordions.forEach($ => {
+            if ($ === ev.target) return
+            $.open = false
+          })
+        }
+        let toggleOnNonAccordionClick = ev => {
+          // Handle cases where accordions are mixed with non-accordion content (e.g., nav-list)
+          if (ev.target.closest('cm-accordion')) return
+          toggleAccordion(ev)
+        }
+
+        this.addEventListener('toggle', toggleAccordion)
+        this.addEventListener('click', toggleOnNonAccordionClick)
+
+        this.onstop.push(
+          () => this.removeEventListener('toggle', toggleAccordion),
+          () => this.removeEventListener('click', toggleOnNonAccordionClick),
+        )
       }
-
-      this.addEventListener('toggle', onToggle)
-      this.addEventListener('click', onClick)
-
-      this.onstop.push(
-        () => this.removeEventListener('toggle', onToggle),
-        () => this.removeEventListener('click', onClick)
-      )
-    }
-
-    disconnectedCallback() {
-      this.onstop.forEach(f => f())
-      this.onstop.length = 0
-    }
+    })
   })
 })(window.__CM = window.__CM || {});
 
@@ -607,113 +808,113 @@
 (CM => {
   'use strict'
 
-  let gap = CM.properties.getCSSProp('style-gap-xs')
+  let { BaseElement } = CM.customElements
+  let { cssReady, getCSSProp } = CM.properties
 
-  customElements.define('cm-dropdown', class extends HTMLElement {
-    constructor() {
-      super()
-      this.onstop = []
-    }
+  cssReady.then(() => {
+    let gap = getCSSProp('style-gap-xs')
 
-    connectedCallback() {
-      let $details = this.querySelector('.Dropdown')
-      let $dropdownList = $details.querySelector('fieldset')
-      let $button = $details.querySelector('summary')
-      let $label = $button.querySelector(':scope > :not(cm-icon)')
-      let $current = $dropdownList.querySelector('input:checked')
+    customElements.define('cm-dropdown', class extends BaseElement {
+      connectedCallback() {
+        let $details = this.querySelector('.Dropdown')
+        let $dropdownList = $details.querySelector('fieldset')
+        let $button = $details.querySelector('summary')
+        let $label = $button.querySelector(':scope > :not(cm-icon)')
+        let $current = $dropdownList.querySelector('input:checked')
 
-      let defaultLabel = $label.innerHTML
+        let defaultLabel = $label.innerHTML
 
-      let updateLabel = () => {
-        if ($current) $label.innerHTML = $current.dataset.label || $current.nextElementSibling.innerHTML
-        else $label.innerHTML = defaultLabel
-      }
-      let updateLayout = this.updateLayout = () => {
-        let pos = CM.position.relPos($button, $dropdownList, CM.properties.getEmOrRemSize(gap, $dropdownList))
-        let direction = CM.position.DIR_BELOW
-        let alignment = CM.position.ALIGN_LEFT
-        if (!pos.clearsBottom) direction = CM.position.DIR_ABOVE
-        if (!pos.overhangsRight) alignment = CM.position.ALIGN_RIGHT
-        let p = CM.position.position(direction, alignment, pos)
-        let s = $dropdownList.style
-        s.setProperty('--dropdown-top', p.top)
-        s.setProperty('--dropdown-left', p.left)
-        s.setProperty('--dropdown-right', p.right)
-        s.setProperty('--dropdown-bottom', p.bottom)
-      }
-
-      this.addEventListener('keydown', ev => {
-        switch (ev.code) {
-          case 'ArrowDown': {
-            ev.preventDefault()
-            if (ev.getModifierState('Alt')) {
-              $details.open = true
-              return
-            }
-            let $next = $current
-            while ($next = $next?.nextElementSibling || $dropdownList.querySelector('input')) {
-              if ($next.tagName !== 'INPUT') continue
-              $next.checked = true
-              $next.dispatchEvent(new Event('change', { bubbles: true }))
-              $next.focus()
-              break
-            }
-            break
-          }
-          case 'ArrowUp': {
-            ev.preventDefault()
-            if (ev.getModifierState('Alt')) {
-              $details.open = true
-              return
-            }
-            let $prev = $current
-            while ($prev = $prev?.previousElementSibling || $dropdownList.querySelector('input:last-of-type')) {
-              if ($prev.tagName !== 'INPUT') continue
-              $prev.checked = true
-              $prev.dispatchEvent(new Event('change', { bubbles: true }))
-              $prev.focus()
-              break
-            }
-            break
-          }
-          case 'Enter':
-            ev.preventDefault()
-            $details.open = !$details.open
-            if ($details.open) updateLayout()
-            break
-          case 'Escape':
-            ev.preventDefault()
-            $details.open = false
-            break
+        let updateLabel = () => {
+          if ($current) $label.innerHTML = $current.dataset.label || $current.nextElementSibling.innerHTML
+          else $label.innerHTML = defaultLabel
         }
-      }) // keydown
-      this.addEventListener('change', ev => {
-        $current = ev.target
+        let updateLayout = () => {
+          let pos = CM.position.relPos($button, $dropdownList, CM.properties.getEmOrRemSize(gap, $dropdownList))
+          let direction = CM.position.DIR_BELOW
+          let alignment = CM.position.ALIGN_LEFT
+          if (!pos.clearsBottom) direction = CM.position.DIR_ABOVE
+          if (!pos.overhangsRight) alignment = CM.position.ALIGN_RIGHT
+          let p = CM.position.position(direction, alignment, pos)
+          let s = $dropdownList.style
+          s.setProperty('--dropdown-top', p.top)
+          s.setProperty('--dropdown-left', p.left)
+          s.setProperty('--dropdown-right', p.right)
+          s.setProperty('--dropdown-bottom', p.bottom)
+        }
+
+        this.addEventListenerWhileConnected('keydown', ev => {
+          switch (ev.code) {
+            case 'ArrowDown': {
+              ev.preventDefault()
+              if (ev.getModifierState('Alt')) {
+                $details.open = true
+                return
+              }
+              let $next = $current
+              while ($next = $next?.nextElementSibling || $dropdownList.querySelector('input')) {
+                if ($next.tagName !== 'INPUT') continue
+                $next.checked = true
+                $next.dispatchEvent(new Event('change', { bubbles: true }))
+                $next.focus()
+                break
+              }
+              break
+            }
+            case 'ArrowUp': {
+              ev.preventDefault()
+              if (ev.getModifierState('Alt')) {
+                $details.open = true
+                return
+              }
+              let $prev = $current
+              while ($prev = $prev?.previousElementSibling || $dropdownList.querySelector('input:last-of-type')) {
+                if ($prev.tagName !== 'INPUT') continue
+                $prev.checked = true
+                $prev.dispatchEvent(new Event('change', { bubbles: true }))
+                $prev.focus()
+                break
+              }
+              break
+            }
+            case 'Enter':
+              ev.preventDefault()
+              $details.open = !$details.open
+              if ($details.open) updateLayout()
+              break
+            case 'Escape':
+              ev.preventDefault()
+              $details.open = false
+              break
+          }
+        }) // keydown
+        this.addEventListenerWhileConnected('change', ev => {
+          $current = ev.target
+          updateLabel()
+          updateLayout()
+        })
+        this.addEventListenerToElementWhileConnected($dropdownList, 'click', ev => {
+          // NB: since radios can only get checked while the details are opened in Firefox, we need to delay closing it
+          if (ev.target.closest('label')) requestAnimationFrame(() => $details.open = false)
+        })
+        this.addEventListenerToElementWhileConnected($details, 'toggle', () => {
+          if ($details.open) {
+            // NB: Firefox will not allow an item to be checked in a closed dropdown, so we check it when dropdown opens
+            if ($current) $current.checked = true
+            updateLayout()
+          } else $button.focus()
+        })
+        this.onstop.push(
+          CM.events.onLayoutChange(() => {
+            if ($details.open) updateLayout()
+          }),
+          CM.events.onClickOutside(this, () => {
+            $details.open = false
+          }),
+        )
         updateLabel()
         updateLayout()
-      })
-      $dropdownList.addEventListener('click', ev => {
-        if (ev.target.closest('label')) $details.open = false
-      })
-      $details.addEventListener('toggle', ev => {
-        if ($details.open) updateLayout()
-      })
-      this.onstop.push(
-        CM.events.onLayoutChange(() => {
-          if ($details.open) updateLayout()
-        }),
-        CM.events.onClickOutside(this, () => {
-          $details.open = false
-        })
-      )
-      updateLabel()
-      updateLayout()
-    } // connectedCallback
-
-    disconnectedCallback() {
-      this.onstop.forEach(fn => fn())
-      this.onstop.length = 0
-    }
+      } // connectedCallback
+    })
   })
 })(window.__CM ??= {});
 
@@ -753,73 +954,54 @@
   })
 })(window.__CM ??= {});
 
-(() => {
+(CM => {
   'use strict'
 
-  customElements.define('cm-list', class extends HTMLElement {
+  let { BaseElement, aliasStringAttr, dispatchEvent } = CM.customElements
+
+  customElements.define('cm-nav-list', class extends BaseElement {
     constructor() {
       super()
 
-      Object.defineProperties(this, {
-        value: {
-          set: x => this.setAttribute('value', x),
-          get: () => this.getAttribute('value'),
-        }
-      })
+      aliasStringAttr(this, 'value')
     }
 
     static get observedAttributes() { return ['value'] }
 
     attributeChangedCallback() {
-      this.querySelector('.List-selected')?.classList.remove('List-selected')
-      let $tgt = this.querySelector(`[data-value="${this.value}"],[href="${this.value}"]`)
-      if (!$tgt) return
-      $tgt.closest('li').classList.add('List-selected')
-      let $l2 = $tgt.closest('details:not([open])')
-      if ($l2) $l2.open = true
+      this.querySelector('.NavList-selected')?.classList.remove('NavList-selected')
+      let $tgt, $l2
+      if ($tgt = this.querySelector(`[data-value="${this.value}"],[href="${this.value}"]`)) {
+        $tgt.closest('li').classList.add('NavList-selected')
+        if ($l2 = $tgt.closest('details:not([open])')) $l2.open = true
+      }
     }
 
     connectedCallback() {
-      let onClick = ev => {
+      this.addEventListenerWhileConnected('click', ev => {
         let $tgt = ev.target.closest('a, button')
         if ($tgt.tagName === 'A') ev.preventDefault()
 
-        this.querySelector('.List-selected')?.classList.remove('List-selected')
-        $tgt.closest('li').classList.add('List-selected')
+        this.querySelector('.NavList-selected')?.classList.remove('NavList-selected')
+        $tgt.closest('li').classList.add('NavList-selected')
         this.value = $tgt.dataset.value || $tgt.getAttribute('href')
-        let chg = new Event('change', { bubbles: true })
-        Object.defineProperty(chg, 'target', { value: this, writable: false })
-        this.dispatchEvent(chg)
-        if (this.onchange) this.onchange(chg)
-      }
-      this.addEventListener('click', onClick)
-      this.onstop = () => this.removeEventListener('click', onClick)
-    }
-
-    disconnectedCallback() {
-      this.onstop()
-      this.onstop = null
+        dispatchEvent(this, 'change')
+      })
     }
   })
-})();
+})(window.__CM ??= {});
 
-(() => {
+(CM => {
   'use strict'
 
-  customElements.define('cm-paginator', class extends HTMLElement {
+  let { BaseElement, aliasNumericAttr, dispatchEvent } = CM.customElements
+
+  customElements.define('cm-paginator', class extends BaseElement {
     constructor() {
       super()
 
-      Object.defineProperties(this, {
-        total: {
-          set: x => this.setAttribute('total', x),
-          get: () => Number(this.getAttribute('total'))
-        },
-        current: {
-          set: x => this.setAttribute('current', x),
-          get: () => Number(this.getAttribute('current'))
-        },
-      })
+      aliasNumericAttr(this, 'total')
+      aliasNumericAttr(this, 'current')
     }
 
     static get observedAttributes() { return ['total', 'current'] }
@@ -830,15 +1012,15 @@
 
     connectedCallback() {
       let $start
-      let $prev
-      let $first
-      let $morePrev
-      let $$pages
-      let $$pagesMobile
-      let $moreNext
-      let $last
-      let $next
-      let $end
+        , $prev
+        , $first
+        , $morePrev
+        , $$pages
+        , $$pagesMobile
+        , $moreNext
+        , $last
+        , $next
+        , $end
 
       let updatePages = ($$pageSet, min, max) => {
         let { total, current } = this
@@ -852,12 +1034,13 @@
       }
       let updatePaginator = this.updatePaginator = () => {
         let { total, current } = this
-
-        let pageMin, pageMax
+          , pageMin
+          , pageMax
 
         { // Update non-mobile pages
           let pageCount = $$pages.length
-          let pagesOnSide = (pageCount - 1) / 2
+            , pagesOnSide = (pageCount - 1) / 2
+
           pageMin = Math.max(1, Math.min(total - pageCount, current - pagesOnSide))
           pageMax = Math.min(total, pageMin + pagesOnSide * 2)
           updatePages($$pages, pageMin, pageMax)
@@ -865,15 +1048,15 @@
 
         { // Update mobile pages
           let pageMobileCount = $$pagesMobile.length
-          let pageMobileOnSide = (pageMobileCount - 1) / 2
-          let pageMobileMin = Math.max(1, Math.min(total - (pageMobileOnSide * 2), current - pageMobileOnSide))
-          let pageMobileMax = Math.min(total, pageMobileMin + pageMobileOnSide * 2)
+            , pageMobileOnSide = (pageMobileCount - 1) / 2
+            , pageMobileMin = Math.max(1, Math.min(total - (pageMobileOnSide * 2), current - pageMobileOnSide))
+            , pageMobileMax = Math.min(total, pageMobileMin + pageMobileOnSide * 2)
           updatePages($$pagesMobile, pageMobileMin, pageMobileMax)
         }
 
         let isFirst = current === 1
-        let isLast = current === total
-        let showExtraButtons = total > 3
+          , isLast = current === total
+          , showExtraButtons = total > 3
 
         $start.disabled = isFirst
         $end.disabled = isLast
@@ -883,42 +1066,42 @@
         $next.dataset.target = current + 1
 
         let showFirst = pageMin > 1
-        let hasLeftGap = pageMin > 2
+          , hasLeftGap = pageMin > 2
         $first.hidden = !showFirst || !showExtraButtons
         $morePrev.hidden = !hasLeftGap || !showExtraButtons
 
         let showLast = pageMax !== total
-        let hasRightGap = pageMax < total - 1
+          , hasRightGap = pageMax < total - 1
         $last.hidden = !showLast || !showExtraButtons
         $last.dataset.target = $end.dataset.target = $last.textContent = total
         $last.disabled = isLast
         $last.title = 'page ' + total + ' (last page)'
         $moreNext.hidden = !hasRightGap || !showExtraButtons
-      }
+      } // updatePaginator
 
       let onPage = pageNo => {
         this.current = pageNo
-        this.dispatchEvent(new Event('change'))
+        dispatchEvent(this, 'change')
       }
 
       this.innerHTML = `
-          <button class="Button Paginator-start" data-target="1"><cm-icon name="chevrons-left">first page</cm-icon></button>
-          <button class="Button Paginator-prev"><cm-icon name="chevron-left">previous page</cm-icon></button>
-          <button class="Button Paginator-first" data-target="1" title="page 1">1</button>
-          <cm-icon class="Paginator-more-prev" name="more-horizontal"></cm-icon>
-          <button class="Button Paginator-page"></button>
-          <button class="Button Paginator-page"></button>
-          <button class="Button Paginator-page"></button>
-          <button class="Button Paginator-page"></button>
-          <button class="Button Paginator-page"></button>
-          <button class="Button Paginator-page-m"></button>
-          <button class="Button Paginator-page-m"></button>
-          <button class="Button Paginator-page-m"></button>
-          <cm-icon class="Paginator-more-next" name="more-horizontal"></cm-icon>
-          <button class="Button Paginator-last"></button>
-          <button class="Button Paginator-next"><cm-icon name="chevron-right">next page</cm-icon></button>
-          <button class="Button Paginator-end"><cm-icon name="chevrons-right">last page</cm-icon></button>
-        `
+        <button class="Button Paginator-start" data-target="1"><cm-icon name="chevrons-left">first page</cm-icon></button>
+        <button class="Button Paginator-prev"><cm-icon name="chevron-left">previous page</cm-icon></button>
+        <button class="Button Paginator-first" data-target="1" title="page 1">1</button>
+        <cm-icon class="Paginator-more-prev" name="more-horizontal"></cm-icon>
+        <button class="Button Paginator-page"></button>
+        <button class="Button Paginator-page"></button>
+        <button class="Button Paginator-page"></button>
+        <button class="Button Paginator-page"></button>
+        <button class="Button Paginator-page"></button>
+        <button class="Button Paginator-page-m"></button>
+        <button class="Button Paginator-page-m"></button>
+        <button class="Button Paginator-page-m"></button>
+        <cm-icon class="Paginator-more-next" name="more-horizontal"></cm-icon>
+        <button class="Button Paginator-last"></button>
+        <button class="Button Paginator-next"><cm-icon name="chevron-right">next page</cm-icon></button>
+        <button class="Button Paginator-end"><cm-icon name="chevrons-right">last page</cm-icon></button>
+      ` // this.innerHTML
 
       $start = this.querySelector('.Paginator-start')
       $prev = this.querySelector('.Paginator-prev')
@@ -932,163 +1115,422 @@
       $end = this.querySelector('.Paginator-end')
       updatePaginator()
 
-      let onClick = ev => {
+      this.addEventListenerWhileConnected('click', ev => {
         let $target = ev.target.closest('button[data-target]:not([disabled])')
         if (!$target) return
         onPage($target.dataset.target)
-      }
-      this.addEventListener('click', onClick)
-      this.onstop = () => this.removeEventListener('click', onClick)
-    }
-
-    disconnectedCallback() {
-      this.onstop()
-      this.onstop = null
-      this.updatePaginator = null
-      this.innerHTML = ''
-    }
-  })
-})();
+      })
+      this.onstop.push(
+        () => delete this.updatePaginator,
+        () => this.innerHTML = ''
+      )
+    } // connectedCallback
+  }) // cm-paginator
+})(window.__CM ??= {});
 
 (CM => {
   'use strict'
 
   let { position } = CM
+  let { BaseElement } = CM.customElements
+  let { getEmOrRemSize, getCompStyl, cssReady } = CM.properties
 
-  customElements.define('cm-popup', class extends HTMLElement {
+  cssReady.then(() => {
+    customElements.define('cm-popup', class extends BaseElement {
+      connectedCallback() {
+        let $details = this.firstElementChild
+
+        if (!$details) throw Error('<cm-popup> must not be empty')
+
+        let $dialog = $details.lastElementChild
+        let $button = $details.firstElementChild
+        let $icon = $button.querySelector(':scope > cm-icon') || { name: '', alt: '' }
+        let defaultIcon = $icon.name
+        let defaultAlt = $icon.alt
+
+        let updateIcon = () => {
+          if ($details.open) {
+            if (!defaultIcon) defaultIcon = $icon.name
+            if (!defaultAlt) defaultAlt = $icon.alt
+            $icon.name = 'x'
+            $icon.alt = 'Close the popup'
+          }
+          else {
+            $icon.name = defaultIcon
+            $icon.alt = defaultAlt
+          }
+        }
+        let updateOrientation = () => {
+          let gap = getEmOrRemSize(getCompStyl(this).getPropertyValue('--style-popup-gap'), $button)
+          let pos = position.relPos($button, $dialog, gap)
+          let direction
+          let alignment
+          if (pos.isWide) {
+            direction = position.DIR_BELOW
+            alignment = position.ALIGN_LEFT
+            if (!pos.clearsBottom) direction = position.DIR_ABOVE
+            if (!pos.overhangsRight) alignment = position.ALIGN_RIGHT
+          }
+          else {
+            direction = position.DIR_RIGHT
+            alignment = position.ALIGN_TOP
+            if (!pos.clearsRight) direction = position.DIR_LEFT
+            if (!pos.overhangsBottom) alignment = position.ALIGN_BOTTOM
+          }
+          let p = position.position(direction, alignment, pos)
+          let s = $dialog.style
+          s.setProperty('--popup-dialog-top', p.top)
+          s.setProperty('--popup-dialog-left', p.left)
+          s.setProperty('--popup-dialog-right', p.right)
+          s.setProperty('--popup-dialog-bottom', p.bottom)
+        } // updateOrientation
+
+        let onDetailsToggle = () => {
+          updateIcon()
+          if ($details.open) updateOrientation()
+        }
+        $details.addEventListener('toggle', onDetailsToggle)
+
+        this.onstop.push(
+          () => $details.removeEventListener('toggle', onDetailsToggle),
+          CM.events.onClickOutside(this, ev => {
+            if ($dialog.contains(ev.target)) return
+            $details.open = false
+          }),
+          CM.events.onLayoutChange(() => {
+            if ($details.open) updateOrientation()
+          }),
+        )
+
+        updateOrientation()
+        updateIcon()
+      } // connectedCallback
+    })
+  })
+})(window.__CM = window.__CM || {});
+
+(CM => {
+  'use strict'
+
+  let { BaseElement, aliasNumericAttr, aliasBooleanAttr, dispatchEvent } = CM.customElements
+
+  customElements.define('cm-range-slider', class extends BaseElement {
     constructor() {
       super()
-      this.onstop = []
+
+      aliasNumericAttr(this, 'min', undefined, 0)
+      aliasNumericAttr(this, 'max', undefined, 100)
+      aliasNumericAttr(this, 'x1', undefined, () => this.min)
+      aliasNumericAttr(this, 'x2', undefined, () => this.max)
+      aliasNumericAttr(this, 'step', undefined, 1)
+      aliasBooleanAttr(this, 'disabled')
     }
 
     connectedCallback() {
-      let $details = this.firstElementChild
+      this.innerHTML = `
+        <div class="RangeSlider">
+          <div class="RangeSlider-slider" tabindex="0">
+            <div class="RangeSlider-handle-l" tabindex="0"></div>
+            <div class="RangeSlider-handle-r" tabindex="0"></div>
+          </div>
+        </div>
+      `
 
-      if (!$details) throw Error('<cm-popup> must not be empty')
+      let $track = this.querySelector('.RangeSlider')
+      let $slider = $track.querySelector('.RangeSlider-slider')
+      let $handleL = $track.querySelector('.RangeSlider-handle-l')
+      let $handleR = $track.querySelector('.RangeSlider-handle-r')
 
-      let $dialog = $details.lastElementChild
-      let $button = $details.firstElementChild
-      let $icon = $button.querySelector(':scope > cm-icon') || { name: '', alt: '' }
-      let defaultIcon = $icon.name
-      let defaultAlt = $icon.alt
-      let gap = CM.properties.getEmOrRemSize(CM.properties.getCompStyl(this).getPropertyValue('--style-popup-gap'), $button)
+      let dragging = false
+      let dragStartCursorX = 0
+      let dragStartRange = null
+      let dragPxToValueFactor = 1
 
-      let iconOpenCloseProperties = [
-        { name: defaultIcon, alt: defaultAlt },
-        { name: 'x', alt: 'close' },
-      ]
-      let updateIcon = () => Object.assign($icon, iconOpenCloseProperties[$details.open])
-      let updateOrientation = () => {
-        let pos = position.relPos($button, $dialog, gap)
-        let direction
-        let alignment
-        if (pos.isWide) {
-          direction = position.DIR_BELOW
-          alignment = position.ALIGN_LEFT
-          if (!pos.clearsBottom) direction = position.DIR_ABOVE
-          if (!pos.overhangsRight) alignment = position.ALIGN_RIGHT
-        } else {
-          direction = position.DIR_RIGHT
-          alignment = position.ALIGN_TOP
-          if (!pos.clearsRight) direction = position.DIR_LEFT
-          if (!pos.overhangsBottom) alignment = position.ALIGN_BOTTOM
+      let capToRange = n => Math.min(this.max, Math.max(this.min, n))
+      let alignToStep = n => Math.round(n / this.step) * this.step
+      let toCSSPctPosition = n => (n - this.min) / (this.max - this.min) * 100
+      let updateSliderPosition = this.updateSliderPosition = () => {
+        $track.style.setProperty('--slider-left', toCSSPctPosition(this.x1) + '%')
+        $track.style.setProperty('--slider-right', 100 - toCSSPctPosition(this.x2) + '%')
+      }
+      let updateDisabledState = this.updateDisabledState = () => {
+        $slider.setAttribute('tabindex', this.disabled ? '-1' : '0')
+        $handleL.setAttribute('tabindex', this.disabled ? '-1' : '0')
+        $handleR.setAttribute('tabindex', this.disabled ? '-1' : '0')
+      }
+      let getDragPxToValueFactor = () => (this.max - this.min) / $track.getBoundingClientRect().width // unit/pixel
+
+      let updateLeft = ev => {
+        let [startX1, startX2] = dragStartRange
+        let deltaVal = (ev.screenX - dragStartCursorX) * dragPxToValueFactor
+        let nextX1 = alignToStep(capToRange(startX1 + deltaVal))
+        if (nextX1 > startX2) { // Swap left/right?
+          this.x2 = nextX1
+          this.x1 = startX2
         }
-        let p = position.position(direction, alignment, pos)
-        let s = $dialog.style
-        s.setProperty('--popup-dialog-top', p.top)
-        s.setProperty('--popup-dialog-left', p.left)
-        s.setProperty('--popup-dialog-right', p.right)
-        s.setProperty('--popup-dialog-bottom', p.bottom)
+        else this.x1 = nextX1
+        dispatchEvent(this, 'change')
       }
+      let updateRight = ev => {
+        let [startX1, startX2] = dragStartRange
+        let deltaVal = (ev.screenX - dragStartCursorX) * dragPxToValueFactor
+        let nextX2 = alignToStep(capToRange(startX2 + deltaVal))
+        if (nextX2 < startX1) { // Swap left/right?
+          this.x1 = nextX2
+          this.x2 = startX1
+        }
+        else this.x2 = nextX2
+        dispatchEvent(this, 'change')
+      }
+      let updateBoth = ev => {
+        let [startX1, startX2] = dragStartRange
+        let deltaVal = (ev.screenX - dragStartCursorX) * dragPxToValueFactor
+        let x1 = alignToStep(startX1 + deltaVal)
+        let x2 = alignToStep(startX2 + deltaVal)
+        if (x1 < this.min) {
+          x1 = this.min
+          x2 = x1 + alignToStep(startX2 - startX1)
+        }
+        else if (x2 > this.max) {
+          x2 = this.max
+          x1 = x2 - alignToStep(startX2 - startX1)
+        }
+        Object.assign(this, { x1, x2 })
+        dispatchEvent(this, 'change')
+      }
+      let startDrag = updatePosition => ev => {
+        if (dragging) return
 
-      let onDetailsToggle = () => {
-        updateIcon()
-        if ($details.open) updateOrientation()
+        ev.preventDefault()
+        ev.stopImmediatePropagation()
+
+        dragging = true
+        dragPxToValueFactor = getDragPxToValueFactor()
+        dragStartCursorX = ev.screenX
+        dragStartRange = [this.x1, this.x2]
+
+        let cb = CM.rateLimit.fpsThrottle(updatePosition)
+        window.addEventListener('pointermove', cb, false)
+        let finishDrag = () => {
+          dragging = false
+          window.removeEventListener('pointermove', cb, false)
+        }
+        let endEvtOpts = { capture: false, once: true }
+        window.addEventListener('pointerup', finishDrag, endEvtOpts)
+        window.addEventListener('pointercancel', finishDrag, endEvtOpts)
+      } // startDrag
+      let jumpToPosition = ev => {
+        let $pointerTarget = document.elementFromPoint(ev.clientX, ev.clientY)
+        if ([$handleL, $handleR, $slider].includes($pointerTarget)) return
+
+        // FIXME: This logic is not good. StR: click right outside right handle on date range demo
+        let clickX = ev.clientX
+
+        let handleLeftBox = $handleL.getBoundingClientRect()
+        let handleLeftPos = handleLeftBox.x + handleLeftBox.width / 2
+        let distToHandleL = Math.abs(handleLeftPos - clickX)
+
+        let handleRightBox = $handleR.getBoundingClientRect()
+        let handleRightPos = handleRightBox.x + handleRightBox.width / 2
+        let distToHandleR = Math.abs(handleRightPos - clickX)
+
+        let clickPosInTrack = clickX - $track.getBoundingClientRect().left
+        let val = alignToStep(capToRange(this.min + getDragPxToValueFactor() * clickPosInTrack))
+        if (distToHandleL < distToHandleR) this.x1 = val
+        else this.x2 = val
+      } // jumpToPosition
+      let decLeftByStep = step => this.x1 = Math.max(this.min, this.x1 - step)
+      let incLeftByStep = step => this.x1 = Math.min(this.max, Math.min(this.x2, this.x1 + step))
+      let setLeft = n => this.x1 = n
+      let decRightByStep = step => this.x2 = Math.min(this.max, Math.max(this.x1, this.x2 - step))
+      let incRightByStep = step => this.x2 = Math.min(this.max, this.x2 + step)
+      let setRight = n => this.x2 = n
+      let decBothByStep = step => {
+        let range = this.x2 - this.x1
+        decLeftByStep(step)
+        this.x2 = this.x1 + range
       }
-      $details.addEventListener('toggle', onDetailsToggle)
+      let incBothByStep = step => {
+        let range = this.x2 - this.x1
+        incRightByStep(step)
+        this.x1 = this.x2 - range
+      }
+      let setBoth = n => {
+        let { x1, x2 } = this
+        if (n === x1 || n === x2) return
+        let range = this.x2 - this.x1
+        if (n < x1) {
+          setLeft(n)
+          this.x2 = this.x1 + range
+        }
+        if (n > x2) {
+          setRight(n)
+          this.x1 = this.x2 - range
+        }
+        // Other cases are probably some invalid state so we ignore
+      }
+      let onKey = (dec, inc, set) => ev => {
+        ev.stopImmediatePropagation()
+        switch (ev.code) {
+          case 'ArrowDown':
+          case 'ArrowLeft':
+            dec(this.step)
+            break
+          case 'ArrowUp':
+          case 'ArrowRight':
+            inc(this.step)
+            break
+          case 'PageDown':
+            dec(this.step * 10)
+            break
+          case 'PageUp':
+            inc(this.step * 10)
+            break
+          case 'Home':
+            set(this.min)
+            break
+          case 'End':
+            set(this.max)
+            break
+          default:
+            return // exit to prevent dispatch
+        }
+        dispatchEvent(this, 'change')
+      } // onKey
+
+      $handleL.addEventListener('pointerdown', startDrag(updateLeft), false)
+      $handleL.addEventListener('keydown', onKey(decLeftByStep, incLeftByStep, setLeft), false)
+      $handleR.addEventListener('pointerdown', startDrag(updateRight), false)
+      $handleR.addEventListener('keydown', onKey(decRightByStep, incRightByStep, setRight), false)
+      $slider.addEventListener('pointerdown', startDrag(updateBoth), false)
+      $slider.addEventListener('keydown', onKey(decBothByStep, incBothByStep, setBoth), false)
+      $track.addEventListener('pointerdown', jumpToPosition, false)
+      updateSliderPosition()
+      updateDisabledState()
+      this.onstop.push(
+        () => delete this.updateDisabledState,
+        () => delete this.updateSliderPosition,
+        () => this.innerHTML = ''
+      )
+    } // connectedCallback
+
+    static get observedAttributes() { return ['x1', 'x2', 'max', 'min', 'disabled'] }
+
+    attributeChangedCallback(name) {
+      if (name === 'disabled') this.updateDisabledState?.()
+      else this.updateSliderPosition?.()
+    }
+  }) // cm-range-selector
+})(window.__CM ??= {});
+
+(CM => {
+  'use strict'
+
+  let { BaseElement } = CM.customElements
+
+  customElements.define('cm-scrollbox-relay', class extends BaseElement {
+    connectedCallback() {
+      this.addEventListenerToElementWhileConnected(
+        this.firstElementChild,
+        'scroll',
+        () => window.dispatchEvent(new Event('scroll'))
+      )
+    }
+  })
+})(window.__CM ??= {});
+
+(CM => {
+  'use strict'
+
+  let { BaseElement, aliasBooleanAttr, aliasStringAttr, dispatchEvent } = CM.customElements
+
+  customElements.define('cm-sidebar', class extends BaseElement {
+    constructor() {
+      super()
+
+      aliasBooleanAttr(this, 'open')
+      aliasStringAttr(this, 'section')
+    }
+
+    static get observedAttributes() { return ['open', 'section'] }
+
+    attributeChangedCallback(name) {
+      if (name === 'open' && !this.open) this.resetActiveButtons?.()
+      if (name !== 'section') return
+      this.updateExtrasSection?.()
+    }
+
+    connectedCallback() {
+      let $$sidebarToggles = this.querySelectorAll('.Sidebar-toggle-button')
+      $$sidebarToggles.forEach($ => {
+        // Store the default button icon and alt text
+        let $icon = $.icon = $.querySelector('cm-icon')
+        $.defaultAlt = $icon.alt
+        $.defaultIcon = $icon.name
+      })
+
+      let unsetActiveButton = $btn => {
+        $btn.icon.name = $btn.defaultIcon
+        $btn.icon.alt = $btn.defaultAlt
+        $btn.classList.remove('Sidebar-toggle-active')
+      }
+      let setActiveButton = $btn => {
+        $btn.icon.alt = 'Close the sidebar'
+        $btn.icon.name = 'chevrons-right'
+        $btn.classList.add('Sidebar-toggle-active')
+      }
+      this.resetActiveButtons = () => {
+        let $activeToggle = this.querySelector('.Sidebar-toggle-active')
+        if (!$activeToggle) return
+        unsetActiveButton($activeToggle)
+      }
+      let updateExtrasSection = this.updateExtrasSection = () => {
+        let $$sidebarSections = this.querySelectorAll('.Sidebar-extras > *')
+        if ($$sidebarSections.length <= 1) return
+        for (let i = 0, $; $ = $$sidebarSections[i++];) $.hidden = $.id !== this.section
+      }
+      let switchSection = $btn => {
+        this.section =  $btn.dataset.extrasSection || ''
+      }
+      let toggleOpen = $btn => {
+        let $activeBtn = this.querySelector('.Sidebar-toggle-active')
+        if ($btn === $activeBtn) { // Close the sidebar
+          this.open = false
+        } else { // Open the sidebar
+          if ($activeBtn) unsetActiveButton($activeBtn)
+          setActiveButton($btn)
+          this.open = true
+        }
+      }
 
       this.onstop.push(
-        () => $details.removeEventListener('toggle', onDetailsToggle),
-        CM.events.onClickOutside(this, ev => {
-          if ($dialog.contains(ev.target)) return
-          $details.open = false
-        }),
-        CM.events.onLayoutChange(() => {
-          if ($details.open) updateOrientation()
-        })
+        () => delete this.resetActiveButtons,
+        () => delete this.updateExtrasSection,
+        CM.events.onClickOutside(this, () => this.removeAttribute('open')),
       )
-
-      updateOrientation()
-    }
-
-    disconnectedCallback() {
-      this.onstop.forEach(f => f())
-      this.onstop = []
-    }
-  })
-})(window.__CM = window.__CM || {});
-
-(() => {
-  'use strict'
-
-  customElements.define('cm-scrollbox-relay', class extends HTMLElement {
-    connectedCallback() {
-      let onScroll = () => window.dispatchEvent(new Event('scroll'))
-      this.firstElementChild.addEventListener('scroll', onScroll)
-      this.onstop = () => this.firstElementChild.removeEventListener('scroll', onScroll)
-    }
-
-    disconnectedCallback() {
-      this.onstop()
-      this.onstop = null
-    }
-  })
-})();
-
-(CM => {
-  'use strict'
-
-  customElements.define('cm-sidebar', class extends HTMLElement {
-    constructor() {
-      super()
-
-      Object.defineProperties(this, {
-        open: {
-          get: () => this.hasAttribute('open'),
-          set: x => this.toggleAttribute('open', x)
-        }
+      this.addEventListenerWhileConnected('click', ev => {
+        let $btn = ev.target.closest('.Sidebar-toggle-button')
+        if (!$btn) return
+        switchSection($btn)
+        toggleOpen($btn)
       })
-    }
-
-    connectedCallback() {
-      this.onstop = CM.events.onClickOutside(this, () => this.removeAttribute('open'))
-      if (this.$btn) return
-      this.$btn = this.querySelector('.Sidebar-toggle-button')
-      this.$btn?.addEventListener('click', () => this.toggleAttribute('open'))
-    }
-
-    disconnectedCallback() {
-      this.onstop()
-    }
-  })
+      updateExtrasSection()
+    } // connectedCallback
+  }) // cm-sidebar
 })(window.__CM = window.__CM || {});
 
 (CM => {
   'use strict'
+
+  let { BaseElement, aliasReadOnlyBoolean, aliasStringAttr } = CM.customElements
 
   let dummyCallback = () => {}
 
-  customElements.define('cm-table', class extends HTMLElement {
+  customElements.define('cm-table', class extends BaseElement {
     constructor() {
       super()
 
-      Object.defineProperties(this, {
-        stickyCol: {
-          get: () => this.hasAttribute('sticky-col'),
-        },
-      })
-
-      this.onstop = []
+      aliasReadOnlyBoolean(this, 'sticky-col', 'stickyCol')
     }
 
     connectedCallback() {
@@ -1139,26 +1581,14 @@
         CM.events.onLayoutChange(updateColWidth),
       )
     }
-
-    disconnectedCallback() {
-      this.onstop.forEach(f => f())
-      this.onstop.length = 0
-    }
   })
 
-  customElements.define('cm-table-remote', class extends HTMLElement {
+  customElements.define('cm-table-remote', class extends BaseElement {
     constructor() {
       super()
 
-      Object.defineProperties(this, {
-        htmlFor: {
-          set: x => this.setAttribute('for', x),
-          get: () => this.getAttribute('for'),
-        },
-      })
-
+      aliasStringAttr(this, 'for', 'htmlFor')
       this.updateVisibility = dummyCallback
-      this.onstop = []
     }
 
     connectedCallback() {
@@ -1203,7 +1633,7 @@
           left: $table.scrollLeft + getScrollDist($colAtScrollPos),
           behavior: 'smooth',
         })
-      }
+      } // updateScrollOffset
 
       $btnLeft.addEventListener('click', () => {
         updateScrollOffset($col => -$col.previousElementSibling.offsetWidth)
@@ -1212,22 +1642,21 @@
         updateScrollOffset($col => $col.offsetWidth)
       })
       updateVisibility()
-      this.onstop.push(CM.events.onLayoutChange(updateVisibility))
-    }
-
-    disconnectedCallback() {
-      this.onstop.for(f => f())
-      this.onstop.length = 0
-      this.updateVisibility = dummyCallback
-      this.innerHTML = ''
+      this.onstop.push(
+        CM.events.onLayoutChange(updateVisibility),
+        () => this.updateVisibility = dummyCallback,
+        () => this.innerHTML = ''
+      )
     }
   })
 })(window.__CM ??= {});
 
-(() => {
+(CM => {
   'use strict'
 
-  customElements.define('cm-tabs', class extends HTMLElement {
+  let {BaseElement} = CM.customElements
+
+  customElements.define('cm-tabs', class extends BaseElement {
     connectedCallback() {
       let $fieldset = this.firstElementChild
       let $$tabs = $fieldset.querySelectorAll(`input`)
@@ -1253,18 +1682,15 @@
         $activeTab.hidden = false
       }
       this.addEventListener('change', onChange)
-      this.onstop = () => this.removeEventListener('change', onChange)
-    }
-
-    disconnectedCallback() {
-      this.onstop()
-      this.onstop = null
-    }
+      this.onstop.push(() => this.removeEventListener('change', onChange))
+    } // connectedCallback
   })
-})();
+})(window.__CM ??= {});
 
-(() => {
+(CM => {
   'use strict'
+
+  let { BaseElement } = CM.customElements
 
   let TOAST_DURATION = 5000
   let PRIORITY_CLASSES = {
@@ -1286,7 +1712,7 @@
     error: 'Button-error',
   }
 
-  customElements.define('cm-toast-list', class extends HTMLElement {
+  customElements.define('cm-toast-list', class extends BaseElement {
     PRIORITY = {
       info: 'info',
       success: 'success',
@@ -1300,10 +1726,10 @@
 
       let $toast = document.createElement('cm-toast')
       $toast.innerHTML = `
-        <article class="${PRIORITY_CLASSES[priority]}" role="alert">
+        <article class="${PRIORITY_CLASSES[priority]}">
           ${icon && `<cm-icon name="${icon}"></cm-icon>`}
           ${title && `<h2 class="Toast-title">${title}</h2>`}
-          ${(icon || title) && '<div class="Toast-separator">'}
+          ${(icon || title) && '<div class="Toast-separator"></div>'}
           <p class="Toast-content">${content}</p>
           ${actionLabel && `<button class="${PRIORITY_BTN_CLASS[priority]} Toast-action-button">${actionLabel}</button>`}
           <button class="${PRIORITY_BTN_CLASS[priority]} Toast-close-button">
@@ -1338,72 +1764,46 @@
     }
   })
 
-  customElements.define('cm-toast', class extends HTMLElement {
-    constructor() {
-      super()
-      this.onstop = []
-    }
-
+  customElements.define('cm-toast', class extends BaseElement {
     clearToast() {
-      this.ontransitionend = () => this.remove()
-      this.onanimationend = () => this.remove()
+      this.ontransitionend = this.onanimationend = ()  => this.remove()
       this.classList.add('Toast-clear')
     }
 
     connectedCallback() {
-      let onClick = ev => {
+      let scheduleToastClear = () => this.timer = setTimeout(() => this.clearToast(), TOAST_DURATION)
+      this.addEventListenerWhileConnected('click', ev => {
         if (!ev.target.closest('.Toast-close-button')) return
         clearTimeout(this.timer)
         this.clearToast()
-      }
-      let onMouseenter = () => {
+      })
+      this.addEventListenerWhileConnected('mouseenter', () => {
         clearTimeout(this.timer)
-      }
-      let onMouseleave = () => {
-        this.timer = setTimeout(() => this.clearToast(), TOAST_DURATION)
-      }
-      this.addEventListener('click', onClick)
-      this.addEventListener('mouseenter', onMouseenter)
-      this.addEventListener('mouseleave', onMouseleave)
-      this.onstop.push(
-        () => this.removeEventListener('click', onClick),
-        () => this.removeEventListener('mouseenter', onMouseenter),
-        () => this.removeEventListener('mouseleave', onMouseleave),
-      )
+      })
+      this.addEventListenerWhileConnected('mouseleave', scheduleToastClear)
 
       requestAnimationFrame(() => requestAnimationFrame(() => {
         this.classList.add('Toast-shown')
+        scheduleToastClear()
       }))
-      this.timer = setTimeout(() => this.clearToast(), TOAST_DURATION)
-    }
-
-    disconnectedCallback() {
-      clearTimeout(this.timer)
-      this.onstop.forEach(f => f())
-      this.onstop.length = 0
-    }
+      this.onstop.push(() => clearTimeout(this.timer))
+    } // connectedCallback
   })
-})();
+})(window.__CM ??= {});
 
-(() => {
+(CM => {
   'use strict'
+
+  let { BaseElement, aliasStringAttr, dispatchEvent } = CM.customElements
 
   let HAS_CLIPBOARD = navigator.clipboard != null
 
-  customElements.define('cm-copy', class extends HTMLElement {
+  customElements.define('cm-copy', class extends BaseElement {
     constructor() {
       super()
 
       if (!HAS_CLIPBOARD) return
-
-      Object.defineProperties(this, {
-        text: {
-          set: x => this.setAttribute('text', x),
-          get: () => this.getAttribute('text'),
-        },
-      })
-
-      this.onstop = null
+      aliasStringAttr(this, 'text')
     }
 
     static get observedAttributes() { return ['text'] }
@@ -1414,41 +1814,31 @@
     }
 
     connectedCallback() {
-      let onClick = () => {
+      this.addEventListenerWhileConnected('click', () => {
         navigator.clipboard.writeText(this.text)
-          .then(() => {
-            let evt = new Event('copy', { bubbles: true })
-            Object.defineProperty(evt, 'target', { value: this, writable: false })
-            this.dispatchEvent(evt)
-            if (this.oncopy) this.oncopy(evt)
-          }, err => {
-            console.error(err)
-            let evt = new Event('copyerror', { bubbles: true })
-            Object.defineProperty(evt, 'target', { value: this, writable: false })
-            this.dispatchEvent(evt)
-            if (this.oncopyerror) this.oncopyerror(evt)
-          })
-      }
-      this.addEventListener('click', onClick)
-      this.onstop = () => this.removeEventListener('click', onClick)
+          .then(
+            () => dispatchEvent(this, 'copy'),
+            err => {
+              console.error(err)
+              dispatchEvent(this, 'copyerror')
+            },
+          )
+      })
       let $btn
       this.append($btn = Object.assign(document.createElement('button'), {
         className: 'Button-clear',
         title: `Copy '${this.text}' to clipboard`,
       }))
       $btn.innerHTML = '<cm-icon name="copy" class="Icon-s"></cm-icon>'
-    }
-
-    disconnectedCallback() {
-      this.onstop()
-      this.onstop = null
-      this.innerHTML = ''
-    }
+      this.onstop.push(() => this.innerHTML = '')
+    } // connectedCallback
   })
-})();
+})(window.__CM ??= {});
 
 (CM => {
   'use strict'
+
+  let { BaseElement, aliasStringAttr, aliasBooleanAttr, dispatchEvent } = CM.customElements
 
   let DAYS_IN_CALENDAR = 42 // 6 rows x 7 days
   let YEARS_IN_YEAR_PICKER = 18
@@ -1479,28 +1869,14 @@
   )
   let toDateTimestamp = s => new Date(s).setHours(0, 0, 0, 0)
 
-  customElements.define('cm-calendar', class extends HTMLElement {
+  customElements.define('cm-calendar', class extends BaseElement {
     constructor() {
       super()
 
-      Object.defineProperties(this, {
-        max: {
-          set: x => this.setAttribute('max', x),
-          get: () => this.getAttribute('max') || '',
-        },
-        min: {
-          set: x => this.setAttribute('min', x),
-          get: () => this.getAttribute('min') || '',
-        },
-        value: {
-          set: x => this.setAttribute('value', x),
-          get: () => this.getAttribute('value') || '',
-        },
-        limit: {
-          set: x => this.setAttribute('limit', x),
-          get: () => this.getAttribute('limit') || '',
-        },
-      })
+      aliasStringAttr(this, 'max')
+      aliasStringAttr(this, 'min')
+      aliasStringAttr(this, 'value')
+      aliasStringAttr(this, 'limit')
 
       let value = new Date(Date.parse(this.value) || Date.now())
       this.displayYear = value.getFullYear()
@@ -1536,7 +1912,7 @@
             <legend>Pick a date</legend>
             <table>
               <thead>
-                <tr class="Text-heading-6">
+                <tr class="Calendar-header Text-heading-6">
                   <th class="Calendar-sunday"><abbr title="${WEEKDAY_NAMES[0]}">${WEEKDAY_SHORT_NAMES[0]}</abbr></th>
                   <th><abbr title="${WEEKDAY_NAMES[1]}">${WEEKDAY_SHORT_NAMES[1]}</abbr></th>
                   <th><abbr title="${WEEKDAY_NAMES[2]}">${WEEKDAY_SHORT_NAMES[2]}</abbr></th>
@@ -1655,7 +2031,7 @@
           if ($calendar.dataset.mode === mode) delete $calendar.dataset.mode
           else $calendar.dataset.mode = mode
         }
-      }
+      } // $header.onclick
       $calendarDates.onclick = ev => {
         let $btn = ev.target.closest('button')
         if (!$btn || $btn.disabled) return
@@ -1666,11 +2042,7 @@
           this.value = ''
         }
         else this.value = $btn.firstElementChild.getAttribute('datetime')
-
-        let changeEv = new Event('change', { bubbles: true })
-        Object.defineProperty(changeEv, 'target', { value: this })
-        this.dispatchEvent(changeEv)
-        if (this.onchange) this.onchange(changeEv)
+        dispatchEvent(this, 'change')
       }
       $calendarMonths.onclick = ev => {
         let value = ev.target.dataset.value
@@ -1705,40 +2077,20 @@
       })
 
       updateCalendar()
+      this.onstop.push(() => this.innerHTML = '')
     } // connectedCallback
-
-    disconnectedCallback() {
-      this.innerHTML = ''
-    }
   }) // cm-calendar
 
-  customElements.define('cm-calendar-icon', class extends HTMLElement {
+  customElements.define('cm-calendar-icon', class extends BaseElement {
     constructor() {
       super()
 
-      Object.defineProperties(this, {
-        max: {
-          set: x => this.setAttribute('max', x),
-          get: () => this.getAttribute('max') || '',
-        },
-        min: {
-          set: x => this.setAttribute('min', x),
-          get: () => this.getAttribute('min') || '',
-        },
-        value: {
-          set: x => this.setAttribute('value', x),
-          get: () => this.getAttribute('value') || '',
-        },
-        htmlFor: {
-          set: x => this.setAttribute('for', x),
-          get: () => this.getAttribute('for'),
-        },
-        disabled: {
-          set: x => this.toggleAttribute('disabled', x),
-          get: x => this.hasAttribute('disabled'),
-        },
-      })
-    } // constructor
+      aliasStringAttr(this, 'max')
+      aliasStringAttr(this, 'min')
+      aliasStringAttr(this, 'value')
+      aliasStringAttr(this, 'for', 'htmlFor')
+      aliasBooleanAttr(this, 'disabled')
+    }
 
     static get observedAttributes() { return ['value', 'min', 'max', 'disabled'] }
 
@@ -1797,26 +2149,16 @@
         this.value = $linkedInput.value
       })
       updateFocusability()
+      this.onstop.push(() => this.innerHTML = '')
+      this.onstop.push(() => delete this.updateFocusability)
     } // connectedCallback
-
-    disconnectedCallback() {
-      this.innerHTML = ''
-      delete this.updateFocusability
-    }
   }) // cm-calendar-icon
 
-  customElements.define('cm-calendar-range', class extends HTMLElement {
+  customElements.define('cm-calendar-range', class extends BaseElement {
     constructor() {
       super()
 
-      Object.defineProperties(this, {
-        value: {
-          set: x => this.setAttribute('value', x),
-          get: () => this.getAttribute('value'),
-        },
-      })
-
-      this.onstop = []
+      aliasStringAttr(this, 'value')
     }
 
     static get observedAttributes() { return ['value'] }
@@ -1843,31 +2185,20 @@
       }
       let updateValue = () => this.value = $inputMin.value.trim() + ',' + $inputMax.value.trim()
 
-      let updateMin = () => {
+      this.addEventListenerToElementWhileConnected($inputMin, 'input', () => {
         $calendarMax.limit = $calendarMax.min = $inputMin.value
         updateValue()
         dispatchChangeEvent()
-      }
-      let updateMax = () => {
+      })
+      this.addEventListenerToElementWhileConnected($inputMax, 'input', () => {
         $calendarMin.limit = $calendarMin.max = $inputMax.value
         updateValue()
         dispatchChangeEvent()
-      }
-      $inputMin.addEventListener('input', updateMin)
-      $inputMax.addEventListener('input', updateMax)
-      this.onstop.push(
-        () => $inputMin.removeEventListener('input', updateMin),
-        () => $inputMax.removeEventListener('input', updateMax),
-      )
+      })
 
       if (this.value) updateInputsFromValue()
       else updateValue()
-    }
-
-    disconnectedCallback() {
-      this.onstop.forEach(f => f())
-      this.onstop.length = 0
-    }
+    } // connectedCallback
   }) // cm-calendar-range
 })(window.__CM ??= {});
 

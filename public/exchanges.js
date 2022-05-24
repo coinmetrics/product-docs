@@ -1,28 +1,38 @@
 {
   'use strict'
 
-  let exchanges = []
-  let renderedExchanges = 0
+  let CM = window.__CM = window.__CM || {}
   
-  let $tbody = document.querySelector('tbody')
-  let $loadMore = document.getElementById('load-more')
-  let $loadAll = document.getElementById('load-all')
+  let canonicalExchanges, 
+    renderableExchanges,
+    renderedExchanges = 0
+  
+  let $tbody = document.querySelector('tbody'),
+    $filter = document.getElementById('text-filter'),
+    $loadMore = document.getElementById('load-more'),
+    $loadCount = document.getElementById('load-count'),
+    $loadTotal = document.getElementById('load-total'),
+    $loadAll = document.getElementById('load-all'),
+    $empty = document.getElementById('empty')
 
   let getExchanges = () => 
-    fetch('http://localhost:8000/exchanges')
-      .then(res => res.json())
-      .then(body => exchanges = body.data)
+    fetch('/api/exchanges')
+      .then(res => {
+        if (res.status === 500) throw new Error(`Error from API`)
+        else return res.json()
+      })
+      .then(body => canonicalExchanges = renderableExchanges = body.data)
   let getDate = (ts) => ts.split('T')[0]
   let getTime = (ts) => ts.split('T')[1].split('.')[0]
 
   let $renderRows = (arr) => {
     let html = ''
     arr.forEach(exchange => 
-      html += `
+      html += /*html*/`
         <tr>
           <td>
             <a 
-              href="/exchange?id=${exchange.id}" 
+              href="/exchanges/${exchange.id}" 
               class="Link Text-regular">${exchange.id}</a>
           </td>
           <td>
@@ -39,34 +49,47 @@
           <td>
             <p class="Text-code Text-regular">${exchange.totalFuture}</p>
           </td>
-        </tr>
-      `
-    )
+        </tr>`)
     let $t = document.createElement('template')
     $t.innerHTML = html
     return $t.content
   }
-  let renderNext20Exchanges = () => {
-    let next20Exchanges = exchanges.slice(renderedExchanges, renderedExchanges+20)
-    let $next20Exchanges = $renderRows(next20Exchanges)
-    $tbody.append($next20Exchanges)
-    renderedExchanges += 20
-    if (renderedExchanges >= exchanges.length) {
-      $loadMore.disabled = true
-      $loadAll.disabled = true
-    }
+  let renderNext20 = () => {
+    $empty.hidden = renderableExchanges.length > 0
+    let next20 = renderableExchanges.slice(renderedExchanges, renderedExchanges+CM.constants.PAGE_SIZE)
+    let $next20 = $renderRows(next20)
+    $tbody.append($next20)
+    renderedExchanges += CM.constants.PAGE_SIZE
+    $loadCount.textContent = CM.string.formatNumber(renderedExchanges)
+    $loadTotal.textContent = CM.string.formatNumber(renderableExchanges.length)
+    $loadMore.parentNode.hidden = renderedExchanges >= renderableExchanges.length
   }
-  let renderRemainingExchanges = () => {
-    let remainingExchanges = exchanges.slice(renderedExchanges)
-    let $remainingExchanges = $renderRows(remainingExchanges)
-    $tbody.append($remainingExchanges)
-    renderedExchanges = exchanges.length
-    $loadMore.disabled = true
-    $loadAll.disabled = true
+  let renderRemaining = () => {
+    let remaining = renderableExchanges.slice(renderedExchanges)
+    let $remaining = $renderRows(remaining)
+    $tbody.append($remaining)
+    renderedExchanges = renderableExchanges.length
+    $loadMore.parentNode.hidden = true
   }
 
-  $loadMore.onclick = renderNext20Exchanges
-  $loadAll.onclick = renderRemainingExchanges
+  let onFilter = filter => {
+    if (filter)
+      renderableExchanges = canonicalExchanges.filter(x => x.id.toLowerCase().includes(filter.toLowerCase()))
+    else 
+      renderableExchanges = canonicalExchanges
 
-  getExchanges().then(renderNext20Exchanges)
+    $tbody.innerHTML = ''
+    renderedExchanges = 0
+    renderNext20()
+  }
+  let onExchanges = () => {
+    if ($filter.value) onFilter($filter.value)
+    else renderNext20()
+
+    $filter.oninput = e => onFilter(e.target.value)
+    $loadMore.onclick = renderNext20
+    $loadAll.onclick = renderRemaining
+  }
+
+  getExchanges().then(onExchanges).catch(CM.htmlSnippets.renderUnexpectedError)
 }

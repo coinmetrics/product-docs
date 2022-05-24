@@ -1,6 +1,8 @@
 FROM node:16-alpine
 WORKDIR /usr/src/app
-COPY . /usr/src/app/
-RUN npm install
-RUN npm install serve
-CMD npx serve ./public -p 3000
+COPY server.js /usr/src/app/
+COPY public /usr/src/app/public
+ENV PORT=3000
+ENV HOST=0.0.0.0
+EXPOSE 3000
+CMD node server.js

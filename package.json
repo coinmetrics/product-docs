@@ -2,11 +2,11 @@
   "name": "knowledge-base",
   "version": "1.0.0",
   "description": "CM Knowledge Base",
-  "scripts": {
-    "serve": "npx serve ./public -p 3000"
-  },
   "author": "Coin Metrics",
   "license": "UNLICENSED",
-  "private": "true"
+  "private": "true",
+  "scripts": {
+    "serve": "npx serve ./public -p 3000",
+    "watch": "npx nodemon -e js,json,css,html,svg server.js"
+  }
 }
-  

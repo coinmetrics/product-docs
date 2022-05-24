@@ -1,5 +1,5 @@
-cm-sidebar {
-  --sidebar-extras-width: 300px !important;
+.AppLayout-header > a {
+  color: inherit;
 }
 
 nav > .Input-with-icon {
@@ -13,11 +13,8 @@ nav > .Input-with-icon > input {
 nav > .Input-with-icon > cm-icon > svg {
   stroke: var(--color-primary-white);
 }
-@media screen and (max-width: 640px) {
-  :root {
-    --color-sidebar-bg: transparent;
-  }
 
+@media screen and (max-width: 640px) {
   #api-key-popup > summary > cm-icon > svg {
     stroke: var(--color-label-default);
   }
@@ -54,6 +51,7 @@ nav > .Input-with-icon > cm-icon > svg {
 main > header {
   display: flex;
   align-items: center;
+  gap: var(--style-gap-xl);
 }
 
 main > header > h2,
@@ -68,8 +66,6 @@ main > header * p {
 }
 
 main > header > .Line-v-light {
-  margin-left: var(--style-gap-l);
-  margin-right: var(--style-gap-l);
   align-self: stretch;
   height: auto;
 }
