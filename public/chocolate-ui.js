@@ -122,10 +122,7 @@
   }
   let dispatchEvent = ($el, eventName, evOpts) => {
     evOpts ??= { bubbles: true }
-    let ev = new Event(eventName, evOpts)
-    Object.defineProperty(ev, 'target', { value: $el, writable: false })
-    $el.dispatchEvent(ev)
-    if ($el['on' + eventName]) $el['on' + eventName](ev)
+    $el.dispatchEvent(new Event(eventName, evOpts))
   }
 
   class BaseElement extends HTMLElement {
@@ -584,7 +581,7 @@
 (CM => {
   'use strict'
 
-  let { BaseElement, aliasBooleanAttr } = CM.customElements
+  let { BaseElement, aliasBooleanAttr, dispatchEvent } = CM.customElements
   let { onGlobalEvent } = CM.events
 
   customElements.define('cm-modal', class extends BaseElement {
@@ -604,7 +601,10 @@
         let $modal = this.firstElementChild
         if (!$modal) return
         $modal.classList.remove('Modal-open')
-        $modal.addEventListener('transitionend', () => { $modal.hidden = true }, { once: true })
+        $modal.addEventListener('transitionend', () => {
+          $modal.hidden = true
+          dispatchEvent(this, 'close')
+        }, { once: true })
       }
       let reveal = () => {
         let $modal = this.firstElementChild
@@ -1832,6 +1832,82 @@
       $btn.innerHTML = '<cm-icon name="copy" class="Icon-s"></cm-icon>'
       this.onstop.push(() => this.innerHTML = '')
     } // connectedCallback
+  })
+})(window.__CM ??= {});
+
+(CM => {
+  'use strict'
+
+  let { BaseElement, aliasBooleanAttr, dispatchEvent } = CM.customElements
+  let { getCompStyl } = CM.properties
+
+  let measureTextWidth = (() => {
+    let ctx = document.createElement('canvas').getContext('2d')
+    return (font, text) => {
+      ctx.font = font
+      return (Math.ceil(ctx.measureText(text).width) + 2) + 'px' // 2px border
+    }
+  })()
+
+  customElements.define('cm-editable', class extends BaseElement {
+    constructor() {
+      super()
+
+      aliasBooleanAttr(this, 'active')
+
+      let $input
+      Object.defineProperty(this, 'value', {
+        get: () => ($input ??= this.querySelector('input')).value,
+        set: v => ($input ??= this.querySelector('input')).value = v
+      })
+    }
+
+    connectedCallback() {
+      let $input = this.querySelector('input')
+      let uneditedValue = $input.value
+
+      let inactiveUI = () => {
+        this.active = false
+        $input.blur()
+        requestAnimationFrame(() => $input.style.setProperty('--text-width', measureTextWidth(getCompStyl($input).font, $input.value|| $input.placeholder)))
+      }
+      let setActiveUI = () => {
+        this.active = true
+        $input.size = 16
+      }
+
+      let onCancelEdit = () => {
+        $input.value = uneditedValue
+        inactiveUI()
+        dispatchEvent(this, 'cancel')
+      }
+      let onConfirmEdit = () => {
+        if ($input.required && !$input.value) return
+        inactiveUI()
+        if (uneditedValue !== this.value) {
+          uneditedValue = this.value
+          dispatchEvent(this, 'change')
+        }
+        dispatchEvent(this, 'confirm')
+      }
+
+      this.addEventListenerToElementWhileConnected('input', 'focus', setActiveUI)
+      this.addEventListenerWhileConnected('keyup', ev => {
+        switch (ev.code) {
+          case 'Escape':
+            onCancelEdit()
+            break
+          case 'Enter':
+            onConfirmEdit()
+            break
+        }
+      })
+      this.addEventListenerToElementWhileConnected('.Editable-cancel', 'click', onCancelEdit)
+      this.addEventListenerToElementWhileConnected('.Editable-confirm', 'click', onConfirmEdit)
+
+      if (this.active) setActiveUI()
+      else inactiveUI()
+    }
   })
 })(window.__CM ??= {});
 
