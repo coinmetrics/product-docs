@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "private": "true",
   "scripts": {
-    "serve": "npx serve ./public -p 3000",
+    "serve": "node server.js",
     "watch": "npx nodemon -e js,json,css,html,svg server.js"
   }
 }

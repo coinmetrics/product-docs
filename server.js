@@ -4,6 +4,7 @@ const fs = require('fs')
 const process = require('process')
 
 // Server params
+const BUILD_ID = process.env.BUILD_ID
 const HOST = process.env.HOST || '127.0.0.1'
 const PORT = process.env.PORT || '3000'
 // API request params
@@ -313,6 +314,9 @@ let renderMasterHtmlDoc = ({links = '', scripts = '', main = '', nav}) => /*html
           </article>
         </cm-sidebar>
       </div>
+      <script>
+        console.log('Build ${BUILD_ID}')
+      </script>
     </body>
   </html>`
 let renderNotFoundHtmlDoc = () => renderMasterHtmlDoc({
@@ -1725,6 +1729,7 @@ let respond = (req, res) => {
   }
 }
 let main = () => {
+  console.log('Starting up', BUILD_ID)
   cachePublic('./public')
   landingHtmlDocCache = renderLandingHtmlDoc()
   searchResultsHtmlDocCache = renderSearchResultsHtmlDoc()
