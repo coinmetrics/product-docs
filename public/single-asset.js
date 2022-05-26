@@ -6,10 +6,13 @@
   let key = CM.auth.key,
     id = location.pathname.split('/')[2],
     canonicalMetrics,
+    downloadableMetrics,
     renderableMetrics,
     canonicalMarkets,
+    downloadableMarkets,
     renderableMarkets,
     canonicalExchanges,
+    downloadableExchanges,
     renderableExchanges,
     userAcl,
     renderedMetrics = 0,
@@ -31,9 +34,15 @@
     $exchanges = document.getElementById('exchanges').querySelector('tbody'),
     $metricsFrequencyFilter = document.getElementById('frequency-filter'),
     $metricsTextFilter = document.getElementById('metrics-text-filter'),
+    $metricsDownload = document.getElementById('metrics-download'),
+    $metricsDownloadLink = document.getElementById('metrics-download-link'),
     $marketsTextFilter = document.getElementById('markets-text-filter'),
     $marketsTypeFilter = document.getElementById('markets-type-filter'),
+    $marketsDownload = document.getElementById('markets-download'),
+    $marketsDownloadLink = document.getElementById('markets-download-link'),
     $exchangesFilter = document.getElementById('exchanges-text-filter'),
+    $exchangesDownload = document.getElementById('exchanges-download'),
+    $exchangesDownloadLink = document.getElementById('exchanges-download-link'),
     $metricsKeyCol = document.getElementById('metrics-key-col'),
     $marketsKeyCol = document.getElementById('markets-key-col'),
     $exchangesKeyCol = document.getElementById('exchanges-key-col'),
@@ -60,9 +69,9 @@
         else return res.json()
       })
       .then(body => {
-        canonicalMetrics = renderableMetrics = Object.entries(body.metrics).map(([key, value]) => ({id: key, acl: value}))
-        canonicalMarkets = renderableMarkets = Object.entries(body.markets).map(([key, value]) => ({id: key, acl: value}))
-        canonicalExchanges = renderableExchanges = Object.entries(body.exchanges).map(([key, value]) => ({id: key, acl: value}))
+        canonicalMetrics = downloadableMetrics = renderableMetrics = Object.entries(body.metrics).map(([key, value]) => ({id: key, acl: value}))
+        canonicalMarkets = downloadableMarkets = renderableMarkets = Object.entries(body.markets).map(([key, value]) => ({id: key, acl: value}))
+        canonicalExchanges = downloadableExchanges = renderableExchanges = Object.entries(body.exchanges).map(([key, value]) => ({id: key, acl: value}))
       })
   let getUserAcl = () => 
     fetch(`/api/assets/${id}/user-acl?api_key=${key}`)
@@ -236,13 +245,13 @@
       x.id.toLowerCase().includes(metricFilters[METRIC_FILTERS.text].toLowerCase())
 
     if (metricFilters[METRIC_FILTERS.frequency] && metricFilters[METRIC_FILTERS.text]) 
-      renderableMetrics = canonicalMetrics.filter(x => frequencyFilter(x) && textFilter(x))
+      downloadableMetrics = renderableMetrics = canonicalMetrics.filter(x => frequencyFilter(x) && textFilter(x))
     else if (metricFilters[METRIC_FILTERS.frequency])
-      renderableMetrics = canonicalMetrics.filter(frequencyFilter)
+      downloadableMetrics = renderableMetrics = canonicalMetrics.filter(frequencyFilter)
     else if (metricFilters[METRIC_FILTERS.text])
-      renderableMetrics = canonicalMetrics.filter(textFilter)
+      downloadableMetrics = renderableMetrics = canonicalMetrics.filter(textFilter)
     else 
-      renderableMetrics = canonicalMetrics
+      downloadableMetrics = renderableMetrics = canonicalMetrics
 
     $metrics.innerHTML = ''
     renderedMetrics = 0
@@ -258,13 +267,13 @@
       x.id.toLowerCase().includes(marketFilters[MARKET_FILTERS.text].toLowerCase())
 
     if (marketFilters[MARKET_FILTERS.type] && marketFilters[MARKET_FILTERS.text]) 
-      renderableMarkets = canonicalMarkets.filter(x => typeFilter(x) && textFilter(x))
+      downloadableMarkets = renderableMarkets = canonicalMarkets.filter(x => typeFilter(x) && textFilter(x))
     else if (marketFilters[MARKET_FILTERS.type])
-      renderableMarkets = canonicalMarkets.filter(typeFilter)
+      downloadableMarkets = renderableMarkets = canonicalMarkets.filter(typeFilter)
     else if (marketFilters[MARKET_FILTERS.text])
-      renderableMarkets = canonicalMarkets.filter(textFilter)
+      downloadableMarkets = renderableMarkets = canonicalMarkets.filter(textFilter)
     else 
-      renderableMarkets = canonicalMarkets
+      downloadableMarkets = renderableMarkets = canonicalMarkets
 
     $markets.innerHTML = ''
     renderedMarkets = 0
@@ -272,14 +281,59 @@
   }
   let onFilterExchanges = value => {
     if (value)
-      renderableExchanges = canonicalExchanges.filter(x => x.id.toLowerCase().includes(value.toLowerCase()))
+      downloadableExchanges = renderableExchanges = canonicalExchanges.filter(x => x.id.toLowerCase().includes(value.toLowerCase()))
     else 
-      renderableExchanges = canonicalExchanges
+      downloadableExchanges = renderableExchanges = canonicalExchanges
 
     $exchanges.innerHTML = ''
     renderedExchanges = 0
     renderNext20Exchanges()
   }
+  let onDownloadMetrics = () =>
+    userAcl.then(userAcl => {
+      let rows = [
+        ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
+        ...downloadableMetrics.map(x => 
+          ([x.id, x.acl.c?.join('|'), x.acl.p?.join('|'), userAcl.metrics[x.id]?.join("|") ?? ''])),
+      ]
+      let csvContent =
+        'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
+      let encodedUri = encodeURI(csvContent)
+      
+      $metricsDownloadLink.href = encodedUri
+      $metricsDownloadLink.download = `cm-asset-${id}-metrics.csv`
+      $metricsDownloadLink.click()
+    })
+  let onDownloadMarkets = () => 
+    userAcl.then(userAcl => {
+      let rows = [
+        ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
+        ...downloadableMarkets.map(x => 
+          ([x.id, x.acl.includes('c'), x.acl.includes('p'), userAcl.markets[x.id]?.includes('u') ?? ''])),
+      ]
+      let csvContent =
+        'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
+      let encodedUri = encodeURI(csvContent)
+      
+      $marketsDownloadLink.href = encodedUri
+      $marketsDownloadLink.download = `cm-asset-${id}-markets.csv`
+      $marketsDownloadLink.click()
+    })
+  let onDownloadExchanges = () => 
+    userAcl.then(userAcl => {
+      let rows = [
+        ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
+        ...downloadableExchanges.map(x => 
+          ([x.id, x.acl.includes('c'), x.acl.includes('p'), userAcl.exchanges[x.id]?.includes('u') ?? ''])),
+      ]
+      let csvContent =
+        'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
+      let encodedUri = encodeURI(csvContent)
+      
+      $exchangesDownloadLink.href = encodedUri
+      $exchangesDownloadLink.download = `cm-asset-${id}-exchanges.csv`
+      $exchangesDownloadLink.click()
+    })
   let onAsset = () => {
     renderKeyColumns()
 
@@ -294,9 +348,12 @@
     
     $metricsFrequencyFilter.onchange = e => onFilterMetrics(METRIC_FILTERS.frequency, e.target.value)
     $metricsTextFilter.oninput = e => onFilterMetrics(METRIC_FILTERS.text, e.target.value)
+    $metricsDownload.onclick = onDownloadMetrics
     $marketsTypeFilter.onchange = e => onFilterMarkets(MARKET_FILTERS.type, e.target.value)
     $marketsTextFilter.oninput = e => onFilterMarkets(MARKET_FILTERS.text, e.target.value)
+    $marketsDownload.onclick = onDownloadMarkets
     $exchangesFilter.oninput = e => onFilterExchanges(e.target.value)
+    $exchangesDownload.onclick = onDownloadExchanges
     $metricsLoadMore.onclick = renderNext20Metrics
     $metricsLoadAll.onclick = renderRemainingMetrics
     $marketsLoadMore.onclick = renderNext20Markets

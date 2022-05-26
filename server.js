@@ -178,6 +178,12 @@ let renderTextFilter = idPrefix => /*html*/`
     <input id="${idPrefix ? idPrefix+'-' : ''}text-filter" class="Input" placeholder="Filter">
     <cm-icon name="filter">Filter</cm-icon>
   </label>`
+let renderDownloadButton = idPrefix => /*html*/`
+  <button id="${idPrefix ? idPrefix+'-' : ''}download" class="Button">
+    <span>Download</span>
+    <cm-icon class="Icon-s" name="download"></cm-icon>
+  </button>
+  <a id="${idPrefix ? idPrefix+'-' : ''}download-link" hidden></a>`
 let renderLoadMore = idPrefix => /*html*/`
   <article hidden class="Load-buttons">
     <button id="${idPrefix ? idPrefix+'-' : ''}load-more" class="Button">
@@ -470,7 +476,11 @@ let renderAssetsHtmlDoc = () => renderMasterHtmlDoc({
       <p>Additional info...</p>
     </header>
     <div class="Panel">
-      ${renderTextFilter()}
+      <div class="Filters-row">
+        ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
+      </div>
       <cm-table>
         <table left-align>
           <thead>
@@ -515,6 +525,8 @@ let renderSingleAssetHtmlDoc = asset => renderMasterHtmlDoc({
         <div class="Filters-row">
           ${renderFrequencyDropdown()}
           ${renderTextFilter('metrics')}
+          <div class="Filters-row-spacer"></div>
+          ${renderDownloadButton('metrics')}
         </div>
         <cm-table>
           <table class="Access">
@@ -536,6 +548,8 @@ let renderSingleAssetHtmlDoc = asset => renderMasterHtmlDoc({
         <div class="Filters-row">
           ${renderMarketTypeDropdown()}
           ${renderTextFilter('markets')}
+          <div class="Filters-row-spacer"></div>
+          ${renderDownloadButton('markets')}
         </div>
         <cm-table>
           <table class="Access">
@@ -554,7 +568,12 @@ let renderSingleAssetHtmlDoc = asset => renderMasterHtmlDoc({
         ${renderEmptyResults('markets')}
       </article>
       <article id="exchanges" class="Tabbed-table">
-        ${renderTextFilter('exchanges')}
+        <div class="Filters-row">
+          ${renderTextFilter('exchanges')}
+          <div class="Filters-row-spacer"></div>
+          <div class="Filters-row-spacer"></div>
+          ${renderDownloadButton('exchanges')}
+        </div>
         <cm-table>
           <table class="Access">
             <thead>
