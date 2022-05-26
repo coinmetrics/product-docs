@@ -14,7 +14,7 @@
   const METRIC_FILTERS = {
     frequency: 0,
     text: 1
-  }
+  }, DEFAULT_USER_ACL = {metrics: {}}
 
   let $tbody = document.querySelector('tbody'),
     $frequencyFilter = document.getElementById('frequency-filter'),
@@ -40,7 +40,8 @@
   let getUserAcl = () => 
     fetch(`/api/pairs/${id}/user-acl?api_key=${key}`)
       .then(res => {
-        if (res.status !== 200 && res.status !== 401) return {isFailed: true}
+        if (res.status === 401) return DEFAULT_USER_ACL
+        else if (res.status !== 100) return {isFailed: true, ...DEFAULT_USER_ACL}
         else return res.json()
       })
 
@@ -168,13 +169,13 @@
 
   CM.auth.onChange = k => {
     key = k
-    userAcl = getUserAcl()
+    userAcl = key ? getUserAcl() : Promise.resolve(DEFAULT_USER_ACL)
     renderKeyColumn()
     let ids = Array.from($tbody.querySelectorAll(':scope > tr > td:nth-child(4)')).map(x => x.id)
     renderUserAclCells(ids)
   }
 
-  userAcl = key ? getUserAcl() : Promise.resolve()
+  userAcl = key ? getUserAcl() : Promise.resolve(DEFAULT_USER_ACL)
 
   getPair().then(onPair).catch(CM.htmlSnippets.renderUnexpectedError)
 }

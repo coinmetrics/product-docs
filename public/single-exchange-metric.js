@@ -22,6 +22,8 @@
     $loadAll = document.getElementById('load-all'),
     $empty = document.getElementById('empty')
 
+  const DEFAULT_USER_ACL = {exchanges: {}}
+
   let getExchangeMetric = () => 
     fetch(`/api/exchange-metrics/${id}`)
       .then(res => {
@@ -33,7 +35,8 @@
   let getUserAcl = () => 
     fetch(`/api/exchange-metrics/${id}/user-acl?api_key=${key}`)
       .then(res => {
-        if (res.status !== 200 && res.status !== 401) return {isFailed: true}
+        if (res.status === 401) return DEFAULT_USER_ACL
+        else if (res.status !== 200) return {isFailed: true, ...DEFAULT_USER_ACL}
         else return res.json()
       })
 
@@ -147,13 +150,13 @@
   
   CM.auth.onChange = k => {
     key = k
-    userAcl = getUserAcl()
+    userAcl = key ? getUserAcl() : Promise.resolve(DEFAULT_USER_ACL)
     renderKeyColumn()
     let ids = Array.from($tbody.querySelectorAll(':scope > tr > td:nth-child(4)')).map(x => x.id)
     renderUserAclCells(ids)
   }
 
-  userAcl = key ? getUserAcl() : Promise.resolve()
+  userAcl = key ? getUserAcl() : Promise.resolve(DEFAULT_USER_ACL)
 
   getExchangeMetric().then(onExchangeMetric).catch(CM.htmlSnippets.renderUnexpectedError)
 }
