@@ -785,6 +785,8 @@ let renderAssetMetricsHtmlDoc = () => renderMasterHtmlDoc({
       <div class="Filters-row">
         ${renderFrequencyDropdown()}
         ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
       </div>
       <cm-table>
         <table>
@@ -818,7 +820,11 @@ let renderSingleAssetMetricHtmlDoc = assetMetric => renderMasterHtmlDoc({
       <p>${assetMetric.description}</p>
     </header>
     <div class="Panel">
-      ${renderTextFilter()}
+      <div class="Filters-row">
+        ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
+      </div>
       <cm-table>
         <table class="Access">
           <thead>

@@ -12,6 +12,8 @@
 
   let $tbody = document.querySelector('tbody'),
     $filter = document.getElementById('text-filter'),
+    $download = document.getElementById('download'),
+    $downloadLink = document.getElementById('download-link'),
     $keyCol = document.getElementById('key-col'),
     $loadMore = document.getElementById('load-more'),
     $loadCount = document.getElementById('load-count'),
@@ -112,6 +114,21 @@
     renderedAssets = 0
     renderNext20Assets()
   }
+  let onDownload = () => 
+    userAcl.then(userAcl => {
+      let rows = [
+        ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
+        ...renderableAssets.map(x => 
+          ([x.id, x.acl.includes('c'), x.acl.includes('p'), userAcl.assets[x.id]?.includes('u') ?? ''])),
+      ]
+      let csvContent =
+        'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
+      let encodedUri = encodeURI(csvContent)
+      
+      $downloadLink.href = encodedUri
+      $downloadLink.download = `cm-asset-metric-${id}-assets.csv`
+      $downloadLink.click()
+    })
   let onAssetMetric = () => {
     renderKeyColumn()
 
@@ -119,6 +136,7 @@
     else renderNext20Assets()
     
     $filter.oninput = e => onFilterAssets(e.target.value)
+    $download.onclick = onDownload
     $loadMore.onclick = renderNext20Assets
     $loadAll.onclick = renderRemainingAssets
   }
