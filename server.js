@@ -941,6 +941,8 @@ let renderExchangeMetricsHtmlDoc = () => renderMasterHtmlDoc({
       <div class="Filters-row">
         ${renderFrequencyDropdown()}
         ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
       </div>
       <cm-table>
         <table>
@@ -974,7 +976,11 @@ let renderSingleExchangeMetricHtmlDoc = exchangeMetric => renderMasterHtmlDoc({
       <p>${exchangeMetric.description}</p>
     </header>
     <div class="Panel">
-      ${renderTextFilter()}
+      <div class="Filters-row">
+        ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
+      </div>
       <cm-table>
         <table class="Access">
           <thead>
