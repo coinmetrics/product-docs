@@ -571,7 +571,6 @@ let renderSingleAssetHtmlDoc = asset => renderMasterHtmlDoc({
         <div class="Filters-row">
           ${renderTextFilter('exchanges')}
           <div class="Filters-row-spacer"></div>
-          <div class="Filters-row-spacer"></div>
           ${renderDownloadButton('exchanges')}
         </div>
         <cm-table>
@@ -605,7 +604,11 @@ let renderPairsHtmlDoc = () => renderMasterHtmlDoc({
       </p>
     </header>
     <div class="Panel">
-      ${renderTextFilter()}
+      <div class="Filters-row">
+        ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
+      </div>
       <cm-table>
         <table left-align>
           <thead>
@@ -636,6 +639,8 @@ let renderSinglePairHtmlDoc = pair => renderMasterHtmlDoc({
       <div class="Filters-row">
         ${renderFrequencyDropdown()}
         ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
       </div>
       <cm-table>
         <table class="Access">

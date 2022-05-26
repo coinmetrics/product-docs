@@ -4,7 +4,6 @@
   let CM = window.__CM = window.__CM || {}
 
   let canonicalAssets, 
-    downloadableAssets,
     renderableAssets,
     renderedAssets = 0
   
@@ -25,7 +24,7 @@
         else return res.json()
       })
       .then(body => 
-        canonicalAssets = downloadableAssets = renderableAssets = Object.entries(body).map(([key, value]) => ({id: key, fullName: value})))
+        canonicalAssets = renderableAssets = Object.entries(body).map(([key, value]) => ({id: key, fullName: value})))
 
   let $renderRows = arr => {
     let html = ''
@@ -66,9 +65,9 @@
 
   let onFilter = filter => {
     if (filter)
-      downloadableAssets = renderableAssets = canonicalAssets.filter(x => x.id.toLowerCase().includes(filter.toLowerCase()))
+      renderableAssets = canonicalAssets.filter(x => x.id.toLowerCase().includes(filter.toLowerCase()))
     else
-      downloadableAssets = renderableAssets = canonicalAssets
+      renderableAssets = canonicalAssets
 
     $tbody.innerHTML = ''
     renderedAssets = 0
@@ -77,7 +76,7 @@
   let onDownload = () => {
     let rows = [
       ['ID', 'FULL_NAME'],
-      ...downloadableAssets.map(x => ([x.id, x.fullName])),
+      ...renderableAssets.map(x => ([x.id, x.fullName])),
     ]
     let csvContent =
       'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')

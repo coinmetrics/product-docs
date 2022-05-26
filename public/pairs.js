@@ -9,6 +9,8 @@
   
   let $tbody = document.querySelector('tbody'),
     $filter = document.getElementById('text-filter'),
+    $download = document.getElementById('download'),
+    $downloadLink = document.getElementById('download-link'),
     $loadMore = document.getElementById('load-more'),
     $loadCount = document.getElementById('load-count'),
     $loadTotal = document.getElementById('load-total'),
@@ -73,11 +75,25 @@
     renderedPairs = 0
     renderNext20Pairs()
   }
+  let onDownload = () => {
+    let rows = [
+      ['ID', 'BASE_ASSET', 'QUOTE_ASSET'],
+      ...renderablePairs.map(x => ([x, x.split('-')[0], x.split('-')[1]])),
+    ]
+    let csvContent =
+      'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
+    let encodedUri = encodeURI(csvContent)
+    
+    $downloadLink.href = encodedUri
+    $downloadLink.download = `cm-pairs.csv`
+    $downloadLink.click()
+  }
   let onPairs = () => {
     if ($filter.value) onFilter($filter.value)
     else renderNext20Pairs()
 
     $filter.oninput = e => onFilter(e.target.value)
+    $download.onclick = onDownload
     $loadMore.onclick = renderNext20Pairs
     $loadAll.onclick = renderRemaining
   }
