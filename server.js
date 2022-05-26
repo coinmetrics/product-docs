@@ -194,8 +194,20 @@ let renderMasterHtmlDoc = ({links = '', scripts = '', main = '', nav}) => /*html
     <head>
       <title>Coin Metrics Knowledge Base</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
       <meta charset="UTF-8">
+      <meta name="description" content="CMBI" />
+      <meta name="twitter:card" content="CMBI" />
+      <meta name="twitter:site" content="@coinmetrics" />
+      <meta name="twitter:title" content="Coin Metrics Bletchley Indexes" />
+      <meta name="twitter:description" content="Coin Metrics Bletchley Indexes (CMBI) are single-asset, multi-asset and unique cryptoasset indexes" />
+      <meta name="twitter:creator" content="@coinmetrics" />
+      <meta name="twitter:image" content="https://coinmetrics.io/coinmetrics-share/" />
+      <meta property="og:title" content="Coin Metrics Bletchley Indexes" />
+      <meta property="og:type" content="app" />
+      <meta property="og:url" content="https://indexes.coinmetrics.io/" />
+      <meta property="og:image" content="https://coinmetrics.io/coinmetrics-share/" />
+      <meta property="og:description" content="Coin Metrics Bletchley Indexes (CMBI) are single-asset, multi-asset and unique cryptoasset indexes." />
+      <meta property="og:site_name" content="Coin Metrics Bletchley Indexes" />
       <link rel="icon" type="image/png" href="/public/favicon.ico">
       <link rel="stylesheet" media="screen" href="/public/chocolate-ui.css">
       <link rel="stylesheet" media="screen" href="/public/shared.css">
