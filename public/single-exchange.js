@@ -27,8 +27,12 @@
     $markets = document.getElementById('markets').querySelector('tbody'),
     $metricsFrequencyFilter = document.getElementById('frequency-filter'),
     $metricsTextFilter = document.getElementById('metrics-text-filter'),
+    $metricsDownload = document.getElementById('metrics-download'),
+    $metricsDownloadLink = document.getElementById('metrics-download-link'),
     $marketsTextFilter = document.getElementById('markets-text-filter'),
     $marketsTypeFilter = document.getElementById('markets-type-filter'),    
+    $marketsDownload = document.getElementById('markets-download'),
+    $marketsDownloadLink = document.getElementById('markets-download-link'),
     $metricsKeyCol = document.getElementById('metrics-key-col'),
     $marketsKeyCol = document.getElementById('markets-key-col'),
     $metricsLoadMore = document.getElementById('metrics-load-more'),
@@ -218,6 +222,36 @@
     renderedMarkets = 0
     renderNext20Markets()
   }
+  let onDownloadMetrics = () => 
+    userAcl.then(userAcl => {
+      let rows = [
+        ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
+        ...renderableMetrics.map(x => 
+          ([x.id, x.acl.c?.join('|'), x.acl.p?.join('|'), userAcl.metrics[x.id]?.join("|") ?? ''])),
+      ]
+      let csvContent =
+        'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
+      let encodedUri = encodeURI(csvContent)
+      
+      $metricsDownloadLink.href = encodedUri
+      $metricsDownloadLink.download = `cm-exchange-${id}-metrics.csv`
+      $metricsDownloadLink.click()
+    })
+  let onDownloadMarkets = () => 
+    userAcl.then(userAcl => {
+      let rows = [
+        ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
+        ...renderableMarkets.map(x => 
+          ([x.id, x.acl.includes('c'), x.acl.includes('p'), userAcl.markets[x.id]?.includes('u') ?? ''])),
+      ]
+      let csvContent =
+        'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
+      let encodedUri = encodeURI(csvContent)
+      
+      $marketsDownloadLink.href = encodedUri
+      $marketsDownloadLink.download = `cm-asset-${id}-markets.csv`
+      $marketsDownloadLink.click()
+    })
   let onExchange = () => {
     renderKeyColumns()
 
@@ -229,8 +263,10 @@
     
     $metricsFrequencyFilter.onchange = e => onFilterMetrics(METRIC_FILTERS.frequency, e.target.value)
     $metricsTextFilter.oninput = e => onFilterMetrics(METRIC_FILTERS.text, e.target.value)
+    $metricsDownload.onclick = onDownloadMetrics
     $marketsTypeFilter.onchange = e => onFilterMarkets(MARKET_FILTERS.type, e.target.value)
     $marketsTextFilter.oninput = e => onFilterMarkets(MARKET_FILTERS.text, e.target.value)    
+    $marketsDownload.onclick = onDownloadMarkets
     $metricsLoadMore.onclick = renderNext20Metrics
     $metricsLoadAll.onclick = renderRemainingMetrics
     $marketsLoadMore.onclick = renderNext20Markets

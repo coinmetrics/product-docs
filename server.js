@@ -674,7 +674,11 @@ let renderExchangesHtmlDoc = () => renderMasterHtmlDoc({
       </p>
     </header>
     <div class="Panel">
-      ${renderTextFilter()}
+      <div class="Filters-row">
+        ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
+      </div>
       <cm-table>
         <table left-align>
           <thead>
@@ -718,6 +722,8 @@ let renderSingleExchangeHtmlDoc = exchange => renderMasterHtmlDoc({
         <div class="Filters-row">
           ${renderFrequencyDropdown()}
           ${renderTextFilter('metrics')}
+          <div class="Filters-row-spacer"></div>
+          ${renderDownloadButton('metrics')}
         </div>
         <cm-table>
           <table class="Access">
@@ -739,6 +745,8 @@ let renderSingleExchangeHtmlDoc = exchange => renderMasterHtmlDoc({
         <div class="Filters-row">
           ${renderMarketTypeDropdown()}
           ${renderTextFilter('markets')}
+          <div class="Filters-row-spacer"></div>
+          ${renderDownloadButton('markets')}
         </div>
         <cm-table>
           <table class="Access">
