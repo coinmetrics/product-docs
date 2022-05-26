@@ -82,6 +82,13 @@ let publicCache = {},
   exchangeMetricsHtmlDocCache,
   singleExchangeMetricHtmlDocsCache = {}
 
+let log = (msg, level = 'ERROR') => {
+  let s = '[' + new Date().toISOString() + '|' + level + '] ' + msg
+  if (level === 'ERROR') console.error("\x1b[31m", s, "\x1b[0m")
+  else console.log(s)
+}
+let requestLogger = req => (msg, level) => log(req.url + ' :: ' + msg, level)  
+
 // HTML snippets
 let renderShipSvg = () => /*html*/`
   <cm-inline-svg>
@@ -945,13 +952,17 @@ let renderSingleExchangeMetricHtmlDoc = exchangeMetric => renderMasterHtmlDoc({
 
 // Backend CM API request functions
 class RequestError extends Error {
-  constructor(msg, details) {
+  constructor(msg, res, json) {
     super(msg)
-    if (details instanceof Error) {
-      this.details = details.message
-      this.statusCode = -1
-    }
-    else this.statusCode = details.statusCode
+    this.statusCode = res.statusCode
+    this.method = res.req.method
+    this.host = res.req.host
+    this.path = res.req.path
+    this.json = json ?? ''
+  }
+
+  toString() {
+    return `${this.message} ${this.statusCode} ${this.method} ${this.host} ${this.path} ${this.json}`
   }
 }
 let transformMetricFrequenciesAcl = metrics => {
@@ -984,7 +995,7 @@ let getData = url => new Promise((resolve, reject) => {
         try {
           resolve(JSON.parse(json).data)
         } catch (e) {
-          reject(new RequestError(INVALID_RESPONSE, res))
+          reject(new RequestError(INVALID_RESPONSE, res, json))
         }
       })
     },
@@ -1167,7 +1178,7 @@ let getAssetMetrics = () => Promise.all([
   let assetMetrics = {}
   assetMetricIds.forEach(id => {
     let metric = metrics[id]
-    if (!metric) console.error(`Asset metric not found in metrics for ${id}`)
+    if (!metric) log(`Asset metric not found in metrics for ${id}`)
     else {
       pruned.push(metric)
       assetMetrics[id] = {
@@ -1218,7 +1229,7 @@ let getPairMetrics = () => Promise.all([
   let pairMetrics = {}
   pairMetricIds.forEach(id => {
     let metric = metrics[id]
-    if (!metric) console.error(`Asset metric not found in metrics for ${id}`)
+    if (!metric) log(`Asset metric not found in metrics for ${id}`)
     else {
       pruned.push(metric)
       pairMetrics[id] = {
@@ -1269,7 +1280,7 @@ let getExchangeMetrics = () => Promise.all([
   let exchangeMetrics = {}
   exchangeMetricIds.forEach(id => {
     let metric = metrics[id]
-    if (!metric) console.error(`Asset metric not found in metrics for ${id}`)
+    if (!metric) log(`Asset metric not found in metrics for ${id}`)
     else {
       pruned.push(metric)
       exchangeMetrics[id] = {
@@ -1373,11 +1384,11 @@ let cachePublic = path => {
   }
 }
 let handleUpdateCacheError = error => {
-  console.error('Error caught updating cache', error)
+  log(`Error caught updating cache ${error}`)
   return Promise.resolve({error})
 }
 let updateCache = () => {
-  console.log('Starting cache update')
+  log('Starting cache update', 'INFO')
   assetsCache = getAssets().catch(handleUpdateCacheError)
   singleAssetHtmlDocsCache = {}
   pairsCache = getPairs().catch(handleUpdateCacheError)
@@ -1430,11 +1441,11 @@ let updateCache = () => {
     assetMetricsCache,
     pairMetricsCache,
     exchangeMetricsCache
-  ]).then(() => console.log('Completed cache update'))
+  ]).then(() => log('Completed cache update', 'INFO'))
 }
 
 // Server functions
-let handleApiRequest = (req, res) => {
+let handleApiRequest = (log, req, res) => {
   let { pathname, searchParams } = new URL(req.url, `http://${req.headers.host}`)
   let path = pathname.split('/')
   let id = path[3]
@@ -1444,12 +1455,16 @@ let handleApiRequest = (req, res) => {
     res.writeHead(status, COMMON_RESPONSE_HEADERS)
     res.end(JSON.stringify(body))
   }
-  let respond401 = err => {
-    console.error('Error caught handling api request', err)
+  let respond401 = () => {
+    log('Requested API unauthorized')
     respondJson({}, 401)
+  } 
+  let respond404 = () => {
+    log('Requested API not found')
+    respondJson({}, 404)
   }
   let respond500 = err => {
-    console.error('Error caught handling api request', err)
+    log(`Error caught handling API request ${err}`)
     respondJson({}, 500)
   }
 
@@ -1462,7 +1477,7 @@ let handleApiRequest = (req, res) => {
       assetsCache.then(({assets, pruned, error}) => {
         if (error) respond500(error)
         else if (!id) respondJson(pruned)
-        else if (!(id in assets)) respondJson({}, 404)
+        else if (!(id in assets)) respond404()
         else respondJson(assets[id])
       })
   }
@@ -1476,7 +1491,7 @@ let handleApiRequest = (req, res) => {
       pairsCache.then(({pairs, pruned, error}) => {
         if (error) respond500(error)
         else if (!id) respondJson({data: pruned})
-        else if (!(id in pairs)) respondJson({}, 404)
+        else if (!(id in pairs)) respond404()
         else respondJson(pairs[id])
       })
   }
@@ -1490,7 +1505,7 @@ let handleApiRequest = (req, res) => {
       exchangesCache.then(({exchanges, pruned, error}) => {
         if (error) respond500(error)
         else if (!id) respondJson({data: pruned})
-        else if (!(id in exchanges)) respondJson({}, 404)
+        else if (!(id in exchanges)) respond404()
         else respondJson(exchanges[id])
       })
   }
@@ -1504,7 +1519,7 @@ let handleApiRequest = (req, res) => {
       assetMetricsCache.then(({assetMetrics, pruned, error}) => {
         if (error) respond500(error)
         else if (!id) respondJson({data: pruned})
-        else if (!(id in assetMetrics)) respondJson({}, 404)
+        else if (!(id in assetMetrics)) respond404()
         else respondJson(assetMetrics[id])
       })
   }
@@ -1518,7 +1533,7 @@ let handleApiRequest = (req, res) => {
       pairMetricsCache.then(({pairMetrics, pruned, error}) => {
         if (error) respond500(error)
         else if (!id) respondJson({data: pruned})
-        else if (!(id in pairMetrics)) respondJson({}, 404)
+        else if (!(id in pairMetrics)) respond404()
         else respondJson(pairMetrics[id])
       })
   }
@@ -1532,7 +1547,7 @@ let handleApiRequest = (req, res) => {
       exchangeMetricsCache.then(({exchangeMetrics, pruned, error}) => {
         if (error) respond500(error)
         else if (!id) respondJson({data: pruned})
-        else if (!(id in exchangeMetrics)) respondJson({}, 404)
+        else if (!(id in exchangeMetrics)) respond404()
         else respondJson(exchangeMetrics[id])
       })
   }
@@ -1571,13 +1586,14 @@ let handleApiRequest = (req, res) => {
       handleSearchRequest()
       break
     default:
-      respondJson({}, 404)
+      respond404()
   }
 }
-let handlePublicRequest = (req, res) => {
+let handlePublicRequest = (log, req, res) => {
   let ext = req.url.split('.')[1]
   let data = publicCache[req.url]
   if (!data) {
+    log('Requested resource in /public missing')
     res.writeHead(404)
     res.end()
   } else {
@@ -1585,7 +1601,7 @@ let handlePublicRequest = (req, res) => {
     res.end(data)
   }
 }
-let handlePageRequest = (req, res) => {
+let handlePageRequest = (log, req, res) => {
   let path = req.url.split('/')
   let id = path[2]
 
@@ -1593,9 +1609,12 @@ let handlePageRequest = (req, res) => {
     res.writeHead(status, { 'Content-Type': CONTENT_TYPE.html })
     res.end(html)
   }
-  let respond404 = () => respondHtml(notFoundHtmlDocCache, 404)
+  let respond404 = () => {
+    log('Requested page missing')
+    respondHtml(notFoundHtmlDocCache, 404)
+  }
   let respond500 = err => {
-    console.error('Error caught handling page request', err)
+    log('Error caught handling page request', err)
     respondHtml(errorHtmlDocCache, 500)
   }
 
@@ -1722,26 +1741,28 @@ let handlePageRequest = (req, res) => {
   }
 }
 let respond = (req, res) => {
+  let log = requestLogger(req)
+
   try {
-    console.log(req.url)
+    log('New request', 'INFO')
     switch (req.url.split('/')[1]) {
       case 'api':
-        handleApiRequest(req, res)
+        handleApiRequest(log, req, res)
         break
       case 'public':
-        handlePublicRequest(req, res)
+        handlePublicRequest(log, req, res)
         break
       default:
-        handlePageRequest(req, res)
+        handlePageRequest(log, req, res)
     }
   } catch (err) {
-    console.error('Exception caught in respond', err)
+    log(`Exception caught in respond ${err}`)
     res.writeHead(500)
     res.end()
   }
 }
 let main = () => {
-  console.log('Starting up', BUILD_ID)
+  log(`Starting up ${BUILD_ID}`, 'INFO')
   cachePublic('./public')
   landingHtmlDocCache = renderLandingHtmlDoc()
   searchResultsHtmlDocCache = renderSearchResultsHtmlDoc()
@@ -1758,20 +1779,20 @@ let main = () => {
 
   let server = http.createServer(respond)
   server.listen(PORT, HOST, () => {
-    console.log('Server is listening')
+    log(`Server is listening ${HOST}:${PORT}`, 'INFO')
   })
 
   let exit = () => {
     server.close(() => process.exit(0))
     clearInterval(updateCacheInterval)
-    console.log('Server is closed')
+    log('Server is closed', 'INFO')
   }
 
   process.on('SIGINT', exit)
   process.on('SIGTERM', exit)
 
   process.on('uncaughtException', (err, origin) => {
-    console.error('Process caught unhandled exception', origin, err);
+    log(`Process caught unhandled exception ${err} ${origin}`)
     exit()
   });
 }

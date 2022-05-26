@@ -39,6 +39,7 @@ deploy-dev:
   tags:
     - linux
     - docker
+  when: manual
 
 deploy-staging:
   stage: deploy
