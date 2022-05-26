@@ -12,6 +12,8 @@
 
   let $tbody = document.querySelector('tbody'),
     $filter = document.getElementById('text-filter'),
+    $download = document.getElementById('download'),
+    $downloadLink = document.getElementById('download-link'),
     $keyCol = document.getElementById('key-col'),
     $loadMore = document.getElementById('load-more'),
     $loadCount = document.getElementById('load-count'),
@@ -108,6 +110,21 @@
     renderedPairs = 0
     renderNext20Pairs()
   }
+  let onDownload = () =>
+    userAcl.then(userAcl => {
+      let rows = [
+        ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
+        ...renderablePairs.map(x => 
+          ([x.id, x.acl.includes('c'), x.acl.includes('p'), userAcl.pairs[x.id]?.includes('u') ?? ''])),
+      ]
+      let csvContent =
+        'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
+      let encodedUri = encodeURI(csvContent)
+      
+      $downloadLink.href = encodedUri
+      $downloadLink.download = `cm-pair-metric-${id}-pairs.csv`
+      $downloadLink.click()
+    })
   let onPairMetric = () => {
     renderKeyColumn()
 
@@ -115,6 +132,7 @@
     else renderNext20Pairs()
     
     $filter.oninput = e => onFilterPairs(e.target.value)
+    $download.onclick = onDownload
     $loadMore.onclick = renderNext20Pairs
     $loadAll.onclick = renderRemainingPairs
   }

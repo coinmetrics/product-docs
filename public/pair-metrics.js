@@ -16,6 +16,8 @@
   let $tbody = document.querySelector('tbody'),
     $frequencyFilter = document.getElementById('frequency-filter'),
     $textFilter = document.getElementById('text-filter'),
+    $download = document.getElementById('download'),
+    $downloadLink = document.getElementById('download-link'),
     $loadMore = document.getElementById('load-more'),
     $loadCount = document.getElementById('load-count'),
     $loadTotal = document.getElementById('load-total'),
@@ -95,12 +97,26 @@
     renderedMetrics = 0
     renderNext20()
   }
+  let onDownload = () => {
+    let rows = [
+      ['ID', 'NAME', 'CATEGORY', 'SUBCATEGORY', 'FREQUENCIES'],
+      ...renderableMetrics.map(x => ([x.id, x.name, x.category, x.subcategory, x.frequencies.join('|')])),
+    ]
+    let csvContent =
+      'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
+    let encodedUri = encodeURI(csvContent)
+    
+    $downloadLink.href = encodedUri
+    $downloadLink.download = `cm-pair-metrics.csv`
+    $downloadLink.click()
+  }
   let onPairMetrics = () => {
     if ($textFilter.value) onFilter(METRIC_FILTERS.text, $textFilter.value)
     else renderNext20()
 
     $frequencyFilter.onchange = e => onFilter(METRIC_FILTERS.frequency, e.target.value)
     $textFilter.oninput = e => onFilter(METRIC_FILTERS.text, e.target.value)
+    $download.onclick = onDownload
     $loadMore.onclick = renderNext20
     $loadAll.onclick = renderRemaining
   }
