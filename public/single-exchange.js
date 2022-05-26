@@ -28,10 +28,12 @@
     $metricsFrequencyFilter = document.getElementById('frequency-filter'),
     $metricsTextFilter = document.getElementById('metrics-text-filter'),
     $metricsDownload = document.getElementById('metrics-download'),
+    $metricsDownloadIcon = $metricsDownload.querySelector('cm-icon'),
     $metricsDownloadLink = document.getElementById('metrics-download-link'),
     $marketsTextFilter = document.getElementById('markets-text-filter'),
     $marketsTypeFilter = document.getElementById('markets-type-filter'),    
     $marketsDownload = document.getElementById('markets-download'),
+    $marketsDownloadIcon = $marketsDownload.querySelector('cm-icon'),
     $marketsDownloadLink = document.getElementById('markets-download-link'),
     $metricsKeyCol = document.getElementById('metrics-key-col'),
     $marketsKeyCol = document.getElementById('markets-key-col'),
@@ -222,7 +224,10 @@
     renderedMarkets = 0
     renderNext20Markets()
   }
-  let onDownloadMetrics = () => 
+  let onDownloadMetrics = () => {
+    $metricsDownloadIcon.name = 'refresh-cw'
+    $metricsDownloadIcon.classList.add('Icon-spin')
+
     userAcl.then(userAcl => {
       let rows = [
         ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
@@ -236,8 +241,15 @@
       $metricsDownloadLink.href = encodedUri
       $metricsDownloadLink.download = `cm-exchange-${id}-metrics.csv`
       $metricsDownloadLink.click()
+
+      $metricsDownloadIcon.classList.remove('Icon-spin')
+      $metricsDownloadIcon.name = 'download'
     })
-  let onDownloadMarkets = () => 
+  }
+  let onDownloadMarkets = () => {
+    $marketsDownloadIcon.name = 'refresh-cw'
+    $marketsDownloadIcon.classList.add('Icon-spin')
+    
     userAcl.then(userAcl => {
       let rows = [
         ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
@@ -251,7 +263,11 @@
       $marketsDownloadLink.href = encodedUri
       $marketsDownloadLink.download = `cm-asset-${id}-markets.csv`
       $marketsDownloadLink.click()
+
+      $marketsDownloadIcon.classList.remove('Icon-spin')
+      $marketsDownloadIcon.name = 'download'
     })
+  }
   let onExchange = () => {
     renderKeyColumns()
 

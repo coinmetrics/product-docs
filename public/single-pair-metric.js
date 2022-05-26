@@ -13,6 +13,7 @@
   let $tbody = document.querySelector('tbody'),
     $filter = document.getElementById('text-filter'),
     $download = document.getElementById('download'),
+    $downloadIcon = $download.querySelector('cm-icon'),
     $downloadLink = document.getElementById('download-link'),
     $keyCol = document.getElementById('key-col'),
     $loadMore = document.getElementById('load-more'),
@@ -110,7 +111,10 @@
     renderedPairs = 0
     renderNext20Pairs()
   }
-  let onDownload = () =>
+  let onDownload = () => {
+    $downloadIcon.name = 'refresh-cw'
+    $downloadIcon.classList.add('Icon-spin')
+
     userAcl.then(userAcl => {
       let rows = [
         ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
@@ -124,7 +128,11 @@
       $downloadLink.href = encodedUri
       $downloadLink.download = `cm-pair-metric-${id}-pairs.csv`
       $downloadLink.click()
+
+      $downloadIcon.classList.remove('Icon-spin')
+      $downloadIcon.name = 'download'
     })
+  }
   let onPairMetric = () => {
     renderKeyColumn()
 

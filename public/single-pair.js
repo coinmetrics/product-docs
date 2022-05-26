@@ -20,6 +20,7 @@
     $frequencyFilter = document.getElementById('frequency-filter'),
     $textFilter = document.getElementById('text-filter'),
     $download = document.getElementById('download'),
+    $downloadIcon = $download.querySelector('cm-icon'),
     $downloadLink = document.getElementById('download-link'),
     $keyCol = document.getElementById('key-col'),
     $loadMore = document.getElementById('load-more'),
@@ -130,7 +131,10 @@
     renderedMetrics = 0
     renderNext20Metrics()
   }
-  let onDownload = () => 
+  let onDownload = () => {
+    $downloadIcon.name = 'refresh-cw'
+    $downloadIcon.classList.add('Icon-spin')
+
     userAcl.then(userAcl => {
       let rows = [
         ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
@@ -144,7 +148,11 @@
       $downloadLink.href = encodedUri
       $downloadLink.download = `cm-pair-${id}-metrics.csv`
       $downloadLink.click()
+
+      $downloadIcon.classList.remove('Icon-spin')
+      $downloadIcon.name = 'download'
     })
+  }
   let onPair = () => {
     renderKeyColumn()
 
