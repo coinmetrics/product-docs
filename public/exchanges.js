@@ -85,15 +85,10 @@
     renderNext20()
   }
   let onDownload = () => {
-    let rows = [
+    $downloadLink.href = CM.algorithms.encodeCsv([
       ['ID', 'MIN_TIME', 'MAX_TIME', 'TOTAL_SPOT', 'TOTAL_FUTURE'],
       ...renderableExchanges.map(x => ([x.id, x.minTime, x.maxTime, x.totalSpot, x.totalFuture])),
-    ]
-    let csvContent =
-      'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
-    let encodedUri = encodeURI(csvContent)
-    
-    $downloadLink.href = encodedUri
+    ])
     $downloadLink.download = `cm-exchanges.csv`
     $downloadLink.click()
   }

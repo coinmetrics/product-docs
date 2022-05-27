@@ -41,7 +41,7 @@
     fetch(`/api/pairs/${id}/user-acl?api_key=${key}`)
       .then(res => {
         if (res.status === 401) return DEFAULT_USER_ACL
-        else if (res.status !== 100) return {isFailed: true, ...DEFAULT_USER_ACL}
+        else if (res.status !== 200) return {isFailed: true, ...DEFAULT_USER_ACL}
         else return res.json()
       })
 
@@ -137,16 +137,7 @@
     $downloadIcon.classList.add('Icon-spin')
 
     userAcl.then(userAcl => {
-      let rows = [
-        ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
-        ...renderableMetrics.map(x => 
-          ([x.id, x.acl.c?.join('|'), x.acl.p?.join('|'), userAcl.metrics[x.id]?.join("|") ?? ''])),
-      ]
-      let csvContent =
-        'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
-      let encodedUri = encodeURI(csvContent)
-      
-      $downloadLink.href = encodedUri
+      $downloadLink.href = CM.algorithms.buildMetricsAclCsv(renderableMetrics, userAcl)
       $downloadLink.download = `cm-pair-${id}-metrics.csv`
       $downloadLink.click()
 

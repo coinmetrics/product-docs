@@ -99,3 +99,78 @@
     renderUnexpectedError
   }
 }
+{ // algorithms
+  'use strict'
+
+  let CM = window.__CM = window.__CM || {}
+
+  let encodeCsv = rows => encodeURI('data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n'))
+
+  let buildMetricsAclCsv = (metrics, userAcl) => {
+    let rows = [ ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'] ]
+    
+    for (let {id, acl} of metrics) {
+      let community, pro, yourKey
+      if (acl.c) {
+        community = acl.c.join(',')
+        if (acl.c.length > 1) community = `"${community}"`
+      }
+      if (acl.p) {
+        pro = acl.p.join(',')
+        if (acl.p.length > 1) pro = `"${pro}"`
+      }
+      if (userAcl.metrics[id]) {
+        yourKey = userAcl.metrics[id].join(',')
+        if (userAcl.metrics[id].length > 1) yourKey = `"${yourKey}"`
+      }
+      rows.push([id, community, pro, yourKey])
+    }
+
+    return encodeCsv(rows)
+  }
+
+  let buildMarketsAclCsv = (markets, userAcl) => {
+    let rows = [ ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'] ]
+    
+    for (let {id, acl} of markets) {
+      let community = acl.includes('c')
+        pro = acl.includes('p'),
+        yourKey = userAcl.markets[id]?.includes('u') ?? ''
+
+      rows.push([id, community, pro, yourKey])
+    }
+
+    return encodeCsv(rows)
+  }
+
+  let buildMetricsCsv = metrics => {
+    let rows = [ ['ID', 'NAME', 'CATEGORY', 'SUBCATEGORY', 'FREQUENCIES'] ]
+
+    for (let x of metrics) 
+      rows.push([x.id, x.name, x.category, x.subcategory, `"${x.frequencies?.join(',') ?? ''}"`])
+
+    return encodeCsv(rows)
+  }
+
+  let buildGenericAclCsv = (data, userAcl, index) => {
+    let rows = [ ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'] ]
+
+    for (let {id, acl} of data) {
+      let community = acl.includes('c')
+        pro = acl.includes('p'),
+        yourKey = userAcl[index][id]?.includes('u') ?? ''
+      
+        rows.push([id, community, pro, yourKey])
+    }
+
+    return encodeCsv(rows)
+  }
+
+  CM.algorithms = {
+    encodeCsv,
+    buildMetricsAclCsv,
+    buildMarketsAclCsv,
+    buildMetricsCsv,
+    buildGenericAclCsv
+  }
+}

@@ -1006,9 +1006,9 @@ class RequestError extends Error {
   constructor(msg, res, json) {
     super(msg)
     this.statusCode = res.statusCode
-    this.method = res.req.method
-    this.host = res.req.host
-    this.path = res.req.path
+    this.method = res.req?.method
+    this.host = res.req?.host
+    this.path = res.req?.path
     this.json = json ?? ''
   }
 

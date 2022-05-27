@@ -98,15 +98,7 @@
     renderNext20()
   }
   let onDownload = () => {
-    let rows = [
-      ['ID', 'NAME', 'CATEGORY', 'SUBCATEGORY', 'FREQUENCIES'],
-      ...renderableMetrics.map(x => ([x.id, x.name, x.category, x.subcategory, x.frequencies.join('|')])),
-    ]
-    let csvContent =
-      'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
-    let encodedUri = encodeURI(csvContent)
-    
-    $downloadLink.href = encodedUri
+    $downloadLink.href = CM.algorithms.buildMetricsCsv(renderableMetrics)
     $downloadLink.download = `cm-asset-metrics.csv`
     $downloadLink.click()
   }

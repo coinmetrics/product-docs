@@ -173,15 +173,10 @@
     renderResults()
   }
   let onDownload = () => {
-    let rows = [
+    $downloadLink.href = CM.algorithmns.encodeCsv([
       ['TYPE', 'ID'],
       ...renderableResults.map(x => ([x.resultType, x.id])),
-    ]
-    let csvContent =
-      'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
-    let encodedUri = encodeURI(csvContent)
-    
-    $downloadLink.href = encodedUri
+    ])
     $downloadLink.download = `cm-search-results-${query}.csv`
     $downloadLink.click()
   }

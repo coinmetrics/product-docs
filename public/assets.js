@@ -74,15 +74,10 @@
     renderNext20()
   }
   let onDownload = () => {
-    let rows = [
+    $downloadLink.href = CM.algorithms.encodeCsv([
       ['ID', 'FULL_NAME'],
       ...renderableAssets.map(x => ([x.id, x.fullName])),
-    ]
-    let csvContent =
-      'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
-    let encodedUri = encodeURI(csvContent)
-    
-    $downloadLink.href = encodedUri
+    ])
     $downloadLink.download = `cm-assets.csv`
     $downloadLink.click()
   }

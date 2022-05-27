@@ -299,16 +299,7 @@
     $metricsDownloadIcon.classList.add('Icon-spin')
 
     userAcl.then(userAcl => {
-      let rows = [
-        ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
-        ...renderableMetrics.map(x => 
-          ([x.id, x.acl.c?.join('|'), x.acl.p?.join('|'), userAcl.metrics[x.id]?.join("|") ?? ''])),
-      ]
-      let csvContent =
-        'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
-      let encodedUri = encodeURI(csvContent)
-      
-      $metricsDownloadLink.href = encodedUri
+      $metricsDownloadLink.href = CM.algorithms.buildMetricsAclCsv(renderableMetrics, userAcl)
       $metricsDownloadLink.download = `cm-asset-${id}-metrics.csv`
       $metricsDownloadLink.click()
 
@@ -321,16 +312,7 @@
     $marketsDownloadIcon.classList.add('Icon-spin')
 
     userAcl.then(userAcl => {
-      let rows = [
-        ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
-        ...renderableMarkets.map(x => 
-          ([x.id, x.acl.includes('c'), x.acl.includes('p'), userAcl.markets[x.id]?.includes('u') ?? ''])),
-      ]
-      let csvContent =
-        'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
-      let encodedUri = encodeURI(csvContent)
-      
-      $marketsDownloadLink.href = encodedUri
+      $marketsDownloadLink.href = CM.algorithms.buildMarketsAclCsv(renderableMarkets, userAcl)
       $marketsDownloadLink.download = `cm-asset-${id}-markets.csv`
       $marketsDownloadLink.click()
 
@@ -343,16 +325,7 @@
     $exchangesDownloadIcon.classList.add('Icon-spin')
 
     userAcl.then(userAcl => {
-      let rows = [
-        ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
-        ...renderableExchanges.map(x => 
-          ([x.id, x.acl.includes('c'), x.acl.includes('p'), userAcl.exchanges[x.id]?.includes('u') ?? ''])),
-      ]
-      let csvContent =
-        'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
-      let encodedUri = encodeURI(csvContent)
-      
-      $exchangesDownloadLink.href = encodedUri
+      $exchangesDownloadLink.href = CM.algorithms.buildGenericAclCsv(renderableExchanges, userAcl, 'exchanges')
       $exchangesDownloadLink.download = `cm-asset-${id}-exchanges.csv`
       $exchangesDownloadLink.click()
 

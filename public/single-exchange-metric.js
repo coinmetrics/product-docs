@@ -119,16 +119,7 @@
     $downloadIcon.classList.add('Icon-spin')
 
     userAcl.then(userAcl => {
-      let rows = [
-        ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
-        ...renderableExchanges.map(x => 
-          ([x.id, x.acl.includes('c'), x.acl.includes('p'), userAcl.exchanges[x.id]?.includes('u') ?? ''])),
-      ]
-      let csvContent =
-        'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
-      let encodedUri = encodeURI(csvContent)
-      
-      $downloadLink.href = encodedUri
+      $downloadLink.href = CM.algorithms.buildGenericAclCsv(renderableExchanges, userAcl, 'exchanges')
       $downloadLink.download = `cm-exchange-metric-${id}-exchanges.csv`
       $downloadLink.click()
 

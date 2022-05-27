@@ -76,15 +76,10 @@
     renderNext20Pairs()
   }
   let onDownload = () => {
-    let rows = [
+    $downloadLink.href = CM.algorithns.encodeCsv([
       ['ID', 'BASE_ASSET', 'QUOTE_ASSET'],
       ...renderablePairs.map(x => ([x, x.split('-')[0], x.split('-')[1]])),
-    ]
-    let csvContent =
-      'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
-    let encodedUri = encodeURI(csvContent)
-    
-    $downloadLink.href = encodedUri
+    ])
     $downloadLink.download = `cm-pairs.csv`
     $downloadLink.click()
   }

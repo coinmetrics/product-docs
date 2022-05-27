@@ -123,16 +123,7 @@
     $downloadIcon.classList.add('Icon-spin')
 
     userAcl.then(userAcl => {
-      let rows = [
-        ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'],
-        ...renderableAssets.map(x => 
-          ([x.id, x.acl.includes('c'), x.acl.includes('p'), userAcl.assets[x.id]?.includes('u') ?? ''])),
-      ]
-      let csvContent =
-        'data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n')
-      let encodedUri = encodeURI(csvContent)
-      
-      $downloadLink.href = encodedUri
+      $downloadLink.href = CM.algorithms.buildGenericAclCsv(renderableAssets, userAcl, 'assets')
       $downloadLink.download = `cm-asset-metric-${id}-assets.csv`
       $downloadLink.click()
 
