@@ -474,7 +474,17 @@ let renderAssetsHtmlDoc = () => renderMasterHtmlDoc({
     <header class="Text-content">
       <h2>Assets</h2>
       <div class="Line-v-light"></div>
-      <p>Additional info...</p>
+      <p>
+        The available assets and the available metrics, markets and exchanges 
+        for each asset can be found by querying our 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogAssets">
+          <code>/catalog/assets</code>
+        </a> or 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogAllAssets">
+          <code>/catalog-all/assets</code>
+        </a> 
+        API endpoints. 
+      </p>
     </header>
     <div class="Panel">
       <div class="Filters-row">
@@ -509,7 +519,12 @@ let renderSingleAssetHtmlDoc = asset => renderMasterHtmlDoc({
         <p>${asset.fullName}</p>
       </div>
       <div class="Line-v-light"></div>
-      <p>Info...</p>
+      <p>
+        Full asset is queryable via our API at 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogAssets">
+          <code>/catalog/assets?assets=${asset.id}</code>
+        </a>
+      </p>
     </header>
     <div class="Panel">
       <cm-tabs>
@@ -601,7 +616,15 @@ let renderPairsHtmlDoc = () => renderMasterHtmlDoc({
       <h2>Pairs</h2>
       <div class="Line-v-light"></div>
       <p>
-        The pair coverage can be found by querying our <code>/catalog/pairs</code> or <code>/catalog-all/pairs</code> API endpoints. The pair coverage is defined as the combination (cartesian product) of all the top assets (approximately the top 300 assets by market capitalization).
+        The pair coverage can be found by querying our 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogAssetPairs">
+          <code>/catalog/pairs</code>
+        </a> or 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogAllAssetPairs">
+          <code>/catalog-all/pairs</code>
+        </a> 
+        API endpoints. The pair coverage is defined as the combination (cartesian product) of all 
+        the top assets (approximately the top 300 assets by market capitalization).
       </p>
     </header>
     <div class="Panel">
@@ -634,7 +657,12 @@ let renderSinglePairHtmlDoc = pair => renderMasterHtmlDoc({
     <header class="Text-content">
       <h2>${pair.id}</h2>
       <div class="Line-v-light"></div>
-      <p>Info...</p>
+      <p>
+        Full pair is queryable via our API at 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogAssetPairs">
+          <code>/catalog/pairs?pairs=${pair.id}</code>
+        </a>
+      </p>
     </header>
     <div class="Panel">
       <div class="Filters-row">
@@ -670,8 +698,13 @@ let renderExchangesHtmlDoc = () => renderMasterHtmlDoc({
       <div class="Line-v-light"></div>
       <p>
         The available exchanges and the metrics available for each exchange 
-        can be found by querying our <code>/catalog/exchanges</code> or 
-        <code>/catalog-all/exchanges</code> API endpoints. 
+        can be found by querying our 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogExchanges">
+          <code>/catalog/exchanges</code>
+        </a> or 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogAllExchanges">
+          <code>/catalog-all/exchanges</code> 
+        </a> API endpoints. 
       </p>
     </header>
     <div class="Panel">
@@ -707,7 +740,10 @@ let renderSingleExchangeHtmlDoc = exchange => renderMasterHtmlDoc({
       <h2>${exchange.id}</h2>
       <div class="Line-v-light"></div>
       <p>
-        Exchange info...
+        Full exchange is queryable via our API at 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogExchanges">
+          <code>/catalog/exchanges?exchanges=${exchange.id}</code>
+        </a>
       </p>
     </header>
     <div class="Panel">
@@ -775,7 +811,11 @@ let renderAssetMetricsHtmlDoc = () => renderMasterHtmlDoc({
     <header class="Text-content">
       <div>
         <h2>Asset metrics</h2>
-        <p><code>/timeseries/asset-metrics</code></p>
+        <p>
+          <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getTimeseriesAssetMetrics">
+            <code>/timeseries/asset-metrics</code>
+          </a>
+        </p>
       </div>
       <div class="Line-v-light"></div>
       <p>
@@ -851,15 +891,17 @@ let renderPairMetricsHtmlDoc = () => renderMasterHtmlDoc({
     <header class="Text-content">
       <div>
         <h2>Pair metrics</h2>
-        <p><code>/timeseries/pair-metrics</code></p>
+        <p>
+          <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getTimeseriesPairMetrics">
+            <code>/timeseries/pair-metrics</code>
+          </a>
+        </p>
       </div>
       <div class="Line-v-light"></div>
       <p>
         Coin Metrics calculates several metrics for asset pairs such as <code>btc-usd</code> and <code>eth-usd</code>. 
         For example, the metric <code>volume_reported_spot_usd_1d</code> represents the daily spot volume 
-        in U.S. dollars for all markets in our coverage universe that contain the specific pair. 
-        Metrics available at the exchange-asset level is available through the 
-        <code>/timeseries/pair-metrics</code> API endpoint.
+        in U.S. dollars for all markets in our coverage universe that contain the specific pair.
       </p>
     </header>
     <div class="Panel">
@@ -929,13 +971,19 @@ let renderExchangeMetricsHtmlDoc = () => renderMasterHtmlDoc({
   scripts: /*html*/`<script defer src="/public/exchange-metrics.js"></script>`,
   main: /*html*/`
     <header class="Text-content">
-      <h2>Exchange metrics</h2>
+      <div>
+        <h2>Exchange metrics</h2>
+        <p>
+          <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getTimeseriesExchangeMetrics">
+            <code>/timeseries/exchange-metrics</code>
+          </a>
+        </p>
+      </div>
       <div class="Line-v-light"></div>
       <p>
         Coin Metrics calculates several metrics for exchange-asset pairs such as <code>coinbase-btc</code>, <code>binance-eth</code>, and <code>deribit-usdt</code>. 
         For example, the metric <code>volume_reported_spot_usd_1d</code> represents the daily spot volume in U.S. dollars for a specific 
-        asset that trades on a specific exchange. Metrics available at the exchange-asset level is available through the 
-        <code>/timeseries/exchange-asset-metrics</code> API endpoint.
+        asset that trades on a specific exchange.
       </p>
     </header>
     <div class="Panel">
