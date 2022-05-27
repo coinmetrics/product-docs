@@ -37,13 +37,14 @@
       })
       .then(body =>
         canonicalMetrics = renderableMetrics = Object.entries(body.metrics).map(([key, value]) => ({id: key, acl: value})))
-  let getUserAcl = () => 
+  let getUserAcl = () => key ?
     fetch(`/api/pairs/${id}/user-acl?api_key=${key}`)
       .then(res => {
         if (res.status === 401) return DEFAULT_USER_ACL
         else if (res.status !== 200) return {isFailed: true, ...DEFAULT_USER_ACL}
         else return res.json()
       })
+    : Promise.resolve(DEFAULT_USER_ACL)
 
   let $renderRows = (arr) => {
     let html = ''
@@ -160,13 +161,13 @@
 
   CM.auth.onChange = k => {
     key = k
-    userAcl = key ? getUserAcl() : Promise.resolve(DEFAULT_USER_ACL)
+    userAcl = getUserAcl()
     renderKeyColumn()
     let ids = Array.from($tbody.querySelectorAll(':scope > tr > td:nth-child(4)')).map(x => x.id)
     renderUserAclCells(ids)
   }
 
-  userAcl = key ? getUserAcl() : Promise.resolve(DEFAULT_USER_ACL)
+  userAcl = getUserAcl()
 
   getPair().then(onPair).catch(CM.htmlSnippets.renderUnexpectedError)
 }

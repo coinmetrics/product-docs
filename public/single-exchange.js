@@ -61,13 +61,14 @@
         canonicalMetrics = renderableMetrics = Object.entries(body.metrics).map(([key, value]) => ({id: key, acl: value}))
         canonicalMarkets = renderableMarkets = Object.entries(body.markets).map(([key, value]) => ({id: key, acl: value}))
       })
-  let getUserAcl = () => 
+  let getUserAcl = () => key ?
     fetch(`/api/exchanges/${id}/user-acl?api_key=${key}`)
       .then(res => {
         if (res.status === 401) return DEFAULT_USER_ACL
         else if (res.status !== 200) return {isFailed: true, ...DEFAULT_USER_ACL}
         else return res.json()
       })
+    : Promise.resolve(DEFAULT_USER_ACL)
 
   let $renderRows = (arr, h) => {
     let html = ''
@@ -277,7 +278,7 @@
 
   CM.auth.onChange = k => {
     key = k
-    userAcl = key ? getUserAcl() : Promise.resolve(DEFAULT_USER_ACL)
+    userAcl = getUserAcl()
     renderKeyColumns()
     let ids = [
       ...Array.from($metrics.querySelectorAll(':scope > tr > td:nth-child(4)')).map(x => x.id),
@@ -286,7 +287,7 @@
     renderUserAclCells(ids)
   }
 
-  userAcl = key ? getUserAcl() : Promise.resolve(DEFAULT_USER_ACL)
+  userAcl = getUserAcl()
 
   getExchange().then(onExchange).catch(CM.htmlSnippets.renderUnexpectedError)
 }
