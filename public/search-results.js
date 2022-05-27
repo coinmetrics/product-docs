@@ -153,6 +153,7 @@
 
     $count.textContent = CM.string.formatNumber(start+1) + '-' + CM.string.formatNumber(end)
     $total.textContent = CM.string.formatNumber(renderableResults.length)
+    $count.parentNode.hidden = renderableResults.length === 0
     
     $paginator.hidden = renderableResults.length < CM.constants.PAGE_SIZE
     $paginator.total = Math.ceil(renderableResults.length / CM.constants.PAGE_SIZE)
