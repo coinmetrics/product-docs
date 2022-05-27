@@ -471,7 +471,7 @@ let renderAssetsHtmlDoc = () => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/assets.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <h2>Assets</h2>
       <div class="Line-v-light"></div>
       <p>
@@ -512,7 +512,7 @@ let renderSingleAssetHtmlDoc = asset => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/single-asset.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <cm-coin class="Coin-xl" name="${asset.id}"></cm-coin>
       <div>
         <h2>${asset.id}</h2>
@@ -612,7 +612,7 @@ let renderPairsHtmlDoc = () => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/pairs.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <h2>Pairs</h2>
       <div class="Line-v-light"></div>
       <p>
@@ -654,7 +654,7 @@ let renderSinglePairHtmlDoc = pair => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/single-pair.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <h2>${pair.id}</h2>
       <div class="Line-v-light"></div>
       <p>
@@ -693,7 +693,7 @@ let renderExchangesHtmlDoc = () => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/exchanges.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <h2>Exchanges</h2>
       <div class="Line-v-light"></div>
       <p>
@@ -736,7 +736,7 @@ let renderSingleExchangeHtmlDoc = exchange => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/single-exchange.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <h2>${exchange.id}</h2>
       <div class="Line-v-light"></div>
       <p>
@@ -808,7 +808,7 @@ let renderAssetMetricsHtmlDoc = () => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/asset-metrics.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <div>
         <h2>Asset metrics</h2>
         <p>
@@ -852,7 +852,7 @@ let renderSingleAssetMetricHtmlDoc = assetMetric => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/single-asset-metric.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <div>
         <h2>${assetMetric.id}</h2>
         <p>${assetMetric.name}</p>
@@ -888,7 +888,7 @@ let renderPairMetricsHtmlDoc = () => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/pair-metrics.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <div>
         <h2>Pair metrics</h2>
         <p>
@@ -934,7 +934,7 @@ let renderSinglePairMetricHtmlDoc = pairMetric => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/single-pair-metric.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <div>
         <h2>${pairMetric.id}</h2>
         <p>${pairMetric.name}</p>
@@ -970,7 +970,7 @@ let renderExchangeMetricsHtmlDoc = () => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/exchange-metrics.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <div>
         <h2>Exchange metrics</h2>
         <p>
@@ -1016,7 +1016,7 @@ let renderSingleExchangeMetricHtmlDoc = exchangeMetric => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/single-exchange-metric.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <div>
         <h2>${exchangeMetric.id}</h2>
         <p>${exchangeMetric.name}</p>
