@@ -233,7 +233,7 @@
     $metricsDownloadIcon.classList.add('Icon-spin')
 
     userAcl.then(userAcl => {
-      $metricsDownloadLink.href = CM.algorithms.buildMetricsAclCsv(renderableMetrics, userAcl)
+      $metricsDownloadLink.href = CM.CSV.buildMetricsAclCsv(renderableMetrics, userAcl)
       $metricsDownloadLink.download = `cm-exchange-${id}-metrics.csv`
       $metricsDownloadLink.click()
 
@@ -246,7 +246,7 @@
     $marketsDownloadIcon.classList.add('Icon-spin')
     
     userAcl.then(userAcl => {
-      $marketsDownloadLink.href = CM.algorithms.buildMarketsAclCsv(renderableMarkets, userAcl)
+      $marketsDownloadLink.href = CM.CSV.buildMarketsAclCsv(renderableMarkets, userAcl)
       $marketsDownloadLink.download = `cm-asset-${id}-markets.csv`
       $marketsDownloadLink.click()
 

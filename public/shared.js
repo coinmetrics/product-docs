@@ -99,7 +99,7 @@
     renderUnexpectedError
   }
 }
-{ // algorithms
+{ // CSV
   'use strict'
 
   let CM = window.__CM = window.__CM || {}
@@ -146,8 +146,11 @@
   let buildMetricsCsv = metrics => {
     let rows = [ ['ID', 'NAME', 'CATEGORY', 'SUBCATEGORY', 'FREQUENCIES'] ]
 
-    for (let x of metrics) 
-      rows.push([x.id, x.name, x.category, x.subcategory, `"${x.frequencies?.join(',') ?? ''}"`])
+    for (let x of metrics) {
+      let frequencies = x.frequencies?.join(',') ?? ''
+      if (frequencies.length > 1) frequencies = `"${frequencies}"`
+      rows.push([x.id, x.name, x.category, x.subcategory, frequencies])
+    }
 
     return encodeCsv(rows)
   }
@@ -166,7 +169,7 @@
     return encodeCsv(rows)
   }
 
-  CM.algorithms = {
+  CM.CSV = {
     encodeCsv,
     buildMetricsAclCsv,
     buildMarketsAclCsv,

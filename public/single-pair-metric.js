@@ -119,7 +119,7 @@
     $downloadIcon.classList.add('Icon-spin')
 
     userAcl.then(userAcl => {
-      $downloadLink.href = CM.algorithms.buildGenericAclCsv(renderablePairs, userAcl, 'pairs')
+      $downloadLink.href = CM.CSV.buildGenericAclCsv(renderablePairs, userAcl, 'pairs')
       $downloadLink.download = `cm-pair-metric-${id}-pairs.csv`
       $downloadLink.click()
 

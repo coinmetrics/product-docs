@@ -85,7 +85,7 @@
     renderNext20()
   }
   let onDownload = () => {
-    $downloadLink.href = CM.algorithms.encodeCsv([
+    $downloadLink.href = CM.CSV.encodeCsv([
       ['ID', 'MIN_TIME', 'MAX_TIME', 'TOTAL_SPOT', 'TOTAL_FUTURE'],
       ...renderableExchanges.map(x => ([x.id, x.minTime, x.maxTime, x.totalSpot, x.totalFuture])),
     ])

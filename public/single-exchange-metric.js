@@ -119,7 +119,7 @@
     $downloadIcon.classList.add('Icon-spin')
 
     userAcl.then(userAcl => {
-      $downloadLink.href = CM.algorithms.buildGenericAclCsv(renderableExchanges, userAcl, 'exchanges')
+      $downloadLink.href = CM.CSV.buildGenericAclCsv(renderableExchanges, userAcl, 'exchanges')
       $downloadLink.download = `cm-exchange-metric-${id}-exchanges.csv`
       $downloadLink.click()
 

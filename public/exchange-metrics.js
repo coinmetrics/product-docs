@@ -100,7 +100,7 @@
     renderNext20()
   }
   let onDownload = () => {
-    $downloadLink.href = CM.algorithms.buildMetricsCsv(renderableMetrics)
+    $downloadLink.href = CM.CSV.buildMetricsCsv(renderableMetrics)
     $downloadLink.download = `cm-exchange-metrics.csv`
     $downloadLink.click()
   }
