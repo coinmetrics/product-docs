@@ -1452,8 +1452,12 @@ let handleApiRequest = (log, req, res) => {
   let apiKey = searchParams.get('api_key')
 
   let respondJson = (body, status = 200) => {
-    res.writeHead(status, COMMON_RESPONSE_HEADERS)
-    res.end(JSON.stringify(body))
+    let json = JSON.stringify(body)
+    res.writeHead(status, {
+      ...COMMON_RESPONSE_HEADERS,
+      'Content-Length': Buffer.byteLength(json)
+    })
+    res.end(json)
   }
   let respond401 = () => {
     log('Requested API unauthorized')
@@ -1468,11 +1472,17 @@ let handleApiRequest = (log, req, res) => {
     respondJson({}, 500)
   }
 
+  let handleUserAcl = req => 
+    req(id, apiKey)
+      .then(respondJson)
+      .catch(err => {
+        if (err.statusCode === 401) respond401()
+        else respond500()
+      })
+
   let handleAssetsRequest = () => {
     if (path[4] === 'user-acl') 
-      getAssetUserAcl(id, apiKey)
-        .then(respondJson)
-        .catch(respond401)
+      handleUserAcl(getAssetUserAcl)
     else 
       assetsCache.then(({assets, pruned, error}) => {
         if (error) respond500(error)
@@ -1484,9 +1494,7 @@ let handleApiRequest = (log, req, res) => {
   
   let handlePairsRequest = () => {
     if (path[4] === 'user-acl') 
-      getPairUserAcl(id, apiKey)
-        .then(respondJson)
-        .catch(respond401)
+      handleUserAcl(getPairUserAcl)
     else 
       pairsCache.then(({pairs, pruned, error}) => {
         if (error) respond500(error)
@@ -1498,9 +1506,7 @@ let handleApiRequest = (log, req, res) => {
 
   let handleExchangesRequest = () => {
     if (path[4] === 'user-acl') 
-      getExchangeUserAcl(id, apiKey)
-        .then(respondJson)
-        .catch(respond401)
+      handleUserAcl(getExchangeUserAcl)
     else 
       exchangesCache.then(({exchanges, pruned, error}) => {
         if (error) respond500(error)
@@ -1512,9 +1518,7 @@ let handleApiRequest = (log, req, res) => {
 
   let handleAssetMetricsRequest = () => {
     if (path[4] === 'user-acl') 
-      getAssetMetricUserAcl(id, apiKey)
-        .then(respondJson)
-        .catch(respond401)
+      handleUserAcl(getAssetMetricUserAcl)
     else 
       assetMetricsCache.then(({assetMetrics, pruned, error}) => {
         if (error) respond500(error)
@@ -1526,9 +1530,7 @@ let handleApiRequest = (log, req, res) => {
 
   let handlePairMetricsRequest = () => {
     if (path[4] === 'user-acl') 
-      getPairMetricUserAcl(id, apiKey)
-        .then(respondJson)
-        .catch(respond401)
+      handleUserAcl(getPairMetricUserAcl)
     else 
       pairMetricsCache.then(({pairMetrics, pruned, error}) => {
         if (error) respond500(error)
@@ -1540,9 +1542,7 @@ let handleApiRequest = (log, req, res) => {
 
   let handleExchangeMetricsRequest = () => {
     if (path[4] === 'user-acl') 
-      getExchangeMetricUserAcl(id, apiKey)
-        .then(respondJson)
-        .catch(respond401)
+      handleUserAcl(getExchangeMetricUserAcl)
     else 
       exchangeMetricsCache.then(({exchangeMetrics, pruned, error}) => {
         if (error) respond500(error)
@@ -1597,7 +1597,10 @@ let handlePublicRequest = (log, req, res) => {
     res.writeHead(404)
     res.end()
   } else {
-    res.writeHead(200, { 'Content-Type': CONTENT_TYPE[ext] ?? CONTENT_TYPE.html })
+    res.writeHead(200, { 
+      'Content-Type': CONTENT_TYPE[ext] ?? CONTENT_TYPE.html,
+      'Content-Length': Buffer.byteLength(data)
+    })
     res.end(data)
   }
 }
@@ -1606,7 +1609,10 @@ let handlePageRequest = (log, req, res) => {
   let id = path[2]
 
   let respondHtml = (html, status = 200) => {
-    res.writeHead(status, { 'Content-Type': CONTENT_TYPE.html })
+    res.writeHead(status, { 
+      'Content-Type': CONTENT_TYPE.html,
+      'Content-Length': Buffer.byteLength(html)
+    })
     res.end(html)
   }
   let respond404 = () => {
