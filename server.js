@@ -460,6 +460,7 @@ let renderSearchResultsHtmlDoc = () => renderMasterHtmlDoc({
           Showing <span class="Text-bold" id="count">
           of <span class="Text-bold" id="total">
         </p>
+        ${renderDownloadButton()}
       </div>
       <div id="results" class="Results"></div>
       <cm-paginator id="paginator" hidden current="1"></cm-paginator>
