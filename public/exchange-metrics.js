@@ -50,7 +50,7 @@
             <p class="Text-regular">${metric.subcategory}</p>
           </td>
           <td>
-            <p class="Text-regular">${metric.frequencies.join(',')}</p>
+            <p class="Text-regular">${metric.frequencies.join(', ')}</p>
           </td>
         </tr>`)
     let $t = document.createElement('template')

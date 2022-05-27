@@ -36,7 +36,10 @@
         canonicalMetrics = renderableMetrics = Object.entries(body.metrics).map(([key, value]) => ({id: key, acl: value})))
   let getUserAcl = () => 
     fetch(`/api/pairs/${id}/user-acl?api_key=${key}`)
-      .then(res => res.json())
+      .then(res => {
+        if (res.status !== 200 && res.status !== 401) return {isFailed: true}
+        else return res.json()
+      })
 
   let $renderRows = (arr) => {
     let html = ''
@@ -48,12 +51,12 @@
           </td>
           <td>
             ${metric.acl.c?.length ? 
-              `<p class="Text-regular">${metric.acl.c.join(',')}</p>` 
+              `<p class="Text-regular">${metric.acl.c.join(', ')}</p>` 
               : '<cm-color-icon name="x">Unavailable</cm-color-icon>'}
           </td>
           <td>
             ${metric.acl.p?.length ? 
-              `<p class="Text-regular">${metric.acl.p.join(',')}</p>` 
+              `<p class="Text-regular">${metric.acl.p.join(', ')}</p>` 
               : '<cm-color-icon name="x">Unavailable</cm-color-icon>'}
           </td>
           <td id="${metric.id}"></td>
@@ -70,8 +73,10 @@
       userAcl.then(userAcl => {
         if (!key) 
           $el.innerHTML = /*html*/`<cm-icon name="slash">Visualization key is missing</cm-icon>`
+        else if (userAcl.isFailed) 
+          $el.innerHTML = /*html*/`<cm-icon name="alert-triangle">Unexpected error</cm-icon>`
         else if (userAcl.metrics && id in userAcl.metrics) 
-          $el.innerHTML = /*html*/`<p class="Text-regular">${userAcl.metrics[id].join(',')}</p>`
+          $el.innerHTML = /*html*/`<p class="Text-regular">${userAcl.metrics[id].join(', ')}</p>`
         else 
           $el.innerHTML = /*html*/`<cm-color-icon name="x">Unavailable</cm-color-icon>`
       })

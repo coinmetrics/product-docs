@@ -30,7 +30,10 @@
       })
   let getUserAcl = () => 
     fetch(`/api/asset-metrics/${id}/user-acl?api_key=${key}`)
-      .then(res => res.json())
+      .then(res => {
+        if (res.status !== 200 && res.status !== 401) return {isFailed: true}
+        else return res.json()
+      })
 
   let $renderRows = (arr) => {
     let html = ''
@@ -67,6 +70,8 @@
       userAcl.then(userAcl => {
         if (!key) 
           $el.innerHTML = /*html*/`<cm-icon name="slash">Visualization key is missing</cm-icon>`
+        else if (userAcl.isFailed) 
+          $el.innerHTML = /*html*/`<cm-icon name="alert-triangle">Unexpected error</cm-icon>`
         else if (userAcl.assets && id in userAcl.assets) 
           $el.innerHTML = /*html*/`<cm-color-icon name="check">Available</cm-color-icon>`
         else 
