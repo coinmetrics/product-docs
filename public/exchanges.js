@@ -9,6 +9,8 @@
   
   let $tbody = document.querySelector('tbody'),
     $filter = document.getElementById('text-filter'),
+    $download = document.getElementById('download'),
+    $downloadLink = document.getElementById('download-link'),
     $loadMore = document.getElementById('load-more'),
     $loadCount = document.getElementById('load-count'),
     $loadTotal = document.getElementById('load-total'),
@@ -78,15 +80,25 @@
     else 
       renderableExchanges = canonicalExchanges
 
+    $download.disabled = renderableExchanges.length === 0
     $tbody.innerHTML = ''
     renderedExchanges = 0
     renderNext20()
+  }
+  let onDownload = () => {
+    $downloadLink.href = CM.CSV.encodeCsv([
+      ['ID', 'MIN_TIME', 'MAX_TIME', 'TOTAL_SPOT', 'TOTAL_FUTURE'],
+      ...renderableExchanges.map(x => ([x.id, x.minTime, x.maxTime, x.totalSpot, x.totalFuture])),
+    ])
+    $downloadLink.download = `cm-exchanges.csv`
+    $downloadLink.click()
   }
   let onExchanges = () => {
     if ($filter.value) onFilter($filter.value)
     else renderNext20()
 
     $filter.oninput = e => onFilter(e.target.value)
+    $download.onclick = onDownload
     $loadMore.onclick = renderNext20
     $loadAll.onclick = renderRemaining
   }

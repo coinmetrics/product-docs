@@ -178,6 +178,12 @@ let renderTextFilter = idPrefix => /*html*/`
     <input id="${idPrefix ? idPrefix+'-' : ''}text-filter" class="Input" placeholder="Filter">
     <cm-icon name="filter">Filter</cm-icon>
   </label>`
+let renderDownloadButton = idPrefix => /*html*/`
+  <button id="${idPrefix ? idPrefix+'-' : ''}download" class="Button">
+    <span>Download</span>
+    <cm-icon class="Icon-s" name="download"></cm-icon>
+  </button>
+  <a id="${idPrefix ? idPrefix+'-' : ''}download-link" hidden></a>`
 let renderLoadMore = idPrefix => /*html*/`
   <article hidden class="Load-buttons">
     <button id="${idPrefix ? idPrefix+'-' : ''}load-more" class="Button">
@@ -454,6 +460,7 @@ let renderSearchResultsHtmlDoc = () => renderMasterHtmlDoc({
           Showing <span class="Text-bold" id="count">
           of <span class="Text-bold" id="total">
         </p>
+        ${renderDownloadButton()}
       </div>
       <div id="results" class="Results"></div>
       <cm-paginator id="paginator" hidden current="1"></cm-paginator>
@@ -464,13 +471,27 @@ let renderAssetsHtmlDoc = () => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/assets.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <h2>Assets</h2>
       <div class="Line-v-light"></div>
-      <p>Additional info...</p>
+      <p>
+        The available assets and the available metrics, markets and exchanges 
+        for each asset can be found by querying our 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogAssets">
+          <code>/catalog/assets</code>
+        </a> or 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogAllAssets">
+          <code>/catalog-all/assets</code>
+        </a> 
+        API endpoints. 
+      </p>
     </header>
     <div class="Panel">
-      ${renderTextFilter()}
+      <div class="Filters-row">
+        ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
+      </div>
       <cm-table>
         <table left-align>
           <thead>
@@ -491,14 +512,19 @@ let renderSingleAssetHtmlDoc = asset => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/single-asset.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <cm-coin class="Coin-xl" name="${asset.id}"></cm-coin>
       <div>
         <h2>${asset.id}</h2>
         <p>${asset.fullName}</p>
       </div>
       <div class="Line-v-light"></div>
-      <p>Info...</p>
+      <p>
+        Full asset is queryable via our API at 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogAssets">
+          <code>/catalog/assets?assets=${asset.id}</code>
+        </a>
+      </p>
     </header>
     <div class="Panel">
       <cm-tabs>
@@ -515,6 +541,8 @@ let renderSingleAssetHtmlDoc = asset => renderMasterHtmlDoc({
         <div class="Filters-row">
           ${renderFrequencyDropdown()}
           ${renderTextFilter('metrics')}
+          <div class="Filters-row-spacer"></div>
+          ${renderDownloadButton('metrics')}
         </div>
         <cm-table>
           <table class="Access">
@@ -536,6 +564,8 @@ let renderSingleAssetHtmlDoc = asset => renderMasterHtmlDoc({
         <div class="Filters-row">
           ${renderMarketTypeDropdown()}
           ${renderTextFilter('markets')}
+          <div class="Filters-row-spacer"></div>
+          ${renderDownloadButton('markets')}
         </div>
         <cm-table>
           <table class="Access">
@@ -554,7 +584,11 @@ let renderSingleAssetHtmlDoc = asset => renderMasterHtmlDoc({
         ${renderEmptyResults('markets')}
       </article>
       <article id="exchanges" class="Tabbed-table">
-        ${renderTextFilter('exchanges')}
+        <div class="Filters-row">
+          ${renderTextFilter('exchanges')}
+          <div class="Filters-row-spacer"></div>
+          ${renderDownloadButton('exchanges')}
+        </div>
         <cm-table>
           <table class="Access">
             <thead>
@@ -578,15 +612,27 @@ let renderPairsHtmlDoc = () => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/pairs.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <h2>Pairs</h2>
       <div class="Line-v-light"></div>
       <p>
-        The pair coverage can be found by querying our <code>/catalog/pairs</code> or <code>/catalog-all/pairs</code> API endpoints. The pair coverage is defined as the combination (cartesian product) of all the top assets (approximately the top 300 assets by market capitalization).
+        The pair coverage can be found by querying our 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogAssetPairs">
+          <code>/catalog/pairs</code>
+        </a> or 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogAllAssetPairs">
+          <code>/catalog-all/pairs</code>
+        </a> 
+        API endpoints. The pair coverage is defined as the combination (cartesian product) of all 
+        the top assets (approximately the top 300 assets by market capitalization).
       </p>
     </header>
     <div class="Panel">
-      ${renderTextFilter()}
+      <div class="Filters-row">
+        ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
+      </div>
       <cm-table>
         <table left-align>
           <thead>
@@ -608,15 +654,22 @@ let renderSinglePairHtmlDoc = pair => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/single-pair.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <h2>${pair.id}</h2>
       <div class="Line-v-light"></div>
-      <p>Info...</p>
+      <p>
+        Full pair is queryable via our API at 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogAssetPairs">
+          <code>/catalog/pairs?pairs=${pair.id}</code>
+        </a>
+      </p>
     </header>
     <div class="Panel">
       <div class="Filters-row">
         ${renderFrequencyDropdown()}
         ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
       </div>
       <cm-table>
         <table class="Access">
@@ -640,17 +693,26 @@ let renderExchangesHtmlDoc = () => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/exchanges.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <h2>Exchanges</h2>
       <div class="Line-v-light"></div>
       <p>
         The available exchanges and the metrics available for each exchange 
-        can be found by querying our <code>/catalog/exchanges</code> or 
-        <code>/catalog-all/exchanges</code> API endpoints. 
+        can be found by querying our 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogExchanges">
+          <code>/catalog/exchanges</code>
+        </a> or 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogAllExchanges">
+          <code>/catalog-all/exchanges</code> 
+        </a> API endpoints. 
       </p>
     </header>
     <div class="Panel">
-      ${renderTextFilter()}
+      <div class="Filters-row">
+        ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
+      </div>
       <cm-table>
         <table left-align>
           <thead>
@@ -674,11 +736,14 @@ let renderSingleExchangeHtmlDoc = exchange => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/single-exchange.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <h2>${exchange.id}</h2>
       <div class="Line-v-light"></div>
       <p>
-        Exchange info...
+        Full exchange is queryable via our API at 
+        <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getCatalogExchanges">
+          <code>/catalog/exchanges?exchanges=${exchange.id}</code>
+        </a>
       </p>
     </header>
     <div class="Panel">
@@ -694,6 +759,8 @@ let renderSingleExchangeHtmlDoc = exchange => renderMasterHtmlDoc({
         <div class="Filters-row">
           ${renderFrequencyDropdown()}
           ${renderTextFilter('metrics')}
+          <div class="Filters-row-spacer"></div>
+          ${renderDownloadButton('metrics')}
         </div>
         <cm-table>
           <table class="Access">
@@ -715,6 +782,8 @@ let renderSingleExchangeHtmlDoc = exchange => renderMasterHtmlDoc({
         <div class="Filters-row">
           ${renderMarketTypeDropdown()}
           ${renderTextFilter('markets')}
+          <div class="Filters-row-spacer"></div>
+          ${renderDownloadButton('markets')}
         </div>
         <cm-table>
           <table class="Access">
@@ -739,10 +808,14 @@ let renderAssetMetricsHtmlDoc = () => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/asset-metrics.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <div>
         <h2>Asset metrics</h2>
-        <p><code>/timeseries/asset-metrics</code></p>
+        <p>
+          <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getTimeseriesAssetMetrics">
+            <code>/timeseries/asset-metrics</code>
+          </a>
+        </p>
       </div>
       <div class="Line-v-light"></div>
       <p>
@@ -753,6 +826,8 @@ let renderAssetMetricsHtmlDoc = () => renderMasterHtmlDoc({
       <div class="Filters-row">
         ${renderFrequencyDropdown()}
         ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
       </div>
       <cm-table>
         <table>
@@ -777,7 +852,7 @@ let renderSingleAssetMetricHtmlDoc = assetMetric => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/single-asset-metric.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <div>
         <h2>${assetMetric.id}</h2>
         <p>${assetMetric.name}</p>
@@ -786,7 +861,11 @@ let renderSingleAssetMetricHtmlDoc = assetMetric => renderMasterHtmlDoc({
       <p>${assetMetric.description}</p>
     </header>
     <div class="Panel">
-      ${renderTextFilter()}
+      <div class="Filters-row">
+        ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
+      </div>
       <cm-table>
         <table class="Access">
           <thead>
@@ -809,24 +888,28 @@ let renderPairMetricsHtmlDoc = () => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/pair-metrics.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <div>
         <h2>Pair metrics</h2>
-        <p><code>/timeseries/pair-metrics</code></p>
+        <p>
+          <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getTimeseriesPairMetrics">
+            <code>/timeseries/pair-metrics</code>
+          </a>
+        </p>
       </div>
       <div class="Line-v-light"></div>
       <p>
         Coin Metrics calculates several metrics for asset pairs such as <code>btc-usd</code> and <code>eth-usd</code>. 
         For example, the metric <code>volume_reported_spot_usd_1d</code> represents the daily spot volume 
-        in U.S. dollars for all markets in our coverage universe that contain the specific pair. 
-        Metrics available at the exchange-asset level is available through the 
-        <code>/timeseries/pair-metrics</code> API endpoint.
+        in U.S. dollars for all markets in our coverage universe that contain the specific pair.
       </p>
     </header>
     <div class="Panel">
       <div class="Filters-row">
         ${renderFrequencyDropdown()}
         ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
       </div>
       <cm-table>
         <table>
@@ -851,7 +934,7 @@ let renderSinglePairMetricHtmlDoc = pairMetric => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/single-pair-metric.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <div>
         <h2>${pairMetric.id}</h2>
         <p>${pairMetric.name}</p>
@@ -860,7 +943,11 @@ let renderSinglePairMetricHtmlDoc = pairMetric => renderMasterHtmlDoc({
       <p>${pairMetric.description}</p>
     </header>
     <div class="Panel">
-      ${renderTextFilter()}
+      <div class="Filters-row">
+        ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
+      </div>
       <cm-table>
         <table class="Access">
           <thead>
@@ -883,20 +970,28 @@ let renderExchangeMetricsHtmlDoc = () => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/exchange-metrics.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
-      <h2>Exchange metrics</h2>
+    <header class="Text-content Main-header">
+      <div>
+        <h2>Exchange metrics</h2>
+        <p>
+          <a class="Link" target="_blank" rel="noreferrer noopener" href="https://docs.coinmetrics.io/api/v4#operation/getTimeseriesExchangeMetrics">
+            <code>/timeseries/exchange-metrics</code>
+          </a>
+        </p>
+      </div>
       <div class="Line-v-light"></div>
       <p>
         Coin Metrics calculates several metrics for exchange-asset pairs such as <code>coinbase-btc</code>, <code>binance-eth</code>, and <code>deribit-usdt</code>. 
         For example, the metric <code>volume_reported_spot_usd_1d</code> represents the daily spot volume in U.S. dollars for a specific 
-        asset that trades on a specific exchange. Metrics available at the exchange-asset level is available through the 
-        <code>/timeseries/exchange-asset-metrics</code> API endpoint.
+        asset that trades on a specific exchange.
       </p>
     </header>
     <div class="Panel">
       <div class="Filters-row">
         ${renderFrequencyDropdown()}
         ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
       </div>
       <cm-table>
         <table>
@@ -921,7 +1016,7 @@ let renderSingleExchangeMetricHtmlDoc = exchangeMetric => renderMasterHtmlDoc({
   links: /*html*/`<link rel="stylesheet" media="screen" href="/public/table.css">`,
   scripts: /*html*/`<script defer src="/public/single-exchange-metric.js"></script>`,
   main: /*html*/`
-    <header class="Text-content">
+    <header class="Text-content Main-header">
       <div>
         <h2>${exchangeMetric.id}</h2>
         <p>${exchangeMetric.name}</p>
@@ -930,7 +1025,11 @@ let renderSingleExchangeMetricHtmlDoc = exchangeMetric => renderMasterHtmlDoc({
       <p>${exchangeMetric.description}</p>
     </header>
     <div class="Panel">
-      ${renderTextFilter()}
+      <div class="Filters-row">
+        ${renderTextFilter()}
+        <div class="Filters-row-spacer"></div>
+        ${renderDownloadButton()}
+      </div>
       <cm-table>
         <table class="Access">
           <thead>
@@ -955,9 +1054,9 @@ class RequestError extends Error {
   constructor(msg, res, json) {
     super(msg)
     this.statusCode = res.statusCode
-    this.method = res.req.method
-    this.host = res.req.host
-    this.path = res.req.path
+    this.method = res.req?.method
+    this.host = res.req?.host
+    this.path = res.req?.path
     this.json = json ?? ''
   }
 

@@ -65,3 +65,14 @@ section.Error > div > .Line-h-dark {
 .Load-buttons > div {
   flex-grow: 1;
 }
+
+@media screen and (max-width: 960px) {
+  .Main-header {
+    flex-wrap: wrap;
+  }
+
+  .Main-header > .Line-v-light {
+    display: none;
+    visibility: hidden;
+  }
+}

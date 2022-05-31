@@ -99,3 +99,92 @@
     renderUnexpectedError
   }
 }
+{ // CSV
+  'use strict'
+
+  let CM = window.__CM = window.__CM || {}
+
+  let encodeCsv = rows => encodeURI('data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n'))
+
+  let buildMetricsAclCsv = (metrics, userAcl) => {
+    let rows = [ ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'] ]
+    
+    for (let {id, acl} of metrics) {
+      let community = `"${acl.c?.join(',') ?? ''}"`,
+        pro = `"${acl.p?.join(',') ?? ''}"`,
+        yourKey = `"${userAcl.metrics[id]?.join(',') ?? ''}"`
+
+      rows.push([id, community, pro, yourKey])
+    }
+
+    return encodeCsv(rows)
+  }
+
+  let buildMarketsAclCsv = (markets, userAcl) => {
+    let rows = [ ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'] ]
+    
+    for (let {id, acl} of markets) {
+      let community = acl.includes('c')
+        pro = acl.includes('p'),
+        yourKey = userAcl.markets[id]?.includes('u') ?? ''
+
+      rows.push([id, community, pro, yourKey])
+    }
+
+    return encodeCsv(rows)
+  }
+
+  let buildMetricsCsv = metrics => {
+    let rows = [ ['ID', 'NAME', 'CATEGORY', 'SUBCATEGORY', 'FREQUENCIES'] ]
+
+    for (let x of metrics) {
+      let frequencies = `"${x.frequencies?.join(',') ?? ''}"`
+      rows.push([x.id, x.name, x.category, x.subcategory, frequencies])
+    }
+
+    return encodeCsv(rows)
+  }
+
+  let buildGenericAclCsv = (data, userAcl, index) => {
+    let rows = [ ['ID', 'COMMUNITY', 'PROFESSIONAL', 'YOUR_KEY'] ]
+
+    for (let {id, acl} of data) {
+      let community = acl.includes('c'),
+        pro = acl.includes('p'),
+        yourKey = userAcl[index][id]?.includes('u') ?? ''
+      
+        rows.push([id, community, pro, yourKey])
+    }
+
+    return encodeCsv(rows)
+  }
+
+  CM.CSV = {
+    encodeCsv,
+    buildMetricsAclCsv,
+    buildMarketsAclCsv,
+    buildMetricsCsv,
+    buildGenericAclCsv
+  }
+}
+{
+  // misc helpers
+  'use strict'
+
+  let CM = window.__CM ??= {}
+
+  let whileSpinning = ($el, cb) => {
+    let defaultName = $el.name
+    let done = () => {
+      $el.name = defaultName
+      $el.classList.remove('Icon-spin')
+    }
+    $el.name = 'refresh-cw'
+    $el.classList.add('Icon-spin')
+    cb(done)
+  }
+  
+  CM.helpers = {
+    whileSpinning
+  }
+}

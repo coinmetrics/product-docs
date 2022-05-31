@@ -12,12 +12,17 @@
 
   let $tbody = document.querySelector('tbody'),
     $filter = document.getElementById('text-filter'),
+    $download = document.getElementById('download'),
+    $downloadIcon = $download.querySelector('cm-icon'),
+    $downloadLink = document.getElementById('download-link'),
     $keyCol = document.getElementById('key-col'),
     $loadMore = document.getElementById('load-more'),
     $loadCount = document.getElementById('load-count'),
     $loadTotal = document.getElementById('load-total'),
     $loadAll = document.getElementById('load-all'),
     $empty = document.getElementById('empty')
+
+  const DEFAULT_USER_ACL = {pairs: {}}
 
   let getPairMetric = () => 
     fetch(`/api/pair-metrics/${id}`)
@@ -27,12 +32,14 @@
       })
       .then(body => 
         canonicalPairs = renderablePairs = Object.entries(body.pairs).map(([key, value]) => ({id: key, acl: value})))
-  let getUserAcl = () => 
+  let getUserAcl = () => key ?
     fetch(`/api/pair-metrics/${id}/user-acl?api_key=${key}`)
       .then(res => {
-        if (res.status !== 200 && res.status !== 401) return {isFailed: true}
+        if (res.status === 401) return DEFAULT_USER_ACL
+        else if (res.status !== 200) return {isFailed: true, ...DEFAULT_USER_ACL}
         else return res.json()
       })
+    : Promise.resolve(DEFAULT_USER_ACL)
 
   let $renderRows = arr => {
     let html = ''
@@ -104,10 +111,20 @@
     else 
       renderablePairs = canonicalPairs
 
+    $download.disabled = renderablePairs.length === 0
     $tbody.innerHTML = ''
     renderedPairs = 0
     renderNext20Pairs()
   }
+  let onDownload = () => 
+    CM.helpers.whileSpinning($downloadIcon, done => 
+      userAcl.then(userAcl => {
+        $downloadLink.href = CM.CSV.buildGenericAclCsv(renderablePairs, userAcl, 'pairs')
+        $downloadLink.download = `cm-pair-metric-${id}-pairs.csv`
+        $downloadLink.click()
+        done()
+      })
+    )
   let onPairMetric = () => {
     renderKeyColumn()
 
@@ -115,6 +132,7 @@
     else renderNext20Pairs()
     
     $filter.oninput = e => onFilterPairs(e.target.value)
+    $download.onclick = onDownload
     $loadMore.onclick = renderNext20Pairs
     $loadAll.onclick = renderRemainingPairs
   }
@@ -127,7 +145,7 @@
     renderUserAclCells(ids)
   }
 
-  userAcl = key ? getUserAcl() : Promise.resolve()
+  userAcl = getUserAcl()
 
   getPairMetric().then(onPairMetric).catch(CM.htmlSnippets.renderUnexpectedError)
 }
