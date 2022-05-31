@@ -12,12 +12,17 @@
 
   let $tbody = document.querySelector('tbody'),
     $filter = document.getElementById('text-filter'),
+    $download = document.getElementById('download'),
+    $downloadIcon = $download.querySelector('cm-icon'),
+    $downloadLink = document.getElementById('download-link'),
     $keyCol = document.getElementById('key-col'),
     $loadMore = document.getElementById('load-more'),
     $loadCount = document.getElementById('load-count'),
     $loadTotal = document.getElementById('load-total'),
     $loadAll = document.getElementById('load-all'),
     $empty = document.getElementById('empty')
+
+  const DEFAULT_USER_ACL = {exchanges: {}}
 
   let getExchangeMetric = () => 
     fetch(`/api/exchange-metrics/${id}`)
@@ -27,12 +32,14 @@
       })
       .then(body =>
         canonicalExchanges = renderableExchanges = Object.entries(body.exchanges).map(([key, value]) => ({id: key, acl: value})))
-  let getUserAcl = () => 
+  let getUserAcl = () => key ?
     fetch(`/api/exchange-metrics/${id}/user-acl?api_key=${key}`)
       .then(res => {
-        if (res.status !== 200 && res.status !== 401) return {isFailed: true}
+        if (res.status === 401) return DEFAULT_USER_ACL
+        else if (res.status !== 200) return {isFailed: true, ...DEFAULT_USER_ACL}
         else return res.json()
       })
+    : Promise.resolve(DEFAULT_USER_ACL)
 
   let $renderRows = arr => {
     let html = ''
@@ -104,10 +111,20 @@
     else 
       renderableExchanges = canonicalExchanges
 
+    $download.disabled = renderableExchanges.length === 0
     $tbody.innerHTML = ''
     renderedExchanges = 0
     renderNext20Exchanges()
   }
+  let onDownload = () => 
+    CM.helpers.whileSpinning($downloadIcon, done => 
+      userAcl.then(userAcl => {
+        $downloadLink.href = CM.CSV.buildGenericAclCsv(renderableExchanges, userAcl, 'exchanges')
+        $downloadLink.download = `cm-exchange-metric-${id}-exchanges.csv`
+        $downloadLink.click()
+        done()
+      })
+    )
   let onExchangeMetric = () => {
     renderKeyColumn()
 
@@ -115,6 +132,7 @@
     else renderNext20Exchanges()
     
     $filter.oninput = e => onFilterExchanges(e.target.value)
+    $download.onclick = onDownload
     $loadMore.onclick = renderNext20Exchanges
     $loadAll.onclick = renderRemainingExchanges
   }
@@ -127,7 +145,7 @@
     renderUserAclCells(ids)
   }
 
-  userAcl = key ? getUserAcl() : Promise.resolve()
+  userAcl = getUserAcl()
 
   getExchangeMetric().then(onExchangeMetric).catch(CM.htmlSnippets.renderUnexpectedError)
 }

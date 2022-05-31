@@ -12,12 +12,17 @@
 
   let $tbody = document.querySelector('tbody'),
     $filter = document.getElementById('text-filter'),
+    $download = document.getElementById('download'),
+    $downloadIcon = $download.querySelector('cm-icon'),
+    $downloadLink = document.getElementById('download-link'),
     $keyCol = document.getElementById('key-col'),
     $loadMore = document.getElementById('load-more'),
     $loadCount = document.getElementById('load-count'),
     $loadTotal = document.getElementById('load-total'),
     $loadAll = document.getElementById('load-all'),
     $empty = document.getElementById('empty')
+
+  const DEFAULT_USER_ACL = {assets: {}}
 
   let getAssetMetric = () => 
     fetch(`/api/asset-metrics/${id}`)
@@ -28,12 +33,14 @@
       .then(body => {
         canonicalAssets = renderableAssets = Object.entries(body.assets).map(([key, value]) => ({id: key, acl: value}))
       })
-  let getUserAcl = () => 
+  let getUserAcl = () => key ?
     fetch(`/api/asset-metrics/${id}/user-acl?api_key=${key}`)
       .then(res => {
-        if (res.status !== 200 && res.status !== 401) return {isFailed: true}
+        if (res.status === 401) return DEFAULT_USER_ACL
+        else if (res.status !== 200) return {isFailed: true, ...DEFAULT_USER_ACL}
         else return res.json()
       })
+    : Promise.resolve(DEFAULT_USER_ACL)
 
   let $renderRows = (arr) => {
     let html = ''
@@ -108,10 +115,20 @@
     else 
       renderableAssets = canonicalAssets
 
+    $download.disabled = renderableAssets.length === 0
     $tbody.innerHTML = ''
     renderedAssets = 0
     renderNext20Assets()
   }
+  let onDownload = () => 
+    CM.helpers.whileSpinning($downloadIcon, done => 
+      userAcl.then(userAcl => {
+        $downloadLink.href = CM.CSV.buildGenericAclCsv(renderableAssets, userAcl, 'assets')
+        $downloadLink.download = `cm-asset-metric-${id}-assets.csv`
+        $downloadLink.click()
+        done()
+      })
+    )
   let onAssetMetric = () => {
     renderKeyColumn()
 
@@ -119,6 +136,7 @@
     else renderNext20Assets()
     
     $filter.oninput = e => onFilterAssets(e.target.value)
+    $download.onclick = onDownload
     $loadMore.onclick = renderNext20Assets
     $loadAll.onclick = renderRemainingAssets
   }
@@ -131,7 +149,7 @@
     renderUserAclCells(ids)
   }
 
-  userAcl = key ? getUserAcl() : Promise.resolve()
+  userAcl = getUserAcl()
 
   getAssetMetric().then(onAssetMetric).catch(CM.htmlSnippets.renderUnexpectedError)
 }

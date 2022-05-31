@@ -9,6 +9,8 @@
   
   let $tbody = document.querySelector('tbody'),
     $filter = document.getElementById('text-filter'),
+    $download = document.getElementById('download'),
+    $downloadLink = document.getElementById('download-link'),
     $loadMore = document.getElementById('load-more'),
     $loadCount = document.getElementById('load-count'),
     $loadTotal = document.getElementById('load-total'),
@@ -64,18 +66,28 @@
   let onFilter = filter => {
     if (filter)
       renderableAssets = canonicalAssets.filter(x => x.id.toLowerCase().includes(filter.toLowerCase()))
-    else 
+    else
       renderableAssets = canonicalAssets
 
+    $download.disabled = renderableAssets.length === 0
     $tbody.innerHTML = ''
     renderedAssets = 0
     renderNext20()
+  }
+  let onDownload = () => {
+    $downloadLink.href = CM.CSV.encodeCsv([
+      ['ID', 'FULL_NAME'],
+      ...renderableAssets.map(x => ([x.id, x.fullName])),
+    ])
+    $downloadLink.download = `cm-assets.csv`
+    $downloadLink.click()
   }
   let onAssets = () => {
     if ($filter.value) onFilter($filter.value)
     else renderNext20()
 
     $filter.oninput = e => onFilter(e.target.value)
+    $download.onclick = onDownload
     $loadMore.onclick = renderNext20
     $loadAll.onclick = renderRemaining
   }

@@ -13,6 +13,8 @@
     $filter = document.getElementById('filter'),
     $count = document.getElementById('count'),
     $total = document.getElementById('total'),
+    $download = document.getElementById('download'),
+    $downloadLink = document.getElementById('download-link'),
     $results = document.getElementById('results'),
     $paginator = document.getElementById('paginator'),
     $empty = document.getElementById('empty')
@@ -151,6 +153,7 @@
 
     $count.textContent = CM.string.formatNumber(start+1) + '-' + CM.string.formatNumber(end)
     $total.textContent = CM.string.formatNumber(renderableResults.length)
+    $count.parentNode.hidden = renderableResults.length === 0
     
     $paginator.hidden = renderableResults.length < CM.constants.PAGE_SIZE
     $paginator.total = Math.ceil(renderableResults.length / CM.constants.PAGE_SIZE)
@@ -169,6 +172,14 @@
 
     renderResults()
   }
+  let onDownload = () => {
+    $downloadLink.href = CM.algorithmns.encodeCsv([
+      ['TYPE', 'ID'],
+      ...renderableResults.map(x => ([x.resultType, x.id])),
+    ])
+    $downloadLink.download = `cm-search-results-${query}.csv`
+    $downloadLink.click()
+  }
   let onPageChange = newPageNum => {
     pageNum = newPageNum
     renderResults()
@@ -180,6 +191,7 @@
     location.href = `/search-results?query=${$input.value}`
   }
   $filter.onchange = e => onFilter(e.target.value)
+  $download.onclick = onDownload
   $paginator.onchange = e => onPageChange(e.target.current)
 
   getSearchResults()

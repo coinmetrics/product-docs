@@ -24,6 +24,10 @@
   }, MARKET_FILTERS = {
       type: 0,
       text: 1
+    }, DEFAULT_USER_ACL = {
+      metrics: {},
+      markets: {},
+      exchanges: {}
     }
 
   let $metrics = document.getElementById('metrics').querySelector('tbody'),
@@ -31,9 +35,18 @@
     $exchanges = document.getElementById('exchanges').querySelector('tbody'),
     $metricsFrequencyFilter = document.getElementById('frequency-filter'),
     $metricsTextFilter = document.getElementById('metrics-text-filter'),
+    $metricsDownload = document.getElementById('metrics-download'),
+    $metricsDownloadIcon = $metricsDownload.querySelector('cm-icon'),
+    $metricsDownloadLink = document.getElementById('metrics-download-link'),
     $marketsTextFilter = document.getElementById('markets-text-filter'),
     $marketsTypeFilter = document.getElementById('markets-type-filter'),
+    $marketsDownload = document.getElementById('markets-download'),
+    $marketsDownloadIcon = $marketsDownload.querySelector('cm-icon'),
+    $marketsDownloadLink = document.getElementById('markets-download-link'),
     $exchangesFilter = document.getElementById('exchanges-text-filter'),
+    $exchangesDownload = document.getElementById('exchanges-download'),
+    $exchangesDownloadIcon = $exchangesDownload.querySelector('cm-icon'),
+    $exchangesDownloadLink = document.getElementById('exchanges-download-link'),
     $metricsKeyCol = document.getElementById('metrics-key-col'),
     $marketsKeyCol = document.getElementById('markets-key-col'),
     $exchangesKeyCol = document.getElementById('exchanges-key-col'),
@@ -64,12 +77,14 @@
         canonicalMarkets = renderableMarkets = Object.entries(body.markets).map(([key, value]) => ({id: key, acl: value}))
         canonicalExchanges = renderableExchanges = Object.entries(body.exchanges).map(([key, value]) => ({id: key, acl: value}))
       })
-  let getUserAcl = () => 
+  let getUserAcl = () => key ?
     fetch(`/api/assets/${id}/user-acl?api_key=${key}`)
       .then(res => {
-        if (res.status !== 200 && res.status !== 401) return {isFailed: true}
+        if (res.status === 401) return DEFAULT_USER_ACL
+        else if (res.status !== 200) return {isFailed: true, ...DEFAULT_USER_ACL}
         else return res.json()
       })
+    : Promise.resolve(DEFAULT_USER_ACL)
 
   let $renderRows = (arr, h) => {
     let html = ''
@@ -244,6 +259,7 @@
     else 
       renderableMetrics = canonicalMetrics
 
+    $metricsDownload.disabled = renderableMetrics.length === 0
     $metrics.innerHTML = ''
     renderedMetrics = 0
     renderNext20Metrics()
@@ -266,6 +282,7 @@
     else 
       renderableMarkets = canonicalMarkets
 
+    $marketsDownload.disabled = renderableMarkets.length === 0
     $markets.innerHTML = ''
     renderedMarkets = 0
     renderNext20Markets()
@@ -276,10 +293,38 @@
     else 
       renderableExchanges = canonicalExchanges
 
+    $exchangesDownload.disabled = renderableExchanges.length === 0
     $exchanges.innerHTML = ''
     renderedExchanges = 0
     renderNext20Exchanges()
   }
+  let onDownloadMetrics = () => 
+    CM.helpers.whileSpinning($metricsDownloadIcon, done => 
+      userAcl.then(userAcl => {
+        $metricsDownloadLink.href = CM.CSV.buildMetricsAclCsv(renderableMetrics, userAcl)
+        $metricsDownloadLink.download = `cm-asset-${id}-metrics.csv`
+        $metricsDownloadLink.click()
+        done()
+      })
+    )
+  let onDownloadMarkets = () => 
+    CM.helpers.whileSpinning($marketsDownloadIcon, done => 
+      userAcl.then(userAcl => {
+        $marketsDownloadLink.href = CM.CSV.buildMarketsAclCsv(renderableMarkets, userAcl)
+        $marketsDownloadLink.download = `cm-asset-${id}-markets.csv`
+        $marketsDownloadLink.click()
+        done()
+      })
+    )
+  let onDownloadExchanges = () =>
+    CM.helpers.whileSpinning($exchangesDownloadIcon, done => 
+      userAcl.then(userAcl => {
+        $exchangesDownloadLink.href = CM.CSV.buildGenericAclCsv(renderableExchanges, userAcl, 'exchanges')
+        $exchangesDownloadLink.download = `cm-asset-${id}-exchanges.csv`
+        $exchangesDownloadLink.click()
+        done()
+      })
+    )    
   let onAsset = () => {
     renderKeyColumns()
 
@@ -294,9 +339,12 @@
     
     $metricsFrequencyFilter.onchange = e => onFilterMetrics(METRIC_FILTERS.frequency, e.target.value)
     $metricsTextFilter.oninput = e => onFilterMetrics(METRIC_FILTERS.text, e.target.value)
+    $metricsDownload.onclick = onDownloadMetrics
     $marketsTypeFilter.onchange = e => onFilterMarkets(MARKET_FILTERS.type, e.target.value)
     $marketsTextFilter.oninput = e => onFilterMarkets(MARKET_FILTERS.text, e.target.value)
+    $marketsDownload.onclick = onDownloadMarkets
     $exchangesFilter.oninput = e => onFilterExchanges(e.target.value)
+    $exchangesDownload.onclick = onDownloadExchanges
     $metricsLoadMore.onclick = renderNext20Metrics
     $metricsLoadAll.onclick = renderRemainingMetrics
     $marketsLoadMore.onclick = renderNext20Markets
@@ -307,7 +355,7 @@
 
   CM.auth.onChange = k => {
     key = k
-    userAcl = key ? getUserAcl() : Promise.resolve()
+    userAcl = getUserAcl()
     renderKeyColumns()
     let ids = [
       ...Array.from($metrics.querySelectorAll(':scope > tr > td:nth-child(4)')).map(x => x.id),
@@ -317,7 +365,7 @@
     renderUserAclCells(ids)
   }
 
-  userAcl = key ? getUserAcl() : Promise.resolve()
+  userAcl = getUserAcl()
 
   getAsset().then(onAsset).catch(CM.htmlSnippets.renderUnexpectedError)
 }

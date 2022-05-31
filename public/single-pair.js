@@ -14,11 +14,14 @@
   const METRIC_FILTERS = {
     frequency: 0,
     text: 1
-  }
+  }, DEFAULT_USER_ACL = {metrics: {}}
 
   let $tbody = document.querySelector('tbody'),
     $frequencyFilter = document.getElementById('frequency-filter'),
     $textFilter = document.getElementById('text-filter'),
+    $download = document.getElementById('download'),
+    $downloadIcon = $download.querySelector('cm-icon'),
+    $downloadLink = document.getElementById('download-link'),
     $keyCol = document.getElementById('key-col'),
     $loadMore = document.getElementById('load-more'),
     $loadCount = document.getElementById('load-count'),
@@ -34,12 +37,14 @@
       })
       .then(body =>
         canonicalMetrics = renderableMetrics = Object.entries(body.metrics).map(([key, value]) => ({id: key, acl: value})))
-  let getUserAcl = () => 
+  let getUserAcl = () => key ?
     fetch(`/api/pairs/${id}/user-acl?api_key=${key}`)
       .then(res => {
-        if (res.status !== 200 && res.status !== 401) return {isFailed: true}
+        if (res.status === 401) return DEFAULT_USER_ACL
+        else if (res.status !== 200) return {isFailed: true, ...DEFAULT_USER_ACL}
         else return res.json()
       })
+    : Promise.resolve(DEFAULT_USER_ACL)
 
   let $renderRows = (arr) => {
     let html = ''
@@ -124,10 +129,20 @@
     else 
       renderableMetrics = canonicalMetrics
 
+    $download.disabled = renderableMetrics.length === 0
     $tbody.innerHTML = ''
     renderedMetrics = 0
     renderNext20Metrics()
   }
+  let onDownload = () => 
+    CM.helpers.whileSpinning($downloadIcon, done => 
+      userAcl.then(userAcl => {
+        $downloadLink.href = CM.CSV.buildMetricsAclCsv(renderableMetrics, userAcl)
+        $downloadLink.download = `cm-pair-${id}-metrics.csv`
+        $downloadLink.click()
+        done()
+      })
+    )
   let onPair = () => {
     renderKeyColumn()
 
@@ -136,6 +151,7 @@
     
     $frequencyFilter.onchange = e => onFilterMetrics(METRIC_FILTERS.frequency, e.target.value)
     $textFilter.oninput = e => onFilterMetrics(METRIC_FILTERS.text, e.target.value)
+    $download.onclick = onDownload
     $loadMore.onclick = renderNext20Metrics
     $loadAll.onclick = renderRemainingMetrics
   }
@@ -148,7 +164,7 @@
     renderUserAclCells(ids)
   }
 
-  userAcl = key ? getUserAcl() : Promise.resolve()
+  userAcl = getUserAcl()
 
   getPair().then(onPair).catch(CM.htmlSnippets.renderUnexpectedError)
 }

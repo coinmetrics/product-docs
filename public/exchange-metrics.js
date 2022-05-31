@@ -16,6 +16,8 @@
   let $tbody = document.querySelector('tbody'),
     $frequencyFilter = document.getElementById('frequency-filter'),
     $textFilter = document.getElementById('text-filter'),
+    $download = document.getElementById('download'),
+    $downloadLink = document.getElementById('download-link'),
     $loadMore = document.getElementById('load-more'),
     $loadCount = document.getElementById('load-count'),
     $loadTotal = document.getElementById('load-total'),
@@ -93,9 +95,15 @@
     else 
       renderableMetrics = canonicalMetrics
 
+    $download.disabled = renderableMetrics.length === 0
     $tbody.innerHTML = ''
     renderedMetrics = 0
     renderNext20()
+  }
+  let onDownload = () => {
+    $downloadLink.href = CM.CSV.buildMetricsCsv(renderableMetrics)
+    $downloadLink.download = `cm-exchange-metrics.csv`
+    $downloadLink.click()
   }
   let onExchangeMetrics = () => {
     if ($textFilter.value) onFilter(METRIC_FILTERS.text, $textFilter.value)
@@ -103,6 +111,7 @@
 
     $frequencyFilter.onchange = e => onFilter(METRIC_FILTERS.frequency, e.target.value)
     $textFilter.oninput = e => onFilter(METRIC_FILTERS.text, e.target.value)
+    $download.onclick = onDownload
     $loadMore.onclick = renderNext20
     $loadAll.onclick = renderRemaining
   }
