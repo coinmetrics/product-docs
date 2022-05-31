@@ -1,7 +1,7 @@
 {
   'use strict'
 
-  let CM = window.__CM = window.__CM || {}
+  let CM = window.__CM ??= {}
 
   let key = CM.auth.key,
     id = location.pathname.split('/')[2],

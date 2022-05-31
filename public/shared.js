@@ -1,7 +1,7 @@
 { // CM.auth
   'use strict'
 
-  let CM = window.__CM = window.__CM || {}
+  let CM = window.__CM ??= {}
   let KEY = 'CMKB:api_key'
 
   let $popup = document.getElementById('api-key-popup')
@@ -27,7 +27,7 @@
 { // CM.constants
   'use strict'
 
-  let CM = window.__CM = window.__CM || {}
+  let CM = window.__CM ??= {}
 
   CM.constants = {
     PAGE_SIZE: 20
@@ -36,7 +36,7 @@
 { // CM.string
   'use strict'
 
-  let CM = window.__CM = window.__CM || {}
+  let CM = window.__CM ??= {}
 
   let formatNumber = (
     num,
@@ -76,7 +76,7 @@
 { // HTML snippets
   'use strict'
 
-  let CM = window.__CM = window.__CM || {}
+  let CM = window.__CM ??= {}
 
   let $main = document.getElementsByTagName('main')[0]
 
@@ -102,7 +102,7 @@
 { // CSV
   'use strict'
 
-  let CM = window.__CM = window.__CM || {}
+  let CM = window.__CM ??= {}
 
   let encodeCsv = rows => encodeURI('data:text/csv;charset=utf-8,' + rows.map((e) => e.join(',')).join('\n'))
 

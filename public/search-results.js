@@ -1,7 +1,7 @@
 {
   'use strict'
 
-  let CM = window.__CM = window.__CM || {}
+  let CM = window.__CM ??= {}
   
   let query = new URLSearchParams(location.search).get('query'),
     canonicalResults,
