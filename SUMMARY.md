@@ -11,6 +11,9 @@
 * [CM Labs](cm-labs.md)
 * [Status Page](status-page.md)
 
+## State of the Network
+* [A Visualization of Trades](state-of-the-network/19-05-29 A visualization of trades on May 17, 2019 (Day of Steep Decline).md)
+
 ## On-Chain Data
 
 * [Network Data Overview](on-chain-data/network-data-overview.md)
