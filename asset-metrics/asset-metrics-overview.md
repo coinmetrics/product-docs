@@ -6,7 +6,7 @@ description: /timeseries/asset-metrics
 
 Our Asset metrics include our Network Data time series metrics and certain Market Data metrics that are aggregated at the asset-level (e.g., Reference Rates/Prices and Trusted Volume).&#x20;
 
-{% swagger src="./api/openapi.yaml" path="/timeseries/asset-metrics" method="get" %} sample.yaml {% endswagger %}
+{% swagger src="api/openapi.yaml" path="/timeseries/asset-metrics" method="get" %} api/openapi.yaml {% endswagger %}
 
 ### Network Data
 
