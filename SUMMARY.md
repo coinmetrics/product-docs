@@ -12,7 +12,7 @@
 * [Status Page](status-page.md)
 
 ## State of the Network
-* [A Visualization of Trades](state-of-the-network/.md)
+* [A Visualization of Trades](state-of-the-network/19-05-29_A_visualization_of_trades_on_May_17,_2019_(Day_of_Steep_Decline).md)
 
 ## On-Chain Data
 
