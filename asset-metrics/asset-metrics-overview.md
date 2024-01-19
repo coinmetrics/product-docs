@@ -6,9 +6,7 @@ description: /timeseries/asset-metrics
 
 Our Asset metrics include our Network Data time series metrics and certain Market Data metrics that are aggregated at the asset-level (e.g., Reference Rates/Prices and Trusted Volume).&#x20;
 
-[comment]: <> ({% swagger src="api/openapi.yaml" path="/timeseries/asset-metrics" method="get" %} api/openapi.yaml {% endswagger %})
-{% swagger src="https://docs.coinmetrics.io/api/static/openapi.yaml" path="/timeseries/asset-metrics" method="get" expanded="true" %}
-[https://docs.coinmetrics.io/api/static/openapi.yaml](https://docs.coinmetrics.io/api/static/openapi.yaml)
+{% swagger src="./api/openapi.yaml" path="/timeseries/asset-metrics" method="get" %} ./api/openapi.yaml {% endswagger %}
 
 ### Network Data
 
