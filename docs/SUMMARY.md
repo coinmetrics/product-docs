@@ -4,6 +4,8 @@
 * [API Reference](api-reference/README.md)
   * [Reference Data](api-reference/reference-data/README.md)
     * [Assets](api-reference/reference-data/assets.md)
+  * [Timeseries](api-reference/timeseries/README.md)
+    * [Asset Metrics](api-reference/timeseries/asset-metrics.md)
 * [Access Our Data](access-our-data/README.md)
   * [API Basics](access-our-data/api.md)
   * [API Reference](https://docs.coinmetrics.io/api/v4)
