@@ -1,6 +1,9 @@
 # Table of contents
 
 * [Welcome & Product Overview](README.md)
+* [API Reference](api-reference/README.md)
+  * [Reference Data](api-reference/reference-data/README.md)
+    * [Assets](api-reference/reference-data/assets.md)
 * [Access Our Data](access-our-data/README.md)
   * [API Basics](api.md)
   * [API Reference](https://docs.coinmetrics.io/api/v4)
@@ -12,7 +15,8 @@
 * [Status Page](status-page.md)
 
 ## State of the Network
-* [A Visualization of Trades](state-of-the-network/19-05-29_A_visualization_of_trades_on_May_17,_2019_(Day_of_Steep_Decline).md)
+
+* [A Visualization of Trades](state-of-the-network/19-05-29\_A\_visualization\_of\_trades\_on\_May\_17,\_2019\_\(Day\_of\_Steep\_Decline\).md)
 
 ## On-Chain Data
 

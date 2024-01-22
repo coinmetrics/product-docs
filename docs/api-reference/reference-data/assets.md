@@ -1,0 +1,5 @@
+# Assets
+
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/reference-data/assets" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
