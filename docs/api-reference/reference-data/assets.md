@@ -8,4 +8,4 @@
 [reference_data_assets.yaml](../../.gitbook/assets/samples/reference_data_assets.yaml)
 {% endswagger %}
 
-{% include "../../.gitbook/assets/samples/reference_data_assets.yaml"}
+{% include "../../.gitbook/assets/samples/reference_data_assets.yaml" %}
