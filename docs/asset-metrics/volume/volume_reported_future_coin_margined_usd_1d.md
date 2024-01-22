@@ -12,11 +12,11 @@ The sum of all reported volume from futures markets where the margin asset is eq
 
 ## Details
 
-Our reported coin-margined future volume metric is an aggregation of the reported coin-margined future volume from all futures exchanges in CM's coverage universe.  Covered exchanges can be found [here](../../exchanges/all-exchanges.md).
+Our reported coin-margined future volume metric is an aggregation of the reported coin-margined future volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](../../market-data/all-exchanges.md).
 
 ## Release History
 
-* Release Version. Market Data Feed 2.4 (August 2021)&#x20;
+* Release Version. Market Data Feed 2.4 (August 2021)
 
 ## See Also
 
@@ -26,9 +26,7 @@ Our reported coin-margined future volume metric is an aggregation of the reporte
 * [Reported Future Volume](volume\_reported\_future\_usd\_1d.md)
 * [Reported Non-Perpetual Future Volume](volume\_reported\_future\_nonperpetual\_usd\_1d.md)
 * [Reported Perpetual Future Volume](volume\_reported\_future\_perpetual\_usd\_1d.md)
-*   [Reported Tether-Margined Future Volume](volume\_reported\_future\_tether\_margined\_usd\_1d.md)
-
-
+* [Reported Tether-Margined Future Volume](volume\_reported\_future\_tether\_margined\_usd\_1d.md)
 
 ## Availability for Assets
 

@@ -5,7 +5,7 @@
   * [Reference Data](api-reference/reference-data/README.md)
     * [Assets](api-reference/reference-data/assets.md)
 * [Access Our Data](access-our-data/README.md)
-  * [API Basics](api.md)
+  * [API Basics](access-our-data/api.md)
   * [API Reference](https://docs.coinmetrics.io/api/v4)
   * [Python Client](access-our-data/python-client.md)
   * [R Client](access-our-data/r-client.md)
@@ -16,19 +16,19 @@
 
 ## State of the Network
 
-* [A Visualization of Trades](state-of-the-network/19-05-29\_A\_visualization\_of\_trades\_on\_May\_17,\_2019\_\(Day\_of\_Steep\_Decline\).md)
+* [A Visualization of Trades](state-of-the-network/19-05-29\_a\_visualization\_of\_trades\_on\_may\_17-\_2019\_-day\_of\_steep\_decline.md)
 
 ## On-Chain Data
 
 * [Network Data Overview](on-chain-data/network-data-overview.md)
-* [Atlas Overview](atlas/atlas-overview.md)
+* [Atlas Overview](on-chain-data/atlas-overview.md)
 * [FARUM Overview](on-chain-data/farum-overview/README.md)
   * [What is Network Risk](on-chain-data/farum-overview/what-is-network-risk.md)
 * [Methodologies](on-chain-data/methodologies/README.md)
   * [Normalizing Block Times](on-chain-data/methodologies/on-chain-basics.md)
-* [On-Chain Glossary](on-chain-basics.md)
-* [On-Chain Exchange Coverage](exchanges/on-chain-exchange-coverage.md)
-* [Network Data FAQs](asset-metrics/asset-metrics-faqs.md)
+* [On-Chain Glossary](on-chain-data/on-chain-basics.md)
+* [On-Chain Exchange Coverage](on-chain-data/on-chain-exchange-coverage.md)
+* [Network Data FAQs](on-chain-data/asset-metrics-faqs.md)
 
 ## Market Data
 
@@ -38,7 +38,7 @@
   * [Coin Metrics Prices Policies](market-data/methodologies/coin-metrics-prices-policies.md)
   * [Coin Metrics Prices Methodology](market-data/methodologies/coin-metrics-prices-methodology.md)
   * [Trusted Exchange Framework](market-data/methodologies/trusted-exchange-framework.md)
-* [Market Data Exchange Coverage](exchanges/all-exchanges.md)
+* [Market Data Exchange Coverage](market-data/all-exchanges.md)
 * [Market Data FAQs](market-data/market-data-faqs.md)
 * [CM Prices FAQs](market-data/cm-prices-faqs.md)
 * [Trusted Exchange Framework FAQs](market-data/trusted-exchange-framework-faqs.md)
@@ -54,11 +54,11 @@
 * [Policies & Charters](index-data/policies-and-charters/README.md)
   * [CMBI Index Policies](index-data/policies-and-charters/cmbi-index-policies.md)
   * [Governance Committees](index-data/policies-and-charters/governance-committees.md)
-* [Methodologies](index-data/coin-metrics-bletchley-indexes-cmbi.md)
+* [Methodologies](index-data/coin-metrics-bletchley-indexes-cmbi/README.md)
   * [Fork Legitimacy Framework](index-data/coin-metrics-bletchley-indexes-cmbi/fork-legitimacy-framework.md)
   * [Adjusted Free Float Supply Methodology](index-data/coin-metrics-bletchley-indexes-cmbi/adjusted-free-float-supply-methodology.md)
   * [CMBI Market Selection Framework](index-data/coin-metrics-bletchley-indexes-cmbi/cmbi-market-selection-framework.md)
-* [Indexes Glossary](glossary/indexes.md)
+* [Indexes Glossary](index-data/indexes.md)
 * [Index FAQs](index-data/index-faqs.md)
 
 ## Reference Data
@@ -675,16 +675,16 @@
 ## Market Data (Timeseries)
 
 * [Market Metadata](market-data-timeseries/market-metadata.md)
-* [Market Trades](market-data/market-trades.md)
-* [Market Open Interest](market-data/market-open-interest.md)
-* [Market Funding Rates](market-data/futures-funding-rates.md)
-* [Market Order Book](market-data/market-order-book.md)
-* [Market Quotes](market-data/market-quotes.md)
-* [Market Candles](market-data/market-candles.md)
+* [Market Trades](market-data-timeseries/market-trades.md)
+* [Market Open Interest](market-data-timeseries/market-open-interest.md)
+* [Market Funding Rates](market-data-timeseries/futures-funding-rates.md)
+* [Market Order Book](market-data-timeseries/market-order-book.md)
+* [Market Quotes](market-data-timeseries/market-quotes.md)
+* [Market Candles](market-data-timeseries/market-candles.md)
 * [Market Contract Prices](market-data-timeseries/market-contract-prices.md)
-* [Market Implied Volatility](market-data/market-implied-volatility.md)
-* [Market Greeks](market-data/market-greeks.md)
-* [Market Liquidations](market-data/futures-liquidations.md)
+* [Market Implied Volatility](market-data-timeseries/market-implied-volatility.md)
+* [Market Greeks](market-data-timeseries/market-greeks.md)
+* [Market Liquidations](market-data-timeseries/futures-liquidations.md)
 
 ## Market Metrics (Time Series) <a href="#market-metrics" id="market-metrics"></a>
 
@@ -770,9 +770,9 @@
 
 ## Indexes (Timeseries)
 
-* [Index Levels](index-data/index-levels.md)
+* [Index Levels](indexes-timeseries/index-levels.md)
 * [Index Candles](indexes-timeseries/index-candles.md)
-* [Index Constituents](index-data/index-constituents.md)
+* [Index Constituents](indexes-timeseries/index-constituents.md)
 
 ## Mempool Monitor (Time Series)
 

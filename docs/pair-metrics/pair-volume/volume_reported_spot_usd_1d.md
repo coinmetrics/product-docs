@@ -11,12 +11,12 @@ The sum of all reported volume from the spot markets that contain the specified 
 
 ## Details
 
-Our reported spot volume metric is an aggregation of the reported volume for all spot markets containing the specified pair in CM's coverage universe. Covered exchanges can be found [here](../../exchanges/all-exchanges.md).
+Our reported spot volume metric is an aggregation of the reported volume for all spot markets containing the specified pair in CM's coverage universe. Covered exchanges can be found [here](../../market-data/all-exchanges.md).
 
 We use the `candle_usd_volume` from our market candles as input into the calculation of this metric. For more information on our market candles, please see the page below.
 
-{% content-ref url="../../market-data/market-candles.md" %}
-[market-candles.md](../../market-data/market-candles.md)
+{% content-ref url="../../market-data-timeseries/market-candles.md" %}
+[market-candles.md](../../market-data-timeseries/market-candles.md)
 {% endcontent-ref %}
 
 ## Example
@@ -49,10 +49,8 @@ A sample of the metric `volume_reported_spot_usd_1d`for pair `btc-usd` from our 
 }
 ```
 
-* **`pair`**: The id of the pair. Pair ids use the following naming convention: `baseAsset-quoteAsset`.\
-
-* **`time`**: The time in ISO 8601 date-time format. Always with nanoseconds precision.\
-
+* **`pair`**: The id of the pair. Pair ids use the following naming convention: `baseAsset-quoteAsset`.\\
+* **`time`**: The time in ISO 8601 date-time format. Always with nanoseconds precision.\\
 * **`volume_reported_spot_usd_1d`**: The reported spot volume in U.S. dollars over the interval of 1 day.
 
 ## Release History

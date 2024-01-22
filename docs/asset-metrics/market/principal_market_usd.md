@@ -8,12 +8,9 @@ The Principal Market Price is the price of an asset quoted in U.S. dollars deriv
 
 ## Details
 
-* The CM Principal Market Prices are published once a day, once an hour, once a minute, and once a second and adhere to the guidelines regarding fair value measurement issued by the International Financial Reporting Standards and the Association of International Certified Professional Accountants, specifically standards IFRS 13 and FASB ASC 820.\
-
-* The Principal Market Prices identify a principal market for each asset and utilize the most recent price from this market. Common use cases are for fair value measurement, preparing financial statements, and calculating closing prices for indexes or financial benchmarks.\
-
-* This metric represents the identity of the principal market from which the principal market price is calculated. If you are interested in the principal market price, please see the [Principal Market Price (USD)](https://docs.coinmetrics.io/asset-metrics/market/principalmarketprice) page for more details.\
-
+* The CM Principal Market Prices are published once a day, once an hour, once a minute, and once a second and adhere to the guidelines regarding fair value measurement issued by the International Financial Reporting Standards and the Association of International Certified Professional Accountants, specifically standards IFRS 13 and FASB ASC 820.\\
+* The Principal Market Prices identify a principal market for each asset and utilize the most recent price from this market. Common use cases are for fair value measurement, preparing financial statements, and calculating closing prices for indexes or financial benchmarks.\\
+* This metric represents the identity of the principal market from which the principal market price is calculated. If you are interested in the principal market price, please see the [Principal Market Price (USD)](https://docs.coinmetrics.io/asset-metrics/market/principalmarketprice) page for more details.\\
 * Please see our [CM Prices Overview](../../market-data/reference-rates-overview.md) for more information on methodology and policies.
 
 ## **Example**
@@ -46,19 +43,18 @@ A sample of the principal market data for Bitcoin with daily frequency is shown 
 }
 ```
 
-* **`asset`**:  The ID of the asset.\
-  &#x20; &#x20;
-* **`time`**: The time in ISO 8601 date-time format.\
+* **`asset`**: The ID of the asset.\
 
-* **`principal_market_usd`**:  The id of the principal market for our principal market price.
+* **`time`**: The time in ISO 8601 date-time format.\\
+* **`principal_market_usd`**: The id of the principal market for our principal market price.
 
 ## Release History
 
-* Please see the [Coin Metrics Prices Change Log](https://docs.coinmetrics.io/market-data/methodologies/coin-metrics-prices-methodology#change-log) for release history.&#x20;
+* Please see the [Coin Metrics Prices Change Log](https://docs.coinmetrics.io/market-data/methodologies/coin-metrics-prices-methodology#change-log) for release history.
 
 ## **Availability for Assets**
 
-Community and pro asset availability does not differ.  Community is available via HTTP API only, is limited to 1,000 API requests per 10 minutes per IP address and only showcases the last 24 hours of history for the 1 hour, 1 minute and 1 second frequencies. The full history is available for daily frequencies.
+Community and pro asset availability does not differ. Community is available via HTTP API only, is limited to 1,000 API requests per 10 minutes per IP address and only showcases the last 24 hours of history for the 1 hour, 1 minute and 1 second frequencies. The full history is available for daily frequencies.
 
 Please see our Coin Metrics Coverage below for our asset coverage universe.
 

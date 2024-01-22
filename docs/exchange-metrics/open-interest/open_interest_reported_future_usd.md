@@ -10,11 +10,11 @@ The sum of all reported future open interest from the spot markets in Coin Metri
 
 ## Details
 
-Our reported future open interest metric is an aggregation of the reported future open interest for all futures markets in CM's coverage universe.  Covered exchanges can be found [here](../../exchanges/all-exchanges.md).
+Our reported future open interest metric is an aggregation of the reported future open interest for all futures markets in CM's coverage universe. Covered exchanges can be found [here](../../market-data/all-exchanges.md).
 
 ## Release History
 
-* Release Version. Market Data Feed 2.4 (August 2021)&#x20;
+* Release Version. Market Data Feed 2.4 (August 2021)
 
 ## Availability for Exchanges
 

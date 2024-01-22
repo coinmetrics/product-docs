@@ -10,12 +10,12 @@ The sum of all reported future open interest from all tether-margined futures ma
 
 ## Details
 
-Our reported tether-margined future open interest metric is an aggregation of the reported future open interest for all tether-margined futures markets containing the specified pair in CM's coverage universe. Covered exchanges can be found [here](../../exchanges/all-exchanges.md).
+Our reported tether-margined future open interest metric is an aggregation of the reported future open interest for all tether-margined futures markets containing the specified pair in CM's coverage universe. Covered exchanges can be found [here](../../market-data/all-exchanges.md).
 
 We use the open interest we collect for markets as input into the calculation of this metric. For more information on our market-level open interest data, please see the page below.
 
-{% content-ref url="../../market-data/market-open-interest.md" %}
-[market-open-interest.md](../../market-data/market-open-interest.md)
+{% content-ref url="../../market-data-timeseries/market-open-interest.md" %}
+[market-open-interest.md](../../market-data-timeseries/market-open-interest.md)
 {% endcontent-ref %}
 
 ## Release History
@@ -52,10 +52,8 @@ A sample of the metric `open_interest_reported_future_tether_margined_usd` for p
 }
 ```
 
-* **`pair`**: The id of the pair. Pair ids use the following naming convention: `baseAsset-quoteAsset`.\
-
-* **`time`**: The time in ISO 8601 date-time format. Always with nanoseconds precision.\
-
+* **`pair`**: The id of the pair. Pair ids use the following naming convention: `baseAsset-quoteAsset`.\\
+* **`time`**: The time in ISO 8601 date-time format. Always with nanoseconds precision.\\
 * **`open_interest_reported_future_tether_margined_usd`**: The open interest for all Tether-margined futures markets containing the pair in U.S. dollars.
 
 ## Availability for Pairs
@@ -68,6 +66,6 @@ A sample of the metric `open_interest_reported_future_tether_margined_usd` for p
 [market-metadata.md](../../market-data-timeseries/market-metadata.md)
 {% endcontent-ref %}
 
-{% content-ref url="../../market-data/market-open-interest.md" %}
-[market-open-interest.md](../../market-data/market-open-interest.md)
+{% content-ref url="../../market-data-timeseries/market-open-interest.md" %}
+[market-open-interest.md](../../market-data-timeseries/market-open-interest.md)
 {% endcontent-ref %}

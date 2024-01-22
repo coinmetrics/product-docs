@@ -11,7 +11,7 @@ The sum of all reported future volume from the spot markets in Coin Metrics' cov
 
 ## Details
 
-Our reported future volume metric is an aggregation of the reported future volume from all futures exchanges in CM's coverage universe.  Covered exchanges can be found [here](../../exchanges/all-exchanges.md).
+Our reported future volume metric is an aggregation of the reported future volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](../../market-data/all-exchanges.md).
 
 ## Chart
 
@@ -19,7 +19,7 @@ Our reported future volume metric is an aggregation of the reported future volum
 
 ## Release History
 
-* Release Version. Market Data Feed 2.4 (August 2021)&#x20;
+* Release Version. Market Data Feed 2.4 (August 2021)
 
 ## See Also
 
@@ -29,9 +29,7 @@ Our reported future volume metric is an aggregation of the reported future volum
 * [Reported Coin-Margined Future Volume](volume\_reported\_future\_coin\_margined\_usd\_1d.md)
 * [Reported Non-Perpetual Future Volume](volume\_reported\_future\_nonperpetual\_usd\_1d.md)
 * [Reported Perpetual Future Volume](volume\_reported\_future\_perpetual\_usd\_1d.md)
-*   [Reported Tether-Margined Future Volume](volume\_reported\_future\_tether\_margined\_usd\_1d.md)
-
-
+* [Reported Tether-Margined Future Volume](volume\_reported\_future\_tether\_margined\_usd\_1d.md)
 
 ## Availability for Assets
 

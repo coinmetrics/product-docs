@@ -11,7 +11,7 @@ The sum of all reported volume from the spot markets in Coin Metrics' coverage i
 
 ## Details
 
-Our reported volume metric is an aggregation of the reported volume from all exchanges in CM's coverage universe.  Covered exchanges can be found [here](../../exchanges/all-exchanges.md).
+Our reported volume metric is an aggregation of the reported volume from all exchanges in CM's coverage universe. Covered exchanges can be found [here](../../market-data/all-exchanges.md).
 
 ## Chart
 
@@ -34,7 +34,7 @@ A sample of the daily reported spot volume for Bitcoin is shown below:
 
 ## Release History
 
-* Release Version. Market Data Feed 2.4 (August 2021)&#x20;
+* Release Version. Market Data Feed 2.4 (August 2021)
 
 ## See Also
 
@@ -43,9 +43,7 @@ A sample of the daily reported spot volume for Bitcoin is shown below:
 * [Reported Coin-Margined Future Volume](volume\_reported\_future\_coin\_margined\_usd\_1d.md)
 * [Reported Non-Perpetual Future Volume](volume\_reported\_future\_nonperpetual\_usd\_1d.md)
 * [Reported Perpetual Future Volume](volume\_reported\_future\_perpetual\_usd\_1d.md)
-*   [Reported Tether-Margined Future Volume](volume\_reported\_future\_tether\_margined\_usd\_1d.md)
-
-
+* [Reported Tether-Margined Future Volume](volume\_reported\_future\_tether\_margined\_usd\_1d.md)
 
 ## Availability for Assets
 

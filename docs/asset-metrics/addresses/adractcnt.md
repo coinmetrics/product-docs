@@ -12,7 +12,7 @@ The sum count of unique addresses that were active in the network (either as a d
 
 ## **Details**
 
-* Active [addresses](../../on-chain-basics.md#address) count the number of unique addresses that participated in a ledger change.
+* Active [addresses](../../on-chain-data/on-chain-basics.md#address) count the number of unique addresses that participated in a ledger change.
 * For this unadjusted version of the metric, all ledger changes are considered.
 * Ledger changes can include activities such as transacting, signing of blocks, claiming of mining or staking rewards, voting, creating accounts, and more dependent on whether the underlying protocol supports the activity (different protocols vary in the types of activities that are supported).
 * All participants of a ledger change activity are included.
@@ -22,7 +22,7 @@ The sum count of unique addresses that were active in the network (either as a d
 
 ## **Chart**
 
-![Source: CM Network Data Charts](<../../.gitbook/assets/Screen Shot 2020-12-09 at 7.40.04 PM.png>)
+![Source: CM Network Data Charts](../../.gitbook/assets/Screen%20Shot%202020-12-09%20at%207.40.04%20PM.png)
 
 ## **Asset-Specific Details**
 
@@ -50,7 +50,7 @@ Active addresses is a popular measure to proxy the number of users on a blockcha
 
 ## **See Also**
 
-* [Address](../../on-chain-basics.md#address)
+* [Address](../../on-chain-data/on-chain-basics.md#address)
 * [Active Addresses (Received)](adractreccnt.md)
 * [Active Addresses (Sent)](adractsentcnt.md)
 

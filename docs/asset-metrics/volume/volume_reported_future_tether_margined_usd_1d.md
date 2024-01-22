@@ -11,11 +11,11 @@ The sum of all reported volume from futures markets where the margin asset is Te
 
 ## Details
 
-Our reported Tether-margined future volume metric is an aggregation of the reported Tether-margined future volume from all futures exchanges in CM's coverage universe.  Covered exchanges can be found [here](../../exchanges/all-exchanges.md).
+Our reported Tether-margined future volume metric is an aggregation of the reported Tether-margined future volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](../../market-data/all-exchanges.md).
 
 ## Release History
 
-* Release Version. Market Data Feed 2.4 (August 2021)&#x20;
+* Release Version. Market Data Feed 2.4 (August 2021)
 
 ## See Also
 

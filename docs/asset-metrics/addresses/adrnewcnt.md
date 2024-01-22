@@ -12,7 +12,7 @@ The sum count of all unique addresses that were newly created that interval.
 
 ## **Details**
 
-* [Addresses](../../on-chain-basics.md#address) are the user-identifiers in a ledger change.
+* [Addresses](../../on-chain-data/on-chain-basics.md#address) are the user-identifiers in a ledger change.
 * New addresses are addresses identified in the blockchain that did not exist prior to the observation period (e.g. 1 day).
 * Depending upon how a blockchain stores address information, new addresses might not be funded with any tokens. In other words, they have a balance of zero.
 * As such, a caveat of this metric is that it can be inflated by activity that is not economicallt relevant.
@@ -22,7 +22,7 @@ The sum count of all unique addresses that were newly created that interval.
 
 New Addr Cnt showcases all new addresses observed in the network over the previous day, and [New Funded Addr Cnt](https://docs.coinmetrics.io/asset-metrics/adresses/adrnewbalcnt) is a subset of New Addr Cnt that only counts addresses with a balance greater than 0.
 
-![Source: CM Network Data Charts](<../../.gitbook/assets/9 - New Addresses.png>)
+![Source: CM Network Data Charts](../../.gitbook/assets/9%20-%20New%20Addresses.png)
 
 ## **Asset-Specific Details**
 
@@ -30,7 +30,7 @@ New Addr Cnt showcases all new addresses observed in the network over the previo
 
 ## **Examples**
 
-Consider the following example:&#x20;
+Consider the following example:
 
 * Both Addreses A and Address B are seen on the ledger for the first time.
 * Address A was referred by a smart contract application, perhaps as user identifier, but it was not funded or otherwise engaged by the smart contract. Its balance is zero.
@@ -49,7 +49,7 @@ If the above was the only activity observed in the network during that interval,
 ## **See Also**
 
 * [New Funded Addr Cnt](adrnewbalcnt.md)
-* [Address](../../on-chain-basics.md#address)
+* [Address](../../on-chain-data/on-chain-basics.md#address)
 * [Active Addresses (Received)](adractreccnt.md)
 * [Active Addresses (Sent)](adractsentcnt.md)
 
