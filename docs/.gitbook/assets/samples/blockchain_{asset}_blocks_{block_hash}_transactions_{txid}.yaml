@@ -1,0 +1,10 @@
+- label: Shell
+  source: |
+    # Gets full transaction data for a specific Bitcoin transaction in a block
+    curl --compressed "https://api.coinmetrics.io/v4/blockchain/btc/blocks/0000000000000000000334e8637314d72d86a533c71f48da23e85e70a82cd38a/transactions/29d401526b06d55749034c10c3ee7ffd9ecab942c9b6852c963fa61103552729?pretty=true&api_key=<your_key>"
+- label: Python
+  source: |
+    # Gets full transaction data for a specific Bitcoin transaction in a block
+    import requests
+    response = requests.get('https://api.coinmetrics.io/v4/blockchain/btc/blocks/0000000000000000000334e8637314d72d86a533c71f48da23e85e70a82cd38a/transactions/29d401526b06d55749034c10c3ee7ffd9ecab942c9b6852c963fa61103552729?pretty=true&api_key=<your_key>').json()
+    print(response)

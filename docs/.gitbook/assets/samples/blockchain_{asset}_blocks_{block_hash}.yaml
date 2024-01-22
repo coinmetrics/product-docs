@@ -1,0 +1,10 @@
+- label: Shell
+  source: |
+    # Gets block data for a specific Ethereum block, specified by the hash of the block
+    curl --compressed "https://api.coinmetrics.io/v4/blockchain/eth/blocks/0x27a2bd0fd3b3298dd8004c18aaad83374bdc5dbd36eac46bfe00772d88dba7cf?pretty=true&api_key=<your_key>"
+- label: Python
+  source: |
+    # Gets block data for a specific Ethereum block, specified by the hash of the block
+    import requests
+    response = requests.get('https://api.coinmetrics.io/v4/blockchain/eth/blocks/0x27a2bd0fd3b3298dd8004c18aaad83374bdc5dbd36eac46bfe00772d88dba7cf?pretty=true&api_key=<your_key>').json()
+    print(response)

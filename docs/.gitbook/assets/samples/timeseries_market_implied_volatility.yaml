@@ -1,0 +1,8 @@
+- label: Shell
+  source: |
+    curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-implied-volatility?start_time=2020-01-01&paging_from=start&markets=deribit-ETH-25MAR22-1200-P-option&pretty=true&api_key=<your_key>"
+- label: Python
+  source: |
+    import requests
+    response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-implied-volatility?start_time=2020-01-01&paging_from=start&markets=deribit-ETH-25MAR22-1200-P-option&pretty=true&api_key=<your_key>').json()
+    print(response)

@@ -1,0 +1,10 @@
+- label: Shell
+  source: |
+    # Gets balance updates for Bitcoin accounts
+    curl --compressed "https://api.coinmetrics.io/v4/blockchain/btc/balance-updates?pretty=true&api_key=<your_key>"
+- label: Python
+  source: |
+    # Gets balance updates for Bitcoin accounts
+    import requests
+    response = requests.get('https://api.coinmetrics.io/v4/blockchain/btc/balance-updates?pretty=true&api_key=<your_key>').json()
+    print(response)

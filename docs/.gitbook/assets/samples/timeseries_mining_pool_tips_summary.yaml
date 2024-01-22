@@ -1,0 +1,8 @@
+- label: Shell
+  source: |
+    curl --compressed "https://api.coinmetrics.io/v4/timeseries/mining-pool-tips-summary?assets=btc&page_size=3&pretty=true&api_key=<your_key>"
+- label: Python
+  source: |
+    import requests
+    response = requests.get('https://api.coinmetrics.io/v4/timeseries/mining-pool-tips-summary?assets=btc&page_size=3&pretty=true&api_key=<your_key>').json()
+    print(response)

@@ -1,0 +1,17 @@
+- label: JavaScript
+  source: |
+    // This is getting Reference Rates for Bitcoin and Ethereum at a frequency of 1 second
+    ws = new WebSocket("wss://api.coinmetrics.io/v4/timeseries-stream/asset-metrics?assets=btc,eth&metrics=ReferenceRate&frequency=1s&pretty=true&api_key=<your_key>")
+    ws.onmessage = m => console.log(m.data); ws.onclose = () => console.log("closed")
+- label: Python
+  source: |
+    # This is getting Reference Rates for Bitcoin and Ethereum at a frequency of 1 second
+    import asyncio
+    import websockets
+    
+    async def handle(uri):
+        async with websockets.connect(uri) as websocket:
+            while True:
+                print(await websocket.recv())
+    
+    asyncio.get_event_loop().run_until_complete(handle('wss://api.coinmetrics.io/v4/timeseries-stream/asset-metrics?assets=btc,eth&metrics=ReferenceRate&frequency=1s&pretty=true&api_key=<your_key>'))

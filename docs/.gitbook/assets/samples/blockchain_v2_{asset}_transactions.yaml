@@ -1,0 +1,10 @@
+- label: Shell
+  source: |
+    # Gets list of transactions for Ethereum classic
+    curl --compressed "https://api.coinmetrics.io/v4/blockchain-v2/etc/transactions?pretty=true&api_key=<your_key>"
+- label: Python
+  source: |
+    # Gets list of transactions for Ethereum classic
+    import requests
+    response = requests.get('https://api.coinmetrics.io/v4/blockchain-v2/etc/transactions?pretty=true&api_key=<your_key>').json()
+    print(response)

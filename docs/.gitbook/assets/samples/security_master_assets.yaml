@@ -1,0 +1,10 @@
+- label: Shell
+  source: |
+    # Gets a metadata for btc and eth assets
+    curl --compressed "https://api.coinmetrics.io/v4/security-master/assets?assets=btc,eth&pretty=true&api_key=<your_key>"
+- label: Python
+  source: |
+    # Gets a metadata for btc and eth assets
+    import requests
+    response = requests.get('https://api.coinmetrics.io/v4/security-master/assets?assets=btc,eth&pretty=true&api_key=<your_key>').json()
+    print(response)
