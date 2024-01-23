@@ -363,7 +363,7 @@ paths:
       - url: https://community-api.coinmetrics.io/v4
     get:
       summary: Asset metrics
-      description: Returns a list of asset metrics metadata.
+      description: Returns a list of asset metrics metadata. [test]
       operationId: getReferenceDataAssetMetrics
       x-codeSamples:
         - label: Shell
