@@ -4,6 +4,7 @@
 * [API Reference](api-reference/README.md)
   * [Reference Data](api-reference/reference-data/README.md)
     * [Assets](api-reference/reference-data/assets.md)
+    * [Asset-Metrics](api-reference/reference-data/asset-metrics.md)
   * [Timeseries](api-reference/timeseries/README.md)
     * [Asset Metrics](api-reference/timeseries/asset-metrics.md)
 * [Access Our Data](access-our-data/README.md)
