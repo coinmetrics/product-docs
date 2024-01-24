@@ -52,7 +52,7 @@ One note: Centralized exchanges do not differentiate between Tether-Omni, Tether
 
 ### **Is there a way to approximate the number of users for a specific blockchain?**
 
-You can use the "[Address Count with Balance](../asset-metrics/addresses/adrbal1inxcnt/)" metrics to approximate this, although you should keep in mind that users may have multiple addresses and certain addresses (e.g., custodian or exchange addresses) may represent multiple users. For day to day use, you can use our active addresses metrics. We provide aggregate [active address metrics](../asset-metrics/addresses/adractcnt.md) (AdrActCnt) as well as aggregates for [receiving](../asset-metrics/addresses/adractreccnt.md) and [sending](../asset-metrics/addresses/adractsentcnt.md) addresses (AdrActRecCnt and AdrActSentCnt).
+You can use the "[Address Count with Balance](network-data-overview/addresses/adrbal1inxcnt/)" metrics to approximate this, although you should keep in mind that users may have multiple addresses and certain addresses (e.g., custodian or exchange addresses) may represent multiple users. For day to day use, you can use our active addresses metrics. We provide aggregate [active address metrics](network-data-overview/addresses/adractcnt.md) (AdrActCnt) as well as aggregates for [receiving](network-data-overview/addresses/adractreccnt.md) and [sending](network-data-overview/addresses/adractsentcnt.md) addresses (AdrActRecCnt and AdrActSentCnt).
 
 ### **Do you have a metric for the number of days BTC is held between transactions?**
 
