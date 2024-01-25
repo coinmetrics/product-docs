@@ -24,6 +24,11 @@ The metric categories listed below are available at the exchange level:&#x20;
 
 ## Endpoint Response
 
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-metrics" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+
 The [`/timeseries/exchange-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesExchangeMetrics) endpoint returns time series data for each exchange and metric requested.  The response is formatted as follows:
 
 | Field      | Description                                                               |

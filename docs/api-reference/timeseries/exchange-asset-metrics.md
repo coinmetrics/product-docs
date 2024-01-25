@@ -30,6 +30,11 @@ The metrics categories listed below are available at the exchange-asset level:&#
 
 ## Endpoint Response
 
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+
 The [`/timeseries/exchange-asset-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesExchangeAssetMetrics) endpoint returns time series data for each exchange-asset and metric requested.  The response is formatted as follows:
 
 | Field            | Description                                                               |

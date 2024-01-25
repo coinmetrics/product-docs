@@ -18,6 +18,11 @@ The metrics categories listed below are available at the market level:&#x20;
 
 ## Endpoint Response
 
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-metrics" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+
 The [`/timeseries/market-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketMetrics)endpoint returns time series data for each market and metric requested.  The response is formatted as follows:
 
 | Field      | Description                                                               |

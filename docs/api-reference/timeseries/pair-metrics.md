@@ -36,6 +36,11 @@ Similarly, our pair volume category of metrics contain several measures of volum
 
 ## Endpoint Response
 
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-metrics" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+
 The [`/timeseries/pair-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesPairMetrics) endpoint returns time series data for each pair and metric requested. A sample of the pair metrics data in json format is provided below.
 
 ```
