@@ -601,7 +601,7 @@
     * [Full Transaction](on-chain-data/atlas/transactions/full-transaction/README.md)
       * [Full Transaction Info for Block](on-chain-data/atlas/transactions/full-transaction/full-transaction-for-block.md)
   * [Balance Updates](on-chain-data/atlas/balance-updates.md)
-  * [on-chain-data/atlas Explorer User Interface](on-chain-data/atlas/on-chain-data/atlas-explorer-user-interface.md)
+  * [Atlas Explorer User Interface](on-chain-data/atlas/atlas-explorer-user-interface.md)
 * [FARUM Overview](on-chain-data/farum/README.md)
   * [What is Network Risk](on-chain-data/farum/what-is-network-risk.md)
   * [Transaction Tracker](on-chain-data/farum/transaction-tracker-tools/transaction-tracker.md)
@@ -692,11 +692,6 @@
 * [Market Data FAQs](market-data/market-data-faqs.md)
 * [CM Prices FAQs](market-data/cm-prices-faqs.md)
 * [Trusted Exchange Framework FAQs](market-data/trusted-exchange-framework-faqs.md)
-
-## DeFi Data
-
-* [DeFi Data Overview (Labs)](defi-data/defi-data-overview.md)
-* [DeFi FAQs](defi-data/defi-faqs.md)
 
 ## Index Data
 
