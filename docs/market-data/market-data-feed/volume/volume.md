@@ -19,7 +19,10 @@ The sum of all reported volume from the spot markets in Coin Metrics' coverage i
 
 Our reported volume metric is an aggregation of the reported volume from all exchanges in CM's coverage universe. Covered exchanges can be found [here](../../market-data/all-exchanges.md).
 
-### Endpoints
+### API Endpoints
+
+Reported Spot Volume can be accessed using the following API Endpoints:
+
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
@@ -85,7 +88,10 @@ The sum of all volume from the spot markets of a set of trusted exchanges in uni
 | Trusted Spot Volume         | volume\_trusted\_spot\_usd\_1d | Volume   | Spot        | Sum  | USD  | 1d       |
 | Trusted Spot Volume, 1 Hour | volume\_trusted\_spot\_usd\_1h | Volume   | Spot        | Sum  | USD  | 1h       |
 
-### Endpoints
+### API Endpoints
+
+Trusted Spot Volume can be accessed using the following endpoints:
+
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
