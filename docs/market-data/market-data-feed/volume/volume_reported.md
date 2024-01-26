@@ -8,7 +8,7 @@ The reported volume aggregated across all exchanges in CM's coverage universe. T
 * [Future Coin-Margined](#coin_margined)
 * [Tether Coin-Margined](#tether_margined)
 
-### API Endpoints
+## API Endpoints
 
 All reported volume metrics can be queried using the endpoints below and passing in the `metrics` parameter.
 
@@ -29,7 +29,7 @@ All reported volume metrics can be queried using the endpoints below and passing
 
 ## Reported Spot Volume <a name="spot"></a>
 
-## Definition
+### Definition
 
 The sum of all reported volume from the spot markets in Coin Metrics' coverage in units of U.S. dollars.
 
@@ -247,6 +247,6 @@ Our reported Tether-margined future volume metric is an aggregation of the repor
 * [Reported Non-Perpetual Future Volume](volume\_reported\_future\_nonperpetual\_usd\_1d.md)
 * [Reported Perpetual Future Volume](volume\_reported\_future\_perpetual\_usd\_1d.md)
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/volume_reported_future_tether_margined_usd_1d" %}
