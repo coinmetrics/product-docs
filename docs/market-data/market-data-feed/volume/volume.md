@@ -10,6 +10,6 @@ Coin Metrics calculates several volume metrics for the assets in our coverage un
 [volume_trusted.md](volume_trusted.md)
 {% endcontent-ref %}
 
-{% content-ref url="volume_reported_spot_usd_1d.md" %}
-[volume_reported_spot_usd_1d.md](volume_reported_spot_usd_1d.md)
+{% content-ref url="volume_reported.md" %}
+[volume_reported.md](volume_reported.md)
 {% endcontent-ref %}
