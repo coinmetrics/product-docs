@@ -1,11 +1,12 @@
 # Reported Volume
 The reported volume aggregated across all exchanges in CM's coverage universe. This metric does not use the [Trusted Exchange Framework](https://coinmetrics.io/special-insights/trusted-exchange-framework) to filter for the most accurate and trustworthy crypto exchanges. See [Trusted Volume]("volume\_trusted.md")
 
-[Spot Volume](#spot)
-[Perpetual Future](#future_perpetual)
-[Nonperpetual Future](#future_nonperpetual)
-[Future Coin-Margined](#coin_margined)
-[Tether Coin-Margined](#tether_margined)
+**Contents**
+* [Spot Volume](#spot)
+* [Perpetual Future](#future_perpetual)
+* [Nonperpetual Future](#future_nonperpetual)
+* [Future Coin-Margined](#coin_margined)
+* [Tether Coin-Margined](#tether_margined)
 
 ## Reported Spot Volume <a name="spot"></a>
 
