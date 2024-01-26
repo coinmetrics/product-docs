@@ -18,12 +18,22 @@
   * [R Client](access-our-data/r-client.md)
   * [Flat Files (Labs)](access-our-data/flat-files-labs.md)
   * [User Interfaces](access-our-data/user-interfaces.md)
+* [Charting Tools](charting-tools/README.md)
+  * [Charting Tool](charting-tools/data-visualization/charting-tool/README.md)
+    * [Embedded Charts](charting-tools/data-visualization/charting-tool/embeded-charts.md)
+  * [Formula Builder](charting-tools/formula-builder.md)
+  * [Correlation Tool](charting-tools/correlation-tool.md)
+  * [Troubleshooting](charting-tools/trouble-shooting.md)
+  * [Dashboard](charting-tools/dashboard/README.md)
+    * [Troubleshooting](charting-tools/dashboard/troubleshooting.md)
+  * [Pro Charts](charting-tools/cmpro/README.md)
+    * [Troubleshooting](charting-tools/cmpro/troubleshooting.md)
 * [CM Labs](cm-labs.md)
 * [Status Page](status-page.md)
 
-## State of the Network
+<!-- ## State of the Network
 
-* [A Visualization of Trades](state-of-the-network/19-05-29\_a\_visualization\_of\_trades\_on\_may\_17-\_2019\_-day\_of\_steep\_decline.md)
+* [A Visualization of Trades](state-of-the-network/19-05-29\_a\_visualization\_of\_trades\_on\_may\_17-\_2019\_-day\_of\_steep\_decline.md) -->
 
 ## On-Chain Data
 
@@ -621,7 +631,7 @@
 * [On-Chain Glossary](on-chain-data/on-chain-basics.md)
 * [On-Chain Exchange Coverage](on-chain-data/on-chain-exchange-coverage.md)
 * [Network Data FAQs](on-chain-data/asset-metrics-faqs.md)
-* [Labs](on-chain-data/labs/cm-labs.md)
+* [CM Labs](on-chain-data/labs/cm-labs.md)
   * [Mining Pool Monitor Overview](on-chain-data/labs/mining-pool-monitor-time-series/mining-pool-monitor-overview.md)
   * [Mining Pool Monitor API Fields](on-chain-data/labs/mining-pool-monitor-time-series/mining-pool-monitor-api-fields.md)
   * [Reorg & Fork Tracker Overview](on-chain-data/labs/reorg-and-fork-tracker-time-series/reorg-and-fork-tracker-overview.md)
@@ -738,15 +748,27 @@
   * [Coin Metrics Prices Policies](market-data/methodologies/coin-metrics-prices-policies.md)
   * [Coin Metrics Prices Methodology](market-data/methodologies/coin-metrics-prices-methodology.md)
   * [Trusted Exchange Framework](market-data/methodologies/trusted-exchange-framework.md)
+* [Institution Metrics](market-data/institution-metrics/institution-metrics-overview.md))
+  * [Grayscale](market-data/institution-metrics/grayscale/README.md)
+    * [Shares Outstanding](market-data/institution-metrics/grayscale/shares-outstanding.md)
+    * [Market Price](market-data/institution-metrics/grayscale/market-price.md)
+    * [Net Asset Value](market-data/institution-metrics/grayscale/net-asset-value.md)
+    * [Coin Per Share](market-data/institution-metrics/grayscale/coin-per-share.md)
+    * [Total Assets](market-data/institution-metrics/grayscale/total-assets.md)
+* [FAQs](market-data/faqs)
+  * [Market Data FAQs](market-data/faqs/market-data-faqs.md)
+  * [CM Prices FAQs](market-data/faqs/cm-prices-faqs.md)
+  * [Trusted Exchange Framework FAQs](market-data/faqs/trusted-exchange-framework-faqs.md)
 * [Market Data Exchange Coverage](market-data/all-exchanges.md)
-* [Market Data FAQs](market-data/market-data-faqs.md)
-* [CM Prices FAQs](market-data/cm-prices-faqs.md)
-* [Trusted Exchange Framework FAQs](market-data/trusted-exchange-framework-faqs.md)
 
 ## Index Data
 
 * [Index Overview](index-data/index.md)
-* [Policies & Charters](index-data/policies-and-charters/README.md)
+  * [Index Timeseries](index-data/indexes-timeseries)
+    * [Index Levels](index-data/indexes-timeseries/index-levels.md)
+    * [Index Candles](index-data/indexes-timeseries/index-candles.md)
+    * [Index Constituents](index-data/indexes-timeseries/index-constituents.md)
+  * [Policies & Charters](index-data/policies-and-charters/README.md)
   * [CMBI Index Policies](index-data/policies-and-charters/cmbi-index-policies.md)
   * [Governance Committees](index-data/policies-and-charters/governance-committees.md)
 * [Methodologies](index-data/coin-metrics-bletchley-indexes-cmbi/README.md)
@@ -769,33 +791,3 @@
   * [Markets](reference-data/security-master/markets.md)
 * [Methodologies](reference-data/methodologies/README.md)
   * [Guiding Principles and Methodology for datonomy](reference-data/methodologies/guiding-principles-and-methodology-for-datonomy.md)
-
-
-## Institution Metrics (Time Series) <a href="#institution-metrics" id="institution-metrics"></a>
-
-* [Institution Metrics Overview](institution-metrics/institution-metrics-overview.md)
-* [Grayscale](institution-metrics/grayscale/README.md)
-  * [Shares Outstanding](institution-metrics/grayscale/shares-outstanding.md)
-  * [Market Price](institution-metrics/grayscale/market-price.md)
-  * [Net Asset Value](institution-metrics/grayscale/net-asset-value.md)
-  * [Coin Per Share](institution-metrics/grayscale/coin-per-share.md)
-  * [Total Assets](institution-metrics/grayscale/total-assets.md)
-
-## Indexes (Timeseries)
-
-* [Index Levels](indexes-timeseries/index-levels.md)
-* [Index Candles](indexes-timeseries/index-candles.md)
-* [Index Constituents](indexes-timeseries/index-constituents.md)
-
-## Charting Tools
-
-* [Data Visualization](charting-tools/data-visualization/README.md)
-  * [Charting Tool](charting-tools/data-visualization/charting-tool/README.md)
-    * [Embedded Charts](charting-tools/data-visualization/charting-tool/embeded-charts.md)
-  * [Formula Builder](charting-tools/data-visualization/formula-builder.md)
-  * [Correlation Tool](charting-tools/data-visualization/correlation-tool.md)
-  * [Troubleshooting](charting-tools/data-visualization/trouble-shooting.md)
-* [Dashboard](charting-tools/dashboard/README.md)
-  * [Troubleshooting](charting-tools/dashboard/troubleshooting.md)
-* [Pro Charts](charting-tools/cmpro/README.md)
-  * [Troubleshooting](charting-tools/cmpro/troubleshooting.md)
