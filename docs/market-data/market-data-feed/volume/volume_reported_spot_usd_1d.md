@@ -13,6 +13,26 @@ The sum of all reported volume from the spot markets in Coin Metrics' coverage i
 
 Our reported volume metric is an aggregation of the reported volume from all exchanges in CM's coverage universe. Covered exchanges can be found [here](../../market-data/all-exchanges.md).
 
+## API Endpoints
+
+Reported Spot Volume can be accessed using the following API Endpoints:
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+
+
 ## Chart
 
 ![Spot volume and futures volume](../../.gitbook/assets/Coin\_Metrics\_Network\_Data\_2021-08-26T18-41.png)
