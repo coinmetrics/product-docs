@@ -4,28 +4,13 @@ The reported volume aggregated across all exchanges in CM's coverage universe. T
 **Contents**
 * [Spot Volume](#spot)
 * [Perpetual Future](#future_perpetual)
-* [Nonperpetual Future](#future_nonperpetual)
+* [Non-Perpetual Future](#future_nonperpetual)
 * [Future Coin-Margined](#coin_margined)
 * [Tether Coin-Margined](#tether_margined)
 
-## Reported Spot Volume <a name="spot"></a>
-
-## Definition
-
-The sum of all reported volume from the spot markets in Coin Metrics' coverage in units of U.S. dollars.
-
-| Name                         | MetricID                        | Category | Subcategory | Type | Unit | Interval |
-| ---------------------------- | ------------------------------- | -------- | ----------- | ---- | ---- | -------- |
-| Reported Spot Volume         | volume\_reported\_spot\_usd\_1d | Volume   | Spot        | Sum  | USD  | 1d       |
-| Reported Spot Volume, 1 Hour | volume\_reported\_spot\_usd\_1h | Volume   | Spot        | Sum  | USD  | 1h       |
-
-### Details
-
-Our reported volume metric is an aggregation of the reported volume from all exchanges in CM's coverage universe. Covered exchanges can be found [here](../../market-data/all-exchanges.md).
-
 ### API Endpoints
 
-Reported Spot Volume can be accessed using the following API Endpoints:
+All reported volume metrics can be queried using the endpoints below and passing in the `metrics` parameter.
 
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
@@ -41,6 +26,21 @@ Reported Spot Volume can be accessed using the following API Endpoints:
 
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+
+## Reported Spot Volume <a name="spot"></a>
+
+## Definition
+
+The sum of all reported volume from the spot markets in Coin Metrics' coverage in units of U.S. dollars.
+
+| Name                         | MetricID                        | Category | Subcategory | Type | Unit | Interval |
+| ---------------------------- | ------------------------------- | -------- | ----------- | ---- | ---- | -------- |
+| Reported Spot Volume         | volume\_reported\_spot\_usd\_1d | Volume   | Spot        | Sum  | USD  | 1d       |
+| Reported Spot Volume, 1 Hour | volume\_reported\_spot\_usd\_1h | Volume   | Spot        | Sum  | USD  | 1h       |
+
+### Details
+
+Our reported volume metric is an aggregation of the reported volume from all exchanges in CM's coverage universe. Covered exchanges can be found [here](../../market-data/all-exchanges.md).
 
 
 ### Chart
