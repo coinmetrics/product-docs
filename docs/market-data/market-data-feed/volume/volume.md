@@ -90,7 +90,7 @@ The sum of all volume from the spot markets of a set of trusted exchanges in uni
 
 ### API Endpoints
 
-Trusted Spot Volume can be accessed using the following endpoints:
+Trusted Spot Volume can be accessed using the following endpoints by passing `volume_trusted_spot_usd_1d` or `volume_trusted_spot_usd_1h` into the `metrics` parameter.
 
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
