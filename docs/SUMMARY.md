@@ -726,7 +726,7 @@
     * [Reference Rate (ETH)](market-data/market-data-feed/prices/referencerateeth-1.md)
     * [Principal Market Price (USD)](market-data/market-data-feed/prices/principal\_market\_price\_usd.md)
     * [Principal Market (USD)](market-data/market-data-feed/prices/principal\_market\_usd.md)
-  * [Quotes](market-data/market-data-feed/quotes)
+  * [Quotes](market-data/market-data-feed/quotes/quotes.md)
     * [Asset Quotes](market-data/market-data-feed/quotes/asset-quotes.md)
     * [Pair Quotes](market-data/market-data-feed/quotes/pair-quotes.md)
     * [Market Quotes](market-data/market-data-feed/quotes/market-quotes.md)

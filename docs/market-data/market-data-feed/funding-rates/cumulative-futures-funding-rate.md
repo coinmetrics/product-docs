@@ -42,6 +42,18 @@ $$
 
 where $$AFR_{i}$$ is the Aggregate Funding Rate at timestamp $$i$$. The increments $$i$$ are hourly, as $$AFR$$ is published hourly. Thus, `futures_cumulative_funding_rate_usd_margin_1d`is the accumulation of funding rates over the last 24 hours,  `futures_cumulative_funding_rate_usd_margin_7d` is the accumulation of funding rates over the last 168 hours, etc.&#x20;
 
+## **API Endpoints**
+
+Cumulative Futures Funding Rates can be accessed using the `timeseries/asset-metrics` and `timeseries/exchange-asset-metrics` endpoints by passing in `futures_cumulative_funding_rate_usd_margin_*` to the `metrics` parameter. 
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
 ## Example
 
 ```

@@ -2,14 +2,6 @@
 
 The basis is the annualized percent difference between the price of a theoretical futures contract and the price of its underlying spot market. Coin Metrics calculates this for several exchange-assets such as`binance-btc` and `ftx-eth`. We calculate four basis metrics at defined days to expiration.&#x20;
 
-## API Endpoints
-
-Basis data can be accessed using the `timeseries/exchange-asset-metrics` endpoint.
-
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
-
 <!-- {% content-ref url="annualized-futures-basis-30-day-expiration.md" %}
 [annualized-futures-basis-30-day-expiration.md](annualized-futures-basis-30-day-expiration.md)
 {% endcontent-ref %}
@@ -57,6 +49,14 @@ Using this forward yield, we then calculate the target date’s basis by multipl
 We currently calculate these metrics for the following exchange-asset combinations:
 
 okex-btc, okex-eth, kraken-eth, huobi-eth, kraken-btc, huobi-btc, ftx-eth, deribit-eth, ftx-btc, deribit-btc, cme-btc, cme-eth, bitmex-btc, binance-btc, binance-eth
+
+## API Endpoints
+
+Basis data can be accessed using the `timeseries/exchange-asset-metrics` endpoint.
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
 
 
 

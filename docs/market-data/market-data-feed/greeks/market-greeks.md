@@ -22,8 +22,8 @@ Exchanges report the following greeks:
 
 Market Greeks can be accessed using the `timeseries/market-greeks` endpoint.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/market-greeks" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/market-greeks" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 
