@@ -22,6 +22,19 @@ Futures markets have several fields that describe the futures market's contract 
 
 Options markets also trade in standardized contracts similar to futures markets described above. Options markets have several fields that are specific to options such as the strike price and whether the option is an European or American style option.
 
+## **API Endpoints**
+
+Market Metadata can be accessed using the `reference-data/markets` and `catalog/markets` endpoint.
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/reference-data/markets" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/catalog/markets" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+
 ## **Example**
 
 A sample of the futures and options contract specification data from our [`/catalog/markets`](https://docs.coinmetrics.io/api/v4#operation/getCatalogMarkets) and [`/catalog-all/markets`](https://docs.coinmetrics.io/api/v4#operation/getCatalogAllMarkets) API endpoints is shown below.&#x20;

@@ -15,6 +15,14 @@ Exchanges report the following contract prices:
 * Mark price: The estimated 'fair value' of a derivatives contract. Usually, this is the average of the best bid and best ask price. However, for risk management purposes, exchanges often set additional limits on price bandwidth.&#x20;
 * Index price: The price of the contract's underlying index, typically calculated using the current value of a corresponding perpetual futures contract.
 
+## **API Endpoints**
+
+Market contract prices can be accessed using the `timeseries/market-contract-prices` endpoint. 
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-contract-prices" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
 ## **Example**
 
 A sample of contract price data from our [`/timeseries/market-contract-prices`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketContractPrices) API endpoint is shown below for the `deribit-ETH-25MAR22-1200-P-option` market.

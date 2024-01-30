@@ -14,6 +14,15 @@ Market participants can submit a buy order or sell order that indicate the amoun
 
 Coin Metrics collects trades data from **spot**, **future**, and **option** markets from exchanges that are listed on our exchange coverage universe.
 
+## **API Endpoints**
+
+Market trades can be accessed using the `timeseries/market-trades` endpoint. 
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-trades" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+
 ## **Example**
 
 A sample of the trades data from the `coinbase-btc-usd-spot` market from our [`/timeseries/market-trades`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketTrades) API endpoint is provided below.

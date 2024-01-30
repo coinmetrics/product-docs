@@ -18,6 +18,15 @@ Exchanges report the following greeks:
 * Delta: The first derivative of the option’s price to the underlying asset’s price.
 * Gamma: The second derivative of the option’s price to the underlying asset’s price.
 
+## **API Endpoints**
+
+Market Greeks can be accessed using the `timeseries/market-greeks` endpoint.
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/market-greeks" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+
 ## Chart
 
 <figure><img src="../.gitbook/assets/ATM-Option-Chain.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>

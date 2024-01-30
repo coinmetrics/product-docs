@@ -2,7 +2,15 @@
 
 The basis is the annualized percent difference between the price of a theoretical futures contract and the price of its underlying spot market. Coin Metrics calculates this for several exchange-assets such as`binance-btc` and `ftx-eth`. We calculate four basis metrics at defined days to expiration.&#x20;
 
-{% content-ref url="annualized-futures-basis-30-day-expiration.md" %}
+## API Endpoints
+
+Basis data can be accessed using the `timeseries/exchange-asset-metrics` endpoint.
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+<!-- {% content-ref url="annualized-futures-basis-30-day-expiration.md" %}
 [annualized-futures-basis-30-day-expiration.md](annualized-futures-basis-30-day-expiration.md)
 {% endcontent-ref %}
 
@@ -16,17 +24,25 @@ The basis is the annualized percent difference between the price of a theoretica
 
 {% content-ref url="annualized-futures-basis-120-day-expiration.md" %}
 [annualized-futures-basis-120-day-expiration.md](annualized-futures-basis-120-day-expiration.md)
-{% endcontent-ref %}
+{% endcontent-ref %} -->
 
 
 
-**Definition**
+## Definition
 
 The annualized basis metrics measure the difference between the spot price and a futures price for a contract with given time to expiration. This difference is calculated as a percentage of the underlying spot price which we use our reference rates to define, and annualized by the time to expiration.
 
 &#x20;                                                 ![](https://lh6.googleusercontent.com/2Fesg0p\_Vl2StetkInrhLY3Wh5DWV9PuYXvsqa0qW78Y2kPsYaig5iY2qNY3Y4KsbGREGkqYelqOX91uhbGSzBcZYT0Ou1D1KCr7mjNgxcXxtl3z\_V1w3yzYeFk5wZXR1sAuLnAc)
 
-**Methodology**
+| Name                        | MetricID                       | Category | Subcategory | Type | Unit | Interval |
+| --------------------------- | ------------------------------ | -------- | ----------- | ---- | ---- | -------- |
+| Annualized Futures Basis, 30 day expiration         | [basis_annualized_30d_exp](https://coverage.coinmetrics.io/exchange-asset-metrics/basis_annualized_30d_exp) | Basis   | Futures        | Difference  | USD  | 1d, 1h       |
+| Annualized Futures Basis, 60 day expiration | [basis_annualized_60d_exp](https://coverage.coinmetrics.io/exchange-asset-metrics/basis_annualized_60d_exp) | Basis   | Futures        | Difference  | USD  | 1d, 1h       |
+| Annualized Futures Basis, 90 day expiration         | [basis_annualized_90d_exp](https://coverage.coinmetrics.io/exchange-asset-metrics/basis_annualized_90d_exp) | Basis   | Futures        | Difference  | USD  | 1d, 1h       |
+| Annualized Futures Basis, 120 day expiration | [basis_annualized_120d_exp](https://coverage.coinmetrics.io/exchange-asset-metrics/basis_annualized_30d_exp) | Basis   | Futures        | Difference  | USD  | 1d, 1h       |
+
+
+## Methodology
 
 We offer this calculation for various exchanges and assets in 30, 60, 90, and 120 day durations. The available contracts for an exchange and asset rarely ever align with the duration necessary and instead the target duration is calculated with a time adjusted weighting between the two contracts surrounding the target expiration. The target expiration is the time of the datapoint, t0, plus the indicated duration. For example if today was 2021-09-15 and we were creating a 30 day calculation then the target expiration would be 2021-10-15. In the case that the only futures contracts available for the asset and exchange combination were those with expirations on the last Friday of the month, we would use the contracts expiring on 2021-09-24 and 2021-10-29 as our two reference points. Please note that we currently utilized only quarterly contracts with expirations in March.
 

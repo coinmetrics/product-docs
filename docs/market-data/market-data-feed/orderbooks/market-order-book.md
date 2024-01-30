@@ -16,6 +16,14 @@ Coin Metrics stores three types of order book snapshots. One type consists of a 
 
 Coin Metrics also serves order book snapshots and updates for the top 100 bids and 100 asks for major markets through our websocket API endpoint [`/timeseries-stream/market-orderbooks`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesStreamMarketOrderbooks). The first message that the client receives is an order book snapshot. All subsequent messages are updates to the order book. This allows a user to maintain the current state of the order book at all times by storing the order book state locally and applying updates to it. &#x20;
 
+## **API Endpoints**
+
+Market trades can be accessed using the `timeseries/market-orderbooks` endpoint. 
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-orderbooks" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
 ## **Chart**
 
 <figure><img src="../.gitbook/assets/Binance-Orderbook-Depth.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>

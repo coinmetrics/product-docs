@@ -685,14 +685,14 @@
 ## Market Data
 
 * [Market Data Overview](market-data/market-data-overview.md)
-  * [Basis](market-data/market-data-feed/basis/README.md)
-    * [Annualized Futures Basis, 30 day expiration](market-data/market-data-feed/basis/annualized-futures-basis-30-day-expiration.md)
+  * [Basis](market-data/market-data-feed/basis/basis.md)
+    <!-- * [Annualized Futures Basis, 30 day expiration](market-data/market-data-feed/basis/annualized-futures-basis-30-day-expiration.md)
     * [Annualized Futures Basis, 60 day expiration](market-data/market-data-feed/basis/annualized-futures-basis-60-day-expiration.md)
     * [Annualized Futures Basis, 90 day expiration](market-data/market-data-feed/basis/annualized-futures-basis-90-day-expiration.md)
-    * [Annualized Futures Basis, 120 day expiration](market-data/market-data-feed/basis/annualized-futures-basis-120-day-expiration.md)
-  * [Candles](market-data/market-data-feed/candles)
-    * [Market Candles](market-data/market-data-feed/candles/market-candles.md)
-    * [Pair Candles](market-data/market-data-feed/candles/pair-candles.md)
+    * [Annualized Futures Basis, 120 day expiration](market-data/market-data-feed/basis/annualized-futures-basis-120-day-expiration.md) -->
+  * [Candles](market-data/market-data-feed/candles/candles.md)
+    <!-- * [Market Candles](market-data/market-data-feed/candles/market-candles.md)
+    * [Pair Candles](market-data/market-data-feed/candles/pair-candles.md) -->
   * [Contract Prices](market-data/market-data-feed/contract-prices/market-contract-prices.md)
   * [Funding Rates](market-data/market-data-feed/funding-rates/futures-funding-rates.md)
     * [Aggregated Futures Funding Rate](market-data/market-data-feed/funding-rates/aggregated-futures-funding-rate.md)

@@ -41,6 +41,18 @@ $$
 AFR_{x} =  \frac{\sum_{m \in X} OI_{m} FR_{m,8}}{\sum_{m \in X} OI_{m}}
 $$
 
+## **API Endpoints**
+
+Aggregate Futures Funding Rates can be accessed using the `timeseries/asset-metrics` and `timeseries/exchange-asset-metrics` endpoints by passing in `futures_aggregate_funding_rate_usd_margin_*` to the `metrics` parameter. 
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
 ## Example
 
 ```
