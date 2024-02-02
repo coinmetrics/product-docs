@@ -1,3 +1,5 @@
+<!-- slug = <product>/<category>/<sub-category> -->
+
 # <Name of Sub-Category>
 
 ## Definition
