@@ -39,11 +39,12 @@
 
 * [Network Data Overview](on-chain-data/network-data-overview.md)
   * [Addresses](on-chain-data/network-data-pro/addresses/README.md)
-    * [Active Addr Cnt](on-chain-data/network-data-pro/addresses/adractcnt.md)
+    * [Active](on-chain-data/network-data-pro/addresses/active.md)
+    <!-- * [Active Addr Cnt](on-chain-data/network-data-pro/addresses/adractcnt.md)
     * [Active Addr Cnt (Received)](on-chain-data/network-data-pro/addresses/adractreccnt.md)
     * [Active Addr Cnt (Sent)](on-chain-data/network-data-pro/addresses/adractsentcnt.md)
     * [Active Weekly Addr Cnt](on-chain-data/network-data-pro/addresses/adract7dcnt.md)
-    * [Active Monthly Addr Cnt](on-chain-data/network-data-pro/addresses/adract30dcnt.md)
+    * [Active Monthly Addr Cnt](on-chain-data/network-data-pro/addresses/adract30dcnt.md) -->
     * [New Addr Cnt](on-chain-data/network-data-pro/addresses/adrnewcnt.md)
     * [Addr Cnt with ≥ X% Supply](on-chain-data/network-data-pro/addresses/adrbal1inxcnt/README.md)
       * [Addr Cnt with ≥ .1% Supply](on-chain-data/network-data-pro/addresses/adrbal1inxcnt/adrbal1in1kcnt.md)
