@@ -6,20 +6,17 @@ The sum count of unique addresses or smart contract addresses that were active i
 
 
 | Name                        | MetricID                       | Category | Sub-Category | Type | Unit | Interval |
-| --------------------------- | ------------------------------ | -------- | ----------- | ---- | ---- | -------- |
-|  Active Monthly Addresses | [AdrAct30dCnt](https://coverage.coinmetrics.io/search-results?query=AdrAct30dCnt) |  Addresses | Active      |  Sum | Addresses  | 1 Day       |
-|  Active Weekly Addresses | [AdrAct7dCnt](https://coverage.coinmetrics.io/search-results?query=AdrAct7dCnt) |  Addresses | Active      |  Sum | Addresses  | 1 Day       |
-|  Active Daily Addresses | [AdrActCnt](https://coverage.coinmetrics.io/search-results?query=AdrActCnt) |  Addresses | Active      |  Sum | Addresses  | 1 Day       |
-| Active Addresses (Received) | [AdrActRecCnt](https://coverage.coinmetrics.io/search-results?query=AdrActRecCnt) | Addresses    | Activity         | Sum      | Addresses | 1 day, 1 hour |
-| Active Addresses (Sent) | [AdrActSentCnt](https://coverage.coinmetrics.io/search-results?query=AdrActSentCnt) | Addresses    | Activity         | Sum      | Addresses | 1 day, 1 hour |
-| Active Smart Contract Addr Cnt | [AdrActContCnt](https://coverage.coinmetrics.io/search-results?query=AdrActContCnt) | Addresses    | Active           | Sum      | Smart Contract Addresses | 1 day        |
-
-<!-- | Wallets, active, count | [WalActCnt](https://coverage.coinmetrics.io/search-results?query=WalActCnt)    | Wallets      | Activity         | Sum      | Wallets  | 1 day        |
-| Wallets, active, received, count | [WalActRecCnt](https://coverage.coinmetrics.io/search-results?query=WalActRecCnt) | Wallets      | Activity         | Sum      | Wallets  | 1 day        |
-| Wallets, active, sent, count | [WalActSentCnt](https://coverage.coinmetrics.io/search-results?query=WalActSentCnt) | Wallets      | Activity         | Sum      | Wallets  | 1 day        | -->
+| -------------------------------------- | ------------------------------ | ---------- | ----------- | ---- | ------ | -------- |
+|  [Active Monthly Addresses](#active) | [AdrAct30dCnt](https://coverage.coinmetrics.io/search-results?query=AdrAct30dCnt) |  Addresses | Active      |  Sum | Addresses  | 1 Day       |
+|  [Active Weekly Addresses](#active) | [AdrAct7dCnt](https://coverage.coinmetrics.io/search-results?query=AdrAct7dCnt) |  Addresses | Active      |  Sum | Addresses  | 1 Day       |
+|  [Active Daily Addresses](#active) | [AdrActCnt](https://coverage.coinmetrics.io/search-results?query=AdrActCnt) |  Addresses | Active      |  Sum | Addresses  | 1 Day       |
+| [Active Addresses (Received)](#received) | [AdrActRecCnt](https://coverage.coinmetrics.io/search-results?query=AdrActRecCnt) | Addresses    | Activity         | Sum      | Addresses | 1 day, 1 hour |
+| [Active Addresses (Sent)](#sent) | [AdrActSentCnt](https://coverage.coinmetrics.io/search-results?query=AdrActSentCnt) | Addresses    | Activity         | Sum      | Addresses | 1 day, 1 hour |
+| [Active Smart Contract Addr Cnt](#smart) | [AdrActContCnt](https://coverage.coinmetrics.io/search-results?query=AdrActContCnt) | Addresses    | Active           | Sum      | Smart Contract Addresses | 1 day        |
 
 
-### Active Monthly, Weekly, Daily Addresses
+
+### Active Monthly, Weekly, Daily Addresses  <a name="active"></a>
 
 #### Definition
 The sum count of unique addresses that were active in the network (either as a recipient or originator of a ledger change) in the trailing X days up to the end of that interval. All parties in a ledger change action (recipients and originators) are counted. Individual addresses are not double-counted if active several times in the considered interval.
@@ -27,7 +24,6 @@ The sum count of unique addresses that were active in the network (either as a r
 #### Details
 
 * Active addresses count the number of unique addresses that participated in a ledger change.
-<!-- * For this unadjusted version of the metric, all ledger changes are considered over the course of one month (30 days). -->
 * Ledger changes can include activities such as transacting, signing of blocks, claiming of mining or staking rewards, voting, creating accounts, and more dependent on whether the underlying protocol supports the activity (different protocols vary in the types of activities that are supported).
 * All participants of a ledger change activity are included.
 * If an address was active multiple times during the aggregation interval (e.g., 30 days), it is counted only once.
@@ -38,7 +34,7 @@ The sum count of unique addresses that were active in the network (either as a r
 
 * This metric is not available for assets that have full privacy, like Monero and Grin. For assets that have opt-in privacy features, like ZCash, it only takes the non-private activities into account.
 
-### Active Addresses (Sent)
+### Active Addresses (Sent)  <a name="sent"></a>
 
 #### Definition
 The sum count of unique addresses that were active in the network (as a recipient of a ledger change) that day.  Individual destination addresses are counted.  Individual addresses are not double-counted if previously active.&#x20;
@@ -70,7 +66,11 @@ In a given day:
 
 We would count as active senders: A, B, D and F. The value of the metric would therefore be: 4.
 
-### Active Addresses (Received)
+### Active Addresses (Received)  <a name="received"></a>
+
+#### **Definition**
+
+The sum count of unique addresses that were active in the network (as a recipient of a ledger change) that day.  Individual destination addresses are counted.  Individual addresses are not double-counted if previously active.&#x20;
 
 #### **Details**
 
@@ -101,7 +101,7 @@ In a given day:
 
 We would count as active recipients: A, C, D and E. The value of the metric would therefore be: 4.
 
-### Active Smart Contract Addresses
+### Active Smart Contract Addresses  <a name="smart"></a>
 
 #### Definition
 The sum count of unique smart contract addresses that were active in the network (either as a recipient or originator of a ledger change) that interval. All unique smart contracts involved in a ledger change action (recipients and originators) are counted. This metric does not double-count contracts. In other words, if a contract has been deemed active by being part of a ledger change, it is not counted again if is subsequently invoked during the same time interval.
