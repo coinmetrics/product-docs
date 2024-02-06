@@ -13,6 +13,7 @@ The sum count of unique addresses or smart contract addresses that were active i
 | Active Addresses (Received) | [AdrActRecCnt](https://coverage.coinmetrics.io/search-results?query=AdrActRecCnt) | Addresses    | Activity         | Sum      | Addresses | 1 day, 1 hour |
 | Active Addresses (Sent) | [AdrActSentCnt](https://coverage.coinmetrics.io/search-results?query=AdrActSentCnt) | Addresses    | Activity         | Sum      | Addresses | 1 day, 1 hour |
 | Active Smart Contract Addr Cnt | [AdrActContCnt](https://coverage.coinmetrics.io/search-results?query=AdrActContCnt) | Addresses    | Active           | Sum      | Smart Contract Addresses | 1 day        |
+
 <!-- | Wallets, active, count | [WalActCnt](https://coverage.coinmetrics.io/search-results?query=WalActCnt)    | Wallets      | Activity         | Sum      | Wallets  | 1 day        |
 | Wallets, active, received, count | [WalActRecCnt](https://coverage.coinmetrics.io/search-results?query=WalActRecCnt) | Wallets      | Activity         | Sum      | Wallets  | 1 day        |
 | Wallets, active, sent, count | [WalActSentCnt](https://coverage.coinmetrics.io/search-results?query=WalActSentCnt) | Wallets      | Activity         | Sum      | Wallets  | 1 day        | -->
@@ -120,8 +121,6 @@ The sum count of unique smart contract addresses that were active in the network
 
 Active Addresses can be accessed using these endpoints:
 * `timeseries/asset-metrics` 
-<!-- endpoint = path, e.g. `timeseries/asset-metrics -->
-<!-- add endpoints as needed -->
 and by passing in the `AdrAct30dCnt`, `AdrAct7dCnt`, etc. in the `metrics` parameter.
 
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="timeseries/asset-metrics" method="get" %}
@@ -157,25 +156,8 @@ print(
     ).to_dataframe()
 )
 ```
-
-<!-- required_parameters example: assets=btc -->
-<!-- required_parameters_python example: assets=['btc'] -->
-
-
-<!-- See https://gitlab.com/coinmetrics/data-delivery/api-client-python/-/blob/master/coinmetrics/api_client.py?ref_type=heads for mapping of python_api_client_method to API endpoint -->
 {% endtab %}
 {% endtabs %}
-
-<!-- ## Chart (optional) -->
-
-<!-- <link_to_charting_tool>
-![Caption of chart](link_to_charts.coinmetrics.io) -->
-<!-- embed interactive chart using charting tool, if possible -->
-
-<!-- ## Examples
-
-<list of examples> 
-could be redundant with examples in markdown? -->
 
 ## **Release History**
 
