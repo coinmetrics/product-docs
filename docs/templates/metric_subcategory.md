@@ -1,18 +1,17 @@
-<!-- slug = <product>/<category>/<sub-category> -->
+<!-- slug = <product>/<category>/<Active Addresses> -->
 
-# <Name of Sub-Category>
+# <Sub-Category>
 
 ## Definition
 
-<definition of metrics in sub-category>
 
 | Name                        | MetricID                       | Category | Subcategory | Type | Unit | Interval |
 | --------------------------- | ------------------------------ | -------- | ----------- | ---- | ---- | -------- |
-|  <metric_name> | [metric_id](https://coverage.coinmetrics.io/search-results?query=<metric_id>) |  <category> | <sub-category>      |  <type> | <unit>  | <interval>       |
+|  <metric_name> | [metric_id](https://coverage.coinmetrics.io/search-results?query=<metric_id>) |  <category> | <Active Addresses>      |  <type> | <unit>  | <interval>       |
 
 ## Details
 
-<additional context for metrics within sub-category>
+<additional context for metrics within suub-category>
 
 ## API Endpoints
 
@@ -70,10 +69,11 @@ print(
 {% endtab %}
 {% endtabs %}
 
-## Chart
+## Chart (optional)
 
 <link_to_charting_tool>
 ![Caption of chart](link_to_charts.coinmetrics.io)
+<!-- embed interactive chart using charting tool, if possible -->
 
 ## Examples
 
