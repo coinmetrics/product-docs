@@ -700,10 +700,10 @@
     * [Cumulative Futures Funding Rate](market-data/funding-rates/cumulative-futures-funding-rate.md)
   * [Greeks](market-data/greeks/market-greeks.md)
   * [Liquidations](market-data/liquidations/futures-liquidations.md)
-    * [Liquidation Buy Orders (USD)](market-data/liquidations/liquidations\_reported\_future\_buy\_usd.md)
+    <!-- * [Liquidation Buy Orders (USD)](market-data/liquidations/liquidations\_reported\_future\_buy\_usd.md)
     * [Liquidation Buy Orders (Units)](market-data/liquidations/liquidations\_reported\_future\_buy\_units.md)
     * [Liquidation Sell Orders (USD)](market-data/liquidations/liquidations\_reported\_future\_sell\_usd.md)
-    * [Liquidation Sell Orders (Units)](market-data/liquidations/liquidations\_reported\_future\_sell\_units.md)
+    * [Liquidation Sell Orders (Units)](market-data/liquidations/liquidations\_reported\_future\_sell\_units.md) -->
   * [Liquidity](market-data/liquidity/README.md)
     * [Bid-Ask Spread Percent](market-data/liquidity/liquidity\_bid\_ask\_spread\_percent.md)
     * [Liquidity Depth Bid Volume (USD)](market-data/liquidity/liquidity\_depth\_percent\_bid\_volume\_usd.md)

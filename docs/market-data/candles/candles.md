@@ -18,12 +18,12 @@ Coin Metrics calculates candles for **spot** and **future** markets from exchang
 
 Candles can be accessed using the `timeseries/market-candles` or `timeseries/pair-candles` endpoint.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-candles" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-candles" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-candles" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-candles" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 ### Example

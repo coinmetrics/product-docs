@@ -8,6 +8,23 @@ description: /timeseries/market-liquidations
 
 Exchanges which offer futures markets utilize a risk management system that will attempt to close a user’s position before the point at which the user begins to owe more than what is in the user's account. The trade or order that closes the user's position is referred to as a liquidation.&#x20;
 
+The reported liquidation metrics are a sum of all reported volume in native units or U.S. Dollars of buy or sell orders that were used to close short positions under liquidation for a specific market in our coverage universe.
+
+| Name                                            | MetricID                                       | Category     | Subcategory | Type | Unit         | Interval |
+| ----------------------------------------------- | ---------------------------------------------- | ------------ | ----------- | ---- | ------------ | -------- |
+| Reported Liquidation Buy Orders (Units), 5 Min  | [liquidations\_reported\_future\_buy\_units\_5m](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_buy\_units\_5m) | Liquidations | Futures     | Sum  | Native Units | 5m       |
+| Reported Liquidation Buy Orders (Units), 1 Hour | [liquidations\_reported\_future\_buy\_units\_1h](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_buy\_units\_1h) | Liquidations | Futures     | Sum  | Native Units | 1h       |
+| Reported Liquidation Buy Orders (Units), 1 Day  | [liquidations\_reported\_future\_buy\_units\_1d](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_buy\_units\_1d) | Liquidations | Futures     | Sum  | Native Units | 1d       |
+| Reported Liquidation Buy Orders (USD), 5 Min  | [liquidations\_reported\_future\_buy\_usd\_5m](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_buy\_usd\_5m) | Liquidations | Futures     | Sum  | USD  | 5m       |
+| Reported Liquidation Buy Orders (USD), 1 Hour | [liquidations\_reported\_future\_buy\_usd\_1h](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_buy\_usd\_1h) | Liquidations | Futures     | Sum  | USD  | 1h       |
+| Reported Liquidation Buy Orders (USD), 1 Day  | [liquidations\_reported\_future\_buy\_usd\_1d](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_buy\_usd\_1d) | Liquidations | Futures     | Sum  | USD  | 1d       |
+| Reported Liquidation Sell Orders (Units), 5 Min  | [liquidations\_reported\_future\_sell\_units\_5m](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_sell\_units\_5m) | Liquidations | Futures     | Sum  | Native Units | 5m       |
+| Reported Liquidation Sell Orders (Units), 1 Hour | [liquidations\_reported\_future\_sell\_units\_1h](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_sell\_units\_1h) | Liquidations | Futures     | Sum  | Native Units | 1h       |
+| Reported Liquidation Sell Orders (Units), 1 Day  | [liquidations\_reported\_future\_sell\_units\_1d](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_sell\_units\_1d) | Liquidations | Futures     | Sum  | Native Units | 1d       |
+| Reported Liquidation Sell Orders (USD), 5 Min  | [liquidations\_reported\_future\_sell\_usd\_5m](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_sell\_usd\_5m) | Liquidations | Futures     | Sum  | USD  | 5m       |
+| Reported Liquidation Sell Orders (USD), 1 Hour | [liquidations\_reported\_future\_sell\_usd\_1h](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_sell\_usd\_1h) | Liquidations | Futures     | Sum  | USD  | 1h       |
+| Reported Liquidation Sell Orders (USD), 1 Day  | [liquidations\_reported\_future\_sell\_usd\_1d](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_sell\_usd\_1d) | Liquidations | Futures     | Sum  | USD  | 1d       |
+
 ## **Details**
 
 Futures contracts enable market participants to trade with leverage – that is, market participants are allowed to have a position with notional value greater than the amount of money they have in their account. This raises the possibility that market participants can lose more money than have in their account. To address this possibility, exchanges which offer futures products have a liquidation system that will attempt to close a market participant’s position before the point at which the market participant begins to owe more than what is in their account.&#x20;
