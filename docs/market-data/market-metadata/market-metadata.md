@@ -26,12 +26,12 @@ Options markets also trade in standardized contracts similar to futures markets 
 
 Market Metadata can be accessed using the `reference-data/markets` and `catalog/markets` endpoint.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/reference-data/markets" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/reference-data/markets" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/catalog/markets" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/catalog/markets" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 
