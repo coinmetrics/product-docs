@@ -30,9 +30,18 @@ The volatility calculated from this equation is the implied volatility, or in ot
 
 Trading in options markets is sparse and usually distributed over several hundred active options contracts. Since trades for a particular option contract can occur infrequently, the bid, ask, last and mark price of a particular option contract can vary significantly. To the extent possible, Coin Metrics reports the implied volatility derived from each of the various prices.&#x20;
 
+## API Endpoints
+Implied Volatility can be accessed using these endpoints:
+* `/timeseries/market-implied-volatility`
+
+
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-implied-volatility" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
 ## Chart
 
-<figure><img src="../.gitbook/assets/BTC-ImpliedVol-Chart.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/BTC-ImpliedVol-Chart.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>
 
 ## **Example**
 
