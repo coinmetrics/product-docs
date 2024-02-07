@@ -2,7 +2,7 @@
 
 Coin Metrics calculates several aggregated liquidity metrics for the markets in our coverage universe.&#x20;
 
-{% content-ref url="liquidity_bid_ask_spread_percent.md" %}
+<!-- {% content-ref url="liquidity_bid_ask_spread_percent.md" %}
 [liquidity\_bid\_ask\_spread\_percent.md](liquidity\_bid\_ask\_spread\_percent.md)
 {% endcontent-ref %}
 
@@ -28,4 +28,4 @@ Coin Metrics calculates several aggregated liquidity metrics for the markets in 
 
 {% content-ref url="liquidity_slippage_ask_percent.md" %}
 [liquidity\_slippage\_ask\_percent.md](liquidity\_slippage\_ask\_percent.md)
-{% endcontent-ref %}
+{% endcontent-ref %} -->
