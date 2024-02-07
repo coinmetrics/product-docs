@@ -3,15 +3,17 @@
 # <Sub-Category>
 
 ## Definition
-
+<Definition>
 
 | Name                        | MetricID                       | Category | Subcategory | Type | Unit | Interval |
 | --------------------------- | ------------------------------ | -------- | ----------- | ---- | ---- | -------- |
-|  <metric_name> | [metric_id](https://coverage.coinmetrics.io/search-results?query=<metric_id>) |  <category> | <Active Addresses>      |  <type> | <unit>  | <interval>       |
+|  [metric_name](#metric_name) | [metric_id](https://coverage.coinmetrics.io/search-results?query=<metric_id>) |  <category> | <Active Addresses>      |  <type> | <unit>  | <interval>       |
 
 ## Details
 
-<additional context for metrics within suub-category>
+<additional context for metrics within sub-category>
+
+### metric_name <a href="metric_name"></a>
 
 ## API Endpoints
 

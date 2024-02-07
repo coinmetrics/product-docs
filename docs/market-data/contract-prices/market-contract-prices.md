@@ -19,8 +19,8 @@ Exchanges report the following contract prices:
 
 Market contract prices can be accessed using the `timeseries/market-contract-prices` endpoint. 
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-contract-prices" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-contract-prices" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 ## **Example**

@@ -22,14 +22,14 @@ Exchanges report the following greeks:
 
 Market Greeks can be accessed using the `timeseries/market-greeks` endpoint.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="timeseries/market-greeks" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="timeseries/market-greeks" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 
 ## Chart
 
-<figure><img src="../.gitbook/assets/ATM-Option-Chain.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ATM-Option-Chain.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>
 
 ## **Example**
 

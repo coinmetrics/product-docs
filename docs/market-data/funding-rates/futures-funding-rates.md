@@ -18,7 +18,7 @@ While the formula for how the funding rate is calculated varies by exchange, the
 
 ## **Chart**
 
-<figure><img src="../.gitbook/assets/BTC-FundingRates.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/BTC-FundingRates.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>
 
 ## **Example**
 

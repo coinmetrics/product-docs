@@ -14,8 +14,6 @@ The sum count of unique addresses or smart contract addresses that were active i
 | [Active Addresses (Sent)](#sent) | [AdrActSentCnt](https://coverage.coinmetrics.io/search-results?query=AdrActSentCnt) | Addresses    | Activity         | Sum      | Addresses | 1 day, 1 hour |
 | [Active Smart Contract Addr Cnt](#smart) | [AdrActContCnt](https://coverage.coinmetrics.io/search-results?query=AdrActContCnt) | Addresses    | Active           | Sum      | Smart Contract Addresses | 1 day        |
 
-
-
 ### Active Monthly, Weekly, Daily Addresses  <a name="active"></a>
 
 #### Definition
@@ -123,8 +121,8 @@ Active Addresses can be accessed using these endpoints:
 * `timeseries/asset-metrics` 
 and by passing in the `AdrAct30dCnt`, `AdrAct7dCnt`, etc. in the `metrics` parameter.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

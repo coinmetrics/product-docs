@@ -1,24 +1,6 @@
 # Basis
 
-The basis is the annualized percent difference between the price of a theoretical futures contract and the price of its underlying spot market. Coin Metrics calculates this for several exchange-assets such as`binance-btc` and `ftx-eth`. We calculate four basis metrics at defined days to expiration.&#x20;
-
-<!-- {% content-ref url="annualized-futures-basis-30-day-expiration.md" %}
-[annualized-futures-basis-30-day-expiration.md](annualized-futures-basis-30-day-expiration.md)
-{% endcontent-ref %}
-
-{% content-ref url="annualized-futures-basis-60-day-expiration.md" %}
-[annualized-futures-basis-60-day-expiration.md](annualized-futures-basis-60-day-expiration.md)
-{% endcontent-ref %}
-
-{% content-ref url="annualized-futures-basis-90-day-expiration.md" %}
-[annualized-futures-basis-90-day-expiration.md](annualized-futures-basis-90-day-expiration.md)
-{% endcontent-ref %}
-
-{% content-ref url="annualized-futures-basis-120-day-expiration.md" %}
-[annualized-futures-basis-120-day-expiration.md](annualized-futures-basis-120-day-expiration.md)
-{% endcontent-ref %} -->
-
-
+The basis is the annualized percent difference between the price of a theoretical futures contract and the price of its underlying spot market. Coin Metrics calculates this for several exchange-assets such as `binance-btc` and `ftx-eth`. We calculate four basis metrics at defined days to expiration.&#x20;
 
 ## Definition
 
@@ -26,8 +8,8 @@ The annualized basis metrics measure the difference between the spot price and a
 
 &#x20;                                                 ![](https://lh6.googleusercontent.com/2Fesg0p\_Vl2StetkInrhLY3Wh5DWV9PuYXvsqa0qW78Y2kPsYaig5iY2qNY3Y4KsbGREGkqYelqOX91uhbGSzBcZYT0Ou1D1KCr7mjNgxcXxtl3z\_V1w3yzYeFk5wZXR1sAuLnAc)
 
-| Name                        | MetricID                       | Category | Subcategory | Type | Unit | Interval |
-| --------------------------- | ------------------------------ | -------- | ----------- | ---- | ---- | -------- |
+| Name                                                | MetricID                   | Category | Subcategory   | Type   | Unit | Frequency |
+| --------------------------------------------------- | -------------------------- | -------- | -----------   | ------ | ---- | -------- |
 | Annualized Futures Basis, 30 day expiration         | [basis_annualized_30d_exp](https://coverage.coinmetrics.io/exchange-asset-metrics/basis_annualized_30d_exp) | Basis   | Futures        | Difference  | USD  | 1d, 1h       |
 | Annualized Futures Basis, 60 day expiration | [basis_annualized_60d_exp](https://coverage.coinmetrics.io/exchange-asset-metrics/basis_annualized_60d_exp) | Basis   | Futures        | Difference  | USD  | 1d, 1h       |
 | Annualized Futures Basis, 90 day expiration         | [basis_annualized_90d_exp](https://coverage.coinmetrics.io/exchange-asset-metrics/basis_annualized_90d_exp) | Basis   | Futures        | Difference  | USD  | 1d, 1h       |
@@ -52,10 +34,11 @@ okex-btc, okex-eth, kraken-eth, huobi-eth, kraken-btc, huobi-btc, ftx-eth, derib
 
 ## API Endpoints
 
-Basis data can be accessed using the `timeseries/exchange-asset-metrics` endpoint.
+Basis data can be accessed using the following endpoints:
+* `timeseries/exchange-asset-metrics`
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 

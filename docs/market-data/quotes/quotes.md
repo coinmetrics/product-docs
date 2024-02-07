@@ -4,7 +4,7 @@
 
 Coin Metrics collects quotes representing the best bid order and best ask order residing at the top of the order book for individual markets like `coinbase-btc-usd-spot`. To calculate our pair quotes, we aggregate the quotes across a selection of high-quality constituent markets to derive quotes for a pair like `btc-usd` or an asset `btc`.&#x20;
 
-Our pair quotes are conceptually similar to the National Best Bid Offer (NBBO), a regulation issued by the United States Securities and Exchange Commission that requires brokers to execute customer trades at the best available price.
+Our quotes are conceptually similar to the National Best Bid Offer (NBBO), a regulation issued by the United States Securities and Exchange Commission that requires brokers to execute customer trades at the best available price.
 
 ## Details
 
@@ -58,16 +58,16 @@ $$
 
 Quotes can be accessed using the `timeseries/market-quotes` for markets, `timeseries-stream/asset-quotes` for assets, or `timeseries-stream/pair-quotes` endpoints.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-quotes" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-quotes" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries-stream/asset-quotes" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries-stream/asset-quotes" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries-stream/pair-quotes" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries-stream/pair-quotes" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 ## Example
@@ -108,7 +108,7 @@ Quotes can be accessed using the `timeseries/market-quotes` for markets, `timese
 
 ### What are the constituent markets used in the calculation?
 
-Coin Metrics uses our [Trusted Exchange Framework v2.0](https://coinmetrics.io/special-insights/trusted-exchange-framework/) to seelct a set of high-quality and trustworthy exchanges in selection of our constituent markets. The set of exchanges includes `Bitstamp`, `Coinbase`, `Bitfinex`, `Binance`, `Gemini`, `Kraken`, `OKEx`, `Huobi`, `Binance.US`, `KuCoin`, `LMAX`, and `Bybit`.&#x20;
+Coin Metrics uses our [Trusted Exchange Framework v2.0](https://coinmetrics.io/special-insights/trusted-exchange-framework/) to seelct a set of high-quality and trustworthy exchanges in selection of our constituent markets.
 
 All markets from trusted exchanges that contain the given pair are selected.
 

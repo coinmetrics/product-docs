@@ -14,7 +14,7 @@ We produce our candles at `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d` inte
 
 Coin Metrics calculates candles for **spot** and **future** markets from exchanges that are listed on our exchange coverage universe.
 
-### API Endpoints
+## API Endpoints
 
 Candles can be accessed using the `timeseries/market-candles` or `timeseries/pair-candles` endpoint.
 
