@@ -705,13 +705,15 @@
     * [Liquidation Sell Orders (USD)](market-data/liquidations/liquidations\_reported\_future\_sell\_usd.md)
     * [Liquidation Sell Orders (Units)](market-data/liquidations/liquidations\_reported\_future\_sell\_units.md) -->
   * [Liquidity](market-data/liquidity/README.md)
-    * [Bid-Ask Spread Percent](market-data/liquidity/liquidity\_bid\_ask\_spread\_percent.md)
-    * [Liquidity Depth Bid Volume (USD)](market-data/liquidity/liquidity\_depth\_percent\_bid\_volume\_usd.md)
+    * [Bid-Ask Spread Percent](market-data/liquidity/bid-ask-spread.md)
+    * [Order Book Depth](market-data/liquidity/order-book-depth.md)
+    * [Order Book Depth](market-data/liquidity/slippage.md)
+    <!-- * [Liquidity Depth Bid Volume (USD)](market-data/liquidity/liquidity\_depth\_percent\_bid\_volume\_usd.md)
     * [Liquidity Depth Bid Volume (Units)](market-data/liquidity/liquidity\_depth\_percent\_bid\_volume\_units.md)
     * [Liquidity Depth Ask Volume (USD)](market-data/liquidity/liquidity\_depth\_percent\_ask\_volume\_usd.md)
     * [Liquidity Depth Ask Volume (Units)](market-data/liquidity/liquidity\_depth\_percent\_ask\_volume\_units.md)
     * [Liquidity Slippage Bid Percentage](market-data/liquidity/liquidity\_slippage\_bid\_percent.md)
-    * [Liquidity Slippage Ask Percentage](market-data/liquidity/liquidity\_slippage\_ask\_percent.md)
+    * [Liquidity Slippage Ask Percentage](market-data/liquidity/liquidity\_slippage\_ask\_percent.md) -->
   * [Market Metadata](market-data/market-metadata/market-metadata.md)
   * [Open Interest](market-data/open-interest/market-open-interest.md)
     * [Reported Future Open Interest](market-data/open-interest/open\_interest\_reported\_future\_usd.md)

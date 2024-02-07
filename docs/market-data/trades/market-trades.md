@@ -18,8 +18,8 @@ Coin Metrics collects trades data from **spot**, **future**, and **option** mark
 
 Market trades can be accessed using the `timeseries/market-trades` endpoint. 
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-trades" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-trades" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 
