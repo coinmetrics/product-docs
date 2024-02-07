@@ -707,7 +707,7 @@
   * [Liquidity](market-data/liquidity/README.md)
     * [Bid-Ask Spread Percent](market-data/liquidity/bid-ask-spread.md)
     * [Order Book Depth](market-data/liquidity/order-book-depth.md)
-    * [Order Book Depth](market-data/liquidity/slippage.md)
+    * [Slippage](market-data/liquidity/slippage.md)
     <!-- * [Liquidity Depth Bid Volume (USD)](market-data/liquidity/liquidity\_depth\_percent\_bid\_volume\_usd.md)
     * [Liquidity Depth Bid Volume (Units)](market-data/liquidity/liquidity\_depth\_percent\_bid\_volume\_units.md)
     * [Liquidity Depth Ask Volume (USD)](market-data/liquidity/liquidity\_depth\_percent\_ask\_volume\_usd.md)

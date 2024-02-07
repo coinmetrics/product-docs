@@ -38,7 +38,7 @@ For example, let’s say Bitcoin is currently trading at $25,000 on exchange X. 
 Liquidity order book depth metrics can be accessed using the following endpoints:
 * `timeseries/market-metrics`
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="timeseries/market-metrics" method="get" %}
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 

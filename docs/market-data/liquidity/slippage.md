@@ -37,7 +37,7 @@ So this hypothetical purchase of 1 BTC incurred 1% slippage. If the trade size w
 Liquidity slippage metrics can be accessed using the following endpoints:
 * `timeseries/market-metrics`
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="timeseries/market-metrics" method="get" %}
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 

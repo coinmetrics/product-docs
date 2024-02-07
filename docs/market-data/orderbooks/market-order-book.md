@@ -20,8 +20,8 @@ Coin Metrics also serves order book snapshots and updates for the top 100 bids a
 
 Market trades can be accessed using the `timeseries/market-orderbooks` endpoint. 
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-orderbooks" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-orderbooks" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 ## **Chart**

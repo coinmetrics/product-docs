@@ -19,10 +19,10 @@ Spread, the difference between the quote asset’s ask and bid price, can be pre
 We offer the bid-ask spread over 1m, 1h, and 1d intervals. Each of these metrics represents the average bid-ask spread over the interval of time.
 
 ## API Endpoints
-Liquidity bid-ask spread can be accessed using the following endpoints:
+Liquidity bid-ask spread metrics can be accessed using the following endpoints:
 * `timeseries/market-metrics`
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="timeseries/market-metrics" method="get" %}
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
