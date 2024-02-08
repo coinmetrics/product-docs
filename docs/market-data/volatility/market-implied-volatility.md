@@ -34,7 +34,6 @@ Trading in options markets is sparse and usually distributed over several hundre
 Implied Volatility can be accessed using these endpoints:
 * `/timeseries/market-implied-volatility`
 
-
 {% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-implied-volatility" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}

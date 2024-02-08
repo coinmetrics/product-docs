@@ -1,5 +1,3 @@
-# Quotes
-
 ## Contents
 * [Market Quotes](#market)
 * [Pair Quotes](#pair)
