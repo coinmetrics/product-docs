@@ -1,12 +1,18 @@
----
-description: /timeseries/market-liquidations
----
+# Contents
+* [Market Liquidations](#market)
+* [Liquidation Metrics](#metrics)
 
-# Market Liquidations
+# Market Liquidations <a href="market"></a>
 
 ## **Definition**
 
 Exchanges which offer futures markets utilize a risk management system that will attempt to close a user’s position before the point at which the user begins to owe more than what is in the user's account. The trade or order that closes the user's position is referred to as a liquidation.&#x20;
+
+## **Details**
+
+Futures contracts enable market participants to trade with leverage – that is, market participants are allowed to have a position with notional value greater than the amount of money they have in their account. This raises the possibility that market participants can lose more money than have in their account. To address this possibility, exchanges which offer futures products have a liquidation system that will attempt to close a market participant’s position before the point at which the market participant begins to owe more than what is in their account.&#x20;
+
+A simplified example illustrates the process. Suppose a trader deposits $100 into an exchange and buys $10,000 worth of Bitcoin perpetual contracts resulting in a leverage of 100x. Also, suppose the current price of Bitcoin is $10,000. If the price declines to $9,900 (the “bankruptcy price”), the trader would be bankrupt. Therefore, the exchange sets the liquidation price for this trader’s position at $9,925 (the “liquidation price”). If the price declines to this liquidation price, the exchange will forcibly initiate a sell liquidation order to attempt to close the trader’s position.
 
 ## API Endpoints
 
@@ -106,23 +112,23 @@ We harmonize the data in the following way:
 
 * **Our liquidations data from Bybit were interrupted for a period of 5 days between 2021-09-24 to 2021-09-29 due to a deprecation of their API endpoint.** This issue was corrected on 2021-09-29.&#x20;
 
-## Release History
+### Release History
 
 * [**CM MDF v2.2 on December 2, 2020**](https://coinmetrics.io/cm-market-data-feed-futures-data-expansion/)**:** Added liquidations for futures markets on Binance, Bitfinex,  BitMEX, Deribit, FTX, Huobi, Kraken, and OKEx.\
 
 * [**CM MDF v2.4 on September 1, 2021**](https://coinmetrics.io/cm-market-data-feed-v2-4-release-notes/): Added liquidations for futures markets on Bybit.
 
-## **Availability**
+### **Availability**
 
 The previous 24 hours of liquidations data is available through our community API.  Community data is available via HTTP API only and is limited to 10 API requests per 6 seconds per IP address. All of our liquidations data is available through our professional API with higher rate limits. &#x20;
 
-### Availability by Market Type
+#### Availability by Market Type
 
 | Type    | Market Count |
 | ------- | :----------: |
 | Futures |     3817     |
 
-### Availability by Exchange
+#### Availability by Exchange
 
 | Exchange | Futures Market Count | Start Date |
 | -------- | :------------------: | :--------: |
@@ -135,4 +141,66 @@ The previous 24 hours of liquidations data is available through our community AP
 | Huobi    |         1287         | 2020-07-10 |
 | Kraken   |          53          | 2020-12-09 |
 | OKEx     |         1255         | 2020-10-01 |
+
+
+# Liquidation Metrics <a href="market"></a>
+
+The reported liquidation metrics are a sum of all reported volume in native units or U.S. Dollars of buy or sell orders that were used to close short positions under liquidation for a specific market in our coverage universe.
+
+| Name                                            | MetricID                                       | Category     | Subcategory | Type | Unit         | Interval |
+| ----------------------------------------------- | ---------------------------------------------- | ------------ | ----------- | ---- | ------------ | -------- |
+| Reported Liquidation Buy Orders (Units), 5 Min  | [liquidations\_reported\_future\_buy\_units\_5m](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_buy\_units\_5m) | Liquidations | Futures     | Sum  | Native Units | 5m       |
+| Reported Liquidation Buy Orders (Units), 1 Hour | [liquidations\_reported\_future\_buy\_units\_1h](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_buy\_units\_1h) | Liquidations | Futures     | Sum  | Native Units | 1h       |
+| Reported Liquidation Buy Orders (Units), 1 Day  | [liquidations\_reported\_future\_buy\_units\_1d](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_buy\_units\_1d) | Liquidations | Futures     | Sum  | Native Units | 1d       |
+| Reported Liquidation Buy Orders (USD), 5 Min  | [liquidations\_reported\_future\_buy\_usd\_5m](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_buy\_usd\_5m) | Liquidations | Futures     | Sum  | USD  | 5m       |
+| Reported Liquidation Buy Orders (USD), 1 Hour | [liquidations\_reported\_future\_buy\_usd\_1h](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_buy\_usd\_1h) | Liquidations | Futures     | Sum  | USD  | 1h       |
+| Reported Liquidation Buy Orders (USD), 1 Day  | [liquidations\_reported\_future\_buy\_usd\_1d](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_buy\_usd\_1d) | Liquidations | Futures     | Sum  | USD  | 1d       |
+| Reported Liquidation Sell Orders (Units), 5 Min  | [liquidations\_reported\_future\_sell\_units\_5m](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_sell\_units\_5m) | Liquidations | Futures     | Sum  | Native Units | 5m       |
+| Reported Liquidation Sell Orders (Units), 1 Hour | [liquidations\_reported\_future\_sell\_units\_1h](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_sell\_units\_1h) | Liquidations | Futures     | Sum  | Native Units | 1h       |
+| Reported Liquidation Sell Orders (Units), 1 Day  | [liquidations\_reported\_future\_sell\_units\_1d](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_sell\_units\_1d) | Liquidations | Futures     | Sum  | Native Units | 1d       |
+| Reported Liquidation Sell Orders (USD), 5 Min  | [liquidations\_reported\_future\_sell\_usd\_5m](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_sell\_usd\_5m) | Liquidations | Futures     | Sum  | USD  | 5m       |
+| Reported Liquidation Sell Orders (USD), 1 Hour | [liquidations\_reported\_future\_sell\_usd\_1h](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_sell\_usd\_1h) | Liquidations | Futures     | Sum  | USD  | 1h       |
+| Reported Liquidation Sell Orders (USD), 1 Day  | [liquidations\_reported\_future\_sell\_usd\_1d](https://coverage.coinmetrics.io/search-results?query=liquidations\_reported\_future\_sell\_usd\_1d) | Liquidations | Futures     | Sum  | USD  | 1d       |
+
+## **Details**
+
+Futures contracts enable market participants to trade with leverage – that is, market participants are allowed to have a position with notional value greater than the amount of money they have in their account. This raises the possibility that market participants can lose more money than have in their account. To address this possibility, exchanges which offer futures products have a liquidation system that will attempt to close a market participant’s position before the point at which the market participant begins to owe more than what is in their account.&#x20;
+
+A simplified example illustrates the process. Suppose a trader deposits $100 into an exchange and buys $10,000 worth of Bitcoin perpetual contracts resulting in a leverage of 100x. Also, suppose the current price of Bitcoin is $10,000. If the price declines to $9,900 (the “bankruptcy price”), the trader would be bankrupt. Therefore, the exchange sets the liquidation price for this trader’s position at $9,925 (the “liquidation price”). If the price declines to this liquidation price, the exchange will forcibly initiate a sell liquidation order to attempt to close the trader’s position.
+
+## **API Endpoints**
+
+Liquidation metrics can be accessed using these endpoints:
+* `timeseries/exchange-metrics`
+* `timeseries/exchange-asset-metrics`
+* `timeseries/pair-metrics`
+
+and by passing in the `liquidation_reported_*` metrics in the `metrics` parameter.
+
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-metrics" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics>" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-metrics" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+## Examples
+
+A sample of the daily reported liquidation buy orders for the Binance BTCUSDT futures market is shown below:
+
+| market                 | time                | liquidations\_reported\_future\_buy\_units\_1d |
+| ---------------------- | ------------------- | ---------------------------------------------- |
+| binance-BTCUSDT-future | 2022-01-01 00:00:00 | 84.918                                         |
+| binance-BTCUSDT-future | 2022-01-02 00:00:00 | 80.595                                         |
+| binance-BTCUSDT-future | 2022-01-03 00:00:00 | 74.007                                         |
+| binance-BTCUSDT-future | 2022-01-04 00:00:00 | 109.399                                        |
+
+* market. The IDs of the markets.
+* time. The time in ISO 8601 date-time format.
+* liquidations\_reported\_future\_buy\_units\_1d. The reported volume of liquidation buy orders in native units.
 
