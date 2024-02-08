@@ -6,15 +6,15 @@ The cumulative funding rate is the total funding rate that would be accumulated 
 
 | Name                                                      | MetricID                                              | Category | Subcategory | Type       | Unit          | Interval |
 | --------------------------------------------------------- | ----------------------------------------------------- | -------- | ----------- | ---------- | ------------- | -------- |
-| Funding rate, cumulative, futures, USD-margined, 1 day    | futures\_cumulative\_funding\_rate\_usd\_margin\_1d   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, cumulative, futures, USD-margined, 7 days   | futures\_cumulative\_funding\_rate\_usd\_margin\_7d   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, cumulative, futures, USD-margined, 30 days  | futures\_cumulative\_funding\_rate\_usd\_margin\_30d  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, cumulative, futures, coin-margined, 1 day   | futures\_cumulative\_funding\_rate\_coin\_margin\_1d  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, cumulative, futures, coin-margined, 7 days  | futures\_cumulative\_funding\_rate\_coin\_margin\_7d  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, cumulative, futures, coin-margined, 30 days | futures\_cumulative\_funding\_rate\_coin\_margin\_30d | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, cumulative, futures, all-margined, 1 day    | futures\_cumulative\_funding\_rate\_all\_margin\_1d   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, cumulative, futures, all-margined, 7 days   | futures\_cumulative\_funding\_rate\_all\_margin\_7d   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, cumulative, futures, all-margined, 30 days  | futures\_cumulative\_funding\_rate\_all\_margin\_30d  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, cumulative, futures, USD-margined, 1 day    | [futures\_cumulative\_funding\_rate\_usd\_margin\_1d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_usd\_margin\_1d)   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, cumulative, futures, USD-margined, 7 days   | [futures\_cumulative\_funding\_rate\_usd\_margin\_7d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_usd\_margin\_7d)   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, cumulative, futures, USD-margined, 30 days  | [futures\_cumulative\_funding\_rate\_usd\_margin\_30d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_usd\_margin\_30d)  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, cumulative, futures, coin-margined, 1 day   | [futures\_cumulative\_funding\_rate\_coin\_margin\_1d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_coin\_margin\_1d)  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, cumulative, futures, coin-margined, 7 days  | [futures\_cumulative\_funding\_rate\_coin\_margin\_7d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_coin\_margin\_7d)  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, cumulative, futures, coin-margined, 30 days | [futures\_cumulative\_funding\_rate\_coin\_margin\_30d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_coin\_margin\_30d) | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, cumulative, futures, all-margined, 1 day    | [futures\_cumulative\_funding\_rate\_all\_margin\_1d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_all\_margin\_1d)   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, cumulative, futures, all-margined, 7 days   | [futures\_cumulative\_funding\_rate\_all\_margin\_7d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_all\_margin\_7d)   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, cumulative, futures, all-margined, 30 days  | [futures\_cumulative\_funding\_rate\_all\_margin\_30d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_all\_margin\_30d)  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
 
 ## Details
 

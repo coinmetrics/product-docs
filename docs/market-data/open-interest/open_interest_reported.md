@@ -38,7 +38,7 @@ The sum of all reported open interested from futures markets where the margin as
 
 | Name                                        | MetricID                                                              | Category      | Subcategory | Type | Unit | Frequency |
 | ------------------------------------------- | --------------------------------------------------------------------- | ------------- | ----------- | ---- | ---- | --------- |
-| Reported Coin-Margined Future Open Interest | open\_interest\_reported\_future\_coin\_margined\_usd | Open Interest | Future      | Sum  | USD  | 1h, 1d    |
+| Reported Coin-Margined Future Open Interest | [open\_interest\_reported\_future\_coin\_margined\_usd](https://coverage.coinmetrics.io/search-results?query=open\_interest\_reported\_future\_coin\_margined\_usd) | Open Interest | Future      | Sum  | USD  | 1h, 1d    |
 
 ## Details
 
@@ -68,7 +68,7 @@ The sum of all reported open interest from non-perpetual futures markets in unit
 
 | Name                                        | MetricID                                                     | Category      | Subcategory | Type | Unit | Frequency |
 | ------------------------------------------- | ------------------------------------------------------------ | ------------- | ----------- | ---- | ---- | --------- |
-| Reported Non-Perpetual Future Open Interest | open\_interest\_reported\_future\_nonperpetual\_usd | Open Interest | Future      | Sum  | USD  | 1h, 1d    |
+| Reported Non-Perpetual Future Open Interest | [open\_interest\_reported\_future\_nonperpetual\_usd](https://coverage.coinmetrics.io/search-results?query=open\_interest\_reported\_future\_nonperpetual\_usd) | Open Interest | Future      | Sum  | USD  | 1h, 1d    |
 
 ## Details
 
@@ -97,7 +97,7 @@ The sum of all reported open interest from perpetual futures markets in units of
 
 | Name                                    | MetricID                                                  | Category      | Subcategory | Type | Unit | Frequency |
 | --------------------------------------- | --------------------------------------------------------- | ------------- | ----------- | ---- | ---- | --------- |
-| Reported Perpetual Future Open Interest | open\_interest\_reported\_future_\_perpetual\_usd</p> | Open Interest | Future      | Sum  | USD  | 1h, 1d    |
+| Reported Perpetual Future Open Interest | [open\_interest\_reported\_future_\_perpetual\_usd](https://coverage.coinmetrics.io/search-results?query=open\_interest\_reported\_future_\_perpetual\_usd)</p> | Open Interest | Future      | Sum  | USD  | 1h, 1d    |
 
 ## Details
 
@@ -125,7 +125,7 @@ The sum of all reported open interest from futures markets where the margin asse
 
 | Name                                          | MetricID                                                | Category      | Subcategory | Type | Unit | Frequency |
 | --------------------------------------------- | ------------------------------------------------------- | ------------- | ----------- | ---- | ---- | --------- |
-| Reported Tether-Margined Future Open Interest | open\_interest\_reported\_future\_tether\_margined\_usd | Open Interest | Future      | Sum  | USD  | 1h, 1d    |
+| Reported Tether-Margined Future Open Interest | [open\_interest\_reported\_future\_tether\_margined\_usd](https://coverage.coinmetrics.io/search-results?query=open\_interest\_reported\_future\_tether\_margined\_usd) | Open Interest | Future      | Sum  | USD  | 1h, 1d    |
 
 ## Details
 
@@ -154,29 +154,7 @@ The sum of all reported future open interest from the spot markets in Coin Metri
 
 | Name                          | MetricID                              | Category      | Subcategory | Type | Unit | Frequency |
 | ----------------------------- | ------------------------------------- | ------------- | ----------- | ---- | ---- | --------- |
-| Reported Future Open Interest | open\_interest\_reported\_future\_usd | Open Interest | Future      | Sum  | USD  | 1h, 1d    |
-
-## Details
-
-Our reported future open interest metric is an aggregation of the reported future open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](../all-exchanges.md).
-
-## Release History
-
-* Release Version. Market Data Feed 2.4 (August 2021)
-
-## Availability for Assets
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/open_interest_reported_future_usd" %}
-
-# Reported Future Open Interest
-
-## Definition
-
-The sum of all reported future open interest from the spot markets in Coin Metrics' coverage in units of U.S. dollars.
-
-| Name                          | MetricID                              | Category      | Subcategory | Type | Unit | Frequency |
-| ----------------------------- | ------------------------------------- | ------------- | ----------- | ---- | ---- | --------- |
-| Reported Future Open Interest | open\_interest\_reported\_future\_usd | Open Interest | Future      | Sum  | USD  | 1h, 1d    |
+| Reported Future Open Interest | [open\_interest\_reported\_future\_usd](https://coverage.coinmetrics.io/search-results?query=open\_interest\_reported\_future\_usd) | Open Interest | Future      | Sum  | USD  | 1h, 1d    |
 
 ## Details
 

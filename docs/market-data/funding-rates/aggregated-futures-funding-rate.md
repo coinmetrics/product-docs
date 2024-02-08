@@ -6,18 +6,18 @@ The average funding rate weighted by open interest from futures markets converte
 
 | Name                                                      | MetricID                                                     | Category | Subcategory | Type       | Unit          | Interval |
 | --------------------------------------------------------- | ------------------------------------------------------------ | -------- | ----------- | ---------- | ------------- | -------- |
-| Funding rate, aggregated, futures, USD-margined, 8 hours  | futures\_aggregate\_funding\_rate\_usd\_margin\_8h\_period   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, aggregated, futures, USD-margined, 1 day    | futures\_aggregate\_funding\_rate\_usd\_margin\_1d\_period   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, aggregated, futures, USD-margined, 30 days  | futures\_aggregate\_funding\_rate\_usd\_margin\_30d\_period  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, aggregated, futures, USD-margined, 1 year   | futures\_aggregate\_funding\_rate\_usd\_margin\_1y\_period   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, aggregated, futures, coin-margined, 8 hours | futures\_aggregate\_funding\_rate\_coin\_margin\_8h\_period  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, aggregated, futures, coin-margined, 1 day   | futures\_aggregate\_funding\_rate\_coin\_margin\_1d\_period  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, aggregated, futures, coin-margined, 30 days | futures\_aggregate\_funding\_rate\_coin\_margin\_30d\_period | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, aggregated, futures, coin-margined, 1 year  | futures\_aggregate\_funding\_rate\_coin\_margin\_1y\_period  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, aggregated, futures, all-margined, 8 hours  | futures\_aggregate\_funding\_rate\_all\_margin\_8h\_period   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, aggregated, futures, all-margined, 1 day    | futures\_aggregate\_funding\_rate\_all\_margin\_1d\_period   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, aggregated, futures, all-margined, 30 days  | futures\_aggregate\_funding\_rate\_all\_margin\_30d\_period  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, aggregated, futures, all-margined, 1 year   | futures\_aggregate\_funding\_rate\_all\_margin\_1y\_period   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, aggregated, futures, USD-margined, 8 hours  | [futures\_aggregate\_funding\_rate\_usd\_margin\_8h\_period](https://coverage.coinmetrics.io/search-results?query=futures\_aggregate\_funding\_rate\_usd\_margin\_8h\_period)   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, aggregated, futures, USD-margined, 1 day    | [futures\_aggregate\_funding\_rate\_usd\_margin\_1d\_period](https://coverage.coinmetrics.io/search-results?query=futures\_aggregate\_funding\_rate\_usd\_margin\_1d\_period)   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, aggregated, futures, USD-margined, 30 days  | [futures\_aggregate\_funding\_rate\_usd\_margin\_30d\_period](https://coverage.coinmetrics.io/search-results?query=futures\_aggregate\_funding\_rate\_usd\_margin\_30d\_period)  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, aggregated, futures, USD-margined, 1 year   | [futures\_aggregate\_funding\_rate\_usd\_margin\_1y\_period](https://coverage.coinmetrics.io/search-results?query=futures\_aggregate\_funding\_rate\_usd\_margin\_1y\_period)   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, aggregated, futures, coin-margined, 8 hours | [futures\_aggregate\_funding\_rate\_coin\_margin\_8h\_period](https://coverage.coinmetrics.io/search-results?query=futures\_aggregate\_funding\_rate\_coin\_margin\_8h\_period)  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, aggregated, futures, coin-margined, 1 day   | [futures\_aggregate\_funding\_rate\_coin\_margin\_1d\_period](https://coverage.coinmetrics.io/search-results?query=futures\_aggregate\_funding\_rate\_coin\_margin\_1d\_period)  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, aggregated, futures, coin-margined, 30 days | [futures\_aggregate\_funding\_rate\_coin\_margin\_30d\_period](https://coverage.coinmetrics.io/search-results?query=futures\_aggregate\_funding\_rate\_coin\_margin\_30d\_period) | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, aggregated, futures, coin-margined, 1 year  | [futures\_aggregate\_funding\_rate\_coin\_margin\_1y\_period](https://coverage.coinmetrics.io/search-results?query=futures\_aggregate\_funding\_rate\_coin\_margin\_1y\_period)  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, aggregated, futures, all-margined, 8 hours  | [futures\_aggregate\_funding\_rate\_all\_margin\_8h\_period](https://coverage.coinmetrics.io/search-results?query=futures\_aggregate\_funding\_rate\_all\_margin\_8h\_period)   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, aggregated, futures, all-margined, 1 day    | [futures\_aggregate\_funding\_rate\_all\_margin\_1d\_period](https://coverage.coinmetrics.io/search-results?query=futures\_aggregate\_funding\_rate\_all\_margin\_1d\_period)   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, aggregated, futures, all-margined, 30 days  | [futures\_aggregate\_funding\_rate\_all\_margin\_30d\_period](https://coverage.coinmetrics.io/search-results?query=futures\_aggregate\_funding\_rate\_all\_margin\_30d\_period)  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+| Funding rate, aggregated, futures, all-margined, 1 year   | [futures\_aggregate\_funding\_rate\_all\_margin\_1y\_period](https://coverage.coinmetrics.io/search-results?query=futures\_aggregate\_funding\_rate\_all\_margin\_1y\_period)   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
 
 ## Details
 
@@ -60,23 +60,23 @@ Aggregate Futures Funding Rates can be accessed using the `timeseries/asset-metr
   "data" : [ {
     "asset" : "btc",
     "time" : "2023-09-19T19:00:00.000000000Z",
-    "futures_aggregate_funding_rate_all_margin_8h_period" : "0.0000301358130541726"
+    "futures_aggregate_funding_rate_all_margin_8h_period](https://coverage.coinmetrics.io/search-results?query=)" : "0.0000301358130541726"
   }, {
     "asset" : "btc",
     "time" : "2023-09-19T20:00:00.000000000Z",
-    "futures_aggregate_funding_rate_all_margin_8h_period" : "0.0000305589276681095"
+    "futures_aggregate_funding_rate_all_margin_8h_period](https://coverage.coinmetrics.io/search-results?query=)" : "0.0000305589276681095"
   }, {
     "asset" : "btc",
     "time" : "2023-09-19T21:00:00.000000000Z",
-    "futures_aggregate_funding_rate_all_margin_8h_period" : "0.0000327674045704149"
+    "futures_aggregate_funding_rate_all_margin_8h_period](https://coverage.coinmetrics.io/search-results?query=)" : "0.0000327674045704149"
   }, {
     "asset" : "btc",
     "time" : "2023-09-19T22:00:00.000000000Z",
-    "futures_aggregate_funding_rate_all_margin_8h_period" : "0.0000328893535861447"
+    "futures_aggregate_funding_rate_all_margin_8h_period](https://coverage.coinmetrics.io/search-results?query=)" : "0.0000328893535861447"
   }, {
     "asset" : "btc",
     "time" : "2023-09-19T23:00:00.000000000Z",
-    "futures_aggregate_funding_rate_all_margin_8h_period" : "0.0000328738735624742"
+    "futures_aggregate_funding_rate_all_margin_8h_period](https://coverage.coinmetrics.io/search-results?query=)" : "0.0000328738735624742"
   } ]
 }
 ```
@@ -85,7 +85,7 @@ Aggregate Futures Funding Rates can be accessed using the `timeseries/asset-metr
 
 * **`time`**: The exchange-reported time in ISO 8601 date-time format. Always with nanoseconds precision.\
 
-* **`futures_aggregate_funding_rate_all_margin_8h_period`**: The weighted-average funding rate.
+* **`futures_aggregate_funding_rate_all_margin_8h_period](https://coverage.coinmetrics.io/search-results?query=)`**: The weighted-average funding rate.
 
 ## Release History
 
@@ -93,5 +93,5 @@ Aggregate Futures Funding Rates can be accessed using the `timeseries/asset-metr
 
 ## Availability for Assets
 
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/futures_aggregate_funding_rate_all_margin_8h_period" %}
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/futures_aggregate_funding_rate_all_margin_8h_period](https://coverage.coinmetrics.io/search-results?query=)" %}
 
