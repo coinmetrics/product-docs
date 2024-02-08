@@ -1,5 +1,5 @@
 # Reported Volume
-The reported volume aggregated across all exchanges in CM's coverage universe. This metric does not use the [Trusted Exchange Framework](https://coinmetrics.io/special-insights/trusted-exchange-framework) to filter for the most accurate and trustworthy crypto exchanges. See [Trusted Volume]("volume\_trusted.md")
+The reported volume aggregated across all exchanges in CM's coverage universe. These metrics do not use the [Trusted Exchange Framework](https://coinmetrics.io/special-insights/trusted-exchange-framework) to filter for the most accurate and trustworthy crypto exchanges. See [Trusted Volume]("volume\_trusted.md") for more details on the distinction for trustworthy exchanges. 
 
 **Contents**
 * [Spot Volume](#spot)

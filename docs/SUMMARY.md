@@ -725,9 +725,9 @@
     * [Reported Tether-Margined Future Open Interest](market-data/open-interest/open\_interest\_reported\_future\_tether\_margined\_usd.md)
   * [Orderbooks](market-data/orderbooks/market-order-book.md)
   * [Quotes](market-data/quotes/quotes.md)
-    * [Asset Quotes](market-data/quotes/asset-quotes.md)
+    <!-- * [Asset Quotes](market-data/quotes/asset-quotes.md)
     * [Pair Quotes](market-data/quotes/pair-quotes.md)
-    * [Market Quotes](market-data/quotes/market-quotes.md)
+    * [Market Quotes](market-data/quotes/market-quotes.md) -->
   * [Trades](market-data/trades/market-trades.md)
   * [Volatility](market-data/volatility)
     * [Implied Volatility](market-data/volatility/market-implied-volatility.md)
