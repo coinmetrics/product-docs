@@ -8,7 +8,13 @@ description: /timeseries/market-liquidations
 
 Exchanges which offer futures markets utilize a risk management system that will attempt to close a user’s position before the point at which the user begins to owe more than what is in the user's account. The trade or order that closes the user's position is referred to as a liquidation.&#x20;
 
-## API Endpoints
+## **Details**
+
+Futures contracts enable market participants to trade with leverage – that is, market participants are allowed to have a position with notional value greater than the amount of money they have in their account. This raises the possibility that market participants can lose more money than have in their account. To address this possibility, exchanges which offer futures products have a liquidation system that will attempt to close a market participant’s position before the point at which the market participant begins to owe more than what is in their account.
+
+A simplified example illustrates the process. Suppose a trader deposits $100 into an exchange and buys $10,000 worth of Bitcoin perpetual contracts resulting in a leverage of 100x. Also, suppose the current price of Bitcoin is $10,000. If the price declines to $9,900 (the “bankruptcy price”), the trader would be bankrupt. Therefore, the exchange sets the liquidation price for this trader’s position at $9,925 (the “liquidation price”). If the price declines to this liquidation price, the exchange will forcibly initiate a sell liquidation order to attempt to close the trader’s position.
+
+## **API Endpoints**
 
 Individual market liquidations can be accessed using these endpoints:
 * `timeseries/market-liquidations` 
