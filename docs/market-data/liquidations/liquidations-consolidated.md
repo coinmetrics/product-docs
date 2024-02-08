@@ -143,7 +143,7 @@ The previous 24 hours of liquidations data is available through our community AP
 | OKEx     |         1255         | 2020-10-01 |
 
 
-# Liquidation Metrics <a name="market"></a>
+# Liquidation Metrics <a name="metrics"></a>
 
 The reported liquidation metrics are a sum of all reported volume in native units or U.S. Dollars of buy or sell orders that were used to close short positions under liquidation for a specific market in our coverage universe.
 
