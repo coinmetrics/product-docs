@@ -39,7 +39,7 @@
 
 * [Network Data Overview](network-data/network-data-overview.md)
   * [Addresses](network-data/addresses/README.md)
-    * [Active](network-data/addresses/active-addresses.md)
+    * [Active Addresses](network-data/addresses/active-addresses.md)
     <!-- * [Active Addr Cnt](network-data/addresses/adractcnt.md)
     * [Active Addr Cnt (Received)](network-data/addresses/adractreccnt.md)
     * [Active Addr Cnt (Sent)](network-data/addresses/adractsentcnt.md)

@@ -121,7 +121,7 @@ Active Addresses can be accessed using these endpoints:
 * `timeseries/asset-metrics` 
 and by passing in the `AdrAct30dCnt`, `AdrAct7dCnt`, etc. in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="timeseries/asset-metrics" method="get" %}
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
