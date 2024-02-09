@@ -719,9 +719,9 @@
     * [Liquidity Slippage Bid Percentage](market-data/liquidity/liquidity\_slippage\_bid\_percent.md)
     * [Liquidity Slippage Ask Percentage](market-data/liquidity/liquidity\_slippage\_ask\_percent.md) -->
   * [Market Metadata](market-data/market-metadata/market-metadata.md)
-  * [Open Interest](market-data/open-interest/market-open-interest.md)
+  * [Open Interest](market-data/open-interest/open_interest.md)
     * [Market Level Open Interest](market-data/open-interest/market-open-interest.md)
-    * [Reported Open Interest](market-data/open-interest/market-open-interest.md)
+    * [Reported Open Interest](market-data/open-interest/open_interest_reported.md)
     <!-- * [Reported Future Open Interest](market-data/open-interest/open\_interest\_reported\_future\_usd.md)
     * [Reported Perpetual Future Open Interest](market-data/open-interest/open\_interest\_reported\_future\_perpetual\_usd.md)
     * [Reported Non-Perpetual Future Open Interest](market-data/open-interest/open\_interest\_reported\_future\_nonperpetual\_usd.md)
