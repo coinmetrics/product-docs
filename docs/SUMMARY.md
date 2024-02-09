@@ -718,7 +718,7 @@
     * [Liquidity Slippage Ask Percentage](market-data/liquidity/liquidity\_slippage\_ask\_percent.md) -->
   * [Market Metadata](market-data/market-metadata/market-metadata.md)
   * [Open Interest](market-data/open-interest/market-open-interest.md)
-    * [Reported Open Interest](market-data/open-interest/open_interest_reported.md)
+    * [Reported Open Interest](market-data/open-interest/market-open-interest.md)
     <!-- * [Reported Future Open Interest](market-data/open-interest/open\_interest\_reported\_future\_usd.md)
     * [Reported Perpetual Future Open Interest](market-data/open-interest/open\_interest\_reported\_future\_perpetual\_usd.md)
     * [Reported Non-Perpetual Future Open Interest](market-data/open-interest/open\_interest\_reported\_future\_nonperpetual\_usd.md)
@@ -746,10 +746,11 @@
     * [Reported Perpetual Future Volume](market-data/volume/volume\_reported\_future\_perpetual\_usd\_1d.md)
     * [Reported Tether-Margined Future Volume](market-data/volume/volume\_reported\_future\_tether\_margined\_usd\_1d.md) -->
 * [CM Prices](market-data/prices/reference-rates-overview.md)
-  * [Reference Rate (USD)](market-data/prices/referencerateusd.md)
+  * [Reference Rate](market-data/prices/referenc_rate.md)
+  <!-- * [Reference Rate (USD)](market-data/prices/referencerateusd.md)
   * [Reference Rate (EUR)](market-data/prices/referencerateeur.md)
   * [Reference Rate (BTC)](market-data/prices/referenceratebtc.md)
-  * [Reference Rate (ETH)](market-data/prices/referencerateeth-1.md)
+  * [Reference Rate (ETH)](market-data/prices/referencerateeth-1.md) -->
   * [Principal Market Price (USD)](market-data/prices/principal\_market\_price\_usd.md)
   * [Principal Market (USD)](market-data/prices/principal\_market\_usd.md)
 * [Methodologies](market-data/methodologies/README.md)
