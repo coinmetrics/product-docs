@@ -695,7 +695,8 @@
     <!-- * [Market Candles](market-data/candles/market-candles.md)
     * [Pair Candles](market-data/candles/pair-candles.md) -->
   * [Contract Prices](market-data/contract-prices/market-contract-prices.md)
-  * [Funding Rates](market-data/funding-rates/futures-funding-rates.md)
+  * [Funding Rates](market-data/funding-rates/funding-rates.md)
+    * [Market Funding Rates](market-data/funding-rates/futures-funding-rates.md)
     * [Aggregated Futures Funding Rate](market-data/funding-rates/aggregated-futures-funding-rate.md)
     * [Cumulative Futures Funding Rate](market-data/funding-rates/cumulative-futures-funding-rate.md)
   * [Greeks](market-data/greeks/market-greeks.md)
@@ -719,6 +720,7 @@
     * [Liquidity Slippage Ask Percentage](market-data/liquidity/liquidity\_slippage\_ask\_percent.md) -->
   * [Market Metadata](market-data/market-metadata/market-metadata.md)
   * [Open Interest](market-data/open-interest/market-open-interest.md)
+    * [Market Level Open Interest](market-data/open-interest/market-open-interest.md)
     * [Reported Open Interest](market-data/open-interest/market-open-interest.md)
     <!-- * [Reported Future Open Interest](market-data/open-interest/open\_interest\_reported\_future\_usd.md)
     * [Reported Perpetual Future Open Interest](market-data/open-interest/open\_interest\_reported\_future\_perpetual\_usd.md)
