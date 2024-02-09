@@ -4,19 +4,12 @@
 
 The sum count of unique addresses or smart contract addresses that were active in the network (either as a recipient or originator of a ledger change) in the trailing X days up to the end of that interval. All parties in a ledger change action (recipients and originators) are counted. Individual addresses are not double-counted if active several times in the considered interval.
 
+<table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="123">Category</th><th>Sub-Category</th><th>Type</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td><a href="active-addresses.md#active">Active Monthly Addresses</a></td><td><a href="https://coverage.coinmetrics.io/search-results?query=AdrAct30dCnt">AdrAct30dCnt</a></td><td>Addresses</td><td>Active</td><td>Sum</td><td>Addresses</td><td>1 Day</td></tr><tr><td><a href="active-addresses.md#active">Active Weekly Addresses</a></td><td><a href="https://coverage.coinmetrics.io/search-results?query=AdrAct7dCnt">AdrAct7dCnt</a></td><td>Addresses</td><td>Active</td><td>Sum</td><td>Addresses</td><td>1 Day</td></tr><tr><td><a href="active-addresses.md#active">Active Daily Addresses</a></td><td><a href="https://coverage.coinmetrics.io/search-results?query=AdrActCnt">AdrActCnt</a></td><td>Addresses</td><td>Active</td><td>Sum</td><td>Addresses</td><td>1 Day</td></tr><tr><td><a href="active-addresses.md#received">Active Addresses (Received)</a></td><td><a href="https://coverage.coinmetrics.io/search-results?query=AdrActRecCnt">AdrActRecCnt</a></td><td>Addresses</td><td>Activity</td><td>Sum</td><td>Addresses</td><td>1 day, 1 hour</td></tr><tr><td><a href="active-addresses.md#sent">Active Addresses (Sent)</a></td><td><a href="https://coverage.coinmetrics.io/search-results?query=AdrActSentCnt">AdrActSentCnt</a></td><td>Addresses</td><td>Activity</td><td>Sum</td><td>Addresses</td><td>1 day, 1 hour</td></tr><tr><td><a href="active-addresses.md#smart">Active Smart Contract Addr Cnt</a></td><td><a href="https://coverage.coinmetrics.io/search-results?query=AdrActContCnt">AdrActContCnt</a></td><td>Addresses</td><td>Active</td><td>Sum</td><td>Smart Contract Addresses</td><td>1 day</td></tr></tbody></table>
 
-| Name                        | MetricID                       | Category | Sub-Category | Type | Unit | Interval |
-| -------------------------------------- | ------------------------------ | ---------- | ----------- | ---- | ------ | -------- |
-|  [Active Monthly Addresses](#active) | [AdrAct30dCnt](https://coverage.coinmetrics.io/search-results?query=AdrAct30dCnt) |  Addresses | Active      |  Sum | Addresses  | 1 Day       |
-|  [Active Weekly Addresses](#active) | [AdrAct7dCnt](https://coverage.coinmetrics.io/search-results?query=AdrAct7dCnt) |  Addresses | Active      |  Sum | Addresses  | 1 Day       |
-|  [Active Daily Addresses](#active) | [AdrActCnt](https://coverage.coinmetrics.io/search-results?query=AdrActCnt) |  Addresses | Active      |  Sum | Addresses  | 1 Day       |
-| [Active Addresses (Received)](#received) | [AdrActRecCnt](https://coverage.coinmetrics.io/search-results?query=AdrActRecCnt) | Addresses    | Activity         | Sum      | Addresses | 1 day, 1 hour |
-| [Active Addresses (Sent)](#sent) | [AdrActSentCnt](https://coverage.coinmetrics.io/search-results?query=AdrActSentCnt) | Addresses    | Activity         | Sum      | Addresses | 1 day, 1 hour |
-| [Active Smart Contract Addr Cnt](#smart) | [AdrActContCnt](https://coverage.coinmetrics.io/search-results?query=AdrActContCnt) | Addresses    | Active           | Sum      | Smart Contract Addresses | 1 day        |
-
-### Active Monthly, Weekly, Daily Addresses  <a name="active"></a>
+### Active Monthly, Weekly, Daily Addresses <a href="#active" id="active"></a>
 
 #### Definition
+
 The sum count of unique addresses that were active in the network (either as a recipient or originator of a ledger change) in the trailing X days up to the end of that interval. All parties in a ledger change action (recipients and originators) are counted. Individual addresses are not double-counted if active several times in the considered interval.
 
 #### Details
@@ -32,12 +25,14 @@ The sum count of unique addresses that were active in the network (either as a r
 
 * This metric is not available for assets that have full privacy, like Monero and Grin. For assets that have opt-in privacy features, like ZCash, it only takes the non-private activities into account.
 
-### Active Addresses (Sent)  <a name="sent"></a>
+### Active Addresses (Sent) <a href="#sent" id="sent"></a>
 
 #### Definition
-The sum count of unique addresses that were active in the network (as a recipient of a ledger change) that day.  Individual destination addresses are counted.  Individual addresses are not double-counted if previously active.&#x20;
+
+The sum count of unique addresses that were active in the network (as a recipient of a ledger change) that day. Individual destination addresses are counted. Individual addresses are not double-counted if previously active.
 
 #### **Details**
+
 * Active Addresses (sent) is the sum count of unique addresses that where the sending side of a ledger change
 * For this unadjusted version of the metric, all ledger change scenarios are considered.
 * Such ledger changes can include mining, staking, transacting, account creation, etc..
@@ -64,11 +59,11 @@ In a given day:
 
 We would count as active senders: A, B, D and F. The value of the metric would therefore be: 4.
 
-### Active Addresses (Received)  <a name="received"></a>
+### Active Addresses (Received) <a href="#received" id="received"></a>
 
 #### **Definition**
 
-The sum count of unique addresses that were active in the network (as a recipient of a ledger change) that day.  Individual destination addresses are counted.  Individual addresses are not double-counted if previously active.&#x20;
+The sum count of unique addresses that were active in the network (as a recipient of a ledger change) that day. Individual destination addresses are counted. Individual addresses are not double-counted if previously active.
 
 #### **Details**
 
@@ -99,12 +94,14 @@ In a given day:
 
 We would count as active recipients: A, C, D and E. The value of the metric would therefore be: 4.
 
-### Active Smart Contract Addresses  <a name="smart"></a>
+### Active Smart Contract Addresses <a href="#smart" id="smart"></a>
 
 #### Definition
+
 The sum count of unique smart contract addresses that were active in the network (either as a recipient or originator of a ledger change) that interval. All unique smart contracts involved in a ledger change action (recipients and originators) are counted. This metric does not double-count contracts. In other words, if a contract has been deemed active by being part of a ledger change, it is not counted again if is subsequently invoked during the same time interval.
 
 #### Details
+
 * Active smart contact [address](../../on-chain-basics.md#address) count represents the number of unique smart contract addresses that participated in a ledger change.
 * For this unadjusted version of the metric, all ledger changes are considered.
 * Ledger changes can include activities such as Decentralized Finance (DeFi) trades, DAO votes, token transfers, as well as any other activity facilitated by a smart contract.
@@ -118,8 +115,8 @@ The sum count of unique smart contract addresses that were active in the network
 ## API Endpoints
 
 Active Addresses can be accessed using these endpoints:
-* `timeseries/asset-metrics` 
-and by passing in the `AdrAct30dCnt`, `AdrAct7dCnt`, etc. in the `metrics` parameter.
+
+* `timeseries/asset-metrics` and by passing in the `AdrAct30dCnt`, `AdrAct7dCnt`, etc. in the `metrics` parameter.
 
 {% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
@@ -166,6 +163,3 @@ print(
 Active addresses is a popular measure to proxy the number of users on a blockchain, since it is typically less sensitive to stress-tests (which often focus on transaction count). However, active addresses inherit idiosyncrasies from the structure of the particular blockchain, and care must be taken to understand structural differences in active address counts. In blockchains where address creation is cheap or free, and transacting is cheap or free, active addresses can still be trivially forged.
 
 ## See Also
-
-<link of related metrics, other pages >
-<link of SOTNs that may use this metric>
