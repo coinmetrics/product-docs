@@ -701,7 +701,7 @@
   * [Greeks](market-data/greeks/market-greeks.md)
   <!-- * [Liquidations (CONSOLIDATED)](market-data/liquidations/liquidations-consolidated.md) -->
   * [Liquidations](market-data/liquidations/liquidations.md)
-    * [Market Liquidations](market-data/liquidations/futures-liquidations.md)
+    * [Market Level Liquidations](market-data/liquidations/futures-liquidations.md)
     * [Liquidation Metrics](market-data/liquidations/liquidation-metrics.md)
     <!-- * [Liquidation Buy Orders (USD)](market-data/liquidations/liquidations\_reported\_future\_buy\_usd.md)
     * [Liquidation Buy Orders (Units)](market-data/liquidations/liquidations\_reported\_future\_buy\_units.md)

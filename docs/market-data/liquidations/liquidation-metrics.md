@@ -20,7 +20,7 @@ and by passing in the `liquidation_reported_*` metrics in the `metrics` paramete
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics>" method="get" %}
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
