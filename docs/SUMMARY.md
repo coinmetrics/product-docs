@@ -746,7 +746,7 @@
     * [Reported Perpetual Future Volume](market-data/volume/volume\_reported\_future\_perpetual\_usd\_1d.md)
     * [Reported Tether-Margined Future Volume](market-data/volume/volume\_reported\_future\_tether\_margined\_usd\_1d.md) -->
 * [CM Prices](market-data/prices/reference-rates-overview.md)
-  * [Reference Rate](market-data/prices/referenc_rate.md)
+  * [Reference Rate](market-data/prices/reference_rate.md)
   <!-- * [Reference Rate (USD)](market-data/prices/referencerateusd.md)
   * [Reference Rate (EUR)](market-data/prices/referencerateeur.md)
   * [Reference Rate (BTC)](market-data/prices/referenceratebtc.md)
