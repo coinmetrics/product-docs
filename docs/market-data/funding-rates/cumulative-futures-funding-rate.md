@@ -4,17 +4,7 @@
 
 The cumulative funding rate is the total funding rate that would be accumulated by contract holders over a specified time period.
 
-| Name                                                      | MetricID                                              | Category | Subcategory | Type       | Unit          | Interval |
-| --------------------------------------------------------- | ----------------------------------------------------- | -------- | ----------- | ---------- | ------------- | -------- |
-| Funding rate, cumulative, futures, USD-margined, 1 day    | [futures\_cumulative\_funding\_rate\_usd\_margin\_1d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_usd\_margin\_1d)   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, cumulative, futures, USD-margined, 7 days   | [futures\_cumulative\_funding\_rate\_usd\_margin\_7d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_usd\_margin\_7d)   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, cumulative, futures, USD-margined, 30 days  | [futures\_cumulative\_funding\_rate\_usd\_margin\_30d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_usd\_margin\_30d)  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, cumulative, futures, coin-margined, 1 day   | [futures\_cumulative\_funding\_rate\_coin\_margin\_1d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_coin\_margin\_1d)  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, cumulative, futures, coin-margined, 7 days  | [futures\_cumulative\_funding\_rate\_coin\_margin\_7d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_coin\_margin\_7d)  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, cumulative, futures, coin-margined, 30 days | [futures\_cumulative\_funding\_rate\_coin\_margin\_30d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_coin\_margin\_30d) | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, cumulative, futures, all-margined, 1 day    | [futures\_cumulative\_funding\_rate\_all\_margin\_1d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_all\_margin\_1d)   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, cumulative, futures, all-margined, 7 days   | [futures\_cumulative\_funding\_rate\_all\_margin\_7d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_all\_margin\_7d)   | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
-| Funding rate, cumulative, futures, all-margined, 30 days  | [futures\_cumulative\_funding\_rate\_all\_margin\_30d](https://coverage.coinmetrics.io/search-results?query=futures\_cumulative\_funding\_rate\_all\_margin\_30d)  | Market   | Futures     | Percentage | Dimensionless | 1 hour   |
+<table><thead><tr><th width="228">Name</th><th width="413">MetricID</th><th>Category</th><th>Subcategory</th><th width="128">Type</th><th width="154">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Funding rate, cumulative, futures, USD-margined, 1 day</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_usd_margin_1d">futures_cumulative_funding_rate_usd_margin_1d</a></td><td>Market</td><td>Futures</td><td>Percentage</td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, USD-margined, 7 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_usd_margin_7d">futures_cumulative_funding_rate_usd_margin_7d</a></td><td>Market</td><td>Futures</td><td>Percentage</td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, USD-margined, 30 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_usd_margin_30d">futures_cumulative_funding_rate_usd_margin_30d</a></td><td>Market</td><td>Futures</td><td>Percentage</td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, coin-margined, 1 day</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_coin_margin_1d">futures_cumulative_funding_rate_coin_margin_1d</a></td><td>Market</td><td>Futures</td><td>Percentage</td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, coin-margined, 7 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_coin_margin_7d">futures_cumulative_funding_rate_coin_margin_7d</a></td><td>Market</td><td>Futures</td><td>Percentage</td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, coin-margined, 30 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_coin_margin_30d">futures_cumulative_funding_rate_coin_margin_30d</a></td><td>Market</td><td>Futures</td><td>Percentage</td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, all-margined, 1 day</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_all_margin_1d">futures_cumulative_funding_rate_all_margin_1d</a></td><td>Market</td><td>Futures</td><td>Percentage</td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, all-margined, 7 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_all_margin_7d">futures_cumulative_funding_rate_all_margin_7d</a></td><td>Market</td><td>Futures</td><td>Percentage</td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, all-margined, 30 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_all_margin_30d">futures_cumulative_funding_rate_all_margin_30d</a></td><td>Market</td><td>Futures</td><td>Percentage</td><td>Dimensionless</td><td>1 hour</td></tr></tbody></table>
 
 ## Details
 
@@ -26,11 +16,9 @@ The `futures_cumulative_funding_rate_all_margin_*` metrics represent the cumulat
 
 These metrics have a publication frequency of once per hour and represent the cumulative realized funding rate over the previous 1 day, 7 day, and 30 day time periods.
 
-For example, at the market level, the cumulative funding rate for `binance-BTCUSDT-future` over the course of one day would be the cumulative product of the three 8-hour funding settlement rates reported that day. For these metrics, with the CFR being calculated for assets, we leverage our [Aggregate Futures Funding Rate](aggregated-futures-funding-rate.md) to perform this calculation across all relevant markets.&#x20;
+For example, at the market level, the cumulative funding rate for `binance-BTCUSDT-future` over the course of one day would be the cumulative product of the three 8-hour funding settlement rates reported that day. For these metrics, with the CFR being calculated for assets, we leverage our [Aggregate Futures Funding Rate](aggregated-futures-funding-rate.md) to perform this calculation across all relevant markets.
 
 To accumulate the rates hour-over-hour, we first convert the AFR to an hourly rate, multiply the rates together, then convert the product back to the desired rate.
-
-
 
 $$
 CFR_{L}=\prod_{i=1}^{L} (1 + AFR_{1h,i}) - 1
@@ -40,11 +28,11 @@ $$
 AFR_{1h,i} = \frac{AFR_{8h,i}}{8}
 $$
 
-where $$AFR_{i}$$ is the Aggregate Funding Rate at timestamp $$i$$. The increments $$i$$ are hourly, as $$AFR$$ is published hourly. Thus, `futures_cumulative_funding_rate_usd_margin_1d`is the accumulation of funding rates over the last 24 hours,  `futures_cumulative_funding_rate_usd_margin_7d` is the accumulation of funding rates over the last 168 hours, etc.&#x20;
+where $$AFR_{i}$$ is the Aggregate Funding Rate at timestamp $$i$$. The increments $$i$$ are hourly, as $$AFR$$ is published hourly. Thus, `futures_cumulative_funding_rate_usd_margin_1d`is the accumulation of funding rates over the last 24 hours, `futures_cumulative_funding_rate_usd_margin_7d` is the accumulation of funding rates over the last 168 hours, etc.
 
 ## **API Endpoints**
 
-Cumulative Futures Funding Rates can be accessed using the `timeseries/asset-metrics` and `timeseries/exchange-asset-metrics` endpoints by passing in `futures_cumulative_funding_rate_usd_margin_*` to the `metrics` parameter. 
+Cumulative Futures Funding Rates can be accessed using the `timeseries/asset-metrics` and `timeseries/exchange-asset-metrics` endpoints by passing in `futures_cumulative_funding_rate_usd_margin_*` to the `metrics` parameter.
 
 {% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
@@ -82,10 +70,8 @@ Cumulative Futures Funding Rates can be accessed using the `timeseries/asset-met
 }
 ```
 
-* **`asset`**: The id of the asset.\
-
-* **`time`**: The exchange-reported time in ISO 8601 date-time format. Always with nanoseconds precision.\
-
+* **`asset`**: The id of the asset.\\
+* **`time`**: The exchange-reported time in ISO 8601 date-time format. Always with nanoseconds precision.\\
 * **`futures_cumulative_funding_rate_coin_margin_1d`**: The cumulative funding rate.
 
 ## Release History
@@ -95,4 +81,3 @@ Cumulative Futures Funding Rates can be accessed using the `timeseries/asset-met
 ## Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/futures_cumulative_funding_rate_coin_margin_1d" %}
-

@@ -1,46 +1,34 @@
-# Liquidity Slippage Percentage
+# Slippage
 
 ## Definition
 
-Price slippage is the difference between the quoted price of an asset and the execution price of a market order.&#x20;
+Price slippage is the difference between the quoted price of an asset and the execution price of a market order.
 
-| Name                                       | MetricID                                | Category  | Subcategory | Type  | Unit          | Interval |
-| ------------------------------------------ | --------------------------------------- | --------- | ----------- | ----- | ------------- | -------- |
-| Liquidity Slippage Percentage, $1K Ask     | [liquidity\_slippage\_1K\_ask\_percent](https://coverage.coinmetrics.io/market-metrics/liquidity_slippage_1K_ask_percent)   | Liquidity | Slippage    | Ratio | Dimensionless | 1h       |
-| Liquidity Slippage Percentage, $5K Ask     | [liquidity\_slippage\_5K\_ask\_percent](https://coverage.coinmetrics.io/market-metrics/liquidity\_slippage\_5K\_ask\_percent)   | Liquidity | Slippage    | Ratio | Dimensionless | 1h       |
-| Liquidity Slippage Percentage, $10K Ask    | [liquidity\_slippage\_10K\_ask\_percent](https://coverage.coinmetrics.io/market-metrics/liquidity\_slippage\_10K\_ask\_percent)  | Liquidity | Slippage    | Ratio | Dimensionless | 1h       |
-| Liquidity Slippage Percentage, $50K Ask    | [liquidity\_slippage\_50K\_ask\_percent](https://coverage.coinmetrics.io/market-metrics/liquidity\_slippage\_50K\_ask\_percent)  | Liquidity | Slippage    | Ratio | Dimensionless | 1h       |
-| Liquidity Slippage Percentage, $100K Ask   | [liquidity\_slippage\_100K\_ask\_percent](https://coverage.coinmetrics.io/market-metrics/liquidity\_slippage\_100K\_ask\_percent) | Liquidity | Slippage    | Ratio | Dimensionless | 1h       |
-| Liquidity Slippage Percentage, $1M Ask     | [liquidity\_slippage\_1M\_ask\_percent](https://coverage.coinmetrics.io/market-metrics/liquidity\_slippage\_1M\_ask\_percent)   | Liquidity | Slippage    | Ratio | Dimensionless | 1h       |
-| Liquidity Slippage Percentage, $1K Bid     | [liquidity\_slippage\_1K\_bid\_percent](https://coverage.coinmetrics.io/market-metrics/liquidity\_slippage\_1K\_bid\_percent)   | Liquidity | Slippage    | Ratio | Dimensionless | 1h       |
-| Liquidity Slippage Percentage, $5K Bid     | [liquidity\_slippage\_5K\_bid\_percent](https://coverage.coinmetrics.io/market-metrics/liquidity\_slippage\_5K\_bid\_percent)   | Liquidity | Slippage    | Ratio | Dimensionless | 1h       |
-| Liquidity Slippage Percentage, $10K Bid    | [liquidity\_slippage\_10K\_bid\_percent](https://coverage.coinmetrics.io/market-metrics/liquidity\_slippage\_10K\_bid\_percent)  | Liquidity | Slippage    | Ratio | Dimensionless | 1h       |
-| Liquidity Slippage Percentage, $50K Bid    | [liquidity\_slippage\_50K\_bid\_percent](https://coverage.coinmetrics.io/market-metrics/liquidity\_slippage\_50K\_bid\_percent)  | Liquidity | Slippage    | Ratio | Dimensionless | 1h       |
-| Liquidity Slippage Percentage, $100K Bid   | [liquidity\_slippage\_100K\_bid\_percent](https://coverage.coinmetrics.io/market-metrics/liquidity\_slippage\_100K\_bid\_percent) | Liquidity | Slippage    | Ratio | Dimensionless | 1h       |
-| Liquidity Slippage Percentage, $1M Bid     | [liquidity\_slippage\_1M\_bid\_percent](https://coverage.coinmetrics.io/market-metrics/liquidity\_slippage\_1M\_bid\_percent)   | Liquidity | Slippage    | Ratio | Dimensionless | 1h       |
+<table><thead><tr><th width="257">Name</th><th width="308">MetricID</th><th>Category</th><th>Subcategory</th><th>Type</th><th width="152">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Liquidity Slippage Percentage, $1K Ask</td><td><a href="https://coverage.coinmetrics.io/market-metrics/liquidity_slippage_1K_ask_percent">liquidity_slippage_1K_ask_percent</a></td><td>Liquidity</td><td>Slippage</td><td>Ratio</td><td>Dimensionless</td><td>1h</td></tr><tr><td>Liquidity Slippage Percentage, $5K Ask</td><td><a href="https://coverage.coinmetrics.io/market-metrics/liquidity_slippage_5K_ask_percent">liquidity_slippage_5K_ask_percent</a></td><td>Liquidity</td><td>Slippage</td><td>Ratio</td><td>Dimensionless</td><td>1h</td></tr><tr><td>Liquidity Slippage Percentage, $10K Ask</td><td><a href="https://coverage.coinmetrics.io/market-metrics/liquidity_slippage_10K_ask_percent">liquidity_slippage_10K_ask_percent</a></td><td>Liquidity</td><td>Slippage</td><td>Ratio</td><td>Dimensionless</td><td>1h</td></tr><tr><td>Liquidity Slippage Percentage, $50K Ask</td><td><a href="https://coverage.coinmetrics.io/market-metrics/liquidity_slippage_50K_ask_percent">liquidity_slippage_50K_ask_percent</a></td><td>Liquidity</td><td>Slippage</td><td>Ratio</td><td>Dimensionless</td><td>1h</td></tr><tr><td>Liquidity Slippage Percentage, $100K Ask</td><td><a href="https://coverage.coinmetrics.io/market-metrics/liquidity_slippage_100K_ask_percent">liquidity_slippage_100K_ask_percent</a></td><td>Liquidity</td><td>Slippage</td><td>Ratio</td><td>Dimensionless</td><td>1h</td></tr><tr><td>Liquidity Slippage Percentage, $1M Ask</td><td><a href="https://coverage.coinmetrics.io/market-metrics/liquidity_slippage_1M_ask_percent">liquidity_slippage_1M_ask_percent</a></td><td>Liquidity</td><td>Slippage</td><td>Ratio</td><td>Dimensionless</td><td>1h</td></tr><tr><td>Liquidity Slippage Percentage, $1K Bid</td><td><a href="https://coverage.coinmetrics.io/market-metrics/liquidity_slippage_1K_bid_percent">liquidity_slippage_1K_bid_percent</a></td><td>Liquidity</td><td>Slippage</td><td>Ratio</td><td>Dimensionless</td><td>1h</td></tr><tr><td>Liquidity Slippage Percentage, $5K Bid</td><td><a href="https://coverage.coinmetrics.io/market-metrics/liquidity_slippage_5K_bid_percent">liquidity_slippage_5K_bid_percent</a></td><td>Liquidity</td><td>Slippage</td><td>Ratio</td><td>Dimensionless</td><td>1h</td></tr><tr><td>Liquidity Slippage Percentage, $10K Bid</td><td><a href="https://coverage.coinmetrics.io/market-metrics/liquidity_slippage_10K_bid_percent">liquidity_slippage_10K_bid_percent</a></td><td>Liquidity</td><td>Slippage</td><td>Ratio</td><td>Dimensionless</td><td>1h</td></tr><tr><td>Liquidity Slippage Percentage, $50K Bid</td><td><a href="https://coverage.coinmetrics.io/market-metrics/liquidity_slippage_50K_bid_percent">liquidity_slippage_50K_bid_percent</a></td><td>Liquidity</td><td>Slippage</td><td>Ratio</td><td>Dimensionless</td><td>1h</td></tr><tr><td>Liquidity Slippage Percentage, $100K Bid</td><td><a href="https://coverage.coinmetrics.io/market-metrics/liquidity_slippage_100K_bid_percent">liquidity_slippage_100K_bid_percent</a></td><td>Liquidity</td><td>Slippage</td><td>Ratio</td><td>Dimensionless</td><td>1h</td></tr><tr><td>Liquidity Slippage Percentage, $1M Bid</td><td><a href="https://coverage.coinmetrics.io/market-metrics/liquidity_slippage_1M_bid_percent">liquidity_slippage_1M_bid_percent</a></td><td>Liquidity</td><td>Slippage</td><td>Ratio</td><td>Dimensionless</td><td>1h</td></tr></tbody></table>
 
 ## Details
 
 Price slippage is the difference, often represented as a percentage, between the quoted price of an asset and the execution price of a market order. There can be many causes for slippage, but the primary cause is the size of a trade with respect to the composition of the limit orderbook. The bid slippage metrics represent the price slippage of a sell order. And the ask slippage metrics represent the price slippage of a buy order.
 
-Let’s say an investor wishes to purchase 1 BTC at the best ask price of $25,000 and they submit a market order. The top of the order book has a sell order at this price for 0.25 BTC, so .25 BTC is purchased at $25,000 per BTC. The next order in the orderbook is for 0.5 BTC, but at a price of $25,250. This is executed and 0.5 BTC is purchased at $25,250 per BTC. 0.75 BTC has now been purchased, and 0.25 BTC remain. The investor completes his order at the next offer in the orderbook, 0.5 BTC for $25,500. As only 0.25 BTC are needed to complete the 1 BTC purchase, the investor fills 0.25 BTC at the price of $25,500 per BTC. The effective execution price of this purchase is the average price of the individual orders, weighted by quantity:&#x20;
+Let’s say an investor wishes to purchase 1 BTC at the best ask price of $25,000 and they submit a market order. The top of the order book has a sell order at this price for 0.25 BTC, so .25 BTC is purchased at $25,000 per BTC. The next order in the orderbook is for 0.5 BTC, but at a price of $25,250. This is executed and 0.5 BTC is purchased at $25,250 per BTC. 0.75 BTC has now been purchased, and 0.25 BTC remain. The investor completes his order at the next offer in the orderbook, 0.5 BTC for $25,500. As only 0.25 BTC are needed to complete the 1 BTC purchase, the investor fills 0.25 BTC at the price of $25,500 per BTC. The effective execution price of this purchase is the average price of the individual orders, weighted by quantity:
 
-### &#x20;                          $$\frac{0.25\times\$25,000 + 0.5\times\$25,250 + 0.25\times\$25,500}{0.25 + 0.5 + 0.25} = \$25,250$$
+### $$\frac{0.25\times\$25,000 + 0.5\times\$25,250 + 0.25\times\$25,500}{0.25 + 0.5 + 0.25} = \$25,250$$
 
 The slippage is the percentage difference in the market price and this execution price:
 
-&#x20;                                                        $$\frac{\$25,250-\$25,000}{\$25,000} = 1\%$$
+$$\frac{\$25,250-\$25,000}{\$25,000} = 1\%$$
 
 So this hypothetical purchase of 1 BTC incurred 1% slippage. If the trade size was different, then the slippage would change; that is, slippage is dependent on order size.
 
 ## API Endpoints
+
 Liquidity slippage metrics can be accessed using the following endpoints:
+
 * `timeseries/market-metrics`
 
 {% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
-
 
 ## Examples
 
@@ -72,11 +60,9 @@ A sample of the liquidity slippage percentage for a $100K buy order on the `coin
 }
 ```
 
-* **`market`**: The id of the markets.\
-
-* **`time`**: The time in ISO 8601 date-time format.\
-
-* **`liquidity_slippage_100K_ask_percent`**: The percent slippage of a $100K buy order executed at this time in this market.&#x20;
+* **`market`**: The id of the markets.\\
+* **`time`**: The time in ISO 8601 date-time format.\\
+* **`liquidity_slippage_100K_ask_percent`**: The percent slippage of a $100K buy order executed at this time in this market.
 
 ## Release History
 

@@ -1,19 +1,15 @@
-# Trusted Spot Volume
+# Trusted Volume
 
 ## Definition
 
 The sum of all volume from the spot markets of a set of trusted exchanges in units of U.S. dollars.[\
 ](https://docs.coinmetrics.io/info/metrics/volume\_trusted\_spot\_usd\_1d)
 
-| Name                        | MetricID                       | Category | Subcategory | Type | Unit | Interval |
-| --------------------------- | ------------------------------ | -------- | ----------- | ---- | ---- | -------- |
-| Trusted Spot Volume         | [volume\_trusted\_spot\_usd\_1d](https://coverage.coinmetrics.io/asset-metrics/volume_trusted_spot_usd_1d) | Volume   | Spot        | Sum  | USD  | 1d       |
-| Trusted Spot Volume, 1 Hour | [volume\_trusted\_spot\_usd\_1h](https://coverage.coinmetrics.io/asset-metrics/volume_trusted_spot_usd_1h) | Volume   | Spot        | Sum  | USD  | 1h       |
+<table><thead><tr><th width="193">Name</th><th width="169">MetricID</th><th>Category</th><th>Subcategory</th><th>Type</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Trusted Spot Volume</td><td><a href="https://coverage.coinmetrics.io/asset-metrics/volume_trusted_spot_usd_1d">volume_trusted_spot_usd_1d</a></td><td>Volume</td><td>Spot</td><td>Sum</td><td>USD</td><td>1d</td></tr><tr><td>Trusted Spot Volume, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/asset-metrics/volume_trusted_spot_usd_1h">volume_trusted_spot_usd_1h</a></td><td>Volume</td><td>Spot</td><td>Sum</td><td>USD</td><td>1h</td></tr></tbody></table>
 
 ## Details
 
-Our trusted volume metric is an aggregation of the reported volume from exchanges that we consider the most accurate and trustworthy.  The full list of constituent exchanges included in our Trusted Volume can be found [here](https://coinmetrics.io/special-insights/trusted-exchange-framework)
-
+Our trusted volume metric is an aggregation of the reported volume from exchanges that we consider the most accurate and trustworthy. The full list of constituent exchanges included in our Trusted Volume can be found [here](https://coinmetrics.io/special-insights/trusted-exchange-framework)
 
 ## API Endpoints
 
@@ -53,7 +49,6 @@ print(
 ```
 {% endtab %}
 {% endtabs %}
-
 
 {% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
