@@ -22,48 +22,48 @@ Data available at the market level is served through the API endpoints below, wh
 * [`/timeseries/market-implied-volatility`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketImpliedVolatility)
 * [`/timeseries/market-greeks`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketGreeks)
 
-{% content-ref url="../market-data-timeseries/market-metadata.md" %}
-[market-metadata.md](../market-data-timeseries/market-metadata.md)
+{% content-ref url="market-metadata/market-metadata.md" %}
+[market-metadata.md](market-metadata/market-metadata.md)
 {% endcontent-ref %}
 
-{% content-ref url="../market-data-timeseries/market-trades.md" %}
-[market-trades.md](../market-data-timeseries/market-trades.md)
+{% content-ref url="trades/market-trades.md" %}
+[market-trades.md](trades/market-trades.md)
 {% endcontent-ref %}
 
-{% content-ref url="../market-data-timeseries/market-open-interest.md" %}
-[market-open-interest.md](../market-data-timeseries/market-open-interest.md)
+{% content-ref url="open-interest/market-open-interest.md" %}
+[market-open-interest.md](open-interest/market-open-interest.md)
 {% endcontent-ref %}
 
-{% content-ref url="../market-data-timeseries/futures-liquidations.md" %}
-[futures-liquidations.md](../market-data-timeseries/futures-liquidations.md)
+{% content-ref url="liquidations/futures-liquidations.md" %}
+[futures-liquidations.md](liquidations/futures-liquidations.md)
 {% endcontent-ref %}
 
-{% content-ref url="../market-data-timeseries/futures-funding-rates.md" %}
-[futures-funding-rates.md](../market-data-timeseries/futures-funding-rates.md)
+{% content-ref url="funding-rates/futures-funding-rates.md" %}
+[futures-funding-rates.md](funding-rates/futures-funding-rates.md)
 {% endcontent-ref %}
 
-{% content-ref url="../market-data-timeseries/market-order-book.md" %}
-[market-order-book.md](../market-data-timeseries/market-order-book.md)
+{% content-ref url="orderbooks/market-order-book.md" %}
+[market-order-book.md](orderbooks/market-order-book.md)
 {% endcontent-ref %}
 
-{% content-ref url="../market-data-timeseries/market-quotes.md" %}
-[market-quotes.md](../market-data-timeseries/market-quotes.md)
+{% content-ref url="quotes/market-quotes.md" %}
+[market-quotes.md](quotes/market-quotes.md)
 {% endcontent-ref %}
 
-{% content-ref url="../market-data-timeseries/market-candles.md" %}
-[market-candles.md](../market-data-timeseries/market-candles.md)
+{% content-ref url="candles/market-candles.md" %}
+[market-candles.md](candles/market-candles.md)
 {% endcontent-ref %}
 
-{% content-ref url="../market-data-timeseries/market-contract-prices.md" %}
-[market-contract-prices.md](../market-data-timeseries/market-contract-prices.md)
+{% content-ref url="contract-prices/market-contract-prices.md" %}
+[market-contract-prices.md](contract-prices/market-contract-prices.md)
 {% endcontent-ref %}
 
-{% content-ref url="../market-data-timeseries/market-implied-volatility.md" %}
-[market-implied-volatility.md](../market-data-timeseries/market-implied-volatility.md)
+{% content-ref url="volatility/market-implied-volatility.md" %}
+[market-implied-volatility.md](volatility/market-implied-volatility.md)
 {% endcontent-ref %}
 
-{% content-ref url="../market-data-timeseries/market-greeks.md" %}
-[market-greeks.md](../market-data-timeseries/market-greeks.md)
+{% content-ref url="greeks/market-greeks.md" %}
+[market-greeks.md](.greeks/market-greeks.md)
 {% endcontent-ref %}
 
 {% content-ref url="market-data-faqs.md" %}
