@@ -25,6 +25,13 @@ The sum count of unique addresses that were active in the network (either as a r
 
 * This metric is not available for assets that have full privacy, like Monero and Grin. For assets that have opt-in privacy features, like ZCash, it only takes the non-private activities into account.
 
+#### Coverage
+
+* <a href="https://coverage.coinmetrics.io/search-results?query=AdrAct30dCnt">AdrAct30dCnt</a>
+* <a href="https://coverage.coinmetrics.io/search-results?query=AdrAct7dCnt">AdrAct7dCnt</a>
+* <a href="https://coverage.coinmetrics.io/search-results?query=AdrActCnt">AdrActCnt</a>
+
+
 ### Active Addresses (Sent) <a href="#sent" id="sent"></a>
 
 #### Definition
@@ -58,6 +65,9 @@ In a given day:
   * F is the sender/initiator
 
 We would count as active senders: A, B, D and F. The value of the metric would therefore be: 4.
+
+#### Coverage
+<a href="https://coverage.coinmetrics.io/search-results?query=AdrActSentCnt">AdrActSentCnt</a>
 
 ### Active Addresses (Received) <a href="#received" id="received"></a>
 
@@ -94,6 +104,9 @@ In a given day:
 
 We would count as active recipients: A, C, D and E. The value of the metric would therefore be: 4.
 
+#### Coverage
+* <a href="https://coverage.coinmetrics.io/search-results?query=AdrActRecCnt">AdrActRecCnt</a>
+
 ### Active Smart Contract Addresses <a href="#smart" id="smart"></a>
 
 #### Definition
@@ -111,6 +124,9 @@ The sum count of unique smart contract addresses that were active in the network
 #### **Asset-Specific Details**
 
 * This metric is only available for assets that feature the notion of smart contract addresses, such as Ethereum.
+
+#### Coverage
+* <a href="https://coverage.coinmetrics.io/search-results?query=AdrActContCnt">AdrActContCnt</a>
 
 ## API Endpoints
 
