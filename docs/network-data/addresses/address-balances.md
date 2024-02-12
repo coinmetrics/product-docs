@@ -57,6 +57,16 @@ If the total current supply of the token is 10,000,000,000 units \(10 billion un
 
 In contrast with Addresses, with balance, greater than X native units, count, this metric seeks to facilitate direct comparisons between blockchains, even if they have widely varying supply counts. This metric allows you to determine how many addresses own a given fraction of supply, rather than a given number of units of supply. Keep in mind that in blockchains where transacting is cheap or free, this metric can be gamed.
 
+## Coverage
+* [AdrBal1in10BCnt](https://coverage.coinmetrics.io/search-results?query=AdrBal1in10BCnt)
+* [AdrBal1in1BCnt](https://coverage.coinmetrics.io/search-results?query=AdrBal1in1BCnt)
+* [AdrBal1in100MCnt](https://coverage.coinmetrics.io/search-results?query=AdrBal1in100MCnt)
+* [AdrBal1in10MCnt](https://coverage.coinmetrics.io/search-results?query=AdrBal1in10MCnt)
+* [AdrBal1in1MCnt](https://coverage.coinmetrics.io/search-results?query=AdrBal1in1MCnt)
+* [AdrBal1in100KCnt](https://coverage.coinmetrics.io/search-results?query=AdrBal1in100KCnt)
+* [AdrBal1in10KCnt](https://coverage.coinmetrics.io/search-results?query=AdrBal1in10KCnt)
+* [AdrBal1in1KCnt](https://coverage.coinmetrics.io/search-results?query=AdrBal1in1KCnt)
+
 # Address Count with Balance ≥ X (native units) <a href="#native" id="native"></a>
 
 ## Definition
@@ -97,6 +107,18 @@ The sum count of unique addresses holding at least X native units as of the end 
 
 * This is a potent set of metrics which can elucidate the dispersion of ownership of the address space in a cryptocurrency. The trend can demonstrate whether or not a cryptocurrency is in a concentrative or distributive phase. It should be noted that supply is arbitrary, and for large-cap assets varies between tens of millions to hundreds of billions; so unit dispersion is often not directly comparable between chains. Put otherwise: it is cheaper to accumulate addresses with 100 XRP than 100 BTC since those are so different in fiat terms. This metric can also be gamed to a degree by adding dust to many thousands of addresses.
 
+## Coverage
+* [AdrBalNtv0.001Cnt](https://coverage.coinmetrics.io/search-results?query=adrbalntv0.001cnt)
+* [AdrBalNtv0.01Cnt](https://coverage.coinmetrics.io/search-results?query=adrbalntv0.01cnt)
+* [AdrBalNtv0.1Cnt](https://coverage.coinmetrics.io/search-results?query=adrbalntv0.1cnt)
+* [AdrBalNtv1Cnt](https://coverage.coinmetrics.io/search-results?query=adrbalntv1cnt)
+* [AdrBalNtv10Cnt](https://coverage.coinmetrics.io/search-results?query=adrbalntv10cnt)
+* [AdrBalNtv100Cnt](https://coverage.coinmetrics.io/search-results?query=adrbalntv100cnt)
+* [AdrBalNtv1KCnt](https://coverage.coinmetrics.io/search-results?query=adrbalntv1kcnt)
+* [AdrBalNtv10KCnt](https://coverage.coinmetrics.io/search-results?query=adrbalntv10kcnt)
+* [AdrBalNtv100KCnt](https://coverage.coinmetrics.io/search-results?query=adrbalntv100kcnt)
+* [AdrBalNtv1MCnt](https://coverage.coinmetrics.io/search-results?query=adrbalntv1mcnt)
+
 # Address Count with Balance ≥ $X <a href="#usd" id="usd"></a>
 
 ## Definition
@@ -135,6 +157,16 @@ The sum count of unique addresses holding at least X dollar's worth of native un
 ## Interpretation
 
 * This metric standardizes wealth cohorts across multiple blockchains for easy comparison, although differences in address creation must be taken into account. Some wallets in UTXO chains tend to fragment user balances into multiple addresses to preserve privacy. Note that this metric is sensitive to changes in unit price; common address sizes combined with price changes can lead to large numbers of addresses hitting a new threshold at the same time. This can lead to sharp discontinuities in the metric. For a purer measure of holder dispersion (albeit not as directly comparable), see addresses, with balance, greater than X native units, count.
+
+## Coverage
+* [AdrBalUSD1Cnt](https://coverage.coinmetrics.io/search-results?query=adrbalusd1cnt) 
+* [AdrBalUSD10Cnt](https://coverage.coinmetrics.io/search-results?query=adrbalusd10cnt)
+* [AdrBalUSD100Cnt](https://coverage.coinmetrics.io/search-results?query=adrbalusd100cnt)
+* [AdrBalUSD1KCnt](https://coverage.coinmetrics.io/search-results?query=adrbalusd1kcnt)
+* [AdrBalUSD10KCnt](https://coverage.coinmetrics.io/search-results?query=adrbalusd10kcnt)
+* [AdrBalUSD100KCnt](https://coverage.coinmetrics.io/search-results?query=adrbalusd100kcnt)
+* [AdrBalUSD1MCnt](https://coverage.coinmetrics.io/search-results?query=adrbalusd1mcnt)
+* [AdrBalUSD10MCnt](https://coverage.coinmetrics.io/search-results?query=adrbalusd10mcnt)
 
 # New Funded Address Count <a href="#new_funded" id="new_funded"></a>
 
