@@ -512,6 +512,7 @@
     * [Supply Held by Smart Contracts (native units)](network-data/supply/splycontntv.md)
     * [Supply Held by Smart Contracts (USD)](network-data/supply/splycontusd.md)
   * [Transactions](network-data/transactions/README.md)
+    * [Token Transactions](network-data/transactions/token-transactions.md)
     * [Tx Cnt](network-data/transactions/txcnt.md)
     * [Tx Mean Size](network-data/transactions/txmeanbyte.md)
     * [Tx per Second Cnt](network-data/transactions/txcntsec.md)
