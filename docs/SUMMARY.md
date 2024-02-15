@@ -31,10 +31,6 @@
 * [CM Labs](cm-labs.md)
 * [Status Page](status-page.md)
 
-<!-- ## State of the Network
-
-* [A Visualization of Trades](state-of-the-network/19-05-29\_a\_visualization\_of\_trades\_on\_may\_17-\_2019\_-day\_of\_steep\_decline.md) -->
-
 ## On-Chain Data
 
 * [Network Data Overview](network-data/network-data-overview.md)
@@ -784,14 +780,14 @@
     * [Index Levels](index-data/indexes-timeseries/index-levels.md)
     * [Index Candles](index-data/indexes-timeseries/index-candles.md)
     * [Index Constituents](index-data/indexes-timeseries/index-constituents.md)
-  * [Policies & Charters](index-data/policies-and-charters/README.md)
+* [Policies & Charters](index-data/policies-and-charters/README.md)
   * [CMBI Index Policies](index-data/policies-and-charters/cmbi-index-policies.md)
   * [Governance Committees](index-data/policies-and-charters/governance-committees.md)
 * [Methodologies](index-data/coin-metrics-bletchley-indexes-cmbi/README.md)
   * [Fork Legitimacy Framework](index-data/coin-metrics-bletchley-indexes-cmbi/fork-legitimacy-framework.md)
   * [Adjusted Free Float Supply Methodology](index-data/coin-metrics-bletchley-indexes-cmbi/adjusted-free-float-supply-methodology.md)
   * [CMBI Market Selection Framework](index-data/coin-metrics-bletchley-indexes-cmbi/cmbi-market-selection-framework.md)
-* [Indexes Glossary](index-data/indexes.md)
+* [Indexes Glossary](index-data/indexes-glossary.md)
 * [Index FAQs](index-data/index-faqs.md)
 
 ## Reference Data
@@ -807,3 +803,53 @@
   * [Markets](reference-data/security-master/markets.md)
 * [Methodologies](reference-data/methodologies/README.md)
   * [Guiding Principles and Methodology for datonomy](reference-data/methodologies/guiding-principles-and-methodology-for-datonomy.md)
+
+## Mempool Monitor (Time Series - DEPRECATED)
+
+* [Mempool Monitor - DEPRECATED](mempool-monitor-time-series-deprecated/mempool-monitor-deprecated.md)
+
+## WatchTower Alerts (Time Series - DEPRECATED)
+
+* [WatchTower Alerts Overview - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/README.md)
+  * [WatchTower Alerts - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/README.md)
+    * [Ethereum Proof-of-Stake Alerts - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/ethereum-proof-of-stake-alerts-deprecated/README.md)
+      * [Missed Slot Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/ethereum-proof-of-stake-alerts-deprecated/missed-slot-alert-deprecated.md)
+      * [Fast Increase in Transaction Count Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/ethereum-proof-of-stake-alerts-deprecated/fast-increase-in-transaction-count-alert-deprecated.md)
+      * [Fast Decrease in Transaction Count Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/ethereum-proof-of-stake-alerts-deprecated/fast-decrease-in-transaction-count-alert-deprecated.md)
+      * [Fast Decrease in Base Fees - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/ethereum-proof-of-stake-alerts-deprecated/fast-decrease-in-base-fees-deprecated.md)
+      * [Fast Increase in Base Fees - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/ethereum-proof-of-stake-alerts-deprecated/fast-increase-in-base-fees-deprecated.md)
+      * [Fast Decrease in Priority Fees (Tips) Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/ethereum-proof-of-stake-alerts-deprecated/fast-decrease-in-priority-fees-tips-alert-deprecated.md)
+      * [Fast Increase in Priority Fees (Tips) Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/ethereum-proof-of-stake-alerts-deprecated/fast-increase-in-priority-fees-tips-alert-deprecated.md)
+      * [Decrease in Active Addresses Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/ethereum-proof-of-stake-alerts-deprecated/decrease-in-active-addresses-alert-deprecated.md)
+      * [Increase in Active Addresses Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/ethereum-proof-of-stake-alerts-deprecated/increase-in-active-addresses-alert-deprecated.md)
+      * [Decrease in Total Block Fees Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/ethereum-proof-of-stake-alerts-deprecated/decrease-in-total-block-fees-alert-deprecated.md)
+      * [Increase in Total Block Fees Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/ethereum-proof-of-stake-alerts-deprecated/increase-in-total-block-fees-alert-deprecated.md)
+    * [DeFi Alerts - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/defi-alerts-deprecated/README.md)
+      * [Smart Contract Admin Change Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/defi-alerts-deprecated/smart-contract-admin-change-alert-deprecated.md)
+      * [Admin Change with Issuance Event Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/defi-alerts-deprecated/admin-change-with-issuance-event-alert-deprecated.md)
+      * [Admin Change with Large Issuance Event Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/defi-alerts-deprecated/admin-change-with-large-issuance-event-alert-deprecated.md)
+    * [Mining Alerts - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/mining-alerts-deprecated/README.md)
+      * [Unknown Miner Predominance Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/mining-alerts-deprecated/unknown-miner-predominance-alert-deprecated.md)
+      * [Mining Pool Conflict Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/mining-alerts-deprecated/mining-pool-conflict-alert-deprecated.md)
+      * [Persistent Mining Pool Conflict Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/mining-alerts-deprecated/persistent-mining-pool-conflict-alert-deprecated.md)
+      * [Hashrate Decrease Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/mining-alerts-deprecated/hashrate-decrease-alert-deprecated.md)
+      * [1-Block Difficulty Decrease - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/mining-alerts-deprecated/1-block-difficulty-decrease-deprecated.md)
+    * [Blockchain Alerts - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/blockchain-alerts-deprecated/README.md)
+      * [1 Block Reorg Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/blockchain-alerts-deprecated/1-block-reorg-alert-deprecated.md)
+      * [2 Block Reorg Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/blockchain-alerts-deprecated/2-block-reorg-alert-deprecated.md)
+      * [3 Block Reorg Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/blockchain-alerts-deprecated/3-block-reorg-alert-deprecated.md)
+      * [Satoshi Coins Spent - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/blockchain-alerts-deprecated/satoshi-coins-spent-deprecated.md)
+      * [Vintage Coins Spent - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/blockchain-alerts-deprecated/vintage-coins-spent-deprecated.md)
+      * [Slow Block Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/blockchain-alerts-deprecated/slow-block-alert-deprecated.md)
+      * [1 Consecutive Empty Block Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/blockchain-alerts-deprecated/1-consecutive-empty-block-alert-deprecated.md)
+      * [2 Consecutive Empty Blocks Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/blockchain-alerts-deprecated/2-consecutive-empty-blocks-alert-deprecated.md)
+      * [3 Consecutive Empty Blocks Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/blockchain-alerts-deprecated/3-consecutive-empty-blocks-alert-deprecated.md)
+      * [6 Consecutive Empty Blocks Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/blockchain-alerts-deprecated/6-consecutive-empty-blocks-alert-deprecated.md)
+    * [Mempool Alerts - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/mempool-alerts-deprecated/README.md)
+      * [Mempool Disruption Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/mempool-alerts-deprecated/mempool-disruption-alert-deprecated.md)
+      * [Mempool Size 90% Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/mempool-alerts-deprecated/mempool-size-90-alert-deprecated.md)
+      * [Mempool Size 95% Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/mempool-alerts-deprecated/mempool-size-95-alert-deprecated.md)
+      * [Mempool Size 99% Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/mempool-alerts-deprecated/mempool-size-99-alert-deprecated.md)
+      * [Mempool Size 100% Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/mempool-alerts-deprecated/mempool-size-100-alert-deprecated.md)
+      * [Mempool Congestion Alert - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/mempool-alerts-deprecated/mempool-congestion-alert-deprecated.md)
+  * [WatchTower API Fields - DEPRECATED](watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/watchtower-api-fields-deprecated.md)

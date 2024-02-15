@@ -2,7 +2,7 @@
 
 The full text of this document can be downloaded as a pdf document using the link below.&#x20;
 
-{% file src="../../.gitbook/assets/coin-metrics-prices-methodology (2).pdf" %}
+{% file src="../../.gitbook/assets/coin-metrics-prices-methodology (5).pdf" %}
 
 ## Introduction
 

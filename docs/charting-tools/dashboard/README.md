@@ -64,7 +64,7 @@ To get the Dashboard looking just the way you want it you can:
 
 If you've made changes to the underlying charts that you'd like to see reflected in your dashboard, use the refresh button in the right hand toolbar.
 
-![](<../../.gitbook/assets/Screen Shot 2022-01-30 at 1.30.21 PM.png>)
+![](<../../.gitbook/assets/Screen Shot 2022-01-30 at 1.30.21 PM (1).png>)
 
 ## Download Dashboard or Dashboard Charts
 

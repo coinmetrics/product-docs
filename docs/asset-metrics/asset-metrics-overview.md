@@ -12,9 +12,9 @@ Our Asset metrics include our Network Data time series metrics and certain Marke
 
 ### Network Data
 
-Our Network Data asset-metrics are typically daily metrics, but some metrics for some assets available in one block frequencies.
+Our Network Data asset-metrics are typically daily metrics, but some metrics for some assets available in one block frequencies. &#x20;
 
-* Daily network data metrics are computed at 00:00 UTC time for the previous 24 hour interval.
+* Daily network data metrics are computed at 00:00 UTC time for the previous 24 hour interval.  &#x20;
 * Block-by-block metrics are calculated each block. The data returned by the response will vary based on the `min_confirmations` parameter, which specifies the desired number of blocks behind the chain tip for the response
 
 ### Market Data

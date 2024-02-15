@@ -4,7 +4,7 @@ The [Coin Metrics Bletchley Indexes](https://coinmetrics.io/cm-indexes/) (“CMB
 
 ## Data Available for Indexes
 
-The data types listed below are available for each index:
+The data types listed below are available for each index:&#x20;
 
 {% content-ref url="../indexes-timeseries/index-levels.md" %}
 [index-levels.md](../indexes-timeseries/index-levels.md)
@@ -18,7 +18,7 @@ The data types listed below are available for each index:
 [index-constituents.md](../indexes-timeseries/index-constituents.md)
 {% endcontent-ref %}
 
-## **Index Coverage**
+## **Index Coverage**&#x20;
 
 A full list of CMBI indexes can be found in our Coverage Tool:
 
