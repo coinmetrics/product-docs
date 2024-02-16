@@ -1,16 +1,16 @@
 # Active Addresses
 
 ## Contents
-* [Active Monthly, Weekly, Daily Addresses](#active)
-* [Active Addresses (Sent)](#sent)
-* [Active Addresses (Received)](#received)
-* [Active Smart Contract Addresses](#smart)
+* [Active Monthly, Weekly, Daily Addresses](#adract)
+* [Active Addresses (Sent)](#adractsent)
+* [Active Addresses (Received)](#adractrec)
+* [Active Smart Contract Addresses](#adractcont)
 
 ## **Interpretation**
 
 Active addresses is a popular measure to proxy the number of users on a blockchain, since it is typically less sensitive to stress-tests (which often focus on transaction count). However, active addresses inherit idiosyncrasies from the structure of the particular blockchain, and care must be taken to understand structural differences in active address counts. In blockchains where address creation is cheap or free, and transacting is cheap or free, active addresses can still be trivially forged.
 
-# Active Monthly, Weekly, Daily Addresses <a href="#active" id="active"></a>
+# Active Monthly, Weekly, Daily Addresses <a href="#adract" id="adract"></a>
 
 <table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="123">Category</th><th>Sub-Category</th><th>Type</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td><a href="active-addresses.md#active">Active Monthly Addresses</a></td><td><a href="https://coverage.coinmetrics.io/search-results?query=AdrAct30dCnt">AdrAct30dCnt</a></td><td>Addresses</td><td>Active</td><td>Sum</td><td>Addresses</td><td>1 Day</td></tr><tr><td><a href="active-addresses.md#active">Active Weekly Addresses</a></td><td><a href="https://coverage.coinmetrics.io/search-results?query=AdrAct7dCnt">AdrAct7dCnt</a></td><td>Addresses</td><td>Active</td><td>Sum</td><td>Addresses</td><td>1 Day</td></tr><tr><td><a href="active-addresses.md#active">Active Daily Addresses</a></td><td><a href="https://coverage.coinmetrics.io/search-results?query=AdrActCnt">AdrActCnt</a></td><td>Addresses</td><td>Active</td><td>Sum</td><td>Addresses</td><td>1 Day</td></tr></tbody></table>
 
@@ -38,7 +38,7 @@ The sum count of unique addresses that were active in the network (either as a r
 * <a href="https://coverage.coinmetrics.io/search-results?query=AdrActCnt">AdrActCnt</a>
 
 
-# Active Addresses (Sent) <a href="#sent" id="sent"></a>
+# Active Addresses (Sent) <a href="#adractsent" id="adractsent"></a>
 
 <table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="123">Category</th><th>Sub-Category</th><th>Type</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td><a href="active-addresses.md#sent">Active Addresses (Sent)</a></td><td><a href="https://coverage.coinmetrics.io/search-results?query=AdrActSentCnt">AdrActSentCnt</a></td><td>Addresses</td><td>Activity</td><td>Sum</td><td>Addresses</td><td>1 day, 1 hour</td></tr></tr></tbody></table>
 
@@ -77,7 +77,7 @@ We would count as active senders: A, B, D and F. The value of the metric would t
 ## Coverage
 <a href="https://coverage.coinmetrics.io/search-results?query=AdrActSentCnt">AdrActSentCnt</a>
 
-# Active Addresses (Received) <a href="#received" id="received"></a>
+# Active Addresses (Received) <a href="#adractrec" id="adractrec"></a>
 
 <table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="123">Category</th><th>Sub-Category</th><th>Type</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td><a href="active-addresses.md#received">Active Addresses (Received)</a></td><td><a href="https://coverage.coinmetrics.io/search-results?query=AdrActRecCnt">AdrActRecCnt</a></td><td>Addresses</td><td>Activity</td><td>Sum</td><td>Addresses</td><td>1 day, 1 hour</td></tr></tbody></table>
 
@@ -117,7 +117,7 @@ We would count as active recipients: A, C, D and E. The value of the metric woul
 ## Coverage
 * <a href="https://coverage.coinmetrics.io/search-results?query=AdrActRecCnt">AdrActRecCnt</a>
 
-# Active Smart Contract Addresses <a href="#smart" id="smart"></a>
+# Active Smart Contract Addresses <a href="#adractcont" id="adractcont"></a>
 
 <table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="123">Category</th><th>Sub-Category</th><th>Type</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td><a href="active-addresses.md#smart">Active Smart Contract Addr Cnt</a></td><td><a href="https://coverage.coinmetrics.io/search-results?query=AdrActContCnt">AdrActContCnt</a></td><td>Addresses</td><td>Active</td><td>Sum</td><td>Smart Contract Addresses</td><td>1 day</td></tr></tbody></table>
 

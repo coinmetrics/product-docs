@@ -37,6 +37,8 @@
   * [Addresses](network-data/addresses/README.md)
     * [Active Addresses](network-data/addresses/active-addresses.md)
     * [Address Balances](network-data/addresses/address-balances.md)
+    * [New Addresses](network-data/addresses/new-addresses.md)
+
     <!-- * [Active Addr Cnt](network-data/addresses/adractcnt.md)
     * [Active Addr Cnt (Received)](network-data/addresses/adractreccnt.md)
     * [Active Addr Cnt (Sent)](network-data/addresses/adractsentcnt.md)
