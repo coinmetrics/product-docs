@@ -1,10 +1,10 @@
 # Contents
-* [1 Year Active Supply Velocity](#active)
-* [1 Year Active Supply Velocity, Adj](#active_adj)
-* [1 Year Current Supply Velocity](#current)
-* [1 Year Current Supply Velocity, Adj](#current_adj)
+* [1 Year Active Supply Velocity](#VelAct1yr)
+* [1 Year Active Supply Velocity, Adj](#VelActAdj1yr)
+* [1 Year Current Supply Velocity](#VelCur1yr)
+* [1 Year Current Supply Velocity, Adj](#VelCurAdj1yr)
 
-# 1 Year Active Supply Velocity <a href="#active" id="active"></a>
+# 1 Year Active Supply Velocity <a href="#VelAct1yr" id="VelAct1yr"></a>
 
 ## Definition
 
@@ -22,7 +22,7 @@ The ratio of the value transferred (i.e., the aggregate "size" of all transfers)
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/VelAct1yr" %}
 
-# 1 Year Active Supply Velocity, Adj <a href="#active_adj" id="active_adj"></a>
+# 1 Year Active Supply Velocity, Adj <a href="#VelActAdj1yr" id="VelActAdj1yr"></a>
 
 ## Definition
 
@@ -40,7 +40,7 @@ The ratio of the adjusted value transferred (i.e., the aggregate "size" of all t
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/VelActAdj1yr" %}
 
-# 1 Year Current Supply Velocity <a href="#current" id="current"></a>
+# 1 Year Current Supply Velocity <a href="#VelCur1yr" id="VelCur1yr"></a>
 
 ## Definition
 
@@ -66,7 +66,7 @@ Velocity​ is a measurement of the rate at which an asset is exchanged. It can 
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/VelCur1yr" %}
 
-# 1 Year Current Supply Velocity, Adj <a href="#current_adj" id="current_adj"></a>
+# 1 Year Current Supply Velocity, Adj <a href="#VelCurAdj1yr" id="VelCurAdj1yr"></a>
 
 ## Definition
 
