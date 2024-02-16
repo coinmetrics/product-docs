@@ -1,11 +1,11 @@
 # Contents
-* [Contracts Executed Count](#executed)
-* [Contracts Executed Successfully Count](#success)
-* [Transactions Invoking Contract Count](#invoke)
-* [New Created Contracts Count](#new)
-* [Destroyed Contracts Count](#destroy)
+* [Contracts Executed Count](#txcontcallcnt)
+* [Contracts Executed Successfully Count](#txcontcallsucccnt)
+* [Transactions Invoking Contract Count](#txcontcnt)
+* [New Created Contracts Count](#txcontcreatcnt)
+* [Destroyed Contracts Count](#txcontdestcnt)
 
-# Contracts Executed Count <a href="#executed" id="executed"></a>
+# Contracts Executed Count <a href="#txcontcallcnt" id="txcontcallcnt"></a>
 
 ## Definition
 
@@ -32,7 +32,7 @@ The sum count of contract calls executed across all transactions in that interva
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxContCallCnt" %}
 
-# Contracts Executed Successfully Count <a href="#success" id="success"></a>
+# Contracts Executed Successfully Count <a href="#txcontcallsucccnt" id="txcontcallsucccnt"></a>
 
 ## Definition
 
@@ -58,7 +58,7 @@ The sum count of contract calls successfully executed across all transactions in
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxContCallSuccCnt" %}
 
-# Transactions Invoking Contract Count <a href="#invoke" id="invoke"></a>
+# Transactions Invoking Contract Count <a href="#txcontcnt" id="txcontcnt"></a>
 
 ## Definition
 
@@ -86,7 +86,7 @@ The sum count of transactions that invoked a contract in that interval. Failed t
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxContCnt" %}
 
-# New Created Contracts Count <a href="#new" id="new"></a>
+# New Created Contracts Count <a href="#txcontcreatcnt" id="txcontcreatcnt"></a>
 
 ## Definition
 
@@ -114,7 +114,7 @@ The sum count of new contracts successfully created across all transactions in t
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxContCreatCnt" %}
 
-# Destroyed Contracts Count <a href="#destroy" id="destroy"></a>
+# Destroyed Contracts Count <a href="#txcontdestcnt" id="txcontdestcnt"></a>
 
 ## Defintion
 
