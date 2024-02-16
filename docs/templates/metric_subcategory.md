@@ -64,7 +64,7 @@ print(
 ```
 
 <!-- required_parameters example: assets=btc -->
-<!-- required_parameters_python example: assets=['btc'] -->
+<!-- required_parameters_python example: assets=["btc"] -->
 
 
 <!-- See https://gitlab.com/coinmetrics/data-delivery/api-client-python/-/blob/master/coinmetrics/api_client.py?ref_type=heads for mapping of python_api_client_method to API endpoint -->

@@ -178,7 +178,7 @@ client = CoinMetricsClient(api_key)
 print(
     client.get_asset_metrics(
         metrics="TxContCallCnt", 
-        assets='eth',
+        assets="eth",
     ).to_dataframe()
 )
 ```

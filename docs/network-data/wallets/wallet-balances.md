@@ -166,7 +166,7 @@ client = CoinMetricsClient(api_key)
 print(
     client.get_asset_metrics(
         metrics="SplyWalBal1in1B", 
-        assets='btc',
+        assets="btc",
     ).to_dataframe()
 )
 ```

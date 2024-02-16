@@ -177,7 +177,7 @@ client = CoinMetricsClient(api_key)
 print(
     client.get_asset_metrics(
         metrics="AdrAct30dCnt", 
-        assets='btc',
+        assets="btc",
     ).to_dataframe()
 )
 ```
