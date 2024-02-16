@@ -1,12 +1,12 @@
 # Contents
-* [Xfer'd Val, Adj](#TxTfrValAdj)
-* [Xfer'd by Contract Calls](#TxTfrValContCallNtv)
-* [Xfer'd Days Destroyed](#TxTfrValDayDst)
-* [Mean Xfer'd Days Destroyed](#TxTfrValDayDstMean)
-* [Mean Tx Size](#TxTfrValMean)
-* [Xfer'd Val](#TxTfrVal)
+* [Xfer'd Val, Adj](#txtfrvaladj)
+* [Xfer'd by Contract Calls](#txtfrvalcontcallmtv)
+* [Xfer'd Days Destroyed](#txtfrvaldaydst)
+* [Mean Xfer'd Days Destroyed](#txtfrvaldaydstmean)
+* [Mean Tx Size](#txtfrvalmean)
+* [Xfer'd Val](#txtfrvalmed)
 
-# Xfer'd Val, Adj <a href="#TxTfrValAdj" id="TxTfrValAdj"></a>
+# Xfer'd Val, Adj <a href="#txtfrvaladj" id="txtfrvaladj"></a>
 
 ## Definition
 
@@ -54,7 +54,7 @@ The sum of native units or USD transferred that interval removing noise and cert
 * <a href="https://coverage.coinmetrics.io/search-results?query=TxTfrValAdjNtv">TxTfrValAdjNtv</a>
 * <a href="https://coverage.coinmetrics.io/search-results?query=TxTfrValAdjUSD">TxTfrValAdjUSD</a>
 
-# Xfer'd by Contract Calls <a href="#TxTfrValContCallNtv" id="TxTfrValContCallNtv"></a>
+# Xfer'd by Contract Calls <a href="#txtfrvalcontcallmtv" id="txtfrvalcontcallmtv"></a>
 
 ## Definition
 
@@ -81,7 +81,7 @@ The sum of all native units or USD transferred by contract calls on that interva
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValContCallNtv" %}
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValContCallUSD" %}
 
-# Xfer'd Days Destroyed <a href="#TxTfrValDayDst" id="TxTfrValDayDst"></a>
+# Xfer'd Days Destroyed <a href="#txtfrvaldaydst" id="txtfrvaldaydst"></a>
 
 ## Definitions
 
@@ -110,7 +110,7 @@ The sum of all native units transferred that interval multiplied by the sum of d
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValDayDst" %}
 
-# Mean Xfer'd Days Destroyed <a href="#TxTfrValDayDstMean" id="TxTfrValDayDstMean"></a>
+# Mean Xfer'd Days Destroyed <a href="#txtfrvaldaydstmean" id="txtfrvaldaydstmean"></a>
 
 ## Definition
 
@@ -137,7 +137,7 @@ The mean per transaction of the sum of all native units transferred multiplied b
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValDayDstMean" %}
 
-# Mean Tx Size <a href="#TxTfrValMean" id="TxTfrValMean"></a>
+# Mean Tx Size <a href="#txtfrvalmean" id="txtfrvalmean"></a>
 
 ## Definition
 
@@ -166,7 +166,7 @@ The sum value of native units or USD transferred divided by the count of transfe
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValMeanNtv" %}
 
-# Median Tx Size <a href="#TxTfrValMed" id="TxTfrValMed"></a>
+# Median Tx Size <a href="#txtfrvalmed" id="txtfrvalmed"></a>
 
 ## Definition
 
