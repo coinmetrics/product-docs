@@ -10,42 +10,13 @@ The reported volume aggregated across all exchanges in CM's coverage universe. T
 * [Future Coin-Margined](volume\_reported.md#coin\_margined)
 * [Tether Coin-Margined](volume\_reported.md#tether\_margined)
 
-## API Endpoints
-
-All reported volume metrics can be queried using the following endpoints:
-
-* `/timeseries/asset-metrics`
-* `/timeseries/exchange-metrics`
-* `/timeseries/exchange-asset-metrics`
-* `/timeseries/pair-metrics`
-
-and by passing in `volume_reported_*` metric ID's in the the `metrics` parameter.
-
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
-
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
-
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
-
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
-
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
-
-## Reported Spot Volume <a href="#spot" id="spot"></a>
+## Reported Spot Volume <a href="#volume_reported_spot" id="volume_reported_spot"></a>
 
 ### Definition
 
 The sum of all reported volume from the spot markets in Coin Metrics' coverage in units of U.S. dollars.
 
-<table><thead><tr><th width="194">Name</th><th width="263">MetricID</th><th>Category</th><th>Subcategory</th><th>Type</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Reported Spot Volume</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_spot_usd_1d">volume_reported_spot_usd_1d</a></td><td>Volume</td><td>Spot</td><td>Sum</td><td>USD</td><td>1d</td></tr><tr><td>Reported Spot Volume, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_spot_usd_1h">volume_reported_spot_usd_1h</a></td><td>Volume</td><td>Spot</td><td>Sum</td><td>USD</td><td>1h</td></tr></tbody></table>
+<table><thead><tr><th width="194">Name</th><th width="263">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Reported Spot Volume</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_spot_usd_1d">volume_reported_spot_usd_1d</a></td><td>USD</td><td>1d</td></tr><tr><td>Reported Spot Volume, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_spot_usd_1h">volume_reported_spot_usd_1h</a></td><td>USD</td><td>1h</td></tr></tbody></table>
 
 ### Details
 
@@ -78,13 +49,13 @@ A sample of the daily reported spot volume for Bitcoin is shown below:
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/volume_reported_spot_usd_1d" %}
 
-## Reported Future Volume
+## Reported Future Volume <a href="#volume_reported_future" id="volume_reported_future"></a>
 
 ### Definition
 
 The sum of all reported future volume from the spot markets in Coin Metrics' coverage in units of U.S. dollars.
 
-<table><thead><tr><th width="201">Name</th><th width="273">MetricID</th><th>Category</th><th>Subcategory</th><th>Type</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Reported Future Volume</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_future_usd_1d">volume_reported_future_usd_1d</a></td><td>Volume</td><td>Future</td><td>Sum</td><td>USD</td><td>1d</td></tr><tr><td>Reported Future Volume, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_future_usd_1h">volume_reported_future_usd_1h</a></td><td>Volume</td><td>Future</td><td>Sum</td><td>USD</td><td>1h</td></tr></tbody></table>
+<table><thead><tr><th width="201">Name</th><th width="273">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Reported Future Volume</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_future_usd_1d">volume_reported_future_usd_1d</a></td><td>USD</td><td>1d</td></tr><tr><td>Reported Future Volume, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_future_usd_1h">volume_reported_future_usd_1h</a></td><td>USD</td><td>1h</td></tr></tbody></table>
 
 ### Details
 
@@ -102,14 +73,14 @@ Our reported future volume metric is an aggregation of the reported future volum
 
 * [Futures Contract Specifications](../market-metadata.md)
 
-## Reported Perpetual Future Volume <a href="#future_perpetual" id="future_perpetual"></a>
+## Reported Perpetual Future Volume <a href="#volume_reported_future_perpetual" id="volume_reported_future_perpetual"></a>
 
 ### Definition
 
 The sum of all reported volume from perpetual futures markets in units of U.S. dollars.[\
 ](https://docs.coinmetrics.io/asset-metrics/volume/volume\_reported\_future\_coin\_margined\_usd\_1d)
 
-<table><thead><tr><th width="233">Name</th><th width="351">MetricID</th><th>Category</th><th>Subcategory</th><th>Type</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Reported Perpetual Future Volume</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_future_perpetual_usd_1d">volume_reported_future_perpetual_usd_1d</a></td><td>Volume</td><td>Future</td><td>Sum</td><td>USD</td><td>1d</td></tr><tr><td>Reported Perpetual Future Volume, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_future_perpetual_usd_1h">volume_reported_future_perpetual_usd_1h</a></td><td>Volume</td><td>Future</td><td>Sum</td><td>USD</td><td>1h</td></tr></tbody></table>
+<table><thead><tr><th width="175">Name</th><th width="351">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Reported Perpetual Future Volume</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_future_perpetual_usd_1d">volume_reported_future_perpetual_usd_1d</a></td><td>USD</td><td>1d</td></tr><tr><td>Reported Perpetual Future Volume, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_future_perpetual_usd_1h">volume_reported_future_perpetual_usd_1h</a></td><td>USD</td><td>1h</td></tr></tbody></table>
 
 ### Details
 
@@ -127,14 +98,14 @@ Our perpetual future volume metric is an aggregation of the reported perpetual f
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/volume_reported_future_perpetual_usd_1d" %}
 
-## Reported Non-Perpetual Future Volume <a href="#future_nonperpetual" id="future_nonperpetual"></a>
+## Reported Non-Perpetual Future Volume <a href="#volume_reported_future_nonperpetual" id="volume_reported_future_nonperpetual"></a>
 
 ### Definition
 
 The sum of all reported volume from non-perpetual futures markets in units of U.S. dollars.[\
 ](https://docs.coinmetrics.io/asset-metrics/volume/volume\_reported\_future\_coin\_margined\_usd\_1d)
 
-<table><thead><tr><th width="228">Name</th><th width="373">MetricID</th><th>Category</th><th>Subcategory</th><th>Type</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Reported Non-Perpetual Future Volume</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_future_nonperpetual_usd_1d">volume_reported_future_nonperpetual_usd_1d</a></td><td>Volume</td><td>Future</td><td>Sum</td><td>USD</td><td>1d</td></tr><tr><td>Reported Non-Perpetual Future Volume, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_future_nonperpetual_usd_1h">volume_reported_future_nonperpetual_usd_1h</a></td><td>Volume</td><td>Future</td><td>Sum</td><td>USD</td><td>1h</td></tr></tbody></table>
+<table><thead><tr><th width="190">Name</th><th width="373">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Reported Non-Perpetual Future Volume</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_future_nonperpetual_usd_1d">volume_reported_future_nonperpetual_usd_1d</a></td><td>USD</td><td>1d</td></tr><tr><td>Reported Non-Perpetual Future Volume, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_future_nonperpetual_usd_1h">volume_reported_future_nonperpetual_usd_1h</a></td><td>USD</td><td>1h</td></tr></tbody></table>
 
 ### Details
 
@@ -152,26 +123,26 @@ Our non-perpetual future volume metric is an aggregation of the reported non-per
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/volume_reported_future_nonperpetual_usd_1d" %}
 
-## Reported Coin-Margined Future Volume <a href="#coin_margined" id="coin_margined"></a>
+## Reported Coin-Margined Future Volume <a href="#volume_reported_future_coin_margined" id="volume_reported_future_coin_margined"></a>
 
 ### Definition
 
 The sum of all reported volume from futures markets where the margin asset is equivalent to the underlying base asset in units of U.S. dollars.[\
 ](https://docs.coinmetrics.io/asset-metrics/volume/volume\_reported\_future\_coin\_margined\_usd\_1d)
 
-<table><thead><tr><th width="232">Name</th><th width="391">MetricID</th><th>Category</th><th>Subcategory</th><th>Type</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Reported Coin-Margined Future Volume</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_future_coin_margined_usd_1d">volume_reported_future_coin_margined_usd_1d</a></td><td>Volume</td><td>Future</td><td>Sum</td><td>USD</td><td>1d</td></tr><tr><td>Reported Coin-Margined Future Volume, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_future_coin_margined_usd_1h">volume_reported_future_coin_margined_usd_1h</a></td><td>Volume</td><td>Future</td><td>Sum</td><td>USD</td><td>1h</td></tr></tbody></table>
+<table><thead><tr><th width="232">Name</th><th width="391">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Reported Coin-Margined Future Volume</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_future_coin_margined_usd_1d">volume_reported_future_coin_margined_usd_1d</a></td><td>USD</td><td>1d</td></tr><tr><td>Reported Coin-Margined Future Volume, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_future_coin_margined_usd_1h">volume_reported_future_coin_margined_usd_1h</a></td><td>USD</td><td>1h</td></tr></tbody></table>
 
 ### Details
 
 Our reported coin-margined future volume metric is an aggregation of the reported coin-margined future volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](../all-exchanges.md).
 
-## Reported Tether-Margined Future Volume <a href="#tether_margined" id="tether_margined"></a>
+## Reported Tether-Margined Future Volume <a href="#volume_reported_tether_margined" id="volume_reported_tether_margined"></a>
 
 ### Definition
 
 The sum of all reported volume from futures markets where the margin asset is Tether in units of U.S. dollars.
 
-<table><thead><tr><th width="254">Name</th><th width="359">MetricID</th><th>Category</th><th>Subcategory</th><th>Type</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Reported Tether-Margined Future Volume</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_tether_margined_usd_1d">volume_reported_tether_margined_usd_1d</a></td><td>Volume</td><td>Future</td><td>Sum</td><td>USD</td><td>1d</td></tr><tr><td>Reported Tether-Margined Future Volume, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_tether_margined_usd_1h">volume_reported_tether_margined_usd_1h</a></td><td>Volume</td><td>Future</td><td>Sum</td><td>USD</td><td>1h</td></tr></tbody></table>
+<table><thead><tr><th width="254">Name</th><th width="353">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Reported Tether-Margined Future Volume</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_tether_margined_usd_1d">volume_reported_tether_margined_usd_1d</a></td><td>USD</td><td>1d</td></tr><tr><td>Reported Tether-Margined Future Volume, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_reported_tether_margined_usd_1h">volume_reported_tether_margined_usd_1h</a></td><td>USD</td><td>1h</td></tr></tbody></table>
 
 ### Details
 
@@ -188,3 +159,30 @@ Our reported Tether-margined future volume metric is an aggregation of the repor
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/volume_reported_future_tether_margined_usd_1d" %}
+
+## API Endpoints
+
+All reported volume metrics can be queried using the following endpoints:
+
+* `/timeseries/asset-metrics`
+* `/timeseries/exchange-metrics`
+* `/timeseries/exchange-asset-metrics`
+* `/timeseries/pair-metrics`
+
+and by passing in `volume_reported_*` metric ID's in the the `metrics` parameter.
+
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-metrics" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-metrics" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% endswagger %}

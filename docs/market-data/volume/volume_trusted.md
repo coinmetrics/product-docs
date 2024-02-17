@@ -5,7 +5,7 @@
 The sum of all volume from the spot markets of a set of trusted exchanges in units of U.S. dollars.[\
 ](https://docs.coinmetrics.io/info/metrics/volume\_trusted\_spot\_usd\_1d)
 
-<table><thead><tr><th width="193">Name</th><th width="169">MetricID</th><th>Category</th><th>Subcategory</th><th>Type</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Trusted Spot Volume</td><td><a href="https://coverage.coinmetrics.io/asset-metrics/volume_trusted_spot_usd_1d">volume_trusted_spot_usd_1d</a></td><td>Volume</td><td>Spot</td><td>Sum</td><td>USD</td><td>1d</td></tr><tr><td>Trusted Spot Volume, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/asset-metrics/volume_trusted_spot_usd_1h">volume_trusted_spot_usd_1h</a></td><td>Volume</td><td>Spot</td><td>Sum</td><td>USD</td><td>1h</td></tr></tbody></table>
+<table><thead><tr><th width="166">Name</th><th width="169">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Trusted Spot Volume</td><td><a href="https://coverage.coinmetrics.io/asset-metrics/volume_trusted_spot_usd_1d">volume_trusted_spot_usd_1d</a></td><td>USD</td><td>1d</td></tr><tr><td>Trusted Spot Volume, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/asset-metrics/volume_trusted_spot_usd_1h">volume_trusted_spot_usd_1h</a></td><td>USD</td><td>1h</td></tr></tbody></table>
 
 ## Details
 

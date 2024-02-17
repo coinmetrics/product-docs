@@ -4,9 +4,9 @@
 
 The net asset value per share of an investment trust or fund.
 
-| Name                      | MetricID              | Category  | Subcategory | Type | Unit | Frequency |
-| ------------------------- | --------------------- | --------- | ----------- | ---- | ---- | --------- |
-| Grayscale Net Asset Value | \*\_net\_asset\_value | Grayscale | Products    | n/a  | USD  | 1d        |
+| Name                      | MetricID              | Unit | Frequency |
+| ------------------------- | --------------------- | ---- | --------- |
+| Grayscale Net Asset Value | \*\_net\_asset\_value | USD  | 1d        |
 
 The metric names are prefixed by the ticker symbol of the investment product, such as `gbtc_shares_outstanding` for Grayscale's Bitcoin Investment Trust.
 
@@ -16,9 +16,9 @@ The net asset value per share is calculated daily at 4pm ET, based on a CoinDesk
 
 ## Release History
 
-* Release Version. [Market Data Feed 2.4 (August 2021) ](https://coinmetrics.io/cm-market-data-feed-v2-4-release-notes/)
+* Release Version. [Market Data Feed 2.4 (August 2021)](https://coinmetrics.io/cm-market-data-feed-v2-4-release-notes/)
 
-## See Also&#x20;
+## See Also
 
 {% content-ref url="shares-outstanding.md" %}
 [shares-outstanding.md](shares-outstanding.md)
@@ -35,4 +35,3 @@ The net asset value per share is calculated daily at 4pm ET, based on a CoinDesk
 {% content-ref url="total-assets.md" %}
 [total-assets.md](total-assets.md)
 {% endcontent-ref %}
-

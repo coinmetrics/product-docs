@@ -4,9 +4,9 @@
 
 The number of outstanding shares of an investment trust or fund.
 
-| Name | MetricID | Category | Subcategory | Type | Unit | Frequency |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Grayscale Shares Outstanding | \*\_shares\_outstanding | Grayscale | Products | Sum | Shares | 1d |
+| Name                         | MetricID                | Unit   | Frequency |
+| ---------------------------- | ----------------------- | ------ | --------- |
+| Grayscale Shares Outstanding | \*\_shares\_outstanding | Shares | 1d        |
 
 The metric names are prefixed by the ticker symbol of the investment product, such as `gbtc_shares_outstanding` for Grayscale's Bitcoin Investment Trust.
 
@@ -16,17 +16,22 @@ Shares outstanding are all the shares that have been authorized, issued and purc
 
 ## Release History
 
-* Release Version. [Market Data Feed 2.4 \(August 2021\) ](https://coinmetrics.io/cm-market-data-feed-v2-4-release-notes/)
+* Release Version. [Market Data Feed 2.4 (August 2021)](https://coinmetrics.io/cm-market-data-feed-v2-4-release-notes/)
 
-## See Also 
+## See Also
 
-{% page-ref page="market-price.md" %}
+{% content-ref url="market-price.md" %}
+[market-price.md](market-price.md)
+{% endcontent-ref %}
 
-{% page-ref page="net-asset-value.md" %}
+{% content-ref url="net-asset-value.md" %}
+[net-asset-value.md](net-asset-value.md)
+{% endcontent-ref %}
 
-{% page-ref page="coin-per-share.md" %}
+{% content-ref url="coin-per-share.md" %}
+[coin-per-share.md](coin-per-share.md)
+{% endcontent-ref %}
 
-{% page-ref page="total-assets.md" %}
-
-
-
+{% content-ref url="total-assets.md" %}
+[total-assets.md](total-assets.md)
+{% endcontent-ref %}
