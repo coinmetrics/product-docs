@@ -1,6 +1,4 @@
-# Transfer Value
-
-## Contents
+# Contents
 
 * [Xfer'd Val, Adj](transfer-value.md#txtfrvaladj)
 * [Xfer'd by Contract Calls](transfer-value.md#txtfrvalcontcallmtv)
@@ -8,6 +6,8 @@
 * [Mean Xfer'd Days Destroyed](transfer-value.md#txtfrvaldaydstmean)
 * [Mean Tx Size](transfer-value.md#txtfrvalmean)
 * [Xfer'd Val](transfer-value.md#txtfrvalmed)
+* [Payments Above/Below X Amount (Count)](#transfer-value.md#txtfrvalcnt)
+* [Sum Value of Payments Above/Below X Amount](#transfer-value.md#txtfrval)
 
 ## Xfer'd Val, Adj <a href="#txtfrvaladj" id="txtfrvaladj"></a>
 
@@ -210,6 +210,36 @@ The sum of native units or USD transferred (i.e., the aggregate "size" of all tr
 | Xfer'd Val (native units) | TxTfrValNtv | Transactions | Transfer value | Sum  | Native units | 1 day, 1 hour |
 | Xfer'd Val (USD)          | TxTfrValUSD | Transactions | Transfer value | Sum  | USD          | 1 day, 1 hour |
 
+# Payments Above/Below X Amount (Count)<a href="#txtfrvalcnt" id="txtfrvalcnt"></a>
+
+The sum count of payments (transfers) above or below X worth of a cryptoasset at the time the transfer took place.&#x20;
+
+| Name                    | MetricID            | Category     | Subcategory  | Type | Unit      | Interval |
+| ----------------------- | ------------------- | ------------ | ------------ | ---- | --------- | -------- |
+| Payments Above $100M Cnt | TxTfrValAbUSD100MCnt | Transactions | Transactions | Sum  | Transfers | 1 day    |
+| Payments Above $10M Cnt | TxTfrValAbUSD10MCnt | Transactions | Transactions | Sum  | Transfers | 1 day    |
+| Payments Above $1M Cnt | TxTfrValAbUSD1MCnt | Transactions | Transactions | Sum  | Transfers | 1 day    |
+| Payments Above $100k Cnt | TxTfrValAbUSD100kCnt | Transactions | Transactions | Sum  | Transfers | 1 day    |
+| Xfers Below $10,000, Count | TxTfrValBelUSD10000Cnt | Addresses | Balance | Sum | Addresses | 1 day |
+| Xfers Below $1,000, Count | TxTfrValBelUSD1000Cnt | Addresses | Balance | Sum | Addresses | 1 day |
+| Xfers Below $500, Count | TxTfrValBelUSD500Cnt | Addresses | Balance | Sum | Addresses | 1 day |
+| Xfers Below $100, Count | TxTfrValBelUSD100Cnt | Addresses | Balance | Sum | Addresses | 1 day |
+
+
+# Sum Value of Payments Above/Below X Amount<a href="#txtfrval" id="txtfrval"></a>
+
+The sum of all payments (transfers) that have occurred in the measuring interval above or below X worth of a cryptoasset, displayed in native units (e.g. BTC).
+
+<table data-header-hidden><thead><tr><th width="278">Name</th><th>MetricID</th><th>Category</th><th>Subcategory</th><th>Type</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Category</td><td>Subcategory</td><td>Type</td><td>Unit</td><td>Interval</td></tr><tr><td>Sum Value of Payments Above $100M (native units)</td><td>TxTfrValAbUSD100MNtv</td><td>Addresses</td><td>Balance</td><td>Sum</td><td>Ntv</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $10M (native units)</td><td>TxTfrValAbUSD10MNtv</td><td>Addresses</td><td>Balance</td><td>Sum</td><td>Ntv</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $1M (native units)</td><td>TxTfrValAbUSD1MNtv</td><td>Addresses</td><td>Balance</td><td>Sum</td><td>Ntv</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $100k (native units)</td><td>TxTfrValAbUSD100kNtv</td><td>Addresses</td><td>Balance</td><td>Sum</td><td>Ntv</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $100M (USD)</td><td>TxTfrValAbUSD100MUSD</td><td>Addresses</td><td>Balance</td><td>Sum</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $10M (USD)</td><td>TxTfrValAbUSD10MUSD</td><td>Addresses</td><td>Balance</td><td>Sum</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $1M (USD)</td><td>TxTfrValAbUSD1MUSD</td><td>Addresses</td><td>Balance</td><td>Sum</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $100k (USD)</td><td>TxTfrValAbUSD100kUSD</td><td>Addresses</td><td>Balance</td><td>Sum</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $10k (native units)</td><td>TxTfrValBelUSD10000Ntv</td><td>Addresses</td><td>Balance</td><td>Sum</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $1k (native units)</td><td>TxTfrValBelUSD1000Ntv</td><td>Addresses</td><td>Balance</td><td>Sum</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $500 (native units)</td><td>TxTfrValBelUSD500Ntv</td><td>Addresses</td><td>Balance</td><td>Sum</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $100 (native units)</td><td>TxTfrValBelUSD100Ntv</td><td>Addresses</td><td>Balance</td><td>Sum</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $10k (USD)</td><td>TxTfrValBelUSD10000USD</td><td>Addresses</td><td>Balance</td><td>Sum</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $1k (USD)</td><td>TxTfrValBelUSD1000USD</td><td>Addresses</td><td>Balance</td><td>Sum</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $500 (USD)</td><td>TxTfrValBelUSD500USD</td><td>Addresses</td><td>Balance</td><td>Sum</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $100 (USD)</td><td>TxTfrValBelUSD100USD</td><td>Addresses</td><td>Balance</td><td>Sum</td><td>USD</td><td>1 day</td></tr></tbody></table>
+
+## Details
+
+* For more details on the methodology powering this metric, [please refer to the main page this family of metrics.](./)
+
+## Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValAbUSD100kNtv" %}
+
 ### Details
 
 * Transfers are movement of native units.
@@ -237,7 +267,7 @@ Token Transaction metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
-and by passing in the metric ID's `TxTfrValAdjNtv`, `TxTfrValAdjUSD`, etc. in the `metrics` parameter.
+and by passing in the metric ID's `TxTfrVal*` in the `metrics` parameter.
 
 {% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)

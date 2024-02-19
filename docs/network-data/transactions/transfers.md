@@ -8,8 +8,6 @@
 * [ERC-721 Xfer Cnt](#txtfrerc721cnt)
 * [ERC-1155 Xfer Cnt](#txtfrerc1155cnt)
 
-
-
 # Xfer Cnt <a href="#txtfrcnt" id="txtfrcnt"></a>
 
 ## Definition
