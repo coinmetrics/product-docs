@@ -25,6 +25,19 @@ Transaction metrics summarize the **movement of coins on-chain** from one addres
 * TxOpRetCnt
 * TxShldCnt
 * TxShldFullCnt
+
+[**Transfer Value**](transfer-value.md)
+* TxTfrValAdjNtv
+* TxTfrValAdjUSD
+* TxTfrValContCallNtv
+* TxTfrValContCallUSD
+* TxTfrValDayDst
+* TxTfrValDayDstMean
+* TxTfrValMeanNtv
+* TxTfrValMeanUSD
+* TxTfrValMedNtv
+* TxTfrValMedUSD
+* TxTfrValNtv
 * TxTfrValAbUSD100MCnt
 * TxTfrValAbUSD100MNtv
 * TxTfrValAbUSD100MUSD
@@ -49,19 +62,6 @@ Transaction metrics summarize the **movement of coins on-chain** from one addres
 * TxTfrValBelUSD500Cnt
 * TxTfrValBelUSD500Ntv
 * TxTfrValBelUSD500USD
-
-[**Transfer Value**](transfer-value.md)
-* TxTfrValAdjNtv
-* TxTfrValAdjUSD
-* TxTfrValContCallNtv
-* TxTfrValContCallUSD
-* TxTfrValDayDst
-* TxTfrValDayDstMean
-* TxTfrValMeanNtv
-* TxTfrValMeanUSD
-* TxTfrValMedNtv
-* TxTfrValMedUSD
-* TxTfrValNtv
 
 [**Transfers**](transfers.md)
 * TxTfrCnt
