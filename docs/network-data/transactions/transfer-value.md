@@ -7,9 +7,9 @@
 * [Mean Tx Size](transfer-value.md#txtfrvalmean)
 * [Xfer'd Val](transfer-value.md#txtfrvalmed)
 * [Payments Above/Below X Amount (Count)](#transfer-value.md#txtfrvalcnt)
-* [Sum Value of Payments Above/Below X Amount](#transfer-value.md#txtfrval)
+* [Sum Value of Payments Above/Below X Amount](#transfer-value.md#txtfrvalabbel)
 
-## Xfer'd Val, Adj <a href="#txtfrvaladj" id="txtfrvaladj"></a>
+# Xfer'd Val, Adj <a href="#txtfrvaladj" id="txtfrvaladj"></a>
 
 ### Definition
 
@@ -58,7 +58,7 @@ The sum of native units or USD transferred that interval removing noise and cert
 * [TxTfrValAdjNtv](https://coverage.coinmetrics.io/search-results?query=TxTfrValAdjNtv)
 * [TxTfrValAdjUSD](https://coverage.coinmetrics.io/search-results?query=TxTfrValAdjUSD)
 
-## Xfer'd by Contract Calls <a href="#txtfrvalcontcallmtv" id="txtfrvalcontcallmtv"></a>
+# Xfer'd by Contract Calls <a href="#txtfrvalcontcallmtv" id="txtfrvalcontcallmtv"></a>
 
 ### Definition
 
@@ -85,7 +85,7 @@ The sum of all native units or USD transferred by contract calls on that interva
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValContCallUSD" %}
 
-## Xfer'd Days Destroyed <a href="#txtfrvaldaydst" id="txtfrvaldaydst"></a>
+# Xfer'd Days Destroyed <a href="#txtfrvaldaydst" id="txtfrvaldaydst"></a>
 
 ### Definitions
 
@@ -141,7 +141,7 @@ The mean per transaction of the sum of all native units transferred multiplied b
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValDayDstMean" %}
 
-## Mean Tx Size <a href="#txtfrvalmean" id="txtfrvalmean"></a>
+# Mean Tx Size <a href="#txtfrvalmean" id="txtfrvalmean"></a>
 
 ### Definition
 
@@ -199,7 +199,7 @@ The median count of native units or USD transferred per transfer (i.e., the medi
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValMedNtv" %}
 
-## Xfer'd Val <a href="#txtfrval" id="txtfrval"></a>
+# Xfer'd Val <a href="#txtfrval" id="txtfrval"></a>
 
 ### Definition
 
@@ -226,7 +226,7 @@ The sum count of payments (transfers) above or below X worth of a cryptoasset at
 | Xfers Below $100, Count | TxTfrValBelUSD100Cnt | Addresses | Balance | Sum | Addresses | 1 day |
 
 
-# Sum Value of Payments Above/Below X Amount<a href="#txtfrval" id="txtfrval"></a>
+# Sum Value of Payments Above/Below X Amount<a href="#txtfrvalabbel" id="txtfrvalabbel"></a>
 
 The sum of all payments (transfers) that have occurred in the measuring interval above or below X worth of a cryptoasset, displayed in native units (e.g. BTC).
 
