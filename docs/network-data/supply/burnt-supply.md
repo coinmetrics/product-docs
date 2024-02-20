@@ -1,10 +1,8 @@
 # Contents
 
-* [Burnt Supply](burnt-supply.md#splyburn)
+* [Total Base Fees Burnt](burnt-supply.md#splyburn)
 
-# Burnt Supply <a href="#splyburn" id="splyburn"></a>
-
-# Total Base Fees Burnt
+# Total Base Fees Burnt<a href="#splyburn" id="splyburn"></a>
 
 ## Definition
 
