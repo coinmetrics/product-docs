@@ -21,34 +21,31 @@ Supply can be broken down in a variety of ways with Current supply representing 
 * SplyActPct1yr
 
 [**Addresses with Balance**](addresses-with-balance.md)
-* SplyAdrBal1in100K
-* SplyAdrBal1in100M
 * SplyAdrBal1in10B
-* SplyAdrBal1in10K
-* SplyAdrBal1in10M
 * SplyAdrBal1in1B
-* SplyAdrBal1in1K
+* SplyAdrBal1in100M
+* SplyAdrBal1in10M
 * SplyAdrBal1in1M
+* SplyAdrBal1in100K
+* SplyAdrBal1in10K
+* SplyAdrBal1in1K
 * SplyAdrBalNtv0.001
 * SplyAdrBalNtv0.01
 * SplyAdrBalNtv0.1
 * SplyAdrBalNtv1
 * SplyAdrBalNtv10
 * SplyAdrBalNtv100
-* SplyAdrBalNtv100K
-* SplyAdrBalNtv10K
 * SplyAdrBalNtv1K
+* SplyAdrBalNtv10K
+* SplyAdrBalNtv100K
 * SplyAdrBalNtv1M
 * SplyAdrBalUSD1
 * SplyAdrBalUSD10
 * SplyAdrBalUSD100
-* SplyAdrBalUSD100K
-* SplyAdrBalUSD10K
-* SplyAdrBalUSD10M
 * SplyAdrBalUSD1K
+* SplyAdrBalUSD10K
+* SplyAdrBalUSD100K
 * SplyAdrBalUSD1M
-* SplyContNtv
-* SplyContUSD
 
 [**Burnt Supply**](burnt-supply.md)
 * SplyBurntNtv
