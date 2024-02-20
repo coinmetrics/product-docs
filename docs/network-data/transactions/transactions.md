@@ -214,7 +214,7 @@ Token Transaction metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics` 
 
-and by passing in the metric ID's `TxTknCnt`, `TxERC721Cnt`, etc. in the `metrics` parameter.
+and by passing in the metric ID's `TxCnt`, `TxCntSec` etc. in the `metrics` parameter.
 
 {% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
@@ -223,14 +223,14 @@ and by passing in the metric ID's `TxTknCnt`, `TxERC721Cnt`, etc. in the `metric
 {% tabs %}
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=TxTknCnt&assets=eth&pretty=true&api_key=<your_key>"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=TxCnt&assets=eth&pretty=true&api_key=<your_key>"
 ```
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=TxTknCnt&assets=eth&pretty=true&api_key=<your_key>').json()
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=TxCnt&assets=eth&pretty=true&api_key=<your_key>').json()
 print(response)
 ```
 {% endtab %}
@@ -244,7 +244,7 @@ client = CoinMetricsClient(api_key)
 
 print(
     client.get_asset_metrics(
-        metrics="TxTknCnt", 
+        metrics="TxCnt", 
         assets="eth",
     ).to_dataframe()
 )
