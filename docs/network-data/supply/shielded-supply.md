@@ -42,7 +42,7 @@ The sum of all native units being held in shielded pool(s).
 
 # API Endpoints
 
-<Subcategory> metrics can be accessed using these endpoints:
+Shielded supply metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
