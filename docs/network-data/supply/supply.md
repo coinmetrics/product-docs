@@ -6,17 +6,17 @@ Supply can be broken down in a variety of ways with Current supply representing 
 # Metrics
 
 [**Active Supply**](active-supply.md)
-* SplyAct10yr
-* SplyAct180d
 * SplyAct1d
+* SplyAct7d
+* SplyAct30d
+* SplyAct90d
+* SplyAct180d
 * SplyAct1yr
 * SplyAct2yr
-* SplyAct30d
 * SplyAct3yr
 * SplyAct4yr
 * SplyAct5yr
-* SplyAct7d
-* SplyAct90d
+* SplyAct10yr
 * SplyActEver
 * SplyActPct1yr
 
