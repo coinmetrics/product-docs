@@ -2,9 +2,7 @@
 
 * [Free Float Supply](free-float-supply.md#splyff)
 
-# Burnt Supply <a href="#splyff" id="splyff"></a>
-
-# Free Float Supply (native units)
+# Free Float Supply (native units)<a href="#splyff" id="splyff"></a>
 
 ## Definition
 
