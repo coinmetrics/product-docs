@@ -1,8 +1,8 @@
 # Contents
 
-* [Flows](flows.md#FlowToCLCont)
+* [Flows](flows.md#flowtoclcont)
 
-# Flows to CL Contract<a href="#FlowToCLCont" id="FlowToCLCont">
+# Flows to CL Contract<a href="#flowtoclcont" id="flowtoclcont">
 
 ## Definition
 
