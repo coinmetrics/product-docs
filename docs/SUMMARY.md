@@ -354,7 +354,7 @@
     * [UTXO Median Age (Days)](network-data/network-usage/utxoagemed.md)
     * [UTXO Cnt in Profit](network-data/network-usage/utxoprofcnt.md)
     * [UTXO Cnt in Loss](network-data/network-usage/utxolosscnt.md)
-  * [Staking](network-data/staking/README.md)
+  * [Staking](network-data/staking/staking.md)
     <!-- * [Supply in CL Contract](network-data/staking/splyclcont.md)
     * [Flows to CL Contract](network-data/staking/flowtoclcont.md)
     * [Total Unique Senders to CL Contract](network-data/staking/sendertotclcont.md)
