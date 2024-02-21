@@ -2,7 +2,7 @@
 
 * [<Metric Name>](<Subcategory>.md#<metricid>)
 
-# <Subcategory><a href="#<metricid>" id="<metricid>"></a>
+# <Metric Name><a href="#<metricid>" id="<metricid>"></a>
 
 # API Endpoints
 
