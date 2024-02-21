@@ -1,6 +1,6 @@
 # Contents
 
-* [<Subcategory Name>](<subcategory>.md#<metricid>)
+* [<Metric Name>](<Subcategory>.md#<metricid>)
 
 # <Subcategory><a href="#<metricid>" id="<metricid>"></a>
 
