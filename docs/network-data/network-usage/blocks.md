@@ -1,15 +1,15 @@
 # Contents
 
-* [Block Cnt](block.md#blkcnt)
-* [Block Height](block.md#blkhgt)
-* [Mean Block Interval (seconds)](block.md#blkintmean)
-* [Sum Block Size (in bytes)](block.md#blksizebyte)
-* [Mean Block Size (in bytes)](block.md#blksizemeanbyte)
-* [Uncle Blocks Cnt](block.md#blkunccnt)
-* [Miner Revenue from Uncle Blocks (%)](block.md#blkuncrevpct)
-* [Uncle Reward](block.md#blkuncrwd)
-* [Mean Block Weight](block.md#blkwghtmean)
-* [Sum Block Weight](block.md#blkwghttot)
+* [Block Cnt](blocks.md#blkcnt)
+* [Block Height](blocks.md#blkhgt)
+* [Mean Block Interval (seconds)](blocks.md#blkintmean)
+* [Sum Block Size (in bytes)](blocks.md#blksizebyte)
+* [Mean Block Size (in bytes)](blocks.md#blksizemeanbyte)
+* [Uncle Blocks Cnt](blocks.md#blkunccnt)
+* [Miner Revenue from Uncle Blocks (%)](blocks.md#blkuncrevpct)
+* [Uncle Reward](blocks.md#blkuncrwd)
+* [Mean Block Weight](blocks.md#blkwghtmean)
+* [Sum Block Weight](blocks.md#blkwghttot)
 
 # Block Cnt<a href="#blkcnt" id="blkcnt"></a>
 
