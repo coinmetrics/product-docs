@@ -39,7 +39,6 @@ The sum count of unspent transaction outputs created on days where the closing p
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/UTXOProfCnt" %}
 
-
 # API Endpoints
 
 Profitability metrics can be accessed using these endpoints:
