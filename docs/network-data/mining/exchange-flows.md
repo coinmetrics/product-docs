@@ -130,10 +130,6 @@ The sum of all transfers sent by all addresses within one hop of a mining entity
 | Flows Sent One Hop from Miners to Kraken (USD) | FlowMinerOut1HopAllKRKUSD | Mining   | Exchange Flows | Sum  | USD  | 1 day    |
 | Flows Sent One Hop from Miners to Poloniex (native units) | FlowMinerOut1HopAllPOLNtv | Mining   | Exchange Flows | Sum  | Native units | 1 day    |
 | Flows Sent One Hop from Miners to Poloniex (USD) | FlowMinerOut1HopAllPOLUSD | Mining   | Exchange Flows | Sum  | USD  | 1 day    |
-| Flows Sent One Hop from Miners (native units) | FlowMinerOut1HopAllNtv | Mining   | Flows Out   | Sum  | Native units | 1 day    |
-| Flows Sent One Hop from Miners (USD) | FlowMinerOut1HopAllUSD | Mining   | Flows Out   | Sum  | USD  | 1 day    |
-
-
 
 ## Details
 
