@@ -71,6 +71,14 @@ The sum count of transfers to any address belonging to an exchange in that inter
 | Name                 | MetricID        | Category | Subcategory | Type | Unit         | Interval       |
 | -------------------- | --------------- | -------- | ----------- | ---- | ------------ | -------------- |
 | Bitfinex Deposit Cnt | FlowTfrInBFXCnt | Exchange | Deposits    | Sum  | Native units | 1 block, 1 day |
+| BitMEX Deposit Cnt | FlowTfrInBMXCnt | Exchange | Deposits    | Sum  | Native units | 1 block, 1 day |
+| Binance Deposit Cnt | FlowTfrInBNBCnt | Exchange | Deposits    | Sum  | Native units | 1 block, 1 day |
+| Bitstamp Deposit Cnt | FlowTfrInBSPCnt | Exchange | Deposits    | Sum  | Native units | 1 block, 1 day |
+| Bittrex Deposit Cnt | FlowTfrInBTXCnt | Exchange | Deposits    | Sum  | Native units | 1 block, 1 day |
+| Gemini Deposit Cnt | FlowTfrInGEMCnt | Exchange | Deposits    | Sum  | Native units | 1 block, 1 day |
+| Huobi Deposit Cnt | FlowTfrInHUOCnt | Exchange | Deposits    | Sum  | Native units | 1 block, 1 day |
+| Kraken Deposit Cnt | FlowTfrInKRKCnt | Exchange | Deposits    | Sum  | Native units | 1 block, 1 day |
+| Poloniex Deposit Cnt | FlowTfrInPOLCnt | Exchange | Deposits    | Sum  | Native units | 1 block, 1 day |
 
 ## Details
 
