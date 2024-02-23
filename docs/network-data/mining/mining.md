@@ -91,7 +91,3 @@
 * RevHashRateNtv
 * RevHashRateUSD
 * RevHashUSD
-
-[**Rewards**](rewards.md)
-* mining_reward_mean
-* mining_reward_spread
