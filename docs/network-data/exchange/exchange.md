@@ -68,7 +68,7 @@ For more details on asset coverage for exchange supply or flows metrics, see the
 * FlowTfrToExCnt
 * FlowTfrToExInclCnt
 
-**Exchange Supply**
+[**Exchange Supply**](exchange-supply.md)
 * SplyBFXNtv
 * SplyBFXUSD
 * SplyBMXNtv
@@ -90,7 +90,7 @@ For more details on asset coverage for exchange supply or flows metrics, see the
 * SplyPOLNtv
 * SplyPOLUSD
 
-**Net Flows**
+[**Net Flows**](net-flows.md)
 * FlowNetBFXNtv
 * FlowNetBFXUSD
 * FlowNetBMXNtv
@@ -110,10 +110,10 @@ For more details on asset coverage for exchange supply or flows metrics, see the
 * FlowNetPOLNtv
 * FlowNetPOLUSD
 
-**Transaction Count**
+[**Transaction Count**](transaction-count.md)
 * TxExCnt
 
-**Withdrawals**
+[**Withdrawals**](withdrawals.md)
 * FlowOutBFXNtv
 * FlowOutBFXUSD
 * FlowOutBMXNtv
