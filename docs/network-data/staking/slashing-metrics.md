@@ -13,6 +13,7 @@
 
 Count of attester slashing events cause by double attestations
 
+| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
 | Count of Double Attestation Slashing Events | SlashAttDblEvCnt | Staking | Consensus Health | Sum | N/A | 1 minute |
 | ------------------------------------------- | ---------------- | ------- | ---------------- | --- | --- | -------- |
 
@@ -34,6 +35,7 @@ Count of attester slashing events cause by double attestations
 
 Count of attester slashing events.
 
+| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
 | Count Attester Slashing Events | SlashAttEvCnt | Staking | Consensus Health | Sum | N/A | 1 minute |
 | ------------------------------ | ------------- | ------- | ---------------- | --- | --- | -------- |
 
@@ -56,6 +58,7 @@ Count of attester slashing events.
 
 Count of attester slashing events.
 
+| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
 | Count of Surrounding Attestation Slashing Events | SlashAttSurrEvCnt | Staking | Consensus Health | Sum | N/A | 1 minute |
 | ------------------------------------------------ | ----------------- | ------- | ---------------- | --- | --- | -------- |
 
@@ -77,6 +80,7 @@ Count of attester slashing events.
 
 Count of total number of slashing events.
 
+| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
 | Proposer Slashing Events | SlashPropEvCnt | Staking | Consensus Health | Sum | N/A | 1 minute |
 | ------------------------ | -------------- | ------- | ---------------- | --- | --- | -------- |
 
@@ -97,6 +101,7 @@ Count of total number of slashing events.
 
 Count of attester slashing events.
 
+| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
 | Count of Surrounding Attestation Slashing Events | SlashAttSurrEvCnt | Staking | Consensus Health | Sum | N/A | 1 minute |
 | ------------------------------------------------ | ----------------- | ------- | ---------------- | --- | --- | -------- |
 
@@ -120,6 +125,7 @@ Count of attester slashing events.
 
 Count of total number of slashing events.
 
+| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
 | Total Slashing Events | SlashEvCnt | Staking | Consensus Health | Sum | N/A | 1 minute |
 | --------------------- | ---------- | ------- | ---------------- | --- | --- | -------- |
 
@@ -142,6 +148,7 @@ Count of total number of slashing events.
 
 Total amout of penalties enforced by the protocol in native units.
 
+| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
 | Slashed Amounts | SlashedNTV | Staking | Consensus Health | Sum | Native Units | 1 day |
 | --------------- | ---------- | ------- | ---------------- | --- | ------------ | ----- |
 
