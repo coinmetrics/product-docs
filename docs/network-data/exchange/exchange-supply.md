@@ -1,56 +1,58 @@
-# Contents
+# Exchange Supply
+
+## Contents
 
 * [Exchange Supply](exchange-supply.md#splyex)
 
-# Exchange Supply<a href="#splyex" id="splyex"></a>
+## Exchange Supply <a href="#splyex" id="splyex"></a>
 
-## Definition
+### Definition
 
 The sum held by an exchange at the end of that interval.
 
-| Name                           | MetricID   | Category | Subcategory     | Type | Unit         | Interval |
-| ------------------------------ | ---------- | -------- | --------------- | ---- | ------------ | -------- |
-| Bitfinex Supply (native units) | SplyBFXNtv | Exchange | Exchange Supply | Sum  | Native units | 1 day    |
- Bitfinex Supply (USD) | SplyBFXUSD | Exchange | Exchange Supply | Sum  | USD  | 1 day    |
- | BitMEX Supply (native units) | SplyBMXNtv | Exchange | Exchange Supply | Sum  | Native units | 1 day    |
- | BitMEX Supply (USD) | SplyBMXUSD | Exchange | Exchange Supply | Sum  | USD  | 1 day    |
- | Binance Supply (native units) | SplyBNBNtv | Exchange | Exchange Supply | Sum  | Native units | 1 day    |
- | Binance Supply (USD) | SplyBNBUSD | Exchange | Exchange Supply | Sum  | USD  | 1 day    |
- | Bitstamp Supply (native units) | SplyBSPNtv | Exchange | Exchange Supply | Sum  | Native units | 1 day    |
- | Bitstamp Supply (USD) | SplyBSPUSD | Exchange | Exchange Supply | Sum  | USD  | 1 day    |
-| Bittrex Supply (native units) | SplyBTXNtv | Exchange | Exchange Supply | Sum  | Native units | 1 day    |
-| Bittrex Supply (USD) | SplyBTXUSD | Exchange | Exchange Supply | Sum  | USD  | 1 day    |
-| Exchange Supply (native units) | SplyExNtv | Supply   | Held on exchange | Sum  | Native units | 1 day    |
-| Exchange Supply (USD) | SplyExUSD | Supply   | Held on exchange | Sum  | USD  | 1 day    |
-| Gemini Supply (native units) | SplyGEMNtv | Exchange | Exchange Supply | Sum  | Native units | 1 day    |
-| Gemini Supply (USD) | SplyGEMUSD | Exchange | Exchange Supply | Sum  | USD  | 1 day    |
-| Huobi Supply (native units) | SplyHUONtv | Exchange | Exchange Supply | Sum  | Native units | 1 day    |
-| Huobi Supply (USD) | SplyHUOUSD | Exchange | Exchange Supply | Sum  | USD  | 1 day    |
-| Kraken Supply (native units) | SplyKRKNtv | Exchange | Exchange Supply | Sum  | Native units | 1 day    |
-| Kraken Supply (USD) | SplyKRKUSD | Exchange | Exchange Supply | Sum  | USD  | 1 day    |
-| Poloniex Supply (native units) | SplyPOLNtv | Exchange | Exchange Supply | Sum  | Native units | 1 day    |
-| Poloniex Supply (USD) | SplyPOLUSD | Exchange | Exchange Supply | Sum  | USD  | 1 day    |
+| Name                           | MetricID   | Unit         | Interval |
+| ------------------------------ | ---------- | ------------ | -------- |
+| Bitfinex Supply (native units) | SplyBFXNtv | Native units | 1 day    |
+| Bitfinex Supply (USD)          | SplyBFXUSD | USD          | 1 day    |
+| BitMEX Supply (native units)   | SplyBMXNtv | Native units | 1 day    |
+| BitMEX Supply (USD)            | SplyBMXUSD | USD          | 1 day    |
+| Binance Supply (native units)  | SplyBNBNtv | Native units | 1 day    |
+| Binance Supply (USD)           | SplyBNBUSD | USD          | 1 day    |
+| Bitstamp Supply (native units) | SplyBSPNtv | Native units | 1 day    |
+| Bitstamp Supply (USD)          | SplyBSPUSD | USD          | 1 day    |
+| Bittrex Supply (native units)  | SplyBTXNtv | Native units | 1 day    |
+| Bittrex Supply (USD)           | SplyBTXUSD | USD          | 1 day    |
+| Exchange Supply (native units) | SplyExNtv  | Native units | 1 day    |
+| Exchange Supply (USD)          | SplyExUSD  | USD          | 1 day    |
+| Gemini Supply (native units)   | SplyGEMNtv | Native units | 1 day    |
+| Gemini Supply (USD)            | SplyGEMUSD | USD          | 1 day    |
+| Huobi Supply (native units)    | SplyHUONtv | Native units | 1 day    |
+| Huobi Supply (USD)             | SplyHUOUSD | USD          | 1 day    |
+| Kraken Supply (native units)   | SplyKRKNtv | Native units | 1 day    |
+| Kraken Supply (USD)            | SplyKRKUSD | USD          | 1 day    |
+| Poloniex Supply (native units) | SplyPOLNtv | Native units | 1 day    |
+| Poloniex Supply (USD)          | SplyPOLUSD | USD          | 1 day    |
 
-## Details
+### Details
 
 * All wallets (hot and cold) are considered to count towards the supply held by an exchange.
 * This metric should be seen as an underestimation of the actual figure, as our heuristics and sources might not discover all addresses owned by an exchange.
 * USD metrics computed as SplyBFXNtv \* PriceUSD.
 * `SplyEx*` includes the balances of all addresses we have flagged as being controlled by an exchange, even if our coverage of the exchange is not complete.
 
-## Asset-Specific Details
+### Asset-Specific Details
 
 * This metric might not be available for all assets. Either that exchange doesn’t support this asset (BitMEX only trades in BTC for example), or we deemed that our coverage of the exchange was not complete enough to release the metric for it.
 
-## Release History
+### Release History
 
 * Released in the 4.0 release of NDP
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/SplyBFXNtv" %}
 
-# API Endpoints
+## API Endpoints
 
 Exchange Supply metrics can be accessed using these endpoints:
 

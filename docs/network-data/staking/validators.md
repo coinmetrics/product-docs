@@ -1,4 +1,6 @@
-# Contents
+# Validators
+
+## Contents
 
 * [Count of Senders to CL Contract](validators.md#sendercntclcont)
 * [Total Unique Senders to CL Contract](validators.md#validatoractextcnt)
@@ -13,324 +15,314 @@
 * [Validators Pending Eligibility](validators.md#validatorpndinitcnt)
 * [Validator in Activation Queue](validators.md#validatorpndqedcnt)
 
-# Count of Senders to CL Contract<a href="#sendercntclcont" id="sendercntclcont"></a>
+## Count of Senders to CL Contract <a href="#sendercntclcont" id="sendercntclcont"></a>
 
-## Definition
+### Definition
 
 Count of new addresses that have sent to the Consensus Layer (CL) contract.
 
-| Name                            | MetricID        | Category | Subcategory | Type | Unit       | Interval |
-| ------------------------------- | --------------- | -------- | ----------- | ---- | ---------- | -------- |
-| Count of Senders to CL Contract | SenderCntCLCont | Staking  | Validators  | Sum  | Validators | 1 day    |
+| Name                            | MetricID        | Unit       | Interval |
+| ------------------------------- | --------------- | ---------- | -------- |
+| Count of Senders to CL Contract | SenderCntCLCont | Validators | 1 day    |
 
-## Details
+### Details
 
 * Unique count of new addresses that have sent to the Consensus Layer (CL) smart contract (0x00000000219ab540356cBB839Cbe05303d7705Fa) over the daily interval, sourced from Coin Metrics ATLAS™ blockchain search engine.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 * N/A
-* 
-# Total Unique Senders to CL Contract<a href="#sendertotclcont" id="sendertotclcont"></a>
+*
 
-## Definition
+## Total Unique Senders to CL Contract <a href="#sendertotclcont" id="sendertotclcont"></a>
+
+### Definition
 
 Unique count of all senders to the Consensus Layer (CL) contract.
 
-| Name                                | MetricID        | Category | Subcategory | Type | Unit       | Interval |
-| ----------------------------------- | --------------- | -------- | ----------- | ---- | ---------- | -------- |
-| Total Unique Senders to CL Contract | SenderTotCLCont | Staking  | Validators  | Sum  | Validators | 1 day    |
+<table><thead><tr><th>Name</th><th width="164">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Total Unique Senders to CL Contract</td><td>SenderTotCLCont</td><td>Validators</td><td>1 day</td></tr></tbody></table>
 
-## Details
+### Details
 
 * Unique count of all senders to the Consensus Layer (CL) smart contract (0x00000000219ab540356cBB839Cbe05303d7705Fa) over the daily interval, sourced from Coin Metrics ATLAS™ blockchain search engine.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 * N/A
 
+## Active Exiting Validators <a href="#validatoractextcnt" id="validatoractextcnt"></a>
 
-
-# Active Exiting Validators<a href="#validatoractextcnt" id="validatoractextcnt"></a>
-
-## Definition
+### Definition
 
 Validators who have filed a voluntary request to exit.
 
-| Name                      | MetricID           | Category | Subcategory | Type | Unit       | Interval |
-| ------------------------- | ------------------ | -------- | ----------- | ---- | ---------- | -------- |
-| Active Exiting Validators | ValidatorActExtCnt | Staking  | Validators  | Sum  | Validators | 1 day    |
+| Name                      | MetricID           | Unit       | Interval |
+| ------------------------- | ------------------ | ---------- | -------- |
+| Active Exiting Validators | ValidatorActExtCnt | Validators | 1 day    |
 
-## Details
+### Details
 
 * Count of active ETH Consensus Layer (CL) validators that have filed a voluntary request to exit.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorActExtCnt" %}
 
-# Active Validators<a href="#validatoractongcnt" id="validatoractongcnt"></a>
+## Active Validators <a href="#validatoractongcnt" id="validatoractongcnt"></a>
 
-## Definition
+### Definition
 
 Validators that are actively participating.
 
-| Name              | MetricID           | Category | Subcategory | Type | Unit       | Interval |
-| ----------------- | ------------------ | -------- | ----------- | ---- | ---------- | -------- |
-| Active Validators | ValidatorActOngCnt | Staking  | Validators  | Sum  | Validators | 1 day    |
+| Name              | MetricID           | Unit       | Interval |
+| ----------------- | ------------------ | ---------- | -------- |
+| Active Validators | ValidatorActOngCnt | Validators | 1 day    |
 
-## Details
+### Details
 
 * Count of ETH Consensus Layer (CL) validators that have completed the activation queue.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorActOngCnt" %}
 
+## Slashed Validators <a href="#validatoractslhcnt" id="validatoractslhcnt"></a>
 
-
-# Slashed Validators<a href="#validatoractslhcnt" id="validatoractslhcnt"></a>
-
-## Definition
+### Definition
 
 Slashed validators scheduled to exit.
 
-| Name               | MetricID           | Category | Subcategory | Type | Unit       | Interval |
-| ------------------ | ------------------ | -------- | ----------- | ---- | ---------- | -------- |
-| Slashed Validators | ValidatorActSlhCnt | Staking  | Validators  | Sum  | Validators | 1 day    |
+| Name               | MetricID           | Unit       | Interval |
+| ------------------ | ------------------ | ---------- | -------- |
+| Slashed Validators | ValidatorActSlhCnt | Validators | 1 day    |
 
-## Details
+### Details
 
 * Count of ETH Consensus Layer (CL) validators that have been slashed and are scheduled to exit.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorActSlhCnt" %}
 
+## Validator Count <a href="#validatorcnt" id="validatorcnt"></a>
 
-# Validator Count<a href="#validatorcnt" id="validatorcnt"></a>
-
-## Definition
+### Definition
 
 Count of all validators.
 
-| Name            | MetricID     | Category | Subcategory | Type | Unit       | Interval |
-| --------------- | ------------ | -------- | ----------- | ---- | ---------- | -------- |
-| Validator Count | ValidatorCnt | Staking  | Validators  | Sum  | Validators | 1 day    |
+| Name            | MetricID     | Unit       | Interval |
+| --------------- | ------------ | ---------- | -------- |
+| Validator Count | ValidatorCnt | Validators | 1 day    |
 
-## Details
+### Details
 
 * Number of validators on the Ethereum Consensus Layer (CL).
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorCnt" %}
 
-
-## Definition
+### Definition
 
 Count of validators removed daily.
 
-| Name                     | MetricID          | Category | Subcategory | Type | Unit       | Interval |
-| ------------------------ | ----------------- | -------- | ----------- | ---- | ---------- | -------- |
-| Daily Removed Validators | ValidatorRemCnt1d | Staking  | Validators  | Sum  | Validators | 1 day    |
+| Name                     | MetricID          | Unit       | Interval |
+| ------------------------ | ----------------- | ---------- | -------- |
+| Daily Removed Validators | ValidatorRemCnt1d | Validators | 1 day    |
 
-## Details
+### Details
 
 * Number of validators removed from the Ethereum Consensus Layer (CL) on a daily interval.
 * This figure will remain low until withdrawals are enabled, capturing mostly slashing.
 * Captures number of validators with 'exited' status and 'exited slashed' status.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorRemCnt1d" %}
 
-# Daily Added Validators<a href="#validatoraddcnt1d" id="validatoraddcnt1d"></a>
+## Daily Added Validators <a href="#validatoraddcnt1d" id="validatoraddcnt1d"></a>
 
-## Definition
+### Definition
 
 Count of validators added daily.
 
-| Name                   | MetricID          | Category | Subcategory | Type | Unit       | Interval |
-| ---------------------- | ----------------- | -------- | ----------- | ---- | ---------- | -------- |
-| Daily Added Validators | ValidatorAddCnt1d | Staking  | Validators  | Sum  | Validators | 1 day    |
+| Name                   | MetricID          | Unit       | Interval |
+| ---------------------- | ----------------- | ---------- | -------- |
+| Daily Added Validators | ValidatorAddCnt1d | Validators | 1 day    |
 
-## Details
+### Details
 
 * Number of validators added to the Ethereum Consensus Layer (CL) on a daily interval.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorAddCnt1d" %}
 
-# Daily Removed Validators<a href="#validatorremcnt1d" id="validatorremcnt1d"></a>
+## Daily Removed Validators <a href="#validatorremcnt1d" id="validatorremcnt1d"></a>
 
-## Definition
+### Definition
 
 Count of validators removed daily.
 
-| Name                     | MetricID          | Category | Subcategory | Type | Unit       | Interval |
-| ------------------------ | ----------------- | -------- | ----------- | ---- | ---------- | -------- |
-| Daily Removed Validators | ValidatorRemCnt1d | Staking  | Validators  | Sum  | Validators | 1 day    |
+| Name                     | MetricID          | Unit       | Interval |
+| ------------------------ | ----------------- | ---------- | -------- |
+| Daily Removed Validators | ValidatorRemCnt1d | Validators | 1 day    |
 
-## Details
+### Details
 
 * Number of validators removed from the Ethereum Consensus Layer (CL) on a daily interval.
 * This figure will remain low until withdrawals are enabled, capturing mostly slashing.
 * Captures number of validators with 'exited' status and 'exited slashed' status.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorRemCnt1d" %}
 
-# Inactive Ineligible Validators<a href="#validatorextslhcnt" id="validatorextslhcnt"></a>
+## Inactive Ineligible Validators <a href="#validatorextslhcnt" id="validatorextslhcnt"></a>
 
-## Definition
+### Definition
 
 Validators that have been slashed and are no longer active.
 
-| Name                           | MetricID           | Category | Subcategory | Type | Unit       | Interval |
-| ------------------------------ | ------------------ | -------- | ----------- | ---- | ---------- | -------- |
-| Inactive Ineligible Validators | ValidatorExtSlhCnt | Staking  | Validators  | Sum  | Validators | 1 day    |
+| Name                           | MetricID           | Unit       | Interval |
+| ------------------------------ | ------------------ | ---------- | -------- |
+| Inactive Ineligible Validators | ValidatorExtSlhCnt | Validators | 1 day    |
 
-## Details
+### Details
 
 * Count of ETH Consensus Layer (CL) validators that have been slashed and are no longer active.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorExtSlhCnt" %}
 
-# Inactive Eligible Validators<a href="#validatorextunslhcnt" id="validatorextunslhcnt"></a>
+## Inactive Eligible Validators <a href="#validatorextunslhcnt" id="validatorextunslhcnt"></a>
 
-## Definition
+### Definition
 
 Validators that have not been slashed but are no longer active.
 
-| Name                         | MetricID             | Category | Subcategory | Type | Unit       | Interval |
-| ---------------------------- | -------------------- | -------- | ----------- | ---- | ---------- | -------- |
-| Inactive Eligible Validators | ValidatorExtUnslhCnt | Staking  | Validators  | Sum  | Validators | 1 day    |
+| Name                         | MetricID             | Unit       | Interval |
+| ---------------------------- | -------------------- | ---------- | -------- |
+| Inactive Eligible Validators | ValidatorExtUnslhCnt | Validators | 1 day    |
 
-## Details
+### Details
 
 * Count of ETH Consensus Layer (CL) validators that have not been slashed but are no longer active.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorExtUnslhCnt" %}
 
-
-## Definition
+### Definition
 
 Validators that have been slashed and are no longer active.
 
-| Name                           | MetricID           | Category | Subcategory | Type | Unit       | Interval |
-| ------------------------------ | ------------------ | -------- | ----------- | ---- | ---------- | -------- |
-| Inactive Ineligible Validators | ValidatorExtSlhCnt | Staking  | Validators  | Sum  | Validators | 1 day    |
+| Name                           | MetricID           | Unit       | Interval |
+| ------------------------------ | ------------------ | ---------- | -------- |
+| Inactive Ineligible Validators | ValidatorExtSlhCnt | Validators | 1 day    |
 
-## Details
+### Details
 
 * Count of ETH Consensus Layer (CL) validators that have been slashed and are no longer active.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorExtSlhCnt" %}
 
+## Validators Pending Eligibility <a href="#validatorpndinitcnt" id="validatorpndinitcnt"></a>
 
-
-# Validators Pending Eligibility<a href="#validatorpndinitcnt" id="validatorpndinitcnt"></a>
-
-## Definition
+### Definition
 
 Validators pending eligibility.
 
-| Name                           | MetricID            | Category | Subcategory | Type | Unit       | Interval |
-| ------------------------------ | ------------------- | -------- | ----------- | ---- | ---------- | -------- |
-| Validators Pending Eligibility | ValidatorPndInitCnt | Staking  | Validators  | Sum  | Validators | 1 day    |
+| Name                           | MetricID            | Unit       | Interval |
+| ------------------------------ | ------------------- | ---------- | -------- |
+| Validators Pending Eligibility | ValidatorPndInitCnt | Validators | 1 day    |
 
-## Details
+### Details
 
 * Count of ETH Consensus Layer (CL) validators with ineligible status that are in the activation queue.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorPndInitCnt" %}
 
-# Validator in Activation Queue<a href="#validatorpndqedcnt" id="validatorpndqedcnt"></a>
+## Validator in Activation Queue <a href="#validatorpndqedcnt" id="validatorpndqedcnt"></a>
 
-## Definition
+### Definition
 
 Validators waiting in the activation queue
 
-| Name                           | MetricID           | Category | Subcategory | Type | Unit       | Interval |
-| ------------------------------ | ------------------ | -------- | ----------- | ---- | ---------- | -------- |
-| Validators in Activation Queue | ValidatorPndQedCnt | Staking  | Validators  | Sum  | Validators | 1 day    |
+| Name                           | MetricID           | Unit       | Interval |
+| ------------------------------ | ------------------ | ---------- | -------- |
+| Validators in Activation Queue | ValidatorPndQedCnt | Validators | 1 day    |
 
-## Details
+### Details
 
 * Count of ETH Consensus Layer (CL) validators that are waiting in the activation queue.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorPndQedCnt" %}
 
-# API Endpoints
+## API Endpoints
 
 Validator metrics can be accessed using these endpoints:
 

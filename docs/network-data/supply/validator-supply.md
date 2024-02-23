@@ -1,66 +1,64 @@
-# Contents
+# Validator Supply
+
+## Contents
 
 * [Supply Staked in Validators](validator-supply.md#splystkedntc)
 * [Sum of all Balances from Active Validators](validator-supply.md#splyactstkedntv)
 * [Total Staked Supply](validator-supply.md#splytotstkedntv)
 
-# Supply Staked in Validators<a href="splystkedntv" id="splystkedntc"></a>
+## Supply Staked in Validators <a href="#splystkedntc" id="splystkedntc"></a>
 
-## Definition
+### Definition
 
 Supply staked in validators.
 
-| Name                        | MetricID     | Category | Subcategory      | Type | Unit         | Interval |
-| --------------------------- | ------------ | -------- | ---------------- | ---- | ------------ | -------- |
-| Supply Staked in Validators | SplyStkedNtv | Supply   | Validator Supply | Sum  | Native Units | 1 day    |
+| Name                        | MetricID     | Unit         | Interval |
+| --------------------------- | ------------ | ------------ | -------- |
+| Supply Staked in Validators | SplyStkedNtv | Native Units | 1 day    |
 
-## Details
+### Details
 
 * Sum of all balances from all eligible active validators (validators with 'active' or 'pending' status).
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-# Sum of all Balances from Active Validators<a href="splyactstkedntv" id="splyactstkedntv"></a>
+## Sum of all Balances from Active Validators <a href="#splyactstkedntv" id="splyactstkedntv"></a>
 
-## Definition
+### Definition
 
 Supply from validators that were active that day.
 
-| Name                  | MetricID        | Category | Subcategory      | Type | Unit          | Interval |
-| --------------------- | --------------- | -------- | ---------------- | ---- | ------------- | -------- |
-| Active Staking Supply | SplyActStkedNtv | Supply   | Validator Supply | Sum  |  Native Units | 1 day    |
+<table><thead><tr><th>Name</th><th width="159">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Active Staking Supply</td><td>SplyActStkedNtv</td><td>Native Units</td><td>1 day</td></tr></tbody></table>
 
-## Details
+### Details
 
 * Sum of all balances from actively participating validators.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-# Total Staked Supply<a href="splytotstkedntv" id="splytotstkedntv"></a>
+## Total Staked Supply <a href="#splytotstkedntv" id="splytotstkedntv"></a>
 
-## Definition
+### Definition
 
 Sum of all balances held by all validators.
 
-| Name                | MetricID        | Category | Subcategory      | Type | Unit         | Interval |
-| ------------------- | --------------- | -------- | ---------------- | ---- | ------------ | -------- |
-| Total Staked Supply | SplyTotStkedNtv | Supply   | Validator Supply | Sum  | Native Units | 1 day    |
+| Name                | MetricID        | Unit         | Interval |
+| ------------------- | --------------- | ------------ | -------- |
+| Total Staked Supply | SplyTotStkedNtv | Native Units | 1 day    |
 
-## Details
+### Details
 
 * Sum of all balances held by all validators, regardless of status (i.e. rewarded supply, slashed supply, etc.)
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-
-
-# API Endpoints
+## API Endpoints
 
 Validator Supply metrics can be accessed using these endpoints:
 
