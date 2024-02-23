@@ -150,9 +150,9 @@ Number of the current Epoch
 
 Number of the latest finalized Epoch
 
-| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
-| Latest Finalized Epoch | EpochFinal | Staking | Consensus Health | N/A | Epoch | 1 minute |
-| ---------------------- | ---------- | ------- | ---------------- | --- | ----- | -------- |
+| Name      | MetricID | Unit   | Interval      |
+| ---------------------- | ---------- | ----- | -------- |
+| Latest Finalized Epoch | EpochFinal |  Epoch | 1 minute |
 
 ## Details
 
