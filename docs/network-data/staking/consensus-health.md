@@ -1,4 +1,6 @@
-# Contents
+# Consensus Health
+
+## Contents
 
 * [Attestation Count](consensus-health.md#attestcnt)
 * [Attestations in Epoch](consensus-health.md#attestepochcnt)
@@ -9,188 +11,184 @@
 * [Latest Finalized Epoch](consensus-health.md#epochfinal)
 * [Latest Justified Epoch](consensus-health.md#epochjust)
 
-# Attestation Count<a href="#AttestCnt" id="AttestCnt"></a>
+## Attestation Count <a href="#attestcnt" id="attestcnt"></a>
 
-## Definition
+### Definition
 
 Count of Attestations in a 1 minute interval. One attestation can aggregate multiple validators votes.
 
-| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
-| ----------------------------------------- | ---------------- | ------- | ---------------- | --- | ---------- | -------- |
-| Attestation Count | AttestCnt | Staking | Consensus Health | Sum | Attestations | 1 minute |
+| Name              | MetricID  | Unit         | Interval |
+| ----------------- | --------- | ------------ | -------- |
+| Attestation Count | AttestCnt | Attestations | 1 minute |
 
-## Details
+### Details
 
 * Count of all attestations in the last 1 minute interval.
 
-## Release History
+### Release History
 
 * Released November 2023.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/AttestCnt" %}
 
-# Attestations in Epoch<a href="#attestepochcnt" id="attestepochcnt"></a>
+## Attestations in Epoch <a href="#attestepochcnt" id="attestepochcnt"></a>
 
-## Definition
+### Definition
 
-Count of Attestations in a 1 minute interval within the current Epoch. One attestation can aggregate multiple validators votes.&#x20;
+Count of Attestations in a 1 minute interval within the current Epoch. One attestation can aggregate multiple validators votes.
 
-| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
-| ----------------------------------------- | ---------------- | ------- | ---------------- | --- | ---------- | -------- |
-| Attestations in Epoch Count | AttestEpochCnt | Staking | Consensus Health | Sum | Attestations | 1 minute |
+| Name                        | MetricID       | Unit         | Interval |
+| --------------------------- | -------------- | ------------ | -------- |
+| Attestations in Epoch Count | AttestEpochCnt | Attestations | 1 minute |
 
-## Details
+### Details
 
 * Count of all attestations in the last 1 minute interval in the current Epoch.
 * If the current 1 minute window spans an Epoch boundary only attestations in the current Epoch are counted.
 
-## Release History
+### Release History
 
 * Released November 2023.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/AttestEpochCnt" %}
 
-# Count of Validators with Attestation in Epoch<a href="#attestepochvalcnt" id="attestepochvalcnt"></a>
+## Count of Validators with Attestation in Epoch <a href="#attestepochvalcnt" id="attestepochvalcnt"></a>
 
-## Definition
+### Definition
 
-Count of Validators who attested in a 1 minute interval within the current Epoch.&#x20;
+Count of Validators who attested in a 1 minute interval within the current Epoch.
 
-| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
-| ----------------------------------------- | ---------------- | ------- | ---------------- | --- | ---------- | -------- |
-| Count of Validators with Attestation in Epoch | AttestEpochValCnt | Staking | Consensus Health | Sum | Validators | 1 minute |
+| Name                                          | MetricID          | Unit       | Interval |
+| --------------------------------------------- | ----------------- | ---------- | -------- |
+| Count of Validators with Attestation in Epoch | AttestEpochValCnt | Validators | 1 minute |
 
-## Details
+### Details
 
 * Count of all validators who attested in the last 1 minute interval in the current Epoch.
 * If the current 1 minute window spans an Epoch boundary only validators attesting in the current Epoch are counted.
 
-## Release History
+### Release History
 
 * Released November 2023.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/AttestEpochValCnt" %}
 
-# Count of Validators with Attestation<a href="#attestvalcnt" id="attestvalcnt"></a>
+## Count of Validators with Attestation <a href="#attestvalcnt" id="attestvalcnt"></a>
 
-## Definition
+### Definition
 
 Count of Validators who attested in a 1 minute interval.
 
-| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
-| ----------------------------------------- | ---------------- | ------- | ---------------- | --- | ---------- | -------- |
-| Count of Validators with Attestation | AttestValCnt | Staking | Consensus Health | Sum | Validators | 1 minute |
+| Name                                 | MetricID     | Unit       | Interval |
+| ------------------------------------ | ------------ | ---------- | -------- |
+| Count of Validators with Attestation | AttestValCnt | Validators | 1 minute |
 
-## Details
+### Details
 
 * Count of all validators who attested in the last 1 minute interval.
 
-## Release History
+### Release History
 
 * Released November 2023.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/AttestValCnt" %}
 
-# Count of Validators with Late Attestation<a href="#attestvallatecnt" id="attestvallatecnt"></a>
+## Count of Validators with Late Attestation <a href="#attestvallatecnt" id="attestvallatecnt"></a>
 
-## Definition
+### Definition
 
 Count of Validators who attested late in a 1 minute interval.
 
-| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
-| ----------------------------------------- | ---------------- | ------- | ---------------- | --- | ---------- | -------- |
-| Count of Validators with Late Attestation | AttestValLateCnt | Staking | Consensus Health | Sum | Validators | 1 minute |
+<table><thead><tr><th>Name</th><th width="164">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Count of Validators with Late Attestation</td><td>AttestValLateCnt</td><td>Validators</td><td>1 minute</td></tr></tbody></table>
 
-## Details
+### Details
 
 * Count of all validators who attested late in the last 1 minute interval.
 * A late attestation is one whose slot is not the previous slot
 
-## Release History
+### Release History
 
 * Released November 2023.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/AttestValLateCnt" %}
 
-# Current Epoch<a href="#epochcurr" id="epochcurr"></a>
+## Current Epoch <a href="#epochcurr" id="epochcurr"></a>
 
-## Definition
+### Definition
 
 Number of the current Epoch
 
-| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
-| ---------------------- | --------- | ------- | ---------------- | --- | ----- | -------- |
-| Current Epoch | EpochCurr | Staking | Consensus Health | N/A | Epoch | 1 minute |
+| Name          | MetricID  | Unit  | Interval |
+| ------------- | --------- | ----- | -------- |
+| Current Epoch | EpochCurr | Epoch | 1 minute |
 
-## Details
+### Details
 
 * Returns the number of the current Epoch, updated on a 1 minute interval
 
-## Release History
+### Release History
 
 * Released November 2023.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/EpochCurr" %}
 
-# Latest Finalized Epoch<a href="epochfinal" id="epochfinal"></a>
+## Latest Finalized Epoch <a href="#epochfinal" id="epochfinal"></a>
 
-## Definition
+### Definition
 
 Number of the latest finalized Epoch
 
-| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
-| Latest Finalized Epoch | EpochFinal | Staking | Consensus Health | N/A | Epoch | 1 minute |
-| ---------------------- | ---------- | ------- | ---------------- | --- | ----- | -------- |
+\| Name | MetricID | Category | Subcategory | Type | Unit | Interval |
 
-## Details
+### Details
 
 * Returns the number of the latest Finalized Epoch, updated on a 1 minute interval.
 * Finalization rules follow those of the underlying protocol.
 
-## Release History
+### Release History
 
 * Released November 2023.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/EpochFinal" %}
 
-# Latest Justified Epoch<a href="#epochjust" id="epochjust"></a>
+## Latest Justified Epoch <a href="#epochjust" id="epochjust"></a>
 
-## Definition
+### Definition
 
 Number of the latest justified Epoch
 
-| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
-| ---------------------- | --------- | ------- | ---------------- | --- | ----- | -------- |
-| Latest Justified Epoch | EpochJust | Staking | Consensus Health | N/A | Epoch | 1 minute |
+| Name                   | MetricID  | Unit  | Interval |
+| ---------------------- | --------- | ----- | -------- |
+| Latest Justified Epoch | EpochJust | Epoch | 1 minute |
 
-## Details
+### Details
 
 * Returns the number of the latest Justified Epoch, updated on a 1 minute interval.
 * Rules for considering an Epoch Justified follow those of the underlying protocol.
 
-## Release History
+### Release History
 
 * Released November 2023.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/EpochJust" %}
 
-# API Endpoints
+## API Endpoints
 
 Consensus Health metrics can be accessed using these endpoints:
 
