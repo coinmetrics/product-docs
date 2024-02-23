@@ -15,8 +15,9 @@
 
 Count of Attestations in a 1 minute interval. One attestation can aggregate multiple validators votes.
 
+| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
+| ----------------------------------------- | ---------------- | ------- | ---------------- | --- | ---------- | -------- |
 | Attestation Count | AttestCnt | Staking | Consensus Health | Sum | Attestations | 1 minute |
-| ----------------- | --------- | ------- | ---------------- | --- | ------------ | -------- |
 
 ## Details
 
@@ -36,8 +37,9 @@ Count of Attestations in a 1 minute interval. One attestation can aggregate mult
 
 Count of Attestations in a 1 minute interval within the current Epoch. One attestation can aggregate multiple validators votes.&#x20;
 
+| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
+| ----------------------------------------- | ---------------- | ------- | ---------------- | --- | ---------- | -------- |
 | Attestations in Epoch Count | AttestEpochCnt | Staking | Consensus Health | Sum | Attestations | 1 minute |
-| --------------------------- | -------------- | ------- | ---------------- | --- | ------------ | -------- |
 
 ## Details
 
@@ -59,8 +61,8 @@ Count of Attestations in a 1 minute interval within the current Epoch. One attes
 Count of Validators who attested in a 1 minute interval within the current Epoch.&#x20;
 
 | Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
+| ----------------------------------------- | ---------------- | ------- | ---------------- | --- | ---------- | -------- |
 | Count of Validators with Attestation in Epoch | AttestEpochValCnt | Staking | Consensus Health | Sum | Validators | 1 minute |
-| --------------------------------------------- | ----------------- | ------- | ---------------- | --- | ---------- | -------- |
 
 ## Details
 
@@ -82,8 +84,8 @@ Count of Validators who attested in a 1 minute interval within the current Epoch
 Count of Validators who attested in a 1 minute interval.
 
 | Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
+| ----------------------------------------- | ---------------- | ------- | ---------------- | --- | ---------- | -------- |
 | Count of Validators with Attestation | AttestValCnt | Staking | Consensus Health | Sum | Validators | 1 minute |
-| ------------------------------------ | ------------ | ------- | ---------------- | --- | ---------- | -------- |
 
 ## Details
 
@@ -103,8 +105,9 @@ Count of Validators who attested in a 1 minute interval.
 
 Count of Validators who attested late in a 1 minute interval.
 
-| Count of Validators with Late Attestation | AttestValLateCnt | Staking | Consensus Health | Sum | Validators | 1 minute |
+| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
 | ----------------------------------------- | ---------------- | ------- | ---------------- | --- | ---------- | -------- |
+| Count of Validators with Late Attestation | AttestValLateCnt | Staking | Consensus Health | Sum | Validators | 1 minute |
 
 ## Details
 
@@ -126,8 +129,8 @@ Count of Validators who attested late in a 1 minute interval.
 Number of the current Epoch
 
 | Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
+| ---------------------- | --------- | ------- | ---------------- | --- | ----- | -------- |
 | Current Epoch | EpochCurr | Staking | Consensus Health | N/A | Epoch | 1 minute |
-| ------------- | --------- | ------- | ---------------- | --- | ----- | -------- |
 
 ## Details
 
@@ -171,8 +174,8 @@ Number of the latest finalized Epoch
 Number of the latest justified Epoch
 
 | Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
-| Latest Justified Epoch | EpochJust | Staking | Consensus Health | N/A | Epoch | 1 minute |
 | ---------------------- | --------- | ------- | ---------------- | --- | ----- | -------- |
+| Latest Justified Epoch | EpochJust | Staking | Consensus Health | N/A | Epoch | 1 minute |
 
 ## Details
 
