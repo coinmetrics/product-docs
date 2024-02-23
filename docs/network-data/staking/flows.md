@@ -8,9 +8,9 @@
 
 Deposits sent to the Consensus Layer (CL) Contract.
 
-| Name                 | MetricID     | Category | Subcategory | Type | Unit         | Interval |
-| -------------------- | ------------ | -------- | ----------- | ---- | ------------ | -------- |
-| Flows to CL Contract | FlowToCLCont | Staking  | Flows       | Sum  | Native Units | 1 day    |
+| Name                 | MetricID     |  Unit        | Interval |
+| -------------------- | ------------ | ------------ | -------- |
+| Flows to CL Contract | FlowToCLCont | Native Units | 1 day    |
 
 ## Details
 
