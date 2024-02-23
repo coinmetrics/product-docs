@@ -58,6 +58,7 @@ Count of Attestations in a 1 minute interval within the current Epoch. One attes
 
 Count of Validators who attested in a 1 minute interval within the current Epoch.&#x20;
 
+| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
 | Count of Validators with Attestation in Epoch | AttestEpochValCnt | Staking | Consensus Health | Sum | Validators | 1 minute |
 | --------------------------------------------- | ----------------- | ------- | ---------------- | --- | ---------- | -------- |
 
@@ -80,6 +81,7 @@ Count of Validators who attested in a 1 minute interval within the current Epoch
 
 Count of Validators who attested in a 1 minute interval.
 
+| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
 | Count of Validators with Attestation | AttestValCnt | Staking | Consensus Health | Sum | Validators | 1 minute |
 | ------------------------------------ | ------------ | ------- | ---------------- | --- | ---------- | -------- |
 
@@ -123,6 +125,7 @@ Count of Validators who attested late in a 1 minute interval.
 
 Number of the current Epoch
 
+| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
 | Current Epoch | EpochCurr | Staking | Consensus Health | N/A | Epoch | 1 minute |
 | ------------- | --------- | ------- | ---------------- | --- | ----- | -------- |
 
@@ -144,6 +147,7 @@ Number of the current Epoch
 
 Number of the latest finalized Epoch
 
+| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
 | Latest Finalized Epoch | EpochFinal | Staking | Consensus Health | N/A | Epoch | 1 minute |
 | ---------------------- | ---------- | ------- | ---------------- | --- | ----- | -------- |
 
@@ -166,6 +170,7 @@ Number of the latest finalized Epoch
 
 Number of the latest justified Epoch
 
+| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
 | Latest Justified Epoch | EpochJust | Staking | Consensus Health | N/A | Epoch | 1 minute |
 | ---------------------- | --------- | ------- | ---------------- | --- | ----- | -------- |
 
