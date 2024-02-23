@@ -2,7 +2,7 @@
 
 * [Penalty Amounts](flows.md#penaltyntv)
 
-# Penalty Amounts<a href="#penaltyntv" id="penaltyntv">
+# Penalty Amounts<a href="#penaltyntv" id="penaltyntv"></a>
 
 ## Definition
 
