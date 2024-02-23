@@ -1,10 +1,12 @@
-# Contents
+# Flows
+
+## Contents
 
 * [Flows](flows.md#flowtoclcont)
 
-# Flows to CL Contract<a href="#flowtoclcont" id="flowtoclcont"></a>
+## Flows to CL Contract <a href="#flowtoclcont" id="flowtoclcont"></a>
 
-## Definition
+### Definition
 
 Deposits sent to the Consensus Layer (CL) Contract.
 
@@ -12,19 +14,19 @@ Deposits sent to the Consensus Layer (CL) Contract.
 | -------------------- | ------------ | ------------ | -------- |
 | Flows to CL Contract | FlowToCLCont | Native Units | 1 day    |
 
-## Details
+### Details
 
 * ETH sent to the Consensus Layer (CL) smart contract (0x00000000219ab540356cBB839Cbe05303d7705Fa) over the daily interval, sourced from Coin Metrics ATLAS™ blockchain search engine.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/FlowToCLCont" %}
 
-# API Endpoints
+## API Endpoints
 
 Flows metrics can be accessed using these endpoints:
 

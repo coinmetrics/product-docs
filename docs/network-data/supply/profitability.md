@@ -1,45 +1,47 @@
-# Contents
+# Miner Revenue
+
+## Contents
 
 * [Supply in UTXOs at Profit](profitability.md#splyutxoprof)
 * [Supply in UTXOs at Loss](profitability.md#splyutxoloss)
 
-# Supply in UTXOs at Profit (native units)<a href="#splyutxoprof" id="splyutxoprof"></a>
+## Supply in UTXOs at Profit (native units) <a href="#splyutxoprof" id="splyutxoprof"></a>
 
-## Definition
+### Definition
 
 The sum of all native units held in unspent transaction outputs created on days where the closing price was lower than or equal to the closing price at the end of the period.
 
-| Name                                     | MetricID     | Category | Subcategory   | Type | Unit         | Interval |
-| ---------------------------------------- | ------------ | -------- | ------------- | ---- | ------------ | -------- |
-| Supply in UTXOs at Profit (native units) | SplyUTXOProf | Supply   | Profitability | Sum  | Native units | 1 day    |
+| Name                                     | MetricID     | Unit         | Interval |
+| ---------------------------------------- | ------------ | ------------ | -------- |
+| Supply in UTXOs at Profit (native units) | SplyUTXOProf | Native units | 1 day    |
 
-## Release History
+### Release History
 
 * Release Version: NDP-EOD 4.8 (Nov, 2020)
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/SplyUTXOProf" %}
 
-# Supply in UTXOs at Loss (native units)<a href="#splyutxoloss" id="splyutxoloss"></a>
+## Supply in UTXOs at Loss (native units) <a href="#splyutxoloss" id="splyutxoloss"></a>
 
-## Definition
+### Definition
 
 The sum of all native units held in unspent transaction outputs created on days when the closing price was higher than the closing price at the end of the period.
 
-| Name                                   | MetricID     | Category | Subcategory   | Type | Unit         | Interval |
-| -------------------------------------- | ------------ | -------- | ------------- | ---- | ------------ | -------- |
-| Supply in UTXOs at Loss (native units) | SplyUTXOLoss | Supply   | Profitability | Sum  | Native units | 1 day    |
+| Name                                   | MetricID     | Unit         | Interval |
+| -------------------------------------- | ------------ | ------------ | -------- |
+| Supply in UTXOs at Loss (native units) | SplyUTXOLoss | Native units | 1 day    |
 
-## Release History
+### Release History
 
 * Release Version: NDP-EOD 4.8 (Nov, 2020)
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/SplyUTXOLoss" %}
 
-# API Endpoints
+## API Endpoints
 
 Supply Profitability metrics can be accessed using these endpoints:
 

@@ -1,4 +1,6 @@
-# Contents
+# UTXOs
+
+## Contents
 
 * [UTXO Mean Age (Days)](utxos.md#utxoagemean)
 * [UTXO Median Age (Days)](utxos.md#utxoagemed)
@@ -6,121 +8,119 @@
 * [UTXO Cnt](utxos.md#utxocnt)
 * [UTXO Age-Weighted Value (native units)](utxos.md#utxoday)
 
-# UTXO Mean Age (Days)<a href="#utxoagemean" id="utxoagemean"></a>
+## UTXO Mean Age (Days) <a href="#utxoagemean" id="utxoagemean"></a>
 
-## Definition
+### Definition
 
-The simple average age in full days of all unspent transaction outputs. \
+The simple average age in full days of all unspent transaction outputs. \\
 
+| Name                 | MetricID    | Unit | Interval |
+| -------------------- | ----------- | ---- | -------- |
+| UTXO Mean Age (Days) | UTXOAgeMean | Days | 1 day    |
 
-| Name                 | MetricID    | Category      | Subcategory | Type | Unit | Interval |
-| -------------------- | ----------- | ------------- | ----------- | ---- | ---- | -------- |
-| UTXO Mean Age (Days) | UTXOAgeMean | Network Usage | UTXOs       | Mean | Days | 1 day    |
-
-## Release History
+### Release History
 
 * Release Version: NDP-EOD 4.8 (Nov, 2020)
 
-## Interpretation
+### Interpretation
 
 This metric calculates the average number of days an asset (e.g, BTC) is held between transactions. Note that it may be less robust to outliers than median and could be skewed by older addresses.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/UTXOAgeMean" %}
 
-# UTXO Median Age (Days)<a href="#utxoagemed" id="utxoagemed"></a>
+## UTXO Median Age (Days) <a href="#utxoagemed" id="utxoagemed"></a>
 
-## Definition
+### Definition
 
 The median age in full days of all unspent transaction outputs, rounded down to the nearest day.
 
-| Name                   | MetricID   | Category      | Subcategory | Type   | Unit | Interval |
-| ---------------------- | ---------- | ------------- | ----------- | ------ | ---- | -------- |
-| UTXO Median Age (Days) | UTXOAgeMed | Network Usage | UTXOs       | Median | Days | 1 day    |
+| Name                   | MetricID   | Unit | Interval |
+| ---------------------- | ---------- | ---- | -------- |
+| UTXO Median Age (Days) | UTXOAgeMed | Days | 1 day    |
 
-## Release History
+### Release History
 
 * Release Version: NDP-EOD 4.8 (Nov, 2020)
 
-## Interpretation
+### Interpretation
 
-This metric calculates the median number of days an asset (e.g, BTC) is held between transactions.&#x20;
+This metric calculates the median number of days an asset (e.g, BTC) is held between transactions.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/UTXOAgeMed" %}
 
+## UTXO Val-Weighted Mean Age (Days) <a href="#utxoagevalmean" id="utxoagevalmean"></a>
 
-# UTXO Val-Weighted Mean Age (Days)<a href="#utxoagevalmean" id="utxoagevalmean"></a>
-
-## Definition
+### Definition
 
 The value-weighted average age in full days of all unspent transaction outputs.
 
-## Dictionary
+### Dictionary
 
-| Name                              | MetricID       | Category      | Subcategory | Type | Unit | Interval |
-| --------------------------------- | -------------- | ------------- | ----------- | ---- | ---- | -------- |
-| UTXO Val-Weighted Mean Age (Days) | UTXOAgeValMean | Network Usage | UTXOs       | Mean | Days | 1 day    |
+| Name                              | MetricID       | Unit | Interval |
+| --------------------------------- | -------------- | ---- | -------- |
+| UTXO Val-Weighted Mean Age (Days) | UTXOAgeValMean | Days | 1 day    |
 
-## Release History
+### Release History
 
 * Release Version: NDP-EOD 4.8 (Nov, 2020)
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/UTXOAgeValMean" %}
 
-# UTXO Cnt<a href="#utxocnt" id="utxocnt"></a>
+## UTXO Cnt <a href="#utxocnt" id="utxocnt"></a>
 
-## Definitions
+### Definitions
 
 The sum count of unspent transaction outputs that interval.
 
-| Name     | MetricID | Category            | Subcategory                 | Type | Unit | Interval |
-| -------- | -------- | ------------------- | --------------------------- | ---- | ---- | -------- |
-| UTXO Cnt | UTXOCnt  | Blockchain / ledger | Unspent transaction outputs | Sum  | UTXO | 1 day    |
+| Name     | MetricID | Unit | Interval |
+| -------- | -------- | ---- | -------- |
+| UTXO Cnt | UTXOCnt  | UTXO | 1 day    |
 
-## Details
+### Details
 
 * Unspent Transaction Outputs (UTXOs) are cryptoasset balances that have been received by the output addresses listed in a transaction. As transactions are comprised of senders (input addresses) and receivers (output addresses), only the owner of output addresses can spend them after the transaction confirms. Said differently, UTXOs are balances received that have not yet been spent by their owners. Collectively, the UTXO set constitutes the current ownership state of a cryptonetwork. Bitcoin is the first and most predominant network that uses this structure, but there are several other UTXO-based chains.
 
-## **Asset-Specific Details**
+### **Asset-Specific Details**
 
 * For BTC and derivatives asset, it doesn’t include OP\_RETURN outputs as they are provably unspendable.
 
-## Release History
+### Release History
 
 * Released in the 4.0 release of NDP
 
-## Interpretation
+### Interpretation
 
 This metric gives a proxy for an asset’s ownership fragmentation. If there’s not a lot of unspent outputs, then there cannot be a lot of onchain owners. More broadly, the UTXO set count is an upper bound estimate on the number of people owning funds on-chain.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/UTXOCnt" %}
 
-# UTXO Age-Weighted Value (native units)<a href="#utxoday" id="utxoday"></a>
+## UTXO Age-Weighted Value (native units) <a href="#utxoday" id="utxoday"></a>
 
-## Definition
+### Definition
 
 The sum product of age in full days and value in native units of all unspent transaction outputs.
 
-| Name                                   | MetricID | Category      | Subcategory | Type    | Unit          | Interval |
-| -------------------------------------- | -------- | ------------- | ----------- | ------- | ------------- | -------- |
-| UTXO Age-Weighted Value (native units) | UTXODay  | Network Usage | UTXOs       | Product | Dimensionless | 1 day    |
+| Name                                   | MetricID | Unit          | Interval |
+| -------------------------------------- | -------- | ------------- | -------- |
+| UTXO Age-Weighted Value (native units) | UTXODay  | Dimensionless | 1 day    |
 
-## Release History
+### Release History
 
 * Release Version: NDP-EOD 4.8 (Nov, 2020)
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/UTXODay" %}
 
-# API Endpoints
+## API Endpoints
 
 UTXO metrics can be accessed using these endpoints:
 

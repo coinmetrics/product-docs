@@ -1,76 +1,78 @@
-# Contents
+# Validator Supply
+
+## Contents
 
 * [Flows to Lido Contract](validator-supply.md#flowtolidocont)
 * [Supply in CL Contract](validator-supply.md#splyclcont)
 * [Supply in Lido Contract](validator-supply.md#splylidocont)
 
-# Flows to Lido Contract<a href="#flowtolidocont" id="flowtolidocont"></a>
+## Flows to Lido Contract <a href="#flowtolidocont" id="flowtolidocont"></a>
 
-## Definition
+### Definition
 
 Daily sent to the Lido staking contract.
 
-| Name                   | MetricID       | Category | Subcategory      | Type | Unit         | Interval |
-| ---------------------- | -------------- | -------- | ---------------- | ---- | ------------ | -------- |
-| Flows to Lido Contract | FlowToLidoCont | Staking  | Validator Supply | Sum  | Native Units | 1 day    |
+| Name                   | MetricID       | Unit         | Interval |
+| ---------------------- | -------------- | ------------ | -------- |
+| Flows to Lido Contract | FlowToLidoCont | Native Units | 1 day    |
 
-## Details
+### Details
 
 * Daily amount of ETH sent to the Lido staking contract (0xae7ab96520de3a18e5e111b5eaab095312d7fe84), sourced from Coin Metrics ATLAS™ blockchain search engine.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/FlowToLidoCont" %}
 
-# Supply in CL Contract<a href="#splyclcont" id="splyclcont"></a>
+## Supply in CL Contract <a href="#splyclcont" id="splyclcont"></a>
 
-## Definition
+### Definition
 
 Total supply sent to the Consensus Layer (CL) Contract.
 
-| Name                  | MetricID   | Category | Subcategory      | Type | Unit         | Interval |
-| --------------------- | ---------- | -------- | ---------------- | ---- | ------------ | -------- |
-| Supply in CL Contract | SplyCLCont | Staking  | Validator Supply | Sum  | Native Units | 1 day    |
+| Name                  | MetricID   | Unit         | Interval |
+| --------------------- | ---------- | ------------ | -------- |
+| Supply in CL Contract | SplyCLCont | Native Units | 1 day    |
 
-## Details
+### Details
 
 * The total supply of ETH sent to the Consensus Layer (CL) smart contract (0x00000000219ab540356cBB839Cbe05303d7705Fa), sourced from Coin Metrics ATLAS™ blockchain search engine.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/SplyCLCont" %}
 
-# Supply in Lido Contract<a href="#splylidocont" id="splylidocont"></a>
+## Supply in Lido Contract <a href="#splylidocont" id="splylidocont"></a>
 
-## Definition
+### Definition
 
 Total sent to the Lido staking contract.
 
-| Name                    | MetricID     | Category | Subcategory      | Type | Unit         | Interval |
-| ----------------------- | ------------ | -------- | ---------------- | ---- | ------------ | -------- |
-| Supply in Lido Contract | SplyLidoCont | Staking  | Validator Supply | Sum  | Native Units | 1 day    |
+| Name                    | MetricID     | Unit         | Interval |
+| ----------------------- | ------------ | ------------ | -------- |
+| Supply in Lido Contract | SplyLidoCont | Native Units | 1 day    |
 
-## Details
+### Details
 
 * Total ETH sent to the Lido staking contract (0xae7ab96520de3a18e5e111b5eaab095312d7fe84) over the daily interval, sourced from Coin Metrics ATLAS™ blockchain search engine.
 
-## Release History
+### Release History
 
 * Released September 2022.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/SplyLidoCont" %}
 
-# API Endpoints
+## API Endpoints
 
 Validator Supply metrics can be accessed using these endpoints:
 
