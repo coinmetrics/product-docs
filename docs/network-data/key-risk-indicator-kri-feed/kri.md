@@ -1,15 +1,14 @@
-# Metrics
+# Key Risk Indicator (KRI) Feed
 
-[**Block Attributes**](block-attributes.md)
-* block_base_fee
-* block_priority_fee
+# Metrics
+[**Block Attributes**](block-times.md)
+
+* block\_base\_fee
+* block\_priority\_fee
 
 [**Block Size**](block-sizes.md)
-* block_size
 
-[**Block Times**](block-times.md)
-* time_inter_block
-* time_since_last_block
+* block\_size
 
 [**Blocks**](blocks.md)
 * block_count_at_tip
@@ -21,59 +20,69 @@
 * block_difficulty_change
 
 [**Empty Blocks**](empty-blocks.md)
-* block_count_consecutive_empty
-* block_count_empty_6b
-* block_missed_slots
 
-[**Feerates**](feerates.md)
-* mempool_feerate_mean
-* mempool_feerate_median
-* mempool_next_block_approx_feerate_max
-* mempool_next_block_approx_feerate_mean
-* mempool_next_block_approx_feerate_median
-* mempool_next_block_approx_feerate_min
-* mempool_next_block_inclusion_approx_feerate_min
+* block\_count\_consecutive\_empty
+* block\_count\_empty\_6b
+* block\_missed\_slots
 
-[**Fees**](fees.md)
-* mempool_fee
-* mempool_fee_entered_1m
-* mempool_fee_mean
-* mempool_fee_mean_entered_1m
-* mempool_fee_median
+[**Feerates**](fees.md)
 
-[**Hashrate**](hashrate.md)
-* block_hashrate_mean_1d
+* mempool\_feerate\_mean
+* mempool\_feerate\_median
+* mempool\_next\_block\_approx\_feerate\_max
+* mempool\_next\_block\_approx\_feerate\_mean
+* mempool\_next\_block\_approx\_feerate\_median
+* mempool\_next\_block\_approx\_feerate\_min
+* mempool\_next\_block\_inclusion\_approx\_feerate\_min
 
-[**Outputs**](outputs.md)
-* mempool_output_value
-* mempool_output_value_entered_1m
+[**Fees**](hashrate.md)
 
-[**Rewards**](rewards.md)
-* mining_reward_mean
-* mining_reward_spread
+* mempool\_fee
+* mempool\_fee\_entered\_1m
+* mempool\_fee\_mean
+* mempool\_fee\_mean\_entered\_1m
+* mempool\_fee\_median
 
-[**Transaction Feerates**](transaction-feerates.md)
-* block_feerate_max
-* block_feerate_mean
-* block_feerate_median
-* block_feerate_min
+[**Hashrate**](outputs.md)
 
-[**Transaction Fees**](transaction-fees.md)
-* block_fee_max
-* block_fee_mean
-* block_fee_median
-* block_fee_min
-* block_fees
+* block\_hashrate\_mean\_1d
 
-[**Transaction Sizes**](transaction-sizes.md)
-* mempool_size
-* mempool_size_entered_1m
-* mempool_size_left_1m
-* mempool_vsize
-* mempool_vsize_entered_1m
-* mempool_vsize_left_1m
+[**Outputs**](rewards.md)
 
-[**Transactions**](transactions.md)
-* block_tx_count
-* mempool_count
-* mempool_count_entered_1m
+* mempool\_output\_value
+* mempool\_output\_value\_entered\_1m
+
+[**Rewards**](transaction-feerates.md)
+
+* mining\_reward\_mean
+* mining\_reward\_spread
+
+[**Transaction Feerates**](transaction-fees.md)
+
+* block\_feerate\_max
+* block\_feerate\_mean
+* block\_feerate\_median
+* block\_feerate\_min
+
+[**Transaction Fees**](transaction-sizes.md)
+
+* block\_fee\_max
+* block\_fee\_mean
+* block\_fee\_median
+* block\_fee\_min
+* block\_fees
+
+[**Transaction Sizes**](transactions.md)
+
+* mempool\_size
+* mempool\_size\_entered\_1m
+* mempool\_size\_left\_1m
+* mempool\_vsize
+* mempool\_vsize\_entered\_1m
+* mempool\_vsize\_left\_1m
+
+[**Transactions**](../../on-chain-data/network-data-overview/market-1/)
+
+* block\_tx\_count
+* mempool\_count
+* mempool\_count\_entered\_1m
