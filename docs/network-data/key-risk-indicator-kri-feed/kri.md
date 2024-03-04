@@ -28,7 +28,7 @@
 * block\_count\_empty\_6b
 * block\_missed\_slots
 
-[**Feerates**](fees.md)
+[**Feerates**](feerates.md)
 
 * mempool\_feerate\_mean
 * mempool\_feerate\_median
@@ -38,7 +38,7 @@
 * mempool\_next\_block\_approx\_feerate\_min
 * mempool\_next\_block\_inclusion\_approx\_feerate\_min
 
-[**Fees**](hashrate.md)
+[**Fees**](fees.md)
 
 * mempool\_fee
 * mempool\_fee\_entered\_1m
@@ -46,21 +46,21 @@
 * mempool\_fee\_mean\_entered\_1m
 * mempool\_fee\_median
 
-[**Hashrate**](outputs.md)
+[**Hashrate**](hashrate.md)
 
 * block\_hashrate\_mean\_1d
 
-[**Outputs**](rewards.md)
+[**Outputs**](outputs.md)
 
 * mempool\_output\_value
 * mempool\_output\_value\_entered\_1m
 
-[**Rewards**](transaction-feerates.md)
+[**Rewards**](rewards.md)
 
 * mining\_reward\_mean
 * mining\_reward\_spread
 
-[**Transaction Feerates**](transaction-fees.md)
+[**Transaction Feerates**](transaction-feerates.md)
 
 * block\_feerate\_max
 * block\_feerate\_mean
