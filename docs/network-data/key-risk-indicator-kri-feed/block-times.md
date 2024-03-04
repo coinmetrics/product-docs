@@ -1,8 +1,56 @@
 # Contents
 
-* [<Metric Name>](<Subcategory>.md#<metricid>)
+* [Time between blocks](block-times.md#time_inter_block)
+* [Time Since Last Block](block-times.md#time_since_last_block)
 
-# <Metric Name><a href="#<metricid>" id="<metricid>"></a>
+# Time between blocks<a href="#time_inter_block" id="time_inter_block"></a>
+
+**Definition**
+
+The time elapsed between the block at the tip of the chain (the most recent block) and its predecessor.
+
+**Dictionary**
+
+| Name                | MetricID           | Category | Sub-category     | Type | Unit    | Interval |
+| ------------------- | ------------------ | -------- | ---------------- | ---- | ------- | -------- |
+| Time between blocks | time\_inter\_block | KRI      | Block Attributes | Sum  | seconds | 1 minute |
+
+**Methodology**
+
+The metric is computed as the time difference between the arrival of the block at the chain tip as seen by our nodes, and the arrival of the previous block.
+
+**Available Assets**&#x20;
+
+Bitcoin (BTC), Ethereum (ETH)
+
+**Sample Query**
+
+{% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=time_inter_block&pretty=true" %}
+
+# Time Since Last Block<a href="#time_since_last_block" id="time_since_last_block"></a>
+
+**Definition**
+
+The time elapsed between the current time and the last block at the tip of the chain (the most recent block).
+
+**Dictionary**
+
+| Name                  | MetricID                 | Category | Sub-category     | Type  | Unit    | Interval |
+| --------------------- | ------------------------ | -------- | ---------------- | ----- | ------- | -------- |
+| Time since last block | time\_since\_last\_block | KRI      | Block Attributes | Delta | seconds | 1 minute |
+
+**Methodology**
+
+The metric is computed as the time difference between the arrival of the block at the chain tip as seen by our nodes, and the current time. As a timestamp for the block at the chain tip this metric uses the concept of miner\_time (for more on the differences between miner\_time and consensus\_time refer to our [wiki article](../../on-chain-data/methodologies/on-chain-basics.md) on normalizing timestamps). For Bitcoin, miner\_time can be set arbitrarily by miners which can impact the value of this metric.
+
+**Available Assets**&#x20;
+
+Bitcoin (BTC), Ethereum (ETH)
+
+**Sample Query**
+
+{% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc,eth&frequency=1m&limit_per_asset=1&metrics=time_since_last_block&pretty=true" %}
+
 
 # API Endpoints
 
@@ -10,7 +58,7 @@ Block time metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
-and by passing in the metric ID's `<metric-id>*` in the `metrics` parameter.
+and by passing in the metric ID's `time_*` in the `metrics` parameter.
 
 {% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
@@ -19,14 +67,14 @@ and by passing in the metric ID's `<metric-id>*` in the `metrics` parameter.
 {% tabs %}
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=<metric-id>&assets=btc&pretty=true&api_key=<your_key>"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=time_inter_block&assets=btc&pretty=true&api_key=<your_key>"
 ```
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=<metric-id>&assets=btc&pretty=true&api_key=<your_key>').json()
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=time_inter_block&assets=btc&pretty=true&api_key=<your_key>').json()
 print(response)
 ```
 {% endtab %}
@@ -40,7 +88,7 @@ client = CoinMetricsClient(api_key)
 
 print(
     client.get_asset_metrics(
-        metrics="<metric-id>", 
+        metrics="time_inter_block", 
         assets="btc",
     ).to_dataframe()
 )
