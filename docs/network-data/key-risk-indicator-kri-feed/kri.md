@@ -15,6 +15,10 @@
 * block_count_at_tip
 * block_count_by_same_miner_6b
 * block_count_by_unknown_miners_6b
+  
+[**Difficulty**](difficulty.md)
+* block_difficulty
+* block_difficulty_change
 
 [**Empty Blocks**](empty-blocks.md)
 * block_count_consecutive_empty
