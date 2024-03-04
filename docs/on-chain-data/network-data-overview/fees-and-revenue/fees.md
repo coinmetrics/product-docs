@@ -2,7 +2,7 @@
 
 ### Contents
 
-* [Fees, byte, mean, native units](fees.md#feebytemeanntv)
+* [Fees, byte, mean, native units](fees.md#mean-tx-fee-per-byte-native-units)
 * [Fees, transaction, mean](fees.md#feemean)
 * [Fees, transaction, median](fees.md#feemed)
 * [Fees, transaction, priority, mean](fees.md#feepriomean)
