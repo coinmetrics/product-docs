@@ -14,7 +14,7 @@ The ratio of the sum USD value of the current supply to the sum "realized" USD v
 
 ## Chart
 
-![https://charts.coinmetrics.io/formulas/#580](<../../.gitbook/assets/MVRV (3).png>)
+![https://charts.coinmetrics.io/formulas/#580](<../../../.gitbook/assets/MVRV (3).png>)
 
 ## Asset-Specific Details
 
@@ -28,7 +28,7 @@ The ratio of the sum USD value of the current supply to the sum "realized" USD v
 
 ## Interpretation
 
-Market value to realized value (MVRV) has historically been one of the most reliable on-chain indicators of bitcoin market tops and bottoms. MVRV is calculated by dividing bitcoin’s market capitalization by its [realized capitalization](https://coinmetrics.io/realized-capitalization/). Realized capitalization can also be thought of as a gross approximation of bitcoin’s aggregate cost basis. &#x20;
+Market value to realized value (MVRV) has historically been one of the most reliable on-chain indicators of bitcoin market tops and bottoms. MVRV is calculated by dividing bitcoin’s market capitalization by its [realized capitalization](https://coinmetrics.io/realized-capitalization/). Realized capitalization can also be thought of as a gross approximation of bitcoin’s aggregate cost basis.
 
 The intuition behind the creation of this ratio was to divide a price function by a ‘fundamental’ - [Realized Capitalization](caprealusd.md). This gives you a ratio potentially indicating periods of overvaluation (when network value far exceeds its historical relationship to realized cap) and undervaluation.
 

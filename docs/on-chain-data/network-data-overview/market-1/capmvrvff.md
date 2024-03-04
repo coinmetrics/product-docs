@@ -16,7 +16,7 @@ The ratio of the free float market capitalization (CapMrktFFUSD) to the sum "rea
 
 ## Chart
 
-![](<../../.gitbook/assets/Screen Shot 2021-05-24 at 2.57.27 PM.png>)
+![](<../../../.gitbook/assets/Screen Shot 2021-05-24 at 2.57.27 PM.png>)
 
 ## Asset-Specific Details
 

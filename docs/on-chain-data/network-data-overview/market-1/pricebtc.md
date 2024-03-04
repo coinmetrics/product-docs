@@ -2,7 +2,7 @@
 
 ## Definition
 
-The price of the asset denominated in Bitcoin units.&#x20;
+The price of the asset denominated in Bitcoin units.
 
 | Name                  | MetricID | Category | Subcategory | Type | Unit | Interval      |
 | --------------------- | -------- | -------- | ----------- | ---- | ---- | ------------- |
@@ -10,11 +10,9 @@ The price of the asset denominated in Bitcoin units.&#x20;
 
 ## Details
 
-* This metric is available in both daily and block frequencies. The daily frequency represents the price as of the end of the day in UTC time. The block frequency represents the price at the time the block was added to the blockchain.\
-
-* This metric is identical to `ReferenceRateBTC` but with different timestamp conventions. Please see the frequently asked questions below for more information on this topic.\
-
-* This price is computed using our CM Reference Rates. Please see our [CM Prices Overview](../../market-data/reference-rates-overview.md) for more information on methodology and policies.
+* This metric is available in both daily and block frequencies. The daily frequency represents the price as of the end of the day in UTC time. The block frequency represents the price at the time the block was added to the blockchain.\\
+* This metric is identical to `ReferenceRateBTC` but with different timestamp conventions. Please see the frequently asked questions below for more information on this topic.\\
+* This price is computed using our CM Reference Rates. Please see our [CM Prices Overview](../../../market-data/reference-rates-overview.md) for more information on methodology and policies.
 
 ## Example
 
@@ -89,16 +87,11 @@ A sample of the `PriceBTC` metric for Ethereum with block frequency is shown bel
 }
 ```
 
-* **`asset`**: The ID of the asset.\
-
-* **`time`**: The reference rate time in ISO 8601 date-time format.\
-
-* **`PriceBTC`**: The published reference rate value in Bitcoin units.\
-
-* **`block_hash`**: The hash of the block.\
-
-* **`parent_block_hash`**: The hash of the parent block.\
-
+* **`asset`**: The ID of the asset.\\
+* **`time`**: The reference rate time in ISO 8601 date-time format.\\
+* **`PriceBTC`**: The published reference rate value in Bitcoin units.\\
+* **`block_hash`**: The hash of the block.\\
+* **`parent_block_hash`**: The hash of the parent block.\\
 * **`height`**: The block height.
 
 ## Release History

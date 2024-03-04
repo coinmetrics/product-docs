@@ -18,12 +18,12 @@ The sum USD value based on the USD closing price on the day that a native unit l
 
 ## Chart
 
-![https://charts.coinmetrics.io/network-data/#581](../../.gitbook/assets/Market\_Cap\_and\_Realized\_Cap.png)
+![https://charts.coinmetrics.io/network-data/#581](../../../.gitbook/assets/Market\_Cap\_and\_Realized\_Cap.png)
 
 ## Asset-Specific Details
 
 * This metric is not available for assets that have full privacy, like Monero, Grin.
-* For assets that have opt-in privacy features, like ZCash, it only takes the non-private balances into account. The realized cap is first computed over the non-private balances, then scaled so that ratios like MVRV can be computed:Realized Cap = Non-private realized Cap + Private Supply \* (Non-private realized cap/ (Total Current Supply - Private supply))This can be understood as taking the non-private supply’s price implied by the realized cap (Non-private realized cap / Non private supply) and assigning that price to the private supply.
+* For assets that have opt-in privacy features, like ZCash, it only takes the non-private balances into account. The realized cap is first computed over the non-private balances, then scaled so that ratios like MVRV can be computed: Realized Cap = Non-private realized Cap + Private Supply \* (Non-private realized cap/ (Total Current Supply - Private supply)) This can be understood as taking the non-private supply’s price implied by the realized cap (Non-private realized cap / Non private supply) and assigning that price to the private supply.
 
 ## Example
 
