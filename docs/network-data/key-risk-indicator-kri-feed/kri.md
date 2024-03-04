@@ -7,8 +7,11 @@
 * block\_priority\_fee
 
 [**Block Size**](block-size.md)
-
 * block\_size
+
+[**Block times](block-times.md)
+* time_inter_block
+* time_since_last_block
 
 [**Blocks**](blocks.md)
 * block_count_at_tip
