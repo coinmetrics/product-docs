@@ -6,7 +6,7 @@
 * block\_base\_fee
 * block\_priority\_fee
 
-[**Block Size**](block-sizes.md)
+[**Block Size**](block-size.md)
 
 * block\_size
 
