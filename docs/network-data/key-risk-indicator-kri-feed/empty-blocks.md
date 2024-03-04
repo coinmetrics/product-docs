@@ -75,7 +75,6 @@ Ethereum (ETH)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=eth&frequency=1b&metrics=block_missed_slots&pretty=true" %}
 
-
 # API Endpoints
 
 Empty Blocks metrics can be accessed using these endpoints:
