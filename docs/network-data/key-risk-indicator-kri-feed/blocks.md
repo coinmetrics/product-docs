@@ -81,7 +81,7 @@ _\* Historical data covering the pre-merge timeframe only (up to 9/15/2022). Wit
 
 # API Endpoints
 
-<Subcategory> metrics can be accessed using these endpoints:
+Blocks metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 

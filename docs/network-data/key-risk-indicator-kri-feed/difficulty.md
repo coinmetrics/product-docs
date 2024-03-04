@@ -56,7 +56,7 @@ _\* since the move to Proof of Stake on 9/15/2022, Ethereum no longer has a bloc
 
 # API Endpoints
 
-<Subcategory> metrics can be accessed using these endpoints:
+Difficulty metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
