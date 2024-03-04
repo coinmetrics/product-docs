@@ -31,6 +31,4 @@ yarn-error.log*
 .env.production.local
 
 choco.sh
-.idea/workspace.xml
-.idea/.name
-.idea/inspectionProfiles/profiles_settings.xml
+.idea*
