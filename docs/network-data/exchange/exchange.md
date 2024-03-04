@@ -4,13 +4,16 @@ description: >-
   calculations for on-chain supply, on-chain deposits, on-chain withdrawals, and
   net flows as part of our Network Data Pro product.
 ---
+
 # Exchange
 
-Exchange metrics showcase the on-chain fingerprint provided by **coin movement into/out of exchange addresses**. &#x20;
+## Exchange
 
-# On-Chain Exchange Coverage
+Exchange metrics showcase the on-chain fingerprint provided by **coin movement into/out of exchange addresses**.
 
-## Exchange On-Chain Flows & Supply Metrics Coverage
+## On-Chain Exchange Coverage
+
+### Exchange On-Chain Flows & Supply Metrics Coverage
 
 {% hint style="info" %}
 Exchange On-Chain Supply, Deposits, Withdrawals and Net Flows can be found in the [Asset Metrics endpoint](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesAssetMetrics)
@@ -30,10 +33,10 @@ Exchange On-Chain Supply, Deposits, Withdrawals and Net Flows can be found in th
 
 For more details on asset coverage for exchange supply or flows metrics, see the individual metric in the Asset Metrics section of this Data Encyclopedia.
 
+## Metrics
 
-# Metrics
+[**Deposits**](broken-reference)
 
-[**Deposits**](deposits.md)
 * FlowInBFXNtv
 * FlowInBFXUSD
 * FlowInBMXNtv
@@ -68,7 +71,8 @@ For more details on asset coverage for exchange supply or flows metrics, see the
 * FlowTfrToExCnt
 * FlowTfrToExInclCnt
 
-[**Exchange Supply**](exchange-supply.md)
+[**Exchange Supply**](broken-reference)
+
 * SplyBFXNtv
 * SplyBFXUSD
 * SplyBMXNtv
@@ -90,7 +94,8 @@ For more details on asset coverage for exchange supply or flows metrics, see the
 * SplyPOLNtv
 * SplyPOLUSD
 
-[**Net Flows**](net-flows.md)
+[**Net Flows**](broken-reference)
+
 * FlowNetBFXNtv
 * FlowNetBFXUSD
 * FlowNetBMXNtv
@@ -110,10 +115,12 @@ For more details on asset coverage for exchange supply or flows metrics, see the
 * FlowNetPOLNtv
 * FlowNetPOLUSD
 
-[**Transaction Count**](transaction-count.md)
+[**Transaction Count**](broken-reference)
+
 * TxExCnt
 
-[**Withdrawals**](withdrawals.md)
+[**Withdrawals**](broken-reference)
+
 * FlowOutBFXNtv
 * FlowOutBFXUSD
 * FlowOutBMXNtv

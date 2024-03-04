@@ -1,10 +1,13 @@
 # Network Usage
 
+## Network Usage
+
 Metrics that measure blockchain network activity.
 
-# Contents
+## Contents
 
 [**Blocks**](blocks.md)
+
 * BlkCnt
 * BlkHgt
 * BlkIntMean
@@ -17,18 +20,21 @@ Metrics that measure blockchain network activity.
 * BlkWghtMean
 * BlkWghtTot
 
-[**Contracts**](contracts.md)
+[**Contracts**](utxos.md)
+
 * ContBalCnt
 * ContCnt
 * ContERC1155Cnt
 * ContERC20Cnt
 * ContERC721Cnt
 
-[**Profitability**](profitability.md)
+[**Profitability**](broken-reference)
+
 * UTXOLossCnt
 * UTXOProfCnt
 
-[**UTXOs**](utxos.md)
+[**UTXOs**](broken-reference)
+
 * UTXOAgeMean
 * UTXOAgeMed
 * UTXOAgeValMean

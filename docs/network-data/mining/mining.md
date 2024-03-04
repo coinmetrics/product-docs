@@ -1,18 +1,19 @@
-
-
-# Metrics
+# Mining
 
 [**Balances**](balances.md)
+
 * SplyMiner0HopAllNtv
 * SplyMiner0HopAllUSD
 * SplyMiner1HopAllNtv
 * SplyMiner1HopAllUSD
 
 [**Difficulty**](difficulty.md)
+
 * DiffLast
 * DiffMean
 
 [**Exchange Flows**](exchange-flows.md)
+
 * FlowMinerIn0HopAllExNtv
 * FlowMinerIn0HopAllExUSD
 * FlowMinerIn1HopAllBFXNtv
@@ -58,7 +59,8 @@
 * FlowMinerOut1HopAllPOLNtv
 * FlowMinerOut1HopAllPOLUSD
 
-[**Flows**](flows.md)
+[**Flows**](hash-rate.md)
+
 * FlowMinerIn0HopAllNtv
 * FlowMinerIn0HopAllUSD
 * FlowMinerIn1HopAllNtv
@@ -74,7 +76,8 @@
 * MRI0HopAll30d
 * MRI1HopAll30d
 
-[**Hardware Hash Rate**](hardware-hash-rate.md)
+[**Hardware Hash Rate**](broken-reference)
+
 * HashRate30dOtherHardware
 * HashRate30dOtherHardwarePct
 * HashRate30dS7
@@ -82,7 +85,8 @@
 * HashRate30dS9
 * HashRate30dS9Pct
 
-[**Hash Rate**](hash-rate.md)
+[**Hash Rate**](broken-reference)
+
 * HashRate
 * HashRate30d
 * RevHash1yAvgNtv

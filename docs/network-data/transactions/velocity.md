@@ -55,7 +55,7 @@ The ratio of the value transferred (i.e., the aggregate "size" of all transfers)
 
 ### Details
 
-* [Xfer'd Value (native units)](txtfrvalntv.md) for trailing 1 year / [Current Supply (native units)](../supply/splycur.md)
+* [Xfer'd Value (native units)](txtfrvalntv.md) for trailing 1 year / [Current Supply (native units)](broken-reference)
 
 ### Release History
 
@@ -81,7 +81,7 @@ The ratio of the adjusted value transferred (i.e., the aggregate "size" of all t
 
 ### Details
 
-* [Xfer'd Val, Adj (native units)](txtfrvaladjntv.md) for trailing 1 year / [Current Supply (native units)](../supply/splycur.md)
+* [Xfer'd Val, Adj (native units)](txtfrvaladjntv.md) for trailing 1 year / [Current Supply (native units)](broken-reference)
 
 ### Chart
 
