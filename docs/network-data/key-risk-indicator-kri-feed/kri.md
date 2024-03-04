@@ -64,7 +64,7 @@
 * block\_feerate\_median
 * block\_feerate\_min
 
-[**Transaction Fees**](transaction-sizes.md)
+[**Transaction Fees**](transaction-fees.md)
 
 * block\_fee\_max
 * block\_fee\_mean
@@ -72,7 +72,7 @@
 * block\_fee\_min
 * block\_fees
 
-[**Transaction Sizes**](transactions.md)
+[**Transaction Sizes**](transaction-sizes.md)
 
 * mempool\_size
 * mempool\_size\_entered\_1m
@@ -81,7 +81,7 @@
 * mempool\_vsize\_entered\_1m
 * mempool\_vsize\_left\_1m
 
-[**Transactions**](../../on-chain-data/network-data-overview/market-1/)
+[**Transactions**](transactions.md)
 
 * block\_tx\_count
 * mempool\_count
