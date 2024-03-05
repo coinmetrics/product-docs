@@ -1,9 +1,11 @@
-# Contents
+# Block Attributes
 
-* [Base Fee for Block](block-attributes.md#block_base_fee)
-* [Priority Fee for Block](block-attributes.md#block_priority_fee)
+## Contents
 
-# Base Fee for Block<a href="#block_base_fee" id="block_base_fee"></a>
+* [Base Fee for Block](block-attributes.md#block\_base\_fee)
+* [Priority Fee for Block](block-attributes.md#block\_priority\_fee)
+
+## Base Fee for Block <a href="#block_base_fee" id="block_base_fee"></a>
 
 **Definition**
 
@@ -11,9 +13,9 @@ The base fee of the most recent block processed.
 
 **Dictionary**
 
-| Name               | MetricID         | Category | Sub-category     | Type | Unit | Interval |
-| ------------------ | ---------------- | -------- | ---------------- | ---- | ---- | -------- |
-| Base Fee for Block | block\_base\_fee | KRI      | Block Attributes | Sum  | ETH  | 1b       |
+| Name               | MetricID         | Unit | Interval |
+| ------------------ | ---------------- | ---- | -------- |
+| Base Fee for Block | block\_base\_fee | ETH  | 1b       |
 
 **Methodology**
 
@@ -27,7 +29,7 @@ Ethereum (ETH)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=eth&frequency=1b&metrics=block_base_fee&pretty=true" %}
 
-# Priority Fee for Block<a href="#block_priority_fee" id="block_priority_fee"></a>
+## Priority Fee for Block <a href="#block_priority_fee" id="block_priority_fee"></a>
 
 **Definition**
 
@@ -35,9 +37,9 @@ The priority fee, or tip, of the most recent block processed.
 
 **Dictionary**
 
-| Name                   | MetricID             | Category | Sub-category     | Type | Unit | Interval |
-| ---------------------- | -------------------- | -------- | ---------------- | ---- | ---- | -------- |
-| Priority Fee for Block | block\_priority\_fee | KRI      | Block Attributes | Sum  | ETH  | 1b       |
+| Name                   | MetricID             | Unit | Interval |
+| ---------------------- | -------------------- | ---- | -------- |
+| Priority Fee for Block | block\_priority\_fee | ETH  | 1b       |
 
 **Methodology**
 
@@ -51,17 +53,16 @@ Ethereum (ETH)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=eth&frequency=1b&metrics=block_priority_fee&pretty=true" %}
 
+## API Endpoints
 
-# API Endpoints
-
-<Subcategory> metrics can be accessed using these endpoints:
+metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
 and by passing in the metric ID's `block_*_fee` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

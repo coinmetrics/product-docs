@@ -1,14 +1,16 @@
-# Contents
+# Feerates
 
-* [Mean Feerate Mempool](feerates.md#mempool_feerate_mean)
-* [Median Feerate Mempool](feerates.md#mempool_feerate_median)
-* [Next Block Average Feerate](feerates.md#mempool_next_block_approx_feerate_mean)
-* [Next Block Maximum Feerate](feerates.md#mempool_next_block_approx_feerate_max)
-* [Next Block Median Feerate](feerates.md#mempool_next_block_approx_feerate_median)
-* [Next Block Minimum Feerate](feerates.md#mempool_next_block_approx_feerate_min)
-* [Next Block Minimum Recommended Fee](feerates.md#mempool_next_block_inclusion_feerate_min)
+## Contents
 
-# Mean Feerate Mempool<a href="#mempool_feerate_mean" id="mempool_feerate_mean"></a>
+* [Mean Feerate Mempool](feerates.md#mempool\_feerate\_mean)
+* [Median Feerate Mempool](feerates.md#mempool\_feerate\_median)
+* [Next Block Average Feerate](feerates.md#mempool\_next\_block\_approx\_feerate\_mean)
+* [Next Block Maximum Feerate](feerates.md#mempool\_next\_block\_approx\_feerate\_max)
+* [Next Block Median Feerate](feerates.md#mempool\_next\_block\_approx\_feerate\_median)
+* [Next Block Minimum Feerate](feerates.md#mempool\_next\_block\_approx\_feerate\_min)
+* [Next Block Minimum Recommended Fee](feerates.md#mempool\_next\_block\_inclusion\_feerate\_min)
+
+## Mean Feerate Mempool <a href="#mempool_feerate_mean" id="mempool_feerate_mean"></a>
 
 **Definition**
 
@@ -30,7 +32,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_feerate_mean&pretty=true" %}
 
-# Median Feerate Mempool<a href="#mempool_feerate_median" id="mempool_feerate_median"></a>
+## Median Feerate Mempool <a href="#mempool_feerate_median" id="mempool_feerate_median"></a>
 
 **Definition**
 
@@ -38,15 +40,15 @@ The median feerate (fee/vsize) of all mempool transactions in native units per b
 
 **Dictionary**
 
-| Name                   | MetricID                 | Category | Sub-category | Type | Unit      | Interval |
-| ---------------------- | ------------------------ | -------- | ------------ | ---- | --------- | -------- |
-| Median Feerate Mempool | mempool\_feerate\_median | KRI      | Mempool      | Mean | fee/vsize | 1m       |
+| Name                   | MetricID                 | Unit      | Interval |
+| ---------------------- | ------------------------ | --------- | -------- |
+| Median Feerate Mempool | mempool\_feerate\_median | fee/vsize | 1m       |
 
 **Methodology**
 
 The mempool is evaluated and the feerate (fee/vsize) attached to all transactions is calculated. The median feerate of all transactions is then assessed.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -54,8 +56,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_feerate_median&pretty=true" %}
 
-
-# Next Block Average Feerate<a href="#mempool_next_block_approx_feerate_mean" id="mempool_next_block_approx_feerate_mean"></a>
+## Next Block Average Feerate <a href="#mempool_next_block_approx_feerate_mean" id="mempool_next_block_approx_feerate_mean"></a>
 
 **Definition**
 
@@ -63,15 +64,15 @@ The approximate value of the mean feerate for the upcoming blockchain block.
 
 **Dictionary**
 
-| Name                        | MetricID                                    | Category | Sub-category | Type | Unit       | Interval |
-| --------------------------- | ------------------------------------------- | -------- | ------------ | ---- | ---------- | -------- |
-| Next Block Average feerate  | mempool\_next\_block\_approx\_feerate\_mean | KRI      | Mempool      | Sum  | sats/vbyte | 1m       |
+| Name                       | MetricID                                    | Unit       | Interval |
+| -------------------------- | ------------------------------------------- | ---------- | -------- |
+| Next Block Average feerate | mempool\_next\_block\_approx\_feerate\_mean | sats/vbyte | 1m       |
 
 **Methodology**
 
 The calculation begins by ranking mempool transactions based on how much fees they are paying. A block template is then applied to these transactions with the goal of identifying which transactions rational miners would pick if they were to build a block at that minute The average (mean) feerate of the transactions in that block template is then showcased.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -79,8 +80,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_next_block_approx_feerate_men&pretty=true" %}
 
-
-# Next Block Maximum Feerate<a href="#mempool_next_block_approx_feerate_max" id="mempool_next_block_approx_feerate_max"></a>
+## Next Block Maximum Feerate <a href="#mempool_next_block_approx_feerate_max" id="mempool_next_block_approx_feerate_max"></a>
 
 **Definition**
 
@@ -88,18 +88,17 @@ The approximate value of the maximum feerate for the upcoming blockchain block.
 
 **Dictionary**
 
-| Name                        | MetricID                                   | Category | Sub-category | Type | Unit       | Interval |
-| --------------------------- | ------------------------------------------ | -------- | ------------ | ---- | ---------- | -------- |
-| Next Block Maximum feerate  | mempool\_next\_block\_approx\_feerate\_max | KRI      | Mempool      | Sum  | sats/vbyte | 1m       |
+| Name                       | MetricID                                   | Unit       | Interval |
+| -------------------------- | ------------------------------------------ | ---------- | -------- |
+| Next Block Maximum feerate | mempool\_next\_block\_approx\_feerate\_max | sats/vbyte | 1m       |
 
-\
-
+\\
 
 **Methodology**
 
 The calculation begins by ranking mempool transactions based on how much fees they are paying. A block template is then applied to these transactions with the goal of identifying which transactions rational miners would pick if they were to build a block at that minute The feerate of the highest transaction that would still be included in that block template is then showcased.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -107,7 +106,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_next_block_approx_feerate_max&pretty=true" %}
 
-# Next Block Median Feerate<a href="#mempool_next_block_approx_feerate_median" id="mempool_next_block_approx_feerate_median"></a>
+## Next Block Median Feerate <a href="#mempool_next_block_approx_feerate_median" id="mempool_next_block_approx_feerate_median"></a>
 
 **Definition**
 
@@ -115,15 +114,15 @@ The approximate value of the median feerate for the upcoming blockchain block.
 
 **Dictionary**
 
-| Name                       | MetricID                                      | Category | Sub-category | Type | Unit       | Interval |
-| -------------------------- | --------------------------------------------- | -------- | ------------ | ---- | ---------- | -------- |
-| Next Block Median feerate  | mempool\_next\_block\_approx\_feerate\_median | KRI      | Mempool      | Sum  | sats/vbyte | 1m       |
+| Name                      | MetricID                                      | Unit       | Interval |
+| ------------------------- | --------------------------------------------- | ---------- | -------- |
+| Next Block Median feerate | mempool\_next\_block\_approx\_feerate\_median | sats/vbyte | 1m       |
 
 **Methodology**
 
 The calculation begins by ranking mempool transactions based on how much fees they are paying. A block template is then applied to these transactions with the goal of identifying which transactions rational miners would pick if they were to build a block at that minute The median feerate of the transactions in that block template is then showcased.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -131,7 +130,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_next_block_approx_feerate_median&pretty=true" %}
 
-# Next Block Minimum Feerate<a href="#mempool_next_block_approx_feerate_min" id="mempool_next_block_approx_feerate_min"></a>
+## Next Block Minimum Feerate <a href="#mempool_next_block_approx_feerate_min" id="mempool_next_block_approx_feerate_min"></a>
 
 **Definition**
 
@@ -139,15 +138,15 @@ The approximate value of the minimum feerate for the upcoming blockchain block.
 
 **Dictionary**
 
-| Name                        | MetricID                                   | Category | Sub-category | Type | Unit       | Interval |
-| --------------------------- | ------------------------------------------ | -------- | ------------ | ---- | ---------- | -------- |
-| Next Block Minimum feerate  | mempool\_next\_block\_approx\_feerate\_min | KRI      | Mempool      | Sum  | sats/vbyte | 1m       |
+| Name                       | MetricID                                   | Unit       | Interval |
+| -------------------------- | ------------------------------------------ | ---------- | -------- |
+| Next Block Minimum feerate | mempool\_next\_block\_approx\_feerate\_min | sats/vbyte | 1m       |
 
 **Methodology**
 
 The calculation begins by ranking mempool transactions based on how much fees they are paying. A block template is then applied to these transactions with the goal of identifying which transactions rational miners would pick if they were to build a block at that minute. The feerate of the lowest transaction that would still be included in that block template is then showcased.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -155,7 +154,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_next_block_approx_feerate_min&pretty=true" %}
 
-# Next Block Minimum Recommended Fee<a href="#mempool_next_block_inclusion_feerate_min" id="mempool_next_block_inclusion_feerate_min"></a>
+## Next Block Minimum Recommended Fee <a href="#mempool_next_block_inclusion_feerate_min" id="mempool_next_block_inclusion_feerate_min"></a>
 
 **Definition**
 
@@ -163,15 +162,15 @@ The recommended minimum feerate required for a transaction to be included in the
 
 **Dictionary**
 
-| Name                               | MetricID                                              | Category | Sub-category | Type | Unit       | Interval |
-| ---------------------------------- | ----------------------------------------------------- | -------- | ------------ | ---- | ---------- | -------- |
-| Next Block minimum recommended fee | mempool\_next\_block\_inclusion\_approx\_feerate\_min | KRI      | Mempool      | Sum  | sats/vbyte | 1m       |
+| Name                               | MetricID                                              | Unit       | Interval |
+| ---------------------------------- | ----------------------------------------------------- | ---------- | -------- |
+| Next Block minimum recommended fee | mempool\_next\_block\_inclusion\_approx\_feerate\_min | sats/vbyte | 1m       |
 
 **Methodology**
 
 The calculation begins by ranking mempool transactions based on how much fees they are paying. A block template is then applied to these transactions with the goal of identifying which transactions rational miners would pick if they were to build a block at that minute The feerate of the lowest transaction that would still be included in that block template is then showcased. Depending on the aggregate size of transactions paying the minimum feerate, additional satoshi units are added in order to increase the likelihood that a transaction paying this feerate will be included in the next block.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -185,15 +184,15 @@ The approximate value of the minimum feerate for the upcoming blockchain block.
 
 **Dictionary**
 
-| Name                        | MetricID                                   | Category | Sub-category | Type | Unit       | Interval |
-| --------------------------- | ------------------------------------------ | -------- | ------------ | ---- | ---------- | -------- |
-| Next Block Minimum feerate  | mempool\_next\_block\_approx\_feerate\_min | KRI      | Mempool      | Sum  | sats/vbyte | 1m       |
+| Name                       | MetricID                                   | Unit       | Interval |
+| -------------------------- | ------------------------------------------ | ---------- | -------- |
+| Next Block Minimum feerate | mempool\_next\_block\_approx\_feerate\_min | sats/vbyte | 1m       |
 
 **Methodology**
 
 The calculation begins by ranking mempool transactions based on how much fees they are paying. A block template is then applied to these transactions with the goal of identifying which transactions rational miners would pick if they were to build a block at that minute. The feerate of the lowest transaction that would still be included in that block template is then showcased.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -201,7 +200,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_next_block_approx_feerate_min&pretty=true" %}
 
-# API Endpoints
+## API Endpoints
 
 Fee Rate metrics can be accessed using these endpoints:
 
@@ -209,8 +208,8 @@ Fee Rate metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `mempool_feerate*` and `mempool_next_block_approx_feerate_*` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

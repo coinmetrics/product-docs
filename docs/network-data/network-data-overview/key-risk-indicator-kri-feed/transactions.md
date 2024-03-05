@@ -1,10 +1,12 @@
-# Contents
+# Transactions
 
-* [Transactions in Block](transactions.md#block_tx_count)
-* [Mempool Transaction Count](transactions.md#mempool_count)
-* [Transaction Count Entered Mempool 1 Minute](transactions.md#block_tx_count)
+## Contents
 
-# Transactions in Block<a href="#block_tx_count" id="block_tx_count"></a>
+* [Transactions in Block](transactions.md#block\_tx\_count)
+* [Mempool Transaction Count](transactions.md#mempool\_count)
+* [Transaction Count Entered Mempool 1 Minute](transactions.md#block\_tx\_count)
+
+## Transactions in Block <a href="#block_tx_count" id="block_tx_count"></a>
 
 **Definition**
 
@@ -12,9 +14,9 @@ The count of all transactions within the most recent block processed.
 
 **Dictionary**
 
-| Name                  | MetricID         | Category | Sub-category     | Type | Unit                  | Interval |
-| --------------------- | ---------------- | -------- | ---------------- | ---- | --------------------- | -------- |
-| Transactions in Block | block\_tx\_count | KRI      | Block Attributes | Sum  | Count of transactions | 1b       |
+| Name                  | MetricID         | Unit                  | Interval |
+| --------------------- | ---------------- | --------------------- | -------- |
+| Transactions in Block | block\_tx\_count | Count of transactions | 1b       |
 
 **Methodology**
 
@@ -28,7 +30,7 @@ Bitcoin (BTC), Ethereum (ETH)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=eth&frequency=1b&metrics=block_tx_count&pretty=true" %}
 
-# Mempool Transaction Count<a href="#mempool_count" id="mempool_count"></a>
+## Mempool Transaction Count <a href="#mempool_count" id="mempool_count"></a>
 
 **Definition**
 
@@ -36,15 +38,15 @@ The count of all mempool transactions at a point in time.
 
 **Dictionary**
 
-| Name                      | MetricID       | Category | Sub-category | Type | Unit        | Interval |
-| ------------------------- | -------------- | -------- | ------------ | ---- | ----------- | -------- |
-| Mempool Transaction Count | mempool\_count | KRI      | Mempool      | Sum  | Transaction | 1m       |
+| Name                      | MetricID       | Unit        | Interval |
+| ------------------------- | -------------- | ----------- | -------- |
+| Mempool Transaction Count | mempool\_count | Transaction | 1m       |
 
 **Methodology**
 
 The mempool is evaluated and all transactions indexed. All unprocessed mempool transactions at a point in time are then counted.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -52,7 +54,7 @@ Sample Query
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_count&pretty=true" %}
 
-# Transaction Count Entered Mempool 1 Minute<a href="#mempool_count_entered" id="mempool_count_entered"></a>
+## Transaction Count Entered Mempool 1 Minute <a href="#mempool_count_entered" id="mempool_count_entered"></a>
 
 **Definition**
 
@@ -60,15 +62,15 @@ The count of all transactions that have entered the mempool over the course of a
 
 **Dictionary**
 
-| Name                                       | MetricID                    | Category | Sub-category | Type | Unit        | Interval |
-| ------------------------------------------ | --------------------------- | -------- | ------------ | ---- | ----------- | -------- |
-| Transaction Count entered mempool 1 minute | mempool\_count\_entered\_1m | KRI      | Mempool      | Sum  | Transaction | 1m       |
+| Name                                       | MetricID                    | Unit        | Interval |
+| ------------------------------------------ | --------------------------- | ----------- | -------- |
+| Transaction Count entered mempool 1 minute | mempool\_count\_entered\_1m | Transaction | 1m       |
 
 **Methodology**
 
 The mempool is evaluated and all transactions that have been entered (new transactions broadcasted by users) since a point in time are counted.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -76,8 +78,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_count_entered_1m&pretty=true" %}
 
-
-# API Endpoints
+## API Endpoints
 
 Transactions metrics can be accessed using these endpoints:
 
@@ -85,8 +86,8 @@ Transactions metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `block_tx_count*` and `mempool_count_*` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

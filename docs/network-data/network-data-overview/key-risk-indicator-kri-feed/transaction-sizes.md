@@ -1,23 +1,25 @@
-# Contents
+# Transaction Sizes
 
-* [Mempool Size](transaction-sizes.md#mempool_size)
-* [Mempool Size Entered](transaction-sizes.md#mempool_size_entered)
-* [Mempool Size Left](transaction-sizes.md#mempool_size_left)
-* [Mempool vSize](transaction-sizes.md#mempool_vsize)
-* [Mempool vSize Entered](transaction-sizes.md#mempool_vsize_entered)
-* [Mempool vSize Left](transaction-sizes.md#mempool_vsize_left)
+## Contents
 
-# Mempool Size<a href="#mempool_size" id="mempool_size"></a>
+* [Mempool Size](transaction-sizes.md#mempool\_size)
+* [Mempool Size Entered](transaction-sizes.md#mempool\_size\_entered)
+* [Mempool Size Left](transaction-sizes.md#mempool\_size\_left)
+* [Mempool vSize](transaction-sizes.md#mempool\_vsize)
+* [Mempool vSize Entered](transaction-sizes.md#mempool\_vsize\_entered)
+* [Mempool vSize Left](transaction-sizes.md#mempool\_vsize\_left)
+
+## Mempool Size <a href="#mempool_size" id="mempool_size"></a>
 
 **Definition**
 
-The total size of all transactions in the mempool, in bytes.&#x20;
+The total size of all transactions in the mempool, in bytes.
 
 **Dictionary**
 
-| Name         | MetricID      | Category | Sub-category | Type | Unit  | Interval |
-| ------------ | ------------- | -------- | ------------ | ---- | ----- | -------- |
-| Mempool Size | mempool\_size | KRI      | Mempool      | Sum  | bytes | 1m       |
+| Name         | MetricID      | Unit  | Interval |
+| ------------ | ------------- | ----- | -------- |
+| Mempool Size | mempool\_size | bytes | 1m       |
 
 **Methodology**
 
@@ -31,15 +33,15 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&metrics=mempool_size&pretty=true" %}
 
-# Mempool Size Entered<a href="#mempool_size_entered" id="mempool_size_entered"></a>
+## Mempool Size Entered <a href="#mempool_size_entered" id="mempool_size_entered"></a>
 
 **Definition**
 
-The total size in bytes of all transactions that have entered the mempool over the course of a 1-minute aggregation window. The beginning of this time window is noted in the “time” field of the response.&#x20;
+The total size in bytes of all transactions that have entered the mempool over the course of a 1-minute aggregation window. The beginning of this time window is noted in the “time” field of the response.
 
 **Dictionary**
 
-<table data-header-hidden><thead><tr><th width="162"></th><th width="240"></th><th width="107"></th><th width="144"></th><th></th><th></th><th></th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Category</td><td>Sub-category</td><td>Type</td><td>Unit</td><td>Interval</td></tr><tr><td>Mempool Size Entered 1m</td><td>mempool_size_entered_1m</td><td>KRI</td><td>Mempool</td><td>Sum</td><td>bytes</td><td>1m</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="162"></th><th width="240"></th><th></th><th></th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Unit</td><td>Interval</td></tr><tr><td>Mempool Size Entered 1m</td><td>mempool_size_entered_1m</td><td>bytes</td><td>1m</td></tr></tbody></table>
 
 **Methodology**
 
@@ -53,15 +55,15 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&metrics=mempool_size_entered_1m&pretty=true" %}
 
-# Mempool Size Left<a href="#mempool_size_left" id="mempool_size_left"></a>
+## Mempool Size Left <a href="#mempool_size_left" id="mempool_size_left"></a>
 
 **Definition**
 
-The total size in bytes of all transactions that have left the mempool over the course of a 1-minute aggregation window. The beginning of this time window is noted in the “time” field of the response.&#x20;
+The total size in bytes of all transactions that have left the mempool over the course of a 1-minute aggregation window. The beginning of this time window is noted in the “time” field of the response.
 
 **Dictionary**
 
-<table data-header-hidden><thead><tr><th width="162"></th><th width="240"></th><th width="107"></th><th width="144"></th><th></th><th></th><th></th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Category</td><td>Sub-category</td><td>Type</td><td>Unit</td><td>Interval</td></tr><tr><td>Mempool Size Left 1m</td><td>mempool_size_left_1m</td><td>KRI</td><td>Mempool</td><td>Sum</td><td>bytes</td><td>1m</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="162"></th><th width="240"></th><th></th><th></th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Unit</td><td>Interval</td></tr><tr><td>Mempool Size Left 1m</td><td>mempool_size_left_1m</td><td>bytes</td><td>1m</td></tr></tbody></table>
 
 **Methodology**
 
@@ -75,7 +77,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&metrics=mempool_size_left_1m&pretty=true" %}
 
-# Mempool vSize<a href="#mempool_vsize" id="mempool_vsize"></a>
+## Mempool vSize <a href="#mempool_vsize" id="mempool_vsize"></a>
 
 **Definition**
 
@@ -83,15 +85,15 @@ The total virtual size (vsize) of all transactions in the mempool, in virtual by
 
 **Dictionary**
 
-| Name          | MetricID       | Category | Sub-category | Type | Unit          | Interval |
-| ------------- | -------------- | -------- | ------------ | ---- | ------------- | -------- |
-| Mempool vsize | mempool\_vsize | KRI      | Mempool      | Sum  | Virtual bytes | 1m       |
+| Name          | MetricID       | Unit          | Interval |
+| ------------- | -------------- | ------------- | -------- |
+| Mempool vsize | mempool\_vsize | Virtual bytes | 1m       |
 
 **Methodology**
 
 The mempool is evaluated and all transactions within are indexed. The virtual size of all transactions is summed.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -99,7 +101,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_vsize&pretty=true" %}
 
-# Mempool vSize Entered<a href="#mempool_vsize_entered" id="mempool_vsize_entered"></a>
+## Mempool vSize Entered <a href="#mempool_vsize_entered" id="mempool_vsize_entered"></a>
 
 **Definition**
 
@@ -107,15 +109,15 @@ The total virtual size (vsize) of all transactions that have entered the mempool
 
 **Dictionary**
 
-| Name                           | MetricID                    | Category | Sub-category | Type | Unit          | Interval |
-| ------------------------------ | --------------------------- | -------- | ------------ | ---- | ------------- | -------- |
-| Mempool vsize entered 1 minute | mempool\_vsize\_entered\_1m | KRI      | Mempool      | Sum  | Virtual bytes | 1m       |
+| Name                           | MetricID                    | Unit          | Interval |
+| ------------------------------ | --------------------------- | ------------- | -------- |
+| Mempool vsize entered 1 minute | mempool\_vsize\_entered\_1m | Virtual bytes | 1m       |
 
 **Methodology**
 
 The mempool is evaluated and all transactions within are indexed. The virtual size of all transactions that have entered the mempool in the previous 1-minute window is summed.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -123,7 +125,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_vsize_entered_1m&pretty=true" %}
 
-# Mempool vSize Left<a href="#mempool_vsize_left" id="mempool_vsize_left"></a>
+## Mempool vSize Left <a href="#mempool_vsize_left" id="mempool_vsize_left"></a>
 
 **Definition**
 
@@ -131,9 +133,9 @@ The total virtual size (vsize), in bytes, of all transactions that have left the
 
 **Dictionary**
 
-| Name                        | MetricID                 | Category | Sub-category | Type | Unit          | Interval |
-| --------------------------- | ------------------------ | -------- | ------------ | ---- | ------------- | -------- |
-| Mempool vsize left 1 minute | mempool\_vsize\_left\_1m | KRI      | Mempool      | Sum  | Virtual bytes | 1m       |
+| Name                        | MetricID                 | Unit          | Interval |
+| --------------------------- | ------------------------ | ------------- | -------- |
+| Mempool vsize left 1 minute | mempool\_vsize\_left\_1m | Virtual bytes | 1m       |
 
 **Methodology**
 
@@ -147,17 +149,16 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_vsize_left_1m&pretty=true" %}
 
+## API Endpoints
 
-# API Endpoints
-
-<Subcategory> metrics can be accessed using these endpoints:
+metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
 and by passing in the metric ID's `mempool_size*` and `mempool_vsize_*` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

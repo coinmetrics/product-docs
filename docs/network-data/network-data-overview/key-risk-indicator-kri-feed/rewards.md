@@ -13,9 +13,9 @@ The mean mining reward (transaction fees + issuance) of the blocks currently bei
 
 **Dictionary**
 
-| Name                  | MetricID             | Category | Sub-category | Type | Unit         | Interval |
-| --------------------- | -------------------- | -------- | ------------ | ---- | ------------ | -------- |
-| Average Mining Reward | mining\_reward\_mean | KRI      | Mining Pools | Sum  | Native units | 1m       |
+| Name                  | MetricID             | Unit         | Interval |
+| --------------------- | -------------------- | ------------ | -------- |
+| Average Mining Reward | mining\_reward\_mean | Native units | 1m       |
 
 **Methodology**
 
@@ -37,9 +37,9 @@ The difference between the highest and lowest miner reward of the blocks being m
 
 **Dictionary**
 
-| Name                 | MetricID               | Category | Sub-category | Type  | Unit         | Interval |
-| -------------------- | ---------------------- | -------- | ------------ | ----- | ------------ | -------- |
-| Mining Reward Spread | mining\_reward\_spread | KRI      | Mining Pools | Delta | Native units | 1m       |
+| Name                 | MetricID               | Unit         | Interval |
+| -------------------- | ---------------------- | ------------ | -------- |
+| Mining Reward Spread | mining\_reward\_spread | Native units | 1m       |
 
 **Methodology**
 
