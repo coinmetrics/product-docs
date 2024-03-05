@@ -131,7 +131,7 @@
   * [Reorg & Fork Tracker Overview](network-data/cm-labs/reorg-and-fork-tracker-overview.md)
   * [Reorg & Fork Tracker Tracker API Fields](network-data/cm-labs/reorg-and-fork-tracker-tracker-api-fields.md)
 * [Deprecated](network-data/deprecated/README.md)
-  * [Mempool Monitor](network-data/deprecated/mempool-monitor.md)
+  * [Mempool Monitor](network-data/deprecated/mempool-monitor-time-series-deprecated/mempool-monitor-deprecated.md)
   * [WatchTower Alerts Overview](network-data/deprecated/watchtower-alerts-overview/README.md)
     * [WatchTower Alerts](network-data/deprecated/watchtower-alerts-overview/watchtower-alerts/README.md)
       * [Ethereum Proof-of-Stake Alerts](network-data/deprecated/watchtower-alerts-overview/watchtower-alerts/ethereum-proof-of-stake-alerts/README.md)
@@ -258,10 +258,6 @@
   * [Markets](reference-data/security-master/markets.md)
 * [Methodologies](reference-data/methodologies/README.md)
   * [Guiding Principles and Methodology for datonomy](reference-data/methodologies/guiding-principles-and-methodology-for-datonomy.md)
-
-## Mempool Monitor (Time Series - DEPRECATED)
-
-* [Mempool Monitor - DEPRECATED](mempool-monitor-time-series-deprecated/mempool-monitor-deprecated.md)
 
 ## WatchTower Alerts (Time Series - DEPRECATED)
 
