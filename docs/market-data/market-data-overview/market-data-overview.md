@@ -46,12 +46,12 @@ Data available at the market level is served through the API endpoints below, wh
 [market-order-book.md](orderbooks/market-order-book.md)
 {% endcontent-ref %}
 
-{% content-ref url="quotes/market-quotes.md" %}
-[market-quotes.md](quotes/market-quotes.md)
+{% content-ref url="quotes/quotes.md" %}
+[quotes.md](quotes/quotes.md)
 {% endcontent-ref %}
 
-{% content-ref url="candles/market-candles.md" %}
-[market-candles.md](candles/market-candles.md)
+{% content-ref url="candles/candles.md" %}
+[candles.md](candles/candles.md)
 {% endcontent-ref %}
 
 {% content-ref url="contract-prices/market-contract-prices.md" %}
@@ -64,6 +64,7 @@ Data available at the market level is served through the API endpoints below, wh
 
 {% content-ref url="greeks/market-greeks.md" %}
 [market-greeks.md](greeks/market-greeks.md)
+{% endcontent-ref %}
 
 {% content-ref url="market-data-faqs.md" %}
 [market-data-faqs.md](market-data-faqs.md)
@@ -89,15 +90,11 @@ Coin Metrics calculates several metrics for assets such as `btc` and `eth`. The 
 
 Metrics available at the asset level are available through the [`/timeseries/asset-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesAssetMetrics) API endpoint and specific metrics are described in the pages linked in this section:&#x20;
 
-{% content-ref url="prices/referencerateusd.md" %}
-[referencerateusd.md](prices/referencerateusd.md)
+{% content-ref url="prices/reference_rate.md" %}
+[referencerateusd.md](prices/reference_rate.md)
 {% endcontent-ref %}
 
-{% content-ref url="prices/referencerateeur.md" %}
-[referencerateeur.md](prices/referencerateeur.md)
-{% endcontent-ref %}
-
-{% content-ref url="open-interest/" %}
+{% content-ref url="open-interest/open_interest.md" %}
 [open-interest](open-interest/open_interest.md)
 {% endcontent-ref %}
 

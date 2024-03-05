@@ -28,7 +28,7 @@ For some assets, our product only covers part of their history (ERC-20 before a 
 
 Data available at the asset level is available through the [`/timeseries/asset-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesAssetMetrics) API endpoint (`network data` product parameter) and specific metrics are described in the pages linked in this section:
 
-{% content-ref url="../asset-metrics/addresses/" %}
+<!-- {% content-ref url="../asset-metrics/addresses/" %}
 [addresses](../asset-metrics/addresses/)
 {% endcontent-ref %}
 
@@ -66,4 +66,4 @@ Data available at the asset level is available through the [`/timeseries/asset-m
 
 {% content-ref url="../asset-metrics/wallets/" %}
 [wallets](../asset-metrics/wallets/)
-{% endcontent-ref %}
+{% endcontent-ref %} -->
