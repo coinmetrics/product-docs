@@ -12,7 +12,6 @@
     * [Market Metrics](api-reference/timeseries/market-metrics.md)
     * [Pair Metrics](api-reference/timeseries/pair-metrics.md)
   * [API v4 Reference](https://docs.coinmetrics.io/api/v4/)
-  * [API v4 Reference](https://docs.coinmetrics.io/api/v4/)
 * [Access Our Data](access-our-data/README.md)
   * [API Basics](access-our-data/api.md)
   * [API Reference](https://docs.coinmetrics.io/api/v4)
@@ -37,6 +36,8 @@
 ## On-Chain Data
 
 * [Network Data Overview](network-data/network-data-overview.md)
+  * [test page](on-chain-data/network-data-overview/test-page/README.md)
+    * [test subpage](on-chain-data/network-data-overview/test-page/test-subpage.md)
   * [Addresses](network-data/addresses/README.md)
     * [Active Addresses](network-data/addresses/active-addresses.md)
     * [Address Balances](network-data/addresses/address-balances.md)
@@ -200,6 +201,8 @@
 ## Market Data
 
 * [Market Data Overview](market-data/market-data-overview.md)
+  * [Page](market-data/market-data-overview/page/README.md)
+    * [Page 1](market-data/market-data-overview/page/page-1.md)
   * [Basis](market-data/basis/basis.md)
   * [Candles](market-data/candles/candles.md)
   * [Contract Prices](market-data/contract-prices/market-contract-prices.md)
