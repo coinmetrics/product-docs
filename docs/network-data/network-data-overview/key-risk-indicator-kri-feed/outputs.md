@@ -13,9 +13,9 @@ The sum of all mempool transaction outputs in native units that have entered the
 
 **Dictionary**
 
-| Name                                              | MetricID                            | Category | Sub-category | Type | Unit         | Interval |
-| ------------------------------------------------- | ----------------------------------- | -------- | ------------ | ---- | ------------ | -------- |
-| Mempool Transaction Output value entered 1 minute | mempool\_output\_value\_entered\_1m | KRI      | Mempool      | Sum  | Native Units | 1m       |
+| Name                                              | MetricID                            | Unit         | Interval |
+| ------------------------------------------------- | ----------------------------------- | ------------ | -------- |
+| Mempool Transaction Output value entered 1 minute | mempool\_output\_value\_entered\_1m | Native Units | 1m       |
 
 **Methodology**
 
@@ -37,9 +37,9 @@ The sum of all mempool transaction outputs in native units.
 
 **Dictionary**
 
-| Name                             | MetricID               | Category | Sub-category | Type | Unit         | Interval |
-| -------------------------------- | ---------------------- | -------- | ------------ | ---- | ------------ | -------- |
-| Mempool Transaction Output Value | mempool\_output\_value | KRI      | Mempool      | Sum  | Native Units | 1m       |
+| Name                             | MetricID               | Unit         | Interval |
+| -------------------------------- | ---------------------- | ------------ | -------- |
+| Mempool Transaction Output Value | mempool\_output\_value | Native Units | 1m       |
 
 **Methodology**
 

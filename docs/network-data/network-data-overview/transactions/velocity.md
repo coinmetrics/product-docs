@@ -55,7 +55,7 @@ The ratio of the value transferred (i.e., the aggregate "size" of all transfers)
 
 ### Details
 
-* [Xfer'd Value (native units)](txtfrvalntv.md) for trailing 1 year / [Current Supply (native units)](broken-reference)
+* [Xfer'd Value (native units)](../../transactions/txtfrvalntv.md) for trailing 1 year / [Current Supply (native units)](broken-reference)
 
 ### Release History
 
@@ -75,17 +75,17 @@ Velocity​ is a measurement of the rate at which an asset is exchanged. It can 
 
 The ratio of the adjusted value transferred (i.e., the aggregate "size" of all transfers) in the trailing 1 year divided by the current supply on that day. It can be thought of as a rate of turnover -- the number of times that an average native unit has been transferred in the past 1 year.
 
-| Name                                | MetricID     | Category     | Subcategory | Type  | Unit          | Interval |
-| ----------------------------------- | ------------ | ------------ | ----------- | ----- | ------------- | -------- |
-| 1 Year Current Supply Velocity, Adj | VelCurAdj1yr | Transactions | Velocity    | Ratio | Dimensionless | 1 year   |
+| Name                                | MetricID     | Unit          | Interval |
+| ----------------------------------- | ------------ | ------------- | -------- |
+| 1 Year Current Supply Velocity, Adj | VelCurAdj1yr | Dimensionless | 1 year   |
 
 ### Details
 
-* [Xfer'd Val, Adj (native units)](txtfrvaladjntv.md) for trailing 1 year / [Current Supply (native units)](broken-reference)
+* [Xfer'd Val, Adj (native units)](../../transactions/txtfrvaladjntv.md) for trailing 1 year / [Current Supply (native units)](broken-reference)
 
 ### Chart
 
-![https://charts.coinmetrics.io/network-data/#576](../../.gitbook/assets/Velocity\_1\_Yr,\_Adjusted.png)
+![https://charts.coinmetrics.io/network-data/#576](../../../.gitbook/assets/Velocity\_1\_Yr,\_Adjusted.png)
 
 ### Release History
 
@@ -97,7 +97,7 @@ Velocity​ is a measurement of the rate at which an asset is exchanged. It can 
 
 ### See Also
 
-* [1 Year Current Supply Velocity](velcur1yr.md)
+* [1 Year Current Supply Velocity](../../transactions/velcur1yr.md)
 
 ### Availability for Assets
 
@@ -111,8 +111,8 @@ Token Transaction metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `VelAct1yr`, `VelActAdj1yr`, etc. in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

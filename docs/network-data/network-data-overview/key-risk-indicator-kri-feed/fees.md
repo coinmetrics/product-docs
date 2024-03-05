@@ -16,9 +16,9 @@ The sum value of all mempool transaction fees at a point in time in native units
 
 **Dictionary**
 
-| Name            | MetricID     | Category | Sub-category | Type | Unit         | Interval |
-| --------------- | ------------ | -------- | ------------ | ---- | ------------ | -------- |
-| Mempool Fee Sum | mempool\_fee | KRI      | Mempool      | Sum  | Native units | 1m       |
+| Name            | MetricID     | Unit         | Interval |
+| --------------- | ------------ | ------------ | -------- |
+| Mempool Fee Sum | mempool\_fee | Native units | 1m       |
 
 **Methodology**
 

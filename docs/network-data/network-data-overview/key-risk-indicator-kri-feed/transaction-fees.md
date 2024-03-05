@@ -1,12 +1,14 @@
-# Contents
+# Transaction Fees
 
-* [Block Maximum Fees](transaction-fees.md#block_fee_max)
-* [Block Mean Fees](transaction-fees.md#block_fee_mean)
-* [Block Median Fees](transaction-fees.md#block_fee_median)
-* [Block Minimum Fees](transaction-fees.md#block_fee_min)
-* [Miner Fees per Block](transaction-fees.md#block_fees)
+## Contents
 
-# Block Maximum Fees<a href="#block_fee_max" id="block_fee_max"></a>
+* [Block Maximum Fees](transaction-fees.md#block\_fee\_max)
+* [Block Mean Fees](transaction-fees.md#block\_fee\_mean)
+* [Block Median Fees](transaction-fees.md#block\_fee\_median)
+* [Block Minimum Fees](transaction-fees.md#block\_fee\_min)
+* [Miner Fees per Block](transaction-fees.md#block\_fees)
+
+## Block Maximum Fees <a href="#block_fee_max" id="block_fee_max"></a>
 
 **Definition**
 
@@ -14,13 +16,13 @@ Mined block's max transaction fee in native units.
 
 **Dictionary**
 
-<table data-header-hidden><thead><tr><th width="165"></th><th width="210"></th><th width="116"></th><th width="141"></th><th></th><th width="107"></th><th></th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Category</td><td>Sub-category</td><td>Type</td><td>Unit</td><td>Interval</td></tr><tr><td>Block Maximum Fees</td><td>block_fee_max</td><td>KRI</td><td>Block Attributes</td><td>Max</td><td>Native Currency</td><td>1 block</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="165"></th><th width="210"></th><th width="107"></th><th></th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Unit</td><td>Interval</td></tr><tr><td>Block Maximum Fees</td><td>block_fee_max</td><td>Native Currency</td><td>1 block</td></tr></tbody></table>
 
 **Methodology**
 
 The most recently-mined block is evaluated and the maximum of fees in that block is computed.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -28,7 +30,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1b&metrics=block_fee_max&pretty=true" %}
 
-# Block Mean Fees<a href="#block_fee_mean" id="block_fee_mean"></a>
+## Block Mean Fees <a href="#block_fee_mean" id="block_fee_mean"></a>
 
 **Definition**
 
@@ -36,13 +38,13 @@ Mined block's mean transaction fee in native units.
 
 **Dictionary**
 
-<table data-header-hidden><thead><tr><th width="165"></th><th width="210"></th><th width="116"></th><th width="141"></th><th></th><th width="107"></th><th></th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Category</td><td>Sub-category</td><td>Type</td><td>Unit</td><td>Interval</td></tr><tr><td>Block Mean Fees</td><td>block_fee_mean</td><td>KRI</td><td>Block Attributes</td><td>Mean</td><td>Native Currency</td><td>1 block</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="165"></th><th width="210"></th><th width="107"></th><th></th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Unit</td><td>Interval</td></tr><tr><td>Block Mean Fees</td><td>block_fee_mean</td><td>Native Currency</td><td>1 block</td></tr></tbody></table>
 
 **Methodology**
 
 The most recently-mined block is evaluated and the mean of fees in that block is computed.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -50,7 +52,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1b&metrics=block_fee_mean&pretty=true" %}
 
-# Block Median Fees<a href="#block_fee_median" id="block_fee_median"></a>
+## Block Median Fees <a href="#block_fee_median" id="block_fee_median"></a>
 
 **Definition**
 
@@ -58,13 +60,13 @@ Mined block's median transaction fee in native units.
 
 **Dictionary**
 
-<table data-header-hidden><thead><tr><th width="165"></th><th width="210"></th><th width="116"></th><th width="141"></th><th></th><th width="107"></th><th></th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Category</td><td>Sub-category</td><td>Type</td><td>Unit</td><td>Interval</td></tr><tr><td>Block Median Fees</td><td>block_fee_median</td><td>KRI</td><td>Block Attributes</td><td>Median</td><td>Native Currency</td><td>1 block</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="165"></th><th width="210"></th><th width="107"></th><th></th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Unit</td><td>Interval</td></tr><tr><td>Block Median Fees</td><td>block_fee_median</td><td>Native Currency</td><td>1 block</td></tr></tbody></table>
 
 **Methodology**
 
 The most recently-mined block is evaluated and the median of fees in that block is computed.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -72,7 +74,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1b&metrics=block_fee_median&pretty=true" %}
 
-# Block Minimum Fees<a href="#block_fee_min" id="block_fee_min"></a>
+## Block Minimum Fees <a href="#block_fee_min" id="block_fee_min"></a>
 
 **Definition**
 
@@ -80,13 +82,13 @@ Mined block's minimum transaction fee in native units.
 
 **Dictionary**
 
-<table data-header-hidden><thead><tr><th width="165"></th><th width="210"></th><th width="116"></th><th width="141"></th><th></th><th width="107"></th><th></th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Category</td><td>Sub-category</td><td>Type</td><td>Unit</td><td>Interval</td></tr><tr><td>Block Minimum Fees</td><td>block_fee_min</td><td>KRI</td><td>Block Attributes</td><td>Min</td><td>Native Currency</td><td>1 block</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="165"></th><th width="210"></th><th width="107"></th><th></th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Unit</td><td>Interval</td></tr><tr><td>Block Minimum Fees</td><td>block_fee_min</td><td>Native Currency</td><td>1 block</td></tr></tbody></table>
 
 **Methodology**
 
 The most recently-mined block is evaluated and the minimum of fees in that block is computed.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -94,7 +96,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1b&metrics=block_fee_min&pretty=true" %}
 
-# Miner Fees per Block<a href="#block_fees" id="block_fees"></a>
+## Miner Fees per Block <a href="#block_fees" id="block_fees"></a>
 
 **Definition**
 
@@ -102,9 +104,9 @@ The sum of fees paid to miners for the transactions included in each mined block
 
 **Dictionary**
 
-| Name                 | MetricID    | Category | Sub-category     | Type  | Unit       | Interval |
-| -------------------- | ----------- | -------- | ---------------- | ----- | ---------- | -------- |
-| Miner Fees per block | block\_fees | KRI      | Block Attributes | Delta | Difficulty | 1 block  |
+| Name                 | MetricID    | Unit       | Interval |
+| -------------------- | ----------- | ---------- | -------- |
+| Miner Fees per block | block\_fees | Difficulty | 1 block  |
 
 **Methodology**
 
@@ -120,18 +122,16 @@ _\* Historical data covering the pre-merge timeframe only (up to 9/15/2022). Wit
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1b&limit_per_asset=1&metrics=block_fees&pretty=true" %}
 
+## API Endpoints
 
-
-# API Endpoints
-
-<Subcategory> metrics can be accessed using these endpoints:
+metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
 and by passing in the metric ID's `block_fee*` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

@@ -1,8 +1,10 @@
-# Contents
+# Block Size
 
-* [Block Size](block-size.md#block_size)
+## Contents
 
-# Block Size<a href="#block_size" id="block_size"></a>
+* [Block Size](block-size.md#block\_size)
+
+## Block Size <a href="#block_size" id="block_size"></a>
 
 **Definition**
 
@@ -10,9 +12,9 @@ A block's size in bytes
 
 **Dictionary**
 
-| Name       | MetricID    | Category | Sub-category     | Type | Unit  | Interval |
-| ---------- | ----------- | -------- | ---------------- | ---- | ----- | -------- |
-| Block Size | block\_size | KRI      | Block Attributes | Sum  | bytes | 1b       |
+| Name       | MetricID    | Unit  | Interval |
+| ---------- | ----------- | ----- | -------- |
+| Block Size | block\_size | bytes | 1b       |
 
 **Methodology**
 
@@ -22,7 +24,7 @@ The most recent block is evaluated and the total size of that block is computed 
 
 Bitcoin (BTC), Ethereum (ETH)
 
-# API Endpoints
+## API Endpoints
 
 Block Size metrics can be accessed using these endpoints:
 
@@ -30,8 +32,8 @@ Block Size metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `block_size*` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}
@@ -65,4 +67,3 @@ print(
 ```
 {% endtab %}
 {% endtabs %}
-
