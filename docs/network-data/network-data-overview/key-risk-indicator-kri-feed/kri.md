@@ -1,6 +1,6 @@
 # Key Risk Indicator (KRI) Feed
 
-[**Block Attributes**](broken-reference)
+[**Block Attributes**](block-attributes.md)
 
 * block\_base\_fee
 * block\_priority\_fee
@@ -9,17 +9,17 @@
 
 * block\_size
 
-[**Block Times**](broken-reference)
+[**Block Times**](block-times.md)
 
 * time\_inter\_block
 * time\_since\_last\_block
 
-[\*\*Block times](block-times.md)
+[**Block times**](block-times.md)
 
 * time\_inter\_block
 * time\_since\_last\_block
 
-[**Blocks**](broken-reference)
+[**Blocks**](blocks.md)
 
 * block\_count\_at\_tip
 * block\_count\_by\_same\_miner\_6b
@@ -41,7 +41,7 @@
 * mempool\_next\_block\_approx\_feerate\_min
 * mempool\_next\_block\_inclusion\_approx\_feerate\_min
 
-[**Fees**](../../on-chain-data/network-data-overview/kri/fees.md)
+[**Fees**](fees.md)
 
 * mempool\_fee
 * mempool\_fee\_entered\_1m
@@ -53,12 +53,12 @@
 
 * block\_hashrate\_mean\_1d
 
-[**Outputs**](../../on-chain-data/network-data-overview/kri/outputs-1.md)
+[**Outputs**](outputs.md)
 
 * mempool\_output\_value
 * mempool\_output\_value\_entered\_1m
 
-[**Rewards**](../../on-chain-data/network-data-overview/kri/rewards-1.md)
+[**Rewards**](rewards.md)
 
 * mining\_reward\_mean
 * mining\_reward\_spread
@@ -87,7 +87,7 @@
 * mempool\_vsize\_entered\_1m
 * mempool\_vsize\_left\_1m
 
-[**Transactions**](../../on-chain-data/network-data-overview/kri/transactions-1.md)
+[**Transactions**](transactions.md)
 
 * block\_tx\_count
 * mempool\_count

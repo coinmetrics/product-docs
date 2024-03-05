@@ -1,2 +1,0 @@
-# USD Denominated Closing Price
-
