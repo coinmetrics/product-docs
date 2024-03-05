@@ -2,6 +2,7 @@
 
 * [Welcome & Product Overview](README.md)
 * [Access Our Data](access-our-data/README.md)
+  * [API Basics](access-our-data/api.md)
   * [API Reference](https://docs.coinmetrics.io/api/v4)
   * [Python Client](access-our-data/python-client.md)
   * [R Client](access-our-data/r-client.md)
