@@ -1,5 +1,10 @@
 # Key Risk Indicator (KRI) Feed
 
+See: 
+* [FARUM Overview](../../farum-overview/README.md)
+* [What is Network Risk](../../farum-overview/what-is-network-risk.md)
+
+
 [**Block Attributes**](block-attributes.md)
 
 * block\_base\_fee
