@@ -7,3 +7,5 @@ FARUM can be accessed through Coin Metric’s API v4, a high-performance HTTP in
 **FARUM was designed to mitigate a wide spectrum of risks via  API endpoints:**
 
 These endpoints contextualize data from multiple sources which, when combined, can support a variety of use cases.
+
+See KRI's
