@@ -37,6 +37,8 @@ The mean transaction fee per byte of all blocks that interval in native units.
 
 ### Chart
 
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
 ### Asset Specific Details
 
 Any blockchain where users are paying for block space rather than computation.
@@ -71,8 +73,6 @@ The mean transaction fee per byte of all blocks that interval in native units.
 * FeeByteMeanNtv is Computed as FeeTotNtv / BlkSizeByte
 * FeeMeanUSD is Computed as FeeMeanNtv \* PriceUSD
 * The price used is the daily close price
-
-### Chart
 
 ### Asset Specific Details
 
@@ -143,6 +143,8 @@ Ethereum post-1559 requires users to pay for a Base Fee as a prerequisite to inc
 
 ### Chart
 
+<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+
 ### Interpretation
 
 * Miner tips are optional and showcase demand for block space (i.e. transaction settlement) in the short-term.
@@ -187,8 +189,6 @@ Ethereum post-1559 requires users to pay for a Base Fee as a prerequisite to inc
 * Instead of the legacy _gas price_, 1559 splits transaction fees into two distinct fields: a Base Fee and an optional Tip (also known as a _Priority Fee_).
 * This metric calculates the median Tip in transactions that have occurred in the network over the measuring period (e.g. 1 day).
 * For a thorough review of EIP1559 and the design of its pricing mechanism, please refer to [this paper](https://arxiv.org/pdf/2012.00854.pdf).
-
-### Chart
 
 ### Asset-Specific Details
 
@@ -317,8 +317,6 @@ The mean transaction fee per weight unit in that interval in native units. Weigh
 
 * For more details on SegWit, check the [Bitcoin Wiki Entry](https://en.bitcoin.it/wiki/Segregated\_Witness)
 
-### Chart
-
 ### Asset-Specific Details
 
 * Only relevant to cryptoassets that have implemented Segregated Witness (SegWit)
@@ -391,6 +389,8 @@ The sum gas limit of all blocks that day.
 * Each block has a limit of how much gas can be expanded when processing its operations. It is the scaling limit for ETH-based assets, just as block size is for BTC-based ones.
 
 ### Chart
+
+<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -611,7 +611,7 @@ Exhange Deposits metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
-and by passing in the metric ID's `FeeByteMeanNtv*` and `FeeByteMeanNtv*` in the `metrics` parameter.
+and by passing in the metric ID's `Fee*` and `Gas*` in the `metrics` parameter.
 
 {% swagger path="/timeseries/asset-metrics" method="get" %}
 {% swagger-description %}

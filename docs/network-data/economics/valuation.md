@@ -1,7 +1,5 @@
 # Valuation
 
-## Valuation
-
 ### Contents
 
 * [Network Value to Transactions](valuation.md#nvt)
@@ -49,10 +47,10 @@ NVT has been much discussed; in short, it compares market capitalization to on-c
 
 The ratio of the free float network value (or market capitalization, free float) divided by the adjusted transfer value. Also referred to as FFNVT.
 
-| Name                             | MetricID                                                                  | Category  | Subcategory | Type  | Unit          | Interval |
-| -------------------------------- | ------------------------------------------------------------------------- | --------- | ----------- | ----- | ------------- | -------- |
-| Free Float NVT                   | [NVTAdjFF](https://coverage.coinmetrics.io/search-results?query=NVTAdj)   | Economics | Valuation   | Ratio | Dimensionless | 1 day    |
-| Free Float NVT 90-day Moving Avg | [NVTAdjFF90](https://coverage.coinmetrics.io/search-results?query=NVTAdj) | Economics | Valuation   | Ratio | Dimensionless | 1 day    |
+| Name                             | MetricID                                                                  | Unit          | Interval |
+| -------------------------------- | ------------------------------------------------------------------------- | ------------- | -------- |
+| Free Float NVT                   | [NVTAdjFF](https://coverage.coinmetrics.io/search-results?query=NVTAdj)   | Dimensionless | 1 day    |
+| Free Float NVT 90-day Moving Avg | [NVTAdjFF90](https://coverage.coinmetrics.io/search-results?query=NVTAdj) | Dimensionless | 1 day    |
 
 ### Details
 
@@ -86,15 +84,15 @@ NVT has been much discussed; in short, it compares market capitalization to on-c
 
 ### Definition
 
-The ratio of the Realized Cap over Thermo Cap at the end of that interval. [Realized Cap](../../on-chain-data/network-data-overview/market-1/caprealusd.md) (CapRealUSD) is defined as the sum USD value based on the USD closing price on the day that a native unit last moved (i.e., last transacted) for all native units. Thermo Cap is calculated as RevAllTimeUSD and it represents the USD value of all funds disbursed to miners at the time of issuance.
+The ratio of the Realized Cap over Thermo Cap at the end of that interval. [Realized Cap](broken-reference) (CapRealUSD) is defined as the sum USD value based on the USD closing price on the day that a native unit last moved (i.e., last transacted) for all native units. Thermo Cap is calculated as RevAllTimeUSD and it represents the USD value of all funds disbursed to miners at the time of issuance.
 
-| Name                              | IMetricD                                                          | Category  | Subcategory | Type  | Unit          | Interval |
-| --------------------------------- | ----------------------------------------------------------------- | --------- | ----------- | ----- | ------------- | -------- |
-| Realized Cap to Thermo Cap (RCTC) | [RCTC](https://coverage.coinmetrics.io/search-results?query=RCTC) | Economics | Valuation   | Ratio | Dimensionless | 1 day    |
+| Name                              | IMetricD                                                          | Unit          | Interval |
+| --------------------------------- | ----------------------------------------------------------------- | ------------- | -------- |
+| Realized Cap to Thermo Cap (RCTC) | [RCTC](https://coverage.coinmetrics.io/search-results?query=RCTC) | Dimensionless | 1 day    |
 
 ### Details
 
-* Like [MVRV](../../on-chain-data/network-data-overview/market-1/capmvrvcur.md), RCTC can be used to better understand the market cycle as it identifies the ralationship between the network's overall cost basis (CapRealUSD) relative to the USD amount issued to miners by the protocol (RevAllTimeUSD).
+* Like [MVRV](broken-reference), RCTC can be used to better understand the market cycle as it identifies the ralationship between the network's overall cost basis (CapRealUSD) relative to the USD amount issued to miners by the protocol (RevAllTimeUSD).
 * When evaluating market tops, RCTC provides a view on the realization of profits relative to the liquidity that is being issued to miners.
 * Miners are speculators as they are naturally exposed to the price of the currency they are mining. As such, they collectively make buy or sell decisions that ultimately impact the market.
 
@@ -119,7 +117,7 @@ Only applicable to assets for which we have RevAllTimeUSD and CapRealUSD.
 ### See Also:
 
 * [MCRC (Market Cap / Realized Cap)](miner-cap-to-realized-cap-mcrc.md)
-* [MVRV (Market Cap / Realized Market Cap)](../../on-chain-data/network-data-overview/market-1/capmvrvcur.md)
+* [MVRV (Market Cap / Realized Market Cap)](broken-reference)
 
 ### Availability for Assets
 
@@ -131,10 +129,10 @@ Only applicable to assets for which we have RevAllTimeUSD and CapRealUSD.
 
 The ratio of the network's realized value to its adjusted transfer value. Also referred to as RVT.
 
-| Name                  | MetricID                                                                  | Category  | Subcategory | Type  | Unit          | Interval |
-| --------------------- | ------------------------------------------------------------------------- | --------- | ----------- | ----- | ------------- | -------- |
-| RVT                   | [RVT](https://coverage.coinmetrics.io/search-results?query=RVTAdj90)      | Economics | Valuation   | Ratio | Dimensionless | 1 day    |
-| RVT 90-day Moving Avg | [RVTAdj90](https://coverage.coinmetrics.io/search-results?query=RVTAdj90) | Economics | Valuation   | Ratio | Dimensionless | 90 days  |
+| Name                  | MetricID                                                                  | Unit          | Interval |
+| --------------------- | ------------------------------------------------------------------------- | ------------- | -------- |
+| RVT                   | [RVT](https://coverage.coinmetrics.io/search-results?query=RVTAdj90)      | Dimensionless | 1 day    |
+| RVT 90-day Moving Avg | [RVTAdj90](https://coverage.coinmetrics.io/search-results?query=RVTAdj90) | Dimensionless | 90 days  |
 
 ### Details
 
@@ -154,7 +152,7 @@ RVT can be a slower moving, higher conviction signal tuned to the macro sentimen
 
 ### See Also
 
-* [Realized Market Cap (USD)](../../on-chain-data/network-data-overview/market-1/caprealusd.md)
+* [Realized Market Cap (USD)](broken-reference)
 * [RVT 90-day Moving Avg](rvtadj90.md)
 
 ### Availability for Assets
@@ -167,10 +165,10 @@ RVT can be a slower moving, higher conviction signal tuned to the macro sentimen
 
 The ratio of the sum of spent value over the sum of creation value of all spent and created outputs for that interval. There are two versions of this metric. For this version, a spent output’s “spent value” is the market value of the sum of all native units of that output (i.e., price multiplied by the sum of native units). A created output’s “creation value” is the market value of the sum of all native units of that output (i.e., price multiplied by the sum of native units).
 
-| Name     | MetricID                                                             | Category  | Subcategory | Type  | Unit          | Interval |
-| -------- | -------------------------------------------------------------------- | --------- | ----------- | ----- | ------------- | -------- |
-| SOPR     | [SOPR](https://coverage.coinmetrics.io/search-results?query=SOPR)    | Valuation | Valuation   | Ratio | Dimensionless | 1 day    |
-| SOPR Out | [SOPROut](https://coverage.coinmetrics.io/search-results?query=SOPR) | Valuation | Valuation   | Ratio | Dimensionless | 1 day    |
+| Name     | MetricID                                                             | Unit          | Interval |
+| -------- | -------------------------------------------------------------------- | ------------- | -------- |
+| SOPR     | [SOPR](https://coverage.coinmetrics.io/search-results?query=SOPR)    | Dimensionless | 1 day    |
+| SOPR Out | [SOPROut](https://coverage.coinmetrics.io/search-results?query=SOPR) | Dimensionless | 1 day    |
 
 ### Details
 
@@ -229,7 +227,7 @@ Address Balances can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
-and by passing in the metric IDs in the `metrics` parameter.
+and by passing in the metric ID's `NVT*` , `RVT*` and `SOPR*` in the `metrics` parameter.
 
 {% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)

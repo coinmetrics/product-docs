@@ -92,7 +92,7 @@ Exhange Deposits metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
-and by passing in the metric ID's `RevAllTimeUSD*` and `RevAllTimeUSD*` in the `metrics` parameter.
+and by passing in the metric ID's `Rev*` in the `metrics` parameter.
 
 {% swagger path="/timeseries/asset-metrics" method="get" %}
 {% swagger-description %}

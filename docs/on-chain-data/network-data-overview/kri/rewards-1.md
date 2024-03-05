@@ -1,9 +1,11 @@
-# Contents
+# Rewards
 
-* [Average Mining Reward](rewards.md#mining_reward_mean)
-* [Mining Reward Spread](rewards.md#mining_reward_spread)
+## Contents
 
-# Average Mining Reward<a href="#mining_reward_mean" id="mining_reward_mean"></a>
+* [Average Mining Reward](rewards-1.md#mining\_reward\_mean)
+* [Mining Reward Spread](rewards-1.md#mining\_reward\_spread)
+
+## Average Mining Reward <a href="#mining_reward_mean" id="mining_reward_mean"></a>
 
 **Definition**
 
@@ -19,7 +21,7 @@ The mean mining reward (transaction fees + issuance) of the blocks currently bei
 
 Coin Metrics collects data from major mining pools through the Stratum protocol, a popular software used by individual miners to connect to mining pools. That enables Coin Metrics to access all data a mining pool constituent would normally see. In order to compute this metric, the coinbase transactions of all blocks currently being worked on by major mining pools are aggregated and assessed. The statistical mean is then calculated.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -27,7 +29,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mining_reward_mean&pretty=true" %}
 
-# Mining Reward Spread<a href="#mining_reward_spread" id="mining_reward_spread"></a>
+## Mining Reward Spread <a href="#mining_reward_spread" id="mining_reward_spread"></a>
 
 **Definition**
 
@@ -43,7 +45,7 @@ The difference between the highest and lowest miner reward of the blocks being m
 
 Coin Metrics collects data from major mining pools through the Stratum protocol, a popular software used by individual miners to connect to pools. That enables Coin Metrics to access all data an individual constituent of a mining pool would normally receive. In order to compute this metric, the coinbase transactions of all blocks currently being worked on by major mining pools are aggregated and assessed. The difference between the highest and lowest coinbase transaction is then calculated.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -51,17 +53,16 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mining_reward_spread&pretty=true" %}
 
+## API Endpoints
 
-# API Endpoints
-
-<Subcategory> metrics can be accessed using these endpoints:
+metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
 and by passing in the metric ID's `mining_reward*` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

@@ -1,7 +1,5 @@
 # Mining
 
-## Mining
-
 ### Contents
 
 * [Miner Cap to Realized Cap](mining.md#mcrc)
@@ -12,16 +10,16 @@
 
 ### Definition
 
-The ratio of Miner Cap over Realized Cap at the end of that interval. Miner Cap represents all funds held by mining pools and miners and is calculated as the sum of SplyMiner0HopAllUSD (supply held by mining pools) and SplyMiner1HopAllUSD (supply held by miners). [Realized Cap](../../on-chain-data/network-data-overview/market-1/caprealusd.md) (CapRealUSD) is defined as the sum USD value based on the USD closing price on the day that a native unit last moved (i.e., last transacted) for all native units.
+The ratio of Miner Cap over Realized Cap at the end of that interval. Miner Cap represents all funds held by mining pools and miners and is calculated as the sum of SplyMiner0HopAllUSD (supply held by mining pools) and SplyMiner1HopAllUSD (supply held by miners). [Realized Cap](broken-reference) (CapRealUSD) is defined as the sum USD value based on the USD closing price on the day that a native unit last moved (i.e., last transacted) for all native units.
 
-| Name                             | IMetricD | Category  | Subcategory | Type  | Unit          | Interval |
-| -------------------------------- | -------- | --------- | ----------- | ----- | ------------- | -------- |
-| Miner Cap to Realized Cap (MCRC) | MCRC     | Economics | Mining      | Ratio | Dimensionless | 1 day    |
+| Name                             | IMetricD | Unit          | Interval |
+| -------------------------------- | -------- | ------------- | -------- |
+| Miner Cap to Realized Cap (MCRC) | MCRC     | Dimensionless | 1 day    |
 
 ### Details
 
 * This metric shows the ratio between the assets that miners hold in custody relative to the "cost basis" of the entire network.
-* Like [MVRV](../../on-chain-data/network-data-overview/market-1/capmvrvcur.md), it can be used to better understand the market cycle as it identifies moments where the value of the supply held by miners is higher than the cost basis of the entire network.
+* Like [MVRV](broken-reference), it can be used to better understand the market cycle as it identifies moments where the value of the supply held by miners is higher than the cost basis of the entire network.
 * Similarly, it may showcase when miners are capitulating and potentially selling at a loss.
 * Miners are speculators as they are naturally exposed to the price of the currency they are mining. As such, they collectively make buy or sell decisions that ultimately impact the market.
 
@@ -46,7 +44,7 @@ Only applicable to assets for which we have SplyMiner0HopAllUSD (supply held by 
 ### See Also:
 
 * [MCTC (Miner Cap / Thermo Cap)](mctc.md)
-* [MVRV (Market Cap / Realized Market Cap)](../../on-chain-data/network-data-overview/market-1/capmvrvcur.md)
+* [MVRV (Market Cap / Realized Market Cap)](broken-reference)
 
 ### Availability for Assets
 
@@ -58,14 +56,14 @@ Only applicable to assets for which we have SplyMiner0HopAllUSD (supply held by 
 
 The ratio of Miner Cap relative to Thermo Cap at the end of that interval. Miner Cap represents all funds held by mining pools and miners and is calculated as the sum of SplyMiner0HopAllUSD (supply held by mining pools) and SplyMiner1HopAllUSD (supply held by miners). Thermo Cap is RevAllTimeUSD and represents the USD value of all funds disbursed to miners at the time of issuance.
 
-| Name                           | IMetricD | Category  | Subcategory | Type  | Unit          | Interval |
-| ------------------------------ | -------- | --------- | ----------- | ----- | ------------- | -------- |
-| Miner Cap to Thermo Cap (MCTC) | MCTC     | Economics | Mining      | Ratio | Dimensionless | 1 day    |
+| Name                           | MetricID | Unit          | Interval |
+| ------------------------------ | -------- | ------------- | -------- |
+| Miner Cap to Thermo Cap (MCTC) | MCTC     | Dimensionless | 1 day    |
 
 ### Details
 
 * This metric shows the ratio between the assets that miners hold in custody relative to the assets that miners have been issued by the protocol as mining rewards.
-* Like [MVRV](../../on-chain-data/network-data-overview/market-1/capmvrvcur.md), it can be used to better understand the market cycle as it identifies moments where the value of the supply held by miners is higher than what was issued to them.
+* Like [MVRV](broken-reference), it can be used to better understand the market cycle as it identifies moments where the value of the supply held by miners is higher than what was issued to them.
 * Similarly, it may showcase when miners are capitulating and potentially selling at a loss.
 * Miners are speculators as they are naturally exposed to the price of the currency they are mining. As such, they collectively make buy or sell decisions that ultimately impact the market.
 
@@ -90,7 +88,7 @@ Only applicable to assets for which we have SplyMiner0HopAllUSD (supply held by 
 ### See Also:
 
 * [MCRC (Market Cap / Realized Cap)](mcrc.md)
-* [MVRV (Market Cap / Realized Market Cap)](../../on-chain-data/network-data-overview/market-1/capmvrvcur.md)
+* [MVRV (Market Cap / Realized Market Cap)](broken-reference)
 
 ### Availability for Assets
 
@@ -102,9 +100,9 @@ Only applicable to assets for which we have SplyMiner0HopAllUSD (supply held by 
 
 The ratio of Miner Outflows over Miner Revenue at the end of that interval. Miner outflows represent the sum of funds being sent by miner addresses (1-hop from the coinbase) and are calculated as FlowMinerOut1HopAllNtv. Miner Revenue represents the sum of funds (new coins and transaction fees) sent to miners over a time window and is calculated as RevNtv.
 
-| Name                      | MetricID                                                          | Category  | Subcategory | Type  | Unit          | Interval |
-| ------------------------- | ----------------------------------------------------------------- | --------- | ----------- | ----- | ------------- | -------- |
-| Miner Cap to Realized Cap | [MOMR](https://coverage.coinmetrics.io/search-results?query=MOMR) | Economics | Mining      | Ratio | Dimensionless | 1 day    |
+| Name                      | MetricID                                                          | Unit          | Interval |
+| ------------------------- | ----------------------------------------------------------------- | ------------- | -------- |
+| Miner Cap to Realized Cap | [MOMR](https://coverage.coinmetrics.io/search-results?query=MOMR) | Dimensionless | 1 day    |
 
 ### Details
 
@@ -131,7 +129,7 @@ Only applicable to assets for which we have SplyMiner0HopAllUSD (supply held by 
 ### See Also:
 
 * [MCTC (Miner Cap / Thermo Cap)](mctc.md)
-* [MVRV (Market Cap / Realized Market Cap)](../../on-chain-data/network-data-overview/market-1/capmvrvcur.md)
+* [MVRV (Market Cap / Realized Market Cap)](broken-reference)
 
 ### Coverage
 
@@ -147,7 +145,7 @@ Address Balances can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
-and by passing in the metric IDs in the `metrics` parameter.
+and by passing in the metric ID's `MCRC` , `MCTC` and `MOMR` in the `metrics` parameter.
 
 {% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)

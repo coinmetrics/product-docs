@@ -1,9 +1,11 @@
-# Contents
+# Outputs
 
-* [Mempool Transaction Output Value Entered](outputs.md#mempool_output_value_entered)
-* [Mempool Transaction Output Value](outputs.md#mempool_output_value_entered)
+## Contents
 
-# Mempool Transaction Output Value Entered 1 Minute<a href="#mempool_output_value_entered" id="mempool_output_value_entered"></a>
+* [Mempool Transaction Output Value Entered](outputs-1.md#mempool\_output\_value\_entered)
+* [Mempool Transaction Output Value](outputs-1.md#mempool\_output\_value\_entered)
+
+## Mempool Transaction Output Value Entered 1 Minute <a href="#mempool_output_value_entered" id="mempool_output_value_entered"></a>
 
 **Definition**
 
@@ -27,8 +29,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_output_value_entered_1m&pretty=true" %}
 
-
-# Mempool Transaction Output Value<a href="#mempool_output_value " id="mempool_output_value"></a>
+## Mempool Transaction Output Value <a href="#mempool_output_value" id="mempool_output_value"></a>
 
 **Definition**
 
@@ -44,7 +45,7 @@ The sum of all mempool transaction outputs in native units.
 
 The mempool is evaluated and all transaction outputs (UTXOs) are indexed. The value of all UTXOs of mempool transactions is then summed.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -52,16 +53,16 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_output_value&pretty=true" %}
 
-# API Endpoints
+## API Endpoints
 
-<Subcategory> metrics can be accessed using these endpoints:
+metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
 and by passing in the metric ID's `mempool_output_value*` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}
