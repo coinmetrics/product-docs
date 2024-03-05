@@ -95,7 +95,7 @@ Bitcoin (BTC), Ethereum (ETH)
 
 # API Endpoints
 
-<Subcategory> metrics can be accessed using these endpoints:
+Transaction Feerate metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
