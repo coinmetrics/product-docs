@@ -63,6 +63,7 @@
     * [Block Attributes](network-data/network-data-overview/key-risk-indicator-kri-feed/block-attributes.md)
     * [Block Size](network-data/network-data-overview/key-risk-indicator-kri-feed/block-size.md)
     * [Block Times](network-data/network-data-overview/key-risk-indicator-kri-feed/block-times.md)
+    * [Empty Blocks](network-data/network-data-overview/key-risk-indicator-kri-feed/empty-blocks.md)
     * [Fees](network-data/network-data-overview/key-risk-indicator-kri-feed/fees.md)
     * [Outputs](network-data/network-data-overview/key-risk-indicator-kri-feed/outputs.md)
     * [Rewards](network-data/network-data-overview/key-risk-indicator-kri-feed/rewards.md)
