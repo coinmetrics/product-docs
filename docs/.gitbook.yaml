@@ -339,13 +339,13 @@ redirects:
   asset-metrics/market/principal_market_usd: market-data/market-data-overview/reference_rate.md
   asset-metrics/market/referencerate: market-data/market-data-overview/reference_rate.md
   asset-metrics/market/referenceratebtc: market-data/market-data-overview/reference_rate.md
-  asset-metrics/market/referenceratechicago0315pm: asset-metrics/market/reference_rate.md
+  asset-metrics/market/referenceratechicago0315pm: market-data/market-data-overview/reference_rate.md
   asset-metrics/market/referencerateeth: market-data/market-data-overview/reference_rate.md
   asset-metrics/market/referencerateeur: market-data/market-data-overview/reference_rate.md
-  asset-metrics/market/referenceratelondon1030am: asset-metrics/market/reference_rate.md
-  asset-metrics/market/referenceratelondon1100am: asset-metrics/market/reference_rate.md
-  asset-metrics/market/referenceratenewyork0400pm: asset-metrics/market/reference_rate.md
-  asset-metrics/market/referenceratenewyork1200pm: asset-metrics/market/reference_rate.md
+  asset-metrics/market/referenceratelondon1030am: market-data/market-data-overview/reference_rate.md
+  asset-metrics/market/referenceratelondon1100am: market-data/market-data-overview/reference_rate.md
+  asset-metrics/market/referenceratenewyork0400pm: market-data/market-data-overview/reference_rate.md
+  asset-metrics/market/referenceratenewyork1200pm: market-data/market-data-overview/reference_rate.md
   asset-metrics/market/referencerateusd: market-data/market-data-overview/reference_rate.md
   asset-metrics/market/roi1yr: network-data/network-data-overview/market/returns.md
   asset-metrics/market/roi30d: network-data/network-data-overview/market/returns.md
@@ -716,3 +716,21 @@ redirects:
   asset-metrics/wallets/splywalbalusd1k: network-data/network-data-overview/wallets/wallet-balances.md
   asset-metrics/wallets/splywalbalusd1m: network-data/network-data-overview/wallets/wallet-balances.md
   asset-metrics/wallets/walbalcnt: network-data/network-data-overview/wallets/wallet-balances.md
+  atlas/accounts: network-data/atlas-overview/accounts.md
+  atlas/account-balance: network-data/atlas-overview/account-balance.md
+  atlas/blocks: network-data/atlas-overview/blocks.md
+  atlas/blocks/full-blocks: network-data/atlas-overview/blocks/README.md
+  atlas/transactions/full-transaction/full-transaction-info-for-block: network-data/atlas-overview/transactions/full-transaction/full-transaction-info-for-block.md
+  atlas/balance-updates: network-data/atlas-overview/balance-updates.md
+  atlas/atlas-explorer-user-interface: network-data/atlas-overview/atlas-explorer-user-interface.md
+  taxonomy/taxonomy-for-assets: reference-data/dataonomy-overview/taxonomy-for-assets.md
+  taxonomy/taxonomy-metadata-for-assets: reference-data/dataonomy-overview/taxonomy-metadata-for-assets.md
+  datonomy-faqs: reference-data/dataonomy-overview/datonomy-faqs.md
+  asset-profiles: reference-data/asset-profiles-overview/asset-profiles.md
+  security-master/assets: reference-data/security-master-overview/assets.md
+  security-master/markets: reference-data/security-master-overview/markets.md
+  indexes-timeseries/index-levels: index-data/index/indexes-timeseries/index-levels
+  indexes-timeseries/index-candles: index-data/index/indexes-timeseries/index-candles
+  indexes-timeseries/index-constituents: index-data/index/indexes-timeseries/index-constituents
+
+
