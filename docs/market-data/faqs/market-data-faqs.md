@@ -1,7 +1,5 @@
 # Market Data FAQs
 
-# Market Data FAQs
-
 ### **Can you explain your historical data coverage?**&#x20;
 
 When we collect data from a new exchange, our general approach is to always collect the maximum history possible for every single instrument. The available history depends on the specific exchange and data type. For a given data type, some exchanges allow us to get the complete history, some exchanges allow us to get a short window of history, and some exchanges do not allow us to get any history.&#x20;
