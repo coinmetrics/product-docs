@@ -2,7 +2,7 @@
 
 ## Contents
 
-* [Shielded Supply](subcategory.md#splyshld)
+* [Shielded Supply](shielded-supply.md#splyshld)
 
 ## Shielded Supply <a href="#splyshld" id="splyshld"></a>
 
@@ -21,7 +21,7 @@ The sum of all native units being held in shielded pool(s).
 
 ### Chart
 
-<figure><img src="../../.gitbook/assets/Coin_Metrics_Network_Data_2022-09-16T12-33.png" alt=""><figcaption><p>Source: CM Network Data Charts</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Coin_Metrics_Network_Data_2022-09-16T12-33.png" alt=""><figcaption><p>Source: CM Network Data Charts</p></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -49,8 +49,8 @@ Shielded supply metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `SplyShld` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

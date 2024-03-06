@@ -2,8 +2,8 @@
 
 ### Contents
 
-* [Price, BTC](price-1.md#btc-denominated-closing-price)
-* [Price, USD](price-1.md#usd-denominated-closing-price)
+* [Price, BTC](price.md#btc-denominated-closing-price)
+* [Price, USD](price.md#usd-denominated-closing-price)
 
 ## BTC Denominated Closing Price
 

@@ -2,12 +2,12 @@
 
 ### Contents
 
-* [Capitalization, active supply, 1yr, USD](market-capitalization-1.md#a)
-* [Capitalization, future expected supply, next 10yr, USD](market-capitalization-1.md#b)
-* [Capitalization, market, current supply, USD](market-capitalization-1.md#c)
-* [Capitalization, market, estimated supply, USD](market-capitalization-1.md#d)
-* [Capitalization, MVRV, free float](market-capitalization-1.md#g)
-* [Capitalization, realized, USD](market-capitalization-1.md#h)
+* [Capitalization, active supply, 1yr, USD](market-capitalization.md#a)
+* [Capitalization, future expected supply, next 10yr, USD](market-capitalization.md#b)
+* [Capitalization, market, current supply, USD](market-capitalization.md#c)
+* [Capitalization, market, estimated supply, USD](market-capitalization.md#d)
+* [Capitalization, MVRV, free float](market-capitalization.md#g)
+* [Capitalization, realized, USD](market-capitalization.md#h)
 
 ## Active Market Cap (1yr) (USD) <a href="#a" id="a"></a>
 

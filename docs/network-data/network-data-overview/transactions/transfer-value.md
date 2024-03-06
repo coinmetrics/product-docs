@@ -7,6 +7,7 @@
 * [Xfer'd Days Destroyed](transfer-value.md#txtfrvaldaydst)
 * [Mean Xfer'd Days Destroyed](transfer-value.md#txtfrvaldaydstmean)
 * [Mean Tx Size](transfer-value.md#txtfrvalmean)
+* [Median Tx Size](transfer-value.md#txtfrvalmed)
 * [Xfer'd Val](transfer-value.md#txtfrvalmed)
 * [Payments Above/Below X Amount (Count)](transfer-value.md#txtfrvalcnt)
 * [Sum Value of Payments Above/Below X Amount](transfer-value.md#txtfrvalabbel)

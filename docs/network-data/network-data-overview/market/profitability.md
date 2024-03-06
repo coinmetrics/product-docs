@@ -2,8 +2,8 @@
 
 ### Contents
 
-* [UTXO set, gross unrealized loss, USD](profitability-1.md#unrealized-utxo-losses-usd)
-* [UTXO set, gross unrealized profit, USD](profitability-1.md#unrealized-utxo-profits-usd)
+* [UTXO set, gross unrealized loss, USD](profitability.md#unrealized-utxo-losses-usd)
+* [UTXO set, gross unrealized profit, USD](profitability.md#unrealized-utxo-profits-usd)
 
 ## Unrealized UTXO Losses (USD)
 
