@@ -732,5 +732,14 @@ redirects:
   indexes-timeseries/index-levels: index-data/index/indexes-timeseries/index-levels
   indexes-timeseries/index-candles: index-data/index/indexes-timeseries/index-candles
   indexes-timeseries/index-constituents: index-data/index/indexes-timeseries/index-constituents
-
+  tagging-data/tagging-meta-data: network-data/tagging-data/tagging-meta-data
+  charting-tools/data-visualization/charting-tool/embedded-charts: data-visualization/charting-tool/embedded-charts.md
+  charting-tools/data-visualization/charting-tool/: data-visualization/charting-tool/README.md
+  charting-tools/data-visualization/formula-builder: data-visualization/formula-builder.md
+  charting-tools/data-visualization/correlation-tool: data-visualization/correlation-tool.md
+  charting-tools/data-visualization/trouble-shooting: data-visualization/trouble-shooting.md
+  charting-tools/data-visualization/dashboard: data-visualization/dashboard/README.md
+  charting-tools/data-visualization/dashboard/troubleshooting: data-visualization/dashboard/troubleshooting.md
+  charting-tools/data-visualization/cmpro: data-visualization/cmpro/README.md
+  charting-tools/data-visualization/cmpro/troubleshooting: data-visualization/cmpro/troubleshooting.md
 
