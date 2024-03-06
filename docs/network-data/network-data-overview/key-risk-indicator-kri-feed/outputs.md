@@ -2,8 +2,8 @@
 
 ## Contents
 
-* [Mempool Transaction Output Value Entered](outputs-1.md#mempool\_output\_value\_entered)
-* [Mempool Transaction Output Value](outputs-1.md#mempool\_output\_value\_entered)
+* [Mempool Transaction Output Value Entered](outputs.md#mempool\_output\_value)
+* [Mempool Transaction Output Value](outputs.md#mempool\_output\_value\_entered)
 
 ## Mempool Transaction Output Value Entered 1 Minute <a href="#mempool_output_value_entered" id="mempool_output_value_entered"></a>
 

@@ -39,7 +39,7 @@ The sum of assets sent to an exchange that interval.
 
 ### Chart
 
-<figure><img src="../../.gitbook/assets/BTC_Sent_to_Bitfinex___Deposit_Count.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/BTC_Sent_to_Bitfinex___Deposit_Count.png" alt=""><figcaption></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -98,8 +98,8 @@ Exhange Deposits metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `FlowIn*` and `FlowTfrIn*` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

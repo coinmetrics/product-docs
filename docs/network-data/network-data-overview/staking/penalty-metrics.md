@@ -1,29 +1,28 @@
-# Contents
+# Penalty Metrics
 
-* [Penalty Amounts](flows.md#penaltyntv)
+## Contents
 
-# Penalty Amounts<a href="#penaltyntv" id="penaltyntv"></a>
+* [Penalty Amounts](penalty-metrics.md#penaltyntv)
 
-## Definition
+## Penalty Amounts <a href="#penaltyntv" id="penaltyntv"></a>
+
+### Definition
 
 Total amout of penalties enforced by the protocol in native units.
 
-| Penalty Amounts | PenaltyNTV | Staking | Consensus Health | Sum | Native Units | 1 day |
-| --------------- | ---------- | ------- | ---------------- | --- | ------------ | ----- |
-
-## Details
+### Details
 
 * Due to the nature of how penalties are enforced, this metric operates on a 1 day frequency to accurately represent penalties.
 
-## Release History
+### Release History
 
 * Released November 2023.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/PenaltyNTV" %}
 
-# API Endpoints
+## API Endpoints
 
 Flows metrics can be accessed using these endpoints:
 
@@ -31,8 +30,8 @@ Flows metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `PenaltyNtv` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

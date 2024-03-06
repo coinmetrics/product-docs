@@ -2,7 +2,7 @@
 
 ### Contents
 
-* [ROI, percent](returns-1.md#roi)
+* [ROI, percent](returns.md#roi)
 
 ## ROI
 

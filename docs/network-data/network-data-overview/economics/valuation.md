@@ -14,10 +14,10 @@
 
 The ratio of the network value (or market capitalization, current supply) divided by the adjusted transfer value. Also referred to as NVT.
 
-| Name                  | MetricID                                                                  | Type  | Unit          | Interval |
-| --------------------- | ------------------------------------------------------------------------- | ----- | ------------- | -------- |
-| NVT                   | [NVTAdj](https://coverage.coinmetrics.io/search-results?query=NVTAdj)     | Ratio | Dimensionless | 1 day    |
-| NVT 90-day Moving Avg | [NVTAdj90](https://coverage.coinmetrics.io/search-results?query=NVTAdj90) | Ratio | Dimensionless | 1 day    |
+| Name                  | MetricID                                                                  | Unit          | Interval |
+| --------------------- | ------------------------------------------------------------------------- | ------------- | -------- |
+| NVT                   | [NVTAdj](https://coverage.coinmetrics.io/search-results?query=NVTAdj)     | Dimensionless | 1 day    |
+| NVT 90-day Moving Avg | [NVTAdj90](https://coverage.coinmetrics.io/search-results?query=NVTAdj90) | Dimensionless | 1 day    |
 
 ### Details
 
@@ -70,8 +70,8 @@ NVT has been much discussed; in short, it compares market capitalization to on-c
 
 ### See Also
 
-* [NVT](nvtadj.md)
-* [Free Float NVT 90-day Moving Avg](nvtadjff90.md)
+* [NVT](../../economics/nvtadj.md)
+* [Free Float NVT 90-day Moving Avg](../../economics/nvtadjff90.md)
 
 ### Availability for Assets
 
@@ -98,7 +98,7 @@ The ratio of the Realized Cap over Thermo Cap at the end of that interval. [Real
 
 ### Chart
 
-![](../../.gitbook/assets/coin\_metrics\_network\_chart-2-.png)
+![](../../../.gitbook/assets/coin\_metrics\_network\_chart-2-.png)
 
 ### Interpretation
 
@@ -116,7 +116,7 @@ Only applicable to assets for which we have RevAllTimeUSD and CapRealUSD.
 
 ### See Also:
 
-* [MCRC (Market Cap / Realized Cap)](miner-cap-to-realized-cap-mcrc.md)
+* [MCRC (Market Cap / Realized Cap)](../../economics/miner-cap-to-realized-cap-mcrc.md)
 * [MVRV (Market Cap / Realized Market Cap)](broken-reference)
 
 ### Availability for Assets
@@ -153,7 +153,7 @@ RVT can be a slower moving, higher conviction signal tuned to the macro sentimen
 ### See Also
 
 * [Realized Market Cap (USD)](broken-reference)
-* [RVT 90-day Moving Avg](rvtadj90.md)
+* [RVT 90-day Moving Avg](../../economics/rvtadj90.md)
 
 ### Availability for Assets
 
@@ -186,7 +186,7 @@ The ratio of the sum of spent value over the sum of creation value of all spent 
 
 ### Chart
 
-![](../../.gitbook/assets/SOPR.png)
+![](../../../.gitbook/assets/SOPR.png)
 
 The chart above shows the combined SOPR ratio of all UTXOs spent, aggregated on a daily basis. The metric is also smoothed with a 7-day rolling average as SOPR tends to be relatively volatile.
 
@@ -229,8 +229,8 @@ Address Balances can be accessed using these endpoints:
 
 and by passing in the metric ID's `NVT*` , `RVT*` and `SOPR*` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

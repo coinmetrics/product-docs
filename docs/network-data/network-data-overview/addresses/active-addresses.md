@@ -123,7 +123,7 @@ We would count as active recipients: A, C, D and E. The value of the metric woul
 
 ## Active Smart Contract Addresses <a href="#adractcont" id="adractcont"></a>
 
-<table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="123">Category</th><th>Sub-Category</th><th>Type</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td><a href="active-addresses.md#smart">Active Smart Contract Addr Cnt</a></td><td><a href="https://coverage.coinmetrics.io/search-results?query=AdrActContCnt">AdrActContCnt</a></td><td>Addresses</td><td>Active</td><td>Sum</td><td>Smart Contract Addresses</td><td>1 day</td></tr></tbody></table>
+<table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td><a href="active-addresses.md#smart">Active Smart Contract Addr Cnt</a></td><td><a href="https://coverage.coinmetrics.io/search-results?query=AdrActContCnt">AdrActContCnt</a></td><td>Smart Contract Addresses</td><td>1 day</td></tr></tbody></table>
 
 ### Definition
 
@@ -131,7 +131,7 @@ The sum count of unique smart contract addresses that were active in the network
 
 ### Details
 
-* Active smart contact [address](../../on-chain-basics.md#address) count represents the number of unique smart contract addresses that participated in a ledger change.
+* Active smart contact [address](../../../on-chain-basics.md#address) count represents the number of unique smart contract addresses that participated in a ledger change.
 * For this unadjusted version of the metric, all ledger changes are considered.
 * Ledger changes can include activities such as Decentralized Finance (DeFi) trades, DAO votes, token transfers, as well as any other activity facilitated by a smart contract.
 * All participants of a ledger change activity are included.
@@ -153,8 +153,8 @@ Active Addresses can be accessed using these endpoints:
 
 and by passing in the metric ID's `AdrAct30dCnt`, `AdrAct7dCnt`, etc. in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

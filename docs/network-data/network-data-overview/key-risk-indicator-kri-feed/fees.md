@@ -1,14 +1,16 @@
 # Fees
 
-## Contents
+## Fees
+
+### Contents
 
 * [Mempool Fee Sum](fees.md#mempool\_fee)
-* [Fees entered Mempool 1 minute](fees.md)
-* [Mempool Fees Mean](fees.md#mempool_fee_mean)
-* [Mean Fees Entered Mempool 1 minute](fees.md)
-* [Mempool Fees Median](fees.md)
+* [Fees entered Mempool 1 minute](fees.md#mempool\_fee\_entered)
+* [Mempool Fees Mean](fees.md#mempool\_fee\_mean)
+* [Mean Fees Entered Mempool 1 minute](fees.md#mempool\_fee\_mean\_entered)
+* [Mempool Fees Median](fees.md#mempool\_fee\_median)
 
-## Mempool Fee Sum <a href="#mempool_fee" id="mempool_fee"></a>
+### Mempool Fee Sum <a href="#mempool_fee" id="mempool_fee"></a>
 
 **Definition**
 
@@ -32,7 +34,7 @@ Sample Query
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_fee&pretty=true" %}
 
-# Fees entered Mempool 1 minute<a href="#mempool_fee_entered" id="mempool_fee_entered"></a>
+## Fees entered Mempool 1 minute <a href="#mempool_fee_entered" id="mempool_fee_entered"></a>
 
 **Definition**
 
@@ -40,15 +42,15 @@ The sum value of all mempool transaction fees for all transactions entering the 
 
 **Dictionary**
 
-| Name                          | MetricID                  |  Unit         | Interval |
+| Name                          | MetricID                  | Unit         | Interval |
 | ----------------------------- | ------------------------- | ------------ | -------- |
-| Fees entered mempool 1 minute | mempool\_fee\_entered\_1m |  Native units | 1m       |
+| Fees entered mempool 1 minute | mempool\_fee\_entered\_1m | Native units | 1m       |
 
 **Methodology**
 
 The mempool is evaluated and the fees attached to all transactions that have been entered (new transactions broadcasted by users) in the previous 1-minute interval are counted.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -56,7 +58,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_fee_entered_1m&pretty=true" %}
 
-# Mempool Fees Mean<a href="#mempool_fee_mean" id="mempool_fee_mean"></a>
+## Mempool Fees Mean <a href="#mempool_fee_mean" id="mempool_fee_mean"></a>
 
 **Definition**
 
@@ -72,7 +74,7 @@ The sum value of all mempool transaction fees at a point in time in native units
 
 The mempool is evaluated and all transactions indexed. The mean value of all transaction fees within these unprocessed transactions is then calculated.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -80,7 +82,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_fee_mean&pretty=true" %}
 
-# Mean Fees Entered Mempool 1 minute<a href="#mempool_fee_mean_entered" id="mempool_fee_mean_entered"></a>
+## Mean Fees Entered Mempool 1 minute <a href="#mempool_fee_mean_entered" id="mempool_fee_mean_entered"></a>
 
 **Definition**
 
@@ -88,15 +90,15 @@ The mean value of the fees paid for all transactions entering the mempool over t
 
 **Dictionary**
 
-| Name                               | MetricID                        |  Unit         | Interval |
+| Name                               | MetricID                        | Unit         | Interval |
 | ---------------------------------- | ------------------------------- | ------------ | -------- |
-| Mean Fees entered mempool 1 minute | mempool\_fee\_mean\_entered\_1m |  Native units | 1m       |
+| Mean Fees entered mempool 1 minute | mempool\_fee\_mean\_entered\_1m | Native units | 1m       |
 
 **Methodology**
 
 The mempool is evaluated and the fees attached to all transactions that have been entered (new transactions broadcasted by users) in the previous 1-minute interval are aggregated. The statistical mean of these fees is then calculated.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -104,8 +106,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_fee_mean_entered_1m&pretty=true" %}
 
-
-# Mempool Fees Median <a href="#mempool_fee_median" id="mempool_fee_median"></a>
+## Mempool Fees Median <a href="#mempool_fee_median" id="mempool_fee_median"></a>
 
 **Definition**
 
@@ -121,7 +122,7 @@ The sum value of all mempool transaction fees at a point in time in native units
 
 The mempool is evaluated and all transactions indexed. The median value of all transaction fees within these unprocessed transactions is then calculated.
 
-**Available Assets**&#x20;
+**Available Assets**
 
 Bitcoin (BTC)
 
@@ -129,8 +130,7 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_fee_median&pretty=true" %}
 
-
-# API Endpoints
+## API Endpoints
 
 Fees metrics can be accessed using these endpoints:`timeseries/asset-metrics`and by passing in the metric ID's `mempool_fee*` in the `metrics` parameter.
 

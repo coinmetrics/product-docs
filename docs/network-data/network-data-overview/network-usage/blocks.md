@@ -30,7 +30,7 @@ The sum count of blocks created that interval that were included in the main (ba
 
 ### Chart
 
-<figure><img src="../../.gitbook/assets/ETH_Block_Count.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ETH_Block_Count.png" alt=""><figcaption></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -71,7 +71,7 @@ The count of blocks from the genesis (first) block to the last block of that int
 
 ### Chart
 
-<figure><img src="../../.gitbook/assets/BTC_and_ETH_Block_Heights.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/BTC_and_ETH_Block_Heights.png" alt=""><figcaption></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -113,7 +113,7 @@ The mean time (in seconds) between all the blocks created that interval.
 
 ### Chart
 
-<figure><img src="../../.gitbook/assets/Comparing_ETH_and_LTC_Block_Interval_Times.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Comparing_ETH_and_LTC_Block_Interval_Times.png" alt=""><figcaption></figcaption></figure>
 
 ### Asset Specific Details
 
@@ -123,7 +123,7 @@ The mean time (in seconds) between all the blocks created that interval.
 
 If for a day, the blocks are:
 
-![](<../../.gitbook/assets/Screen Shot 2020-12-13 at 10.45.13 PM.png>)
+![](<../../../.gitbook/assets/Screen Shot 2020-12-13 at 10.45.13 PM.png>)
 
 The value of BlkIntMean would be (120 + 20 + 160 + 60) / 4 = 90 seconds
 
@@ -162,7 +162,7 @@ The sum of the size (in bytes) of all blocks created that interval.
 
 ### Chart
 
-<figure><img src="../../.gitbook/assets/Sum_Block_Size_(in_bytes).png" alt=""><figcaption><p><em>Source:</em> <a href="https://charts.coinmetrics.io/network-data/#4297"><em>CM Network Data Charts</em></a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Sum_Block_Size_(in_bytes).png" alt=""><figcaption><p><em>Source:</em> <a href="https://charts.coinmetrics.io/network-data/#4297"><em>CM Network Data Charts</em></a></p></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -204,7 +204,7 @@ The mean size (in bytes) of all blocks created that interval.
 
 ### Chart
 
-<figure><img src="../../.gitbook/assets/Mean_Block_Size_(in_bytes).png" alt=""><figcaption><p>Source: <a href="https://charts.coinmetrics.io/network-data/#4298">CM Network Data Charts</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Mean_Block_Size_(in_bytes).png" alt=""><figcaption><p>Source: <a href="https://charts.coinmetrics.io/network-data/#4298">CM Network Data Charts</a></p></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -243,7 +243,7 @@ The sum weight of all blocks created that interval. Weight is a dimensionless me
 
 ### Chart
 
-<figure><img src="../../.gitbook/assets/Sum_Block_Weight.png" alt=""><figcaption><p>Source: <a href="https://charts.coinmetrics.io/network-data/#4254">CM Network Data Charts</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Sum_Block_Weight.png" alt=""><figcaption><p>Source: <a href="https://charts.coinmetrics.io/network-data/#4254">CM Network Data Charts</a></p></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -290,7 +290,7 @@ The sum count of uncle blocks mined in that interval.
 
 ### Chart
 
-<figure><img src="../../.gitbook/assets/Uncle_Blocks_Cnt.png" alt=""><figcaption><p>Source: <a href="https://charts.coinmetrics.io/network-data/#4237">CM Network Data Charts</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Uncle_Blocks_Cnt.png" alt=""><figcaption><p>Source: <a href="https://charts.coinmetrics.io/network-data/#4237">CM Network Data Charts</a></p></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -336,7 +336,7 @@ The percentage of miner revenue exclusively derived from creating and including 
 
 ### Chart
 
-<figure><img src="../../.gitbook/assets/Miner_Revenue_from_Uncle_Blocks_(_).png" alt=""><figcaption><p>Source: <a href="https://charts.coinmetrics.io/network-data/#4250">CM Network Data Charts</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Miner_Revenue_from_Uncle_Blocks_(_).png" alt=""><figcaption><p>Source: <a href="https://charts.coinmetrics.io/network-data/#4250">CM Network Data Charts</a></p></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -406,7 +406,7 @@ The mean weight of all blocks created that interval. Weight is a dimensionless m
 
 ### Chart
 
-<figure><img src="../../.gitbook/assets/Mean_Block_Weight.png" alt=""><figcaption><p>Source: <a href="https://charts.coinmetrics.io/network-data/#4251">CM Network Data Charts</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Mean_Block_Weight.png" alt=""><figcaption><p>Source: <a href="https://charts.coinmetrics.io/network-data/#4251">CM Network Data Charts</a></p></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -447,7 +447,7 @@ The sum weight of all blocks created that interval. Weight is a dimensionless me
 
 ### Chart
 
-<figure><img src="../../.gitbook/assets/Sum_Block_Weight.png" alt=""><figcaption><p>Source: <a href="https://charts.coinmetrics.io/network-data/#4254">CM Network Data Charts</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Sum_Block_Weight.png" alt=""><figcaption><p>Source: <a href="https://charts.coinmetrics.io/network-data/#4254">CM Network Data Charts</a></p></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -477,8 +477,8 @@ Block metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `Blk*` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

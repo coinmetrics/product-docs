@@ -64,9 +64,7 @@ The approximate value of the mean feerate for the upcoming blockchain block.
 
 **Dictionary**
 
-| Name                       | MetricID                                    | Unit       | Interval |
-| -------------------------- | ------------------------------------------- | ---------- | -------- |
-| Next Block Average feerate | mempool\_next\_block\_approx\_feerate\_mean | sats/vbyte | 1m       |
+<table><thead><tr><th>Name</th><th width="209">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Next Block Average feerate</td><td>mempool_next_block_approx_feerate_mean</td><td>sats/vbyte</td><td>1m</td></tr></tbody></table>
 
 **Methodology**
 

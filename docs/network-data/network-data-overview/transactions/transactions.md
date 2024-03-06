@@ -4,7 +4,7 @@
 
 * [Tx Cnt](transactions.md#txcnt)
 * [Tx per Second Cnt](transactions.md#txcntsec)
-* [Tx Mean Size](transactions.md#txmeanbyte.md)
+* [Tx Mean Size](transactions.md#txmeanbyte)
 * [OP\_RETURN Tx Cnt](transactions.md#txopretcnt)
 * [Shielded Tx Cnt](transactions.md#txshldcnt)
 * [Fully Shielded Tx Cnt](transactions.md#txshldfullcnt)

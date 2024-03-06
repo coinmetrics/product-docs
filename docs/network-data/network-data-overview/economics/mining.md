@@ -25,7 +25,7 @@ The ratio of Miner Cap over Realized Cap at the end of that interval. Miner Cap 
 
 ### Chart
 
-![](../../.gitbook/assets/MCRC\(1\).png)
+![](../../../.gitbook/assets/MCRC\(1\).png)
 
 ### Interpretation
 
@@ -43,7 +43,7 @@ Only applicable to assets for which we have SplyMiner0HopAllUSD (supply held by 
 
 ### See Also:
 
-* [MCTC (Miner Cap / Thermo Cap)](mctc.md)
+* [MCTC (Miner Cap / Thermo Cap)](../../economics/mctc.md)
 * [MVRV (Market Cap / Realized Market Cap)](broken-reference)
 
 ### Availability for Assets
@@ -69,7 +69,7 @@ The ratio of Miner Cap relative to Thermo Cap at the end of that interval. Miner
 
 ### Chart
 
-![](../../.gitbook/assets/MCTC\(1\).png)
+![](../../../.gitbook/assets/MCTC\(1\).png)
 
 ### Interpretation
 
@@ -87,7 +87,7 @@ Only applicable to assets for which we have SplyMiner0HopAllUSD (supply held by 
 
 ### See Also:
 
-* [MCRC (Market Cap / Realized Cap)](mcrc.md)
+* [MCRC (Market Cap / Realized Cap)](../../economics/mcrc.md)
 * [MVRV (Market Cap / Realized Market Cap)](broken-reference)
 
 ### Availability for Assets
@@ -128,7 +128,7 @@ Only applicable to assets for which we have SplyMiner0HopAllUSD (supply held by 
 
 ### See Also:
 
-* [MCTC (Miner Cap / Thermo Cap)](mctc.md)
+* [MCTC (Miner Cap / Thermo Cap)](../../economics/mctc.md)
 * [MVRV (Market Cap / Realized Market Cap)](broken-reference)
 
 ### Coverage
@@ -147,8 +147,8 @@ Address Balances can be accessed using these endpoints:
 
 and by passing in the metric ID's `MCRC` , `MCTC` and `MOMR` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

@@ -2,8 +2,8 @@
 
 ## Contents
 
-* [Average Mining Reward](rewards-1.md#mining\_reward\_mean)
-* [Mining Reward Spread](rewards-1.md#mining\_reward\_spread)
+* [Average Mining Reward](rewards.md#mining\_reward\_mean)
+* [Mining Reward Spread](rewards.md#mining\_reward\_spread)
 
 ## Average Mining Reward <a href="#mining_reward_mean" id="mining_reward_mean"></a>
 
