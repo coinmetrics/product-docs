@@ -23,6 +23,7 @@ The sum of all native units ever created and currently visible on the ledger (i.
 * For ZEC, it includes the shielded pools value
 * For Ripple, escrows are counted towards total current supply.
 * For privacy coins like Monero or Grin, total current supply is computed by summing up mining rewards.
+* For Ethereum, Supply accounts for all tokens tracked on the Ethereum Execution Layer. Since the Shapella Upgrade (April 12, 2023) this has lead to some tokens in supply being double counted in the total supply numbers. For further explanation please see [STON #244](https://coinmetrics.substack.com/p/state-of-the-network-issue-244#new\_tab)
 
 ## Release History
 
