@@ -262,7 +262,7 @@ redirects:
   market-data-timeseries/futures-liquidations: market-data/market-data-overview/liquidations/futures-liquidations.md
   market-data-timeseries/futures-funding-rates: market-data/market-data-overview/funding-rates/futures-funding-rates.md
   market-data-timeseries/market-orderbooks: market-data/market-data-overview/orderbooks/market-order-book.md
-  market-data-timeseries/market-quotes: market-data/market-data-overview/quotes/quotes.md
+  market-data-timeseries/market-quotes: market-data/market-data-overview/quotes/quotes.md#market
   market-data-timeseries/market-contracts: market-data/market-data-overview/contract-prices/market-contract-prices.md
   market-data-timeseries/market-implied-volatility: market-data/market-data-overview/volatility/market-implied-volatility.md
   market-data-timeseries/market-greeks: market-data/market-data-overview/greeks/market-greeks.md
@@ -742,4 +742,12 @@ redirects:
   charting-tools/data-visualization/dashboard/troubleshooting: data-visualization/dashboard/troubleshooting.md
   charting-tools/data-visualization/cmpro: data-visualization/cmpro/README.md
   charting-tools/data-visualization/cmpro/troubleshooting: data-visualization/cmpro/troubleshooting.md
-
+  institution-metrics: market-data/market-data-overview/institution-metrics/
+  institution-metrics/grayscale: market-data/market-data-overview/institution-metrics/grayscale/README.md
+  institution-metrics/grayscale/shares-outstanding: market-data/market-data-overview/institution-metrics/grayscale/shares-outstanding.md
+  institution-metrics/grayscale/coin-per-share: market-data/market-data-overview/institution-metrics/grayscale/coin-per-share.md
+  institution-metrics/grayscale/market-price: market-data/market-data-overview/institution-metrics/grayscale/market-price.md
+  institution-metrics/grayscale/net-asset-value: market-data/market-data-overview/institution-metrics/grayscale/net-asset-value.md
+  institution-metrics/grayscale/total-assets.md: market-data/market-data-overview/institution-metrics/grayscale/total-assets.md
+  timeseries-stream/asset-quotes: market-data/market-data-overview/quotes.md#asset
+  timeseries-stream/pair-quotes: market-data/market-data-overview/quotes.md#pair
