@@ -751,3 +751,7 @@ redirects:
   institution-metrics/grayscale/total-assets.md: market-data/market-data-overview/institution-metrics/grayscale/total-assets.md
   timeseries-stream/asset-quotes: market-data/market-data-overview/quotes.md#asset
   timeseries-stream/pair-quotes: market-data/market-data-overview/quotes.md#pair
+  on-chain-data/asset-metrics-faqs: network-data/network-data-faqs.md
+  market-data/faqs/market-data-faqs: market-data/faqs/market-data-faqs.md
+  market-data/faqs/cm-prices-faqs: market-data/faqs/cm-prices-faqs.md
+  market-data/faqs/trusted-exchange-framework-faqs: market-data/faqs/trusted-exchange-framework-faqs.md
