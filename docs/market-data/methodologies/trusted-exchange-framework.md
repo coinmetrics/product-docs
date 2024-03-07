@@ -10,5 +10,6 @@ The Coin Metrics’ Trusted Exchange Framework thus aims to quantitatively asses
 
 ## Change Log
 
-1. **Version 2.1 on October 31, 2023:** Revamped Transparency, Resilience & Security, Regulatory scores; add grading scale, add rate limiting score
-2. **Version 2.0 on March 1, 2023:** Trusted Exchange Framework V2.0 released
+* **Version 2.1.1 on March 6, 2024:**  Added a new rule to remove a failed exchanges ahead of an the next official TEF release 3 months after trading ceases.
+* **Version 2.1 on October 31, 2023:** Revamped Transparency, Resilience & Security, Regulatory scores; add grading scale, add rate limiting score
+* **Version 2.0 on March 1, 2023:** Trusted Exchange Framework V2.0 released
