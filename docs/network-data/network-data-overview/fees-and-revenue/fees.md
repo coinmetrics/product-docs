@@ -6,7 +6,7 @@
 * [Fees, transaction, mean](fees.md#feemean)
 * [Fees, transaction, median](fees.md#feemed)
 * [Fees, transaction, priority, mean](fees.md#feepriomean)
-* F[ees, transaction, priority, median](fees.md#e)
+* [Fees, transaction, priority, median](fees.md#e)
 * [Fees, priority, total](fees.md#feepriotot)
 * [Fees, revenue, percent](fees.md#feerevpct)
 * [Fees, total](fees.md#feetot)
@@ -18,6 +18,11 @@
 * [Gas, limit, transaction, mean](fees.md#gaslmttxmean)
 * [Gas, used, transaction](fees.md#gasusedtx)
 * [Gas, used, transaction, mean](fees.md#gaslmttxmean)
+* [Total blob fees](fees.md#total-blob-fees)
+* [Mean blob fees](fees.md#mean-blob-fees)
+* [Median blob fees](fees.md#median-blob-fees)
+* [Mean fee per blob byte](fees.md#mean-fee-per-blob-byte)
+* [Mean fee per blob carrying transaction](fees.md#mean-fee-per-blob-carrying-transaction)
 
 ## Mean Tx Fee per Byte (native units)
 
@@ -605,9 +610,72 @@ The mean gas limit per transaction that day.
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/GasLmtTxMean" %}
 
+## Total blob fees
+
+### Definition
+
+Total amount of Fees paid for blob space (available in native units and USD)
+
+<table><thead><tr><th width="222">Name</th><th>MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Total blob fees (native units)</td><td>FeeBlobTotNtv</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Total blob fees (USD)</td><td>FeeBlobTotUSD</td><td>USD</td><td>1 block, 1 day</td></tr></tbody></table>
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/FeeBlobTotNtv" %}
+
+## Mean blob fees
+
+### Definition
+
+Mean fees paid per blob, shown (available in native units and USD)
+
+<table><thead><tr><th width="249">Name</th><th width="174">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Mean blob fees (native units)</td><td>FeeBlobMeanNtv</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Mean blob fees (USD)</td><td>FeeBlobMeanUSD</td><td>USD</td><td>1 block, 1 day</td></tr></tbody></table>
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/FeeBlobMeanNtv" %}
+
+## Median blob fees
+
+### Definition
+
+Median fees paid per blob, shown (available in native units and USD)
+
+<table><thead><tr><th width="219">Name</th><th>MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Median blob fees (native units)</td><td>FeeBlobMedNtv</td><td>Native Units</td><td>1 block, 1 day</td></tr><tr><td>Median blob fees (USD)</td><td>FeeBlobMedUSD</td><td>USD</td><td>1 block, 1 day</td></tr></tbody></table>
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/FeeBlobMedNtv" %}
+
+## Mean Fee per blob Byte
+
+### Definition
+
+Mean fee paid per byte of used blob space (available in native units and USD)
+
+<table><thead><tr><th>Name</th><th width="205">MetricID</th><th width="200">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Mean Fee per blob Byte (native units)</td><td>FeeBlobByteMeanNtv</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Mean Fee per blob Byte (USD)</td><td>FeeBlobByteMeanUSD</td><td>USD</td><td>1 block, 1 day</td></tr></tbody></table>
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/FeeBlobByteMeanNtv" %}
+
+## Mean fee per blob carrying transaction
+
+### Definition
+
+Mean fee paid in blob fees per blob carrying transaction (available in native units and USD)
+
+| Name                                                  | MetricID         | Unit         | Interval       |
+| ----------------------------------------------------- | ---------------- | ------------ | -------------- |
+| Mean fee per blob carrying transaction (native units) | FeeBlobTxMeanNtv | Native units | 1 block, 1 day |
+| Mean fee per blob carrying transaction (USD)          | FeeBlobTxMeanUSD | USD          | 1 block, 1 day |
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/FeeBlobTxMeanNtv" %}
+
 ### API Endpoints
 
-Exhange Deposits metrics can be accessed using these endpoints:
+Exchange Deposits metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 

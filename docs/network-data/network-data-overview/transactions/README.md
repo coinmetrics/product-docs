@@ -1,10 +1,13 @@
 # Transactions
 
-Transaction metrics summarize the **movement of coins on-chain** from one address to another and their value. &#x20;
+## Transactions
 
-# Metrics
+Transaction metrics summarize the **movement of coins on-chain** from one address to another and their value.
+
+## Metrics
 
 [**Contracts**](contracts.md)
+
 * TxContCallCnt
 * TxContCallSuccCnt
 * TxContCnt
@@ -12,12 +15,14 @@ Transaction metrics summarize the **movement of coins on-chain** from one addres
 * TxContDestCnt
 
 [**Token Transactions**](token-transactions.md)
+
 * TxERC1155Cnt
 * TxERC20Cnt
 * TxERC721Cnt
 * TxTknCnt
 
 [**Transactions**](transactions.md)
+
 * TxCnt
 * TxCntSec
 * TxEIP1559Cnt
@@ -27,6 +32,7 @@ Transaction metrics summarize the **movement of coins on-chain** from one addres
 * TxShldFullCnt
 
 [**Transfer Value**](transfer-value.md)
+
 * TxTfrValAdjNtv
 * TxTfrValAdjUSD
 * TxTfrValContCallNtv
@@ -64,6 +70,7 @@ Transaction metrics summarize the **movement of coins on-chain** from one addres
 * TxTfrValBelUSD500USD
 
 [**Transfers**](transfers.md)
+
 * TxTfrCnt
 * TxTfrERC1155Cnt
 * TxTfrERC20Cnt
@@ -73,7 +80,14 @@ Transaction metrics summarize the **movement of coins on-chain** from one addres
 * TxTfrValAdjByte
 
 [**Velocity**](velocity.md)
+
 * VelAct1yr
 * VelActAdj1yr
 * VelCur1yr
 * VelCurAdj1yr
+
+Blobs
+
+* TxBlobCnt
+* TxBlobMeanCnt
+* TxBlobMedCnt

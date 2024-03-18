@@ -26,6 +26,16 @@
 * GasLmtTxMean
 * GasUsedTx
 * GasUsedTxMean
+* FeeBlobTotNtv
+* FeeBlobTotUSD
+* FeeBlobMeanNtv
+* FeeBlobMeanUSD
+* FeeBlobMedNtv
+* FeeBlobMedUSD
+* FeeBlobByteMeanNtv
+* FeeBlobByteMeanUSD
+* FeeBlobTxMeanNtv
+* FeeBlobTxMeanUSD
 
 [Revenue](revenue.md)
 
