@@ -55,9 +55,9 @@ The sum of the size (in bytes) of blob space used in that interval.
 
 The mean gas limit per transaction that day.
 
-| Name                             | MetricID            | Unit  | Interval       |
-| -------------------------------- | ------------------- | ----- | -------------- |
-| All Time Blob Space Used (bytes) | BlobSizeAllTimeByte | Bytes | 1 block, 1 day |
+| Name                             | MetricID            | Unit  | Interval |
+| -------------------------------- | ------------------- | ----- | -------- |
+| All Time Blob Space Used (bytes) | BlobSizeAllTimeByte | Bytes | 1 day    |
 
 ### Availability for Assets
 
