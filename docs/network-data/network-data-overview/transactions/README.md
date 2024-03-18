@@ -86,7 +86,7 @@ Transaction metrics summarize the **movement of coins on-chain** from one addres
 * VelCur1yr
 * VelCurAdj1yr
 
-Blobs
+[Blobs](blobs.md)
 
 * TxBlobCnt
 * TxBlobMeanCnt

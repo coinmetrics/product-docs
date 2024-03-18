@@ -41,7 +41,7 @@ Metrics that measure blockchain network activity.
 * UTXOCnt
 * UTXODay
 
-Blobs
+[Blobs](blobs.md)
 
 * BlobCnt
 * BlobMeanCnt
