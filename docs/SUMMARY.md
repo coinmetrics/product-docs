@@ -120,13 +120,14 @@
 * [Methodologies](network-data/methodologies/README.md)
   * [Normalizing Block Times](network-data/methodologies/normalizing-block-times.md)
 * [DeFi](network-data/defi/defi-data-overview.md)
+  <!-- * [DeFi Data Overview](network-data/defi/defi-data-overview.md) -->
   * [DeFi Balance Sheets Overview](network-data/defi/defi-balance-sheets-overview.md)
   * [DeFi FAQs](network-data/defi/defi-faqs.md)
 * [Tagging Meta Data](tagging-data/tagging-meta-data.md)
 * [On-Chain Glossary](on-chain-basics.md)
 * [On-Chain Exchange Coverage](network-data/on-chain-exchange-coverage.md)
 * [Network Data FAQs](network-data/network-data-faqs.md)
-* [CM Labs](network-data/cm-labs/README.md)
+* [CM Labs](network-data/cm-labs/cm-labs.md)
   * [Mining Pool Monitor Overview](network-data/labs/mining-pool-monitor-time-series/mining-pool-monitor-overview.md)
     * [Mining Pool Monitor API Fields](network-data/labs/mining-pool-monitor-time-series/mining-pool-monitor-api-fields.md)
   * [Reorg & Fork Tracker Overview](network-data/labs/reorg-and-fork-tracker-time-series/reorg-and-fork-tracker-overview.md)
@@ -257,7 +258,6 @@
 * [Security Master Overview](reference-data/security-master/security-master-overview.md)
   * [Assets](reference-data/security-master/assets.md)
   * [Markets](reference-data/security-master/markets.md)
-* [Methodologies](<reference-data/methodologies/README (1).md>)
 * [Methodologies](reference-data/methodologies/README.md)
   * [Guiding Principles and Methodology for datonomy](reference-data/methodologies/guiding-principles-and-methodology-for-datonomy.md)
 
