@@ -257,9 +257,9 @@
 * [Security Master Overview](reference-data/security-master/security-master-overview.md)
   * [Assets](reference-data/security-master/assets.md)
   * [Markets](reference-data/security-master/markets.md)
-* [Methodologies](reference-data/methodologies.md)
-* [Methodologies](reference-data/methodologies-1/README.md)
-  * [Guiding Principles and Methodology for datonomy](reference-data/methodologies-1/guiding-principles-and-methodology-for-datonomy.md)
+* [Methodologies](<reference-data/methodologies/README (1).md>)
+* [Methodologies](reference-data/methodologies/README.md)
+  * [Guiding Principles and Methodology for datonomy](reference-data/methodologies/guiding-principles-and-methodology-for-datonomy.md)
 
 ## WatchTower Alerts (Time Series - DEPRECATED)
 

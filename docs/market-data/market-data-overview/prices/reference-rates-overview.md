@@ -12,20 +12,8 @@ The CM Reference Rates supports multiple frequencies. The daily and hourly frequ
 
 Please note that this metric is served through both the [/timeseries/asset-metrics](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesAssetMetrics) HTTP endpoint and the [/timeseries-stream/asset-metrics](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesStreamAssetMetrics) websocket endpoint. The HTTP endpoint supports the frequencies 1d, 1h, 1m, and 1s. The websocket endpoint supports the frequencies 1s and 200ms.
 
-{% content-ref url="../../asset-metrics/market/referencerateusd.md" %}
-[referencerateusd.md](../../asset-metrics/market/referencerateusd.md)
-{% endcontent-ref %}
-
-{% content-ref url="../../asset-metrics/market/referencerateeur.md" %}
-[referencerateeur.md](../../asset-metrics/market/referencerateeur.md)
-{% endcontent-ref %}
-
-{% content-ref url="../../asset-metrics/market/referenceratebtc.md" %}
-[referenceratebtc.md](../../asset-metrics/market/referenceratebtc.md)
-{% endcontent-ref %}
-
-{% content-ref url="../../asset-metrics/market/referencerateeth-1.md" %}
-[referencerateeth-1.md](../../asset-metrics/market/referencerateeth-1.md)
+{% content-ref url="reference_rate.md" %}
+[reference\_rate.md](reference\_rate.md)
 {% endcontent-ref %}
 
 ## Data Available for CM Principal Market Prices
@@ -34,12 +22,12 @@ The CM Principal Market Price is the price of an asset quoted in U.S. dollars de
 
 We offer both the principal market price and the identity of the principal market in separate metrics below.
 
-{% content-ref url="../../asset-metrics/market/principal_market_price_usd.md" %}
-[principal\_market\_price\_usd.md](../../asset-metrics/market/principal\_market\_price\_usd.md)
+{% content-ref url="principal_market_price_usd.md" %}
+[principal\_market\_price\_usd.md](principal\_market\_price\_usd.md)
 {% endcontent-ref %}
 
-{% content-ref url="../../asset-metrics/market/principal_market_usd.md" %}
-[principal\_market\_usd.md](../../asset-metrics/market/principal\_market\_usd.md)
+{% content-ref url="principal_market_usd.md" %}
+[principal\_market\_usd.md](principal\_market\_usd.md)
 {% endcontent-ref %}
 
 ## Data Available on On-Chain Oracles
@@ -50,12 +38,12 @@ We also publish the CM Reference Rates to Pyth Network, an on-chain oracle that 
 
 The CM Prices are collectively governed by policies described in [Coin Metrics Prices Policies](https://docs.coinmetrics.io/market-data/methodologies/coin-metrics-prices-policies) which describes the administration, oversight, conflicts of interest, material changes and terminations, recalculations, internal controls, complaints, record retention, and compliance policies.
 
-{% content-ref url="../../prices/methodologies/coin-metrics-prices-policies.md" %}
-[coin-metrics-prices-policies.md](../../prices/methodologies/coin-metrics-prices-policies.md)
+{% content-ref url="../../methodologies/coin-metrics-prices-policies.md" %}
+[coin-metrics-prices-policies.md](../../methodologies/coin-metrics-prices-policies.md)
 {% endcontent-ref %}
 
 The CM Prices are collectively governed by rules-based methodologies described in [Coin Metrics Prices Methodology](https://docs.coinmetrics.io/market-data/methodologies/coin-metrics-prices-methodology) which describes our Market Selection Framework, a systematic method of producing a unique set of constituent markets for each asset, our data sources, calculation algorithm, and contingency rules.
 
-{% content-ref url="../../prices/methodologies/coin-metrics-prices-methodology.md" %}
-[coin-metrics-prices-methodology.md](../../prices/methodologies/coin-metrics-prices-methodology.md)
+{% content-ref url="../../methodologies/coin-metrics-prices-methodology.md" %}
+[coin-metrics-prices-methodology.md](../../methodologies/coin-metrics-prices-methodology.md)
 {% endcontent-ref %}
