@@ -755,3 +755,4 @@ redirects:
   market-data/faqs/market-data-faqs: market-data/faqs/market-data-faqs.md
   market-data/faqs/cm-prices-faqs: market-data/faqs/cm-prices-faqs.md
   market-data/faqs/trusted-exchange-framework-faqs: market-data/faqs/trusted-exchange-framework-faqs.md
+  defi-data/defi-data-overview: network-data/defi/defi-data-overview.md

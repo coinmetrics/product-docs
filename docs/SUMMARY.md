@@ -118,8 +118,8 @@
   * [Transaction Tracker](network-data/farum-overview/transaction-tracker.md)
 * [Methodologies](network-data/methodologies/README.md)
   * [Normalizing Block Times](network-data/methodologies/normalizing-block-times.md)
-* [DeFi](network-data/defi/README.md)
-  * [DeFi Data Overview](network-data/defi/defi-data-overview.md)
+* [DeFi](network-data/defi/defi-data-overview.md)
+  <!-- * [DeFi Data Overview](network-data/defi/defi-data-overview.md) -->
   * [DeFi Balance Sheets Overview](network-data/defi/defi-balance-sheets-overview.md)
   * [DeFi FAQs](network-data/defi/defi-faqs.md)
 * [Tagging Meta Data](tagging-data/tagging-meta-data.md)
