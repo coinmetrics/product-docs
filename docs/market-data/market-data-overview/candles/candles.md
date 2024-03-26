@@ -18,15 +18,16 @@ Coin Metrics calculates candles for **spot** and **future** markets from exchang
 
 Candles can be accessed using the `timeseries/market-candles` or `timeseries/pair-candles` endpoint.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-candles" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-candles" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-candles" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-candles" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 ### Example
+
 **Market Candles**
 
 An sample of the candles data from the `coinbase-btc-usd-spot` market from our [`/timeseries/market-candles`](https://docs.coinmetrics.io/api/v4/#operation/getTimeseriesMarketCandles) API endpoint is provided below.
@@ -75,7 +76,7 @@ An sample of the candles data from the `coinbase-btc-usd-spot` market from our [
 
 **Pair Candles**
 
-An sample of the pair candles data for the \`btc-usdfrom our [`/timeseries/pair-candles`](https://docs.coinmetrics.io/api/v4/#tag/Timeseries/operation/getTimeseriesPairCandles) API endpoint is provided below.&#x20;
+An sample of the pair candles data for the \`btc-usdfrom our [`/timeseries/pair-candles`](https://docs.coinmetrics.io/api/v4/#tag/Timeseries/operation/getTimeseriesPairCandles) API endpoint is provided below.
 
 ```
 {
@@ -118,16 +119,11 @@ An sample of the pair candles data for the \`btc-usdfrom our [`/timeseries/pair-
 }
 ```
 
-* **`time`**:  The time of the beginning of the candle interval in ISO 8601 date-time format.\
-
-* **`pair`**:  The id of the pair. \
-
-* **`price_open`**:   The opening price of the candle.\
-
-* **`price_high`**:  The high price of the candle.\
-
-* **`price_low`**:  The low price of the candle.\
-
+* **`time`**: The time of the beginning of the candle interval in ISO 8601 date-time format.\\
+* **`pair`**: The id of the pair. \\
+* **`price_open`**: The opening price of the candle.\\
+* **`price_high`**: The high price of the candle.\\
+* **`price_low`**: The low price of the candle.\\
 * **`price_close`**: The close price of the candle.
 
 ## Frequently Asked Questions
@@ -150,7 +146,6 @@ The availability for pair candles is identical to the coverage for our CM Refere
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ReferenceRateUSD" %}
 
-
 ## Frequently Asked Questions
 
 ### **What is the historical coverage of your candles data?**
@@ -171,8 +166,8 @@ Our candle generator waits 20 minutes before calculating a candle to ensure that
 
 Please take a look at this question in the Market Data FAQs page linked below.
 
-{% content-ref url="../market-data/market-data-faqs.md" %}
-[market-data-faqs.md](../market-data/market-data-faqs.md)
+{% content-ref url="../../market-data/market-data-faqs.md" %}
+[market-data-faqs.md](../../market-data/market-data-faqs.md)
 {% endcontent-ref %}
 
 ### **Why are there some observations where the candle vwap is higher than the high price or lower than the low price?**

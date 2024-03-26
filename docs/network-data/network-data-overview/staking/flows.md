@@ -10,7 +10,7 @@
 
 Deposits sent to the Consensus Layer (CL) Contract.
 
-| Name                 | MetricID     |  Unit        | Interval |
+| Name                 | MetricID     | Unit         | Interval |
 | -------------------- | ------------ | ------------ | -------- |
 | Flows to CL Contract | FlowToCLCont | Native Units | 1 day    |
 
@@ -34,8 +34,8 @@ Flows metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `FlowToCLCont` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

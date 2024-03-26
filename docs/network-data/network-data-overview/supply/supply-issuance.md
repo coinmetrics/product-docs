@@ -56,7 +56,7 @@ The percentage of new native units (continuous) issued on that day, extrapolated
 
 ### Chart
 
-<figure><img src="../../.gitbook/assets/Coin_Metrics_Network_Data_2022-09-16T14-00.png" alt=""><figcaption><p>Source: CM Network Data Charts</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Coin_Metrics_Network_Data_2022-09-16T14-00.png" alt=""><figcaption><p>Source: CM Network Data Charts</p></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -97,7 +97,7 @@ The percentage of new native units (continuous) issued on that day divided by th
 
 ### Chart
 
-<figure><img src="../../.gitbook/assets/Coin_Metrics_Network_Data_2022-09-16T14-11.png" alt=""><figcaption><p>Source: CM Network Data Chart</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Coin_Metrics_Network_Data_2022-09-16T14-11.png" alt=""><figcaption><p>Source: CM Network Data Chart</p></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -195,7 +195,7 @@ The Puell Multiple provides insight into market cycles from a mining revenue per
 
 ### See Also
 
-* [Puell Multiple, Revenue](miner-revenue.md#puellmulrev)
+* [Puell Multiple, Revenue](../../supply/miner-revenue.md#puellmulrev)
 
 ### Availability for Assets
 
@@ -226,7 +226,7 @@ The Puell Multiple provides insight into market cycles from a mining revenue per
 
 ### See Also
 
-* [Puell Multiple, Revenue](miner-revenue.md#puellmulrev)
+* [Puell Multiple, Revenue](../../supply/miner-revenue.md#puellmulrev)
 
 ### Availability for Assets
 
@@ -240,8 +240,8 @@ Supply Issuance metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `Iss*` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

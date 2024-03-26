@@ -23,7 +23,7 @@ The sum of all native units ever created and visible on the ledger excluding nat
 
 ### Chart
 
-<figure><img src="../../.gitbook/assets/Coin_Metrics_Network_Data_2022-09-16T13-45.png" alt=""><figcaption><p>Source: Network Data Charts</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Coin_Metrics_Network_Data_2022-09-16T13-45.png" alt=""><figcaption><p>Source: Network Data Charts</p></figcaption></figure>
 
 ### Release History
 
@@ -52,8 +52,8 @@ Free Float Supply metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `SplyBurnt*` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

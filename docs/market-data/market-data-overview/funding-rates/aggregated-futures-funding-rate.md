@@ -78,4 +78,4 @@ Aggregate Futures Funding Rates can be accessed using the `timeseries/asset-metr
 
 ## Availability for Assets
 
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/futures_aggregate_funding_rate_all_margin_8h_period](https://coverage.coinmetrics.io/search-results?query=)" %}
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/futures_aggregate_funding_rate_all_margin_8h_period](https://coverage.coinmetrics.io/search-results?query=)" fullWidth="true" %}

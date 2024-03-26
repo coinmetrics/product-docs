@@ -99,9 +99,9 @@ The count of blocks from the genesis (first) block to the last block of that int
 
 The mean time (in seconds) between all the blocks created that interval.
 
-| Name            | MetricID   | Category      | Subcategory | Type | Unit    | Interval               |
-| --------------- | ---------- | ------------- | ----------- | ---- | ------- | ---------------------- |
-| Mean Time Block | BlkIntMean | Network Usage | Blocks      | Mean | Seconds | 1 block, 1 day, 1 hour |
+| Name            | MetricID   | Unit    | Interval               |
+| --------------- | ---------- | ------- | ---------------------- |
+| Mean Time Block | BlkIntMean | Seconds | 1 block, 1 day, 1 hour |
 
 ### Details
 

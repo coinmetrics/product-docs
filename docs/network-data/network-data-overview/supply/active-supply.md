@@ -66,7 +66,7 @@ The percentage of the current supply that has been active in the trailing 1 year
 
 ### Chart
 
-![Source: CM Network Data Charts](../../.gitbook/assets/1yr\_Active\_Supply\_\_.png)
+![Source: CM Network Data Charts](../../../.gitbook/assets/1yr\_Active\_Supply\_\_.png)
 
 ### Asset-Specific Details
 
@@ -96,8 +96,8 @@ Active Supply metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `SplyAct*` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

@@ -150,9 +150,9 @@ Number of the current Epoch
 
 Number of the latest finalized Epoch
 
-| Name      | MetricID | Unit   | Interval      |
+| Name                   | MetricID   | Unit  | Interval |
 | ---------------------- | ---------- | ----- | -------- |
-| Latest Finalized Epoch | EpochFinal |  Epoch | 1 minute |
+| Latest Finalized Epoch | EpochFinal | Epoch | 1 minute |
 
 ### Details
 
@@ -198,8 +198,8 @@ Consensus Health metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's above (`Attest*`, `Epoch*` , etc) in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

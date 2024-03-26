@@ -8,7 +8,7 @@ The rolling realized volatility, measured as the standard deviation of the natur
 
 ## Details
 
-Coin Metrics calculates realized volatility using our [Real-Time Reference Rates](../methodologies/coin-metrics-prices-methodology.md#reference-rates-calculation-methodology) as the price input. The Real-Time Reference Rates have been tested against many out-of-sample periods of market stress and have been reliably producing prices under numerous market conditions for a period of three years. It utilizes our [Market Selection Framework](../methodologies/coin-metrics-prices-methodology.md#data-inputs) which evaluates all markets in our coverage universe and uses a set of 38 qualitative and quantitative features to produce a unique set of constituent markets for each asset. It uses volume-weighted and inverse price variance-weighted techniques to produce a price that is robust to outliers and anomalies.
+Coin Metrics calculates realized volatility using our [Real-Time Reference Rates](../../methodologies/coin-metrics-prices-methodology.md#reference-rates-calculation-methodology) as the price input. The Real-Time Reference Rates have been tested against many out-of-sample periods of market stress and have been reliably producing prices under numerous market conditions for a period of three years. It utilizes our [Market Selection Framework](../../methodologies/coin-metrics-prices-methodology.md#data-inputs) which evaluates all markets in our coverage universe and uses a set of 38 qualitative and quantitative features to produce a unique set of constituent markets for each asset. It uses volume-weighted and inverse price variance-weighted techniques to produce a price that is robust to outliers and anomalies.
 
 Volatility is calculated using the close-to-close method, as this is optimal for continuous markets and is widely accepted across financial literature. For this calculation we use the population mean with zero drift, meaning the formula reduces to:
 
@@ -26,8 +26,8 @@ Realized Volatility can be accessed using these endpoints:
 
 * `/timeseries/asset-metrics`
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 ## Example

@@ -150,10 +150,10 @@ The mean per transaction of the sum of all native units transferred multiplied b
 
 The sum value of native units or USD transferred divided by the count of transfers (i.e., the mean size of a transfer) between distinct addresses that interval.
 
-| Name                        | MetricID        | Category     | Subcategory    | Type | Unit         | Interval      |
-| --------------------------- | --------------- | ------------ | -------------- | ---- | ------------ | ------------- |
-| Mean Tx Size (native units) | TxTfrValMeanNtv | Transactions | Transfer value | Mean | Native units | 1 day, 1 hour |
-| Mean Tx Size (USD)          | TxTfrValMeanUSD | Transactions | Transfer value | Mean | USD          | 1 day, 1 hour |
+| Name                        | MetricID        | Unit         | Interval      |
+| --------------------------- | --------------- | ------------ | ------------- |
+| Mean Tx Size (native units) | TxTfrValMeanNtv | Native units | 1 day, 1 hour |
+| Mean Tx Size (USD)          | TxTfrValMeanUSD | USD          | 1 day, 1 hour |
 
 #### Details
 

@@ -2,7 +2,7 @@
 description: /timeseries/market-contract-prices
 ---
 
-# Market Contract Prices
+# Contract Prices
 
 ## **Definition**
 
@@ -12,15 +12,15 @@ Market contract prices are used as reference prices to estimate the value of a d
 
 Exchanges report the following contract prices:
 
-* Mark price: The estimated 'fair value' of a derivatives contract. Usually, this is the average of the best bid and best ask price. However, for risk management purposes, exchanges often set additional limits on price bandwidth.&#x20;
+* Mark price: The estimated 'fair value' of a derivatives contract. Usually, this is the average of the best bid and best ask price. However, for risk management purposes, exchanges often set additional limits on price bandwidth.
 * Index price: The price of the contract's underlying index, typically calculated using the current value of a corresponding perpetual futures contract.
 
 ## **API Endpoints**
 
-Market contract prices can be accessed using the `timeseries/market-contract-prices` endpoint. 
+Market contract prices can be accessed using the `timeseries/market-contract-prices` endpoint.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-contract-prices" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-contract-prices" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 ## **Example**
@@ -49,25 +49,13 @@ A sample of contract price data from our [`/timeseries/market-contract-prices`](
 }
 ```
 
-*   **`market`**:  The id of the market. Market ids use the following naming convention for options markets: `exchangeName-optionsSymbol-option`&#x20;
-
-
-*   **`time`**: The time at which Coin Metrics queried the contract price from an exchange in ISO 8601 date-time format. Always with nanoseconds precision.
-
-
-*   **`mark_price`**:  The instrument market price, representing the contract's estimated "fair value."
-
-
-*   **`index_price`**:  The price of the underlying benchmark index.
-
-
-*   **`settlement_price_estimated`**: Represents what the underlying index settlement price would be if the contract immediately expired, helpful in calculating estimated profit and loss prior to contract expiration.
-
-
-*   **`database_time`**:  The timestamp when the data was saved in the database in ISO 8601 date-time format with nanoseconds precision. Always with nanoseconds precision.
-
-
-* **`exchange_time`**:  The timestamp reported by the exchange.  Can be null if the exchange does not report a timestamp.
+* **`market`**: The id of the market. Market ids use the following naming convention for options markets: `exchangeName-optionsSymbol-option`
+* **`time`**: The time at which Coin Metrics queried the contract price from an exchange in ISO 8601 date-time format. Always with nanoseconds precision.
+* **`mark_price`**: The instrument market price, representing the contract's estimated "fair value."
+* **`index_price`**: The price of the underlying benchmark index.
+* **`settlement_price_estimated`**: Represents what the underlying index settlement price would be if the contract immediately expired, helpful in calculating estimated profit and loss prior to contract expiration.
+* **`database_time`**: The timestamp when the data was saved in the database in ISO 8601 date-time format with nanoseconds precision. Always with nanoseconds precision.
+* **`exchange_time`**: The timestamp reported by the exchange. Can be null if the exchange does not report a timestamp.
 
 ## Release History
 

@@ -2,11 +2,11 @@
 description: /timeseries/market-implied-volatility
 ---
 
-# Market Implied Volatility
+# Implied Volatility
 
 ## **Definition**
 
-The implied volatility of an asset represents the market’s expectation of future volatility as derived from options prices, and is calculated using an options pricing model. When this value is input to an options pricing model, that makes the actual options price equal to its theoretical price.&#x20;
+The implied volatility of an asset represents the market’s expectation of future volatility as derived from options prices, and is calculated using an options pricing model. When this value is input to an options pricing model, that makes the actual options price equal to its theoretical price.
 
 ## **Details**
 
@@ -22,25 +22,27 @@ In other words:
 
 _Option price = f(underlying price, strike price, time, interest rate, volatility)_
 
-All the inputs, with the exception of volatility, are observable. The option price is also observable from market transactions. Suppose there is some inverse function _(_g = f-1) such that:
+All the inputs, with the exception of volatility, are observable. The option price is also observable from market transactions. Suppose there is some inverse function \_(\_g = f-1) such that:
 
 _volatility = g(option price, underlying price, strike price, time, interest rate)_
 
 The volatility calculated from this equation is the implied volatility, or in other words, the market’s expectation of future volatility implied by option prices. By convention, implied volatility represents the standard deviation of returns of the underlying asset calculated on an annualized basis.
 
-Trading in options markets is sparse and usually distributed over several hundred active options contracts. Since trades for a particular option contract can occur infrequently, the bid, ask, last and mark price of a particular option contract can vary significantly. To the extent possible, Coin Metrics reports the implied volatility derived from each of the various prices.&#x20;
+Trading in options markets is sparse and usually distributed over several hundred active options contracts. Since trades for a particular option contract can occur infrequently, the bid, ask, last and mark price of a particular option contract can vary significantly. To the extent possible, Coin Metrics reports the implied volatility derived from each of the various prices.
 
 ## API Endpoints
+
 Implied Volatility can be accessed using these endpoints:
+
 * `/timeseries/market-implied-volatility`
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-implied-volatility" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-implied-volatility" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 ## Chart
 
-<figure><img src="../../.gitbook/assets/BTC-ImpliedVol-Chart.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/BTC-ImpliedVol-Chart.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>
 
 ## **Example**
 
@@ -67,29 +69,17 @@ A sample of the options implied volatility data from our [`/timeseries/market-im
   },
 ```
 
-*   **`market`**:  The id of the market. Market ids use the following naming convention for options markets: `exchangeName-optionsSymbol-option`&#x20;
-
-
-*   **`time`**: The time at which Coin Metrics queried the implied volatility data from an exchange in ISO 8601 date-time format. Always with nanoseconds precision.
-
-
-*   **`database_time`**:  The timestamp when the data was saved in the database in ISO 8601 date-time format with nanoseconds precision. Always with nanoseconds precision.
-
-
-*   **`exchange_time`**:  The timestamp reported by the exchange.  Can be null if the exchange does not report a timestamp.
-
-
-*   **`iv_bid`**:  The implied volatility based on the last reported bid price
-
-
-*   **`iv_ask`**:  The implied volatility based on the last reported ask price.
-
-
-* **`iv_mark`**:  The implied volatility based on the last reported mark price
+* **`market`**: The id of the market. Market ids use the following naming convention for options markets: `exchangeName-optionsSymbol-option`
+* **`time`**: The time at which Coin Metrics queried the implied volatility data from an exchange in ISO 8601 date-time format. Always with nanoseconds precision.
+* **`database_time`**: The timestamp when the data was saved in the database in ISO 8601 date-time format with nanoseconds precision. Always with nanoseconds precision.
+* **`exchange_time`**: The timestamp reported by the exchange. Can be null if the exchange does not report a timestamp.
+* **`iv_bid`**: The implied volatility based on the last reported bid price
+* **`iv_ask`**: The implied volatility based on the last reported ask price.
+* **`iv_mark`**: The implied volatility based on the last reported mark price
 
 ## Frequently Asked Questions
 
-### **What can market implied volatility be used for?**&#x20;
+### **What can market implied volatility be used for?**
 
 Market participants use implied volatility in a variety of applications. Since implied volatility is a function of the option price (and other inputs), it often can be used as a replacement for price. Trading interfaces that show option chains typically show implied volatility alongside other critical information like the price, bid, ask, volume, and open interest. Some exchanges allow traders to input orders using implied volatility instead of price.
 
@@ -103,7 +93,7 @@ Deribit sets the `iv_bid` to zero if there are no bids on the order book and set
 
 ### **How is your implied volatility calculated?**
 
-We currently report the exchange-reported implied volatility, so the figures are calculated using each exchange's proprietary option pricing model. In the future, we plan on developing our own option pricing model to calculate more implied volatility-related metrics.&#x20;
+We currently report the exchange-reported implied volatility, so the figures are calculated using each exchange's proprietary option pricing model. In the future, we plan on developing our own option pricing model to calculate more implied volatility-related metrics.
 
 ## Release History
 

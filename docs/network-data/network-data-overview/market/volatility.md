@@ -2,7 +2,7 @@
 
 ### Contents
 
-* [Volatility, daily returns](volatility-1.md#x-day-volatility)
+* [Volatility, daily returns](volatility.md#x-day-volatility)
 
 ## X Day Volatility
 
@@ -36,11 +36,7 @@ Exhange Deposits metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `VtyDayRet*` in the `metrics` parameter.
 
-{% swagger path="/timeseries/asset-metrics" method="get" %}
-{% swagger-description %}
-
-{% endswagger-description %}
-{% endswagger %}
+<mark style="color:blue;">`GET`</mark> `undefined/timeseries/asset-metrics`
 
 {% tabs %}
 {% tab title="Shell" %}

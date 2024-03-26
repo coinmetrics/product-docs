@@ -26,7 +26,7 @@ The sum of all native units ever created and currently visible on the ledger (i.
 
 ### Chart
 
-<figure><img src="../../.gitbook/assets/Coin_Metrics_Network_Data_2022-09-16T12-23.png" alt=""><figcaption><p>Source: CM Network Data Charts</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Coin_Metrics_Network_Data_2022-09-16T12-23.png" alt=""><figcaption><p>Source: CM Network Data Charts</p></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -80,7 +80,7 @@ The ratio of supply held by addresses with less than one ten-millionth of the cu
 
 ### Charts
 
-![](<../../.gitbook/assets/coin\_metrics\_network\_chart (11).png>)
+![](<../../../.gitbook/assets/coin\_metrics\_network\_chart (11).png>)
 
 Of the assets shown above, Bitcoin has the highest SER, followed by Ether and Litecoin. The sustained increase in Bitcoin’s SER shows that, in spite of large institutions entering the space, Bitcoin is still very much a grassroots movement.
 
@@ -143,8 +143,8 @@ Current Supply metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `SplyCur` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}

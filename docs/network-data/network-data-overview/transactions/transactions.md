@@ -41,9 +41,9 @@ The sum count of transactions that day. Transactions represent a bundle of inten
 
 The sum count of transactions divided by the number of seconds that day.
 
-| Name              | MetricID | Category     | Subcategory  | Type | Unit                    | Interval |
-| ----------------- | -------- | ------------ | ------------ | ---- | ----------------------- | -------- |
-| Tx per Second Cnt | TxCntSec | Transactions | Transactions | Sum  | Transactions per second | 1 day    |
+| Name              | MetricID | Unit                    | Interval |
+| ----------------- | -------- | ----------------------- | -------- |
+| Tx per Second Cnt | TxCntSec | Transactions per second | 1 day    |
 
 ### Details
 
@@ -67,9 +67,9 @@ EIP1559 introduced a host of changes to Ethereum's fee mechanism. While this pro
 
 Transactions that are EIP1559-compliant have two portions: a Miner Tip and a Base Fee. Miner Tips represent the portion of the total transaction fees that rewards miners. This serves as an optinal incentive mechanism for miners to prioritize transactions that have opted-in and paid a tip. Base Fees, on the other hand, are mandatory and represent the minimum amount needed to be paid for a transaction to be included in a block. After inclusion, the Base Fee is effectively taken out of circulation, and it is burnt (destroyed).
 
-| Name           | MetricID     | Category     | Subcategory  | Type | Unit         | Interval |
-| -------------- | ------------ | ------------ | ------------ | ---- | ------------ | -------- |
-| EIP1559 Tx Cnt | TxEIP1559Cnt | Transactions | Transactions | Sum  | Transactions | 1 day    |
+| Name           | MetricID     | Unit         | Interval |
+| -------------- | ------------ | ------------ | -------- |
+| EIP1559 Tx Cnt | TxEIP1559Cnt | Transactions | 1 day    |
 
 ### Details
 
@@ -106,9 +106,9 @@ Source: CM Network Data Charts
 
 The mean size (in bytes) per transaction for all transactions that interval.
 
-| Name         | MetricID   | Category     | Subcategory  | Type | Unit  | Interval       |
-| ------------ | ---------- | ------------ | ------------ | ---- | ----- | -------------- |
-| Tx Mean Size | TxMeanByte | Transactions | Transactions | Mean | Bytes | 1 day, 1 block |
+| Name         | MetricID   | Unit  | Interval       |
+| ------------ | ---------- | ----- | -------------- |
+| Tx Mean Size | TxMeanByte | Bytes | 1 day, 1 block |
 
 ### Details
 
@@ -128,9 +128,9 @@ The mean size (in bytes) per transaction for all transactions that interval.
 
 The sum count of transactions in that interval that included at least one OP\_RETURN output. OP\_RETURN outputs are used to embed data into the blockchain database.
 
-| Name              | MetricID   | Category     | Subcategory  | Type | Unit         | Interval |
-| ----------------- | ---------- | ------------ | ------------ | ---- | ------------ | -------- |
-| OP\_RETURN Tx Cnt | TxOpRetCnt | Transactions | Transactions | Sum  | Transactions | 1 day    |
+| Name              | MetricID   | Unit         | Interval |
+| ----------------- | ---------- | ------------ | -------- |
+| OP\_RETURN Tx Cnt | TxOpRetCnt | Transactions | 1 day    |
 
 ### Details
 
@@ -151,9 +151,9 @@ The sum count of transactions in that interval that included at least one OP\_RE
 
 The sum count of transactions using opt-in privacy features that interval. All privacy related features are included (including fully shielding, shielding, deshielding or mixed transactions). Transactions represent a bundle of intended actions to alter the ledger initiated by a user (human or machine). Shielding a transaction hides some or all of the activity described by it to a blockchain observer.
 
-| Name            | MetricID  | Category     | Subcategory  | Type | Unit         | Interval |
-| --------------- | --------- | ------------ | ------------ | ---- | ------------ | -------- |
-| Shielded Tx Cnt | TxShldCnt | Transactions | Transactions | Sum  | Transactions | 1 day    |
+| Name            | MetricID  | Unit         | Interval |
+| --------------- | --------- | ------------ | -------- |
+| Shielded Tx Cnt | TxShldCnt | Transactions | 1 day    |
 
 ### Details
 
@@ -184,9 +184,9 @@ The sum count of transactions using opt-in privacy features that interval. All p
 
 The sum count of transactions using fully shielding privacy features that interval. Only fully shielding transactions are included (transactions with partial or mixed shielding are not included). Transactions represent a bundle of intended actions to alter the ledger initiated by a user (human or machine). Fully shielding a transaction hides all of the activity of a transaction (except for the miner fee it paid).
 
-| Name                  | MetricID      | Category     | Subcategory  | Type | Unit         | Interval |
-| --------------------- | ------------- | ------------ | ------------ | ---- | ------------ | -------- |
-| Fully Shielded Tx Cnt | TxShldFullCnt | Transactions | Transactions | Sum  | Transactions | 1 day    |
+| Name                  | MetricID      | Unit         | Interval |
+| --------------------- | ------------- | ------------ | -------- |
+| Fully Shielded Tx Cnt | TxShldFullCnt | Transactions | 1 day    |
 
 ### Details
 

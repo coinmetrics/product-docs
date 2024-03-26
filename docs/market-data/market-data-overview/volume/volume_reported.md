@@ -1,6 +1,6 @@
 # Reported Volume
 
-The reported volume aggregated across all exchanges in CM's coverage universe. These metrics do not use the [Trusted Exchange Framework](https://coinmetrics.io/special-insights/trusted-exchange-framework) to filter for the most accurate and trustworthy crypto exchanges. See [Trusted Volume](%22volume\_trusted.md%22) for more details on the distinction for trustworthy exchanges.
+The reported volume aggregated across all exchanges in CM's coverage universe. These metrics do not use the [Trusted Exchange Framework](https://coinmetrics.io/special-insights/trusted-exchange-framework) to filter for the most accurate and trustworthy crypto exchanges. See [Trusted Volume](../../volume/%22volume\_trusted.md%22) for more details on the distinction for trustworthy exchanges.
 
 **Contents**
 
@@ -20,11 +20,11 @@ The sum of all reported volume from the spot markets in Coin Metrics' coverage i
 
 ### Details
 
-Our reported volume metric is an aggregation of the reported volume from all exchanges in CM's coverage universe. Covered exchanges can be found [here](../all-exchanges.md).
+Our reported volume metric is an aggregation of the reported volume from all exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
 
 ### Chart
 
-![Spot volume and futures volume](../../.gitbook/assets/Coin\_Metrics\_Network\_Data\_2021-08-26T18-41.png)
+![Spot volume and futures volume](../../../.gitbook/assets/Coin\_Metrics\_Network\_Data\_2021-08-26T18-41.png)
 
 ### Examples
 
@@ -59,11 +59,11 @@ The sum of all reported future volume from the spot markets in Coin Metrics' cov
 
 ### Details
 
-Our reported future volume metric is an aggregation of the reported future volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](../all-exchanges.md).
+Our reported future volume metric is an aggregation of the reported future volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
 
 ### Chart
 
-![Spot volume and futures volume](../../.gitbook/assets/Coin\_Metrics\_Network\_Data\_2021-08-26T18-41.png)
+![Spot volume and futures volume](../../../.gitbook/assets/Coin\_Metrics\_Network\_Data\_2021-08-26T18-41.png)
 
 ### Release History
 
@@ -71,7 +71,7 @@ Our reported future volume metric is an aggregation of the reported future volum
 
 ### See Also
 
-* [Futures Contract Specifications](../market-metadata.md)
+* [Futures Contract Specifications](../../market-metadata.md)
 
 ## Reported Perpetual Future Volume <a href="#volume_reported_future_perpetual" id="volume_reported_future_perpetual"></a>
 
@@ -84,7 +84,7 @@ The sum of all reported volume from perpetual futures markets in units of U.S. d
 
 ### Details
 
-Our perpetual future volume metric is an aggregation of the reported perpetual futures volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](../all-exchanges.md).
+Our perpetual future volume metric is an aggregation of the reported perpetual futures volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
 
 ### Release History
 
@@ -92,7 +92,7 @@ Our perpetual future volume metric is an aggregation of the reported perpetual f
 
 ### See Also
 
-* [Futures Contract Specifications](../market-metadata.md)
+* [Futures Contract Specifications](../../market-metadata.md)
 
 ### Availability for Assets
 
@@ -109,7 +109,7 @@ The sum of all reported volume from non-perpetual futures markets in units of U.
 
 ### Details
 
-Our non-perpetual future volume metric is an aggregation of the reported non-perpetual futures volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](../all-exchanges.md).
+Our non-perpetual future volume metric is an aggregation of the reported non-perpetual futures volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
 
 ### Release History
 
@@ -117,7 +117,7 @@ Our non-perpetual future volume metric is an aggregation of the reported non-per
 
 ### See Also
 
-* [Futures Contract Specifications](../market-metadata.md)
+* [Futures Contract Specifications](../../market-metadata.md)
 
 ### Availability for Assets
 
@@ -134,7 +134,7 @@ The sum of all reported volume from futures markets where the margin asset is eq
 
 ### Details
 
-Our reported coin-margined future volume metric is an aggregation of the reported coin-margined future volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](../all-exchanges.md).
+Our reported coin-margined future volume metric is an aggregation of the reported coin-margined future volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
 
 ## Reported Tether-Margined Future Volume <a href="#volume_reported_tether_margined" id="volume_reported_tether_margined"></a>
 
@@ -146,7 +146,7 @@ The sum of all reported volume from futures markets where the margin asset is Te
 
 ### Details
 
-Our reported Tether-margined future volume metric is an aggregation of the reported Tether-margined future volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](../all-exchanges.md).
+Our reported Tether-margined future volume metric is an aggregation of the reported Tether-margined future volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
 
 ### Release History
 
@@ -154,7 +154,7 @@ Our reported Tether-margined future volume metric is an aggregation of the repor
 
 ### See Also
 
-* [Futures Contract Specifications](../market-metadata.md)
+* [Futures Contract Specifications](../../market-metadata.md)
 
 ### Availability for Assets
 
@@ -171,18 +171,18 @@ All reported volume metrics can be queried using the following endpoints:
 
 and by passing in `volume_reported_*` metric ID's in the the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}

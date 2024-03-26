@@ -2,7 +2,7 @@
 description: /timeseries/market-greeks
 ---
 
-# Market Greeks
+# Greeks
 
 ## **Definition**
 
@@ -22,14 +22,13 @@ Exchanges report the following greeks:
 
 Market Greeks can be accessed using the `timeseries/market-greeks` endpoint.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-greeks" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-greeks" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
-
 
 ## Chart
 
-<figure><img src="../../.gitbook/assets/ATM-Option-Chain.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ATM-Option-Chain.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>
 
 ## **Example**
 
@@ -60,32 +59,14 @@ A sample of the options greeks data from our [`/timeseries/market-greeks`](https
   },
 ```
 
-
-
-*   **`market`**:  The id of the market. Market ids use the following naming convention for options markets: `exchangeName-optionsSymbol-option`&#x20;
-
-
-*   **`time`**: The time at which Coin Metrics queried the implied volatility data from an exchange in ISO 8601 date-time format. Always with nanoseconds precision.
-
-
-*   **`database_time`**:  The timestamp when the data was saved in the database in ISO 8601 date-time format with nanoseconds precision. Always with nanoseconds precision.
-
-
-*   **`exchange_time`**:  The timestamp reported by the exchange.  Can be null if the exchange does not report a timestamp.
-
-
-*   **`vega`**: The first derivative of the option’s price to the volatility of the underlying asset’s price.
-
-
-*   **`theta`**: The first derivative of the option’s price to the passage of time.
-
-
-*   **`rho`**: The first derivative of the option’s price to the risk free interest rate.
-
-
-*   **`delta`**: The first derivative of the option’s price to the underlying asset’s price.
-
-
+* **`market`**: The id of the market. Market ids use the following naming convention for options markets: `exchangeName-optionsSymbol-option`
+* **`time`**: The time at which Coin Metrics queried the implied volatility data from an exchange in ISO 8601 date-time format. Always with nanoseconds precision.
+* **`database_time`**: The timestamp when the data was saved in the database in ISO 8601 date-time format with nanoseconds precision. Always with nanoseconds precision.
+* **`exchange_time`**: The timestamp reported by the exchange. Can be null if the exchange does not report a timestamp.
+* **`vega`**: The first derivative of the option’s price to the volatility of the underlying asset’s price.
+* **`theta`**: The first derivative of the option’s price to the passage of time.
+* **`rho`**: The first derivative of the option’s price to the risk free interest rate.
+* **`delta`**: The first derivative of the option’s price to the underlying asset’s price.
 * **`gamma`**: The second derivative of the option’s price to the underlying asset’s price.
 
 ## Release History

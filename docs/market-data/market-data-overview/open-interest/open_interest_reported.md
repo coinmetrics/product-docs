@@ -18,7 +18,7 @@ The sum of all reported open interested from futures markets where the margin as
 
 ### Details
 
-Our reported coin-margined future open interest metric is an aggregation of the reported coin-margined future open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](../all-exchanges.md).
+Our reported coin-margined future open interest metric is an aggregation of the reported coin-margined future open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
 
 ### Release History
 
@@ -26,9 +26,9 @@ Our reported coin-margined future open interest metric is an aggregation of the 
 
 ### See Also
 
-* [Futures Contract Specifications](../market-metadata.md)
+* [Futures Contract Specifications](../../market-metadata.md)
 * [Market Open Interest](market-open-interest.md)
-* [Reported Coin-Margined Future Volume](../volume/volume\_reported\_future\_coin\_margined\_usd\_1d.md)
+* [Reported Coin-Margined Future Volume](../../volume/volume\_reported\_future\_coin\_margined\_usd\_1d.md)
 
 ### Availability for Assets
 
@@ -47,7 +47,7 @@ The sum of all reported open interest from non-perpetual futures markets in unit
 
 ### Details
 
-Our non-perpetual future open interest metric is an aggregation of the reported non-perpetual futures open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](../all-exchanges.md).
+Our non-perpetual future open interest metric is an aggregation of the reported non-perpetual futures open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
 
 ### Release History
 
@@ -55,9 +55,9 @@ Our non-perpetual future open interest metric is an aggregation of the reported 
 
 ### See Also
 
-* [Futures Contract Specifications](../market-metadata.md)
-* [Market Open Interest](../market-open-interest.md)
-* [Reported Non-Perpetual Future Volume](../volume/volume\_reported\_future\_nonperpetual\_usd\_1d.md)
+* [Futures Contract Specifications](../../market-metadata.md)
+* [Market Open Interest](../../market-open-interest.md)
+* [Reported Non-Perpetual Future Volume](../../volume/volume\_reported\_future\_nonperpetual\_usd\_1d.md)
 
 ### Availability for Assets
 
@@ -76,7 +76,7 @@ The sum of all reported open interest from perpetual futures markets in units of
 
 ### Details
 
-Our perpetual future open interest metric is an aggregation of the reported perpetual futures open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](../all-exchanges.md).
+Our perpetual future open interest metric is an aggregation of the reported perpetual futures open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
 
 ### Release History
 
@@ -84,9 +84,9 @@ Our perpetual future open interest metric is an aggregation of the reported perp
 
 ### See Also
 
-* [Futures Contract Specifications](../../market-data-timeseries/market-metadata.md)
-* [Market Open Interest](../../market-data-timeseries/market-open-interest.md)
-* [Reported Perpetual Future Volume](../volume/volume\_reported\_future\_perpetual\_usd\_1d.md)
+* [Futures Contract Specifications](../../../market-data-timeseries/market-metadata.md)
+* [Market Open Interest](../../../market-data-timeseries/market-open-interest.md)
+* [Reported Perpetual Future Volume](../../volume/volume\_reported\_future\_perpetual\_usd\_1d.md)
 
 ### Availability for Assets
 
@@ -102,7 +102,7 @@ The sum of all reported open interest from futures markets where the margin asse
 
 ### Details
 
-Our reported Tether-margined future open interest metric is an aggregation of the reported Tether-margined future open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](../all-exchanges.md).
+Our reported Tether-margined future open interest metric is an aggregation of the reported Tether-margined future open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
 
 ### Release History
 
@@ -110,9 +110,9 @@ Our reported Tether-margined future open interest metric is an aggregation of th
 
 ### See Also
 
-* [Futures Contract Specifications](../market-metadata.md)
+* [Futures Contract Specifications](../../market-metadata.md)
 * [Market Open Interest](market-open-interest.md)
-* [Reported Tether-Margined Future Volume](../volume/volume\_reported\_future\_tether\_margined\_usd\_1d.md)
+* [Reported Tether-Margined Future Volume](../../volume/volume\_reported\_future\_tether\_margined\_usd\_1d.md)
 
 ### Availability for Assets
 
@@ -128,7 +128,7 @@ The sum of all reported future open interest from the spot markets in Coin Metri
 
 ### Details
 
-Our reported future open interest metric is an aggregation of the reported future open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](../all-exchanges.md).
+Our reported future open interest metric is an aggregation of the reported future open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
 
 ### Release History
 
@@ -149,18 +149,18 @@ All reported open interest metrics can be queried using the following endpoints:
 
 and by passing in `open_interest_reported_*` metric ID's in the the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}

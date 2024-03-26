@@ -8,9 +8,9 @@ description: /timeseries/defi-balance-sheets
 The DeFi balance sheets endpoint has been released as a [CM Labs](https://docs.coinmetrics.io/cm-labs) project. Breaking changes may be introduced with minimal notice. Please exercise caution given the endpoint's experimental nature.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/DEFI-screenshots (1).png" alt=""><figcaption><p>Example of AAVE Balance Sheet metrics</p></figcaption></figure>
+<figure><img src=".gitbook/assets/DEFI-screenshots%20(1).png" alt=""><figcaption><p>Example of AAVE Balance Sheet metrics</p></figcaption></figure>
 
-Coin Metrics collects various data from DeFi protocols and we serve this data in the form of DeFi balance sheets from our  [`/timeseries/defi-balance-sheets`](https://docs.coinmetrics.io/api/v4#operation/getDefiBalanceSheets) API endpoint.&#x20;
+Coin Metrics collects various data from DeFi protocols and we serve this data in the form of DeFi balance sheets from our [`/timeseries/defi-balance-sheets`](https://docs.coinmetrics.io/api/v4#operation/getDefiBalanceSheets) API endpoint.
 
 ## Protocol Coverage
 
@@ -20,7 +20,7 @@ The protocols covered in our DeFi balance sheets endpoint are listed below:
 
 ## Endpoint Response
 
-The [`/timeseries/defi-balance-sheets`](https://docs.coinmetrics.io/api/v4#operation/getDefiBalanceSheetshttps://docs.coinmetrics.io/api/v4#operation/getDefiBalanceSheets) endpoint returns time series data for each DeFi protocol requested.  The response is formatted as follows:
+The [`/timeseries/defi-balance-sheets`](https://docs.coinmetrics.io/api/v4#operation/getDefiBalanceSheetshttps://docs.coinmetrics.io/api/v4#operation/getDefiBalanceSheets) endpoint returns time series data for each DeFi protocol requested. The response is formatted as follows:
 
 | Field                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -41,7 +41,7 @@ The [`/timeseries/defi-balance-sheets`](https://docs.coinmetrics.io/api/v4#opera
 | `current_ratio`              | <p>If users make the assumption that a DeFi lender's liabilities (deposited capital from</p><p>Aave users) can mostly be considered short-term liabilities, then the current ratio can be</p><p>conservatively approximated by TVL (<em>tvl_total_usd</em>) / Total Liabilities</p><p>(<em>liabilities_total_usd</em>), which is the same as the Liquid Supply Ratio above.</p>                                                                                                                                                                                          |
 | `debt_to_assets_ratio`       | <p>The Debt to Assets Ratio represents the ratio between Total Liabilities</p><p>(<em>liabilities_total_usd</em>) and Total Assets (<em>assets_total_usd</em>). For many</p><p>protocols, especially lending platforms, this ratio is expected to always be close to 1</p><p>given the dynamics of DeFi loans.</p>                                                                                                                                                                                                                                                       |
 
-&#x20;A sample of DeFi balance sheet data in json format is provided below.
+A sample of DeFi balance sheet data in json format is provided below.
 
 ```
 {

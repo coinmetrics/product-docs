@@ -26,18 +26,17 @@ Options markets also trade in standardized contracts similar to futures markets 
 
 Market Metadata can be accessed using the `reference-data/markets` and `catalog/markets` endpoint.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/reference-data/markets" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/reference-data/markets" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/catalog/markets" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/catalog/markets" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
-
 
 ## **Example**
 
-A sample of the futures and options contract specification data from our [`/catalog/markets`](https://docs.coinmetrics.io/api/v4#operation/getCatalogMarkets) and [`/catalog-all/markets`](https://docs.coinmetrics.io/api/v4#operation/getCatalogAllMarkets) API endpoints is shown below.&#x20;
+A sample of the futures and options contract specification data from our [`/catalog/markets`](https://docs.coinmetrics.io/api/v4#operation/getCatalogMarkets) and [`/catalog-all/markets`](https://docs.coinmetrics.io/api/v4#operation/getCatalogAllMarkets) API endpoints is shown below.
 
 ```
 {
@@ -136,111 +135,75 @@ A sample of the futures and options contract specification data from our [`/cata
 }
 ```
 
-* **`market`**:  Unique name of the market. \
-
-* **`min_time`**:  Minimal available time for data from this market in ISO 8601 date-time format.\
-
-* **`max_time`**:  Maximal available time for data from this market in ISO 8601 date-time format.\
-
-* **`exchange`**: Name of the exchange.\
-
-* **`type`**: The type of the market. Can take values `spot` or `future` or `option`.\
-
-* **`base`**:  The contract’s underlying base asset.\
-
-* **`quote`**:  The contract's underlying quote asset.\
-
-* **`symbol`**: The exchange-reported symbol for the market.\
-
-* **`status`**: Indicates whether the market is online. Can only take values `online` or `offline`.\
-
-* **`order_amount_increment`**: The minimum increment that the trade amount of an order can change in units of the base currency if a spot market or in contract units if a derivatives market.\
-
-* **`order_amount_min`**: The minimum trade amount of an order in units of the base currency if a spot market or in contract units if a derivatives market.\
-
-* **`order_amount_max`**: The maximum trade amount of an order in units of the base currency if a spot market or in contract units if a derivatives market.\
-
-* **`order_price_increment`**: The minimum increment that the price of an order can change. The price is quoted in units of the quote currency.\
-
-* **`order_price_min`**: The minimum price of an order. The price is quoted in units of the quote currency.\
-
-* **`order_price_max`**: The maximum price of an order. The price is quoted in units of the quote currency.\
-
-* **`order_size_min`**: The minimum order size amount in units of the quote currency. The order size is the order amount multiplied by the order price.\
-
-* **`order_taker_fee`**: The taker order fee in raw units (not percent units).\
-
-* **`order_maker_fee`**: The maker order fee in raw units (not percent units).\
-
-* **`market_margin_trading_enabled`**: Indicates whether the market allows margin trading. Can take values `true` or `false`.\
-
-* **`size_asset`**: The asset that the contract’s size is denominated in.\
-
-* **`margin_asset`**:  The name of the asset that the contract’s margin is denominated in.\
-
-* **`contract_size`**:   The number of units of `size_asset` that one contract represents. \
-
-* **`tick_size`**:  The minimum price increment of the contract’s price.\
-
-* **`listing`**:  The timestamp that the contract first became available for trading\
-
-* **`expiration`**:  The timestamp that the contract expires; equals null if the contract is a perpetual future that never expires.\
-
-* **`is_european`**: Shows if the options contract is european or not.\
-
-* **`option_contract_type`**: The type of option. Can take values `call` or `put`.\
-
-* **`strike`**: Strike price for option contract.\
-
+* **`market`**: Unique name of the market. \\
+* **`min_time`**: Minimal available time for data from this market in ISO 8601 date-time format.\\
+* **`max_time`**: Maximal available time for data from this market in ISO 8601 date-time format.\\
+* **`exchange`**: Name of the exchange.\\
+* **`type`**: The type of the market. Can take values `spot` or `future` or `option`.\\
+* **`base`**: The contract’s underlying base asset.\\
+* **`quote`**: The contract's underlying quote asset.\\
+* **`symbol`**: The exchange-reported symbol for the market.\\
+* **`status`**: Indicates whether the market is online. Can only take values `online` or `offline`.\\
+* **`order_amount_increment`**: The minimum increment that the trade amount of an order can change in units of the base currency if a spot market or in contract units if a derivatives market.\\
+* **`order_amount_min`**: The minimum trade amount of an order in units of the base currency if a spot market or in contract units if a derivatives market.\\
+* **`order_amount_max`**: The maximum trade amount of an order in units of the base currency if a spot market or in contract units if a derivatives market.\\
+* **`order_price_increment`**: The minimum increment that the price of an order can change. The price is quoted in units of the quote currency.\\
+* **`order_price_min`**: The minimum price of an order. The price is quoted in units of the quote currency.\\
+* **`order_price_max`**: The maximum price of an order. The price is quoted in units of the quote currency.\\
+* **`order_size_min`**: The minimum order size amount in units of the quote currency. The order size is the order amount multiplied by the order price.\\
+* **`order_taker_fee`**: The taker order fee in raw units (not percent units).\\
+* **`order_maker_fee`**: The maker order fee in raw units (not percent units).\\
+* **`market_margin_trading_enabled`**: Indicates whether the market allows margin trading. Can take values `true` or `false`.\\
+* **`size_asset`**: The asset that the contract’s size is denominated in.\\
+* **`margin_asset`**: The name of the asset that the contract’s margin is denominated in.\\
+* **`contract_size`**: The number of units of `size_asset` that one contract represents. \\
+* **`tick_size`**: The minimum price increment of the contract’s price.\\
+* **`listing`**: The timestamp that the contract first became available for trading\\
+* **`expiration`**: The timestamp that the contract expires; equals null if the contract is a perpetual future that never expires.\\
+* **`is_european`**: Shows if the options contract is european or not.\\
+* **`option_contract_type`**: The type of option. Can take values `call` or `put`.\\
+* **`strike`**: Strike price for option contract.\\
 * **`settlement_price`**: The settlement price of a derivatives contract at expiration. Only populated for derivatives markets that have expired. Also sometimes referred to as "delivery price".
 
-## Frequently Asked Questions&#x20;
+## Frequently Asked Questions
 
 ### Do all exchanges offer these metadata fields?
 
 Exchanges vary in which fields they offer through their API. If an exchange does not offer a particular field, Coin Metrics will consult the exchange's published documentation and manually populate some fields. If neither the exchange's API nor documentation can be used to populate a field, then that field is omitted from the response for that particular market.
 
-### **Is the `margin_asset` the asset of settlement?**&#x20;
+### **Is the `margin_asset` the asset of settlement?**
 
-Yes, the `margin_asset` is the asset of settlement. A trader must post this asset as the initial margin when opening a position**.** Unrealized gains and losses are calculated in this asset, and a trader receives gains or losses denominated in this asset when the trader closes the position or the contract expires.&#x20;
+Yes, the `margin_asset` is the asset of settlement. A trader must post this asset as the initial margin when opening a position\*\*.\*\* Unrealized gains and losses are calculated in this asset, and a trader receives gains or losses denominated in this asset when the trader closes the position or the contract expires.
 
 ### **Is there a way to filter between perpetual, coin-margined, and tether-margined futures in the catalog?**
 
 We are working on adding filtering parameters for the various futures contract types. In the meantime, perp contracts can be identified by null `expiration` time. Coin margined contracts can be identified where the `base` is identical to `margin_asset`. Tether margined contracts can be identified where the `margin_asset` is `usdt`.
 
-## Harmonization Discussion&#x20;
+## Harmonization Discussion
 
 Harmonization of derivatives contracts in the cryptoasset domain is difficult because there is wide disparity in contract design and exchange conventions. Some of the sources of difficulty include:
 
-* The margin asset can be in the form of the underlying base asset, a stablecoin such as Tether, or a fiat currency. \
-
-* The contract size (the amount of notional exposure that a single contract is worth) can be in the form of varying units such as the underlying base asset or a fiat currency. Some exchanges use exotic futures design (such as BitMEX's quanto contracts) where the contract size is not fixed but rather a function of the current price. \
-
-* Some exchanges offer exotic futures contracts where the underlying is not a cryptoasset. Instead, it could be a custom index, an equity, or something else like Bitcoin's hash rate. \
-
-* Some exchanges hide the complexity involved with contract sizes and do not use contract sizes. Instead, they allow users to define the amount of units of the underlying base asset when trading and allow users to purchase fractional contracts (representing fractional units of the underlying) to simulate spot trading. Other exchanges explicitly define contract sizes and do not allow users to purchase fractional contracts.\
-
-* Some exchanges separate perpetual swap contracts that have no expiration date and traditional futures contracts with a specified expiration date. These exchanges serve contract information via two different endpoints with different response schema.\
-
+* The margin asset can be in the form of the underlying base asset, a stablecoin such as Tether, or a fiat currency. \\
+* The contract size (the amount of notional exposure that a single contract is worth) can be in the form of varying units such as the underlying base asset or a fiat currency. Some exchanges use exotic futures design (such as BitMEX's quanto contracts) where the contract size is not fixed but rather a function of the current price. \\
+* Some exchanges offer exotic futures contracts where the underlying is not a cryptoasset. Instead, it could be a custom index, an equity, or something else like Bitcoin's hash rate. \\
+* Some exchanges hide the complexity involved with contract sizes and do not use contract sizes. Instead, they allow users to define the amount of units of the underlying base asset when trading and allow users to purchase fractional contracts (representing fractional units of the underlying) to simulate spot trading. Other exchanges explicitly define contract sizes and do not allow users to purchase fractional contracts.\\
+* Some exchanges separate perpetual swap contracts that have no expiration date and traditional futures contracts with a specified expiration date. These exchanges serve contract information via two different endpoints with different response schema.\\
 * Some exchanges do not provide all contract specification data via their API but instead define it in documentation.
 
-We harmonize the data in the following way:&#x20;
+We harmonize the data in the following way:
 
-* For exchanges that do not explicitly define the contract size and implicitly use a contract size of 1 unit of the underlying base asset, we set the contract size to 1.\
-
+* For exchanges that do not explicitly define the contract size and implicitly use a contract size of 1 unit of the underlying base asset, we set the contract size to 1.\\
 * In instances where the exchange's API does not contain all fields that we wish to capture, we consult the exchange's documentation and manually populate the data.
 
 ## Release History
 
-* [**CM MDF v2.2 on December 2, 2020**](https://coinmetrics.io/cm-market-data-feed-futures-data-expansion/)**:** Added futures contract specification data for Binance, BitMEX, bitFlyer, Bitfinex, Deribit, FTX, Huobi, and OKEx.\
-
-* [**CM MDF v2.3 on April 25, 2021**](https://coinmetrics.io/cm-market-data-feed-v2-3-release-notes/): Added futures contract specifications data for CME and Bybit. Added options contract specifications for Deribit and OKEx.\
-
+* [**CM MDF v2.2 on December 2, 2020**](https://coinmetrics.io/cm-market-data-feed-futures-data-expansion/)**:** Added futures contract specification data for Binance, BitMEX, bitFlyer, Bitfinex, Deribit, FTX, Huobi, and OKEx.\\
+* [**CM MDF v2.3 on April 25, 2021**](https://coinmetrics.io/cm-market-data-feed-v2-3-release-notes/): Added futures contract specifications data for CME and Bybit. Added options contract specifications for Deribit and OKEx.\\
 * [**CM MDF v2.7 on October 24, 2022**](https://coinmetrics.io/cm-market-data-feed-v2-7-release-notes/): Added settlement price for option markets.
 
 ## **Availability**
 
-Contract specification data is available through our community API.  Community data is available via HTTP API only and is limited to 10 API requests per 6 seconds per IP address. All of our contract specification data is available through our professional API with higher rate limits.
+Contract specification data is available through our community API. Community data is available via HTTP API only and is limited to 10 API requests per 6 seconds per IP address. All of our contract specification data is available through our professional API with higher rate limits.
 
 The contract specifications and our coverage can be found by querying our [`/catalog/markets`](https://docs.coinmetrics.io/api/v4#operation/getCatalogMarkets) or [`/catalog-all/markets`](https://docs.coinmetrics.io/api/v4#operation/getCatalogAllMarkets) API endpoints.
 

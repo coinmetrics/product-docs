@@ -26,8 +26,8 @@ Liquidity slippage metrics can be accessed using the following endpoints:
 
 * `timeseries/market-metrics`
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 ## Examples

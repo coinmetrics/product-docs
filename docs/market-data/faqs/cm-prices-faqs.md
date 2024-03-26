@@ -4,8 +4,8 @@
 
 The CM Prices are collectively governed by rules-based methodologies described in [Coin Metrics Prices Methodology](https://docs.coinmetrics.io/market-data/methodologies/coin-metrics-prices-methodology) which describes our Market Selection Framework, a systematic method of producing a unique set of constituent markets for each asset, our data sources, calculation algorithm, and contingency rules..
 
-{% content-ref url="methodologies/coin-metrics-prices-methodology.md" %}
-[coin-metrics-prices-methodology.md](methodologies/coin-metrics-prices-methodology.md)
+{% content-ref url="../methodologies/coin-metrics-prices-methodology.md" %}
+[coin-metrics-prices-methodology.md](../methodologies/coin-metrics-prices-methodology.md)
 {% endcontent-ref %}
 
 ### **Is there a difference between the metrics ReferenceRate and ReferenceRateUSD?**
@@ -22,9 +22,9 @@ Our typical calculation latency is approximately 60 ms. A small amount of time i
 
 ### **When pulling ReferenceRateUSD and ReferenceRateEUR along with other metrics (like PriceUSD or FeeMeanNTV), the reference rates are updated with data up to the current date while other metrics are only updated to yesterday’s date. Why are these data fields assigned different dates?**
 
-We use two different timestamp conventions for our metrics. Some metrics, like `PriceUSD`, use the "start-of-interval" timestamp, which represents the beginning of a time interval. The majority of our network data metrics represent a summary statistic over a daily time interval.&#x20;
+We use two different timestamp conventions for our metrics. Some metrics, like `PriceUSD`, use the "start-of-interval" timestamp, which represents the beginning of a time interval. The majority of our network data metrics represent a summary statistic over a daily time interval.
 
-For example, suppose our `FeeMeanNTV` metric, which represents mean fees over an interval of a day, has a timestamp of `2020-12-10 00:00:00`. The `FeeMeanNtv` value represents the mean of fees that occurred from `2020-12-10 00:00:00` to `2020-12-10 23:59:99.999999`.&#x20;
+For example, suppose our `FeeMeanNTV` metric, which represents mean fees over an interval of a day, has a timestamp of `2020-12-10 00:00:00`. The `FeeMeanNtv` value represents the mean of fees that occurred from `2020-12-10 00:00:00` to `2020-12-10 23:59:99.999999`.
 
 Other metrics, like `ReferenceRate` (and many other data types like trades, open interest and order book), use the "point-in-time" timestamp convention, where timestamp is set to the specific timestamp of the measurement or event. This is because we want to generate a price at a specific point in time.
 
@@ -32,7 +32,7 @@ When you compare something that uses the "point-in-time" convention with somethi
 
 For more information, please see [What timestamp conventions does Coin Metrics use?](https://docs.coinmetrics.io/market-data/market-data-faqs#what-timestamp-conventions-does-coin-metrics-use)
 
-### **What is the difference between your Reference Rates and a volume-weighted average price?**&#x20;
+### **What is the difference between your Reference Rates and a volume-weighted average price?**
 
 Our CM Reference Rates utilize volume-weighted median, time-weighted average, and inverse price variance-weighted median techniques.
 
@@ -42,8 +42,8 @@ ReferenceRate with frequency 1m or 1s or 200ms extract the most recent trade fro
 
 The CM Prices are collectively governed by rules-based methodologies described in [Coin Metrics Prices Methodology](https://docs.coinmetrics.io/market-data/methodologies/coin-metrics-prices-methodology) which describes our Market Selection Framework, a systematic method of producing a unique set of constituent markets for each asset, our data sources, calculation algorithm, and contingency rules.
 
-{% content-ref url="methodologies/coin-metrics-prices-methodology.md" %}
-[coin-metrics-prices-methodology.md](methodologies/coin-metrics-prices-methodology.md)
+{% content-ref url="../methodologies/coin-metrics-prices-methodology.md" %}
+[coin-metrics-prices-methodology.md](../methodologies/coin-metrics-prices-methodology.md)
 {% endcontent-ref %}
 
 ### What do the frequency parameters `1d` and `1d-ny-close` mean?
@@ -53,4 +53,3 @@ Our CM Prices are served through our [/timeseries/asset-metrics](https://docs.co
 The `1d` frequency represents a daily frequency that ends at 00:00:00 in the UTC timezone and the `1d-ny-close` represents a daily frequency that ends at 16:00:00 in the America/New\_York timezone. These timestamps are not altered for weekends or holidays.
 
 Please also see our FAQ on [What timestamp conventions does Coin Metrics use?](https://docs.coinmetrics.io/market-data/market-data-faqs#what-timestamp-conventions-does-coin-metrics-use) for more information.
-

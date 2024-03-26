@@ -84,7 +84,7 @@ Supply can be broken down in a variety of ways with Current supply representing 
 * PuellMulCont
 * PuellMulTot
 
-[**Miner Revenue**](miner-revenue.md)
+[**Miner Revenue**](../../supply/miner-revenue.md)
 
 * PuellMulRev
 

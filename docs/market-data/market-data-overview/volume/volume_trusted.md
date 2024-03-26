@@ -15,8 +15,8 @@ Our trusted volume metric is an aggregation of the reported volume from exchange
 
 Trusted Spot Volume can be accessed using the `timeseries/asset-metrics` or `timeseries/pair-metrics` endpoints by passing `volume_trusted_spot_usd_1d` or `volume_trusted_spot_usd_1h` into the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}
@@ -50,8 +50,8 @@ print(
 {% endtab %}
 {% endtabs %}
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}
@@ -87,7 +87,7 @@ print(
 
 ## Chart
 
-![Trusted volume as a portion of total volume](../../.gitbook/assets/BTC\_Trusted\_and\_Non-Trusted\_Volume.png)
+![Trusted volume as a portion of total volume](../../../.gitbook/assets/BTC\_Trusted\_and\_Non-Trusted\_Volume.png)
 
 ## Examples
 
@@ -113,8 +113,8 @@ Fake trading volume is a persistent problem on crypto exchanges. With little reg
 
 ## See Also
 
-* [Trusted Volume Framework](https://coinmetrics.io/q3-refresh-of-trusted-spot-volume-framework/)
-* [Reported Spot Volume](volume\_reported\_spot\_usd\_1d.md)
+* [Trusted Volume Framework](https://coinmetrics.io/special-insights/trusted-exchange-framework)
+* [Reported Spot Volume](../../volume/volume\_reported\_spot\_usd\_1d.md)
 
 ## Availability for Assets
 
