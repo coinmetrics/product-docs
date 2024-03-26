@@ -2,7 +2,7 @@
 description: /timeseries/market-trades
 ---
 
-# Market Trades
+# Trades
 
 ## **Definition**
 
@@ -16,12 +16,11 @@ Coin Metrics collects trades data from **spot**, **future**, and **option** mark
 
 ## **API Endpoints**
 
-Market trades can be accessed using the `timeseries/market-trades` endpoint. 
+Market trades can be accessed using the `timeseries/market-trades` endpoint.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-trades" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-trades" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
-
 
 ## **Example**
 
@@ -118,8 +117,8 @@ We are currently supporting all major liquidity pools on Uniswap v2, Uniswap v3,
 
 Please take a look at this question in the Market Data FAQs page linked below.
 
-{% content-ref url="../market-data/market-data-faqs.md" %}
-[market-data-faqs.md](../market-data/market-data-faqs.md)
+{% content-ref url="../../market-data/market-data-faqs.md" %}
+[market-data-faqs.md](../../market-data/market-data-faqs.md)
 {% endcontent-ref %}
 
 ## **Release History**
