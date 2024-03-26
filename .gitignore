@@ -32,3 +32,6 @@ yarn-error.log*
 
 choco.sh
 .idea*
+knowledge-base/lib/python3.8/*
+knowledge-base/bin/*
+.vscode/*
