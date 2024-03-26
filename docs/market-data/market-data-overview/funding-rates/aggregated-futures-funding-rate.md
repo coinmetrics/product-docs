@@ -70,7 +70,7 @@ Aggregate Futures Funding Rates can be accessed using the `timeseries/asset-metr
 
 * **`asset`**: The id of the asset.\\
 * **`time`**: The exchange-reported time in ISO 8601 date-time format. Always with nanoseconds precision.\\
-* **`futures_aggregate_funding_rate_all_margin_8h_period](https://coverage.coinmetrics.io/search-results?query=)`**: The weighted-average funding rate.
+* **`futures_aggregate_funding_rate_all_margin_8h_period`**: The weighted-average funding rate.
 
 ## Release History
 
