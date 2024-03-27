@@ -28,6 +28,8 @@
 ## Network Data
 
 * [Network Data Overview](network-data/network-data-overview/network-data-overview.md)
+  * [Availability](network-data/availability/README.md)
+    * [Asset Completion Time](network-data/availability/asseteodcompletiontime.md)
   * [Addresses](network-data/network-data-overview/addresses/README.md)
     * [Active Addresses](network-data/network-data-overview/addresses/active-addresses.md)
     * [Address Balances](network-data/network-data-overview/addresses/address-balances.md)
@@ -51,6 +53,7 @@
     * [Returns](network-data/network-data-overview/market/returns.md)
     * [Volatility](network-data/network-data-overview/market/volatility.md)
   * [Key Risk Indicator (KRI) Feed](network-data/network-data-overview/key-risk-indicator-kri-feed/kri.md)
+    * [Blocks](network-data/network-data-overview/key-risk-indicator-kri-feed/blocks.md)
     * [Block Attributes](network-data/network-data-overview/key-risk-indicator-kri-feed/block-attributes.md)
     * [Block Size](network-data/network-data-overview/key-risk-indicator-kri-feed/block-size.md)
     * [Block Times](network-data/network-data-overview/key-risk-indicator-kri-feed/block-times.md)

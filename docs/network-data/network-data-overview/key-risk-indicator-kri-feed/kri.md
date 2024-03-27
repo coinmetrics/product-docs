@@ -37,6 +37,7 @@ See:
 * block\_count\_at\_tip
 * block\_count\_by\_same\_miner\_6b
 * block\_count\_by\_unknown\_miners\_6b
+* block\_count\_without\_segwit
 
 [**Empty Blocks**](empty-blocks.md)
 

@@ -5,9 +5,9 @@
 The time that the last metric for the asset was calculated, indicating that all metrics for that asset have been calculated  \
 
 
-| Name             | MetricID               | Category     | Subcategory | Type      | Unit         | Interval |
-| ---------------- | ---------------------- | ------------ | ----------- | --------- | ------------ | -------- |
-| Completion Time  | AssetEODCompletionTime | Availability | NA          | Timestamp | EPOC seconds | 1d       |
+| Name             | MetricID               | Unit         | Interval |
+| ---------------- | ---------------------- | ------------ | -------- |
+| Completion Time  | AssetEODCompletionTime | EPOC seconds | 1d       |
 
 ## Details
 
