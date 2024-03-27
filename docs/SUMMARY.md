@@ -104,7 +104,7 @@
   * [Wallets](network-data/network-data-overview/wallets/README.md)
     * [Active Wallets](network-data/network-data-overview/wallets/active-wallets.md)
     * [Wallet Balances](network-data/network-data-overview/wallets/wallet-balances.md)
-* [Atlas Overview](network-data/atlas-overview/README.md)
+* [Atlas Overview](network-data/atlas-overview/atlas-overview.md)
   * [Accounts](network-data/atlas/accounts.md)
   * [Account Balance](network-data/atlas/account-balance.md)
   * [Blocks](network-data/atlas/blocks/README.md)
