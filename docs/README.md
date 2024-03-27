@@ -11,7 +11,6 @@ Welcome to **Coin Metrics Data Encyclopedia**. At Coin Metrics, we organize the 
 ### [Network Data Pro (NDP)](https://coinmetrics.io/network-data-pro/)
 
 * **Network Data Pro** is a data feed of insightful, aggregate network data metrics for all of the top cryptoassets. These metrics are available with an API key through our [API](broken-reference) via the `/timeseries/asset-metrics` endpoint or through our [Data Visualization](charting-tools/data-visualization/) tools or [CM Pro Charts](data-visualization/cmpro/). All Network Data metrics are described below in the [**Asset Metrics (Time Series)** ](asset-metrics/asset-metrics-overview.md)section.
-* **Network Data Community** ([Data Downloads, ](https://coinmetrics.io/community-network-data/)Community [API](broken-reference), [Data Visualization](charting-tools/data-visualization/)) is a subset of our Network Data Pro data available for free for community use. For more info on our Community terms and offerings see our [Labs](https://coinmetrics.io/cm-labs/) page.
 
 ### [Blockchain Explorer (Atlas)](https://coinmetrics.io/atlas/)
 
@@ -22,7 +21,6 @@ Welcome to **Coin Metrics Data Encyclopedia**. At Coin Metrics, we organize the 
 ### [Market Data Feed (MDF)](https://coinmetrics.io/market-data-feed/)
 
 * **Market Data Feed** provides access to historical and real-time data from over 30 of the world’s leading spot and derivatives crypto exchanges. This data is available primarily via the market data endpoints: `/timeseries/market-trades`, `/timeseries/market-openinterest`, `/timeseries/market-liquidations`, `/timeseries/market-funding-rates`, `/timeseries/market-orderbooks`, `/timeseries/market-quotes`, `/timeseries/market-candles`. All endpoints and concepts are described in the [**Market Data**](market-data/market-data-overview/market-data-overview.md) section. There are also several aggregated market data metrics in `/timeseries/asset-metrics` and `/timeseries/pair-metrics`.
-* **Market Data Community** (Community [API](broken-reference), [Pro Charts](data-visualization/cmpro/)) is a subset of our Market Data Feed available for free for community use. For more info on our Community terms and offerings see our [Labs](https://coinmetrics.io/cm-labs/) page. The limitations of our community data are described in each data concept listed in the [**Market Data**](market-data/market-data-overview/market-data-overview.md) section of this Encyclopedia.
 
 ### [Reference Rates](https://coinmetrics.io/reference-rates/)
 

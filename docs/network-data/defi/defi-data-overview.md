@@ -1,61 +1,27 @@
-# DeFi
+# DeFi Overview
 
 Decentralized Finance (DeFi) is a rapidly emerging ecosystem of applications and protocols used for trading, lending, and various other financial services. Rather than relying on centralized intermediaries, these protocols utilize permissionless blockchains such as Ethereum to conduct the majority of their activities and transactions on-chain.
 
-## Decentralized Exchange Swaps Data
+[**Balance Sheet Endpoint**](defi-balance-sheets-overview.md)
 
-Our decentralized exchange (DEX) market data is collected directly from the blockchain and harmonized to match the format of our centralized exchange market data. Each liquidity pool contract is represented as a distinct market, with many pairs being traded across multiple liquidity pools with alternative fee structures.
+Coin Metrics’ DeFi Balance Sheet endpoint enables users to monitor, analyze and reason about a DeFi protocol’s financial health using a familiar, balance sheet-like data model.  Coin Metrics’ approach to TVL, as shared in our State of the Network [Understanding Total Value Locked (TVL),  ](https://coinmetrics.substack.com/p/coin-metrics-state-of-the-network-0c0#new\_tab)takes a more granular approach to the previous methods of tracking value in DeFi protocols.&#x20;
 
-Market coverage can be found by querying our [`/catalog/markets`](https://docs.coinmetrics.io/api/v4#operation/getCatalogMarkets) or [`/catalog-all/markets`](https://docs.coinmetrics.io/api/v4#operation/getCatalogAllMarkets) API endpoints. Decentralized exchanges can be identified as any market where the `experimental` parameter is set to `True`.
+This data can be accessed at our[ /timeseries/defi-balance-sheets](https://docs.coinmetrics.io/api/v4#operation/getDefiBalanceSheets) API endpoint. Data in this endpoint is made available on an end of day basis (00:00 UTC).&#x20;
 
-Currently we offer coverage of 3 DEX protocols:
+This endpoint currently supports Aave v2 and Compound v2 on Ethereum. We will be expanding coverage in this endpoint throughout the rest of the year to cover DEXs and other emerging popular DeFi protocols.&#x20;
 
-<table><thead><tr><th width="181.33333333333331">Exchange</th><th width="217" align="center">Spot Market Count</th><th align="center">Start Date</th></tr></thead><tbody><tr><td>Sushiswap</td><td align="center">134</td><td align="center">2020-09-04</td></tr><tr><td>Uniswap v2</td><td align="center">407</td><td align="center">2020-07-04</td></tr><tr><td>Uniswap v3</td><td align="center">345</td><td align="center">2020-07-04</td></tr></tbody></table>
+[**DEX Swaps Data**](../defi-data-overview/decentralized-exchange-data.md)
 
-In addition to returning standard metadata such as the market's base and quote asset, DEX market entries in the catalog also contain several DeFi-specific fields:
+In CM Market Data Feed v2.6 we announced that Uniswap and Sushiswap swaps,  liquidity pool metadata, candles, and volume metrics. Coin Metrics has been actively working on collecting data from major DeFi protocols. For our first release, we are adding support for all major liquidity pools on Uniswap v2, Uniswap v3, and Sushiswap v1.
 
-* `contract_address`: The smart contract address of the liquidity pool contract.
-* `fee`: The fee percentage charged for each swap. Fees are distributed pro-rata to the pool's liquidity providers.
-* `base_address`: The address of the ERC-20 token contract associated with the _base_ asset.
-* `quote_address`: The address of the ERC-20 token contract associated with the _quote_ asset.
+Swaps data is served through our existing [/timeseries/market-trades](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketTrades) endpoint because swaps are conceptually identical to a trade. Users can see all the standard trade fields for a swap such as time, price, and volume but can also see DeFi-specific fields such as the block hash, transaction id, the addresses involved in the swap, and more by passing the include\_DeFi\_fields=true parameter.
 
-## Data Available at the Market Level
+Metadata about all major liquidity pools such as the base and quote asset, contract addresses, fees are also available through our [/catalog/markets](https://docs.coinmetrics.io/api/v4#operation/getCatalogMarkets) endpoint.
 
-Many of our data types are available at the market level. For decentralized exchanges, we define a market as a specific liquidity pool contract deployed on a specific decentralized exchange, like `uniswap_v2_eth-1inch-aave-spot` or `uniswap_v3_eth-2-wsteth-weth-spot` or `sushiswap_v1_eth-srm-weth-spot`. The data types listed below are available for each DEX liquidity pool:
+Candles for all major liquidity pools are also available through our [/timeseries/market-candles](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketCandles) endpoint.Reported spot volume metrics (volume\_reported\_spot\_usd\_1d and volume\_reported\_spot\_usd\_1h) are available at the exchange and exchange-asset level through our [/timeseries/exchange-metrics](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesExchangeMetrics) and [/timeseries/exchange-asset-metrics](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesExchangeAssetMetrics) endpoints.&#x20;
 
-{% content-ref url="../../market-data/market-data-overview/trades/market-trades.md" %}
-[market-trades.md](../../market-data/market-data-overview/trades/market-trades.md)
-{% endcontent-ref %}
+This DEX swaps data is now available through our [Websocket streaming API](https://docs.coinmetrics.io/api/v4/#tag/Timeseries-stream).&#x20;
 
-{% content-ref url="../../market-data/market-data-overview/candles/candles.md" %}
-[candles.md](../../market-data/market-data-overview/candles/candles.md)
-{% endcontent-ref %}
+[**DeFi Token Coverage**](broken-reference)
 
-In addition to returning standard metadata such as the trade's size and price, DEX market entries in the catalog also contain several DeFi-specific fields:
-
-* `block_hash`: The unique hash of the block containing the swap transaction.
-* `block_height`: The height of the block containing the swap transaction.
-* `txid`: The transaction hash associated with the swap.
-* `initiator`: The Ethereum address which submitted the transaction, as a result of which the swap occurred.
-* `sender`: The Ethereum address that invoked the liquidity pool smart contract's function for swapping.
-* `beneficiary`: The Ethereum address credited with the output tokens upon the completion of a swap.
-
-## Data Available at the Exchange-Asset Pair Level
-
-Coin Metrics calculates several metrics for exchange-asset pairs such as `uniswap_v3_eth-usdc`, `sushiswap_v1_eth-aave`, and `uniswap_v2_eth-wbtc`. The exchange coverage can be found by querying our [`/catalog/exchange-assets`](https://docs.coinmetrics.io/api/v4#operation/getCatalogExchangeAssets) or [`/catalog-all/exchange-assets`](https://docs.coinmetrics.io/api/v4#operation/getCatalogAllExchangeAssets) API endpoints.
-
-Data available at the exchange-asset level is available through the [`/timeseries/exchange-asset-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesExchangeAssetMetrics) API endpoint and specific metrics are described in the pages linked in this section:
-
-{% content-ref url="../../market-data/market-data-overview/volume/volume.md" %}
-[volume.md](../../market-data/market-data-overview/volume/volume.md)
-{% endcontent-ref %}
-
-## Data Available at Exchange Level
-
-Coin Metrics calculates several metrics for decentralized exchanges such as `uniswap_v3_eth`, `uniswap_v2_eth`, and `sushiswap_v1_eth`. The exchange coverage can be found by querying our [`/catalog/exchanges`](https://docs.coinmetrics.io/api/v4#operation/getCatalogExchanges) or [`/catalog-all/exchanges`](https://docs.coinmetrics.io/api/v4#operation/getCatalogAllExchanges) API endpoints.
-
-Data available at the exchange level is available through the [`/timeseries/exchange-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesExchangeMetrics) API endpoint and specific metrics are described in the pages linked in this section:
-
-{% content-ref url="../../market-data/market-data-overview/volume/volume.md" %}
-[volume.md](../../market-data/market-data-overview/volume/volume.md)
-{% endcontent-ref %}
+Through our Network Data Pro offering you can access 18+ different DeFi Tokens for metrics like Market Cap, Supply, Active Addresses and many more metrics. These insights can provide health and usability of these DeFi tokens and their associated Protocols.&#x20;

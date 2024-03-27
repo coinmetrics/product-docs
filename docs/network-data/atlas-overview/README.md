@@ -10,164 +10,9 @@ The search window for community users is limited to the last 30 days. Get the Co
 
 ## Atlas Asset Coverage
 
-Atlas v 2.0 currently supports the following assets:
+Coverage for ATLAS v2 can be found on our coverage page:
 
-| Asset                                 | Symbol     |
-| ------------------------------------- | ---------- |
-| 0x                                    | zrx        |
-| 1inch                                 | 1inch      |
-| Aave                                  | aave       |
-| Aave (lend)                           | lend       |
-| aelf                                  | elf        |
-| Aeternity                             | ae\_eth    |
-| Aion                                  | aion\_eth  |
-| Alchemix                              | alcx       |
-| Alchemix USD                          | alusd      |
-| Algorand\*                            | algo       |
-| Alpha Venture DAO                     | alpha      |
-| Aragon                                | ant        |
-| Audius                                | audio      |
-| Augur                                 | rep        |
-| Badger                                | badger     |
-| Balancer                              | bal        |
-| Bancor                                | bnt        |
-| Band (ERC20)                          | band\_eth  |
-| Basic Attention Token                 | bat        |
-| Binance Chain (ERC-20)                | bnb\_eth   |
-| Binance USD                           | busd       |
-| Bitcoin                               | btc        |
-| Bitcoin Cash                          | bch        |
-| Bytom                                 | btm\_eth   |
-| Cardano                               | ada        |
-| Celsius                               | cel        |
-| CENNZnet                              | cennz      |
-| Chainlink                             | link       |
-| Civic                                 | cvc        |
-| Compound                              | comp       |
-| Compound BAT                          | cbat       |
-| Compound Collateral                   | ccomp      |
-| Compound DAI                          | cdai       |
-| Compound Ether                        | ceth       |
-| Compound Uniswap                      | cuni       |
-| Compound USDC                         | cusdc      |
-| Compound USDT                         | cusdt      |
-| Compound WBTC                         | cwbtc      |
-| Compound ZRX                          | czrx       |
-| Cortex                                | ctxc       |
-| Cronos                                | cro        |
-| Curve DAO Token                       | crv        |
-| Dai                                   | dai        |
-| Dash                                  | dash       |
-| Decentraland                          | mana       |
-| DeFi Pulse Index                      | dpi        |
-| DigiByte                              | dgb        |
-| Dogecoin                              | doge       |
-| Dragonchain                           | drgn       |
-| Empty Set Dollar                      | esd        |
-| Enjin Coin                            | enj        |
-| EOS ETH                               | eos\_eth   |
-| Ethereum                              | eth        |
-| Ethereum Classic                      | etc        |
-| Ethos                                 | ethos      |
-| Fantom (ERC-20)                       | ftm\_eth   |
-| Fei Protocol (ERC20)                  | fei\_eth   |
-| Flexacoin ERC-20                      | fxc\_eth   |
-| FTX Token                             | ftt        |
-| FUNToken                              | fun        |
-| Gas                                   | gas        |
-| Gemini Dollar                         | gusd       |
-| Gnosis                                | gno        |
-| Golem                                 | glm        |
-| Golem (gnt)                           | gnt        |
-| HedgeTrade                            | hedg       |
-| Huobi Bitcoin                         | hbtc       |
-| Huobi Token                           | ht         |
-| HUSD                                  | husd       |
-| ICON                                  | icn        |
-| ICON ETH                              | icx\_eth   |
-| Instadapp                             | inst       |
-| Internet Computer\*                   | icp        |
-| KuCoin Token                          | kcs        |
-| Kyber Network Crystal                 | knc        |
-| Lido DAO                              | ldo        |
-| Liquidity USD                         | lusd       |
-| Litecoin                              | ltc        |
-| Livepeer                              | lpt        |
-| Loom Network                          | loom       |
-| Loopring ERC-20                       | lrc\_eth   |
-| MaidSafeCoin                          | maid       |
-| Maker                                 | mkr        |
-| MCO                                   | mco        |
-| Metal                                 | mtl\_metal |
-| Nebulas                               | nas\_eth   |
-| Neo                                   | neo        |
-| Nexus Mutual                          | nxm        |
-| NFTX                                  | nftx       |
-| OKB                                   | okb        |
-| OMG Network                           | omg        |
-| Origin Protocol                       | ogn        |
-| PAID Network                          | paid       |
-| PAX Gold                              | paxg       |
-| Paxos Standard                        | pax        |
-| Perpetual Protocol                    | perp       |
-| Polygon                               | matic\_eth |
-| Polymath                              | poly       |
-| Populous                              | ppt        |
-| Powerledger                           | powr       |
-| QASH                                  | qash       |
-| Qtum ERC-20                           | qtum\_eth  |
-| Quanta Utility Token                  | qnt        |
-| Radar                                 | radar      |
-| Radicle                               | rad        |
-| RAI Finance (ERC20)                   | rai\_eth   |
-| RChain                                | rhoc       |
-| Ren                                   | ren        |
-| renBTC                                | renbtc     |
-| Reserve Rights                        | rsr        |
-| Revain                                | rev\_eth   |
-| Rook                                  | rook       |
-| Sai                                   | sai        |
-| SALT                                  | salt       |
-| Serum                                 | srm        |
-| Shiba Inu                             | shib       |
-| SIRIN LABS Token                      | srn        |
-| Smooth Love Potion (Ethereum Mainnet) | slp\_eth   |
-| Status                                | snt        |
-| Synthetix                             | snx        |
-| Storj                                 | storj      |
-| StormX                                | stmx       |
-| SushiBar                              | xsushi     |
-| SushiSwap                             | sushi      |
-| Swerve                                | swrv       |
-| TenX                                  | pay        |
-| Tether ETH                            | usdt\_eth  |
-| Tether Gold                           | xaut       |
-| Tether Omni                           | usdt\_omni |
-| The Graph                             | grt        |
-| The Sandbox                           | sand       |
-| Tokemak                               | toke       |
-| Tron ETH                              | trx\_eth   |
-| UMA                                   | uma        |
-| Unibright                             | ubt        |
-| Uniswap                               | uni        |
-| UNUS SED LEO ETH                      | leo\_eth   |
-| USD Coin                              | usdc       |
-| USDK                                  | usdk       |
-| VeChain                               | vet\_eth   |
-| Verge                                 | xvg        |
-| Veritaseum                            | veri       |
-| Vertcoin                              | vtc        |
-| Waltonchain                           | wtc        |
-| wnxm                                  | wnxm       |
-| Wrapped Bitcoin                       | wbtc       |
-| Wrapped Ether                         | weth       |
-| Wrapped liquid staked Ether 2.0       | wsteth     |
-| Ripple                                | xrp        |
-| yearn.finance                         | yfi        |
-| Zcash                                 | zec        |
-| Zilliqa                               | zil\_eth   |
-
-\*These assets are experimental and offered through [CM Labs](../cm-labs.md)
+{% embed url="https://coverage.coinmetrics.io/atlas-v2" %}
 
 ## Accounts
 
@@ -225,8 +70,7 @@ Credits and debits inside a transaction are grouped by transaction sequence numb
 
 UTXO transactions (used in Bitcoin and derivative assets) are comprised of 2 parts:
 
-* Inputs (debits) which list the previously unspent outputs spent by this transaction\
-
+* Inputs (debits) which list the previously unspent outputs spent by this transaction\\
 * Outputs (credits) which list the newly created unspent outputs by this transaction
 
 Since UTXO transactions are applied atomically, all credits and debits have `tx_sequence_number` of 0.
@@ -325,10 +169,10 @@ Taking this transaction that pays a fee of 0.25 BTC as an example, we have:
 
 The Atlas API endpoints are located under the common `/blockchain-v2` prefix. There are four primary data sets returned by the Atlas endpoints:
 
-* [Accounts](accounts.md) `/blockchain-v2/{asset}/accounts`
-* [Blocks](blocks/) `/blockchain-v2/{asset}/blocks`
-* [Transactions](transactions/) `/blockchain-v2/{asset}/transactions`
-* [Balance Updates](balance-updates.md) `/blockchain-v2/{asset}/balance-updates`
+* [Accounts](../atlas/accounts.md) `/blockchain-v2/{asset}/accounts`
+* [Blocks](../atlas/blocks/) `/blockchain-v2/{asset}/blocks`
+* [Transactions](../atlas/transactions/) `/blockchain-v2/{asset}/transactions`
+* [Balance Updates](../atlas/balance-updates.md) `/blockchain-v2/{asset}/balance-updates`
 
 These endpoints (with no additional query parameters) return the full list of accounts, blocks, transactions, or balance updates for the asset queried with fields listed in each relevant section that follows. The result can also be filtered for specific accounts or transactions, or for specific start/end times, heights, and chain sequence numbers.
 
@@ -338,7 +182,7 @@ So if you want a list of balance updates for a specific set of Bitcoin accounts,
 
 There are also two additional endpoints that can be used to get a:
 
-* Single full Block with all Transactions `/blockchain-v2/{asset}/blocks/block_hash`&#x20;
+* Single full Block with all Transactions `/blockchain-v2/{asset}/blocks/block_hash`
 * Single full Transaction with all Balance Updates `/blockchain-v2/{asset}/transactions/transaction_hash`
 
 These endpoints do not support any query parameters and return full block info and full transaction info. The objects returned are the same as those without the full prefix with **additional JSON fields**.
@@ -346,5 +190,5 @@ These endpoints do not support any query parameters and return full block info a
 ### Sample Queries
 
 * **Accounts info for all accounts created in the blockchain**: /{asset}/accounts
-* **Account info for only specified accounts**:  /{asset}/accounts?accounts=account1,account2
+* **Account info for only specified accounts**: /{asset}/accounts?accounts=account1,account2
 * **Block info for all blocks created in the blockchain**: /{asset}/blocks

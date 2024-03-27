@@ -1,2 +1,0 @@
-# Unknown Miner Predominance Alert
-

@@ -28,4 +28,4 @@ The following alerting fields are currently provided via the Network Alerts API 
 }
 ```
 
-For all alerts, heartbeats are calculated each time the underlying data is updated. In most cases this is each time a new block is generated. However, for some alerts this might be on a different frequency as well. For example, for the BTC alert `mining_pool_conflict_2b_hi` the alert is calculated every time there is an update in the [mining-pool-tips-summary](broken-reference) endpoint.
+For all alerts, heartbeats are calculated each time the underlying data is updated. In most cases this is each time a new block is generated. However, for some alerts this might be on a different frequency as well. For example, for the BTC alert `mining_pool_conflict_2b_hi` the alert is calculated every time there is an update in the [mining-pool-tips-summary](../../../watchtower-alerts-time-series-deprecated/watchtower-alerts-overview-deprecated/broken-reference/) endpoint.

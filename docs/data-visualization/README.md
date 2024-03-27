@@ -8,6 +8,8 @@ Our Data Visualization offering includes three tools:
 * [Formula builder](../charting-tools/formula-builder.md)
 * [Correlation tool](../charting-tools/correlation-tool.md)
 
+CM provides data visualization tools and user interfaces as a convenience to our customers. We are an API-first data company, but our user interfaces help our clients visualize and explore our datasets, download data into XLS/CSV formats, create charts for social media and help users along in their journey to API usage. We have two primary data visualization offerings: Our Charting Tools and Our Dashboards. In addition, we have several Labs/Demo UIs including CMTV Charts, Atlas, our Farum Transaction Tracker.
+
 These tools allow for easy exploration of our network (on-chain data). Users can select multiple assets and metrics to identify trends and insights or leverage our powerful formula builder to transform data series. The correlation tool makes for simple correlation analysis. All charts can be downloaded as PNGs and the charted data can be exported to CSV or XLS files. And, you can save your charts for later or share them with others.
 
 ## Data Sources

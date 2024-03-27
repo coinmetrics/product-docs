@@ -2,11 +2,15 @@
 description: cmtv.coinmetrics.io
 ---
 
-# Pro Charts
+# CMTV Charts (Labs)
+
+{% hint style="warning" %}
+CMTV Charts been released as a [CM Labs](https://docs.coinmetrics.io/cm-labs) project. Breaking changes may be introduced with minimal notice. Please exercise caution given the endpoint's experimental nature.
+{% endhint %}
 
 ## Introduction
 
-Our Coin Metrics Trading View Visualization Tool incorporates the charting capabilities and indicators familiar to professional users. It also enables our power users (market and network data users) to view our multiple datasets in a single screen. And, users of our real-time feed can enjoy live market monitoring.
+Our Coin Metrics Trading View Visualization Tool incorporates the charting capabilities and indicators familiar to professional users. It also enables our power users (market and network data users) to view our multiple datasets in a single screen. And, users of our real-time feed can enjoy live market monitoring. This is an experimental way of accessing CM Data.&#x20;
 
 ## Data Sources
 

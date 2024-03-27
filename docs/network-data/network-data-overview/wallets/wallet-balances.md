@@ -71,7 +71,7 @@ The sum of the supply being held by all wallets whose balance was at least X nat
 
 ## Value in Wallets w/ Balance ≥ $X USD <a href="#usd" id="usd"></a>
 
-### Definitio
+### Definition
 
 The sum of the supply being held by all wallets whose balance is equivalent to at least X dollar when priced using the Coin Metrics Reference Rate. Wallets represent groups of addresses that we estimate are owned by the same entity. They provide a better proxy for user behavior since users often own more than one blockchain address.
 
