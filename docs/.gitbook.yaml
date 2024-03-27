@@ -756,20 +756,20 @@ redirects:
   market-data/faqs/cm-prices-faqs: market-data/faqs/cm-prices-faqs.md
   market-data/faqs/trusted-exchange-framework-faqs: market-data/faqs/trusted-exchange-framework-faqs.md
   defi-data/defi-data-overview: network-data/defi/defi-data-overview.md
-  asset-metrics/fees-and-revenue/total-blob-fees-native-units: network-data/network-data-overview/fees-and-revenue/fees.md#total\-blob\-fees
-  asset-metrics/fees-and-revenue/total-blob-fees-usd: network-data/network-data-overview/fees-and-revenue/fees.md#total\-blob\-fees
-  asset-metrics/fees-and-revenue/mean-blob-fees-native-units: network-data/network-data-overview/fees-and-revenue/fees.md#mean\-blob\-fees
-  asset-metrics/fees-and-revenue/mean-blob-fees-usd: network-data/network-data-overview/fees-and-revenue/fees.md#mean\-blob\-fees
-  asset-metrics/fees-and-revenue/median-blob-fees-native-units: network-data/network-data-overview/fees-and-revenue/fees.md#median\-blob\-fees
-  asset-metrics/fees-and-revenue/median-blob-fees-usd: network-data/network-data-overview/fees-and-revenue/fees.md#median\-blob\-fees
-  asset-metrics/fees-and-revenue/mean-fee-per-blob-byte-native-units: network-data/network-data-overview/fees-and-revenue/fees.md#mean\-fee\-per\-blob\-byte
-  asset-metrics/fees-and-revenue/mean-fee-per-blob-byte-usd: network-data/network-data-overview/fees-and-revenue/fees.md#mean\-fee\-per\-blob\-byte
-  asset-metrics/fees-and-revenue/mean-fee-per-blob-carrying-transaction-native-units: network-data/network-data-overview/fees-and-revenue/fees.md#mean\-fee\-per\-blob\-carrying\-transaction
-  asset-metrics/fees-and-revenue/mean-fee-per-blob-carrying-transaction-usd: network-data/network-data-overview/fees-and-revenue/fees.md#mean\-fee\-per\-blob\-carrying\-transaction
+  asset-metrics/fees-and-revenue/total-blob-fees-native-units: network-data/network-data-overview/fees-and-revenue/fees.md
+  asset-metrics/fees-and-revenue/total-blob-fees-usd: network-data/network-data-overview/fees-and-revenue/fees.md
+  asset-metrics/fees-and-revenue/mean-blob-fees-native-units: network-data/network-data-overview/fees-and-revenue/fees.md
+  asset-metrics/fees-and-revenue/mean-blob-fees-usd: network-data/network-data-overview/fees-and-revenue/fees.md
+  asset-metrics/fees-and-revenue/median-blob-fees-native-units: network-data/network-data-overview/fees-and-revenue/fees.md
+  asset-metrics/fees-and-revenue/median-blob-fees-usd: network-data/network-data-overview/fees-and-revenue/fees.md
+  asset-metrics/fees-and-revenue/mean-fee-per-blob-byte-native-units: network-data/network-data-overview/fees-and-revenue/fees.md
+  asset-metrics/fees-and-revenue/mean-fee-per-blob-byte-usd: network-data/network-data-overview/fees-and-revenue/fees.md
+  asset-metrics/fees-and-revenue/mean-fee-per-blob-carrying-transaction-native-units: network-data/network-data-overview/fees-and-revenue/fees.md
+  asset-metrics/fees-and-revenue/mean-fee-per-blob-carrying-transaction-usd: network-data/network-data-overview/fees-and-revenue/fees.md
   asset-metrics/network-usage/blksizebyte: network-data/network-data-overview/network-usage/blobs.md
   asset-metrics/network-usage/blksizebyte-1: network-data/network-data-overview/network-usage/blobs.md
   asset-metrics/network-usage/blksizebyte-2: network-data/network-data-overview/network-usage/blobs.md
   asset-metrics/network-usage/blksizebyte-3: network-data/network-data-overview/network-usage/blobs.md
-  asset-metrics/transactions/blob-carrying-transaction-count: network-data/network-data-overview/network-usage/transactions.md#blob\-carrying\-transaction\-count
-  asset-metrics/transactions/mean-blob-carrying-transactions-per-block-count: network-data/network-data-overview/network-usage/transactions.md#mean\-blob\-carrying\-transaction-count
-  asset-metrics/transactions/median-blob-carrying-transactions-per-block-count: network-data/network-data-overview/network-usage/transactions.md#median\-blob\-carrying\-transaction-count
+  asset-metrics/transactions/blob-carrying-transaction-count: network-data/network-data-overview/network-usage/transactions.md
+  asset-metrics/transactions/mean-blob-carrying-transactions-per-block-count: network-data/network-data-overview/network-usage/transactions.md
+  asset-metrics/transactions/median-blob-carrying-transactions-per-block-count: network-data/network-data-overview/network-usage/transactions.md
