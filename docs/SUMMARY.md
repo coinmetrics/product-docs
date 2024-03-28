@@ -28,8 +28,8 @@
 ## Network Data
 
 * [Network Data Overview](network-data/network-data-overview/network-data-overview.md)
-  * [Availability](network-data/availability/README.md)
-    * [Asset Completion Time](network-data/availability/asseteodcompletiontime.md)
+  * [Availability](network-data/network-data-overview/availability/README.md)
+    * [Asset Completion Time](network-data/network-data-overview/availability/asseteodcompletiontime.md)
   * [Addresses](network-data/network-data-overview/addresses/README.md)
     * [Active Addresses](network-data/network-data-overview/addresses/active-addresses.md)
     * [Address Balances](network-data/network-data-overview/addresses/address-balances.md)
