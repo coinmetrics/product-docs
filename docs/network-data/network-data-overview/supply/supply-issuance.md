@@ -7,7 +7,7 @@
 * [Daily Inflation Rate](supply-issuance.md#isscontpctday)
 * [Coinbase Issuance](supply-issuance.md#isscont)
 * [Total Issuance](supply-issuance.md#isstot)
-* [Puel Multiple Total](supply-issuance.md#puellmultot)
+* [Puell Multiple Total](supply-issuance.md#puellmultot)
 * [Puell Multiple, Coinbase Issuance](supply-issuance.md#puelmulcont)
 
 ## Coinbase Issuance (native units) <a href="#isscontntv" id="isscontntv"></a>
