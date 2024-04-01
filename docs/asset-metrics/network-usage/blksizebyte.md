@@ -2,46 +2,31 @@
 description: /timeseries/asset-metrics
 ---
 
-# Sum Block Size (in bytes)
+# Blob Count
 
 ## Definition
 
-The sum of the size (in bytes) of all blocks created that interval.
+With the Dencun Upgrade in March 2024, EIP-4844, introduces "blob-carrying transactions." These blobs transactions are created to include large data blobs. These blobs, while not directly accessible by the EVM, are anchored by commitments that are. The format is devised to be compatible with the anticipated full sharding model.  This metric shows the sum count of blobs created that interval that were included in the main chain.
 
 ## Dictionary
 
-| Name                      | MetricID    | Category      | Subcategory | Type | Unit  | Interval               |
-| ------------------------- | ----------- | ------------- | ----------- | ---- | ----- | ---------------------- |
-| Sum Block Size (in bytes) | BlkSizeByte | Network Usage | Blocks      | Sum  | Bytes | 1 day, 1 block, 1 hour |
+| Name       | MetricID | Category      | Subcategory | Type | Unit  | Interval               |
+| ---------- | -------- | ------------- | ----------- | ---- | ----- | ---------------------- |
+| Blob Count | BlobCnt  | Network Usage | Blobs       | Sum  | Blobs | 1 day, 1 block, 1 hour |
 
 ## Details
 
-* Only mainchain (non-orphaned/uncles) blocks are counted.
-* For chains that use median time, the day is defined using it, otherwise, it’s defined using the block’s timestamps.
-
-## Chart
-
-<figure><img src="../../.gitbook/assets/Sum_Block_Size_(in_bytes).png" alt=""><figcaption><p><em>Source:</em> <a href="https://charts.coinmetrics.io/network-data/#4297"><em>CM Network Data Charts</em></a></p></figcaption></figure>
+* Only available since the dencun upgrade in March 2024
 
 ## Asset-Specific Details
 
-* This metric is not available for all assets, as some node’s RPC APIs do not expose the size of the blocks.
+* This metric is only available for ETH
 
 ## Release History
 
-* Released in the 1.0 release of NDP
-
-## Interpretation
-
-* Can be used to measure and compare blockchains' usages and fees
-* Can help gauge gas/fee for large transactions:
-  * fee per byte = total block fee/block size (byte)
+* Released in the Dencun Upgrade Release
 
 ## See Also
 
-* [Mean Block Size (in bytes)](https://docs.coinmetrics.io/asset-metrics/network-usage/blksizemeanbyte)
-* [Mean Tx Fee per Byte (native units)](https://docs.coinmetrics.io/asset-metrics/fees-and-revenue/feebytemeanntv)
+* To learn more about the Dencun Upgrade see [State Of The Network #245](https://coinmetrics.substack.com/p/state-of-the-network-issue-245)
 
-## Availability for Assets
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/BlkSizeByte" %}

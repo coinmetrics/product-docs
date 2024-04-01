@@ -112,4 +112,4 @@ Our websocket API will send a new message once every 250 milliseconds.
 
 ## Availability
 
-The asset quotes are currently available for the following assets: `btc`, `eth`, `ltc`, `xrp`, `bnb`, `usdt`, `trx` `link`, `doge`, `usdc`, `ada`, `atom`, `matic`, `dai`, `sol`, `dot`, `avax`, `uni`.
+The asset quotes are currently available for the following assets: `aave`, `ada`, `ape`, `apt`, `arb`, `atom`, `avax`, `axs`, `bch`, `bnb`, `btc`, `comp`, `crv`, `dai`, `doge`, `dot`, `dyd`, `eth`, `euroc`, `flow`, `ftm`, `gmx`, `gns`, `hbar`, `leo`, `link`, `ltc`, `magic`, `matic`, `mkr`, `near`, `op`, `rdnt`, `shib`, `sol`, `steth`, `sui`, `ton`, `trx`, `uni`, `usdc`, `usdt`, `xmr`, `xrp`.

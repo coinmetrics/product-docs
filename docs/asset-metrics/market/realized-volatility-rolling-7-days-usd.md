@@ -60,7 +60,7 @@ The real-time reference rates are resampled to calculate returns over a 10 minut
 
 * **`time`**: The exchange-reported time in ISO 8601 date-time format. Always with nanoseconds precision.\
 
-* **`volatility_realized_usd_rolling_7d`**: The annualized 7-day rolling volatility.
+* **`volatility_realized_usd_rolling_7d`**: The annualized 7-day rolling volatility. A response of 0.166733 is expressed as a decimal and should be interpreted as 16.6733%.
 
 ## Release History
 

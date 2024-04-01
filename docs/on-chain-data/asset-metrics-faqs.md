@@ -26,7 +26,7 @@ Another way to think about our Market Cap is to equate it to the Fully Diluted M
 
 ### **Do you have metrics for total blockchain size?**
 
-No, but we do have a metric for[ Sum Block Size (in bytes) ](../asset-metrics/network-usage/blksizebyte.md)(BlkSizeByte), which you can sum up to get blockchain size.  You can also use our runningTotal function in our Formula Builder to show the size over time.&#x20;
+No, but we do have a metric for[ Sum Block Size (in bytes) ](../asset-metrics/network-usage/blksizebyte-4.md)(BlkSizeByte), which you can sum up to get blockchain size.  You can also use our runningTotal function in our Formula Builder to show the size over time.&#x20;
 
 ![ https://charts.coinmetrics.io/formulas/#1178](../.gitbook/assets/BTC\_Total\_Blockchain\_Size\_\(in\_bytes\).png)
 
