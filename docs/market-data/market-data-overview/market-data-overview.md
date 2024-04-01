@@ -66,8 +66,8 @@ Data available at the market level is served through the API endpoints below, wh
 [market-greeks.md](greeks/market-greeks.md)
 {% endcontent-ref %}
 
-{% content-ref url="market-data-faqs.md" %}
-[market-data-faqs.md](market-data-faqs.md)
+{% content-ref url="../faqs/" %}
+[faqs](../faqs/)
 {% endcontent-ref %}
 
 ## Metrics Available at Market Level
