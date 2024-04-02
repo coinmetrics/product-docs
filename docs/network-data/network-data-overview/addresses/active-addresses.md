@@ -78,7 +78,7 @@ We would count as active senders: A, B, D and F. The value of the metric would t
 
 ### Coverage
 
-[AdrActSentCnt](https://coverage.coinmetrics.io/search-results?query=AdrActSentCnt)
+* [AdrActSentCnt](https://coverage.coinmetrics.io/search-results?query=AdrActSentCnt)
 
 ## Active Addresses (Received) <a href="#adractrec" id="adractrec"></a>
 

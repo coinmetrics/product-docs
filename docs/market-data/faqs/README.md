@@ -1,6 +1,6 @@
 # Market Data FAQs
 
-### How do I see what exchanges are supported**?**
+### How do I see what exchanges are supported\*\*?\*\*
 
 CM Market Data Feed provides access to historical and real-time data from over 40 of the world’s leading spot and derivatives crypto exchanges.
 
@@ -8,7 +8,7 @@ Our most up-to-date exchange coverage can be viewed in our [CM Data Coverage Too
 
 The available exchanges and the metrics available for each exchange can be found by querying our [`/catalog/exchanges` ](https://docs.coinmetrics.io/api/v4#operation/getCatalogExchanges)or [`/catalog-all/exchanges` ](https://docs.coinmetrics.io/api/v4#operation/getCatalogAllExchanges)API endpoints.
 
-Market data for these exchanges is served through our [market data endpoints](https://docs.coinmetrics.io/market-data/market-data-overview).
+Market data for these exchanges is served through our [market data endpoints](../market-data-overview/market-data-overview.md).
 
 ### **Can you explain your historical data coverage?**
 
@@ -16,13 +16,13 @@ When we collect data from a new exchange, our general approach is to always coll
 
 Our trades history for Bitcoin begins when it began trading on Mt.Gox in July 2010, so we have over 10 years of trades history. We also have full historical trades data from several other early exchanges such as Bitstamp, TheRockTrading, Bitfinex, and Kraken.
 
-Please take a look at our [Market Data Exchange Coverage](https://docs.coinmetrics.io/exchanges/all-exchanges) or the availability sections of each of our market data pages for more information on the history available for each exchange-data type combination.
+Please take a look at our [Market Data Exchange Coverage](../market-data-overview/market-data-overview.md#market-data-exchange-coverage) or the availability sections of each of our market data pages for more information on the history available for each exchange-data type combination.
 
 ### **How does Coin Metrics ensure high levels of data quality and data integrity?**
 
 Coin Metrics utilizes a multifaceted approach to ensure high levels of data quality and data integrity. We carefully curate our exchange coverage universe, employ a market data collection system with high levels of redundancy and resiliency, use a robust system of logging and monitoring that alerts staff members in real-time to any anomalies, and our software releases are governed by a series of SOC 2-compliant policies that include extensive testing prior to release. For certain critical data types, such as our reference rates, we also employ regular human review to screen for data quality issues. Each of these facets is described in more detail below.
 
-* **Exchange coverage universe**: While there are over 400 digital asset exchanges in existence, Coin Metrics has curated our exchange coverage universe to include only high quality exchanges with legitimate trading activity. The presence of fake volume and wash trading is widely acknowledged in the industry, and Coin Metrics has independently confirmed the findings of several prominent researchers who have studied this problem. When deciding whether to include an exchange in our coverage universe, we consult a series of qualitative and quantitative features that are described in our [Market Selection Framework](methodologies/coin-metrics-prices-methodology.md#data-inputs) and our [Trusted Volume Framework](https://coinmetrics.io/special-insights/trusted-exchange-framework/). We also consult feedback from our institutional user base. The exchanges in our coverage universe are widely recognized by market participants and researchers who have studied the fake volume problem to be of high quality.\\
+* **Exchange coverage universe**: While there are over 400 digital asset exchanges in existence, Coin Metrics has curated our exchange coverage universe to include only high quality exchanges with legitimate trading activity. The presence of fake volume and wash trading is widely acknowledged in the industry, and Coin Metrics has independently confirmed the findings of several prominent researchers who have studied this problem. When deciding whether to include an exchange in our coverage universe, we consult a series of qualitative and quantitative features that are described in our [Market Selection Framework](../../index-data/coin-metrics-bletchley-indexes-cmbi/cmbi-market-selection-framework.md) and our [Trusted Volume Framework](https://coinmetrics.io/special-insights/trusted-exchange-framework/). We also consult feedback from our institutional user base. The exchanges in our coverage universe are widely recognized by market participants and researchers who have studied the fake volume problem to be of high quality.\\
 * **Market data collection system**: Our market data collection system is engineered to have high levels of redundancy and resiliency. We collect data from exchanges using two instances of each application each located in an independent data center. For certain data types, we collect data from an exchange's HTTP endpoint and websocket endpoint simultaneously as an added redundancy measure. CM utilizes multiple proxy servers to ensure that rate limits imposed by some exchanges do not impact data collection. Each server that hosts our market data collection system has local database storage as a fault tolerant measure in case of a failure in our primary database. These measures ensure high levels of availability for our market data collection applications and that no observations are missed.\\
 * **Multiple data centers**: Coin Metrics utilizes two geographically-separated and vendor-independent data centers. Each data center contains an independent and complete collection of the infrastructure and applications needed to collect, process, and serve our data. In the case of failure of one of the data centers, our API will automatically failover to use our secondary data center with no action needed to be taken by our users.\\
 * **Internal monitoring**: A dedicated internal team of data quality and site reliability engineers monitor logs and telemetry from our servers, databases, and applications in real-time using a suite of dashboards and automated alerts. We also have dedicated monitoring to detect interruptions of service from an exchange, incidents reported by an exchange, or breaking changes to their API. This monitoring allows us to take swift corrective or mitigating action if necessary.\\
@@ -48,7 +48,7 @@ In general, we use snake case (ex: snake\_case) when naming our metrics in which
 
 The order of terms is ordered from the most general to most specific and ends with the unit used, if applicable. For example, the order of terms in the metric `volume_reported_future_perpetual_usd_1d` is ordered such that the `volume` term is first and all subsequent terms are modifiers to what type of volume the metric represents.
 
-Some metrics are naturally represented as an aggregation (such as a sum or mean) over a time interval (such as a block, an hour, or day). If the metric represents an aggregation over a time interval, the interval is appended as a suffix to the metric name. If the metric represents a value at a point in time, there is no suffix. Please see the frequently asked question ["What timestamp conventions does Coin Metrics use?"](https://docs.coinmetrics.io/market-data/market-data-faqs#what-timestamp-conventions-does-coin-metrics-use).
+Some metrics are naturally represented as an aggregation (such as a sum or mean) over a time interval (such as a block, an hour, or day). If the metric represents an aggregation over a time interval, the interval is appended as a suffix to the metric name. If the metric represents a value at a point in time, there is no suffix. Please see the frequently asked question ["What timestamp conventions does Coin Metrics use?"](./#what-timestamp-conventions-does-coin-metrics-use).
 
 The exception to this convention is that all Network Data Pro metrics use upper camel case (ex: CamelCase) in which names omit spaces and the separation of words is indicated by a single capitalized letter. The first word is also capitalized. Network Data Pro metrics used the upper camel case naming convention prior to our adoption of the snake case naming convention for all other metrics, so we maintain the upper camel case naming convention for Network Data Pro metrics for consistency and backwards compatibility.
 
@@ -119,7 +119,7 @@ The `pool_config_id` usually takes an integer value that represents the order in
 
 The difference is due to different timestamp conventions. Candles and `PriceUSD` use the beginning-of-interval timestamp convention while `ReferenceRate` and index values use the point-in-time timestamp convention.
 
-For more discussion on these timestamp conventions, please see the frequently asked question ["What timestamp conventions does Coin Metrics use?"](https://docs.coinmetrics.io/market-data/market-data-faqs#what-timestamp-conventions-does-coin-metrics-use).
+For more discussion on these timestamp conventions, please see the frequently asked question ["What timestamp conventions does Coin Metrics use?"](./#what-timestamp-conventions-does-coin-metrics-use).
 
 ### When a new asset or market is listed, how long does it take for the market to be present in our market data-related data types?
 

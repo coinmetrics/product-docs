@@ -84,7 +84,7 @@ We do not store historical data for order book updates yet, but we serve them in
 
 ### **What is the difference between level 1, level 2, and level 3 order book data?**
 
-**Level 1** order book data refers to the top of the book, i.e. the price and amount of the best bid and the price and amount of the best ask. The level 1 data can be derived by extracting the best bid and best ask from our order book snapshots. We also serve this data through our [market quotes](https://docs.coinmetrics.io/market-data/market-quotes) API endpoint.
+**Level 1** order book data refers to the top of the book, i.e. the price and amount of the best bid and the price and amount of the best ask. The level 1 data can be derived by extracting the best bid and best ask from our order book snapshots. We also serve this data through our [market quotes](../quotes/quotes.md) API endpoint.
 
 **Level 2** order book refers to snapshots or updates where individual orders with identical price level are aggregated to one observation. The majority of cryptocurrency exchanges serve their order book snapshots and updates at level 2 resolution. Coin Metrics currently stores level 2 order book data. If an exchange reports order book data at level 3 resolution, we aggregate it to level 2 resolution before storing it.\
 \

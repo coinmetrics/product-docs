@@ -10,7 +10,7 @@ Open interest represents the number of contracts that are currently outstanding 
 
 ## Details
 
-Each contract has a specified contract value that can be described by the size asset and contract size. For example, the contract value for `bitmex-XBTUSD-future` is `1 usd` and the contract value for `cme-BTCF1-future` is `5 btc`. For more information, please take a look at our page about [derivatives contract specifications](https://docs.coinmetrics.io/market-data/derivatives-contract-specifications).
+Each contract has a specified contract value that can be described by the size asset and contract size. For example, the contract value for `bitmex-XBTUSD-future` is `1 usd` and the contract value for `cme-BTCF1-future` is `5 btc`. For more information, please take a look at our page about [derivatives contract specifications](../market-metadata/market-metadata.md).
 
 Coin Metrics collects open interest in units of number of contracts and in units of U.S. dollars at one minute snapshot frequency. We collect open interest snapshots from **future** and **option** markets from exchanges that are listed on our exchange coverage universe.
 
@@ -60,7 +60,7 @@ For exchanges that report an actual timestamp that is not the time of the reques
 
 ### **Do you have open interest metrics for assets, exchanges, asset pairs, or exchange-asset pairs?**
 
-Yes! We calculate various types of total open interest for assets like `btc`, exchanges like `binance`, asset pairs like `btc-usd`, and exchange-asset pairs like `binance-btc`. For more information, please take a look at our [open interest metrics](https://docs.coinmetrics.io/asset-metrics/open-interest).
+Yes! We calculate various types of total open interest for assets like `btc`, exchanges like `binance`, asset pairs like `btc-usd`, and exchange-asset pairs like `binance-btc`. For more information, please take a look at our [open interest metrics](open\_interest\_reported.md).
 
 ## Release History
 
@@ -74,16 +74,8 @@ Coin Metrics also calculates several open interest metrics at the asset, exchang
 
 Please see the following pages on open interest below to learn more.
 
-{% content-ref url="../../asset-metrics/open-interest/" %}
-[open-interest](../../asset-metrics/open-interest/)
-{% endcontent-ref %}
-
-{% content-ref url="../../exchange-metrics/open-interest/" %}
-[open-interest](../../exchange-metrics/open-interest/)
-{% endcontent-ref %}
-
-{% content-ref url="../../exchange-asset-metrics/open-interest.md" %}
-[open-interest.md](../../exchange-asset-metrics/open-interest.md)
+{% content-ref url="open_interest_reported.md" %}
+[open\_interest\_reported.md](open\_interest\_reported.md)
 {% endcontent-ref %}
 
 ## **Availability**

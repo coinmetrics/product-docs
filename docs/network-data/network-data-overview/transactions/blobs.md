@@ -12,9 +12,9 @@
 
 Number of transactions carrying a blob in the interval.
 
-| Name                            | MetricID  | Unit              | Interval       |
-| ------------------------------- | --------- | ----------------- | -------------- |
-| Blob Carrying Transaction Count | TxBlobCnt | BloTransactionsbs | 1 block, 1 day |
+| Name                            | MetricID  | Unit         | Interval       |
+| ------------------------------- | --------- | ------------ | -------------- |
+| Blob Carrying Transaction Count | TxBlobCnt | Transactions | 1 block, 1 day |
 
 ### Availability for Assets
 
@@ -55,12 +55,6 @@ Exhange Deposits metrics can be accessed using these endpoints:
 * `timeseries/asset-metrics`
 
 and by passing in the metric ID's `TxBlob*` in the `metrics` parameter.
-
-{% swagger path="/timeseries/asset-metrics" method="get" %}
-{% swagger-description %}
-
-{% endswagger-description %}
-{% endswagger %}
 
 {% tabs %}
 {% tab title="Shell" %}

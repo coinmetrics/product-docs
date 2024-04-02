@@ -2,7 +2,7 @@
 
 Coin Metrics publishes a collection of prices for a set of cryptocurrencies and fiat currencies consisting of the Coin Metrics Reference Rates ("CM Reference Rates") and the Coin Metrics Principal Market Prices ("CM Principal Market Prices"), which are collectively referred to as the Coin Metrics Prices ("CM Prices").
 
-Our coverage universe consists of over [800 assets](https://coverage.coinmetrics.io/asset-metrics/ReferenceRate) and utilizes a transparent and rules-based [methodology](../../prices/methodologies/coin-metrics-prices-methodology.md). Our prices are robust to manipulation and are derived from high quality constituent markets and are governed by our [policies](../../prices/methodologies/coin-metrics-prices-policies.md).
+Our coverage universe consists of over [800 assets](https://coverage.coinmetrics.io/asset-metrics/ReferenceRate) and utilizes a transparent and rules-based [methodology](../../../network-data/methodologies/). Our prices are robust to manipulation and are derived from high quality constituent markets and are governed by our [policies](../../methodologies/coin-metrics-prices-policies.md).
 
 ## Data Available for CM Reference Rates
 
@@ -36,13 +36,13 @@ We also publish the CM Reference Rates to Pyth Network, an on-chain oracle that 
 
 ## CM Prices Documents
 
-The CM Prices are collectively governed by policies described in [Coin Metrics Prices Policies](https://docs.coinmetrics.io/market-data/methodologies/coin-metrics-prices-policies) which describes the administration, oversight, conflicts of interest, material changes and terminations, recalculations, internal controls, complaints, record retention, and compliance policies.
+The CM Prices are collectively governed by policies described in [Coin Metrics Prices Policies](../../methodologies/coin-metrics-prices-policies.md) which describes the administration, oversight, conflicts of interest, material changes and terminations, recalculations, internal controls, complaints, record retention, and compliance policies.
 
 {% content-ref url="../../methodologies/coin-metrics-prices-policies.md" %}
 [coin-metrics-prices-policies.md](../../methodologies/coin-metrics-prices-policies.md)
 {% endcontent-ref %}
 
-The CM Prices are collectively governed by rules-based methodologies described in [Coin Metrics Prices Methodology](https://docs.coinmetrics.io/market-data/methodologies/coin-metrics-prices-methodology) which describes our Market Selection Framework, a systematic method of producing a unique set of constituent markets for each asset, our data sources, calculation algorithm, and contingency rules.
+The CM Prices are collectively governed by rules-based methodologies described in [Coin Metrics Prices Methodology](../../methodologies/coin-metrics-prices-methodology.md) which describes our Market Selection Framework, a systematic method of producing a unique set of constituent markets for each asset, our data sources, calculation algorithm, and contingency rules.
 
 {% content-ref url="../../methodologies/coin-metrics-prices-methodology.md" %}
 [coin-metrics-prices-methodology.md](../../methodologies/coin-metrics-prices-methodology.md)

@@ -2,7 +2,7 @@
 
 ### **How do you calculate the CM Reference Rates?**
 
-The CM Prices are collectively governed by rules-based methodologies described in [Coin Metrics Prices Methodology](https://docs.coinmetrics.io/market-data/methodologies/coin-metrics-prices-methodology) which describes our Market Selection Framework, a systematic method of producing a unique set of constituent markets for each asset, our data sources, calculation algorithm, and contingency rules..
+The CM Prices are collectively governed by rules-based methodologies described in [Coin Metrics Prices Methodology](../methodologies/coin-metrics-prices-methodology.md) which describes our Market Selection Framework, a systematic method of producing a unique set of constituent markets for each asset, our data sources, calculation algorithm, and contingency rules..
 
 {% content-ref url="../methodologies/coin-metrics-prices-methodology.md" %}
 [coin-metrics-prices-methodology.md](../methodologies/coin-metrics-prices-methodology.md)
@@ -30,7 +30,7 @@ Other metrics, like `ReferenceRate` (and many other data types like trades, open
 
 When you compare something that uses the "point-in-time" convention with something that uses the "start-of-interval" convention, it can seem like the "start-of-interval" timeseries is lagged or is potentially missing data. I can assure that this is not the case, but we certainly understand your confusion here since the different values are delivered via the same `timeseries/asset-metrics` endpoint.
 
-For more information, please see [What timestamp conventions does Coin Metrics use?](https://docs.coinmetrics.io/market-data/market-data-faqs#what-timestamp-conventions-does-coin-metrics-use)
+For more information, please see [What timestamp conventions does Coin Metrics use?](./#what-timestamp-conventions-does-coin-metrics-use)
 
 ### **What is the difference between your Reference Rates and a volume-weighted average price?**
 
@@ -40,7 +40,7 @@ ReferenceRate with frequency 1h or 1d use a 61 minute calculation window that is
 
 ReferenceRate with frequency 1m or 1s or 200ms extract the most recent trade from our set of constituent markets and calculate a weighted median where half the weight is calculated from volume measured over the previous 60 minutes and half the weight is calculated from inverse price variance of trades over the previous 60 minutes.
 
-The CM Prices are collectively governed by rules-based methodologies described in [Coin Metrics Prices Methodology](https://docs.coinmetrics.io/market-data/methodologies/coin-metrics-prices-methodology) which describes our Market Selection Framework, a systematic method of producing a unique set of constituent markets for each asset, our data sources, calculation algorithm, and contingency rules.
+The CM Prices are collectively governed by rules-based methodologies described in [Coin Metrics Prices Methodology ](../methodologies/coin-metrics-prices-methodology.md)which describes our Market Selection Framework, a systematic method of producing a unique set of constituent markets for each asset, our data sources, calculation algorithm, and contingency rules.
 
 {% content-ref url="../methodologies/coin-metrics-prices-methodology.md" %}
 [coin-metrics-prices-methodology.md](../methodologies/coin-metrics-prices-methodology.md)
@@ -52,4 +52,4 @@ Our CM Prices are served through our [/timeseries/asset-metrics](https://docs.co
 
 The `1d` frequency represents a daily frequency that ends at 00:00:00 in the UTC timezone and the `1d-ny-close` represents a daily frequency that ends at 16:00:00 in the America/New\_York timezone. These timestamps are not altered for weekends or holidays.
 
-Please also see our FAQ on [What timestamp conventions does Coin Metrics use?](https://docs.coinmetrics.io/market-data/market-data-faqs#what-timestamp-conventions-does-coin-metrics-use) for more information.
+Please also see our FAQ on [What timestamp conventions does Coin Metrics use?](./#what-timestamp-conventions-does-coin-metrics-use) for more information.

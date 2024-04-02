@@ -15,7 +15,7 @@ Please note that `ReferenceRate` and `ReferenceRateUSD` metrics are identical to
 * The CM Reference Rates supports multiple frequencies. The daily and hourly frequencies utilize one calculation methodology and the minute, second, and 200 millisecond frequencies ("real-time frequencies") utilize a separate calculation methodology.\\
 * The daily and hourly frequencies are calculated at the end of every hour and day, respectively, (the "Calculation Time") and are published within 5 minutes (the “Publication Time”). The real-time frequencies are published in real-time with no delay.\\
 * Please note that this metric is served through both the [/timeseries/asset-metrics](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesAssetMetrics) HTTP endpoint and the [/timeseries-stream/asset-metrics](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesStreamAssetMetrics) websocket endpoint. The HTTP endpoint supports the frequencies 1d, 1h, 1m, and 1s. The websocket endpoint supports the frequencies 1s and 200ms.\\
-* Please see our [CM Prices Overview](../../prices/market-data/reference-rates-overview.md) for more information on methodology and policies.
+* Please see our [CM Prices Overview](reference-rates-overview.md) for more information on methodology and policies.
 
 ## API Endpoints
 

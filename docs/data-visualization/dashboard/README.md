@@ -4,7 +4,7 @@ description: https://charts.coinmetrics.io/dashboard/
 
 # Dashboard
 
-The Dashboard enables you to organize and quickly view your saved charts (from our [Data Visualization](../../charting-tools/data-visualization/) suite). You can create a thematic dashboard (e.g., a Mining Dashboard), an asset-specific dashboard (e.g., Favorite BTC charts) or really any mashup that you'd like.
+The Dashboard enables you to organize and quickly view your saved charts (from our [Data Visualization](../) suite). You can create a thematic dashboard (e.g., a Mining Dashboard), an asset-specific dashboard (e.g., Favorite BTC charts) or really any mashup that you'd like.
 
 When you arrive at our Dashboard home page, you will need to enter your API key in the top right corner (we will soon allow our community users to load the charts they've saved locally). **Note: This tool does require that you have previously created and saved charts.**
 

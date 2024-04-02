@@ -43,19 +43,7 @@ The difficulty of the last block in the considered time period. Difficulty repre
 
 * Difficulty is a measure of how difficult it is to mine a block. The greater the difficulty, the more computational power is needed to mine a block.
 
-### See Also
 
-{% content-ref url="../../mining/hashrate.md" %}
-[hashrate.md](../../mining/hashrate.md)
-{% endcontent-ref %}
-
-{% content-ref url="../../mining/diffmean.md" %}
-[diffmean.md](../../mining/diffmean.md)
-{% endcontent-ref %}
-
-{% content-ref url="../../network-usage/blkintmean.md" %}
-[blkintmean.md](../../network-usage/blkintmean.md)
-{% endcontent-ref %}
 
 ### Availability for Assets <a href="#diffmean" id="diffmean"></a>
 
@@ -95,11 +83,7 @@ The mean difficulty of finding a hash that meets the protocol-designated require
 
 * Released in the 1.0 release of NDP
 
-### See Also
 
-{% content-ref url="../../mining/difflast.md" %}
-[difflast.md](../../mining/difflast.md)
-{% endcontent-ref %}
 
 ### Availability for Assets
 

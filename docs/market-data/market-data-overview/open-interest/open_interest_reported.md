@@ -18,7 +18,7 @@ The sum of all reported open interested from futures markets where the margin as
 
 ### Details
 
-Our reported coin-margined future open interest metric is an aggregation of the reported coin-margined future open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
+Our reported coin-margined future open interest metric is an aggregation of the reported coin-margined future open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference/).
 
 ### Release History
 
@@ -26,9 +26,9 @@ Our reported coin-margined future open interest metric is an aggregation of the 
 
 ### See Also
 
-* [Futures Contract Specifications](../../market-metadata.md)
+* [Futures Contract Specifications](../market-metadata/market-metadata.md)
 * [Market Open Interest](market-open-interest.md)
-* [Reported Coin-Margined Future Volume](../../volume/volume\_reported\_future\_coin\_margined\_usd\_1d.md)
+* [Reported Coin-Margined Future Volume](../volume/volume\_reported.md)
 
 ### Availability for Assets
 
@@ -47,7 +47,7 @@ The sum of all reported open interest from non-perpetual futures markets in unit
 
 ### Details
 
-Our non-perpetual future open interest metric is an aggregation of the reported non-perpetual futures open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
+Our non-perpetual future open interest metric is an aggregation of the reported non-perpetual futures open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](https://coverage.coinmetrics.io/exchange-metrics-v2/open\_interest\_reported\_future\_nonperpetual\_usd).
 
 ### Release History
 
@@ -55,9 +55,9 @@ Our non-perpetual future open interest metric is an aggregation of the reported 
 
 ### See Also
 
-* [Futures Contract Specifications](../../market-metadata.md)
-* [Market Open Interest](../../market-open-interest.md)
-* [Reported Non-Perpetual Future Volume](../../volume/volume\_reported\_future\_nonperpetual\_usd\_1d.md)
+* [Futures Contract Specifications](../market-metadata/market-metadata.md)
+* [Market Open Interest](market-open-interest.md)
+* [Reported Non-Perpetual Future Volume](../volume/volume\_reported.md#volume\_reported\_future\_nonperpetual)
 
 ### Availability for Assets
 
@@ -70,13 +70,13 @@ Our non-perpetual future open interest metric is an aggregation of the reported 
 The sum of all reported open interest from perpetual futures markets in units of U.S. dollars.[\
 ](https://docs.coinmetrics.io/asset-metrics/volume/volume\_reported\_future\_coin\_margined\_usd\_1d)
 
-| Name                                    | MetricID                                                                                                                                | Unit | Frequency |
-| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---- | --------- |
-| Reported Perpetual Future Open Interest | [open\_interest\_reported\_future\_\_perpetual\_usd](open\_interest\_reported.md#open\_interest\_reported\_future\_coin\_margined\_usd) | USD  | 1h, 1d    |
+| Name                                    | MetricID                                                                                                                              | Unit | Frequency |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---- | --------- |
+| Reported Perpetual Future Open Interest | [open\_interest\_reported\_future\_perpetual\_usd](open\_interest\_reported.md#open\_interest\_reported\_future\_coin\_margined\_usd) | USD  | 1h, 1d    |
 
 ### Details
 
-Our perpetual future open interest metric is an aggregation of the reported perpetual futures open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
+Our perpetual future open interest metric is an aggregation of the reported perpetual futures open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](https://coverage.coinmetrics.io/exchange-metrics-v2/open\_interest\_reported\_future\_perpetual\_usd).
 
 ### Release History
 
@@ -84,9 +84,9 @@ Our perpetual future open interest metric is an aggregation of the reported perp
 
 ### See Also
 
-* [Futures Contract Specifications](../../../market-data-timeseries/market-metadata.md)
-* [Market Open Interest](../../../market-data-timeseries/market-open-interest.md)
-* [Reported Perpetual Future Volume](../../volume/volume\_reported\_future\_perpetual\_usd\_1d.md)
+* [Futures Contract Specifications](../market-metadata/market-metadata.md)
+* [Market Open Interest](market-open-interest.md)
+* [Reported Perpetual Future Volume](../volume/volume\_reported.md#volume\_reported\_future\_perpetual)
 
 ### Availability for Assets
 
@@ -102,7 +102,7 @@ The sum of all reported open interest from futures markets where the margin asse
 
 ### Details
 
-Our reported Tether-margined future open interest metric is an aggregation of the reported Tether-margined future open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
+Our reported Tether-margined future open interest metric is an aggregation of the reported Tether-margined future open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](https://coverage.coinmetrics.io/exchange-metrics-v2/open\_interest\_reported\_future\_tether\_margined\_usd).
 
 ### Release History
 
@@ -112,7 +112,7 @@ Our reported Tether-margined future open interest metric is an aggregation of th
 
 * [Futures Contract Specifications](../../market-metadata.md)
 * [Market Open Interest](market-open-interest.md)
-* [Reported Tether-Margined Future Volume](../../volume/volume\_reported\_future\_tether\_margined\_usd\_1d.md)
+* [Reported Tether-Margined Future Volume](../volume/volume\_reported.md#volume\_reported\_tether\_margined)
 
 ### Availability for Assets
 
@@ -128,7 +128,7 @@ The sum of all reported future open interest from the spot markets in Coin Metri
 
 ### Details
 
-Our reported future open interest metric is an aggregation of the reported future open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
+Our reported future open interest metric is an aggregation of the reported future open interest from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](https://coverage.coinmetrics.io/exchange-metrics-v2/open\_interest\_reported\_future\_usd).
 
 ### Release History
 

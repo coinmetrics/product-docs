@@ -26,25 +26,25 @@ Another way to think about our Market Cap is to equate it to the Fully Diluted M
 
 ### **Do you have metrics for total blockchain size?**
 
-No, but we do have a metric for[ Sum Block Size (in bytes) ](../asset-metrics/network-usage/blksizebyte.md)(BlkSizeByte), which you can sum up to get blockchain size. You can also use our runningTotal function in our Formula Builder to show the size over time.
+No, but we do have a metric for [Sum Block Size (in bytes)](network-data-overview/network-usage/blocks.md#blksizebyte) (BlkSizeByte), which you can sum up to get blockchain size. You can also use our runningTotal function in our Formula Builder to show the size over time.
 
 ![https://charts.coinmetrics.io/formulas/#1178](../.gitbook/assets/BTC\_Total\_Blockchain\_Size\_\(in\_bytes\).png)
 
 ### **Do you have metrics for total transactions?**
 
-No, we don’t have total transactions, but we have [Tx Cnt](../asset-metrics/transactions/txcnt.md) (TxCnt or Transactions per interval), which you can sum up to get total transactions. You can also use our runningTotal function in our Formula Builder to show total transactions over time.
+No, we don’t have total transactions, but we have [Tx Cnt](network-data-overview/transactions/transactions.md#txcnt) (TxCnt or Transactions per interval), which you can sum up to get total transactions. You can also use our runningTotal function in our Formula Builder to show total transactions over time.
 
 ![https://charts.coinmetrics.io/formulas/#1179](../.gitbook/assets/BTC\_Total\_Transaction\_Count.png)
 
 ### **How can you calculate total transfer value on the Ethereum Blockchain (ETH + other ERC20s)?**
 
-You can calculate this manually by summing the [transfer value](../asset-metrics/transactions/txtfrvalntv.md) for ETH and ERC20s. You can all use our charting tool to create a stacked view of all ERC20s' Transfer Values, or our formula builder to create an aggregate.
+You can calculate this manually by summing the [transfer value](network-data-overview/transactions/transfers.md) for ETH and ERC20s. You can all use our charting tool to create a stacked view of all ERC20s' Transfer Values, or our formula builder to create an aggregate.
 
 ![https://charts.coinmetrics.io/network-data/#1181](../.gitbook/assets/ETH\_ERC20\_Xfer\_Val\_\(USD\).png)
 
 ### **What is the best source for daily volume for Tether-Omni, Tether-ERC20, USDC and DAI?**
 
-We have a [Trusted Volume](../asset-metrics/volume/volume\_trusted\_spot\_usd\_1d.md) metric in Network Data Pro for stablecoins (USDT, USDC, DAI, PAX, BUSD, TUSD, etc.), which represents the volume for these assets on the most trusted exchanges (a subset of our coverage universe).
+We have a [Trusted Volume ](../market-data/market-data-overview/volume/volume\_trusted.md)metric in Network Data Pro for stablecoins (USDT, USDC, DAI, PAX, BUSD, TUSD, etc.), which represents the volume for these assets on the most trusted exchanges (a subset of our coverage universe).
 
 We also have trading volume that occurs on centralized exchanges for every market in our coverage universe available via our Market Data feed.
 
@@ -52,11 +52,11 @@ One note: Centralized exchanges do not differentiate between Tether-Omni, Tether
 
 ### **Is there a way to approximate the number of users for a specific blockchain?**
 
-You can use the "[Address Count with Balance](../asset-metrics/addresses/adrbal1inxcnt/)" metrics to approximate this, although you should keep in mind that users may have multiple addresses and certain addresses (e.g., custodian or exchange addresses) may represent multiple users. For day to day use, you can use our active addresses metrics. We provide aggregate [active address metrics](../asset-metrics/addresses/adractcnt.md) (AdrActCnt) as well as aggregates for [receiving](../asset-metrics/addresses/adractreccnt.md) and [sending](../asset-metrics/addresses/adractsentcnt.md) addresses (AdrActRecCnt and AdrActSentCnt).
+You can use the "[Address Count with Balance](network-data-overview/addresses/address-balances.md)" metrics to approximate this, although you should keep in mind that users may have multiple addresses and certain addresses (e.g., custodian or exchange addresses) may represent multiple users. For day to day use, you can use our active addresses metrics. We provide aggregate [active address metrics](network-data-overview/addresses/active-addresses.md#active-addresses) (AdrActCnt) as well as aggregates for [receiving](network-data-overview/addresses/) and [sending](network-data-overview/addresses/active-addresses.md#adractsent) addresses (AdrActRecCnt and AdrActSentCnt).
 
 ### **Do you have a metric for the number of days BTC is held between transactions?**
 
-Since the BTC network uses a UTXO-based data model, we can calculate the number of days BTC is held between transactions by looking at unspent transaction outputs. Our [UTXOAgeMean](https://docs.coinmetrics.io/asset-metrics/network-usage/utxoagemean) metric calculates the average number of days a UTXO-based asset is held between transactions, whereas our [UTXOAgeMed](https://docs.coinmetrics.io/asset-metrics/network-usage/utxoagemed) calculates the median.
+Since the BTC network uses a UTXO-based data model, we can calculate the number of days BTC is held between transactions by looking at unspent transaction outputs. Our [UTXOAgeMean](network-data-overview/network-usage/utxos.md#utxoagemean) metric calculates the average number of days a UTXO-based asset is held between transactions, whereas our [UTXOAgeMed](network-data-overview/network-usage/utxos.md#utxoagemed) calculates the median.
 
 It's important to note that these metrics are only calculable for UTXO-based networks, so they won't work for account based networks such as Ethereum.
 
@@ -74,7 +74,7 @@ Miner flows are estimated by basing clustering on an address’s distance in hop
 
 ### What are the exchanges that serve as constituents for your Trusted Volume metric?
 
-Our trusted volume metric is an aggregation of the reported volume from exchanges that we consider the most accurate and trustworthy. The full list of constituent exchanges included in our Trusted Volume is [here](https://docs.coinmetrics.io/asset-metrics/volume/volume\_trusted\_spot\_usd\_1d).
+Our trusted volume metric is an aggregation of the reported volume from exchanges that we consider the most accurate and trustworthy. The full list of constituent exchanges included in our Trusted Volume is [here](https://coinmetrics.io/special-insights/trusted-exchange-framework-2-1/).
 
 ### **Is there a way to calculate ETH staking yield metrics with your Consensus Layer metrics?**
 

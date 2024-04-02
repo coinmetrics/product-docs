@@ -1,4 +1,6 @@
-# Contents
+# Slashing Metrics
+
+## Contents
 
 * [Count of Double Attestation Slashing Events](slashing-metrics.md#slashattdblevcnt)
 * [Count of Attester Slashing Events](slashing-metrics.md#slashattevcnt)
@@ -7,174 +9,161 @@
 * [Total Slashing Events](slashing-metrics.md#slashevcnt)
 * [Slashed Amounts](slashing-metrics.md#slashedntv)
 
-# Count of Double Attestation Slashing Events<a href="#slashattdblevcnt" id="slashattdblevcnt"></a>
+## Count of Double Attestation Slashing Events <a href="#slashattdblevcnt" id="slashattdblevcnt"></a>
 
-## Definition
+### Definition
 
 Count of attester slashing events cause by double attestations
 
-| Name      | MetricID | Unit   | Interval      |
-| ------------------------------------------- | ---------------- | --- | -------- |
-| Count of Double Attestation Slashing Events | SlashAttDblEvCnt | N/A | 1 minute |
+| Name                                        | MetricID         | Unit | Interval |
+| ------------------------------------------- | ---------------- | ---- | -------- |
+| Count of Double Attestation Slashing Events | SlashAttDblEvCnt | N/A  | 1 minute |
 
-## Details
+### Details
 
 * Count of the total double attesting slashing events enforced by the protocol in the last 1 minute
 
-## Release History
+### Release History
 
 * Released November 2023.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/SlashAttDblEvCnt" %}
 
-# Count of Attester Slashing Events<a href="#slashattevcnt" id="slashattevcnt"></a>
+## Count of Attester Slashing Events <a href="#slashattevcnt" id="slashattevcnt"></a>
 
-## Definition
+### Definition
 
 Count of attester slashing events.
 
-| Name      | MetricID | Unit   | Interval      |
-| ------------------------------ | ------------- | --- | -------- |
-| Count Attester Slashing Events | SlashAttEvCnt | N/A | 1 minute |
+| Name                           | MetricID      | Unit | Interval |
+| ------------------------------ | ------------- | ---- | -------- |
+| Count Attester Slashing Events | SlashAttEvCnt | N/A  | 1 minute |
 
-## Details
+### Details
 
 * Count of the total attester slashing events enforced by the protocol in the last 1 minute
 
-## Release History
+### Release History
 
 * Released November 2023.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/SlashAttEvCnt" %}
 
+## Count of Surrounding Attestation Slashing Events <a href="#slashattsurrevcnt" id="slashattsurrevcnt"></a>
 
-# Count of Surrounding Attestation Slashing Events<a href="#slashattsurrevcnt" id="slashattsurrevcnt"></a>
-
-## Definition
+### Definition
 
 Count of attester slashing events.
 
-| Name      | MetricID | Unit   | Interval      |
-| ------------------------------------------------ | --- | --- | -------- |
-| Count of Surrounding Attestation Slashing Events | SlashAttSurrEvCnt | N/A | 1 minute |
+| Name                                             | MetricID          | Unit | Interval |
+| ------------------------------------------------ | ----------------- | ---- | -------- |
+| Count of Surrounding Attestation Slashing Events | SlashAttSurrEvCnt | N/A  | 1 minute |
 
-## Details
+### Details
 
 * Count of the total Surrounding Attestation Slashing events enforced by the protocol in the last 1 minute
 
-## Release History
+### Release History
 
 * Released November 2023.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/SlashAttSurrEvCnt" %}
 
-# Proposer Slashing Events<a href="#slashpropevcnt" id="slashpropevcnt"></a>
+## Proposer Slashing Events <a href="#slashpropevcnt" id="slashpropevcnt"></a>
 
-## Definition
+### Definition
 
 Count of total number of slashing events.
 
-| Name      | MetricID | Unit   | Interval      |
-| ------------------------ | -------------- | --- | -------- |
-| Proposer Slashing Events | SlashPropEvCnt | N/A | 1 minute |
+| Name                     | MetricID       | Unit | Interval |
+| ------------------------ | -------------- | ---- | -------- |
+| Proposer Slashing Events | SlashPropEvCnt | N/A  | 1 minute |
 
-## Details
+### Details
 
 * Count of the total number of proposer slashing events enforced by the protocol in the last 1 minute
 
-## Release History
+### Release History
 
 * Released November 2023.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/SlashPropEvCnt" %}
 
-
-## Definition
+### Definition
 
 Count of attester slashing events.
 
-| Name      | MetricID | Unit   | Interval      |
-| ------------------------------------------------ | ----------------- | --- | -------- |
-| Count of Surrounding Attestation Slashing Events | SlashAttSurrEvCnt | N/A | 1 minute |
+| Name                                             | MetricID          | Unit | Interval |
+| ------------------------------------------------ | ----------------- | ---- | -------- |
+| Count of Surrounding Attestation Slashing Events | SlashAttSurrEvCnt | N/A  | 1 minute |
 
-## Details
+### Details
 
 * Count of the total Surrounding Attestation Slashing events enforced by the protocol in the last 1 minute
 
-## Release History
+### Release History
 
 * Released November 2023.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/SlashAttSurrEvCnt" %}
 
+## Total Slashing Events <a href="#slashevcnt" id="slashevcnt"></a>
 
-
-# Total Slashing Events<a href="#slashevcnt" id="slashevcnt"></a>
-
-## Definition
+### Definition
 
 Count of total number of slashing events.
 
-| Name      | MetricID | Unit   | Interval      |
-| Total Slashing Events | SlashEvCnt | N/A | 1 minute |
-| --------------------- | ---------- | --- | -------- |
+\| Name | MetricID | Unit | Interval |
 
-## Details
+### Details
 
 * Count of the total number of slashing events, including attester and proposer slashing events enforced by the protocol in the last 1 minute
 
-## Release History
+### Release History
 
 * Released November 2023.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/SlashEvCnt" %}
 
+## Slashed Amounts <a href="#slashedntv" id="slashedntv"></a>
 
-# Slashed Amounts<a href="#slashedntv" id="slashedntv"></a>
-
-## Definition
+### Definition
 
 Total amout of penalties enforced by the protocol in native units.
 
-| Name      | MetricID | Category      | Subcategory | Type | Unit   | Interval      |
-| Slashed Amounts | SlashedNTV | Staking | Consensus Health | Sum | Native Units | 1 day |
-| --------------- | ---------- | ------- | ---------------- | --- | ------------ | ----- |
+\| Name | MetricID | Category | Subcategory | Type | Unit | Interval |
 
-## Details
+### Details
 
 * This metric operates on a 1 day frequency.
 
-## Release History
+### Release History
 
 * Released November 2023.
 
-## Availability for Assets
+### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/SlashedNTV" %}
 
-# API Endpoints
+## API Endpoints
 
 Slashing metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
 and by passing in the metric ID's `Slash*` in the `metrics` parameter.
-
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
 
 {% tabs %}
 {% tab title="Shell" %}

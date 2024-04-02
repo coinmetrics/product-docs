@@ -1,11 +1,13 @@
-# Contents
+# Blocks
 
-* [Block Count at Tip](blocks.md#block_count_at_tip)
-* [Block Count by Same Miner](blocks.md#block_count_by_same_miner)
-* [Blocks by Unknown Miners](blocks.md#block_count_by_unknown_miners)
-* [Blocks Without Segwit](blocks.md#block_count_without_segwit)
+## Contents
 
-# Block Count at Tip<a href="#block_count_at_tip" id="block_count_at_tip"></a>
+* [Block Count at Tip](blocks.md#block\_count\_at\_tip)
+* [Block Count by Same Miner](blocks.md#block\_count\_by\_same\_miner)
+* [Blocks by Unknown Miners](blocks.md#block\_count\_by\_unknown\_miners)
+* [Blocks Without Segwit](blocks.md#block\_count\_without\_segwit)
+
+## Block Count at Tip <a href="#block_count_at_tip" id="block_count_at_tip"></a>
 
 **Definition**
 
@@ -29,7 +31,7 @@ Bitcoin (BTC), Ethereum (ETH)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc,eth&frequency=1b&metrics=block_count_at_tip&pretty=true" %}
 
-# Block Count by Same Miner<a href="#block_count_by_same_miner" id="block_count_by_same_miner"></a>
+## Block Count by Same Miner <a href="#block_count_by_same_miner" id="block_count_by_same_miner"></a>
 
 **Definition**
 
@@ -53,7 +55,7 @@ _\* Historical data covering the pre-merge timeframe only (up to 9/15/2022). Wit
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1b&metrics=block_count_by_same_miner_6b&pretty=true" %}
 
-# Blocks by Unknown Miners<a href="#block_count_by_unknown_miners" id="block_count_by_unknown_miners"></a>
+## Blocks by Unknown Miners <a href="#block_count_by_unknown_miners" id="block_count_by_unknown_miners"></a>
 
 **Definition**
 
@@ -79,7 +81,7 @@ _\* Historical data covering the pre-merge timeframe only (up to 9/15/2022). Wit
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1b&limit_per_asset=1&metrics=block_count_by_unknown_miners_6b&pretty=true" %}
 
-# Non SegWit Blocks<a href="#block_count_without_segwit" id="block_count_without_segwit"></a>
+## Non SegWit Blocks <a href="#block_count_without_segwit" id="block_count_without_segwit"></a>
 
 **Definition**
 
@@ -103,19 +105,13 @@ Bitcoin (BTC)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1b&limit_per_asset=1&metrics=block_count_without_segwit_6b&pretty=true" %}
 
-
-
-# API Endpoints
+## API Endpoints
 
 Blocks metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
 and by passing in the metric ID's `block_count*` in the `metrics` parameter.
-
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
 
 {% tabs %}
 {% tab title="Shell" %}

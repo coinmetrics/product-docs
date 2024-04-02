@@ -1,6 +1,6 @@
 # Reported Volume
 
-The reported volume aggregated across all exchanges in CM's coverage universe. These metrics do not use the [Trusted Exchange Framework](https://coinmetrics.io/special-insights/trusted-exchange-framework) to filter for the most accurate and trustworthy crypto exchanges. See [Trusted Volume](../../volume/%22volume\_trusted.md%22) for more details on the distinction for trustworthy exchanges.
+The reported volume aggregated across all exchanges in CM's coverage universe. These metrics do not use the [Trusted Exchange Framework](https://coinmetrics.io/special-insights/trusted-exchange-framework) to filter for the most accurate and trustworthy crypto exchanges. See [Trusted Volume](volume\_trusted.md) for more details on the distinction for trustworthy exchanges.
 
 **Contents**
 
@@ -20,7 +20,7 @@ The sum of all reported volume from the spot markets in Coin Metrics' coverage i
 
 ### Details
 
-Our reported volume metric is an aggregation of the reported volume from all exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
+Our reported volume metric is an aggregation of the reported volume from all exchanges in CM's coverage universe. Covered exchanges can be found [here](https://coverage.coinmetrics.io/exchange-metrics-v2/volume\_reported\_spot\_usd\_1d).
 
 ### Chart
 
@@ -59,7 +59,7 @@ The sum of all reported future volume from the spot markets in Coin Metrics' cov
 
 ### Details
 
-Our reported future volume metric is an aggregation of the reported future volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
+Our reported future volume metric is an aggregation of the reported future volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](https://coverage.coinmetrics.io/exchange-metrics-v2/volume\_reported\_future\_usd\_1d).
 
 ### Chart
 
@@ -84,7 +84,7 @@ The sum of all reported volume from perpetual futures markets in units of U.S. d
 
 ### Details
 
-Our perpetual future volume metric is an aggregation of the reported perpetual futures volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
+Our perpetual future volume metric is an aggregation of the reported perpetual futures volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](https://coverage.coinmetrics.io/exchange-metrics-v2/volume\_reported\_future\_perpetual\_usd\_1d).
 
 ### Release History
 
@@ -109,7 +109,7 @@ The sum of all reported volume from non-perpetual futures markets in units of U.
 
 ### Details
 
-Our non-perpetual future volume metric is an aggregation of the reported non-perpetual futures volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
+Our non-perpetual future volume metric is an aggregation of the reported non-perpetual futures volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](https://coverage.coinmetrics.io/exchange-metrics-v2/volume\_reported\_future\_nonperpetual\_usd\_1d).
 
 ### Release History
 
@@ -134,7 +134,7 @@ The sum of all reported volume from futures markets where the margin asset is eq
 
 ### Details
 
-Our reported coin-margined future volume metric is an aggregation of the reported coin-margined future volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
+Our reported coin-margined future volume metric is an aggregation of the reported coin-margined future volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](https://coverage.coinmetrics.io/exchange-metrics-v2/volume\_reported\_future\_coin\_margined\_usd\_1d).
 
 ## Reported Tether-Margined Future Volume <a href="#volume_reported_tether_margined" id="volume_reported_tether_margined"></a>
 
@@ -146,7 +146,7 @@ The sum of all reported volume from futures markets where the margin asset is Te
 
 ### Details
 
-Our reported Tether-margined future volume metric is an aggregation of the reported Tether-margined future volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](broken-reference).
+Our reported Tether-margined future volume metric is an aggregation of the reported Tether-margined future volume from all futures exchanges in CM's coverage universe. Covered exchanges can be found [here](https://coverage.coinmetrics.io/exchange-metrics-v2/volume\_reported\_tether\_margined\_usd\_1d).
 
 ### Release History
 

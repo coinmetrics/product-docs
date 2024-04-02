@@ -1,11 +1,12 @@
-# Contents
+# Empty Blocks
 
-* [Empty Blocks](empty-blocks.md#block_count_empty_6b)
-* [Consecutive Empty Blocks](empty-blocks.md#block_count_consecutive_empty)
-* [Missed Slots](empty-blocks.md#block_missed_slots)
+## Contents
 
+* [Empty Blocks](empty-blocks.md#block\_count\_empty\_6b)
+* [Consecutive Empty Blocks](empty-blocks.md#block\_count\_consecutive\_empty)
+* [Missed Slots](empty-blocks.md#block\_missed\_slots)
 
-# Empty Blocks<a href="#block_count_empty" id="block_count_empty"></a>
+## Empty Blocks <a href="#block_count_empty" id="block_count_empty"></a>
 
 **Definition**
 
@@ -29,7 +30,7 @@ _\*Ethereum data is available up to the merge on 9/15/2022. After that date Ethe
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1b&limit_per_asset=1&metrics=block_count_empty_6b&pretty=true" %}
 
-# Consecutive Empty Blocks<a href="#block_count_consecutive_empty" id="block_count_consecutive_empty"></a>
+## Consecutive Empty Blocks <a href="#block_count_consecutive_empty" id="block_count_consecutive_empty"></a>
 
 **Definition**
 
@@ -37,7 +38,7 @@ The count of consecutive empty blocks captured within the most-recent 1-minute i
 
 **Dictionary**
 
-<table data-header-hidden><thead><tr><th width="170"></th><th width="177"></th><th width="107"></th><th width="106"></th><th></th><th></th><th></th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Category</td><td>Sub-category</td><td>Type</td><td>Unit</td><td>Interval</td></tr><tr><td>Consecutive Empty Blocks</td><td>block_count_consecutive_empty</td><td>KRI</td><td>Empty Blocks</td><td>Sum</td><td>Count of  Blocks</td><td>1b</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="170"></th><th width="177"></th><th width="107"></th><th width="106"></th><th></th><th></th><th></th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Category</td><td>Sub-category</td><td>Type</td><td>Unit</td><td>Interval</td></tr><tr><td>Consecutive Empty Blocks</td><td>block_count_consecutive_empty</td><td>KRI</td><td>Empty Blocks</td><td>Sum</td><td>Count of Blocks</td><td>1b</td></tr></tbody></table>
 
 **Methodology**
 
@@ -51,7 +52,7 @@ Ethereum (ETH)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=eth&frequency=1b&metrics=block_count_consecutive_empty&pretty=true" %}
 
-# Missed Slots<a href="#block_missed_slots" id="block_missed_slots"></a>
+## Missed Slots <a href="#block_missed_slots" id="block_missed_slots"></a>
 
 **Definition**
 
@@ -75,7 +76,7 @@ Ethereum (ETH)
 
 {% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=eth&frequency=1b&metrics=block_missed_slots&pretty=true" %}
 
-# API Endpoints
+## API Endpoints
 
 Empty Blocks metrics can be accessed using these endpoints:
 
@@ -83,8 +84,8 @@ Empty Blocks metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `block_count_empty*` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}
@@ -118,4 +119,3 @@ print(
 ```
 {% endtab %}
 {% endtabs %}
-

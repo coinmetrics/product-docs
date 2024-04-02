@@ -49,7 +49,7 @@ A sample of the principal market data for Bitcoin with daily frequency is shown 
 
 ## Release History
 
-* Please see the [Coin Metrics Prices Change Log](https://docs.coinmetrics.io/market-data/methodologies/coin-metrics-prices-methodology#change-log) for release history.
+* Please see the [Coin Metrics Prices Change Log](../../methodologies/coin-metrics-prices-methodology.md) for release history.
 
 ## **Availability for Assets**
 

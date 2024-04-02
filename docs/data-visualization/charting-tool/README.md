@@ -6,7 +6,7 @@ description: https://charts.coinmetrics.io/network-data/
 
 ## Selecting a Data Series
 
-The Charting Tool allows you to easily visualize our [Asset Metrics](../../asset-metrics/asset-metrics-overview.md). Simply select the asset/metric pair from the top left selection dialogs.
+The Charting Tool allows you to easily visualize our [Asset Metrics](../../api-data-types/asset-metrics-overview.md). Simply select the asset/metric pair from the top left selection dialogs.
 
 ![](<../../.gitbook/assets/Screen Shot 2020-12-30 at 1.13.48 PM.png>)
 

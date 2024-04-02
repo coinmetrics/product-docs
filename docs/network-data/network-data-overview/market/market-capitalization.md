@@ -6,6 +6,7 @@
 * [Capitalization, future expected supply, next 10yr, USD](market-capitalization.md#b)
 * [Capitalization, market, current supply, USD](market-capitalization.md#c)
 * [Capitalization, market, estimated supply, USD](market-capitalization.md#d)
+* [Capitalization, market, free float](market-capitalization.md#e)
 * [Capitalization, MVRV, free float](market-capitalization.md#g)
 * [Capitalization, realized, USD](market-capitalization.md#h)
 
@@ -320,11 +321,7 @@ Exhange Deposits metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `Cap*` in the `metrics` parameter.
 
-{% swagger path="/timeseries/asset-metrics" method="get" %}
-{% swagger-description %}
-
-{% endswagger-description %}
-{% endswagger %}
+<mark style="color:blue;">`GET`</mark> `undefined/timeseries/asset-metrics`
 
 {% tabs %}
 {% tab title="Shell" %}
