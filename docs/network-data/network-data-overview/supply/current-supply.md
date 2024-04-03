@@ -33,6 +33,7 @@ The sum of all native units ever created and currently visible on the ledger (i.
 * For ZEC, it includes the shielded pools value
 * For Ripple, escrows are counted towards total current supply.
 * For privacy coins like Monero or Grin, total current supply is computed by summing up mining rewards.
+* For Solana, includes inflation from staking rewards and deflation from burnt coins
 
 ### Release History
 

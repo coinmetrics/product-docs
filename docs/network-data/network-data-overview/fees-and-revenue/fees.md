@@ -39,6 +39,7 @@ The mean transaction fee per byte of all blocks that interval in native units.
 * 0-fee transactions are included
 * Computed as FeeTotNtv / BlkSizeByte
 * If there were no transactions that interval, this metric isn’t computed
+* For SOL, this metric does not include vote transactions. Includes successful and unsuccessful transactions.
 
 ### Chart
 
@@ -81,7 +82,8 @@ The mean transaction fee per byte of all blocks that interval in native units.
 
 ### Asset Specific Details
 
-Any blockchain where users are paying for block space rather than computation.
+* Any blockchain where users are paying for block space rather than computation.
+* For SOL, this metric does not include vote transactions. Includes successful and unsuccessful transactions.
 
 ### Examples
 
@@ -114,6 +116,10 @@ The median fee per transaction in native units that interval.
 * FeeMedUSD is computed as FeeMedNtv \* PriceUSD
 * Price used is the daily close price
 * 0-fee transactions are included
+
+### Asset Specific Details
+
+* For SOL, this metric does not include vote transactions. Includes successful and unsuccessful transactions.
 
 ### Release History
 
@@ -158,7 +164,7 @@ Ethereum post-1559 requires users to pay for a Base Fee as a prerequisite to inc
 
 ### Asset-Specific Details
 
-Only available for ETH, this metric was introduced following the EIP-1559 upgrade
+* Only available for ETH, this metric was introduced following the EIP-1559 upgrade
 
 ### Examples
 
@@ -198,6 +204,7 @@ Ethereum post-1559 requires users to pay for a Base Fee as a prerequisite to inc
 ### Asset-Specific Details
 
 * Only available for ETH, this metric was introduced following the EIP-1559 upgrade
+* For Solana transactions, priority fees are fees paid on top of the 5000 lamport base fee per signature. This includes both setting a higher price per compute unit and setting a higher total compute budget
 
 ### Examples
 
@@ -239,6 +246,10 @@ Ethereum post-1559 requires users to pay for a Base Fee as a prerequisite to inc
 * Instead of the legacy _gas price_, 1559 splits transaction fees into two distinct fields: a Base Fee and an optional Tip (also known as a _Priority Fee_).
 * This metric calculates the total value paid for Tips in transactions that have occurred in the network over the measuring period (e.g. 1 day).
 * For a thorough review of EIP1559 and the design of its pricing mechanism, please refer to [this paper](https://arxiv.org/pdf/2012.00854.pdf).
+
+### Asset Specific Details
+
+* For Solana transactions, priority fees are fees paid on top of the 5000 lamport base fee per signature. This includes both setting a higher price per compute unit and setting a higher total compute budget
 
 ### Interpretation
 
@@ -295,6 +306,10 @@ The sum of all fees paid to miners, transaction validators, stakers and/or block
 
 * This metric includes fees that are burned as part of the protocol.
 * For chains that use median time, the day is defined using it, otherwise, it’s defined using the block’s timestamps.
+
+### Asset Specific Details
+
+* For Solana transactions, priority fees are fees paid on top of the 5000 lamport base fee per signature. This includes both setting a higher price per compute unit and setting a higher total compute budget
 
 ### Release History
 
@@ -681,11 +696,7 @@ Exchange Deposits metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `Fee*` and `Gas*` in the `metrics` parameter.
 
-{% swagger path="/timeseries/asset-metrics" method="get" %}
-{% swagger-description %}
-
-{% endswagger-description %}
-{% endswagger %}
+<mark style="color:blue;">`GET`</mark> `undefined/timeseries/asset-metrics`
 
 {% tabs %}
 {% tab title="Shell" %}

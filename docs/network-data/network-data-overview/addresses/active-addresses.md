@@ -33,6 +33,7 @@ The sum count of unique addresses that were active in the network (either as a r
 ### **Asset-Specific Details**
 
 * This metric is not available for assets that have full privacy, like Monero and Grin. For assets that have opt-in privacy features, like ZCash, it only takes the non-private activities into account.
+* For Solana, includes both owner accounts as well as sub accounts
 
 ### Coverage
 
@@ -58,6 +59,8 @@ The sum count of unique addresses that were active in the network (as a recipien
 ### **Asset-Specific Details**
 
 * This metric is not available for assets that have full privacy, like Monero, Grin. For assets that have opt-in privacy features, like ZCash, it only takes the non-private activities into account.
+* For SOL, all accounts that sent SOL tokens in the period. Includes owner accounts and sub accounts. Owner accounts are always counted since they are paying and signing for the transaction, even if the owner account itself doesn't send more SOL than just the fee.
+* For SPL tokens, all accounts that sent the SPL token in the period. This includes validators & delegators. Includes owner accounts and sub accounts.
 
 ### **Examples**
 
@@ -99,6 +102,8 @@ The sum count of unique addresses that were active in the network (as a recipien
 ### **Asset-Specific Details**
 
 * This metric is not available for assets that have full privacy, like Monero, Grin. For assets that have opt-in privacy features, like ZCash, it only takes the non-private activities into account.
+* For SOL, all accounts that received SOL tokens (balance updates or rewards) in the period. This includes validators & delegators. Includes owner accounts and sub accounts.
+* For SPL tokens, all accounts that received the SPL token in the period. This includes validators & delegators. Includes owner accounts and sub accounts.
 
 ### **Examples**
 

@@ -78,6 +78,10 @@ The sum of all native units or USD transferred by contract calls on that interva
 * `TxTrfValContCallUSD` is computed as TxTfrValAdjUSD / BlkSizeByte
 * This metric estimates the economical density of an asset.
 
+#### Asset Specific Details
+
+* For SOL this metric measures the value transferred by instructions which sent value to program-derived accounts. Excludes vote accounts and externally-owned accounts.
+
 #### Release History
 
 * Released in the 4.2 release of NDP

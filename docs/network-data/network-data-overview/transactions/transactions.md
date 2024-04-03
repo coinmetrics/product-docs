@@ -8,6 +8,8 @@
 * [OP\_RETURN Tx Cnt](transactions.md#txopretcnt)
 * [Shielded Tx Cnt](transactions.md#txshldcnt)
 * [Fully Shielded Tx Cnt](transactions.md#txshldfullcnt)
+* [Transactions, count, vote](transactions.md#transactions-count-vote)
+* [Transactions, count, nonvote](transactions.md#transactions-count-nonvote)
 
 ## Tx Cnt <a href="#txcnt" id="txcnt"></a>
 
@@ -22,6 +24,10 @@ The sum count of transactions that day. Transactions represent a bundle of inten
 ### Details
 
 * For UTXO chains, this metric doesn’t include coinbase transactions.
+
+### Asset Specific Details:
+
+* For Solana, includes all successful and unsuccessful transactions, including vote transactions.
 
 ### Chart
 
@@ -48,6 +54,10 @@ The sum count of transactions divided by the number of seconds that day.
 ### Details
 
 * Computed as TxCnt / 86400
+
+### Asset Specific Details
+
+* For Solana, includes vote transactions
 
 ### Release History
 
@@ -210,6 +220,52 @@ The sum count of transactions using fully shielding privacy features that interv
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxShldFullCnt" %}
+
+## Transactions, count, vote
+
+### Definition
+
+The sum count of non-voting transactions that interval on Solana. A subset of TxCnt.
+
+| Name                      | MetricID  | Unit         | Interval |
+| ------------------------- | --------- | ------------ | -------- |
+| Transactions, count, vote | TxCntVote | Transactions | 1 day    |
+
+### Details
+
+* For Solana, count of all transactions on the Solana network that are vote transactions. Does not include other transactions.
+
+### Release History
+
+* Added as part of the first release of Solana metrics
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/search-results?query=TxCntVote" %}
+
+## Transactions, count, nonvote
+
+### Definition
+
+The sum count of non-voting transactions that interval on Solana. A subset of TxCnt.
+
+
+
+| Name                         | MetricID     | Unit         | Interval |
+| ---------------------------- | ------------ | ------------ | -------- |
+| Transactions, count, nonvote | TxCntNonvote | Transactions | 1 day    |
+
+### Details
+
+* For Solana, count of all transactions on the Solana network that are not vote transactions.
+
+### Release History
+
+* Added as part of the first release of Solana metrics
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/search-results?query=TxCntNonvote" %}
 
 ## API Endpoints
 

@@ -25,7 +25,7 @@ The sum count of contract calls executed across all transactions in that interva
 
 ### Asset-Specific Details
 
-* This metric is only available for ETH and ETC.
+* This metric is only available for SOL, ETH and ETC.
 
 ### Release History
 
@@ -51,7 +51,7 @@ The sum count of contract calls successfully executed across all transactions in
 
 ### Asset-Specific Details
 
-* This metric is only available for ETH and ETC.
+* For Solana, count of all instruction calls from successful transactions, excluding vote instructions
 
 ### Release History
 

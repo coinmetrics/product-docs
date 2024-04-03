@@ -25,6 +25,10 @@ The sum count of transfers that interval.
 * A transaction is comprised of one or more transfers between different entities. A single transaction may contain dozens of distinct transfers, which represent the movements of native units from one ledger entity to another distinct ledger entity. Only transfers that have a positive (non-zero) value are counted. Transfers have been colloquially referred to as "payments".
 * For ETH, we do not count failed transactions or self-sends towards TxTfrCnt. We do count internal transfers and do not distinguish them from top-level transfers. One way to think of TxTfrCnt is to count each time ETH effectively changes hands (excluding payment of fees and new issuance)
 
+### Asset Details
+
+* For SOL, we do not count failed transactions or self-sends towards TxTfrCnt. We do count internal transfers and do not distinguish them from top-level transfers. One way to think of TxTfrCnt is to count each time SOL effectively changes hands (excluding payment of fees and new issuance)
+
 ### Chart
 
 <figure><img src="../../../.gitbook/assets/Coin_Metrics_Network_Data_2022-09-15T16-05.png" alt=""><figcaption><p>Source: CM Network Data Charts</p></figcaption></figure>
@@ -57,7 +61,7 @@ The sum count of token (ERC-20 or ERC-721) transfers in that interval. Only non-
 
 ### Asset-Specific Details
 
-* This metric is only available for ETH and ETC.
+* For SOL, all transfers from one account to another account are counted (self-transfers are excluded). Only successful transfers are included. All tokens created by an official token program are considered.
 
 ### Release History
 

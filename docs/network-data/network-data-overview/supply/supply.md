@@ -64,16 +64,16 @@ Supply can be broken down in a variety of ways with Current supply representing 
 * SplyAdrTop1Pct
 * SplyCur
 
-[**Free Float Supply**](broken-reference)
+[**Free Float Supply**](free-float-supply.md)
 
 * SplyFF
 
-[**Future Expected Supply**](broken-reference)
+[**Future Expected Supply**](future-expected-supply.md)
 
 * SplyExpFut10yr
 * SplyExpFut10yrCMBI
 
-[**Issuance**](broken-reference)
+[**Issuance**](supply-issuance.md)
 
 * IssContNtv
 * IssContPctAnn
@@ -84,16 +84,16 @@ Supply can be broken down in a variety of ways with Current supply representing 
 * PuellMulCont
 * PuellMulTot
 
-[**Miner Revenue**](../../supply/miner-revenue.md)
+[**Miner Revenue**](profitability.md)
 
 * PuellMulRev
 
-[**Profitability**](broken-reference)
+[**Profitability**](../network-usage/profitability.md)
 
 * SplyUTXOLoss
 * SplyUTXOProf
 
-[**Revived**](broken-reference)
+[**Revived**](revived-supply.md)
 
 * SplyRvv180d
 * SplyRvv1yr
@@ -105,11 +105,11 @@ Supply can be broken down in a variety of ways with Current supply representing 
 * SplyRvv7d
 * SplyRvv90d
 
-[**Shielded**](broken-reference)
+[**Shielded**](shielded-supply.md)
 
 * SplyShld
 
-[**Validator Supply**](broken-reference)
+[**Validator Supply**](../staking/validator-supply.md)
 
 * SplyActStkedNtv
 * SplyStkedNtv

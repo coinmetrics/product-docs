@@ -50,6 +50,7 @@ The sum native units of miner revenue (fees plus newly issued native units) that
 ### Asset-Specific Details
 
 * Post Ethereum Merge, RevNtv includes only Priority Fees for ETH
+* For SOL, sum of all rewards earned for Voting, Staking, Fees & Rent by validators.
 
 ### Release History
 
@@ -94,11 +95,7 @@ Exhange Deposits metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `Rev*` in the `metrics` parameter.
 
-{% swagger path="/timeseries/asset-metrics" method="get" %}
-{% swagger-description %}
-
-{% endswagger-description %}
-{% endswagger %}
+<mark style="color:blue;">`GET`</mark> `undefined/timeseries/asset-metrics`
 
 {% tabs %}
 {% tab title="Shell" %}

@@ -28,6 +28,7 @@ The sum of native units issued that day. Only those native units that are issued
 ### Asset-Specific Details
 
 * For XLM, the inflation process is considered continuous issuance as it is protocol mandated and predictable.
+* For SOL, counts all rewards paid as part of Voting or Staking rewards. Does not include Rent or Fee rewards
 
 ### Release Details
 

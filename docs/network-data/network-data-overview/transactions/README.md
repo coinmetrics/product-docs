@@ -20,6 +20,8 @@ Transaction metrics summarize the **movement of coins on-chain** from one addres
 * TxERC20Cnt
 * TxERC721Cnt
 * TxTknCnt
+* TxCntVote
+* TxCntNonvote
 
 [**Transactions**](transactions.md)
 

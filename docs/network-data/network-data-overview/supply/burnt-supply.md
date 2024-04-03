@@ -25,6 +25,10 @@ The concept of a Base Fee was introduced as part of [EIP-1559](https://notes.eth
 * This metric calculates the total Base Fees paid in transactions that have occurred in the network over the measuring period (e.g. 1 day).
 * For a thorough review of EIP1559 and the design of its pricing mechanism, please refer to [this paper](https://arxiv.org/pdf/2012.00854.pdf).
 
+### Asset Specific Details
+
+* For SOL, this metric is calculated as the sum of the burnt portion of fees paid (50% of all fees paid in the time period) and all incinerated coins/tokens. Does not include coins/tokens sent to ownerless addresses.
+
 ### Interpretation
 
 * Base Fees fluctuate on the basis of network utilization. If there is high demand for transaction settlement, Base Fees go up, and as demand fades, Base Fees go down.
