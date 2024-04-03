@@ -1,0 +1,8 @@
+- label: Shell
+  source: |
+    curl --compressed "https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=binance-btc&metrics=volume_reported_spot_usd_1d&frequency=1d&pretty=true&api_key=<your_key>"
+- label: Python
+  source: |
+    import requests
+    response = requests.get('https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=binance-btc&metrics=volume_reported_spot_usd_1d&frequency=1d&pretty=true&api_key=<your_key>').json()
+    print(response)

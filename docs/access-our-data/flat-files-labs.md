@@ -1,14 +1,18 @@
 # Flat Files (Labs)
 
+{% hint style="warning" %}
+Flat Files have been released as a [CM Labs](https://docs.coinmetrics.io/cm-labs) project. Breaking changes may be introduced with minimal notice. Please exercise caution given the endpoint's experimental nature.
+{% endhint %}
+
 **Flat Files Overview**
 
-Our datasets are available via our [Flat Files Console](https://files.coinmetrics.io/). This enables users to download a file for a specific data type for a specific exchange for a specific day. Many users prefer this rather than downloading large amounts of historical data via API.&#x20;
+Our datasets are available via our [Flat Files Console](https://files.coinmetrics.io/). This enables users to download a file for a specific data type for a specific exchange for a specific day. Many users prefer this rather than downloading large amounts of historical data via API.
 
-The flat file application currently supports [trades](../market-data-timeseries/market-trades.md), market [candles](../market-data-timeseries/market-candles.md) and [quotes](../market-data-timeseries/market-quotes.md) from all of our spot and futures markets. \
+The flat file application currently supports [trades](../market-data/market-data-overview/trades/market-trades.md), market [candles](../market-data/market-data-overview/candles/candles.md) and [quotes](../market-data/market-data-overview/quotes/quotes.md) from all of our spot and futures markets.\
 \
 Flat file datasets for a given day are available on the next day around 05:00 UTC.
 
-API Keys are not provisioned by default to access the application. If you are interested in accessing our flat files please reach out to the Customer Success Team.  Also, please note this delivery system is a [Labs](../cm-labs.md) product.
+API Keys are not provisioned by default to access the application. If you are interested in accessing our flat files please reach out to the Customer Success Team. Also, please note this delivery system is a [Labs](../cm-labs.md) product.
 
 **Login Methods**
 
@@ -27,7 +31,4 @@ For candles and trades, the navigation is always data type --> exchange --> \[fi
 
 **Python Access**
 
-There is also an example in the client api area which shows a way to get the files with our API Client: [https://github.com/coinmetrics/api-client-python/blob/master/examples/files\_download/trades\_files\_exporter.py ](https://github.com/coinmetrics/api-client-python/blob/master/examples/files\_download/trades\_files\_exporter.py)
-
-
-
+There is also an example in the client api area which shows a way to get the files with our API Client: [https://github.com/coinmetrics/api-client-python/blob/master/examples/files\_download/trades\_files\_exporter.py](https://github.com/coinmetrics/api-client-python/blob/master/examples/files\_download/trades\_files\_exporter.py)

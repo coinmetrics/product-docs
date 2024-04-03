@@ -1,0 +1,10 @@
+- label: Shell
+  source: |
+    # Gets list of transactions on Cardano
+    curl --compressed "https://api.coinmetrics.io/v4/blockchain/ada/transactions?pretty=true&api_key=<your_key>"
+- label: Python
+  source: |
+    # Gets list of transactions on Cardano
+    import requests
+    response = requests.get('https://api.coinmetrics.io/v4/blockchain/ada/transactions?pretty=true&api_key=<your_key>').json()
+    print(response)

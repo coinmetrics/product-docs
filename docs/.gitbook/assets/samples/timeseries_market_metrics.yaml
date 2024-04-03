@@ -1,0 +1,8 @@
+- label: Shell
+  source: |
+    curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-metrics?markets=binance-BTCUSDT-future&metrics=liquidations_reported_future_buy_usd_5m&frequency=5m&pretty=true&api_key=<your_key>"
+- label: Python
+  source: |
+    import requests
+    response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-metrics?markets=binance-BTCUSDT-future&metrics=liquidations_reported_future_buy_usd_5m&frequency=5m&pretty=true&api_key=<your_key>').json()
+    print(response)

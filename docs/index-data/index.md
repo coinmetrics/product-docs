@@ -4,21 +4,21 @@ The [Coin Metrics Bletchley Indexes](https://coinmetrics.io/cm-indexes/) (“CMB
 
 ## Data Available for Indexes
 
-The data types listed below are available for each index:&#x20;
+The data types listed below are available for each index:
 
-{% content-ref url="../indexes-timeseries/index-levels.md" %}
-[index-levels.md](../indexes-timeseries/index-levels.md)
+{% content-ref url="indexes-timeseries/index-levels.md" %}
+[index-levels.md](indexes-timeseries/index-levels.md)
 {% endcontent-ref %}
 
-{% content-ref url="../indexes-timeseries/index-candles.md" %}
-[index-candles.md](../indexes-timeseries/index-candles.md)
+{% content-ref url="indexes-timeseries/index-candles.md" %}
+[index-candles.md](indexes-timeseries/index-candles.md)
 {% endcontent-ref %}
 
-{% content-ref url="../indexes-timeseries/index-constituents.md" %}
-[index-constituents.md](../indexes-timeseries/index-constituents.md)
+{% content-ref url="indexes-timeseries/index-constituents.md" %}
+[index-constituents.md](indexes-timeseries/index-constituents.md)
 {% endcontent-ref %}
 
-## **Index Coverage**&#x20;
+## **Index Coverage**
 
 A full list of CMBI indexes can be found in our Coverage Tool:
 

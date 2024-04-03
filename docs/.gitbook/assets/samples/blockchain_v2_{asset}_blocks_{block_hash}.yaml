@@ -1,0 +1,10 @@
+- label: Shell
+  source: |
+    # Gets block data for a specific Litecoin block, specified by the hash of the block
+    curl --compressed "https://api.coinmetrics.io/v4/blockchain-v2/ltc/blocks/885f0ba526e9a683f64c8fdb83c5e8cbc0d6e74fb93f2351941ee409a924b7a8?pretty=true&api_key=<your_key>"
+- label: Python
+  source: |
+    # Gets block data for a specific Litecoin block, specified by the hash of the block
+    import requests
+    response = requests.get('https://api.coinmetrics.io/v4/blockchain-v2/ltc/blocks/885f0ba526e9a683f64c8fdb83c5e8cbc0d6e74fb93f2351941ee409a924b7a8?pretty=true&api_key=<your_key>').json()
+    print(response)

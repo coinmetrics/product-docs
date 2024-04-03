@@ -1,0 +1,10 @@
+- label: Shell
+  source: |
+    # Gets timeframes of asset metric constituents
+    curl --compressed "https://api.coinmetrics.io/v4/constituent-timeframes/asset-metrics?metric=volume_trusted_spot_usd_1d&api_key=<your_key>"
+- label: Python
+  source: |
+    # Gets timeframes of asset metric constituents
+    import requests
+    response = requests.get('https://api.coinmetrics.io/v4/constituent-timeframes/asset-metrics?metric=volume_trusted_spot_usd_1d&api_key=<your_key>').json()
+    print(response)

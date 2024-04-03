@@ -1,0 +1,15 @@
+- label: JavaScript
+  source: |
+    ws = new WebSocket("wss://api.coinmetrics.io/v4/timeseries-stream/pair-quotes?pairs=btc-usd&pretty=true&api_key=<your_key>")
+    ws.onmessage = m => console.log(m.data); ws.onclose = () => console.log("closed")
+- label: Python
+  source: |
+    import asyncio
+    import websockets
+    
+    async def handle(uri):
+        async with websockets.connect(uri) as websocket:
+            while True:
+                print(await websocket.recv())
+    
+    asyncio.get_event_loop().run_until_complete(handle('wss://api.coinmetrics.io/v4/timeseries-stream/pair-quotes?pairs=btc-usd&pretty=true&api_key=<your_key>'))
