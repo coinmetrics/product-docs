@@ -293,6 +293,7 @@ redirects:
   market-metrics/liquidity/liquidity_bid_ask_spread_percent_1d: market-data/market-data-overview/liquidity/bid-ask-spread.md
   market-metrics/liquidity/liquidity_bid_ask_spread_percent_1h: market-data/market-data-overview/liquidity/bid-ask-spread.md
   market-metrics/liquidity/liquidity_bid_ask_spread_percent_1m: market-data/market-data-overview/liquidity/bid-ask-spread.md
+  market-metrics/liquidity/liquidity_bid_ask_spread_percent: market-data/market-data-overview/liquidity/bid-ask-spread.md
   market-metrics/liquidity/liquidity_depth_0_1_percent_ask_volume_units: market-data/market-data-overview/liquidity/order-book-depth.md
   market-metrics/liquidity/liquidity_depth_0_1_percent_ask_volume_usd: market-data/market-data-overview/liquidity/order-book-depth.md
   market-metrics/liquidity/liquidity_depth_0_1_percent_bid_volume_units: market-data/market-data-overview/liquidity/order-book-depth.md
@@ -313,6 +314,7 @@ redirects:
   market-metrics/liquidity/liquidity_depth_5_percent_ask_volume_usd: market-data/market-data-overview/liquidity/order-book-depth.md
   market-metrics/liquidity/liquidity_depth_5_percent_bid_volume_units: market-data/market-data-overview/liquidity/order-book-depth.md
   market-metrics/liquidity/liquidity_depth_5_percent_bid_volume_usd: market-data/market-data-overview/liquidity/order-book-depth.md
+  market-metrics/liquidity/liquidity_depth_percent_bid_volume_usd: market-data/market-data-overview/liquidity/order-book-depth.md
   market-metrics/liquidity/liquidity_slippage_100k_ask_percent: market-data/market-data-overview/liquidity/slippage.md
   market-metrics/liquidity/liquidity_slippage_100k_bid_percent: market-data/market-data-overview/liquidity/slippage.md
   market-metrics/liquidity/liquidity_slippage_10k_ask_percent: market-data/market-data-overview/liquidity/slippage.md
@@ -325,6 +327,7 @@ redirects:
   market-metrics/liquidity/liquidity_slippage_50k_bid_percent: market-data/market-data-overview/liquidity/slippage.md
   market-metrics/liquidity/liquidity_slippage_5k_ask_percent: market-data/market-data-overview/liquidity/slippage.md
   market-metrics/liquidity/liquidity_slippage_5k_bid_percent: market-data/market-data-overview/liquidity/slippage.md
+  market-metrics/liquidity/liquidity_slippage: market-data/market-data-overview/liquidity/slippage.md
   asset-metrics/market/capact1yrusd: network-data/network-data-overview/market/market-capitalization.md
   asset-metrics/market/capfutexp10yrusd: network-data/network-data-overview/market/market-capitalization.md
   asset-metrics/market/capmrktcurusd: network-data/network-data-overview/market/market-capitalization.md
