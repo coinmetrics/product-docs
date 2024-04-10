@@ -10,7 +10,7 @@ The asset profiles provide a descriptive overview of an asset.
 
 ## Details
 
-For more information on the asset profiles see the [asset profiles overview](../reference-data/asset-profiles-overview.md).
+For more information on the asset profiles see the [asset profiles overview](asset-profiles-overview.md).
 
 ## Endpoint Response
 

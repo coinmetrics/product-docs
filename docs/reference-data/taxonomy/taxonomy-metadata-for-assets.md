@@ -10,7 +10,7 @@ The asset taxonomy metadata provides the entire structure of the taxonomy via ap
 
 ## Details
 
-For more information on the asset taxonomy see the [datonomy product description](../reference-data/datonomy-overview.md) and [methodology](../reference-data/methodologies/) documents.
+For more information on the asset taxonomy see the [datonomy product description](datonomy-overview.md) and [methodology](../methodologies/) documents.
 
 ## Endpoint Response
 

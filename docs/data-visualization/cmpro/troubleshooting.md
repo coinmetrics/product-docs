@@ -6,7 +6,7 @@ description: CM Pro FAQs
 
 #### Why am I unable to choose different resolutions?&#x20;
 
-You are able to select a variety of resolutions for the [ExchCandles](./#exchange-candles-exchcandles) data category.   For the other data categories, the resolution is determined by the best fit for the data type (for more info see each [data category](./#data-categories)):
+You are able to select a variety of resolutions for the [ExchCandles](broken-reference) data category.   For the other data categories, the resolution is determined by the best fit for the data type (for more info see each [data category](broken-reference)):
 
 * ExchTrades (real-time data displayed at a 1 min resolution given a TradingView limitation on the "seconds" resolutions)
 * CM-RefRates (real-time data displayed at a 1 min resolution given a TradingView limitation on the "seconds" resolutions, 1 hr at a 1 hr resolution, NY/UTC at a 1 day resolution; each is selected by selecting the named dataseries - e.g. BTC-HR-REF)
@@ -23,7 +23,7 @@ The chart time increments at the bottom are currently only applicable to “Dail
 
 #### Why don't my candles show the High/Low?
 
-The only data category with true candles is the [ExchCandles](../../market-data-timeseries/market-candles.md) category.  Selecting Candles for the other data types will result in "manufactured candles".  For instance, daily NYC close reference rates are created from the timeseries whereby the open price is the previous day's close price and the close price is the current day's close price.  The High/Low are simply either the open or close (not the intraday high and low prices).   &#x20;
+The only data category with true candles is the [ExchCandles](broken-reference) category.  Selecting Candles for the other data types will result in "manufactured candles".  For instance, daily NYC close reference rates are created from the timeseries whereby the open price is the previous day's close price and the close price is the current day's close price.  The High/Low are simply either the open or close (not the intraday high and low prices).   &#x20;
 
 
 
