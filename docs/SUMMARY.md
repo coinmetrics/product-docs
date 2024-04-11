@@ -95,6 +95,7 @@
     * [Free Float Supply](network-data/network-data-overview/supply/free-float-supply.md)
     * [Future Expected Supply](network-data/network-data-overview/supply/future-expected-supply.md)
     * [Miner Revenue](network-data/network-data-overview/supply/miner-revenue.md)
+    * [Profitability](network-data/network-data-overview/supply/profitability.md)
     * [Revived Supply](network-data/network-data-overview/supply/revived-supply.md)
     * [Shielded Supply](network-data/network-data-overview/supply/shielded-supply.md)
     * [Supply Issuance](network-data/network-data-overview/supply/supply-issuance.md)
