@@ -49,19 +49,16 @@ Consider a single Bitcoin transaction that represents a company's payroll. The c
 
 ### Definition
 
-The sum count of token (ERC-20 or ERC-721) transfers in that interval. Only non-zero transfers between two distinct addresses are counted. All ERC-20 or ERC-721 contracts are counted, as long as their transfers follow the ERC-20 or ERC-721 specification.
+The sum count of token transfers in that interval. Only non-zero transfers between two distinct addresses are counted.&#x20;
 
 | Name           | MetricID    | Unit      | Interval |
 | -------------- | ----------- | --------- | -------- |
 | Token Xfer Cnt | TxTfrTknCnt | Transfers | 1 day    |
 
-### Details
-
-* This metric uses the ERC-20 or ERC-721 specification Transfer event as definition for ERC-20 transfer.
-
 ### Asset-Specific Details
 
-* For SOL, all transfers from one account to another account are counted (self-transfers are excluded). Only successful transfers are included. All tokens created by an official token program are considered.
+* For Ethereum, this metric counts all ERC-20 or ERC-721 contracts, as long as their transfers follow the ERC-20 or ERC-721 specification.
+* For SOL, all tokens created by an official token program are considered.
 
 ### Release History
 
