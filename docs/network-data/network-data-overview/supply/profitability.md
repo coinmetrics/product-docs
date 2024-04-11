@@ -1,4 +1,4 @@
-# Miner Revenue
+# Profitability
 
 ## Contents
 
