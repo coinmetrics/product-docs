@@ -17,7 +17,7 @@
 * [Gas, limit, transaction](fees.md#gaslmttx)
 * [Gas, limit, transaction, mean](fees.md#gaslmttxmean)
 * [Gas, used, transaction](fees.md#gasusedtx)
-* [Gas, used, transaction, mean](fees.md#gaslmttxmean)
+* [Gas, used, transaction, mean](fees.md#gaslmttxmean-1)
 * [Total blob fees](fees.md#total-blob-fees)
 * [Mean blob fees](fees.md#mean-blob-fees)
 * [Median blob fees](fees.md#median-blob-fees)
@@ -429,42 +429,6 @@ The sum gas limit of all blocks that day.
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/GasLmtBlk" %}
 
-## Mean Base Fee (Wei) <a href="#gasbaseblkmean" id="gasbaseblkmean"></a>
-
-### Definition
-
-The average (mean) Base Fee paid for transactions during a time interval (e.g. 1 day), shown in the smallest denomination of Ether, [Wei units](https://ethdocs.org/en/latest/ether.html#denominations).
-
-The concept of a Base Fee was introduced as part of [EIP-1559](https://notes.ethereum.org/@vbuterin/eip-1559-faq) and it represents the portion of the total transaction fees that is destroyed and taken out of circulation (i.e. _burnt)_. Ethereum post-1559 requires users to pay for a Base Fee as a prerequisite to include transactions in a block. The Base Fee can go up or down on the basis of the size (in gas units) of the previous block. In times of congestion, where blocks are sequentially increasing in size, paying a Base Fee does not guarantee that a transaction will be included in a block. In such events, users can optionally pay an additional Miner Tip to nudge miners to include their transactions in their block.
-
-| Name                | MetricID       | Unit | Interval |
-| ------------------- | -------------- | ---- | -------- |
-| Mean Base Fee (Wei) | GasBaseBlkMean | Wei  | 1 day    |
-
-### Details
-
-* EIP1559 was a highly anticipated proposal that changes how transaction fees are priced in Ethereum, as well as the dynamics of block sizes.
-* The proposal activated on the Ethereum Network in August of 2021 and marks one of the biggest changes in monetary policy in the history of cryptoassets.
-* Instead of the legacy _gas price_, 1559 splits transaction fees into two distinct fields: a Base Fee and an optional Tip (also known as a _Priority Fee_).
-* This metric calculates the average Base Fee in transactions that have occurred in the network over the measuring period (e.g. 1 day).
-* For a thorough review of EIP1559 and the design of its pricing mechanism, please refer to [this paper](https://arxiv.org/pdf/2012.00854.pdf).
-
-### Interpretation
-
-* Base Fees fluctuate on the basis of network utilization. If there is high demand for transaction settlement, Base Fees go up, and as demand fades, Base Fees go down.
-* The pricing of Base Fees is inextricably connected to size of blocks in the blockchain. Upon the the activation fo EIP-1559, the maximum size of blocks in Ethereum (measured in units of gas) was more than doubled to 30M.
-* Although blocks are larger, this pricing mechanism attempts to target an average of 15M gas units per block, and an exponential function is used to increase or decrease Base Fees so that this target is hit.
-* If, for example, the previous block was above 15M units of gas, the base fee is increased. If there are several sequential blocks above the 15M target, Base Fees increase exponentially which disincentivizes users from transacting.
-* Changes in Base Fees over time can depict changes in demand for block space. When miner tips have to be used due to Base Fees not being enough, this is a sign of network congestion.
-
-### Release History
-
-* Released in the 5.0 release of NDP (August, 2021)
-
-### Availability for Assets
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/GasBaseBlkMean" %}
-
 ## Mean Block Gas Limit <a href="#gaslmtblkmean" id="gaslmtblkmean"></a>
 
 ### Definition
@@ -598,20 +562,20 @@ The sum gas used (i.e., paid) across all transactions that day.
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/GasUsedTx" %}
 
-## Mean Gas Limit per Tx <a href="#gaslmttxmean" id="gaslmttxmean"></a>
+## Mean Gas Used per Tx <a href="#gaslmttxmean" id="gaslmttxmean"></a>
 
 ### Definition
 
-The mean gas limit per transaction that day.
+The mean gas used (i.e., paid) per transaction that day.
 
-| Name                  | MetricID     | Unit | Interval       |
-| --------------------- | ------------ | ---- | -------------- |
-| Mean Gas Limit per Tx | GasLmtTxMean | Gas  | 1 block, 1 day |
+| Name                 | MetricID      | Unit | Interval       |
+| -------------------- | ------------- | ---- | -------------- |
+| Mean Gas Used per Tx | GasUsedTxMean | Gas  | 1 block, 1 day |
 
 ### Details
 
-* Computed as GasLmtTx / TxCnt
-* Gas is a dimensionless unit measuring the computational cost of operations for ETH-based assets. Each transaction uses gas when being processed. As it’s impossible to know how much gas every transaction will use before executing it, each transaction specifies a gas limit it’s willing to use.
+* Computed as GasUsedTx / TxCnt&#x20;
+* Gas is a dimensionless unit measuring the computational cost of operations for ETH-based assets. Each transaction uses gas when being processed.
 
 ### Asset-Specific Details
 
@@ -623,7 +587,7 @@ The mean gas limit per transaction that day.
 
 ### Availability for Assets
 
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/GasLmtTxMean" %}
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/GasUsedTxMean" %}
 
 ## Total blob fees
 
