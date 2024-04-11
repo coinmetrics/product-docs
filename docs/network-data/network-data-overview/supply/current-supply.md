@@ -7,6 +7,7 @@
 * [SER (Supply Equality Ratio)](current-supply.md#ser)
 * [Value in Top X% of Addrs (native units)](current-supply.md#splyadrtoppct)
 * [Value in Top 100 Addrs (native units)](current-supply.md#splyadrtop)
+* [Current Supply, Execution Layer (native units)](current-supply.md#current-supply-execution-layer-native-units)
 
 ## Current Supply (native units) <a href="#splycur" id="splycur"></a>
 
@@ -135,6 +136,21 @@ The sum of all native units held by the richest 100 addresses at the end of that
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/SplyAdrTop100" %}
+
+## Current Supply, Execution Layer (native units)
+
+### Definition
+
+The sum of all native units ever created and visible on the execution layer ledger (i.e., issued) at the end of that interval. Developed for Ethereum total Supply Calculation.
+
+| Name                                           | MetricID  | Unit         | Interval |
+| ---------------------------------------------- | --------- | ------------ | -------- |
+| Current Supply, Execution Layer (native units) | SplyCurEL | Native Units | 1 day    |
+
+### Details
+
+* This metric is specific to Ethereum and only available for eth.
+* This supply value is one part of the input into the SplyCur calculation for Ethereum.
 
 ## API Endpoints
 
