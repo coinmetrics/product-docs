@@ -8,9 +8,9 @@
 
 The ratio of the USD value of miner revenue during the period to the 365-day moving average of the USD value of miner revenue.
 
-| Name                    | MetricID    | Category | Subcategory   | Type  | Unit          | Interval |
-| ----------------------- | ----------- | -------- | ------------- | ----- | ------------- | -------- |
-| Puell Multiple, Revenue | PuellMulRev | Supply   | Miner Revenue | Ratio | Dimensionless | 365 days |
+| Name                    | MetricID    |  Unit          | Interval |
+| ----------------------- | ----------- | ------------- | -------- |
+| Puell Multiple, Revenue | PuellMulRev | Dimensionless | 365 days |
 
 ## Details
 

@@ -84,11 +84,11 @@ Supply can be broken down in a variety of ways with Current supply representing 
 * PuellMulCont
 * PuellMulTot
 
-[**Miner Revenue**](profitability.md)
+[**Miner Revenue**](miner-revenue.md)
 
 * PuellMulRev
 
-[**Profitability**](../network-usage/profitability.md)
+[**Profitability**](profitability.md)
 
 * SplyUTXOLoss
 * SplyUTXOProf
