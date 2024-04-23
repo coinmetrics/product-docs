@@ -6,8 +6,8 @@ Addresses that hold a balance of X amount for a given asset.
 
 ### Contents
 
-* [New Funded Address Count](new-addresses.md#adrnewbal)
-* [New Address Count](new-addresses.md#adrnewcnt)
+* [New Funded Address Count (AdrNewBalCnt)](new-addresses.md#adrnewbal)
+* [New Address Count (AdrNewCnt)](new-addresses.md#adrnewcnt)
 
 ## New Funded Address Count <a href="#adrnewbal" id="adrnewbal"></a>
 
