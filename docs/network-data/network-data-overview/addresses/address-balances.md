@@ -6,9 +6,9 @@ Addresses that hold a balance of X amount for a given asset.
 
 ### Contents
 
-* [Address Count with ≥ X% Supply](address-balances.md#adrbal1in)
-* [Address Count with Balance ≥ X (native units)](address-balances.md#adrbalntv)
-* [Address Count with Balance ≥ $X](address-balances.md#adrbalusd)
+* [Address Count with ≥ X% Supply (AdrBal1inXCnt)](address-balances.md#adrbal1in)
+* [Address Count with Balance ≥ X (native units) (AdrBalNtvXCnt)](address-balances.md#adrbalntv)
+* [Address Count with Balance ≥ $X (AdrBalUSDXCnt)](address-balances.md#adrbalusd)
 
 ## Address Count with ≥ X% Supply <a href="#adrbal1in" id="adrbal1in"></a>
 
