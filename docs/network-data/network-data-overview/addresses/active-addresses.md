@@ -4,10 +4,10 @@
 
 ### Contents
 
-* [Active Monthly, Weekly, Daily Addresses](active-addresses.md#adract)
-* [Active Addresses (Sent)](active-addresses.md#adractsent)
-* [Active Addresses (Received)](active-addresses.md#adractrec)
-* [Active Smart Contract Addresses](active-addresses.md#adractcont)
+* [Active Monthly, Weekly, Daily Addresses (AdrActXdCnt)](active-addresses.md#adract)
+* [Active Addresses (Sent) (AdrActSentCnt)](active-addresses.md#adractsent)
+* [Active Addresses (Received) (AdrActRecCnt)](active-addresses.md#adractrec)
+* [Active Smart Contract Addresses (AdrActContCnt)](active-addresses.md#adractcont)
 
 ### **Interpretation**
 
