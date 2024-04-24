@@ -2,7 +2,7 @@
 
 ## Contents
 
-* [Net Flows](net-flows.md#flownet)
+* [Net Flows (FlowNetXNtv)](net-flows.md#flownet)
 
 ## Net Flows <a href="#flownet" id="flownet"></a>
 

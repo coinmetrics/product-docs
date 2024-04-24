@@ -2,10 +2,10 @@
 
 ## Contents
 
-* [Exchange Withdrawals](withdrawals.md#flowout)
-* [Exchange Withdrawals (Total)](withdrawals.md#flowoutex)
-* [Exchange Withdrawals, Incl EtoE](withdrawals.md#flowoutexincl)
-* [Withdrawal Count](withdrawals.md#flowtfrout)
+* [Exchange Withdrawals (FlowOutXNtv or FlowOutXUSD)](withdrawals.md#flowout)
+* [Exchange Withdrawals (Total) (FlowOutExNtv or FlowOutExUSD)](withdrawals.md#flowoutex)
+* [Exchange Withdrawals, Incl EtoE (FlowOutExInclUSD)](withdrawals.md#flowoutexincl)
+* [Withdrawal Count (FlowTfrOutXCnt)](withdrawals.md#flowtfrout)
 
 ## Exchange Withdrawals <a href="#flowout" id="flowout"></a>
 

@@ -2,7 +2,7 @@
 
 ## Contents
 
-* [Exchange Tx Cnt](transaction-count.md#txexcnt)
+* [Exchange Tx Cnt (TxExCnt)](transaction-count.md#txexcnt)
 
 ## Exchange Tx Cnt <a href="#txexcnt" id="txexcnt"></a>
 

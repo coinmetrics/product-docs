@@ -2,11 +2,11 @@
 
 ### Contents
 
-* [Network Value to Transactions](valuation.md#nvt)
-* [Network Value to Transactions Free Float](valuation.md#nvtff)
-* [Realized Cap to Thermo Cap](valuation.md#rctc)
-* [RVT Ratio](valuation.md#rvt)
-* [Spent Output Price Ratio](valuation.md#sopr)
+* [Network Value to Transactions (NVTAdj)](valuation.md#nvt)
+* [Network Value to Transactions Free Float (NVTAdjFF)](valuation.md#nvtff)
+* [Realized Cap to Thermo Cap (RCTC)](valuation.md#rctc)
+* [RVT Ratio (RVT)](valuation.md#rvt)
+* [Spent Output Price Ratio (SOPR)](valuation.md#sopr)
 
 ## Network Value to Transactions <a href="#nvt" id="nvt"></a>
 

@@ -2,9 +2,9 @@
 
 ### Contents
 
-* [Miner Cap to Realized Cap](mining.md#mcrc)
-* [Miner Cap to Thermo Cap](mining.md#mctc)
-* [Miner Outflow to Miner Revenue](mining.md#momr)
+* [Miner Cap to Realized Cap (MCRC)](mining.md#mcrc)
+* [Miner Cap to Thermo Cap (MCTC)](mining.md#mctc)
+* [Miner Outflow to Miner Revenue (MOMR)](mining.md#momr)
 
 ## Miner Cap to Realized Cap (MCRC) <a href="#mcrc" id="mcrc"></a>
 

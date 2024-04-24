@@ -2,7 +2,7 @@
 
 ## Contents
 
-* [Exchange Supply](exchange-supply.md#splyex)
+* [Exchange Supply (SplyXNtv and SplyXUSD)](exchange-supply.md#splyex)
 
 ## Exchange Supply <a href="#splyex" id="splyex"></a>
 
