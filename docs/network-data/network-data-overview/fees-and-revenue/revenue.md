@@ -2,9 +2,9 @@
 
 ### Contents
 
-* [Miner revenue, all time, USD](revenue.md#a)
-* [Miner revenue, native units](revenue.md#b)
-* [Miner revenue, USD](revenue.md#miner-revenue-usd)
+* [All Time Miner Revenue (USD) (RevAllTimeUSD)](revenue.md#a)
+* [Miner Revenue (native units) (RevNtv)](revenue.md#b)
+* [Miner Revenue (USD) (RevUSD)](revenue.md#miner-revenue-usd)
 
 ## All Time Miner Revenue (USD) <a href="#a" id="a"></a>
 
