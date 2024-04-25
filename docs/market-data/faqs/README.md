@@ -8,7 +8,7 @@ Our most up-to-date exchange coverage can be viewed in our [CM Data Coverage Too
 
 The available exchanges and the metrics available for each exchange can be found by querying our [`/catalog/exchanges` ](https://docs.coinmetrics.io/api/v4#operation/getCatalogExchanges)or [`/catalog-all/exchanges` ](https://docs.coinmetrics.io/api/v4#operation/getCatalogAllExchanges)API endpoints.
 
-Market data for these exchanges is served through our [market data endpoints](../market-data-overview/market-data-overview.md).
+Market data for these exchanges is served through our [market data endpoints](../market-data-overview/).
 
 ### **Can you explain your historical data coverage?**
 
@@ -16,7 +16,7 @@ When we collect data from a new exchange, our general approach is to always coll
 
 Our trades history for Bitcoin begins when it began trading on Mt.Gox in July 2010, so we have over 10 years of trades history. We also have full historical trades data from several other early exchanges such as Bitstamp, TheRockTrading, Bitfinex, and Kraken.
 
-Please take a look at our [Market Data Exchange Coverage](../market-data-overview/market-data-overview.md#market-data-exchange-coverage) or the availability sections of each of our market data pages for more information on the history available for each exchange-data type combination.
+Please take a look at our [Market Data Exchange Coverage](../market-data-overview/#market-data-exchange-coverage) or the availability sections of each of our market data pages for more information on the history available for each exchange-data type combination.
 
 ### **How does Coin Metrics ensure high levels of data quality and data integrity?**
 
@@ -38,8 +38,8 @@ Yes! All of our endpoints that accept the `markets` parameter will accept wildca
 
 We have pre-calculated volume metrics that represent total volume by asset, by exchange, by pair, or by exchange-asset pair. Please take a look at the following volume metrics below.
 
-{% content-ref url="../market-data-overview/volume/volume.md" %}
-[volume.md](../market-data-overview/volume/volume.md)
+{% content-ref url="../market-data-overview/volume/" %}
+[volume](../market-data-overview/volume/)
 {% endcontent-ref %}
 
 ### **What metric naming conventions does Coin Metrics use?**
