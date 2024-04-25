@@ -1,3 +1,8 @@
 # Liquidations
 
-Coin Metrics calculates several aggregated liquidations metrics for the markets in our coverage universe.&#x20;
+Coin Metrics tracks market-level liquidations and calculates several liquidations metrics for the exchange-asset combinations in our coverage universe. The available metrics and their calculation logic are identical to our liquidations metrics for markets, so please reference the liquidations documentation under the market metrics group below.
+
+## Sub-categories
+
+* [Market Liquidations](futures-liquidations.md)
+* [Liquidation Metrics](liquidation-metrics.md)

@@ -29,7 +29,7 @@ We also offer four external benchmarks sourced from the FRED API. This data is n
 
 ## Available Data History
 
-The latest 10,000 data points for any dataset are available in our CM Pro tool. For all daily metrics this will result in full data history (no assets have more than 10,000 daily data points). For other more frequently updated content (real-time trades, hourly or real-time reference rates, etc.) you will get history back through the latest 10,000 data points. NOTE: For some data series, the available history is limited by our [data commencement date](../../market-data/market-data-overview/market-data-overview.md#market-data-exchange-coverage).
+The latest 10,000 data points for any dataset are available in our CM Pro tool. For all daily metrics this will result in full data history (no assets have more than 10,000 daily data points). For other more frequently updated content (real-time trades, hourly or real-time reference rates, etc.) you will get history back through the latest 10,000 data points. NOTE: For some data series, the available history is limited by our [data commencement date](../../market-data/market-data-overview/#market-data-exchange-coverage).
 
 ## Getting Started
 
@@ -64,7 +64,7 @@ Our CM Pro visualization tool supports 5 min, 10 min, 15 min, 30 min, 1 hour, 4 
 
 ![](<../../.gitbook/assets/Screen Shot 2020-12-28 at 3.27.28 PM.png>)
 
-### [Exchange Trades ](../../market-data/market-data-overview/trades/market-trades.md)(ExchTrades)
+### [Exchange Trades ](../../market-data/market-data-overview/market-trades.md)(ExchTrades)
 
 Trades are available for all our asset base/quote pairs. Typing _BTC-USD-_ in the symbol entry window, and selecting the ExchTrades category will filter the BTC-USD markets.
 
@@ -72,7 +72,7 @@ Here you can find all the asset base/quote pairs currently offered, including ex
 
 The trades update every 1.5 seconds and include all activity that took place in the past 1.5 seconds. You can chart [comparisons](./#comparing-data) from multiple exchanges at the same time - the exact number of comparisons will depend on the power of you computer. All trades data will appear in the tool's 1 minute resolution (updating every 1.5 seconds) due to a limitation of the Trading View library's "seconds" resolutions.
 
-### [**Reference Rates**](../../market-data/market-data-overview/prices/reference\_rate.md) **(CM-RefRates)**
+### [**Reference Rates**](../../market-data/reference-rates-overview/reference\_rate.md) **(CM-RefRates)**
 
 Our Coin Metrics reference rates are available for 300+ assets. Typing the asset (e.g., _BTC_) in the symbol entry window will enable you to select the desired increment. Increments supported include 1 min, 1 hour, daily 00:00 UTC close, and daily 4:00PM NYC close. We also have real-time (RT) rates that are computed every 1.5 seconds and update live on the chart. All reference rate data will show up in the chosen resolution, except the real-time data, which will appear in the tool's 1 minute resolution (updating every 1.5 seconds) due to a limitation of the Trading View library's "seconds" resolutions.
 
@@ -114,7 +114,7 @@ Next to the symbol entry window, you can adjust the chart type by selecting the 
 
 ![](<../../.gitbook/assets/Screen Shot 2020-12-28 at 9.50.08 PM.png>)
 
-The only data category with true candles is the [ExchCandles](../../market-data/market-data-overview/candles/candles.md) category. Selecting Candles for the other data types will result in "manufactured candles". For instance, daily NYC close reference rates are created from the timeseries whereby the open price is the previous day's close price and the close price is the current day's close price. The High/Low are simply either the open or close (not the intraday high and low prices).
+The only data category with true candles is the [ExchCandles](../../market-data/market-data-overview/candles.md) category. Selecting Candles for the other data types will result in "manufactured candles". For instance, daily NYC close reference rates are created from the timeseries whereby the open price is the previous day's close price and the close price is the current day's close price. The High/Low are simply either the open or close (not the intraday high and low prices).
 
 ## Comparing Data
 
