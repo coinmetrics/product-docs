@@ -38,7 +38,5 @@ Welcome to **Coin Metrics Data Encyclopedia**. At Coin Metrics, we organize the 
 
 * [**Datonomy**](reference-data/datonomy-overview/) is a digital asset classification system created by Coin Metrics, Goldman Sachs and MSCI that creates a consistent, standardized way for investors to analyze the digital assets ecosystem. This data is available via our API via the `/taxonomy/assets` endpoint.
 * [**Asset Profiles**](reference-data/asset-profiles-overview/asset-profiles.md) are descriptions of cryptoassets that supplement our asset metrics data to provide a comprehensive overview of a particular asset. This data is available via our API via the `/profiles/assets` endpoint.
+* The [**Security Master**](reference-data/security-master-overview/) is a dataset that unifies metadata and provides fundamental  reference data about crypto assets and markets. The data is available via our API via the `/security-master/` endpoint.&#x20;
 
-## [Risk Management Offering (Farum)](https://coinmetrics.io/farum/)
-
-* **Farum** is a comprehensive approach to blockchain network risk management designed for institutions. It enables users to identify network attacks, double spends, blockchain splits, or market abnormalities via an enterprise-grade API. For more information on Farum, contact [Coin Metrics](https://coinmetrics.io/contact/).
