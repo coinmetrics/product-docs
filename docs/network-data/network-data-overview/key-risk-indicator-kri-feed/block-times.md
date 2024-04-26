@@ -2,8 +2,8 @@
 
 ## Contents
 
-* [Time between blocks](block-times.md#time\_inter\_block)
-* [Time Since Last Block](block-times.md#time\_since\_last\_block)
+* [Time between blocks (time\_inter\_block)](block-times.md#time\_inter\_block)
+* [Time Since Last Block (time\_since\_last\_block)](block-times.md#time\_since\_last\_block)
 
 ## Time between blocks <a href="#time_inter_block" id="time_inter_block"></a>
 

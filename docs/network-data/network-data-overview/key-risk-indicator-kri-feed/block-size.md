@@ -2,7 +2,7 @@
 
 ## Contents
 
-* [Block Size](block-size.md#block\_size)
+* [Block Size (block\_size)](block-size.md#block\_size)
 
 ## Block Size <a href="#block_size" id="block_size"></a>
 

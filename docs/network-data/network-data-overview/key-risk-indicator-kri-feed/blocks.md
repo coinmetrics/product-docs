@@ -2,10 +2,10 @@
 
 ## Contents
 
-* [Block Count at Tip](blocks.md#block\_count\_at\_tip)
-* [Block Count by Same Miner](blocks.md#block\_count\_by\_same\_miner)
-* [Blocks by Unknown Miners](blocks.md#block\_count\_by\_unknown\_miners)
-* [Blocks Without Segwit](blocks.md#block\_count\_without\_segwit)
+* [Block Count at Tip (block\_count\_at\_tip)](blocks.md#block\_count\_at\_tip)
+* [Block Count by Same Miner (block_count_by_same_miner_6b)](blocks.md#block\_count\_by\_same\_miner)
+* [Blocks by Unknown Miners (block_count_by_unknown_miners_6b)](blocks.md#block\_count\_by\_unknown\_miners)
+* [Blocks Without Segwit (block_count_without_segwit_6b)](blocks.md#block\_count\_without\_segwit)
 
 ## Block Count at Tip <a href="#block_count_at_tip" id="block_count_at_tip"></a>
 
