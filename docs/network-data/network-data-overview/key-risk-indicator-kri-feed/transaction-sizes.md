@@ -2,12 +2,12 @@
 
 ## Contents
 
-* [Mempool Size](transaction-sizes.md#mempool\_size)
-* [Mempool Size Entered](transaction-sizes.md#mempool\_size\_entered)
-* [Mempool Size Left](transaction-sizes.md#mempool\_size\_left)
-* [Mempool vSize](transaction-sizes.md#mempool\_vsize)
-* [Mempool vSize Entered](transaction-sizes.md#mempool\_vsize\_entered)
-* [Mempool vSize Left](transaction-sizes.md#mempool\_vsize\_left)
+* [Mempool Size (mempool\_size)](transaction-sizes.md#mempool\_size)
+* [Mempool Size Entered (mempool_size_entered)](transaction-sizes.md#mempool\_size\_entered)
+* [Mempool Size Left (mempool_size_left)](transaction-sizes.md#mempool\_size\_left)
+* [Mempool vSize (mempool_vsize)](transaction-sizes.md#mempool\_vsize)
+* [Mempool vSize Entered (mempool_vsize_entered)](transaction-sizes.md#mempool\_vsize\_entered)
+* [Mempool vSize Left (mempool_vsize_left)](transaction-sizes.md#mempool\_vsize\_left)
 
 ## Mempool Size <a href="#mempool_size" id="mempool_size"></a>
 

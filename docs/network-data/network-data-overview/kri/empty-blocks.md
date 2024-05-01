@@ -2,9 +2,9 @@
 
 ## Contents
 
-* [Empty Blocks](empty-blocks.md#block\_count\_empty\_6b)
-* [Consecutive Empty Blocks](empty-blocks.md#block\_count\_consecutive\_empty)
-* [Missed Slots](empty-blocks.md#block\_missed\_slots)
+* [Empty Blocks (block_count_empty_6b)](empty-blocks.md#block\_count\_empty\_6b)
+* [Consecutive Empty Blocks (block_count_consecutive_empty)](empty-blocks.md#block\_count\_consecutive\_empty)
+* [Missed Slots (block\_missed\_slots)](empty-blocks.md#block\_missed\_slots)
 
 ## Empty Blocks <a href="#block_count_empty" id="block_count_empty"></a>
 

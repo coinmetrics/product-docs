@@ -2,7 +2,7 @@
 
 ## Contents
 
-* [Exchange Deposits (FlowInXNtv and FlowInXUSD)](deposits.md#flowin)
+* [Exchange Deposits (FlowInXNtv, FlowInXUSD)](deposits.md#flowin)
 * [Exchange Deposit Count (FlowTfrInXCnt)](deposits.md#flowtfrin)
 
 ## Exchange Deposits <a href="#flowin" id="flowin"></a>

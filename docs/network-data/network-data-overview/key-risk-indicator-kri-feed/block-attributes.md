@@ -2,8 +2,8 @@
 
 ## Contents
 
-* [Base Fee for Block](block-attributes.md#block\_base\_fee)
-* [Priority Fee for Block](block-attributes.md#block\_priority\_fee)
+* [Base Fee for Block (block\_base\_fee)](block-attributes.md#block\_base\_fee)
+* [Priority Fee for Block (lock\_priority\_fee)](block-attributes.md#block\_priority\_fee)
 
 ## Base Fee for Block <a href="#block_base_fee" id="block_base_fee"></a>
 

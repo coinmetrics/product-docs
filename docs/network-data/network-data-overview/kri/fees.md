@@ -4,11 +4,11 @@
 
 ### Contents
 
-* [Mempool Fee Sum](fees.md#mempool\_fee)
-* [Fees entered Mempool 1 minute](fees.md#mempool\_fee\_entered)
-* [Mempool Fees Mean](fees.md#mempool\_fee\_mean)
-* [Mean Fees Entered Mempool 1 minute](fees.md#mempool\_fee\_mean\_entered)
-* [Mempool Fees Median](fees.md#mempool\_fee\_median)
+* [Mempool Fee Sum (mempool\_fee)](fees.md#mempool\_fee)
+* [Fees entered Mempool 1 minute (mempool\_fee\_entered\_1m)](fees.md#mempool\_fee\_entered)
+* [Mempool Fees Mean (mempool\_fee\_mean)](fees.md#mempool\_fee\_mean)
+* [Mean Fees Entered Mempool 1 minute (mempool\_fee\_entered\_1m)](fees.md#mempool\_fee\_mean\_entered)
+* [Mempool Fees Median (mempool\_fee\_median)](fees.md#mempool\_fee\_median)
 
 ### Mempool Fee Sum <a href="#mempool_fee" id="mempool_fee"></a>
 

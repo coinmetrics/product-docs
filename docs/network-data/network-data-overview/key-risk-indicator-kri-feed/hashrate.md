@@ -2,7 +2,7 @@
 
 ## Contents
 
-* [Average Hashrate](hashrate.md#block\_hashrate\_mean)
+* [Average Hashrate (block\_hashrate\_mean\_1d)](hashrate.md#block\_hashrate\_mean)
 
 ## Average Hashrate <a href="#block_hashrate_mean" id="block_hashrate_mean"></a>
 

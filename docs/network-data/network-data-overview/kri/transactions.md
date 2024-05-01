@@ -2,9 +2,9 @@
 
 ## Contents
 
-* [Transactions in Block](transactions.md#block\_tx\_count)
-* [Mempool Transaction Count](transactions.md#mempool\_count)
-* [Transaction Count Entered Mempool 1 Minute](transactions.md#block\_tx\_count)
+* [Transactions in Block (block\_tx\_count)](transactions.md#block\_tx\_count)
+* [Mempool Transaction Count (mempool\_count)](transactions.md#mempool\_count)
+* [Transaction Count Entered Mempool 1 Minute (mempool\_count\_entered\_1m)](transactions.md#block\_tx\_count)
 
 ## Transactions in Block <a href="#block_tx_count" id="block_tx_count"></a>
 
