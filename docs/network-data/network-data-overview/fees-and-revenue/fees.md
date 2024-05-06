@@ -2,9 +2,9 @@
 
 ### Contents
 
-* [Mean Tx Fee per Byte (native units) (FeeByteMeanNtv) ](fees.md#mean-tx-fee-per-byte-native-units)
+* [Mean Tx Fee per Byte (native units) (FeeByteMeanNtv)](fees.md#mean-tx-fee-per-byte-native-units)
 * [Mean Tx Fee (native units, USD) (FeeMeanNtv, FeeMeanUSD)](fees.md#feemean)
-* [Median Tx Fee (native units, USD) (FeeMeanNtv, FeeMeanUSD) ](fees.md#feemed)
+* [Median Tx Fee (native units, USD) (FeeMeanNtv, FeeMeanUSD)](fees.md#feemed)
 * [Mean Miner Tip (native units, USD) (FeePrioMeanNtv, FeePrioMeanUSD)](fees.md#feepriomean)
 * [Median Miner Tip (native units, USD) (FeePrioMedNtv, FeePrioMedUSD)](fees.md#e)
 * [Total Miner Tips (native units, USD) (FeePrioTotNtv, FeePrioTotUSD)](fees.md#feepriotot)
@@ -291,7 +291,7 @@ For blockchains aiming to retain a limited supply by weaning themselves off an i
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/FeeRevPct" %}
 
-## Total Fees (native units) <a href="#feetot" id="feetot"></a>
+## Total Fees <a href="#feetot" id="feetot"></a>
 
 ### Definition
 
@@ -309,7 +309,8 @@ The sum of all fees paid to miners, transaction validators, stakers and/or block
 
 ### Asset Specific Details
 
-* For Solana transactions, priority fees are fees paid on top of the 5000 lamport base fee per signature. This includes both setting a higher price per compute unit and setting a higher total compute budget
+* For Solana transactions, priority fees are fees paid on top of the 5000 lamport base fee per signature. This includes both setting a higher price per compute unit and setting a higher total compute budget.
+* For Ethereum this fee includes fees for transaction execution as well as blob fees. It is made up of base fees, priority fees and blob fees. Fees paid for the execution of transactions only can be calculated by subtracting [total blob fees](fees.md#total-blob-fees) from total fees.
 
 ### Release History
 
@@ -574,7 +575,7 @@ The mean gas used (i.e., paid) per transaction that day.
 
 ### Details
 
-* Computed as GasUsedTx / TxCnt&#x20;
+* Computed as GasUsedTx / TxCnt
 * Gas is a dimensionless unit measuring the computational cost of operations for ETH-based assets. Each transaction uses gas when being processed.
 
 ### Asset-Specific Details
