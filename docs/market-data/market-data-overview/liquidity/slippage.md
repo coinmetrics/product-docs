@@ -30,6 +30,38 @@ Liquidity slippage metrics can be accessed using the following endpoints:
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-metrics?markets=coinbase-btc-usd-spot&metrics=liquidity_slippage_1K_ask_percent&frequency=1h&limit_per_market=1&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-metrics?markets=coinbase-btc-usd-spot&metrics=liquidity_slippage_1K_ask_percent&frequency=1h&limit_per_market=1&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_market_metrics(
+        markets=["coinbase-btc-usd-spot"], metrics=['liquidity_slippage_1K_ask_percent'], frequency='1h', limit_per_market=1
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+
+
 ## Examples
 
 A sample of the liquidity slippage percentage for a $100K buy order on the `coinbase-btc-usd-spot` market is shown below:

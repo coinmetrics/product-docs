@@ -35,3 +35,34 @@ Basis data can be accessed using the following endpoints:
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
+
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=binance-btc&metrics=basis_annualized_60d_exp&limit_per_exchange_asset=1&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=binance-btc&metrics=basis_annualized_60d_exp&limit_per_exchange_asset=1&api_key=<your_key>
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_exchange_asset_metrics(
+        exchanges=["binance-btc"], metrics=['basis_annualized_60d_exp'], frequency='1d', limit_per_market=1
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}

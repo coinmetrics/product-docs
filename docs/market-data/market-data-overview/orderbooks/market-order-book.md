@@ -18,11 +18,42 @@ Coin Metrics also serves order book snapshots and updates for the top 100 bids a
 
 ## **API Endpoints**
 
-Market trades can be accessed using the `timeseries/market-orderbooks` endpoint.
+Market orderbooks can be accessed using the `timeseries/market-orderbooks` endpoint.
 
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-orderbooks" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
+
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-orderbooks?markets=coinbase-btc-usd-spot&limit_per_market=1&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-orderbooks?markets=coinbase-btc-usd-spot&limit_per_market=1&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_market_orderbooks(
+        markets=["coinbase-btc-usd-spot"], limit_per_market=5
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
 
 ## **Chart**
 

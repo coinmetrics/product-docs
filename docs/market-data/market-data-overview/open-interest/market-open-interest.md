@@ -14,6 +14,46 @@ Each contract has a specified contract value that can be described by the size a
 
 Coin Metrics collects open interest in units of number of contracts and in units of U.S. dollars at one minute snapshot frequency. We collect open interest snapshots from **future** and **option** markets from exchanges that are listed on our exchange coverage universe.
 
+## API Endpoints
+
+Market open interest can be accessed using the `timeseries/market-interest` for markets.
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-open-interest" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-open-interest?markets=binance-BTCUSDT-future&limit_per_market=1&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-open-interest?markets=binance-BTCUSDT-future&limit_per_market=1&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_market_open_interest(
+        markets=["binance-BTCUSDT-future"], limit_per_market=5
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+
+
 ## **Example**
 
 A sample of the futures open interest data from the `binance-BTCUSDT-future` market from our [`/timeseries/market-openinterest`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketOpenIntereset) API endpoint is provided below.
