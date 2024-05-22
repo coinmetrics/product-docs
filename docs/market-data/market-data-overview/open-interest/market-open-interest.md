@@ -16,7 +16,7 @@ Coin Metrics collects open interest in units of number of contracts and in units
 
 ## API Endpoints
 
-Market open interest can be accessed using the `timeseries/market-interest` for markets.
+Market open interest can be accessed using the `timeseries/market-openinterest` for markets.
 
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-open-interest" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
@@ -25,14 +25,14 @@ Market open interest can be accessed using the `timeseries/market-interest` for 
 {% tabs %}
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-open-interest?markets=binance-BTCUSDT-future&limit_per_market=1&api_key=<your_key>"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-openinterest?markets=binance-BTCUSDT-future&limit_per_market=1&api_key=<your_key>"
 ```
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-open-interest?markets=binance-BTCUSDT-future&limit_per_market=1&api_key=<your_key>').json()
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-openinterest?markets=binance-BTCUSDT-future&limit_per_market=1&api_key=<your_key>').json()
 print(response)
 ```
 {% endtab %}
