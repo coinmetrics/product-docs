@@ -22,6 +22,38 @@ Liquidity order book depth metrics can be accessed using the following endpoints
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-metrics?markets=coinbase-btc-usd-spot&metrics=liquidity_depth_1_percent_ask_volume_units&frequency=1h&limit_per_market=1&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-metrics?markets=coinbase-btc-usd-spot&metrics=liquidity_depth_1_percent_ask_volume_units&frequency=1h&limit_per_market=1&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_market_metrics(
+        markets=["coinbase-btc-usd-spot"], metrics=['liquidity_depth_1_percent_ask_volume_units'], frequency='1h', limit_per_market=1
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+
+
 ## Examples
 
 A sample of the 2 percent liquidity ask depth (Units) for the Coinbase BTC-USD spot market is shown below:

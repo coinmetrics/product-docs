@@ -38,9 +38,72 @@ Cumulative Futures Funding Rates can be accessed using the `timeseries/asset-met
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=futures_cumulative_funding_rate_usd_margin_1d&limit_per_asset=1&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=futures_cumulative_funding_rate_usd_margin_1d&limit_per_asset=1&api_key=<your_key>
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_asset_metrics(
+        assets=["btc"], metrics=['futures_cumulative_funding_rate_usd_margin_1d'], frequency='1d', limit_per_market=1
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
+
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=binance-btc&metrics=futures_cumulative_funding_rate_usd_margin_1d&limit_per_exchange_asset=1&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=binance-btc&metrics=futures_cumulative_funding_rate_usd_margin_1d&limit_per_exchange_asset=1&api_key=<your_key>
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_exchange_asset_metrics(
+        exchanges=["binance-btc"], metrics=['futures_cumulative_funding_rate_usd_margin_1d'], frequency='1d', limit_per_market=1
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+
 
 ## Example
 

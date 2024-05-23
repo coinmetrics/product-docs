@@ -20,6 +20,46 @@ While the formula for how the funding rate is calculated varies by exchange, the
 
 <figure><img src="../../../.gitbook/assets/BTC-FundingRates.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>
 
+## API Endpoints
+
+Market funding rates can be accessed using the `timeseries/market-funding-rates` and `timeseries-stream/market-funding-rates` for markets.
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-funding-rates" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
+
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-funding-rates?markets=binance-BTCUSDT-future&limit_per_market=1&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-funding-rates?markets=binance-BTCUSDT-future&limit_per_market=1&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_market_funding_rates(
+        markets=["binance-BTCUSDT-future"], limit_per_market=5
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+
+
 ## **Example**
 
 A sample of the funding rates data from the `bitmex-XBTUSD-future` market from our [`/timeseries/market-funding-rates`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketFundingRates) API endpoint is provided below.

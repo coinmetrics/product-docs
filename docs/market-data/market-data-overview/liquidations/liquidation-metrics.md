@@ -20,13 +20,106 @@ and by passing in the `liquidation_reported_*` metrics in the `metrics` paramete
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/exchange-metrics?exchanges=binance&metrics=liquidations_reported_future_sell_usd_1d&limit_per_exchange=1&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/exchange-metrics?exchanges=binance&metrics=liquidations_reported_future_sell_usd_1d&limit_per_exchange=1&api_key=<your_key>
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_exchange_metrics(
+        exchanges=["binance"], metrics=['liquidations_reported_future_sell_usd_1d'], frequency='1d', limit_per_market=1
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=binance-btc&metrics=liquidations_reported_future_sell_usd_1d&limit_per_exchange_asset=1&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=binance-btc&metrics=liquidations_reported_future_sell_usd_1d&limit_per_exchange_asset=1&api_key=<your_key>
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_exchange_asset_metrics(
+        exchanges=["binance-btc"], metrics=['liquidations_reported_future_sell_usd_1d'], frequency='1d', limit_per_market=1
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
+
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/pair-metrics?pairs=btc-usd&metrics=liquidations_reported_future_sell_usd_1d&limit_per_pair=1&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/pair-metrics?pairs=btc-usd&metrics=liquidations_reported_future_sell_usd_1d&limit_per_pair=1&api_key=<your_key>
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_pair_metrics(
+        pairs=["btc-usd"], metrics=['liquidations_reported_future_sell_usd_1d'], frequency='1d', limit_per_market=1
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
 
 ## Details
 
