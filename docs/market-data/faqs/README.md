@@ -182,3 +182,13 @@ Our pair candles are calculated from our CM Reference Rates with 1 second freque
 ### **Why are pair candles calculated from CM Reference Rates instead of trades?**
 
 We use our CM Reference Rates with 1 second frequency as the underlying data to calculate our pair candles to ensure that our pair candles represent a robust price that is resistant to outliers and anomalies. If we used trades data from all markets that contain a pair, the data would likely be adversely affected by flash crashes and outliers that may occur on a single market. These outliers and anomalies would show up in either the open, high, low, or close prices. Our CM Reference Rates are resistant to these outliers.
+
+### **Why are some of the values null for market metrics `liquidity_depth_*_percent_*_volume_*`?**
+
+Our liquidity depth metrics such as `liquidity_depth_1_percent_bid_volume_usd` and `liquidity_depth_1_percent_ask_volume_units` are designed to measure the sum of all orders on a given side of the order book for a given percent away from the midprice in units of U.S. dollars or in native units.
+
+Exchanges differ in the amount of order book depth provided through their API. Some exchanges offer the full book depth while others only expose part of the order book such as the top 20 levels. We provide these limitations in our FAQ [**Are there any limitations to the order book depth provided by each exchange?**](https://docs.coinmetrics.io/market-data/market-data-overview/market-order-book#are-there-any-limitations-to-the-order-book-depth-provided-by-each-exchange)**.**
+
+In calculating our liquidity depth metrics, we were forced to decide how to represent metric values when the reported order book depth is insufficient to calculate the depth for a given percent away from midprice. In these situations, we decided to represent this as a null value so that it is transparent to the user.
+
+Please note that for markets with high liquidity, even exchanges with relatively large order book depth of say 5,000 levels will only consist of prices less than 1 percent away from midprice. Therefore, it is common for many exchanges to have metrics with null values unless the exchange reports full order book depth. &#x20;
