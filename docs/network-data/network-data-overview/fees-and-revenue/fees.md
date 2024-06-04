@@ -23,6 +23,8 @@
 * [Median blob fees (FeeBlobMedNtv, FeeBlobMedUSD)](fees.md#median-blob-fees)
 * [Mean fee per blob byte (FeeBlobByteMeanNtv, FeeBlobByteMeanUSD)](fees.md#mean-fee-per-blob-byte)
 * [Mean fee per blob carrying transaction (FeeBlobTxMeanNtv, FeeBlobTxMeanUSD)](fees.md#mean-fee-per-blob-carrying-transaction)
+* [Total Blob Fees Paid by Layer 2s (FeeBlob\*TotNtv, FeeBlob\*TotUSD)](fees.md#total-blob-fees-paid-by-layer-2s)
+* [Mean Blob Fees Paid by Layer 2s (FeeBlob\*MeanNtv, FeeBlob\*MeanUSD)](fees.md#mean-blob-fees-paid-by-layer-2s)
 
 ## Mean Tx Fee per Byte (native units)
 
@@ -652,6 +654,38 @@ Mean fee paid in blob fees per blob carrying transaction (available in native un
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/FeeBlobTxMeanNtv" %}
+
+## Total Blob Fees paid by Layer 2s
+
+### Definition
+
+The sum of all fees paid by tagged Layer 2 sequencers for blob space, shown in native units and USD.
+
+<table><thead><tr><th>Name</th><th width="197">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Total Blob Fees (layer 2, native units)</td><td>FeeBlobL2TotNtv</td><td>Native units</td><td>1 day</td></tr><tr><td>Total Blob Fees (layer 2, USD)</td><td>FeeBlobL2TotUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Total Blob Fees (Arbitrum, native units)</td><td>FeeBlobARBTotNtv </td><td>Native units</td><td>1 day</td></tr><tr><td>Total Blob Fees (Arbitrum, USD)</td><td>FeeBlobARBTotUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Total Blob Fees (Optimism, native units)</td><td>FeeBlobOPTotNtv </td><td>Native units</td><td>1 day</td></tr><tr><td>Total Blob Fees (Optimism, USD)</td><td>FeeBlobOPTotUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Total Blob Fees (Base, native units)</td><td>FeeBlobBASETotNtv</td><td>Native units</td><td>1 day</td></tr><tr><td>Total Blob Fees (Base, USD)</td><td>FeeBlobBASETotUSD</td><td>USD</td><td>1 day</td></tr></tbody></table>
+
+#### Details
+
+* The aggregate L2 metrics (FeeBlobL2TotNtv & FeeBlobL2TotUSD) include all tagged L2 sequencers. This list includes additional L2s that do not have dedicated metrics.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/FeeBlobL2TotNtv" %}
+
+## Mean Blob Fees paid by Layer 2s
+
+### Definition
+
+The sum of all fees paid by tagged Layer 2 sequencers for blob space, shown in native units and USD.
+
+<table><thead><tr><th>Name</th><th width="216">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Mean Blob Fees (layer 2, native units)</td><td>FeeBlobL2MeanNtv</td><td>Native units</td><td>1 day</td></tr><tr><td>Mean Blob Fees (layer 2, USD)</td><td>FeeBlobL2MeanUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Mean Blob Fees (Arbitrum, native units)</td><td>FeeBlobARBMeanNtv </td><td>Native units</td><td>1 day</td></tr><tr><td>Mean Blob Fees (Arbitrum, USD)</td><td>FeeBlobARBMeanUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Mean Blob Fees (Optimism, native units)</td><td>FeeBlobOPMeanNtv </td><td>Native units</td><td>1 day</td></tr><tr><td>Mean Blob Fees (Optimism, USD)</td><td>FeeBlobOPMeanUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Mean Blob Fees (Base, native units)</td><td>FeeBlobBASEMeanNtv</td><td>Native units</td><td>1 day</td></tr><tr><td>Mean Blob Fees (Base, USD)</td><td>FeeBlobBASEMeanUSD</td><td>USD</td><td>1 day</td></tr></tbody></table>
+
+#### Details
+
+* The aggregate L2 metrics (FeeBlobL2MeanNtv & FeeBlobL2MeanUSD) include all tagged L2 sequencers. This list includes additional L2s that do not have dedicated metrics.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/FeeBlobL2MeanNtv" %}
 
 ### API Endpoints
 

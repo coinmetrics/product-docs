@@ -8,6 +8,9 @@
 * [Active Addresses (Sent) (AdrActSentCnt)](active-addresses.md#adractsent)
 * [Active Addresses (Received) (AdrActRecCnt)](active-addresses.md#adractrec)
 * [Active Smart Contract Addresses (AdrActContCnt)](active-addresses.md#adractcont)
+* Active Blob Addresses (AdrActBlobCnt)
+* Active Blob Addresses (Sent) (AdrActBlobSendCnt)
+* Active Blob Addresses (Received) (AdrActBlobRecCnt)
 
 ### **Interpretation**
 
@@ -149,6 +152,42 @@ The sum count of unique smart contract addresses that were active in the network
 ### Coverage
 
 * [AdrActContCnt](https://coverage.coinmetrics.io/search-results?query=AdrActContCnt)
+
+## Active Blob Addresses <a href="#adractcont" id="adractcont"></a>
+
+<table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Active Blob Addresses</td><td>AdrActBlobCnt</td><td>Blobs</td><td>1 day</td></tr></tbody></table>
+
+### Definition
+
+The sum count of unique addresses that were active either initiating or receiving blob transactions in the network that interval. Individual addresses are not double-counted if previously active.
+
+### Coverage
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/AdrActBlobCnt" %}
+
+## Active Blob Addresses (Sent) <a href="#adractcont" id="adractcont"></a>
+
+<table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Active Blob Addresses (Sent)</td><td>AdrActBlobSendCnt</td><td>Blobs</td><td>1 day</td></tr></tbody></table>
+
+### Definition
+
+The sum count of unique addresses that were active initiating blob transactions in the network that interval. Individual addresses are not double-counted if previously active.
+
+### Coverage
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/AdrActBlobSendCnt" %}
+
+## Active Blob Addresses (Received) <a href="#adractcont" id="adractcont"></a>
+
+<table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Active Blob Addresses (Received)</td><td>AdrActBlobRecCnt</td><td>Blobs</td><td>1 day</td></tr></tbody></table>
+
+### Definition
+
+The sum count of unique addresses that were active receiving blob transactions in the network that interval. Individual addresses are not double-counted if previously active.
+
+### Coverage
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/AdrActBlobRecCnt" %}
 
 ## API Endpoints
 
