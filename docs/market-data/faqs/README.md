@@ -192,3 +192,57 @@ Exchanges differ in the amount of order book depth provided through their API. S
 In calculating our liquidity depth metrics, we were forced to decide how to represent metric values when the reported order book depth is insufficient to calculate the depth for a given percent away from midprice. In these situations, we decided to represent this as a null value so that it is transparent to the user.
 
 Please note that for markets with high liquidity, even exchanges with relatively large order book depth of say 5,000 levels will only consist of prices less than 1 percent away from midprice. Therefore, it is common for many exchanges to have metrics with null values unless the exchange reports full order book depth. &#x20;
+
+### **How do I interpret the volume for futures markets and convert volume to U.S. dollars?**
+
+By convention, the volume for futures markets is measured in contract units. Each futures market has unique contract specifications that define the notional value of one contract. Let us use the following response from our `/timeseries/market-trades` endpoint for market `cme-BTCN4-future` as an example.&#x20;
+
+```
+{
+  "data": [
+    {
+      "market": "cme-BTCN4-future",
+      "time": "2024-06-18T18:12:45.681120000Z",
+      "coin_metrics_id": "17187343656811203891752105",
+      "amount": "2",
+      "price": "65385",
+      "database_time": "2024-06-18T18:12:46.361963000Z",
+      "side": "sell"
+    }
+  ]
+}
+```
+
+The `"amount": "2"` means that two contracts of `cme-BTCN4-future` were exchanged in this trade. The amount for other data types such as quotes, order books, candles, open interest, and liquidations are similarly in contract units.
+
+According to the contract specifications for this futures market, one contract is equal to 5 BTC of notional value. This can be seen in our `/reference-data/markets` endpoint.
+
+```
+{
+  "data": [
+    {
+      "market": "cme-BTCN4-future",
+      "exchange": "cme",
+      "type": "future",
+      "base": "btc",
+      "quote": "usd",
+      "pair": "btc-usd",
+      "symbol": "BTCN4",
+      "size_asset": "btc",
+      "margin_asset": "usd",
+      "contract_size": "5",
+      "tick_size": "5",
+      "listing": "2024-01-26T22:30:00.000000000Z",
+      "expiration": "2024-07-26T15:00:00.000000000Z",
+      "order_amount_min": "1",
+      "order_amount_max": "100",
+      "order_price_increment": "5.0",
+      "order_price_min": "0"
+    }
+  ]
+}
+```
+
+The `"contract_size": "5"` and `"size_asset": "btc"` define the contract size. The contract size is unique to each futures market and other markets may have different contract size.
+
+To convert a futures market volume in contract units to U.S. dollars, the following formula can be used: `[amount in contract units] * [contract size] * [U.S. dollar price of contract size asset]`.&#x20;
