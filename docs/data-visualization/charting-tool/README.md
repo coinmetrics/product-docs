@@ -6,25 +6,43 @@ description: https://charts.coinmetrics.io/network-data/
 
 ## Selecting a Data Series
 
-The Charting Tool allows you to easily visualize our [Asset Metrics](../../api-data-types/asset-metrics-overview.md). Simply select the asset/metric pair from the top left selection dialogs.
+The Charting Tool allows you to easily visualize our [Asset Metrics](../../api-data-types/asset-metrics-overview.md). Simply select the "Add" button from the top left selection dialogs.
 
-![](<../../.gitbook/assets/Screen Shot 2020-12-30 at 1.13.48 PM.png>)
+<figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.29.03 PM.png" alt=""><figcaption></figcaption></figure>
 
-Upon clicking the "Assets" button, the Assets dialog will open to display the available assets. Assets can be searched by category or by typing the symbol or name into the "Find assets..." search window.
+Upon clicking the "Add" button, the Assets dialog will open to display the available assets. Assets can be searched by category or by typing the symbol or name into the "Asset Name or ID..." search window.
 
-Once you've made your asset selection, you can click on the "Metrics" button, which will open the Metrics dialog to display the metrics available for the selected assets. The metric will be displayed in black will be "selectable" if it is available for any selected asset.
+Once you've made your asset selection, you can click on the "Proceed to Metrics" button, which will open the Metrics dialog to display the metrics available for the selected assets.&#x20;
 
-Metrics that are not available for the assets selected will show the "unavailable symbol".
+Instead of selecting the assets first, you can also select the "Start With Metrics" button in the bottom left of the dialog window and the list of all available metrics will be shown.&#x20;
 
-![](<../../.gitbook/assets/Screen Shot 2021-03-09 at 8.52.33 PM.png>)
+<figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.33.27 PM.png" alt=""><figcaption></figcaption></figure>
 
-Metrics that are not available with API key entered will show a "lock symbol.
+If "Start With Metrics" was selected, navigate back to select assets by selecting the "Back To Assets" button in the bottom left.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.35.14 PM.png" alt=""><figcaption></figcaption></figure>
+
+The metric will be displayed in black will be "selectable" if it is available for all selected asset. Metrics that are not available for all of the assets selected will be hidden and will not be shown.
+
+Metrics or Assets that are not available with API key entered will show a lock symbol.
 
 ![](<../../.gitbook/assets/Screen Shot 2021-03-09 at 8.54.58 PM.png>)
 
 The metric definition can be expanded via the "question symbol" to the right of the metric name as shown below. To collapse it, click the "up arrow".
 
 ![](<../../.gitbook/assets/Screen Shot 2021-03-09 at 8.57.53 PM.png>)
+
+Once all desired assets and metrics have been selected, continue by selecting the "+ Add to Chart" button in the bottom right of the dialog.&#x20;
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.38.53 PM.png" alt=""><figcaption></figcaption></figure>
+
+You will then see the selected asset-metric pairs plotted in the charting tool as well as the selected combinations at the top of the chart. Additional items can be shown by selecting the down arrow next to the row of asset-metric pairs.&#x20;
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.39.17 PM.png" alt=""><figcaption></figcaption></figure>
+
+Grayed out items are hidden from the plotted chart. Select an item to show/hide that asset-metric combination. To remove an item from the chart completely, click the "X" in each item to remove it.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.39.34 PM.png" alt=""><figcaption></figcaption></figure>
 
 ## Handling of Data Gaps
 
@@ -38,6 +56,8 @@ The tool will default to "excluding" data where gaps are identified. You can adj
 ![Click on the "gear" to find the settings for Data Gaps](<../../.gitbook/assets/Screen Shot 2020-12-19 at 4.48.10 PM.png>)
 
 ## **Charting Tool Tutorial Series**
+
+_Please note: the below tutorial series utilizes the legacy layout for asset-metric selections. While slightly different the core functionality is the same across the two._
 
 ### **Part 1 - Tool Basics**
 

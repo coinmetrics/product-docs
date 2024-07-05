@@ -6,7 +6,7 @@ While we offer hundreds of metrics to our Community users, the metrics with a "l
 
 #### How do I unselect an asset that was pre-selected in the chart?
 
-When you first load the charting tool, several commonly used assets are in the top toolbar. The "greyed" out assets are now shown in the chart, but they are technically still selected.  To unselect them,  click "Assets" -> "Show Selected" and deselect the assets.  You can also use the "Deselect All" in the top corner of the window.
+When you first load the charting tool, several commonly used asset-metric pairs are in the top toolbar. The "greyed" out assets are not shown in the chart, but they are technically still selected.  To unselect them,  click "X" next to them to remove them.
 
 #### Why can't I select Price USD or several of the other prices for GOLD (or LIBOR or VIX)?
 
