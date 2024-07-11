@@ -123,7 +123,9 @@ Count of attester slashing events.
 
 Count of total number of slashing events.
 
-\| Name | MetricID | Unit | Interval |
+| Name                  | MetricID   | Unit   | Interval |
+| --------------------- | ---------- | ------ | -------- |
+| Total Slashing Events | SlashEvCnt | Events | 1 minute |
 
 ### Details
 
@@ -141,13 +143,19 @@ Count of total number of slashing events.
 
 ### Definition
 
-Total amout of penalties enforced by the protocol in native units.
+Amount of tokens slashed from Validators in native units
 
-\| Name | MetricID | Category | Subcategory | Type | Unit | Interval |
+| Name            | MetricID   | Unit         | Interval |
+| --------------- | ---------- | ------------ | -------- |
+| Slashed Amounts | SlashedNtv | Native Units | 1 day    |
 
 ### Details
 
 * This metric operates on a 1 day frequency.
+
+### Asset Specific Details
+
+This metric is available for Ethereum only under the ETH\_CL ticker. The definition of slashing follows that of Ethereum as outlined here: [https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/rewards-and-penalties/#slashing](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/rewards-and-penalties/#slashing)
 
 ### Release History
 
