@@ -32,6 +32,7 @@ The sum count of unique addresses that were active in the network (either as a r
 * If an address was active multiple times during the aggregation interval (e.g., 30 days), it is counted only once.
 * For ETH, miners receiving fees from the original sender of a failed transaction are counted as active (receiving) addresses.
 * Any address that's active (even if sending 0 ETH, or sending ETH to itself, or involved in failed transactions) is counted towards active addresses.
+* The null address (issuance address) is excluded from this metric.
 
 ### **Asset-Specific Details**
 
@@ -58,6 +59,7 @@ The sum count of unique addresses that were active in the network (as a recipien
 * For this unadjusted version of the metric, all ledger change scenarios are considered.
 * Such ledger changes can include mining, staking, transacting, account creation, etc..
 * If an address was active multiple times as sender during that interval, it is counted only once.
+* The null address (issuance address) is excluded from this metric.
 
 ### **Asset-Specific Details**
 
@@ -101,6 +103,7 @@ The sum count of unique addresses that were active in the network (as a recipien
 * Such ledger changes can include mining, staking, transacting, account creation, etc..
 * If an address was active multiple times as recipient during that interval, it is counted only once.
 * For ETH, miners receiving fees from the original sender of a failed transaction are counted as active receiving addresses.
+* The null address (issuance address) is excluded from this metric.
 
 ### **Asset-Specific Details**
 

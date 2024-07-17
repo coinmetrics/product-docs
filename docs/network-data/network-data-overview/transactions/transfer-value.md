@@ -8,7 +8,7 @@
 * [Mean Xfer'd Days Destroyed](transfer-value.md#txtfrvaldaydstmean)
 * [Mean Tx Size](transfer-value.md#txtfrvalmean)
 * [Median Tx Size](transfer-value.md#txtfrvalmed)
-* [Xfer'd Val](transfer-value.md#txtfrvalmed)
+* [Xfer'd Val](transfer-value.md#txtfrval)
 * [Payments Above/Below X Amount (Count)](transfer-value.md#txtfrvalcnt)
 * [Sum Value of Payments Above/Below X Amount](transfer-value.md#txtfrvalabbel)
 
@@ -121,7 +121,7 @@ The sum of all native units transferred that interval multiplied by the sum of d
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValDayDst" %}
 
-### Mean Xfer'd Days Destroyed <a href="#txtfrvaldaydstmean" id="txtfrvaldaydstmean"></a>
+## Mean Xfer'd Days Destroyed <a href="#txtfrvaldaydstmean" id="txtfrvaldaydstmean"></a>
 
 #### Definition
 
@@ -176,7 +176,7 @@ The sum value of native units or USD transferred divided by the count of transfe
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValMeanNtv" %}
 
-### Median Tx Size <a href="#txtfrvalmed" id="txtfrvalmed"></a>
+## Median Tx Size <a href="#txtfrvalmed" id="txtfrvalmed"></a>
 
 #### Definition
 
@@ -216,6 +216,10 @@ The sum of native units or USD transferred (i.e., the aggregate "size" of all tr
 | ------------------------- | ----------- | ------------ | ------------- |
 | Xfer'd Val (native units) | TxTfrValNtv | Native units | 1 day, 1 hour |
 | Xfer'd Val (USD)          | TxTfrValUSD | USD          | 1 day, 1 hour |
+
+### Details
+
+* This metric counts transfers between two addresses, exluding transfers from or to the null account (issuance account) as those would be considered mints (transfers from) and burns (transfers to). These would be counted in our [SplyCur](../supply/current-supply.md) metric as an increase or decrease in the supply.
 
 ## Payments Above/Below X Amount (Count) <a href="#txtfrvalcnt" id="txtfrvalcnt"></a>
 
