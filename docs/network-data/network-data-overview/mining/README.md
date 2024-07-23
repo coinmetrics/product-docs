@@ -59,7 +59,7 @@
 * FlowMinerOut1HopAllPOLNtv
 * FlowMinerOut1HopAllPOLUSD
 
-[**Flows**](hash-rate.md)
+[**Flows**](flows.md)
 
 * FlowMinerIn0HopAllNtv
 * FlowMinerIn0HopAllUSD
@@ -76,7 +76,7 @@
 * MRI0HopAll30d
 * MRI1HopAll30d
 
-[**Hardware Hash Rate**](broken-reference)
+[**Hardware Hash Rate**](hardware-hash-rate.md)
 
 * HashRate30dOtherHardware
 * HashRate30dOtherHardwarePct
@@ -85,7 +85,7 @@
 * HashRate30dS9
 * HashRate30dS9Pct
 
-[**Hash Rate**](broken-reference)
+[**Hash Rate**](hash-rate.md)
 
 * HashRate
 * HashRate30d
