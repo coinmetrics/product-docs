@@ -2,7 +2,7 @@
 
 The documentation supporting this framework can be found via the link below.
 
-{% embed url="https://coinmetrics.io/special-insights/trusted-exchange-framework-2-1/" %}
+{% embed url="https://coinmetrics.io/special-insights/trusted-exchange-framework/" %}
 
 ## Introduction
 
@@ -10,6 +10,7 @@ The Coin Metrics’ Trusted Exchange Framework thus aims to quantitatively asses
 
 ## Change Log
 
+* **Version 2.2 on April 30, 2024**: Minor improvements in Data Quality, Transparency, Resilience, Transparency, and Data Quality scores.&#x20;
 * **Version 2.1.1 on March 6, 2024:**  Added a new rule to remove a failed exchanges ahead of an the next official TEF release 3 months after trading ceases.
 * **Version 2.1 on October 31, 2023:** Revamped Transparency, Resilience & Security, Regulatory scores; add grading scale, add rate limiting score
 * **Version 2.0 on March 1, 2023:** Trusted Exchange Framework V2.0 released

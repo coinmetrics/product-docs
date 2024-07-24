@@ -14,13 +14,13 @@ We welcome any feedback on how to improve the trusted framework. Note that the a
 
 ### Does the trusted exchange framework include futures exchanges?
 
-Yes. However, we only assess the data quality score for spot exchanges. The lack of data quality score does not count against a futures exchange’s overall score, but it does disqualify them from being included in the trusted spot volume metric.
+Yes. However, we only assess the data quality score for spot exchanges. The lack of data quality score does not count against a futures exchange’s overall score, but it does disqualify them from being included in the [trusted spot volume](https://coverage.coinmetrics.io/search-results?query=volume\_trusted\_spot\_usd\_1d) metric.
 
 ### Is there a certain score level that separates trustworthy from not?
 
 It depends on the use case, which features are most important to the user, and the threshold that a user is willing to accept. Generally, we consider A to be excellent, B to be good, C to be average, and D to be subpar. The threshold Data Quality score to be included in the trusted volume metric is B or better. See also: Why are certain subscores assigned different weights?
 
-### Why are certain subscores assigned different weights?&#x20;
+### Why are certain subscores assigned different weights?
 
 These weights and overall scores reflect a holistic average of an exchange’s overall capabilities. However, we acknowledge that an exchange’s trustworthiness depends on the use-case, i.e. as a custodian, data provider, and so on. We generally recommend users to focus on the sub scores they find most useful for their use-case.
 
@@ -30,15 +30,16 @@ See the Grading Scale section.
 
 ### Can the list of trusted exchanges be accessed via the API?
 
-As of September 2023, we do not surface this list via the API.
+Yes. They can be accessed by using the [constituent-snapshots](https://docs.coinmetrics.io/api/v4/#tag/Constituent-Snapshots/operation/getConstituentSnapshotsAssetMetrics) endpoint. Sample request:
+
+[https://api.coinmetrics.io/v4/constituent-snapshots/asset-metrics?metric=volume\_trusted\_spot\_usd\_1d\&api\_key=\<your\_key>](https://api.coinmetrics.io/v4/constituent-snapshots/asset-metrics?metric=volume\_trusted\_spot\_usd\_1d\&api\_key=%3Cyour\_key%3E)
 
 ### What’s the difference between the Market Selection Framework and Trusted Exchange Framework?
 
 The "Trusted Exchange" framework assesses exchanges for presence of organic trade volume, using features such as fake volume tests and regulatory features. It informs which exchanges make up our "trusted volume" calculation and the trusted exchanges for datonomy. It can inform the starting point for which exchanges should be considered when selecting the market (which includes asset pairs and spot/futures) constituents for reference rates.
 
-The Market Selection Framework assesses exchange-asset-pair markets to input for CM reference rates. This framework may use exchange-specific features that overlap with the trusted exchange framework but it produces a separate output. This framework is not an input to datonomy.&#x20;
+The Market Selection Framework assesses exchange-asset-pair markets to input for CM reference rates. This framework may use exchange-specific features that overlap with the trusted exchange framework but it produces a separate output. This framework is not an input to datonomy.
 
 ### Why was \_\_\_ exchange given this score?
 
 We are happy to elaborate deeper as to why exchanges are assigned their scores. Please reach out to us at info@coinmetrics.io.
-
