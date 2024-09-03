@@ -10,8 +10,8 @@ update_getting_started:
     # - url_host=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@|ssh://git@|g')
     # - echo "${url_host}"
     # - git clone ${url_host}
-    - git clone https://oauth2:${DATA_ENCYCLOPEDIA_PAT}@gitlab.com/coinmetrics/front-end/knowledge-base.git
-    - git clone https://oauth2:${CM_DEMO_ASSETS_PAT}@gitlab.com/coinmetrics/research/cm_demo_assets.git
+    - git clone https://oauth2:${CM_DEMO_ASSETS_TOKEN}@gitlab.com/coinmetrics/research/cm_demo_assets.git
+    - git clone https://oauth2:${KNOWLEDGE_BASE_TOKEN}@gitlab.com/coinmetrics/front-end/knowledge-base.git
     # - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/coinmetrics/research/cm_demo_assets.git
     # - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/coinmetrics/front-end/knowledge-base.git
     - cp -r cm_demo_assets/getting-started/* knowledge-base/docs/getting-started/
