@@ -18,8 +18,8 @@ update_getting_started:
     - git add docs/getting-started
     - git commit -m "Update getting-started docs from cm_demo_assets"
     - git push -o merge_request.create -o merge_request.target=master -o merge_request.title="Update getting-started docs from cm_demo_assets" origin $BRANCH_NAME
-  only:
-  - master
+  # only:
+  # - master
 #  when: manual
   tags:
     - coinmetrics-build-runner
