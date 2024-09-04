@@ -11,7 +11,7 @@ update_getting_started:
   script:
     - git clone https://$AMS_DATA_USER:$AMS_DATA_TOKEN@gitlab.com/coinmetrics/front-end/knowledge-base.git
     - git clone https://$AMS_DATA_USER:$AMS_DATA_TOKEN@gitlab.com/coinmetrics/research/cm_demo_assets.git
-    - cp -r /cm_demo_assets/markdowns/ /knowledge-base/docs/tutorials/
+    - cp -r /cm_demo_assets/markdowns/* /knowledge-base/docs/tutorials/
     - cd knowledge-base
     - BRANCH_NAME="update-demo-docs-$(date +%Y%m%d-%H%M%S)"
     - git checkout -b $BRANCH_NAME
