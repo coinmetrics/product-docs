@@ -7,7 +7,7 @@ update_getting_started:
   before_script:
     - apk add --no-cache git
     - git config user.name "victoreram"
-    - git config user.email "vicy@coinmetrics.io"
+    - git config user.email "vic@coinmetrics.io"
   script:
     # - url_host=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@|ssh://git@|g')
     # - echo "${url_host}"
