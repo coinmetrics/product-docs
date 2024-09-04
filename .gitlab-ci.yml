@@ -6,8 +6,8 @@ update_getting_started:
   image: alpine:latest
   before_script:
     - apk add --no-cache git
-    - git config user.name "Data Encyclopedia Updater"
-    - git config user.email "no-reply@coinmetrics.io"
+    - git config user.name "victoreram"
+    - git config user.email "vicy@coinmetrics.io"
   script:
     # - url_host=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@|ssh://git@|g')
     # - echo "${url_host}"
