@@ -9,20 +9,14 @@ update_getting_started:
     - git config user.name $AMS_DATA_USER
     - git config --global user.email "noreply@coinmetrics.io"
   script:
-    # - url_host=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@|ssh://git@|g')
-    # - echo "${url_host}"
-    # - git clone ${url_host}
     - git clone https://$AMS_DATA_USER:$AMS_DATA_TOKEN@gitlab.com/coinmetrics/front-end/knowledge-base.git
-    - git clone https://$AMS_DATA_USER:$AMS_DATA_TOKEN@gitlab.com/coinmetrics/research/cm_demo_assets.git
-    # - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/coinmetrics/research/cm_demo_assets.git
-    # - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/coinmetrics/front-end/knowledge-base.git
-    - cp -r cm_demo_assets/getting-started/* knowledge-base/docs/getting-started/
+    - cp -r cm_demo_assets/notebooks/markdowns/*.md knowledge-base/docs/tutorials/
     - cd knowledge-base
-    - BRANCH_NAME="update-getting-started-docs-$(date +%Y%m%d-%H%M%S)"
+    - BRANCH_NAME="update-demo-docs-$(date +%Y%m%d-%H%M%S)"
     - git checkout -b $BRANCH_NAME
-    - git add docs/getting-started
-    - git commit -m "Update getting-started docs from cm_demo_assets"
-    - git push -o merge_request.create -o merge_request.target=master -o merge_request.title="Update getting-started docs from cm_demo_assets" origin $BRANCH_NAME
+    - git add docs/tutorials/*.md
+    - git commit -m "Update tutorial docs from cm_demo_assets"
+    - git push -o merge_request.create -o merge_request.target=master -o merge_request.title="Update tutorial docs from cm_demo_assets" origin $BRANCH_NAME
   # only:
   # - master
 #  when: manual
