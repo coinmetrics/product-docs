@@ -18,9 +18,7 @@ update_getting_started:
     - git add docs/tutorials/*.md
     - git commit -m "Update tutorial docs from cm_demo_assets"
     - git push -o merge_request.create -o merge_request.target=master -o merge_request.title="Update tutorial docs from cm_demo_assets" origin $BRANCH_NAME
-  # only:
-  # - master
-#  when: manual
+  when: manual
   tags:
     - coinmetrics-build-runner
     - linux
