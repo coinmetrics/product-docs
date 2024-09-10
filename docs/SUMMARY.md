@@ -9,6 +9,7 @@
   * [R Client](access-our-data/r-client.md)
   * [Flat Files (Labs)](access-our-data/flat-files-labs.md)
   * [Coverage](http://coverage.coinmetrics.io/)
+* [Tutorials](tutorials/tutorials.md)
 * [API Data Types](api-data-types/README.md)
   * [Asset Metrics Overview](api-data-types/asset-metrics-overview.md)
 * [Data Visualization](data-visualization/README.md)

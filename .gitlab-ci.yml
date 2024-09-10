@@ -1,0 +1,27 @@
+stages:
+  - update_docs
+
+update_getting_started:
+  stage: update_docs
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache git
+    - git config user.name $AMS_DATA_USER
+    - git config --global user.email "noreply@coinmetrics.io"
+  script:
+    - git clone https://$AMS_DATA_USER:$AMS_DATA_TOKEN@gitlab.com/coinmetrics/front-end/knowledge-base.git
+    - git clone https://$AMS_DATA_USER:$AMS_DATA_TOKEN@gitlab.com/coinmetrics/research/cm_demo_assets.git
+    - cp -r cm_demo_assets/markdowns/*.md knowledge-base/docs/tutorials/
+    - cd knowledge-base
+    - BRANCH_NAME="update-demo-docs-$(date +%Y%m%d-%H%M%S)"
+    - git checkout -b $BRANCH_NAME
+    - git add docs/tutorials/*.md
+    - git commit -m "Update tutorial docs from cm_demo_assets"
+    - git push -o merge_request.create -o merge_request.target=master -o merge_request.title="Update tutorial docs from cm_demo_assets" origin $BRANCH_NAME
+  # only:
+  # - master
+#  when: manual
+  tags:
+    - coinmetrics-build-runner
+    - linux
+    - docker
