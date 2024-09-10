@@ -3,4 +3,4 @@
 This tutorial page is our library of Jupyter Notebooks with sample workflows to help users quickly get up and running with the Coin Metrics platform & API Client..
 
 ## Jupyter Notebooks
-* [Market Data Overview](tutorials/MDF_market_data_overview.md) [PDF](tutorials/MDF_market_data_overview.pdf) [Python Notebook](tutorials/MDF_market_data_overview.ipynb)
+* [Market Data Overview](MDF_market_data_overview.md) [(PDF)](MDF_market_data_overview.pdf) [(Python Notebook)](MDF_market_data_overview.ipynb)
