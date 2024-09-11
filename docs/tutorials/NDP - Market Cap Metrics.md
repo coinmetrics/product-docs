@@ -58,7 +58,7 @@ except KeyError:
 client = CoinMetricsClient(api_key)
 ```
 
-    2024-09-09 12:42:30 INFO     Using API key found in environment
+    2024-09-10 18:26:00 INFO     Using API key found in environment
 
 
 # Market Cap Based on Verified On-Chain Supply
@@ -205,7 +205,7 @@ catalog_cur
       <td>...</td>
     </tr>
     <tr>
-      <th>147</th>
+      <th>148</th>
       <td>CapMrktCurUSD</td>
       <td>Capitalization, market, current supply, USD</td>
       <td>The sum USD value of the current supply. Also ...</td>
@@ -220,7 +220,7 @@ catalog_cur
       <td>xvg</td>
     </tr>
     <tr>
-      <th>148</th>
+      <th>149</th>
       <td>CapMrktCurUSD</td>
       <td>Capitalization, market, current supply, USD</td>
       <td>The sum USD value of the current supply. Also ...</td>
@@ -235,7 +235,7 @@ catalog_cur
       <td>yfi</td>
     </tr>
     <tr>
-      <th>149</th>
+      <th>150</th>
       <td>CapMrktCurUSD</td>
       <td>Capitalization, market, current supply, USD</td>
       <td>The sum USD value of the current supply. Also ...</td>
@@ -250,7 +250,7 @@ catalog_cur
       <td>zec</td>
     </tr>
     <tr>
-      <th>150</th>
+      <th>151</th>
       <td>CapMrktCurUSD</td>
       <td>Capitalization, market, current supply, USD</td>
       <td>The sum USD value of the current supply. Also ...</td>
@@ -265,7 +265,7 @@ catalog_cur
       <td>zil_eth</td>
     </tr>
     <tr>
-      <th>151</th>
+      <th>152</th>
       <td>CapMrktCurUSD</td>
       <td>Capitalization, market, current supply, USD</td>
       <td>The sum USD value of the current supply. Also ...</td>
@@ -281,7 +281,7 @@ catalog_cur
     </tr>
   </tbody>
 </table>
-<p>152 rows × 12 columns</p>
+<p>153 rows × 12 columns</p>
 </div>
 
 
@@ -369,38 +369,38 @@ capmrktcur
       <td>...</td>
     </tr>
     <tr>
-      <th>75600</th>
-      <td>zrx</td>
-      <td>2024-09-04 00:00:00+00:00</td>
-      <td>285447425.050838</td>
-    </tr>
-    <tr>
-      <th>75601</th>
+      <th>75987</th>
       <td>zrx</td>
       <td>2024-09-05 00:00:00+00:00</td>
       <td>272108871.35276</td>
     </tr>
     <tr>
-      <th>75602</th>
+      <th>75988</th>
       <td>zrx</td>
       <td>2024-09-06 00:00:00+00:00</td>
       <td>263613883.067493</td>
     </tr>
     <tr>
-      <th>75603</th>
+      <th>75989</th>
       <td>zrx</td>
       <td>2024-09-07 00:00:00+00:00</td>
       <td>267634066.088106</td>
     </tr>
     <tr>
-      <th>75604</th>
+      <th>75990</th>
       <td>zrx</td>
       <td>2024-09-08 00:00:00+00:00</td>
       <td>272160623.638388</td>
     </tr>
+    <tr>
+      <th>75991</th>
+      <td>zrx</td>
+      <td>2024-09-09 00:00:00+00:00</td>
+      <td>284178629.703559</td>
+    </tr>
   </tbody>
 </table>
-<p>75605 rows × 3 columns</p>
+<p>75992 rows × 3 columns</p>
 </div>
 
 
@@ -634,30 +634,6 @@ capmrktcur_pivot
       <td>...</td>
     </tr>
     <tr>
-      <th>2024-09-04 00:00:00+00:00</th>
-      <td>411865700.758678</td>
-      <td>2175747923.519632</td>
-      <td>11407760387.59132</td>
-      <td>7711532.420704</td>
-      <td>&lt;NA&gt;</td>
-      <td>1226893001.2812</td>
-      <td>54403532.489781</td>
-      <td>241244033.945758</td>
-      <td>2224901208.977587</td>
-      <td>10454912733.479939</td>
-      <td>...</td>
-      <td>148821088.949041</td>
-      <td>9667655073.925709</td>
-      <td>3078413349.749146</td>
-      <td>55853978823.325851</td>
-      <td>5799236231.255169</td>
-      <td>181620935.157374</td>
-      <td>458045919.88279</td>
-      <td>1835671.529119</td>
-      <td>285447425.050838</td>
-      <td>1.950077e+12</td>
-    </tr>
-    <tr>
       <th>2024-09-05 00:00:00+00:00</th>
       <td>382529968.278403</td>
       <td>2064705263.791216</td>
@@ -679,7 +655,7 @@ capmrktcur_pivot
       <td>447052799.559518</td>
       <td>1775870.62491</td>
       <td>272108871.35276</td>
-      <td>1.893938e+12</td>
+      <td>1.894742e+12</td>
     </tr>
     <tr>
       <th>2024-09-06 00:00:00+00:00</th>
@@ -703,7 +679,7 @@ capmrktcur_pivot
       <td>416871613.020146</td>
       <td>1709309.946853</td>
       <td>263613883.067493</td>
-      <td>1.820281e+12</td>
+      <td>1.821058e+12</td>
     </tr>
     <tr>
       <th>2024-09-07 00:00:00+00:00</th>
@@ -727,7 +703,7 @@ capmrktcur_pivot
       <td>429194758.11444</td>
       <td>1735646.25364</td>
       <td>267634066.088106</td>
-      <td>1.835773e+12</td>
+      <td>1.836560e+12</td>
     </tr>
     <tr>
       <th>2024-09-08 00:00:00+00:00</th>
@@ -751,11 +727,35 @@ capmrktcur_pivot
       <td>428858954.01059</td>
       <td>1757443.086217</td>
       <td>272160623.638388</td>
-      <td>1.850005e+12</td>
+      <td>1.850814e+12</td>
+    </tr>
+    <tr>
+      <th>2024-09-09 00:00:00+00:00</th>
+      <td>395066098.198083</td>
+      <td>2247865472.5736</td>
+      <td>&lt;NA&gt;</td>
+      <td>7201958.244965</td>
+      <td>&lt;NA&gt;</td>
+      <td>1280993081.19023</td>
+      <td>56100567.517792</td>
+      <td>233525136.063422</td>
+      <td>2447746835.593971</td>
+      <td>11382901480.707348</td>
+      <td>...</td>
+      <td>150819994.198272</td>
+      <td>9812840447.756355</td>
+      <td>3075210193.856463</td>
+      <td>53988763627.705078</td>
+      <td>6007566415.766265</td>
+      <td>183561441.594406</td>
+      <td>454987124.382952</td>
+      <td>1819412.536767</td>
+      <td>284178629.703559</td>
+      <td>1.913523e+12</td>
     </tr>
   </tbody>
 </table>
-<p>617 rows × 142 columns</p>
+<p>618 rows × 143 columns</p>
 </div>
 
 
@@ -769,7 +769,7 @@ formatted_market_cap = '${:,.2f}'.format(current_market_cap_last)
 print('Current Market Cap based on verified on-chain supply: ' + formatted_market_cap)
 ```
 
-    Current Market Cap based on verified on-chain supply: $1,850,004,743,752.77
+    Current Market Cap based on verified on-chain supply: $1,913,523,230,119.80
 
 
 
@@ -1051,7 +1051,7 @@ formatted_est_market_cap = '${:,.2f}'.format(est_market_cap_last)
 print('Estimated Market Cap based on estimated supply (3rd-party sources): ' + formatted_est_market_cap)
 ```
 
-    Estimated Market Cap based on estimated supply (3rd-party sources): $1,974,812,831,479.38
+    Estimated Market Cap based on estimated supply (3rd-party sources): $2,044,017,870,890.69
 
 
 
@@ -1387,13 +1387,6 @@ btc_ff_and_cur
       <td>...</td>
     </tr>
     <tr>
-      <th>1708</th>
-      <td>btc</td>
-      <td>2024-09-04 00:00:00+00:00</td>
-      <td>1146131838403.577393</td>
-      <td>793877149806.161133</td>
-    </tr>
-    <tr>
       <th>1709</th>
       <td>btc</td>
       <td>2024-09-05 00:00:00+00:00</td>
@@ -1421,9 +1414,16 @@ btc_ff_and_cur
       <td>1083551229332.972778</td>
       <td>750404443775.692139</td>
     </tr>
+    <tr>
+      <th>1713</th>
+      <td>btc</td>
+      <td>2024-09-09 00:00:00+00:00</td>
+      <td>1128541804948.678711</td>
+      <td>781579665342.109009</td>
+    </tr>
   </tbody>
 </table>
-<p>1713 rows × 4 columns</p>
+<p>1714 rows × 4 columns</p>
 </div>
 
 
