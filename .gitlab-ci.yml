@@ -12,8 +12,8 @@ update_getting_started:
     - git clone https://$AMS_DATA_USER:$AMS_DATA_TOKEN@gitlab.com/coinmetrics/front-end/knowledge-base.git
     - git clone https://$AMS_DATA_USER:$AMS_DATA_TOKEN@gitlab.com/coinmetrics/research/cm_demo_assets.git
     - cp -r cm_demo_assets/markdowns/*.md knowledge-base/docs/tutorials/
-    - cp -r cm_demo_assets/notebooks/*.ipynb knowledge-base/docs/.gitbooks/assets/
-    - cp -r cm_demo_assets/notebooks/*.pdf knowledge-base/docs/.gitbooks/assets/
+    - find cm_demo_assets/notebooks -name "*.pdf" -exec cp -r --parents {} knowledge-base/docs/.gitbooks/assets/ \;
+    - find cm_demo_assets/notebooks -name "*.ipynb" -exec cp -r --parents {} knowledge-base/docs/.gitbooks/assets/ \;
     - cd knowledge-base
     - BRANCH_NAME="update-demo-docs-$(date +%Y%m%d-%H%M%S)"
     - git checkout -b $BRANCH_NAME
