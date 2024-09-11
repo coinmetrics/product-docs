@@ -1,7 +1,7 @@
 stages:
   - update_docs
 
-update_getting_started:
+update_tutorials:
   stage: update_docs
   image: alpine:latest
   before_script:
