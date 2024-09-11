@@ -42,7 +42,7 @@ except KeyError:
 client = CoinMetricsClient(api_key)
 ```
 
-    2024-09-08 18:00:48 INFO     Using API key found in environment
+    2024-09-10 17:22:58 INFO     Using API key found in environment
 
 
 ## Internal Records
@@ -870,16 +870,16 @@ plt.grid(True, axis='y',linestyle='--',alpha=0.3)
 plt.setp(categories.get_xticklabels(), rotation=25);
 ```
 
-    2024-09-08 18:00:56 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-08 18:00:56 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-08 18:00:56 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-08 18:00:56 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-08 18:00:56 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-08 18:00:56 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-08 18:00:56 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-08 18:00:56 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-08 18:00:56 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-08 18:00:56 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:23:03 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:23:03 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:23:03 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:23:03 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:23:03 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:23:03 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:23:03 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:23:03 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:23:03 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:23:03 WARNING  findfont: Font family 'Lato' not found.
 
 
 
