@@ -4,7 +4,7 @@ The basis is the annualized percent difference between the price of a theoretica
 
 ## Definition
 
-The annualized basis metrics measure the difference between the spot price and a futures price for a contract with given time to expiration. This difference is calculated as a percentage of the underlying spot price which we use our reference rates to define, and annualized by the time to expiration.
+The annualized basis metrics measure the difference between the spot price and a futures price for a contract with given time to expiration. This difference is calculated as a percentage of the underlying spot price which we use our reference rates (using the calculation algorithm for frequencies 200ms, 1s, and 1m) to define, and annualized by the time to expiration.
 
 ![](https://lh6.googleusercontent.com/2Fesg0p\_Vl2StetkInrhLY3Wh5DWV9PuYXvsqa0qW78Y2kPsYaig5iY2qNY3Y4KsbGREGkqYelqOX91uhbGSzBcZYT0Ou1D1KCr7mjNgxcXxtl3z\_V1w3yzYeFk5wZXR1sAuLnAc)
 
