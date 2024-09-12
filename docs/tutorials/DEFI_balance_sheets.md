@@ -67,7 +67,7 @@ except KeyError:
 client = CoinMetricsClient(api_key)
 ```
 
-    2024-09-06 01:15:58 INFO     Using API key found in environment
+    2024-09-11 15:18:44 INFO     Using API key found in environment
 
 
 # Retrieve Balance Sheet
@@ -133,97 +133,97 @@ df_balsheet.tail()
     <tr>
       <th>360</th>
       <td>aave_v2_eth</td>
-      <td>20651993</td>
-      <td>2024-09-01T00:00:00.000000000Z</td>
-      <td>1459491995.9135</td>
+      <td>20694991</td>
+      <td>2024-09-07T00:00:00.000000000Z</td>
+      <td>1297488503.5701</td>
       <td>49</td>
-      <td>1459962175.6271</td>
+      <td>1297720840.4547</td>
       <td>49</td>
-      <td>410437338.4923</td>
-      <td>1049054657.4212</td>
-      <td>-410907518.2059</td>
-      <td>[{'asset': '1inch', 'total_units': '56575.7210...</td>
-      <td>[{'asset': '1inch', 'total_units': '56196.8783...</td>
-      <td>0.281129</td>
-      <td>0.71855</td>
-      <td>0.71855</td>
-      <td>1.000323</td>
+      <td>379597144.0159</td>
+      <td>917891359.5542</td>
+      <td>-379829480.9005</td>
+      <td>[{'asset': '1inch', 'total_units': '56579.7269...</td>
+      <td>[{'asset': '1inch', 'total_units': '56196.8787...</td>
+      <td>0.292511</td>
+      <td>0.707311</td>
+      <td>0.707311</td>
+      <td>1.00018</td>
     </tr>
     <tr>
       <th>361</th>
       <td>aave_v2_eth</td>
-      <td>20659157</td>
-      <td>2024-09-02T00:00:00.000000000Z</td>
-      <td>1422151532.2858</td>
+      <td>20702170</td>
+      <td>2024-09-08T00:00:00.000000000Z</td>
+      <td>1300985579.5729</td>
       <td>49</td>
-      <td>1422570183.8832</td>
+      <td>1301234243.9899</td>
       <td>49</td>
-      <td>405808432.1169</td>
-      <td>1016343100.1689</td>
-      <td>-406227083.7143</td>
-      <td>[{'asset': '1inch', 'total_units': '56576.3877...</td>
-      <td>[{'asset': '1inch', 'total_units': '56196.8784...</td>
-      <td>0.285265</td>
-      <td>0.714442</td>
-      <td>0.714442</td>
-      <td>1.000295</td>
+      <td>379393083.7159</td>
+      <td>921592495.857</td>
+      <td>-379641748.1329</td>
+      <td>[{'asset': '1inch', 'total_units': '56580.3958...</td>
+      <td>[{'asset': '1inch', 'total_units': '56196.8787...</td>
+      <td>0.291565</td>
+      <td>0.708245</td>
+      <td>0.708245</td>
+      <td>1.000192</td>
     </tr>
     <tr>
       <th>362</th>
       <td>aave_v2_eth</td>
-      <td>20666327</td>
-      <td>2024-09-03T00:00:00.000000000Z</td>
-      <td>1460946101.4231</td>
+      <td>20709329</td>
+      <td>2024-09-09T00:00:00.000000000Z</td>
+      <td>1314125430.1564</td>
       <td>49</td>
-      <td>1461370812.6798</td>
+      <td>1314397586.1761</td>
       <td>49</td>
-      <td>410711686.6373</td>
-      <td>1050234414.7858</td>
-      <td>-411136397.894</td>
-      <td>[{'asset': '1inch', 'total_units': '56577.0548...</td>
-      <td>[{'asset': '1inch', 'total_units': '56196.8784...</td>
-      <td>0.281046</td>
-      <td>0.718664</td>
-      <td>0.718664</td>
-      <td>1.000291</td>
+      <td>380735859.0122</td>
+      <td>933389571.1442</td>
+      <td>-381008015.0319</td>
+      <td>[{'asset': '1inch', 'total_units': '56581.0156...</td>
+      <td>[{'asset': '1inch', 'total_units': '56206.2806...</td>
+      <td>0.289666</td>
+      <td>0.710128</td>
+      <td>0.710128</td>
+      <td>1.000208</td>
     </tr>
     <tr>
       <th>363</th>
       <td>aave_v2_eth</td>
-      <td>20673497</td>
-      <td>2024-09-04T00:00:00.000000000Z</td>
-      <td>1420829599.1815</td>
+      <td>20716497</td>
+      <td>2024-09-10T00:00:00.000000000Z</td>
+      <td>1343205862.2417</td>
       <td>49</td>
-      <td>1421205314.4427</td>
+      <td>1343487687.7738</td>
       <td>49</td>
-      <td>404871260.5267</td>
-      <td>1015958338.6548</td>
-      <td>-405246975.7879</td>
-      <td>[{'asset': '1inch', 'total_units': '56577.7223...</td>
-      <td>[{'asset': '1inch', 'total_units': '56196.8785...</td>
-      <td>0.284879</td>
-      <td>0.714857</td>
-      <td>0.714857</td>
-      <td>1.000265</td>
+      <td>384916164.1788</td>
+      <td>958289698.0629</td>
+      <td>-385197989.7109</td>
+      <td>[{'asset': '1inch', 'total_units': '56581.6339...</td>
+      <td>[{'asset': '1inch', 'total_units': '56206.2807...</td>
+      <td>0.286506</td>
+      <td>0.713286</td>
+      <td>0.713286</td>
+      <td>1.00021</td>
     </tr>
     <tr>
       <th>364</th>
       <td>aave_v2_eth</td>
-      <td>20680662</td>
-      <td>2024-09-05T00:00:00.000000000Z</td>
-      <td>1426984019.0719</td>
+      <td>20723649</td>
+      <td>2024-09-11T00:00:00.000000000Z</td>
+      <td>1355796786.5179</td>
       <td>49</td>
-      <td>1427379805.5783</td>
+      <td>1356061228.0378</td>
       <td>49</td>
-      <td>405359066.0021</td>
-      <td>1021624953.0698</td>
-      <td>-405754852.5085</td>
-      <td>[{'asset': '1inch', 'total_units': '56578.3901...</td>
-      <td>[{'asset': '1inch', 'total_units': '56196.8785...</td>
-      <td>0.283989</td>
-      <td>0.715735</td>
-      <td>0.715735</td>
-      <td>1.000278</td>
+      <td>386309607.1148</td>
+      <td>969487179.4031</td>
+      <td>-386574048.6347</td>
+      <td>[{'asset': '1inch', 'total_units': '56582.2525...</td>
+      <td>[{'asset': '1inch', 'total_units': '56206.2808...</td>
+      <td>0.284877</td>
+      <td>0.714929</td>
+      <td>0.714929</td>
+      <td>1.000196</td>
     </tr>
   </tbody>
 </table>
@@ -268,15 +268,15 @@ last_row
     </tr>
     <tr>
       <th>block_height</th>
-      <td>20680662</td>
+      <td>20723649</td>
     </tr>
     <tr>
       <th>time</th>
-      <td>2024-09-05T00:00:00.000000000Z</td>
+      <td>2024-09-11T00:00:00.000000000Z</td>
     </tr>
     <tr>
       <th>assets_total_usd</th>
-      <td>1426984019.0719</td>
+      <td>1355796786.5179</td>
     </tr>
     <tr>
       <th>assets_total_count</th>
@@ -284,7 +284,7 @@ last_row
     </tr>
     <tr>
       <th>liabilities_total_usd</th>
-      <td>1427379805.5783</td>
+      <td>1356061228.0378</td>
     </tr>
     <tr>
       <th>liabilities_total_count</th>
@@ -292,39 +292,39 @@ last_row
     </tr>
     <tr>
       <th>loans_lent_total_usd</th>
-      <td>405359066.0021</td>
+      <td>386309607.1148</td>
     </tr>
     <tr>
       <th>tvl_total_usd</th>
-      <td>1021624953.0698</td>
+      <td>969487179.4031</td>
     </tr>
     <tr>
       <th>net_working_capital_usd</th>
-      <td>-405754852.5085</td>
+      <td>-386574048.6347</td>
     </tr>
     <tr>
       <th>assets</th>
-      <td>[{'asset': '1inch', 'total_units': '56578.3901...</td>
+      <td>[{'asset': '1inch', 'total_units': '56582.2525...</td>
     </tr>
     <tr>
       <th>liabilities</th>
-      <td>[{'asset': '1inch', 'total_units': '56196.8785...</td>
+      <td>[{'asset': '1inch', 'total_units': '56206.2808...</td>
     </tr>
     <tr>
       <th>protocol_utilization_ratio</th>
-      <td>0.283989</td>
+      <td>0.284877</td>
     </tr>
     <tr>
       <th>liquid_supply_ratio</th>
-      <td>0.715735</td>
+      <td>0.714929</td>
     </tr>
     <tr>
       <th>current_ratio</th>
-      <td>0.715735</td>
+      <td>0.714929</td>
     </tr>
     <tr>
       <th>debt_to_assets_ratio</th>
-      <td>1.000278</td>
+      <td>1.000196</td>
     </tr>
   </tbody>
 </table>
@@ -390,411 +390,411 @@ assets
   <tbody>
     <tr>
       <th>steth_lido</th>
-      <td>1.726978e+05</td>
+      <td>1.544855e+05</td>
       <td>NaN</td>
-      <td>1.726978e+05</td>
-      <td>4.237859e+08</td>
+      <td>1.544855e+05</td>
+      <td>3.690537e+08</td>
       <td>NaN</td>
-      <td>4.237859e+08</td>
-      <td>0.296980</td>
+      <td>3.690537e+08</td>
+      <td>0.272204</td>
       <td>NaN</td>
-      <td>0.414816</td>
+      <td>0.380669</td>
     </tr>
     <tr>
       <th>wbtc</th>
-      <td>5.693608e+03</td>
-      <td>6.034461e+02</td>
-      <td>5.090162e+03</td>
-      <td>3.299027e+08</td>
-      <td>3.496526e+07</td>
-      <td>2.949375e+08</td>
-      <td>0.231189</td>
-      <td>0.086258</td>
-      <td>0.288694</td>
+      <td>5.603619e+03</td>
+      <td>5.956406e+02</td>
+      <td>5.007978e+03</td>
+      <td>3.227848e+08</td>
+      <td>3.431063e+07</td>
+      <td>2.884742e+08</td>
+      <td>0.238078</td>
+      <td>0.088816</td>
+      <td>0.297553</td>
     </tr>
     <tr>
       <th>weth</th>
-      <td>1.353701e+05</td>
-      <td>4.193426e+04</td>
-      <td>9.343581e+04</td>
-      <td>3.320530e+08</td>
-      <td>1.028617e+08</td>
-      <td>2.291913e+08</td>
-      <td>0.232696</td>
-      <td>0.253755</td>
-      <td>0.224340</td>
-    </tr>
-    <tr>
-      <th>usdt_eth</th>
-      <td>1.112871e+08</td>
-      <td>8.972374e+07</td>
-      <td>2.156332e+07</td>
-      <td>1.112941e+08</td>
-      <td>8.972940e+07</td>
-      <td>2.156468e+07</td>
-      <td>0.077993</td>
-      <td>0.221358</td>
-      <td>0.021108</td>
-    </tr>
-    <tr>
-      <th>link</th>
-      <td>1.555369e+06</td>
-      <td>5.492669e+04</td>
-      <td>1.500442e+06</td>
-      <td>1.609692e+07</td>
-      <td>5.684507e+05</td>
-      <td>1.552847e+07</td>
-      <td>0.011280</td>
-      <td>0.001402</td>
-      <td>0.015200</td>
+      <td>1.310875e+05</td>
+      <td>4.049350e+04</td>
+      <td>9.059399e+04</td>
+      <td>3.132357e+08</td>
+      <td>9.675988e+07</td>
+      <td>2.164758e+08</td>
+      <td>0.231034</td>
+      <td>0.250472</td>
+      <td>0.223289</td>
     </tr>
     <tr>
       <th>usdc</th>
-      <td>1.484601e+08</td>
-      <td>1.361796e+08</td>
-      <td>1.228047e+07</td>
-      <td>1.484504e+08</td>
-      <td>1.361708e+08</td>
-      <td>1.227967e+07</td>
-      <td>0.104031</td>
-      <td>0.335926</td>
-      <td>0.012020</td>
+      <td>1.588818e+08</td>
+      <td>1.255413e+08</td>
+      <td>3.334052e+07</td>
+      <td>1.588852e+08</td>
+      <td>1.255440e+08</td>
+      <td>3.334123e+07</td>
+      <td>0.117190</td>
+      <td>0.324983</td>
+      <td>0.034391</td>
+    </tr>
+    <tr>
+      <th>usdt_eth</th>
+      <td>1.124254e+08</td>
+      <td>8.982969e+07</td>
+      <td>2.259566e+07</td>
+      <td>1.124301e+08</td>
+      <td>8.983346e+07</td>
+      <td>2.259661e+07</td>
+      <td>0.082925</td>
+      <td>0.232543</td>
+      <td>0.023308</td>
+    </tr>
+    <tr>
+      <th>link</th>
+      <td>1.484104e+06</td>
+      <td>5.493181e+04</td>
+      <td>1.429172e+06</td>
+      <td>1.572480e+07</td>
+      <td>5.820294e+05</td>
+      <td>1.514277e+07</td>
+      <td>0.011598</td>
+      <td>0.001507</td>
+      <td>0.015619</td>
     </tr>
     <tr>
       <th>dai</th>
-      <td>4.915082e+07</td>
-      <td>3.949131e+07</td>
-      <td>9.659509e+06</td>
-      <td>4.924546e+07</td>
-      <td>3.956735e+07</td>
-      <td>9.678108e+06</td>
-      <td>0.034510</td>
-      <td>0.097611</td>
-      <td>0.009473</td>
+      <td>4.724180e+07</td>
+      <td>3.782985e+07</td>
+      <td>9.411950e+06</td>
+      <td>4.728078e+07</td>
+      <td>3.786106e+07</td>
+      <td>9.419715e+06</td>
+      <td>0.034873</td>
+      <td>0.098007</td>
+      <td>0.009716</td>
     </tr>
     <tr>
       <th>aave</th>
-      <td>4.918830e+04</td>
+      <td>4.823621e+04</td>
       <td>NaN</td>
-      <td>4.918830e+04</td>
-      <td>6.688834e+06</td>
+      <td>4.823621e+04</td>
+      <td>7.268864e+06</td>
       <td>NaN</td>
-      <td>6.688834e+06</td>
-      <td>0.004687</td>
+      <td>7.268864e+06</td>
+      <td>0.005361</td>
       <td>NaN</td>
-      <td>0.006547</td>
+      <td>0.007498</td>
     </tr>
     <tr>
       <th>mkr</th>
-      <td>1.480644e+03</td>
-      <td>1.051540e+00</td>
-      <td>1.479592e+03</td>
-      <td>2.478640e+06</td>
-      <td>1.760307e+03</td>
-      <td>2.476880e+06</td>
-      <td>0.001737</td>
+      <td>1.280608e+03</td>
+      <td>1.055003e+00</td>
+      <td>1.279553e+03</td>
+      <td>2.060503e+06</td>
+      <td>1.697503e+03</td>
+      <td>2.058805e+06</td>
+      <td>0.001520</td>
       <td>0.000004</td>
-      <td>0.002424</td>
+      <td>0.002124</td>
     </tr>
     <tr>
       <th>crv</th>
-      <td>2.573776e+06</td>
-      <td>7.724367e+03</td>
-      <td>2.566052e+06</td>
-      <td>7.499891e+05</td>
-      <td>2.250853e+03</td>
-      <td>7.477382e+05</td>
-      <td>0.000526</td>
+      <td>2.571763e+06</td>
+      <td>7.749804e+03</td>
+      <td>2.564013e+06</td>
+      <td>7.191379e+05</td>
+      <td>2.167065e+03</td>
+      <td>7.169709e+05</td>
+      <td>0.000530</td>
       <td>0.000006</td>
-      <td>0.000732</td>
+      <td>0.000740</td>
     </tr>
     <tr>
       <th>snx</th>
-      <td>4.281201e+05</td>
-      <td>2.597078e+03</td>
-      <td>4.255230e+05</td>
-      <td>5.844619e+05</td>
-      <td>3.545485e+03</td>
-      <td>5.809164e+05</td>
-      <td>0.000410</td>
+      <td>4.279042e+05</td>
+      <td>2.605631e+03</td>
+      <td>4.252986e+05</td>
+      <td>6.017594e+05</td>
+      <td>3.664285e+03</td>
+      <td>5.980951e+05</td>
+      <td>0.000444</td>
       <td>0.000009</td>
-      <td>0.000569</td>
+      <td>0.000617</td>
     </tr>
     <tr>
       <th>busd</th>
-      <td>7.902438e+05</td>
-      <td>2.138338e+05</td>
-      <td>5.764100e+05</td>
-      <td>7.892865e+05</td>
-      <td>2.135748e+05</td>
-      <td>5.757117e+05</td>
-      <td>0.000553</td>
-      <td>0.000527</td>
-      <td>0.000564</td>
+      <td>7.889985e+05</td>
+      <td>2.137916e+05</td>
+      <td>5.752069e+05</td>
+      <td>7.870198e+05</td>
+      <td>2.132555e+05</td>
+      <td>5.737644e+05</td>
+      <td>0.000580</td>
+      <td>0.000552</td>
+      <td>0.000592</td>
     </tr>
     <tr>
       <th>uni</th>
-      <td>8.285293e+04</td>
-      <td>2.825016e+03</td>
-      <td>8.002792e+04</td>
-      <td>5.338338e+05</td>
-      <td>1.820200e+04</td>
-      <td>5.156318e+05</td>
-      <td>0.000374</td>
-      <td>0.000045</td>
-      <td>0.000505</td>
+      <td>8.227151e+04</td>
+      <td>2.834319e+03</td>
+      <td>7.943719e+04</td>
+      <td>5.525864e+05</td>
+      <td>1.903704e+04</td>
+      <td>5.335493e+05</td>
+      <td>0.000408</td>
+      <td>0.000049</td>
+      <td>0.000550</td>
     </tr>
     <tr>
       <th>frax</th>
-      <td>5.851246e+05</td>
-      <td>1.098166e+05</td>
-      <td>4.753080e+05</td>
-      <td>5.831631e+05</td>
-      <td>1.094485e+05</td>
-      <td>4.737147e+05</td>
-      <td>0.000409</td>
-      <td>0.000270</td>
-      <td>0.000464</td>
+      <td>5.854333e+05</td>
+      <td>1.100934e+05</td>
+      <td>4.753399e+05</td>
+      <td>5.838315e+05</td>
+      <td>1.097922e+05</td>
+      <td>4.740393e+05</td>
+      <td>0.000431</td>
+      <td>0.000284</td>
+      <td>0.000489</td>
     </tr>
     <tr>
       <th>susd</th>
-      <td>6.185345e+05</td>
-      <td>1.657579e+05</td>
-      <td>4.527766e+05</td>
-      <td>6.146663e+05</td>
-      <td>1.647213e+05</td>
-      <td>4.499450e+05</td>
-      <td>0.000431</td>
-      <td>0.000406</td>
-      <td>0.000440</td>
+      <td>6.194831e+05</td>
+      <td>1.657407e+05</td>
+      <td>4.537424e+05</td>
+      <td>6.142920e+05</td>
+      <td>1.643518e+05</td>
+      <td>4.499401e+05</td>
+      <td>0.000453</td>
+      <td>0.000425</td>
+      <td>0.000464</td>
     </tr>
     <tr>
       <th>tusd</th>
-      <td>5.179844e+05</td>
-      <td>1.354872e+05</td>
-      <td>3.824973e+05</td>
-      <td>5.171543e+05</td>
-      <td>1.352700e+05</td>
-      <td>3.818842e+05</td>
-      <td>0.000362</td>
-      <td>0.000334</td>
-      <td>0.000374</td>
-    </tr>
-    <tr>
-      <th>yfi</th>
-      <td>5.336409e+01</td>
-      <td>5.576542e-02</td>
-      <td>5.330833e+01</td>
-      <td>2.643331e+05</td>
-      <td>2.762278e+02</td>
-      <td>2.640568e+05</td>
-      <td>0.000185</td>
-      <td>0.000001</td>
-      <td>0.000258</td>
+      <td>5.182068e+05</td>
+      <td>1.352792e+05</td>
+      <td>3.829276e+05</td>
+      <td>5.174583e+05</td>
+      <td>1.350838e+05</td>
+      <td>3.823744e+05</td>
+      <td>0.000382</td>
+      <td>0.000350</td>
+      <td>0.000394</td>
     </tr>
     <tr>
       <th>gusd</th>
-      <td>5.799399e+05</td>
-      <td>3.595876e+05</td>
-      <td>2.203524e+05</td>
-      <td>5.801514e+05</td>
-      <td>3.597187e+05</td>
-      <td>2.204327e+05</td>
-      <td>0.000407</td>
-      <td>0.000887</td>
-      <td>0.000216</td>
+      <td>5.841511e+05</td>
+      <td>2.513482e+05</td>
+      <td>3.328029e+05</td>
+      <td>5.835489e+05</td>
+      <td>2.510891e+05</td>
+      <td>3.324598e+05</td>
+      <td>0.000430</td>
+      <td>0.000650</td>
+      <td>0.000343</td>
+    </tr>
+    <tr>
+      <th>yfi</th>
+      <td>5.335878e+01</td>
+      <td>5.594907e-02</td>
+      <td>5.330283e+01</td>
+      <td>2.644870e+05</td>
+      <td>2.773264e+02</td>
+      <td>2.642097e+05</td>
+      <td>0.000195</td>
+      <td>0.000001</td>
+      <td>0.000273</td>
     </tr>
     <tr>
       <th>mana</th>
-      <td>9.085883e+05</td>
-      <td>1.625779e+05</td>
-      <td>7.460104e+05</td>
-      <td>2.407153e+05</td>
-      <td>4.307230e+04</td>
-      <td>1.976430e+05</td>
-      <td>0.000169</td>
-      <td>0.000106</td>
-      <td>0.000193</td>
+      <td>9.081566e+05</td>
+      <td>1.631133e+05</td>
+      <td>7.450433e+05</td>
+      <td>2.458359e+05</td>
+      <td>4.415438e+04</td>
+      <td>2.016815e+05</td>
+      <td>0.000181</td>
+      <td>0.000114</td>
+      <td>0.000208</td>
     </tr>
     <tr>
       <th>rai</th>
-      <td>7.791751e+04</td>
-      <td>1.615741e+04</td>
+      <td>7.797072e+04</td>
+      <td>1.621062e+04</td>
       <td>6.176010e+04</td>
-      <td>2.325229e+05</td>
-      <td>4.821725e+04</td>
-      <td>1.843057e+05</td>
-      <td>0.000163</td>
-      <td>0.000119</td>
-      <td>0.000180</td>
+      <td>2.354580e+05</td>
+      <td>4.895324e+04</td>
+      <td>1.865048e+05</td>
+      <td>0.000174</td>
+      <td>0.000127</td>
+      <td>0.000192</td>
     </tr>
     <tr>
       <th>ens</th>
-      <td>9.662886e+03</td>
-      <td>3.246171e+01</td>
+      <td>9.662993e+03</td>
+      <td>3.256861e+01</td>
       <td>9.630424e+03</td>
-      <td>1.649377e+05</td>
-      <td>5.540953e+02</td>
-      <td>1.643836e+05</td>
-      <td>0.000116</td>
+      <td>1.706321e+05</td>
+      <td>5.751063e+02</td>
+      <td>1.700569e+05</td>
+      <td>0.000126</td>
       <td>0.000001</td>
-      <td>0.000161</td>
+      <td>0.000175</td>
     </tr>
     <tr>
       <th>pax</th>
-      <td>2.232882e+05</td>
-      <td>9.878619e+04</td>
-      <td>1.245020e+05</td>
-      <td>2.230426e+05</td>
-      <td>9.867752e+04</td>
-      <td>1.243650e+05</td>
-      <td>0.000156</td>
-      <td>0.000243</td>
-      <td>0.000122</td>
+      <td>2.245738e+05</td>
+      <td>1.000337e+05</td>
+      <td>1.245401e+05</td>
+      <td>2.250197e+05</td>
+      <td>1.002323e+05</td>
+      <td>1.247874e+05</td>
+      <td>0.000166</td>
+      <td>0.000259</td>
+      <td>0.000129</td>
     </tr>
     <tr>
       <th>bal</th>
-      <td>6.268700e+04</td>
-      <td>3.412654e+03</td>
-      <td>5.927435e+04</td>
-      <td>1.179639e+05</td>
-      <td>6.421906e+03</td>
-      <td>1.115420e+05</td>
-      <td>0.000083</td>
-      <td>0.000016</td>
-      <td>0.000109</td>
+      <td>6.267183e+04</td>
+      <td>3.423892e+03</td>
+      <td>5.924794e+04</td>
+      <td>1.191376e+05</td>
+      <td>6.508736e+03</td>
+      <td>1.126289e+05</td>
+      <td>0.000088</td>
+      <td>0.000017</td>
+      <td>0.000116</td>
     </tr>
     <tr>
       <th>ust</th>
-      <td>6.376942e+06</td>
-      <td>3.072693e+05</td>
+      <td>6.377954e+06</td>
+      <td>3.082812e+05</td>
       <td>6.069673e+06</td>
-      <td>1.008426e+05</td>
-      <td>4.859042e+03</td>
-      <td>9.598354e+04</td>
-      <td>0.000071</td>
-      <td>0.000012</td>
-      <td>0.000094</td>
-    </tr>
-    <tr>
-      <th>zrx</th>
-      <td>2.991495e+05</td>
-      <td>5.286589e+03</td>
-      <td>2.938629e+05</td>
-      <td>8.539145e+04</td>
-      <td>1.509043e+03</td>
-      <td>8.388240e+04</td>
-      <td>0.000060</td>
-      <td>0.000004</td>
-      <td>0.000082</td>
+      <td>1.082931e+05</td>
+      <td>5.234396e+03</td>
+      <td>1.030587e+05</td>
+      <td>0.000080</td>
+      <td>0.000014</td>
+      <td>0.000106</td>
     </tr>
     <tr>
       <th>lusd</th>
-      <td>1.400053e+05</td>
-      <td>6.758067e+04</td>
-      <td>7.242468e+04</td>
-      <td>1.402208e+05</td>
-      <td>6.768465e+04</td>
-      <td>7.253612e+04</td>
-      <td>0.000098</td>
-      <td>0.000167</td>
-      <td>0.000071</td>
+      <td>1.405305e+05</td>
+      <td>5.504126e+04</td>
+      <td>8.548924e+04</td>
+      <td>1.409187e+05</td>
+      <td>5.519330e+04</td>
+      <td>8.572538e+04</td>
+      <td>0.000104</td>
+      <td>0.000143</td>
+      <td>0.000088</td>
+    </tr>
+    <tr>
+      <th>zrx</th>
+      <td>2.990740e+05</td>
+      <td>5.303998e+03</td>
+      <td>2.937700e+05</td>
+      <td>8.496553e+04</td>
+      <td>1.506841e+03</td>
+      <td>8.345869e+04</td>
+      <td>0.000063</td>
+      <td>0.000004</td>
+      <td>0.000086</td>
     </tr>
     <tr>
       <th>cvx</th>
-      <td>3.273990e+04</td>
-      <td>1.431574e+02</td>
+      <td>3.274037e+04</td>
+      <td>1.436289e+02</td>
       <td>3.259674e+04</td>
-      <td>6.793369e+04</td>
-      <td>2.970447e+02</td>
-      <td>6.763665e+04</td>
-      <td>0.000048</td>
+      <td>6.997011e+04</td>
+      <td>3.069522e+02</td>
+      <td>6.966316e+04</td>
+      <td>0.000052</td>
       <td>0.000001</td>
-      <td>0.000066</td>
+      <td>0.000072</td>
     </tr>
     <tr>
       <th>ren</th>
-      <td>1.751237e+06</td>
-      <td>6.674971e+03</td>
-      <td>1.744562e+06</td>
-      <td>6.387429e+04</td>
-      <td>2.434617e+02</td>
-      <td>6.363083e+04</td>
-      <td>0.000045</td>
+      <td>1.750770e+06</td>
+      <td>6.696953e+03</td>
+      <td>1.744073e+06</td>
+      <td>6.820384e+04</td>
+      <td>2.608898e+02</td>
+      <td>6.794296e+04</td>
+      <td>0.000050</td>
       <td>0.000001</td>
-      <td>0.000062</td>
+      <td>0.000070</td>
     </tr>
     <tr>
       <th>bat</th>
-      <td>3.408284e+05</td>
-      <td>6.688293e+03</td>
-      <td>3.341401e+05</td>
-      <td>5.516907e+04</td>
-      <td>1.082618e+03</td>
-      <td>5.408645e+04</td>
-      <td>0.000039</td>
+      <td>3.406711e+05</td>
+      <td>6.710318e+03</td>
+      <td>3.339607e+05</td>
+      <td>5.691630e+04</td>
+      <td>1.121100e+03</td>
+      <td>5.579520e+04</td>
+      <td>0.000042</td>
       <td>0.000003</td>
-      <td>0.000053</td>
+      <td>0.000058</td>
     </tr>
     <tr>
       <th>enj</th>
-      <td>2.995886e+05</td>
-      <td>1.112759e+05</td>
-      <td>1.883127e+05</td>
-      <td>4.177576e+04</td>
-      <td>1.551673e+04</td>
-      <td>2.625904e+04</td>
+      <td>2.979707e+05</td>
+      <td>1.097738e+05</td>
+      <td>1.881969e+05</td>
+      <td>4.402891e+04</td>
+      <td>1.622045e+04</td>
+      <td>2.780846e+04</td>
+      <td>0.000032</td>
+      <td>0.000042</td>
       <td>0.000029</td>
-      <td>0.000038</td>
-      <td>0.000026</td>
     </tr>
     <tr>
       <th>1inch</th>
-      <td>5.657839e+04</td>
-      <td>1.219116e+03</td>
-      <td>5.535927e+04</td>
-      <td>1.553513e+04</td>
-      <td>3.347413e+02</td>
-      <td>1.520039e+04</td>
+      <td>5.658225e+04</td>
+      <td>1.129365e+03</td>
+      <td>5.545289e+04</td>
+      <td>1.472982e+04</td>
+      <td>2.940029e+02</td>
+      <td>1.443582e+04</td>
       <td>0.000011</td>
       <td>0.000001</td>
       <td>0.000015</td>
     </tr>
     <tr>
+      <th>ampl</th>
+      <td>2.026368e+05</td>
+      <td>1.937561e+05</td>
+      <td>8.880723e+03</td>
+      <td>2.388705e+05</td>
+      <td>2.284018e+05</td>
+      <td>1.046870e+04</td>
+      <td>0.000176</td>
+      <td>0.000591</td>
+      <td>0.000011</td>
+    </tr>
+    <tr>
       <th>knc</th>
-      <td>3.336445e+04</td>
-      <td>1.363030e+04</td>
-      <td>1.973416e+04</td>
-      <td>1.466142e+04</td>
-      <td>5.989595e+03</td>
-      <td>8.671830e+03</td>
-      <td>0.000010</td>
-      <td>0.000015</td>
-      <td>0.000008</td>
+      <td>3.332780e+04</td>
+      <td>1.367518e+04</td>
+      <td>1.965262e+04</td>
+      <td>1.463334e+04</td>
+      <td>6.004405e+03</td>
+      <td>8.628936e+03</td>
+      <td>0.000011</td>
+      <td>0.000016</td>
+      <td>0.000009</td>
     </tr>
     <tr>
       <th>fei_eth</th>
-      <td>1.063611e+04</td>
-      <td>3.182319e+03</td>
+      <td>1.065348e+04</td>
+      <td>3.199692e+03</td>
       <td>7.453792e+03</td>
-      <td>1.033872e+04</td>
-      <td>3.093340e+03</td>
-      <td>7.245379e+03</td>
-      <td>0.000007</td>
+      <td>1.062954e+04</td>
+      <td>3.192502e+03</td>
+      <td>7.437041e+03</td>
       <td>0.000008</td>
-      <td>0.000007</td>
-    </tr>
-    <tr>
-      <th>ampl</th>
-      <td>1.962089e+05</td>
-      <td>1.899856e+05</td>
-      <td>6.223288e+03</td>
-      <td>1.959969e+05</td>
-      <td>1.897803e+05</td>
-      <td>6.216565e+03</td>
-      <td>0.000137</td>
-      <td>0.000468</td>
-      <td>0.000006</td>
+      <td>0.000008</td>
+      <td>0.000008</td>
     </tr>
     <tr>
       <th>BptBALWETH</th>
@@ -942,9 +942,9 @@ assets
     </tr>
     <tr>
       <th>dpi</th>
-      <td>1.136031e+03</td>
-      <td>4.117542e+02</td>
-      <td>7.242772e+02</td>
+      <td>1.137386e+03</td>
+      <td>4.123218e+02</td>
+      <td>7.250638e+02</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -966,9 +966,9 @@ assets
     </tr>
     <tr>
       <th>xsushi</th>
-      <td>4.262820e+05</td>
-      <td>3.952055e+02</td>
-      <td>4.258868e+05</td>
+      <td>4.262429e+05</td>
+      <td>3.295759e+02</td>
+      <td>4.259134e+05</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1033,47 +1033,47 @@ df
   <tbody>
     <tr>
       <th>steth_lido</th>
-      <td>$423,785,938.48</td>
+      <td>$369,053,732.27</td>
     </tr>
     <tr>
       <th>wbtc</th>
-      <td>$294,937,452.87</td>
+      <td>$288,474,150.66</td>
     </tr>
     <tr>
       <th>weth</th>
-      <td>$229,191,298.80</td>
-    </tr>
-    <tr>
-      <th>usdt_eth</th>
-      <td>$21,564,679.98</td>
-    </tr>
-    <tr>
-      <th>link</th>
-      <td>$15,528,470.80</td>
+      <td>$216,475,808.56</td>
     </tr>
     <tr>
       <th>usdc</th>
-      <td>$12,279,670.48</td>
+      <td>$33,341,234.42</td>
+    </tr>
+    <tr>
+      <th>usdt_eth</th>
+      <td>$22,596,610.62</td>
+    </tr>
+    <tr>
+      <th>link</th>
+      <td>$15,142,773.16</td>
     </tr>
     <tr>
       <th>dai</th>
-      <td>$9,678,108.26</td>
+      <td>$9,419,715.04</td>
     </tr>
     <tr>
       <th>aave</th>
-      <td>$6,688,833.55</td>
+      <td>$7,268,863.58</td>
     </tr>
     <tr>
       <th>mkr</th>
-      <td>$2,476,879.70</td>
+      <td>$2,058,805.48</td>
     </tr>
     <tr>
       <th>crv</th>
-      <td>$747,738.24</td>
+      <td>$716,970.86</td>
     </tr>
     <tr>
       <th>other</th>
-      <td>$4,745,881.92</td>
+      <td>$4,938,514.76</td>
     </tr>
   </tbody>
 </table>
@@ -1091,94 +1091,198 @@ axes = assets_tvl_top10.plot(kind='pie', autopct=my_autopct, figsize=(16, 16), s
 for ax in axes.flat:
     yl = ax.get_ylabel()
     ax.set(ylabel='', title=yl)
-    ax.set_title(str(protocol).upper() + '\nEstimated TVL Share (USD) by Asset*',size=20, font='Lato')
+    ax.set_title(str(protocol).upper() + '\nEstimated TVL Share (USD) by Asset*',size=20, font='arial')
 
 fig = axes[0, 0].get_figure()
-fig.suptitle('\n*Assets with CM Reference Rate',size=11, font='Lato')
+fig.suptitle('\n*Assets with CM Reference Rate',size=11, font='arial')
 
 fig.tight_layout()
 plt.rcParams['font.size'] = 15.0
 ```
 
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:03 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:46 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
 
 
 
     
-![png](output_16_1.png)
+![png](output_16_60.png)
     
 
 
@@ -1226,29 +1330,29 @@ aave_tvl
   </thead>
   <tbody>
     <tr>
-      <th>2023-09-07</th>
+      <th>2023-09-13</th>
       <td>aave_v2_eth</td>
-      <td>2.207861e+09</td>
+      <td>2.142597e+09</td>
     </tr>
     <tr>
-      <th>2023-09-08</th>
+      <th>2023-09-14</th>
       <td>aave_v2_eth</td>
-      <td>2.233808e+09</td>
+      <td>2.159568e+09</td>
     </tr>
     <tr>
-      <th>2023-09-09</th>
+      <th>2023-09-15</th>
       <td>aave_v2_eth</td>
-      <td>2.219617e+09</td>
+      <td>2.184802e+09</td>
     </tr>
     <tr>
-      <th>2023-09-10</th>
+      <th>2023-09-16</th>
       <td>aave_v2_eth</td>
-      <td>2.217438e+09</td>
+      <td>2.199822e+09</td>
     </tr>
     <tr>
-      <th>2023-09-11</th>
+      <th>2023-09-17</th>
       <td>aave_v2_eth</td>
-      <td>2.193551e+09</td>
+      <td>2.196492e+09</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1256,29 +1360,29 @@ aave_tvl
       <td>...</td>
     </tr>
     <tr>
-      <th>2024-09-01</th>
+      <th>2024-09-07</th>
       <td>aave_v2_eth</td>
-      <td>1.049055e+09</td>
+      <td>9.178914e+08</td>
     </tr>
     <tr>
-      <th>2024-09-02</th>
+      <th>2024-09-08</th>
       <td>aave_v2_eth</td>
-      <td>1.016343e+09</td>
+      <td>9.215925e+08</td>
     </tr>
     <tr>
-      <th>2024-09-03</th>
+      <th>2024-09-09</th>
       <td>aave_v2_eth</td>
-      <td>1.050234e+09</td>
+      <td>9.333896e+08</td>
     </tr>
     <tr>
-      <th>2024-09-04</th>
+      <th>2024-09-10</th>
       <td>aave_v2_eth</td>
-      <td>1.015958e+09</td>
+      <td>9.582897e+08</td>
     </tr>
     <tr>
-      <th>2024-09-05</th>
+      <th>2024-09-11</th>
       <td>aave_v2_eth</td>
-      <td>1.021625e+09</td>
+      <td>9.694872e+08</td>
     </tr>
   </tbody>
 </table>
@@ -1299,110 +1403,308 @@ ax.get_legend().remove()
 plt.gca().set_yticklabels(['${:,.2f}B'.format(x/1000000000) for x in plt.gca().get_yticks()]);
 ```
 
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:04 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-06 01:16:05 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-11 15:18:47 WARNING  findfont: Font family 'Lato' not found.
 
 
 
     
-![png](output_19_1.png)
+![png](output_19_100.png)
     
 

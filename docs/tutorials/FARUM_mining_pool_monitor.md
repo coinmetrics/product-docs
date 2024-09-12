@@ -635,8 +635,8 @@ fig, ax = plt.subplots(figsize=(20, 10))
 expanded_df.plot(kind='bar', stacked=True, width=1, color=colors, ax=ax)
 
 # Customize the plot as needed
-plt.title('\nMining Pool Tips over Time\n', font='Lato', fontsize=30)
-plt.ylabel('Mining Pools at Tip\n', font='Lato', fontsize=22)
+plt.title('\nMining Pool Tips over Time\n', font='arial', fontsize=30)
+plt.ylabel('Mining Pools at Tip\n', font='arial', fontsize=22)
 plt.xlabel('', fontsize=15)
 plt.legend('', frameon=False)
 
@@ -659,24 +659,9 @@ plt.tight_layout()  # Adjust the layout to make room for the x-tick labels
 plt.show()
 ```
 
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-
-
 
     
-![png](output_17_1.png)
+![png](output_17_0.png)
     
 
 
@@ -842,9 +827,9 @@ plt.axvline(x=num_timestamp_278, color='r', linestyle='--')
 ax.annotate('ViaBTC Mines \nBlock 781278', xy=(num_timestamp_278, 0.9), xytext=(-100, 200), textcoords='offset points',
             fontsize=14, color='black', ha='left', va='bottom')
 
-plt.title('\nMining Pool Tips over Time\n', font='Lato', fontsize=30)
-plt.suptitle('                     6-Minute Observation Window', font='Lato', fontsize=15, y=0.85)
-plt.ylabel('Mining Pools at Tip\n', font='Lato', fontsize=22)
+plt.title('\nMining Pool Tips over Time\n', font='arial', fontsize=30)
+plt.suptitle('                     6-Minute Observation Window', font='arial', fontsize=15, y=0.85)
+plt.ylabel('Mining Pools at Tip\n', font='arial', fontsize=22)
 plt.xlabel('', fontsize=15)
 plt.legend('', frameon=False)
 
@@ -862,52 +847,8 @@ plt.savefig('./PoolTips-781277.png',facecolor='white',dpi=300)
 plt.show()
 ```
 
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-    WARNING:matplotlib.font_manager:findfont: Font family 'Lato' not found.
-
-
 
     
-![png](output_23_1.png)
+![png](output_23_0.png)
     
 
