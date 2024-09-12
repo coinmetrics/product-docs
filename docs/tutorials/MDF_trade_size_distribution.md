@@ -53,7 +53,7 @@ except KeyError:
 client = CoinMetricsClient(api_key)
 ```
 
-    2024-09-09 12:33:12 INFO     Using API key found in environment
+    2024-09-12 08:18:53 INFO     Using API key found in environment
 
 
 ### Retrieve Trade Sizes

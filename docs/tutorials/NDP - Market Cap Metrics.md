@@ -58,7 +58,7 @@ except KeyError:
 client = CoinMetricsClient(api_key)
 ```
 
-    2024-09-09 12:42:30 INFO     Using API key found in environment
+    2024-09-12 08:45:52 INFO     Using API key found in environment
 
 
 # Market Cap Based on Verified On-Chain Supply
@@ -72,6 +72,9 @@ The **CapMrktCurUSD** metric offers the most reliable measure of asset supply, w
 ```python
 catalog_cur = client.catalog_asset_metrics(metrics='CapMrktCurUSD').to_dataframe()
 ```
+
+    2024-09-12 08:45:52 WARNING  /catalog/ endpoints will be deprecated in the future. Consider using /catalog-v2/ and /reference-data/ endpoints instead.
+
 
 
 ```python
@@ -205,7 +208,7 @@ catalog_cur
       <td>...</td>
     </tr>
     <tr>
-      <th>147</th>
+      <th>148</th>
       <td>CapMrktCurUSD</td>
       <td>Capitalization, market, current supply, USD</td>
       <td>The sum USD value of the current supply. Also ...</td>
@@ -220,7 +223,7 @@ catalog_cur
       <td>xvg</td>
     </tr>
     <tr>
-      <th>148</th>
+      <th>149</th>
       <td>CapMrktCurUSD</td>
       <td>Capitalization, market, current supply, USD</td>
       <td>The sum USD value of the current supply. Also ...</td>
@@ -235,7 +238,7 @@ catalog_cur
       <td>yfi</td>
     </tr>
     <tr>
-      <th>149</th>
+      <th>150</th>
       <td>CapMrktCurUSD</td>
       <td>Capitalization, market, current supply, USD</td>
       <td>The sum USD value of the current supply. Also ...</td>
@@ -250,7 +253,7 @@ catalog_cur
       <td>zec</td>
     </tr>
     <tr>
-      <th>150</th>
+      <th>151</th>
       <td>CapMrktCurUSD</td>
       <td>Capitalization, market, current supply, USD</td>
       <td>The sum USD value of the current supply. Also ...</td>
@@ -265,7 +268,7 @@ catalog_cur
       <td>zil_eth</td>
     </tr>
     <tr>
-      <th>151</th>
+      <th>152</th>
       <td>CapMrktCurUSD</td>
       <td>Capitalization, market, current supply, USD</td>
       <td>The sum USD value of the current supply. Also ...</td>
@@ -281,7 +284,7 @@ catalog_cur
     </tr>
   </tbody>
 </table>
-<p>152 rows × 12 columns</p>
+<p>153 rows × 12 columns</p>
 </div>
 
 
@@ -369,38 +372,38 @@ capmrktcur
       <td>...</td>
     </tr>
     <tr>
-      <th>75600</th>
-      <td>zrx</td>
-      <td>2024-09-04 00:00:00+00:00</td>
-      <td>285447425.050838</td>
-    </tr>
-    <tr>
-      <th>75601</th>
-      <td>zrx</td>
-      <td>2024-09-05 00:00:00+00:00</td>
-      <td>272108871.35276</td>
-    </tr>
-    <tr>
-      <th>75602</th>
-      <td>zrx</td>
-      <td>2024-09-06 00:00:00+00:00</td>
-      <td>263613883.067493</td>
-    </tr>
-    <tr>
-      <th>75603</th>
+      <th>76257</th>
       <td>zrx</td>
       <td>2024-09-07 00:00:00+00:00</td>
       <td>267634066.088106</td>
     </tr>
     <tr>
-      <th>75604</th>
+      <th>76258</th>
       <td>zrx</td>
       <td>2024-09-08 00:00:00+00:00</td>
       <td>272160623.638388</td>
     </tr>
+    <tr>
+      <th>76259</th>
+      <td>zrx</td>
+      <td>2024-09-09 00:00:00+00:00</td>
+      <td>284178629.703559</td>
+    </tr>
+    <tr>
+      <th>76260</th>
+      <td>zrx</td>
+      <td>2024-09-10 00:00:00+00:00</td>
+      <td>284095301.654262</td>
+    </tr>
+    <tr>
+      <th>76261</th>
+      <td>zrx</td>
+      <td>2024-09-11 00:00:00+00:00</td>
+      <td>277605159.385683</td>
+    </tr>
   </tbody>
 </table>
-<p>75605 rows × 3 columns</p>
+<p>76262 rows × 3 columns</p>
 </div>
 
 
@@ -634,78 +637,6 @@ capmrktcur_pivot
       <td>...</td>
     </tr>
     <tr>
-      <th>2024-09-04 00:00:00+00:00</th>
-      <td>411865700.758678</td>
-      <td>2175747923.519632</td>
-      <td>11407760387.59132</td>
-      <td>7711532.420704</td>
-      <td>&lt;NA&gt;</td>
-      <td>1226893001.2812</td>
-      <td>54403532.489781</td>
-      <td>241244033.945758</td>
-      <td>2224901208.977587</td>
-      <td>10454912733.479939</td>
-      <td>...</td>
-      <td>148821088.949041</td>
-      <td>9667655073.925709</td>
-      <td>3078413349.749146</td>
-      <td>55853978823.325851</td>
-      <td>5799236231.255169</td>
-      <td>181620935.157374</td>
-      <td>458045919.88279</td>
-      <td>1835671.529119</td>
-      <td>285447425.050838</td>
-      <td>1.950077e+12</td>
-    </tr>
-    <tr>
-      <th>2024-09-05 00:00:00+00:00</th>
-      <td>382529968.278403</td>
-      <td>2064705263.791216</td>
-      <td>11446787214.071608</td>
-      <td>7298313.897805</td>
-      <td>&lt;NA&gt;</td>
-      <td>1177144221.83825</td>
-      <td>52543034.702913</td>
-      <td>236039789.113767</td>
-      <td>2141143333.544191</td>
-      <td>10221538579.569252</td>
-      <td>...</td>
-      <td>145539933.70623</td>
-      <td>9510956860.161783</td>
-      <td>3106497589.317576</td>
-      <td>54397084402.371201</td>
-      <td>5565719841.916933</td>
-      <td>178899510.877737</td>
-      <td>447052799.559518</td>
-      <td>1775870.62491</td>
-      <td>272108871.35276</td>
-      <td>1.893938e+12</td>
-    </tr>
-    <tr>
-      <th>2024-09-06 00:00:00+00:00</th>
-      <td>385124606.201974</td>
-      <td>2019836453.939008</td>
-      <td>11077216464.866756</td>
-      <td>6896089.651222</td>
-      <td>&lt;NA&gt;</td>
-      <td>1156815380.31238</td>
-      <td>50557535.52077</td>
-      <td>222449265.805465</td>
-      <td>2132208728.471482</td>
-      <td>10068759342.240908</td>
-      <td>...</td>
-      <td>141570714.582321</td>
-      <td>9277215321.877872</td>
-      <td>2973382106.674732</td>
-      <td>52101578399.504097</td>
-      <td>5379669406.990377</td>
-      <td>174058189.969039</td>
-      <td>416871613.020146</td>
-      <td>1709309.946853</td>
-      <td>263613883.067493</td>
-      <td>1.820281e+12</td>
-    </tr>
-    <tr>
       <th>2024-09-07 00:00:00+00:00</th>
       <td>376115152.010272</td>
       <td>1998364083.531952</td>
@@ -727,7 +658,7 @@ capmrktcur_pivot
       <td>429194758.11444</td>
       <td>1735646.25364</td>
       <td>267634066.088106</td>
-      <td>1.835773e+12</td>
+      <td>1.836560e+12</td>
     </tr>
     <tr>
       <th>2024-09-08 00:00:00+00:00</th>
@@ -751,11 +682,83 @@ capmrktcur_pivot
       <td>428858954.01059</td>
       <td>1757443.086217</td>
       <td>272160623.638388</td>
-      <td>1.850005e+12</td>
+      <td>1.850814e+12</td>
+    </tr>
+    <tr>
+      <th>2024-09-09 00:00:00+00:00</th>
+      <td>395066098.198083</td>
+      <td>2247865472.5736</td>
+      <td>&lt;NA&gt;</td>
+      <td>7201958.244965</td>
+      <td>&lt;NA&gt;</td>
+      <td>1280993081.19023</td>
+      <td>56100567.517792</td>
+      <td>233525136.063422</td>
+      <td>2447746835.593971</td>
+      <td>11382901480.707348</td>
+      <td>...</td>
+      <td>150819994.198272</td>
+      <td>9812840447.756355</td>
+      <td>3075210193.856463</td>
+      <td>53988763627.705078</td>
+      <td>6007566415.766265</td>
+      <td>183561441.594406</td>
+      <td>454987124.382952</td>
+      <td>1819412.536767</td>
+      <td>284178629.703559</td>
+      <td>1.913523e+12</td>
+    </tr>
+    <tr>
+      <th>2024-09-10 00:00:00+00:00</th>
+      <td>390488771.174392</td>
+      <td>2411089438.355552</td>
+      <td>&lt;NA&gt;</td>
+      <td>6981670.775403</td>
+      <td>&lt;NA&gt;</td>
+      <td>1292706651.92217</td>
+      <td>58732306.029003</td>
+      <td>240363973.1034</td>
+      <td>2495883285.278121</td>
+      <td>11597850724.476965</td>
+      <td>...</td>
+      <td>151821745.601129</td>
+      <td>9909505346.092257</td>
+      <td>3009040677.829431</td>
+      <td>54111362800.362495</td>
+      <td>6169571885.387193</td>
+      <td>181744783.778183</td>
+      <td>478226321.208768</td>
+      <td>1827474.331853</td>
+      <td>284095301.654262</td>
+      <td>1.930948e+12</td>
+    </tr>
+    <tr>
+      <th>2024-09-11 00:00:00+00:00</th>
+      <td>370795675.998745</td>
+      <td>2394157493.994128</td>
+      <td>&lt;NA&gt;</td>
+      <td>7086282.571463</td>
+      <td>&lt;NA&gt;</td>
+      <td>1272138738.08548</td>
+      <td>55696931.758843</td>
+      <td>236080888.610476</td>
+      <td>2381194755.211256</td>
+      <td>11102231898.578779</td>
+      <td>...</td>
+      <td>150087591.429489</td>
+      <td>9790016731.104605</td>
+      <td>3120199983.171181</td>
+      <td>53527147783.98262</td>
+      <td>6095473842.098846</td>
+      <td>178156431.46414</td>
+      <td>459255827.96882</td>
+      <td>1810381.365383</td>
+      <td>277605159.385683</td>
+      <td>1.915254e+12</td>
     </tr>
   </tbody>
 </table>
-<p>617 rows × 142 columns</p>
+<p>620 rows × 143 columns</p>
 </div>
 
 
@@ -769,7 +772,7 @@ formatted_market_cap = '${:,.2f}'.format(current_market_cap_last)
 print('Current Market Cap based on verified on-chain supply: ' + formatted_market_cap)
 ```
 
-    Current Market Cap based on verified on-chain supply: $1,850,004,743,752.77
+    Current Market Cap based on verified on-chain supply: $1,915,254,245,828.67
 
 
 
@@ -804,6 +807,9 @@ The **CapMrktEstUSD** metric offers slightly wider asset coverage, with the trad
 ```python
 catalog_est = client.catalog_asset_metrics(metrics='CapMrktEstUSD').to_dataframe()
 ```
+
+    2024-09-12 08:47:05 WARNING  /catalog/ endpoints will be deprecated in the future. Consider using /catalog-v2/ and /reference-data/ endpoints instead.
+
 
 
 ```python
@@ -1051,7 +1057,7 @@ formatted_est_market_cap = '${:,.2f}'.format(est_market_cap_last)
 print('Estimated Market Cap based on estimated supply (3rd-party sources): ' + formatted_est_market_cap)
 ```
 
-    Estimated Market Cap based on estimated supply (3rd-party sources): $1,974,812,831,479.38
+    Estimated Market Cap based on estimated supply (3rd-party sources): $2,047,071,310,148.15
 
 
 
@@ -1086,6 +1092,9 @@ Free Float Market Capitalization, or **CapMrktFFUSD**, is a measure of the marke
 ```python
 catalog_ff = client.catalog_asset_metrics(metrics='CapMrktFFUSD').to_dataframe()
 ```
+
+    2024-09-12 08:52:13 WARNING  /catalog/ endpoints will be deprecated in the future. Consider using /catalog-v2/ and /reference-data/ endpoints instead.
+
 
 
 ```python
@@ -1387,27 +1396,6 @@ btc_ff_and_cur
       <td>...</td>
     </tr>
     <tr>
-      <th>1708</th>
-      <td>btc</td>
-      <td>2024-09-04 00:00:00+00:00</td>
-      <td>1146131838403.577393</td>
-      <td>793877149806.161133</td>
-    </tr>
-    <tr>
-      <th>1709</th>
-      <td>btc</td>
-      <td>2024-09-05 00:00:00+00:00</td>
-      <td>1108231128685.710205</td>
-      <td>767593198731.464844</td>
-    </tr>
-    <tr>
-      <th>1710</th>
-      <td>btc</td>
-      <td>2024-09-06 00:00:00+00:00</td>
-      <td>1063344022288.45874</td>
-      <td>736483148927.551636</td>
-    </tr>
-    <tr>
       <th>1711</th>
       <td>btc</td>
       <td>2024-09-07 00:00:00+00:00</td>
@@ -1421,9 +1409,30 @@ btc_ff_and_cur
       <td>1083551229332.972778</td>
       <td>750404443775.692139</td>
     </tr>
+    <tr>
+      <th>1713</th>
+      <td>btc</td>
+      <td>2024-09-09 00:00:00+00:00</td>
+      <td>1128541804948.678711</td>
+      <td>781579665342.109009</td>
+    </tr>
+    <tr>
+      <th>1714</th>
+      <td>btc</td>
+      <td>2024-09-10 00:00:00+00:00</td>
+      <td>1139009699685.700439</td>
+      <td>788835269431.339844</td>
+    </tr>
+    <tr>
+      <th>1715</th>
+      <td>btc</td>
+      <td>2024-09-11 00:00:00+00:00</td>
+      <td>1133986205007.474609</td>
+      <td>785339554938.315308</td>
+    </tr>
   </tbody>
 </table>
-<p>1713 rows × 4 columns</p>
+<p>1716 rows × 4 columns</p>
 </div>
 
 

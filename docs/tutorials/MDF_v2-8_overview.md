@@ -67,7 +67,7 @@ except KeyError:
 client = CoinMetricsClient(api_key)
 ```
 
-    2024-09-05 01:50:27 INFO     Using API key found in environment
+    2024-09-10 17:20:20 INFO     Using API key found in environment
 
 
 ## Real-time Order Book Data Expansion
@@ -107,94 +107,94 @@ if __name__ == '__main__':
     
     {
      "market": "bullish-btc-usdt-spot",
-     "time": "2024-09-04T17:50:19.555000000Z",
-     "coin_metrics_id": "x8nu7BcrTy2H0aBfn2ttUwAAAAABHHXn",
+     "time": "2024-09-10T22:20:19.520000000Z",
+     "coin_metrics_id": "RAJFZpipSpKzyKkAe9ocRwAAAAABXlzz",
      "asks": [
       {
-       "price": "58028.1",
-       "size": "3.56513221"
+       "price": "57602",
+       "size": "0.00095372"
       },
       {
-       "price": "58028.2",
-       "size": "0.00242162"
+       "price": "57602.1",
+       "size": "0.00243518"
       },
       {
-       "price": "58028.3",
-       "size": "0.00242162"
+       "price": "57602.2",
+       "size": "0.00243517"
       },
       {
-       "price": "58028.4",
-       "size": "0.00242161"
+       "price": "57602.3",
+       "size": "0.00243516"
       },
       {
-       "price": "58028.5",
-       "size": "0.00242161"
+       "price": "57602.4",
+       "size": "0.00243516"
       },
       {
-       "price": "58028.6",
-       "size": "0.0024216"
+       "price": "57602.5",
+       "size": "0.00243515"
       },
       {
-       "price": "58028.7",
-       "size": "0.00242159"
+       "price": "57602.6",
+       "size": "0.00243514"
       },
       {
-       "price": "58028.8",
-       "size": "0.00242159"
+       "price": "57602.7",
+       "size": "0.00243514"
       },
       {
-       "price": "58028.9",
-       "size": "0.00242158"
+       "price": "57602.8",
+       "size": "0.00243513"
       },
       {
-       "price": "58029",
-       "size": "0.00242157"
+       "price": "57602.9",
+       "size": "0.00243513"
       }
      ],
      "bids": [
       {
-       "price": "58028",
-       "size": "0.00110039"
+       "price": "57601.9",
+       "size": "0.00630437"
       },
       {
-       "price": "58027.9",
-       "size": "0.00242164"
+       "price": "57601.8",
+       "size": "0.01036299"
       },
       {
-       "price": "58027.8",
-       "size": "0.00242164"
+       "price": "57601.7",
+       "size": "0.01036302"
       },
       {
-       "price": "58027.7",
-       "size": "0.00242165"
+       "price": "57601.6",
+       "size": "0.01036305"
       },
       {
-       "price": "58027.6",
-       "size": "0.00242166"
+       "price": "57601.5",
+       "size": "0.01036308"
       },
       {
-       "price": "58027.5",
-       "size": "0.00242166"
+       "price": "57601.4",
+       "size": "0.0103631"
       },
       {
-       "price": "58027.4",
-       "size": "0.00242167"
+       "price": "57601.3",
+       "size": "0.01036313"
       },
       {
-       "price": "58027.3",
-       "size": "0.00242167"
+       "price": "57601.2",
+       "size": "0.01036316"
       },
       {
-       "price": "58027.2",
-       "size": "0.00242168"
+       "price": "57601.1",
+       "size": "0.01036318"
       },
       {
-       "price": "58027.1",
-       "size": "0.00242169"
+       "price": "57601",
+       "size": "0.01036321"
       }
      ],
      "type": "snapshot",
-     "collect_time": "2024-09-04T17:50:20.080297000Z",
+     "collect_time": "2024-09-10T22:20:20.093543000Z",
      "cm_sequence_id": "0"
     }
      
@@ -272,7 +272,7 @@ for exchange in exchange_list:
       <th>0</th>
       <td>bullish-ADA-USDC-PERP-future</td>
       <td>2024-05-21 08:47:25.937000+00:00</td>
-      <td>2024-09-04 17:15:11.808000+00:00</td>
+      <td>2024-09-10 21:47:10+00:00</td>
       <td>bullish</td>
       <td>future</td>
       <td>{'min_time': '2024-05-22T08:46:30.000000000Z',...</td>
@@ -285,18 +285,18 @@ for exchange in exchange_list:
       <td>10.00000</td>
       <td>1000000.00000</td>
       <td>0.0001</td>
-      <td>0.0001</td>
+      <td>0.0002</td>
       <td>0.0000</td>
       <td>True</td>
       <td>&lt;NA&gt;</td>
       <td>2024-05-21 08:47:25.937000+00:00</td>
-      <td>2024-09-04 17:15:11.808000+00:00</td>
+      <td>2024-09-10 21:46:24.988000+00:00</td>
     </tr>
     <tr>
       <th>1</th>
       <td>bullish-AEVO-USDC-PERP-future</td>
       <td>2024-08-29 08:00:00+00:00</td>
-      <td>2024-09-04 17:00:00+00:00</td>
+      <td>2024-09-10 21:00:00+00:00</td>
       <td>bullish</td>
       <td>future</td>
       <td>{'min_time': '2024-08-29T08:00:00.000000000Z',...</td>
@@ -309,7 +309,7 @@ for exchange in exchange_list:
       <td>10.00000</td>
       <td>50000.00000</td>
       <td>0.0001</td>
-      <td>0.0001</td>
+      <td>0.0002</td>
       <td>0.0000</td>
       <td>True</td>
       <td>&lt;NA&gt;</td>
@@ -320,7 +320,7 @@ for exchange in exchange_list:
       <th>2</th>
       <td>bullish-APT-USDC-PERP-future</td>
       <td>2024-07-25 07:00:00+00:00</td>
-      <td>2024-09-04 17:15:16.240000+00:00</td>
+      <td>2024-09-10 21:47:10+00:00</td>
       <td>bullish</td>
       <td>future</td>
       <td>{'min_time': '2024-07-25T07:00:00.000000000Z',...</td>
@@ -333,12 +333,12 @@ for exchange in exchange_list:
       <td>1.000000</td>
       <td>10000.000000</td>
       <td>0.0001</td>
-      <td>0.0001</td>
+      <td>0.0002</td>
       <td>0.0000</td>
       <td>True</td>
       <td>&lt;NA&gt;</td>
       <td>2024-07-26 04:50:50.539000+00:00</td>
-      <td>2024-09-04 17:15:16.240000+00:00</td>
+      <td>2024-09-10 21:42:29.133000+00:00</td>
     </tr>
   </tbody>
 </table>
@@ -347,7 +347,7 @@ for exchange in exchange_list:
 
 
     
-    Number of markets for GATE.IO: 5505
+    Number of markets for GATE.IO: 5526
     
 
 
@@ -398,7 +398,7 @@ for exchange in exchange_list:
       <th>0</th>
       <td>gate.io-0dog-usdt-spot</td>
       <td>2024-08-21 11:00:00.007826+00:00</td>
-      <td>2024-09-04 17:15:10.626000+00:00</td>
+      <td>2024-09-10 21:47:16.957000+00:00</td>
       <td>gate.io</td>
       <td>spot</td>
       <td>0dog</td>
@@ -416,7 +416,7 @@ for exchange in exchange_list:
       <td>&lt;NA&gt;</td>
       <td>NaT</td>
       <td>2024-08-21 11:00:00.007826+00:00</td>
-      <td>2024-09-04 17:15:10.626000+00:00</td>
+      <td>2024-09-10 21:47:16.957000+00:00</td>
     </tr>
     <tr>
       <th>1</th>
@@ -446,7 +446,7 @@ for exchange in exchange_list:
       <th>2</th>
       <td>gate.io-10set-usdt-spot</td>
       <td>2021-05-31 03:59:59+00:00</td>
-      <td>2024-09-04 17:15:13.107000+00:00</td>
+      <td>2024-09-10 21:47:25.671000+00:00</td>
       <td>gate.io</td>
       <td>spot</td>
       <td>10set</td>
@@ -464,7 +464,7 @@ for exchange in exchange_list:
       <td>&lt;NA&gt;</td>
       <td>NaT</td>
       <td>2021-05-31 03:59:59+00:00</td>
-      <td>2024-09-04 17:15:13.107000+00:00</td>
+      <td>2024-09-10 21:47:25.671000+00:00</td>
     </tr>
   </tbody>
 </table>
@@ -473,7 +473,7 @@ for exchange in exchange_list:
 
 
     
-    Number of markets for CRYPTO.COM: 1104
+    Number of markets for CRYPTO.COM: 1106
     
 
 
@@ -524,7 +524,7 @@ for exchange in exchange_list:
       <th>0</th>
       <td>crypto.com-1INCHUSD-PERP-future</td>
       <td>2023-04-27 11:36:24.805000+00:00</td>
-      <td>2024-09-04 17:15:14.565000+00:00</td>
+      <td>2024-09-10 21:47:20.689000+00:00</td>
       <td>crypto.com</td>
       <td>future</td>
       <td>{'min_time': '2024-07-24T13:00:00.000000000Z',...</td>
@@ -542,7 +542,7 @@ for exchange in exchange_list:
       <td>&lt;NA&gt;</td>
       <td>NaT</td>
       <td>2023-04-27 11:36:24.805000+00:00</td>
-      <td>2024-09-04 17:15:14.565000+00:00</td>
+      <td>2024-09-10 21:47:20.689000+00:00</td>
     </tr>
     <tr>
       <th>1</th>
@@ -572,7 +572,7 @@ for exchange in exchange_list:
       <th>2</th>
       <td>crypto.com-1inch-usd-spot</td>
       <td>2022-11-01 13:24:59.056000+00:00</td>
-      <td>2024-09-04 17:15:10+00:00</td>
+      <td>2024-09-10 21:47:10+00:00</td>
       <td>crypto.com</td>
       <td>spot</td>
       <td>{'min_time': '2023-06-12T17:13:30.000000000Z',...</td>
@@ -590,7 +590,7 @@ for exchange in exchange_list:
       <td>False</td>
       <td>NaT</td>
       <td>2022-11-01 13:24:59.056000+00:00</td>
-      <td>2024-09-04 17:15:00.699000+00:00</td>
+      <td>2024-09-10 21:47:01.488000+00:00</td>
     </tr>
   </tbody>
 </table>
@@ -599,7 +599,7 @@ for exchange in exchange_list:
 
 
     
-    Number of markets for KUCOIN: 2377
+    Number of markets for KUCOIN: 2380
     
 
 
@@ -650,7 +650,7 @@ for exchange in exchange_list:
       <th>0</th>
       <td>kucoin-1000000MOGUSDTM-future</td>
       <td>2024-07-10 07:00:00+00:00</td>
-      <td>2024-09-04 17:15:11.313000+00:00</td>
+      <td>2024-09-10 21:44:56.189000+00:00</td>
       <td>kucoin</td>
       <td>future</td>
       <td>{'min_time': '2024-07-10T07:00:00.000000000Z',...</td>
@@ -668,13 +668,13 @@ for exchange in exchange_list:
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
       <td>2024-07-10 08:13:34.575000+00:00</td>
-      <td>2024-09-04 17:15:11.313000+00:00</td>
+      <td>2024-09-10 21:44:56.189000+00:00</td>
     </tr>
     <tr>
       <th>1</th>
       <td>kucoin-10000CATUSDTM-future</td>
       <td>2024-08-23 05:00:00+00:00</td>
-      <td>2024-09-04 17:07:48.408000+00:00</td>
+      <td>2024-09-10 21:47:00.261000+00:00</td>
       <td>kucoin</td>
       <td>future</td>
       <td>{'min_time': '2024-08-23T05:00:00.000000000Z',...</td>
@@ -692,13 +692,13 @@ for exchange in exchange_list:
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
       <td>2024-08-23 06:05:22.711000+00:00</td>
-      <td>2024-09-04 17:07:48.408000+00:00</td>
+      <td>2024-09-10 21:47:00.261000+00:00</td>
     </tr>
     <tr>
       <th>2</th>
       <td>kucoin-10000COQUSDTM-future</td>
       <td>2023-12-22 07:00:00+00:00</td>
-      <td>2024-09-04 17:14:13.105000+00:00</td>
+      <td>2024-09-10 21:39:04.590000+00:00</td>
       <td>kucoin</td>
       <td>future</td>
       <td>{'min_time': '2023-12-22T07:00:00.000000000Z',...</td>
@@ -716,7 +716,7 @@ for exchange in exchange_list:
       <td>&lt;NA&gt;</td>
       <td>&lt;NA&gt;</td>
       <td>2023-12-22 08:09:03.822000+00:00</td>
-      <td>2024-09-04 17:14:13.105000+00:00</td>
+      <td>2024-09-10 21:39:04.590000+00:00</td>
     </tr>
   </tbody>
 </table>
@@ -920,7 +920,7 @@ set(market_metrics['metric'].to_list())
 ```
 
     
-    2927 markets with liquidity metric coverage.
+    2933 markets with liquidity metric coverage.
     
 
 
@@ -957,7 +957,7 @@ set(market_metrics['metric'].to_list())
       <td>liquidity_bid_ask_spread_percent_1d</td>
       <td>1d</td>
       <td>2024-05-02 00:00:00+00:00</td>
-      <td>2024-09-03 00:00:00+00:00</td>
+      <td>2024-09-09 00:00:00+00:00</td>
     </tr>
     <tr>
       <th>13</th>
@@ -965,7 +965,7 @@ set(market_metrics['metric'].to_list())
       <td>liquidity_bid_ask_spread_percent_1h</td>
       <td>1h</td>
       <td>2024-05-02 07:00:00+00:00</td>
-      <td>2024-09-04 16:00:00+00:00</td>
+      <td>2024-09-10 21:00:00+00:00</td>
     </tr>
     <tr>
       <th>14</th>
@@ -973,7 +973,7 @@ set(market_metrics['metric'].to_list())
       <td>liquidity_bid_ask_spread_percent_1m</td>
       <td>1m</td>
       <td>2024-05-02 07:34:00+00:00</td>
-      <td>2024-09-04 17:27:00+00:00</td>
+      <td>2024-09-10 22:00:00+00:00</td>
     </tr>
     <tr>
       <th>15</th>
@@ -981,7 +981,7 @@ set(market_metrics['metric'].to_list())
       <td>liquidity_depth_0_1_percent_ask_volume_units</td>
       <td>1h</td>
       <td>2024-05-02 08:00:00+00:00</td>
-      <td>2024-09-04 17:00:00+00:00</td>
+      <td>2024-09-10 21:00:00+00:00</td>
     </tr>
     <tr>
       <th>16</th>
@@ -989,7 +989,7 @@ set(market_metrics['metric'].to_list())
       <td>liquidity_depth_0_1_percent_ask_volume_usd</td>
       <td>1h</td>
       <td>2024-05-02 08:00:00+00:00</td>
-      <td>2024-09-04 17:00:00+00:00</td>
+      <td>2024-09-10 21:00:00+00:00</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1000,48 +1000,48 @@ set(market_metrics['metric'].to_list())
       <td>...</td>
     </tr>
     <tr>
-      <th>265095</th>
+      <th>265968</th>
       <td>binance-zrx-usdt-spot</td>
       <td>liquidity_slippage_80K_bid_percent</td>
       <td>1h</td>
       <td>2024-05-01 00:00:00+00:00</td>
-      <td>2024-09-04 16:00:00+00:00</td>
+      <td>2024-09-10 21:00:00+00:00</td>
     </tr>
     <tr>
-      <th>265096</th>
+      <th>265969</th>
       <td>binance-zrx-usdt-spot</td>
       <td>liquidity_slippage_900K_ask_percent</td>
       <td>1h</td>
       <td>2024-05-01 00:00:00+00:00</td>
-      <td>2024-09-04 16:00:00+00:00</td>
+      <td>2024-09-10 21:00:00+00:00</td>
     </tr>
     <tr>
-      <th>265097</th>
+      <th>265970</th>
       <td>binance-zrx-usdt-spot</td>
       <td>liquidity_slippage_900K_bid_percent</td>
       <td>1h</td>
       <td>2024-05-01 00:00:00+00:00</td>
-      <td>2024-09-04 16:00:00+00:00</td>
+      <td>2024-09-10 21:00:00+00:00</td>
     </tr>
     <tr>
-      <th>265098</th>
+      <th>265971</th>
       <td>binance-zrx-usdt-spot</td>
       <td>liquidity_slippage_90K_ask_percent</td>
       <td>1h</td>
       <td>2024-05-01 00:00:00+00:00</td>
-      <td>2024-09-04 16:00:00+00:00</td>
+      <td>2024-09-10 21:00:00+00:00</td>
     </tr>
     <tr>
-      <th>265099</th>
+      <th>265972</th>
       <td>binance-zrx-usdt-spot</td>
       <td>liquidity_slippage_90K_bid_percent</td>
       <td>1h</td>
       <td>2024-05-01 00:00:00+00:00</td>
-      <td>2024-09-04 16:00:00+00:00</td>
+      <td>2024-09-10 21:00:00+00:00</td>
     </tr>
   </tbody>
 </table>
-<p>259784 rows × 5 columns</p>
+<p>260597 rows × 5 columns</p>
 </div>
 
 
@@ -1207,47 +1207,47 @@ plt.legend(title='', frameon=False, bbox_to_anchor=(0.75, 1.15), loc='upper left
 plt.show()
 ```
 
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:01 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:02 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:02 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:02 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:02 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:49 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:49 WARNING  findfont: Font family 'Lato' not found.
 
 
 
@@ -1292,49 +1292,49 @@ if __name__ == '__main__':
     
     {
      "pair": "btc-usd",
-     "time": "2024-09-04T17:54:03.000000000Z",
-     "ask_price": "57867.42650340373",
-     "ask_size": "2.205701805",
-     "bid_price": "57865.982462447755",
-     "bid_size": "39.916894796",
-     "mid_price": "57866.70448292574",
-     "spread": "0.000024954608507142226",
+     "time": "2024-09-10T22:21:49.250000000Z",
+     "ask_price": "57578.26062734307",
+     "ask_size": "47.651481172000004",
+     "bid_price": "57577.55134997511",
+     "bid_size": "3.517431722",
+     "mid_price": "57577.90598865909",
+     "spread": "0.00001231856830799222",
      "cm_sequence_id": "0"
     }
      
     {
      "pair": "btc-usd",
-     "time": "2024-09-04T17:54:03.250000000Z",
-     "ask_price": "57866.27038760126",
-     "ask_size": "1.6192939550000003",
-     "bid_price": "57864.88469822682",
-     "bid_size": "42.175422546",
-     "mid_price": "57865.57754291404",
-     "spread": "0.000023946695657042704",
+     "time": "2024-09-10T22:21:49.500000000Z",
+     "ask_price": "57578.260627056305",
+     "ask_size": "47.713871172000005",
+     "bid_price": "57577.556610423424",
+     "bid_size": "3.184281632",
+     "mid_price": "57577.908618739864",
+     "spread": "0.000012227200496903693",
      "cm_sequence_id": "1"
     }
      
     {
      "pair": "btc-usd",
-     "time": "2024-09-04T17:54:03.500000000Z",
-     "ask_price": "57866.62347398701",
-     "ask_size": "2.0261578650000005",
-     "bid_price": "57864.92660863904",
-     "bid_size": "42.112208996000014",
-     "mid_price": "57865.77504131303",
-     "spread": "0.000029324161765088052",
+     "time": "2024-09-10T22:21:49.750000000Z",
+     "ask_price": "57578.256981197024",
+     "ask_size": "47.723442172000006",
+     "bid_price": "57577.55733958638",
+     "bid_size": "2.810110482",
+     "mid_price": "57577.907160391704",
+     "spread": "0.00001215121641524377",
      "cm_sequence_id": "2"
     }
      
     {
      "pair": "btc-usd",
-     "time": "2024-09-04T17:54:03.750000000Z",
-     "ask_price": "57866.522706374424",
-     "ask_size": "2.002693015",
-     "bid_price": "57864.9269790893",
-     "bid_size": "42.402986936000005",
-     "mid_price": "57865.72484273186",
-     "spread": "0.00002757638117332036",
+     "time": "2024-09-10T22:21:50.000000000Z",
+     "ask_price": "57578.25704876938",
+     "ask_size": "47.723442172000006",
+     "bid_price": "57577.5570581757",
+     "bid_size": "2.8789756239999997",
+     "mid_price": "57577.90705347254",
+     "spread": "0.000012157277495884541",
      "cm_sequence_id": "3"
     }
      
@@ -1390,32 +1390,32 @@ vol
     <tr>
       <th>0</th>
       <td>btc</td>
-      <td>2024-08-29 02:00:00+00:00</td>
-      <td>0.661368</td>
+      <td>2024-09-03 17:30:00+00:00</td>
+      <td>0.409187</td>
     </tr>
     <tr>
       <th>1</th>
       <td>btc</td>
-      <td>2024-08-29 02:10:00+00:00</td>
-      <td>0.661454</td>
+      <td>2024-09-03 17:40:00+00:00</td>
+      <td>0.409011</td>
     </tr>
     <tr>
       <th>2</th>
       <td>btc</td>
-      <td>2024-08-29 02:20:00+00:00</td>
-      <td>0.661597</td>
+      <td>2024-09-03 17:50:00+00:00</td>
+      <td>0.409385</td>
     </tr>
     <tr>
       <th>3</th>
       <td>btc</td>
-      <td>2024-08-29 02:30:00+00:00</td>
-      <td>0.660629</td>
+      <td>2024-09-03 18:00:00+00:00</td>
+      <td>0.417714</td>
     </tr>
     <tr>
       <th>4</th>
       <td>btc</td>
-      <td>2024-08-29 02:40:00+00:00</td>
-      <td>0.661774</td>
+      <td>2024-09-03 18:10:00+00:00</td>
+      <td>0.417443</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1424,38 +1424,38 @@ vol
       <td>...</td>
     </tr>
     <tr>
-      <th>1915</th>
+      <th>2071</th>
       <td>eth</td>
-      <td>2024-09-04 17:10:00+00:00</td>
-      <td>0.896762</td>
+      <td>2024-09-10 21:40:00+00:00</td>
+      <td>0.489179</td>
     </tr>
     <tr>
-      <th>1916</th>
+      <th>2072</th>
       <td>eth</td>
-      <td>2024-09-04 17:20:00+00:00</td>
-      <td>0.896523</td>
+      <td>2024-09-10 21:50:00+00:00</td>
+      <td>0.485555</td>
     </tr>
     <tr>
-      <th>1917</th>
+      <th>2073</th>
       <td>eth</td>
-      <td>2024-09-04 17:30:00+00:00</td>
-      <td>0.895854</td>
+      <td>2024-09-10 22:00:00+00:00</td>
+      <td>0.485365</td>
     </tr>
     <tr>
-      <th>1918</th>
+      <th>2074</th>
       <td>eth</td>
-      <td>2024-09-04 17:40:00+00:00</td>
-      <td>0.897012</td>
+      <td>2024-09-10 22:10:00+00:00</td>
+      <td>0.48641</td>
     </tr>
     <tr>
-      <th>1919</th>
+      <th>2075</th>
       <td>eth</td>
-      <td>2024-09-04 17:50:00+00:00</td>
-      <td>0.896779</td>
+      <td>2024-09-10 22:20:00+00:00</td>
+      <td>0.486889</td>
     </tr>
   </tbody>
 </table>
-<p>1920 rows × 3 columns</p>
+<p>2076 rows × 3 columns</p>
 </div>
 
 
@@ -1475,45 +1475,45 @@ plt.legend(title='', frameon=False, bbox_to_anchor=(0.86, 1.13), loc='upper left
 plt.show()
 ```
 
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-05 01:54:14 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-10 17:21:53 WARNING  findfont: Font family 'Lato' not found.
 
 
 
@@ -1557,44 +1557,44 @@ if __name__ == '__main__':
     Opening the connection...
     
     {
-     "time": "2024-09-04T17:54:16.000000000Z",
+     "time": "2024-09-10T22:21:53.600000000Z",
      "asset": "btc",
-     "ReferenceRateUSD": "57877.76",
+     "ReferenceRateUSD": "57577.25",
      "cm_sequence_id": "0"
     }
      
     {
-     "time": "2024-09-04T17:54:16.200000000Z",
+     "time": "2024-09-10T22:21:53.800000000Z",
      "asset": "btc",
-     "ReferenceRateUSD": "57877.76",
+     "ReferenceRateUSD": "57578.01",
      "cm_sequence_id": "1"
     }
      
     {
-     "time": "2024-09-04T17:54:16.400000000Z",
+     "time": "2024-09-10T22:21:54.000000000Z",
      "asset": "btc",
-     "ReferenceRateUSD": "57877.76",
+     "ReferenceRateUSD": "57578.01",
      "cm_sequence_id": "2"
     }
      
     {
-     "time": "2024-09-04T17:54:16.600000000Z",
+     "time": "2024-09-10T22:21:54.200000000Z",
      "asset": "btc",
-     "ReferenceRateUSD": "57877.76",
+     "ReferenceRateUSD": "57578.01",
      "cm_sequence_id": "3"
     }
      
     {
-     "time": "2024-09-04T17:54:16.800000000Z",
+     "time": "2024-09-10T22:21:54.400000000Z",
      "asset": "btc",
-     "ReferenceRateUSD": "57877.75",
+     "ReferenceRateUSD": "57578.01",
      "cm_sequence_id": "4"
     }
      
     {
-     "time": "2024-09-04T17:54:17.000000000Z",
+     "time": "2024-09-10T22:21:54.600000000Z",
      "asset": "btc",
-     "ReferenceRateUSD": "57877.75",
+     "ReferenceRateUSD": "57578.01",
      "cm_sequence_id": "5"
     }
      

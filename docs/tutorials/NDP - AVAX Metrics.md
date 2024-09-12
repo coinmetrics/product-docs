@@ -52,7 +52,7 @@ except KeyError:
 client = CoinMetricsClient(api_key)
 ```
 
-    2024-09-09 12:48:40 INFO     Using API key found in environment
+    2024-09-12 08:52:17 INFO     Using API key found in environment
 
 
 # New Avalanche (AVAX) Metrics
@@ -157,38 +157,38 @@ market_cap_df
       <td>...</td>
     </tr>
     <tr>
-      <th>6730</th>
-      <td>sol</td>
-      <td>2024-09-04 00:00:00+00:00</td>
-      <td>62418685124.014069</td>
-    </tr>
-    <tr>
-      <th>6731</th>
-      <td>sol</td>
-      <td>2024-09-05 00:00:00+00:00</td>
-      <td>60368322226.608711</td>
-    </tr>
-    <tr>
-      <th>6732</th>
-      <td>sol</td>
-      <td>2024-09-06 00:00:00+00:00</td>
-      <td>58314200040.23735</td>
-    </tr>
-    <tr>
-      <th>6733</th>
+      <th>6745</th>
       <td>sol</td>
       <td>2024-09-07 00:00:00+00:00</td>
       <td>59479665838.868263</td>
     </tr>
     <tr>
-      <th>6734</th>
+      <th>6746</th>
       <td>sol</td>
       <td>2024-09-08 00:00:00+00:00</td>
       <td>60790190313.36132</td>
     </tr>
+    <tr>
+      <th>6747</th>
+      <td>sol</td>
+      <td>2024-09-09 00:00:00+00:00</td>
+      <td>63117947291.79084</td>
+    </tr>
+    <tr>
+      <th>6748</th>
+      <td>sol</td>
+      <td>2024-09-10 00:00:00+00:00</td>
+      <td>63440854311.278946</td>
+    </tr>
+    <tr>
+      <th>6749</th>
+      <td>sol</td>
+      <td>2024-09-11 00:00:00+00:00</td>
+      <td>61981116603.3218</td>
+    </tr>
   </tbody>
 </table>
-<p>6735 rows × 3 columns</p>
+<p>6750 rows × 3 columns</p>
 </div>
 
 
@@ -295,30 +295,6 @@ ordered_proportions
       <td>...</td>
     </tr>
     <tr>
-      <th>2024-09-04 00:00:00+00:00</th>
-      <td>0.652633</td>
-      <td>0.164149</td>
-      <td>0.138037</td>
-      <td>0.025521</td>
-      <td>0.019659</td>
-    </tr>
-    <tr>
-      <th>2024-09-05 00:00:00+00:00</th>
-      <td>0.649306</td>
-      <td>0.166912</td>
-      <td>0.137631</td>
-      <td>0.026400</td>
-      <td>0.019750</td>
-    </tr>
-    <tr>
-      <th>2024-09-06 00:00:00+00:00</th>
-      <td>0.641953</td>
-      <td>0.170461</td>
-      <td>0.140117</td>
-      <td>0.026925</td>
-      <td>0.020544</td>
-    </tr>
-    <tr>
       <th>2024-09-07 00:00:00+00:00</th>
       <td>0.642863</td>
       <td>0.169150</td>
@@ -334,9 +310,33 @@ ordered_proportions
       <td>0.027906</td>
       <td>0.021735</td>
     </tr>
+    <tr>
+      <th>2024-09-09 00:00:00+00:00</th>
+      <td>0.638593</td>
+      <td>0.170262</td>
+      <td>0.141823</td>
+      <td>0.027543</td>
+      <td>0.021779</td>
+    </tr>
+    <tr>
+      <th>2024-09-10 00:00:00+00:00</th>
+      <td>0.640813</td>
+      <td>0.168469</td>
+      <td>0.141396</td>
+      <td>0.027308</td>
+      <td>0.022014</td>
+    </tr>
+    <tr>
+      <th>2024-09-11 00:00:00+00:00</th>
+      <td>0.635949</td>
+      <td>0.174485</td>
+      <td>0.139855</td>
+      <td>0.028391</td>
+      <td>0.021321</td>
+    </tr>
   </tbody>
 </table>
-<p>1347 rows × 5 columns</p>
+<p>1350 rows × 5 columns</p>
 </div>
 
 
@@ -356,150 +356,426 @@ plt.legend(frameon=False, bbox_to_anchor=(0.83, 1.02), ncol=2)
 plt.show()
 ```
 
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:46 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:23 WARNING  findfont: Font family 'Lato' not found.
 
 
 
     
-![png](output_14_1.png)
+![png](output_14_139.png)
     
 
 
@@ -588,38 +864,38 @@ tx_cnt_df
       <td>...</td>
     </tr>
     <tr>
-      <th>1303</th>
-      <td>avaxx</td>
-      <td>2024-09-04 00:00:00+00:00</td>
-      <td>240</td>
-    </tr>
-    <tr>
-      <th>1304</th>
-      <td>avaxx</td>
-      <td>2024-09-05 00:00:00+00:00</td>
-      <td>277</td>
-    </tr>
-    <tr>
-      <th>1305</th>
-      <td>avaxx</td>
-      <td>2024-09-06 00:00:00+00:00</td>
-      <td>295</td>
-    </tr>
-    <tr>
-      <th>1306</th>
+      <th>1312</th>
       <td>avaxx</td>
       <td>2024-09-07 00:00:00+00:00</td>
       <td>228</td>
     </tr>
     <tr>
-      <th>1307</th>
+      <th>1313</th>
       <td>avaxx</td>
       <td>2024-09-08 00:00:00+00:00</td>
       <td>258</td>
     </tr>
+    <tr>
+      <th>1314</th>
+      <td>avaxx</td>
+      <td>2024-09-09 00:00:00+00:00</td>
+      <td>333</td>
+    </tr>
+    <tr>
+      <th>1315</th>
+      <td>avaxx</td>
+      <td>2024-09-10 00:00:00+00:00</td>
+      <td>325</td>
+    </tr>
+    <tr>
+      <th>1316</th>
+      <td>avaxx</td>
+      <td>2024-09-11 00:00:00+00:00</td>
+      <td>288</td>
+    </tr>
   </tbody>
 </table>
-<p>1308 rows × 3 columns</p>
+<p>1317 rows × 3 columns</p>
 </div>
 
 
@@ -700,24 +976,6 @@ tx_cnt_df
       <td>...</td>
     </tr>
     <tr>
-      <th>2024-09-04 00:00:00+00:00</th>
-      <td>158606</td>
-      <td>23936</td>
-      <td>240</td>
-    </tr>
-    <tr>
-      <th>2024-09-05 00:00:00+00:00</th>
-      <td>141528</td>
-      <td>24241</td>
-      <td>277</td>
-    </tr>
-    <tr>
-      <th>2024-09-06 00:00:00+00:00</th>
-      <td>179686</td>
-      <td>22073</td>
-      <td>295</td>
-    </tr>
-    <tr>
       <th>2024-09-07 00:00:00+00:00</th>
       <td>128007</td>
       <td>21309</td>
@@ -729,9 +987,27 @@ tx_cnt_df
       <td>22206</td>
       <td>258</td>
     </tr>
+    <tr>
+      <th>2024-09-09 00:00:00+00:00</th>
+      <td>155872</td>
+      <td>21117</td>
+      <td>333</td>
+    </tr>
+    <tr>
+      <th>2024-09-10 00:00:00+00:00</th>
+      <td>138494</td>
+      <td>12292</td>
+      <td>325</td>
+    </tr>
+    <tr>
+      <th>2024-09-11 00:00:00+00:00</th>
+      <td>155856</td>
+      <td>12932</td>
+      <td>288</td>
+    </tr>
   </tbody>
 </table>
-<p>436 rows × 3 columns</p>
+<p>439 rows × 3 columns</p>
 </div>
 
 
@@ -748,94 +1024,258 @@ plt.legend(frameon=False, bbox_to_anchor=(1, 1.15), ncol=1)
 plt.show()
 ```
 
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family ['Lato'] not found. Falling back to DejaVu Sans.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:48 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family ['Lato'] not found. Falling back to DejaVu Sans.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:25 WARNING  findfont: Font family 'Lato' not found.
 
 
 
     
-![png](output_20_1.png)
+![png](output_20_83.png)
     
 
 
@@ -915,38 +1355,38 @@ fees_df
       <td>...</td>
     </tr>
     <tr>
-      <th>4336</th>
-      <td>avaxx</td>
-      <td>2024-09-04 00:00:00+00:00</td>
-      <td>5.868942</td>
-    </tr>
-    <tr>
-      <th>4337</th>
-      <td>avaxx</td>
-      <td>2024-09-05 00:00:00+00:00</td>
-      <td>6.899382</td>
-    </tr>
-    <tr>
-      <th>4338</th>
-      <td>avaxx</td>
-      <td>2024-09-06 00:00:00+00:00</td>
-      <td>6.806978</td>
-    </tr>
-    <tr>
-      <th>4339</th>
+      <th>4345</th>
       <td>avaxx</td>
       <td>2024-09-07 00:00:00+00:00</td>
       <td>5.547623</td>
     </tr>
     <tr>
-      <th>4340</th>
+      <th>4346</th>
       <td>avaxx</td>
       <td>2024-09-08 00:00:00+00:00</td>
       <td>6.424409</td>
     </tr>
+    <tr>
+      <th>4347</th>
+      <td>avaxx</td>
+      <td>2024-09-09 00:00:00+00:00</td>
+      <td>8.626874</td>
+    </tr>
+    <tr>
+      <th>4348</th>
+      <td>avaxx</td>
+      <td>2024-09-10 00:00:00+00:00</td>
+      <td>8.810328</td>
+    </tr>
+    <tr>
+      <th>4349</th>
+      <td>avaxx</td>
+      <td>2024-09-11 00:00:00+00:00</td>
+      <td>7.344271</td>
+    </tr>
   </tbody>
 </table>
-<p>4341 rows × 3 columns</p>
+<p>4350 rows × 3 columns</p>
 </div>
 
 
@@ -1031,24 +1471,6 @@ fees_df
       <td>...</td>
     </tr>
     <tr>
-      <th>2024-09-04 00:00:00+00:00</th>
-      <td>19493.937634</td>
-      <td>6.274832</td>
-      <td>5.868942</td>
-    </tr>
-    <tr>
-      <th>2024-09-05 00:00:00+00:00</th>
-      <td>15139.756673</td>
-      <td>5.965069</td>
-      <td>6.899382</td>
-    </tr>
-    <tr>
-      <th>2024-09-06 00:00:00+00:00</th>
-      <td>22517.612115</td>
-      <td>6.245708</td>
-      <td>6.806978</td>
-    </tr>
-    <tr>
       <th>2024-09-07 00:00:00+00:00</th>
       <td>13583.140329</td>
       <td>5.60849</td>
@@ -1060,9 +1482,27 @@ fees_df
       <td>6.146095</td>
       <td>6.424409</td>
     </tr>
+    <tr>
+      <th>2024-09-09 00:00:00+00:00</th>
+      <td>18881.110713</td>
+      <td>6.314097</td>
+      <td>8.626874</td>
+    </tr>
+    <tr>
+      <th>2024-09-10 00:00:00+00:00</th>
+      <td>16748.632666</td>
+      <td>8.066995</td>
+      <td>8.810328</td>
+    </tr>
+    <tr>
+      <th>2024-09-11 00:00:00+00:00</th>
+      <td>18911.461907</td>
+      <td>5.922047</td>
+      <td>7.344271</td>
+    </tr>
   </tbody>
 </table>
-<p>1447 rows × 3 columns</p>
+<p>1450 rows × 3 columns</p>
 </div>
 
 
@@ -1084,118 +1524,332 @@ plt.legend(frameon=False, bbox_to_anchor=(1, 1.15), ncol=1)
 plt.show()
 ```
 
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:48:52 WARNING  findfont: Font family 'Lato' not found.
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
+
+
+    2024-09-12 08:52:29 WARNING  findfont: Font family 'Lato' not found.
 
 
 
     
-![png](output_25_1.png)
+![png](output_25_108.png)
     
 
