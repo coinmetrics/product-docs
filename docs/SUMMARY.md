@@ -11,6 +11,8 @@
   * [Coverage](http://coverage.coinmetrics.io/)
 * [Tutorials](tutorials/tutorials.md)
   * [ATLAS: Transaction Reconciliation](tutorials/ATLAS\_Tx\_Reconciliation.md)
+  * [ATLAS: Address Analysis](tutorials/ATLAS\_address\_analysis.md)
+  * [ATLAS: Miner Signatures](tutorials/ATLAS\_miner\_signatures.md)
   * [DEFI: Balance Sheets](tutorials/defi-balance-sheets.md)
   * [FARUM: Admin Key Alerts](tutorials/FARUM\_admin\_key\_alerts.md)
   * [FARUM: Mining Pool Monitor](tutorials/FARUM\_mining\_pool\_monitor.md)
