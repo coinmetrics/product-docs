@@ -1,5 +1,24 @@
 <img src="https://5264302.fs1.hubspotusercontent-na1.net/hubfs/5264302/Demo%20Asset%20Resources/CM-Demo-market_data_overview-Cover.png" width=1100 margin-left='auto' margin-right='auto'/>
 
+# MDF: Market Data Overview
+
+The Market Data Overview notebook steps through various market
+data types available in Market Data Feed, displaying the basic
+structure of the data & highlighting use cases with examples from our
+weekly State of the Market. The notebook explains how data is
+gathered at the most granular level (i.e. trades, order book snapshots)
+& aggregated upwards to provide convenient hourly/daily metrics
+across spot, futures, & options markets.
+
+**Use Cases:** Trading, Research
+**Personas:** Quant Trader, Market Analyst
+
+{% file src="../.gitbook/assets/MDF_market_data_overview.ipynb" %}
+
+{% file src="../.gitbook/assets/MDF_market_data_overview.pdf" %}
+
+## Summary
+
 Coin Metrics **Market Data Feed** provides access to historical and real-time data from over 39 of the world’s leading spot and derivatives crypto exchanges. We offer all of the fundamental market-related data types including tick-by-tick trades, quotes, order book snapshots, candles, and more.
 
 The example charts showcased in this notebook are presented on a weekly basis in our [State of the Market](http://stateofthe.market/) newsletter.

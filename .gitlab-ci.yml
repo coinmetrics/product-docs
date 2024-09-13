@@ -17,7 +17,7 @@ update_tutorials:
     - cd knowledge-base
     - BRANCH_NAME="update-demo-docs-$(date +%Y%m%d-%H%M%S)"
     - git checkout -b $BRANCH_NAME
-    - git add docs/tutorials/*.md
+    - git add docs/getting-started/tutorials/*.md
     - git commit -m "Update tutorial docs from cm_demo_assets"
     - git push -o merge_request.create -o merge_request.target=master -o merge_request.title="Update tutorial docs from cm_demo_assets" origin $BRANCH_NAME
   when: manual
