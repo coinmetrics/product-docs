@@ -780,3 +780,5 @@ redirects:
   asset-metrics/transactions/mean-blob-carrying-transactions-per-block-count: network-data/network-data-overview/network-usage/transactions.md#mean-blob-carrying-transaction-count
   asset-metrics/transactions/median-blob-carrying-transactions-per-block-count: network-data/network-data-overview/network-usage/transactions.md#median-blob-carrying-transaction-count
   asset-metrics/asset-metrics-overview: api-data-types/asset-metrics-overview
+  api-data-types/asset-metrics-overview: explainers/asset-metrics-overview.md
+  api-data-types: explainers/api-data-types.md
