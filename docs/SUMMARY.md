@@ -17,6 +17,8 @@
     * [Exporting Data](getting-started/how-to-guides/exporting-data.md)
   * [Explainers](getting-started/explainers/explainers.md)
     * [API Explainer](getting-started/explainers/api-explainer.md)
+    * [API Data Types](getting-started/explainers/api-data-types.md)
+    * [Asset Metrics](getting-started/explainers/asset-metrics-overview.md)
   <!-- * [ATLAS: Transaction Reconciliation](tutorials/ATLAS\_Tx\_Reconciliation.md)
   * [ATLAS: Address Analysis](tutorials/ATLAS\_address\_analysis.md)
   * [ATLAS: Miner Signatures](tutorials/ATLAS\_miner\_signatures.md)
@@ -33,8 +35,6 @@
   * [NDP: ETH Staking Metrics](tutorials/NDP\_eth\_staking\_metrics.md)
   * [NDP: Hourly Metrics](tutorials/NDP\_hourly\_metrics.md)
   * [NDP: Market Cap Metrics](tutorials/ndp-market-cap-metrics.md) -->
-* [API Data Types](api-data-types/README.md)
-  * [Asset Metrics Overview](api-data-types/asset-metrics-overview.md)
 * [Data Visualization](data-visualization/README.md)
   * [Charting Tool](data-visualization/charting-tool/README.md)
     * [Formula Builder](data-visualization/charting-tool/formula-builder.md)
