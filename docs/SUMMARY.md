@@ -11,7 +11,7 @@
   * [Coverage](http://coverage.coinmetrics.io/)
 * [Getting Started](getting-started/getting-started.md)
   * [Tutorials](getting-started/tutorials/tutorials.md)
-    * [Python API Client Walkthrough](getting-started/tutorials/walkthrough_community_2024.md)
+    * [Python API Client Walkthrough](getting-started/tutorials/walkthrough_community.md)
     * [MDF: Market Data Overview](getting-started/tutorials/MDF\_market\_data\_overview.md)
   * [How-To Guides](getting-started/how-to-guides/how-to-guides.md)
     * [Exporting Data](getting-started/how-to-guides/exporting-data.md)
