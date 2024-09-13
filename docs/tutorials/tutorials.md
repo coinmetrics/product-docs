@@ -4,7 +4,7 @@ This tutorial page is our library of Jupyter Notebooks with sample workflows to 
 
 ## Jupyter Notebooks
 
-[Market Data Overview](MDF\_market\_data\_overview.md)
+* [Market Data Overview](MDF\_market\_data\_overview.md)
 
 {% file src="../.gitbook/assets/MDF_market_data_overview.ipynb" %}
 
