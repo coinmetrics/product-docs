@@ -2,9 +2,9 @@
 
 This guide will help you get started with using Coin Metrics data. It is divided into three sections:
 
-* [Tutorials](tutorials.md)
-* [Explainers](explainers.md)
-* [How-To Guides](how-to-guides.md)
+* [Tutorials](tutorials/tutorials.md)
+* [Explainers](explainers/explainers.md)
+* [How-To Guides](how-to-guides/how-to-guides.md)
 
 **Tutorials** are walkthroughs for exploring Coin Metrics data. The goal is for a user to achieve a basic familiarity with using Coin Metrics data and learn what is possible. 
 
