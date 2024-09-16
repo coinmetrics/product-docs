@@ -6,7 +6,7 @@
 * [Python API Client Walkthrough](walkthrough_community.md)*
 
 ## Intermediate
-* [Market Data Overview](MDF_market_data_overview.md)
+* [Market Data: Getting Started](MDF_market_data_overview.md)
 
 ## Advanced
 
