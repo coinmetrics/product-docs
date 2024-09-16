@@ -1,8 +1,10 @@
-<img src="https://5264302.fs1.hubspotusercontent-na1.net/hubfs/5264302/Demo%20Asset%20Resources/CM-Demo-orderbook_depth.png" width=1100 margin-left='auto' margin-right='auto'/>
+# MDF: Orderbook Depth
 
-Exchange order book data is one of the most foundational data types in the crypto asset industry— arguably, even more foundational than trades data, as two orders must be matched for a trade to occur. Order book data is useful for various entities, including  market makers, systematic or quantitative traders, and funds studying trade execution patterns. The Coin Metrics **Market Data Feed** offering includes various API endpoints that allow users to retrieve order book snapshots and updates across a collection of top crypto exchanges. 
+![](https://5264302.fs1.hubspotusercontent-na1.net/hubfs/5264302/Demo%20Asset%20Resources/CM-Demo-orderbook\_depth.png)
 
-## Resources
+Exchange order book data is one of the most foundational data types in the crypto asset industry— arguably, even more foundational than trades data, as two orders must be matched for a trade to occur. Order book data is useful for various entities, including market makers, systematic or quantitative traders, and funds studying trade execution patterns. The Coin Metrics **Market Data Feed** offering includes various API endpoints that allow users to retrieve order book snapshots and updates across a collection of top crypto exchanges.
+
+### Resources
 
 This notebook demonstrates basic functionality offered by the Coin Metrics Python API Client and Market Data Feed.
 
@@ -10,12 +12,11 @@ Coin Metrics offers a vast assortment of data for hundreds of cryptoassets. The 
 
 To understand the data that Coin Metrics offers, feel free to peruse the resources below.
 
-- The [Coin Metrics API v4](https://docs.coinmetrics.io/api/v4) website contains the full set of endpoints and data offered by Coin Metrics.
-- The [Coin Metrics Knowledge Base](https://docs.coinmetrics.io/info) gives detailed, conceptual explanations of the data that Coin Metrics offers.
-- The [API Spec](https://coinmetrics.github.io/api-client-python/site/api_client.html) contains a full list of functions.
+* The [Coin Metrics API v4](https://docs.coinmetrics.io/api/v4) website contains the full set of endpoints and data offered by Coin Metrics.
+* The [Coin Metrics Knowledge Base](https://docs.coinmetrics.io/info) gives detailed, conceptual explanations of the data that Coin Metrics offers.
+* The [API Spec](https://coinmetrics.github.io/api-client-python/site/api\_client.html) contains a full list of functions.
 
-## Notebook Setup
-
+### Notebook Setup
 
 ```python
 import os
@@ -42,12 +43,10 @@ from tqdm import tqdm
 from plotly import graph_objects as go
 ```
 
-
 ```python
 sns.set_theme()
 sns.set(rc={'figure.figsize':(12,8)})
 ```
-
 
 ```python
 logging.basicConfig(
@@ -58,7 +57,6 @@ logging.basicConfig(
 now = datetime.utcnow()
 last_day_date_time = now - timedelta(hours = 24)
 ```
-
 
 ```python
 # We recommend privately storing your API key in your local environment.
@@ -72,16 +70,17 @@ except KeyError:
 client = CoinMetricsClient(api_key)
 ```
 
-    2024-09-16 16:02:07 INFO     Using API key found in environment
+```
+2024-09-16 16:02:07 INFO     Using API key found in environment
+```
 
-
-# Order Book Depth
+## Order Book Depth
 
 Coin Metrics collects and serves 3 types of order book snapshots.
-- One type (*depth_limit=100*) consists of a snapshot of the top 100 bids and top 100 asks taken once every 10 seconds for major markets. 
-- The second type (*depth_limit=10pct_mid_price*) includes all levels where the price is within 10 percent of the midprice taken once every 10 seconds. 
-- The third type (*depth_limit=full_book*) consists of a full order book snapshot (every bid and every ask) taken once every hour for all markets that we are collecting order book data for . All of these snapshots are served through our HTTP API endpoint /timeseries/market-orderbooks.
 
+* One type (_depth\_limit=100_) consists of a snapshot of the top 100 bids and top 100 asks taken once every 10 seconds for major markets.
+* The second type (_depth\_limit=10pct\_mid\_price_) includes all levels where the price is within 10 percent of the midprice taken once every 10 seconds.
+* The third type (_depth\_limit=full\_book_) consists of a full order book snapshot (every bid and every ask) taken once every hour for all markets that we are collecting order book data for . All of these snapshots are served through our HTTP API endpoint /timeseries/market-orderbooks.
 
 ```python
 def get_order_books(market,start_time,end_time,depth_limit='full_book'):
@@ -93,7 +92,6 @@ def get_order_books(market,start_time,end_time,depth_limit='full_book'):
     return df
 ```
 
-
 ```python
 market = 'coinbase-btc-usd-spot'
 start_time = '2022-10-20'
@@ -104,87 +102,13 @@ df = get_order_books(market,start_time,end_time,depth_limit)
 df.tail()
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>market</th>
-      <th>time</th>
-      <th>coin_metrics_id</th>
-      <th>asks</th>
-      <th>bids</th>
-      <th>database_time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>163</th>
-      <td>coinbase-btc-usd-spot</td>
-      <td>2022-10-26 19:00:00+00:00</td>
-      <td>48876152429</td>
-      <td>[{'price': '20682.21', 'size': '0.001'}, {'pri...</td>
-      <td>[{'price': '20680.45', 'size': '0.01098864'}, ...</td>
-      <td>2022-10-26 19:02:04.331554+00:00</td>
-    </tr>
-    <tr>
-      <th>164</th>
-      <td>coinbase-btc-usd-spot</td>
-      <td>2022-10-26 20:00:00+00:00</td>
-      <td>48880595574</td>
-      <td>[{'price': '20777.57', 'size': '0.00182293'}, ...</td>
-      <td>[{'price': '20776.49', 'size': '0.01019999'}, ...</td>
-      <td>2022-10-26 20:01:16.705315+00:00</td>
-    </tr>
-    <tr>
-      <th>165</th>
-      <td>coinbase-btc-usd-spot</td>
-      <td>2022-10-26 21:00:00+00:00</td>
-      <td>48885094324</td>
-      <td>[{'price': '20748.12', 'size': '0.004'}, {'pri...</td>
-      <td>[{'price': '20747.05', 'size': '0.00207858'}, ...</td>
-      <td>2022-10-26 21:00:31.916195+00:00</td>
-    </tr>
-    <tr>
-      <th>166</th>
-      <td>coinbase-btc-usd-spot</td>
-      <td>2022-10-26 22:00:00+00:00</td>
-      <td>48888140842</td>
-      <td>[{'price': '20741.88', 'size': '0.47814895'}, ...</td>
-      <td>[{'price': '20741.87', 'size': '0.00007231'}, ...</td>
-      <td>2022-10-26 22:02:24.185607+00:00</td>
-    </tr>
-    <tr>
-      <th>167</th>
-      <td>coinbase-btc-usd-spot</td>
-      <td>2022-10-26 23:00:00+00:00</td>
-      <td>48892147093</td>
-      <td>[{'price': '20819.81', 'size': '0.03138949'}, ...</td>
-      <td>[{'price': '20817.37', 'size': '0.09902'}, {'p...</td>
-      <td>2022-10-26 23:01:42.564517+00:00</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
+|     | market                | time                      | coin\_metrics\_id | asks                                               | bids                                               | database\_time                   |
+| --- | --------------------- | ------------------------- | ----------------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------- |
+| 163 | coinbase-btc-usd-spot | 2022-10-26 19:00:00+00:00 | 48876152429       | \[{'price': '20682.21', 'size': '0.001'}, {'pri... | \[{'price': '20680.45', 'size': '0.01098864'}, ... | 2022-10-26 19:02:04.331554+00:00 |
+| 164 | coinbase-btc-usd-spot | 2022-10-26 20:00:00+00:00 | 48880595574       | \[{'price': '20777.57', 'size': '0.00182293'}, ... | \[{'price': '20776.49', 'size': '0.01019999'}, ... | 2022-10-26 20:01:16.705315+00:00 |
+| 165 | coinbase-btc-usd-spot | 2022-10-26 21:00:00+00:00 | 48885094324       | \[{'price': '20748.12', 'size': '0.004'}, {'pri... | \[{'price': '20747.05', 'size': '0.00207858'}, ... | 2022-10-26 21:00:31.916195+00:00 |
+| 166 | coinbase-btc-usd-spot | 2022-10-26 22:00:00+00:00 | 48888140842       | \[{'price': '20741.88', 'size': '0.47814895'}, ... | \[{'price': '20741.87', 'size': '0.00007231'}, ... | 2022-10-26 22:02:24.185607+00:00 |
+| 167 | coinbase-btc-usd-spot | 2022-10-26 23:00:00+00:00 | 48892147093       | \[{'price': '20819.81', 'size': '0.03138949'}, ... | \[{'price': '20817.37', 'size': '0.09902'}, {'p... | 2022-10-26 23:01:42.564517+00:00 |
 
 ```python
 def get_depth(df_orderbook,within=2):
@@ -246,7 +170,6 @@ def get_depth(df_orderbook,within=2):
     return df_liquidity
 ```
 
-
 ```python
 # collapse into depth by distance from best bid/ask 
 print("Getting order book data for {}...".format(market))
@@ -262,153 +185,32 @@ df_aggregated['rolling_3hr_usd'] = df_aggregated.reset_index().groupby(['side','
 df_aggregated = df_aggregated[df_aggregated['rolling_3hr_usd'].notnull()].copy()
 ```
 
-    Getting order book data for coinbase-btc-usd-spot...
+```
+Getting order book data for coinbase-btc-usd-spot...
 
 
-    100%|█████████████████████████████████████████████████████████████████████████████| 168/168 [02:21<00:00,  1.19it/s]
-
-
+100%|█████████████████████████████████████████████████████████████████████████████| 168/168 [02:21<00:00,  1.19it/s]
+```
 
 ```python
 df_aggregated
 ```
 
+|      | size\_ntv   | size\_usd     | side | time                      | pct\_from\_best | rolling\_3hr\_usd |
+| ---- | ----------- | ------------- | ---- | ------------------------- | --------------- | ----------------- |
+| 0.01 | -77.155769  | -1.470296e+06 | asks | 2022-10-20 02:00:00+00:00 | 0.01            | -1.105986e+06     |
+| 0.01 | -66.058756  | -1.259527e+06 | asks | 2022-10-20 03:00:00+00:00 | 0.01            | -1.295243e+06     |
+| 0.01 | -126.462072 | -2.409340e+06 | asks | 2022-10-20 04:00:00+00:00 | 0.01            | -1.713054e+06     |
+| 0.01 | -230.090826 | -4.417017e+06 | asks | 2022-10-20 05:00:00+00:00 | 0.01            | -2.695295e+06     |
+| 0.01 | -67.504299  | -1.292230e+06 | asks | 2022-10-20 06:00:00+00:00 | 0.01            | -2.706196e+06     |
+| ...  | ...         | ...           | ...  | ...                       | ...             | ...               |
+| 1.91 | 3.150618    | 6.389480e+04  | bid  | 2022-10-26 19:00:00+00:00 | 1.91            | 4.899971e+04      |
+| 1.91 | 0.284205    | 5.790217e+03  | bid  | 2022-10-26 20:00:00+00:00 | 1.91            | 4.139945e+04      |
+| 1.91 | 2.058624    | 4.189135e+04  | bid  | 2022-10-26 21:00:00+00:00 | 1.91            | 3.719212e+04      |
+| 1.91 | 1.328615    | 2.703422e+04  | bid  | 2022-10-26 22:00:00+00:00 | 1.91            | 2.490526e+04      |
+| 1.91 | 0.243678    | 4.974376e+03  | bid  | 2022-10-26 23:00:00+00:00 | 1.91            | 2.463332e+04      |
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>size_ntv</th>
-      <th>size_usd</th>
-      <th>side</th>
-      <th>time</th>
-      <th>pct_from_best</th>
-      <th>rolling_3hr_usd</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0.01</th>
-      <td>-77.155769</td>
-      <td>-1.470296e+06</td>
-      <td>asks</td>
-      <td>2022-10-20 02:00:00+00:00</td>
-      <td>0.01</td>
-      <td>-1.105986e+06</td>
-    </tr>
-    <tr>
-      <th>0.01</th>
-      <td>-66.058756</td>
-      <td>-1.259527e+06</td>
-      <td>asks</td>
-      <td>2022-10-20 03:00:00+00:00</td>
-      <td>0.01</td>
-      <td>-1.295243e+06</td>
-    </tr>
-    <tr>
-      <th>0.01</th>
-      <td>-126.462072</td>
-      <td>-2.409340e+06</td>
-      <td>asks</td>
-      <td>2022-10-20 04:00:00+00:00</td>
-      <td>0.01</td>
-      <td>-1.713054e+06</td>
-    </tr>
-    <tr>
-      <th>0.01</th>
-      <td>-230.090826</td>
-      <td>-4.417017e+06</td>
-      <td>asks</td>
-      <td>2022-10-20 05:00:00+00:00</td>
-      <td>0.01</td>
-      <td>-2.695295e+06</td>
-    </tr>
-    <tr>
-      <th>0.01</th>
-      <td>-67.504299</td>
-      <td>-1.292230e+06</td>
-      <td>asks</td>
-      <td>2022-10-20 06:00:00+00:00</td>
-      <td>0.01</td>
-      <td>-2.706196e+06</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>1.91</th>
-      <td>3.150618</td>
-      <td>6.389480e+04</td>
-      <td>bid</td>
-      <td>2022-10-26 19:00:00+00:00</td>
-      <td>1.91</td>
-      <td>4.899971e+04</td>
-    </tr>
-    <tr>
-      <th>1.91</th>
-      <td>0.284205</td>
-      <td>5.790217e+03</td>
-      <td>bid</td>
-      <td>2022-10-26 20:00:00+00:00</td>
-      <td>1.91</td>
-      <td>4.139945e+04</td>
-    </tr>
-    <tr>
-      <th>1.91</th>
-      <td>2.058624</td>
-      <td>4.189135e+04</td>
-      <td>bid</td>
-      <td>2022-10-26 21:00:00+00:00</td>
-      <td>1.91</td>
-      <td>3.719212e+04</td>
-    </tr>
-    <tr>
-      <th>1.91</th>
-      <td>1.328615</td>
-      <td>2.703422e+04</td>
-      <td>bid</td>
-      <td>2022-10-26 22:00:00+00:00</td>
-      <td>1.91</td>
-      <td>2.490526e+04</td>
-    </tr>
-    <tr>
-      <th>1.91</th>
-      <td>0.243678</td>
-      <td>4.974376e+03</td>
-      <td>bid</td>
-      <td>2022-10-26 23:00:00+00:00</td>
-      <td>1.91</td>
-      <td>2.463332e+04</td>
-    </tr>
-  </tbody>
-</table>
-<p>6640 rows × 6 columns</p>
-</div>
-
-
-
+6640 rows × 6 columns
 
 ```python
 def generate_depth_bar(df,title):
@@ -444,12 +246,8 @@ def generate_depth_bar(df,title):
     }))
 ```
 
-
 ```python
 depth_chart = generate_depth_bar(df_aggregated,f"{market} SPOT:<br>USD Depth Within 2% of Best Bid/Ask")
 ```
 
-
-```python
-
-```
+<figure><img src="../../.gitbook/assets/coinbase-btc-usd-spot-depth.png" alt=""><figcaption></figcaption></figure>

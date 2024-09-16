@@ -10,7 +10,7 @@ Welcome to **Coin Metrics Data Encyclopedia**. At Coin Metrics, we organize the 
 
 ### [Network Data Pro (NDP)](https://coinmetrics.io/network-data-pro/)
 
-* **Network Data Pro** is a data feed of insightful, aggregate network data metrics for all of the top cryptoassets. These metrics are available with an API key through our [API](https://docs.coinmetrics.io/api/v4/) via the `/timeseries/asset-metrics` endpoint or through our [Data Visualization](data-visualization/) tools or [CM Pro Charts](data-visualization/cmpro/). All Network Data metrics are described below in the [**Asset Metrics (Time Series)**](api-data-types/asset-metrics-overview.md) section.
+* **Network Data Pro** is a data feed of insightful, aggregate network data metrics for all of the top cryptoassets. These metrics are available with an API key through our [API](https://docs.coinmetrics.io/api/v4/) via the `/timeseries/asset-metrics` endpoint or through our [Data Visualization](data-visualization/) tools or [CM Pro Charts](data-visualization/cmpro/). All Network Data metrics are described below in the [**Asset Metrics (Time Series)**](broken-reference) section.
 
 ### [Blockchain Explorer (Atlas)](https://coinmetrics.io/atlas/)
 
@@ -38,5 +38,4 @@ Welcome to **Coin Metrics Data Encyclopedia**. At Coin Metrics, we organize the 
 
 * [**Datonomy**](reference-data/datonomy-overview/) is a digital asset classification system created by Coin Metrics, Goldman Sachs and MSCI that creates a consistent, standardized way for investors to analyze the digital assets ecosystem. This data is available via our API via the `/taxonomy/assets` endpoint.
 * [**Asset Profiles**](reference-data/asset-profiles-overview/asset-profiles.md) are descriptions of cryptoassets that supplement our asset metrics data to provide a comprehensive overview of a particular asset. This data is available via our API via the `/profiles/assets` endpoint.
-* The [**Security Master**](reference-data/security-master-overview/) is a dataset that unifies metadata and provides fundamental  reference data about crypto assets and markets. The data is available via our API via the `/security-master/` endpoint.&#x20;
-
+* The [**Security Master**](reference-data/security-master-overview/) is a dataset that unifies metadata and provides fundamental reference data about crypto assets and markets. The data is available via our API via the `/security-master/` endpoint.
