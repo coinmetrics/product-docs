@@ -8,6 +8,7 @@
 ## Intermediate
 * [Market Data: Getting Started](MDF_market_data_overview.md)
 * [Network Data: Metrics Workbench With ATLAS](ATLAS_metric_workbench.md)
+* [Network Data: Marketcap Metrics](NDP_marketcap_metrics.md)
 
 ## Advanced
 
