@@ -14,6 +14,7 @@
     * [Python API Client Walkthrough](getting-started/tutorials/walkthrough_community.md)
     * [MDF: Getting Started With Market Data](getting-started/tutorials/MDF\_market\_data\_overview.md)
     * [NDP: Creating Custom Network Data Metrics Using ATLAS](getting-started/tutorials/ATLAS_metric_workbench.md)
+    * [NDP: Marketcap Metrics](getting-started/tutorials/NDP_marketcap_metrics.md)
   * [How-To Guides](getting-started/how-to-guides/how-to-guides.md)
     * [How To Export Data](getting-started/how-to-guides/exporting-data.md)
     * [How To Migrate From Catalog V1 to Catalog V2 and Reference Data](getting-started/how-to-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md)
