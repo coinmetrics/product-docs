@@ -1,9 +1,21 @@
 # Coin Metrics Python API Client Walkthrough (Community Version)
 _Last Updated: Version `2024.08.20`_
 
-This notebook demonstrates basic functionality offered by the Coin Metrics Python API Client using the Community Version.
+This notebook demonstrates basic functionality offered by the Coin Metrics Python API Client using the Community Version. 
 
 Coin Metrics offers a vast assortment of data for hundreds of cryptoassets. The Python API Client allows for easy access to this data using Python without needing to create your own wrappers using `requests` and other such libraries.
+
+## Prerequisites
+
+First, python must be installed. Download and install from [python.org](https://www.python.org/downloads/). The Coin Metrics API Client is best used with Python 3.8 or later.
+
+Then, install the Python API Client:
+
+`pip install coinmetrics-api-client`
+
+Some of the optional libraries such as pandas, numpy, and seaborn are used in the notebook to make the examples more interactive. These libraries are not required to use the Coin Metrics API Client.
+
+You are now ready to run the code in the rest of the notebook.
 
 ## Resources
 To understand the data that Coin Metrics offers, feel free to peruse the resources below.
