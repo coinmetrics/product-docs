@@ -26,6 +26,39 @@ Market Greeks can be accessed using the `timeseries/market-greeks` endpoint.
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-greeks?markets=coinbase-btc-usd-spot&pretty=true&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-greeks?markets=coinbase-btc-usd-spot&pretty=true&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_market_greeks(
+        markets="coinbase-btc-usd-spot",
+        limit_per_market=5
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+
+
 ## Chart
 
 <figure><img src="../../.gitbook/assets/ATM-Option-Chain.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>

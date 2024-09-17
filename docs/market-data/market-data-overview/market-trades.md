@@ -22,6 +22,39 @@ Market trades can be accessed using the `timeseries/market-trades` endpoint.
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-trades?markets=coinbase-btc-usd-spot&pretty=true&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-trades?markets=coinbase-btc-usd-spot&pretty=true&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_market_trades(
+        markets="coinbase-btc-usd-spot",
+        limit_per_market=5
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+
+
 ## **Example**
 
 A sample of the trades data from the `coinbase-btc-usd-spot` market from our [`/timeseries/market-trades`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketTrades) API endpoint is provided below.
