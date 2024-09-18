@@ -6,7 +6,10 @@ Our Network Data Pro metrics are aggregated at the asset level.
 
 ## Network Data Asset Coverage
 
-Coin Metrics calculates Network Data Pro metrics for over 200 assets.  A high-level view of our asset coverage can be found in the [CM Coverage Tool](https://coverage.coinmetrics.io/asset-metrics-v2/PriceUSD).  \
+Coin Metrics calculates Network Data Pro metrics for over 200 assets.  A high-level view of our asset coverage can be found in the [CM Coverage Tool](https://coverage.coinmetrics.io/asset-metrics-v2/PriceUSD). &#x20;
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/PriceUSD" %}
+
 \
 The specific asset availability for each metric can be found by:
 
