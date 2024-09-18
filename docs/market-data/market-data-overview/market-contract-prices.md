@@ -8,7 +8,7 @@ description: /timeseries/market-contract-prices
 
 Market contract prices are prices relevant to derivatives contract. It consists of the mark price, index price, and estimated settlement price.
 
-The estimated settlement price is an estimate of the settlement price if the contract were to be settled&#x20;
+The estimated settlement price is an estimate of the settlement price if the contract were to be settled
 
 ## **Details**
 
@@ -28,9 +28,11 @@ Market contract prices can be accessed using the `timeseries/market-contract-pri
 
 {% tabs %}
 {% tab title="Shell" %}
+{% code fullWidth="true" %}
 ```shell
 curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-contract-prices?markets=deribit-ETH-25MAR22-1200-P-option&limit_per_market=1&api_key=<your_key>"
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
@@ -56,6 +58,8 @@ print(
 ```
 {% endtab %}
 {% endtabs %}
+
+
 
 ## **Example**
 
