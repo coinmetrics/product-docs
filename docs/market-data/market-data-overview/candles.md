@@ -18,14 +18,75 @@ Coin Metrics calculates candles for **spot** and **future** markets from exchang
 
 Candles can be accessed using the `timeseries/market-candles` or `timeseries/pair-candles` endpoint.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-candles" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-candles" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-candles" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-candles?markets=coinbase-btc-usd-spot&limit_per_market=1&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-candles?markets=coinbase-btc-usd-spot&limit_per_market=1&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_market_candles(
+        markets=["coinbase-btc-usd-spot"], limit_per_market=5
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-candles" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/pair-candles?pairs=btc-usd&limit_per_pair=1&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/pair-candles?pairs=btc-usd&limit_per_pair=1&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_pair_candles(
+        pairs=["btc-usd"], limit_per_pair=5
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
 ### Example
 
 **Market Candles**

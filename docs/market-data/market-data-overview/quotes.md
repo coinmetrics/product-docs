@@ -30,12 +30,45 @@ For more information about our quotes data, please reference our [market order b
 
 Market quotes can be accessed using the `timeseries/market-quotes` and `timeseries-stream/market-quotes` for markets.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-quotes" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-quotes" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries-stream/market-quotes" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-quotes?markets=coinbase-btc-usd-spot&limit_per_market=1&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-quotes?markets=coinbase-btc-usd-spot&limit_per_market=1&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_market_quotes(
+        markets=["coinbase-btc-usd-spot"], limit_per_market=5
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+
+
+
+{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries-stream/market-quotes" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 ### **Example**
