@@ -22,7 +22,7 @@
   * [How-To Guides](getting-started/how-to-guides/how-to-guides.md)
     * [How To Export Data](getting-started/how-to-guides/exporting-data.md)
     * [How To Migrate From Catalog V1 to Catalog V2 and Reference Data](getting-started/how-to-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md)
-  * [Explainers](getting-started/core-concepts/explainers.md)
+  * [Core Concepts](getting-started/core-concepts/core-concepts.md)
     * [Explaining The API Structure](getting-started/core-conepts/api-explainer.md)
     * [API Data Types](getting-started/core-concepts/api-data-types.md)
     * [Asset Metrics](getting-started/core-concepts/asset-metrics-overview.md)
