@@ -1,12 +1,12 @@
 # Tutorials
 
-## Beginner
+## Introductory Guides
 
 * [Python API Client Walkthrough](walkthrough_community.md)*
+* [Market Data: Getting Started](MDF_market_data_overview.md)
 
 
 ## Intermediate
-* [Market Data: Getting Started](MDF_market_data_overview.md)
 * [Market Data: Options Aggregations](MDF_options_aggregation.md)
 * [Market Data: Orderbook Depth](MDF_orderbook_depth.md)
 * [Market Data: Futures Overview](MDF_futures_overview.md)

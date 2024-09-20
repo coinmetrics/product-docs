@@ -60,7 +60,7 @@ except KeyError:
 client = CoinMetricsClient(api_key)
 ```
 
-    2024-09-12 16:52:02 INFO     Using API key found in environment
+    2024-09-20 15:39:25 INFO     Using API key found in environment
 
 
 
@@ -86,11 +86,15 @@ colors
 ```python
 block_info = client.get_list_of_blocks_v2(
     asset='btc',
-    #start_time=datetime.now()-timedelta(days=365)
-    start_time='2022-01-01',
-).to_dataframe()
+    start_time="2022-01-01",
+    end_time="2022-12-31",
+    page_size=1000
+).parallel(time_increment=timedelta(days=1)).to_dataframe()
 block_info['extra_data'] = block_info['extra_data'].astype(str)
 ```
+
+    Exporting to dataframe type: 100%|████████████████████████████████████████████████| 364/364 [00:07<00:00, 48.53it/s]
+
 
 
 ```python
@@ -344,43 +348,43 @@ block_signed
       <td>...</td>
     </tr>
     <tr>
-      <th>144454</th>
-      <td>#\röQãf/Foundry USA Pool #dropgold/Mt¶    ...</td>
-      <td>861058</td>
-      <td>2024-09-12 19:57:22+00:00</td>
+      <th>53027</th>
+      <td>_¾|¯c/Foundry USA Pool #dropgold/Q!Ù      </td>
+      <td>769631</td>
+      <td>2022-12-30 23:25:11+00:00</td>
       <td>Not Empty</td>
     </tr>
     <tr>
-      <th>144455</th>
-      <td>#\rRãf/Foundry USA Pool #dropgold/þÓ    ...</td>
-      <td>861059</td>
-      <td>2024-09-12 20:12:17+00:00</td>
+      <th>53028</th>
+      <td>`¾Mined by AntPool959[ Q§õ-ìú¾mm²99ßãï6...</td>
+      <td>769632</td>
+      <td>2022-12-30 23:31:09+00:00</td>
       <td>Not Empty</td>
     </tr>
     <tr>
-      <th>144456</th>
-      <td>#\rÅWãfSpiderPool/1110/ú¾mm¸kìFå÷çL+;l·´eµ...</td>
-      <td>861060</td>
-      <td>2024-09-12 20:15:16+00:00</td>
+      <th>53029</th>
+      <td>a¾,ú¾mmô±\t¥ü&amp;óvm-1L´A¿ºVz¨µYTk@}Þò?(   ...</td>
+      <td>769633</td>
+      <td>2022-12-30 23:39:09+00:00</td>
       <td>Not Empty</td>
     </tr>
     <tr>
-      <th>144457</th>
-      <td>#\rZãf/Foundry USA Pool #dropgold/!y|  ...</td>
-      <td>861061</td>
-      <td>2024-09-12 20:16:18+00:00</td>
+      <th>53030</th>
+      <td>b¾Ã¯c/Foundry USA Pool #dropgold/A  6   </td>
+      <td>769634</td>
+      <td>2022-12-30 23:40:35+00:00</td>
       <td>Not Empty</td>
     </tr>
     <tr>
-      <th>144458</th>
-      <td>#\rMined by AntPool H ±f÷ú¾mmË¼x¢y¥&gt;t...</td>
-      <td>861062</td>
-      <td>2024-09-12 20:24:43+00:00</td>
+      <th>53031</th>
+      <td>c¾ú¾mmeè«úÆruÎ7æB¿"LNýôKü¦#âÓ[     ...</td>
+      <td>769635</td>
+      <td>2022-12-30 23:47:15+00:00</td>
       <td>Not Empty</td>
     </tr>
   </tbody>
 </table>
-<p>144459 rows × 4 columns</p>
+<p>53032 rows × 4 columns</p>
 </div>
 
 
@@ -493,43 +497,43 @@ miners_tagged
       <td>...</td>
     </tr>
     <tr>
-      <th>2024-09-12 19:57:22+00:00</th>
-      <td>#\röQãf/Foundry USA Pool #dropgold/Mt¶    ...</td>
-      <td>861058</td>
+      <th>2022-12-30 23:25:11+00:00</th>
+      <td>_¾|¯c/Foundry USA Pool #dropgold/Q!Ù      </td>
+      <td>769631</td>
       <td>Not Empty</td>
       <td>Foundry</td>
     </tr>
     <tr>
-      <th>2024-09-12 20:12:17+00:00</th>
-      <td>#\rRãf/Foundry USA Pool #dropgold/þÓ    ...</td>
-      <td>861059</td>
-      <td>Not Empty</td>
-      <td>Foundry</td>
-    </tr>
-    <tr>
-      <th>2024-09-12 20:15:16+00:00</th>
-      <td>#\rÅWãfSpiderPool/1110/ú¾mm¸kìFå÷çL+;l·´eµ...</td>
-      <td>861060</td>
-      <td>Not Empty</td>
-      <td>Other</td>
-    </tr>
-    <tr>
-      <th>2024-09-12 20:16:18+00:00</th>
-      <td>#\rZãf/Foundry USA Pool #dropgold/!y|  ...</td>
-      <td>861061</td>
-      <td>Not Empty</td>
-      <td>Foundry</td>
-    </tr>
-    <tr>
-      <th>2024-09-12 20:24:43+00:00</th>
-      <td>#\rMined by AntPool H ±f÷ú¾mmË¼x¢y¥&gt;t...</td>
-      <td>861062</td>
+      <th>2022-12-30 23:31:09+00:00</th>
+      <td>`¾Mined by AntPool959[ Q§õ-ìú¾mm²99ßãï6...</td>
+      <td>769632</td>
       <td>Not Empty</td>
       <td>AntPool</td>
     </tr>
+    <tr>
+      <th>2022-12-30 23:39:09+00:00</th>
+      <td>a¾,ú¾mmô±\t¥ü&amp;óvm-1L´A¿ºVz¨µYTk@}Þò?(   ...</td>
+      <td>769633</td>
+      <td>Not Empty</td>
+      <td>F2Pool</td>
+    </tr>
+    <tr>
+      <th>2022-12-30 23:40:35+00:00</th>
+      <td>b¾Ã¯c/Foundry USA Pool #dropgold/A  6   </td>
+      <td>769634</td>
+      <td>Not Empty</td>
+      <td>Foundry</td>
+    </tr>
+    <tr>
+      <th>2022-12-30 23:47:15+00:00</th>
+      <td>c¾ú¾mmeè«úÆruÎ7æB¿"LNýôKü¦#âÓ[     ...</td>
+      <td>769635</td>
+      <td>Not Empty</td>
+      <td>slush</td>
+    </tr>
   </tbody>
 </table>
-<p>144459 rows × 4 columns</p>
+<p>53032 rows × 4 columns</p>
 </div>
 
 
@@ -624,43 +628,43 @@ miners_tagged
       <td>...</td>
     </tr>
     <tr>
-      <th>2024-09-12</th>
-      <td>#\röQãf/Foundry USA Pool #dropgold/Mt¶    ...</td>
-      <td>861058</td>
+      <th>2022-12-30</th>
+      <td>_¾|¯c/Foundry USA Pool #dropgold/Q!Ù      </td>
+      <td>769631</td>
       <td>Not Empty</td>
       <td>Foundry</td>
     </tr>
     <tr>
-      <th>2024-09-12</th>
-      <td>#\rRãf/Foundry USA Pool #dropgold/þÓ    ...</td>
-      <td>861059</td>
-      <td>Not Empty</td>
-      <td>Foundry</td>
-    </tr>
-    <tr>
-      <th>2024-09-12</th>
-      <td>#\rÅWãfSpiderPool/1110/ú¾mm¸kìFå÷çL+;l·´eµ...</td>
-      <td>861060</td>
-      <td>Not Empty</td>
-      <td>Other</td>
-    </tr>
-    <tr>
-      <th>2024-09-12</th>
-      <td>#\rZãf/Foundry USA Pool #dropgold/!y|  ...</td>
-      <td>861061</td>
-      <td>Not Empty</td>
-      <td>Foundry</td>
-    </tr>
-    <tr>
-      <th>2024-09-12</th>
-      <td>#\rMined by AntPool H ±f÷ú¾mmË¼x¢y¥&gt;t...</td>
-      <td>861062</td>
+      <th>2022-12-30</th>
+      <td>`¾Mined by AntPool959[ Q§õ-ìú¾mm²99ßãï6...</td>
+      <td>769632</td>
       <td>Not Empty</td>
       <td>AntPool</td>
     </tr>
+    <tr>
+      <th>2022-12-30</th>
+      <td>a¾,ú¾mmô±\t¥ü&amp;óvm-1L´A¿ºVz¨µYTk@}Þò?(   ...</td>
+      <td>769633</td>
+      <td>Not Empty</td>
+      <td>F2Pool</td>
+    </tr>
+    <tr>
+      <th>2022-12-30</th>
+      <td>b¾Ã¯c/Foundry USA Pool #dropgold/A  6   </td>
+      <td>769634</td>
+      <td>Not Empty</td>
+      <td>Foundry</td>
+    </tr>
+    <tr>
+      <th>2022-12-30</th>
+      <td>c¾ú¾mmeè«úÆruÎ7æB¿"LNýôKü¦#âÓ[     ...</td>
+      <td>769635</td>
+      <td>Not Empty</td>
+      <td>slush</td>
+    </tr>
   </tbody>
 </table>
-<p>144459 rows × 4 columns</p>
+<p>53032 rows × 4 columns</p>
 </div>
 
 
@@ -742,43 +746,43 @@ other_miners
       <td>...</td>
     </tr>
     <tr>
-      <th>2024-09-12</th>
-      <td>k#\rÏãf/SBICrypto.com Pool/Æ/ï8]      </td>
-      <td>861035</td>
+      <th>2022-12-30</th>
+      <td>à½Åp®c/SBICrypto.com Pool/Jñ1£²     </td>
+      <td>769504</td>
       <td>Not Empty</td>
       <td>Other</td>
     </tr>
     <tr>
-      <th>2024-09-12</th>
-      <td>s#\r/ultimus/783¢ Zp_ÿ;ú¾mmËÝêRNPÞo'ß...</td>
-      <td>861043</td>
+      <th>2022-12-30</th>
+      <td>õ½­£®c/SBICrypto.com Pool/»Ì1¾     </td>
+      <td>769525</td>
       <td>Not Empty</td>
       <td>Other</td>
     </tr>
     <tr>
-      <th>2024-09-12</th>
-      <td>t#\rMined by SecPool 5sºú¾mmûÐý×é£ù...</td>
-      <td>861044</td>
+      <th>2022-12-30</th>
+      <td>¾ \t\t\t \t\t \t@°$    </td>
+      <td>769550</td>
       <td>Not Empty</td>
       <td>Other</td>
     </tr>
     <tr>
-      <th>2024-09-12</th>
-      <td>w#\rMined by SecPoolo 0z´ôú¾mm,þMÒ¹r¾2...</td>
-      <td>861047</td>
+      <th>2022-12-30</th>
+      <td>¾Çþ®c/SBICrypto.com Pool/ºï¢&amp;{     </td>
+      <td>769563</td>
       <td>Not Empty</td>
       <td>Other</td>
     </tr>
     <tr>
-      <th>2024-09-12</th>
-      <td>#\rÅWãfSpiderPool/1110/ú¾mm¸kìFå÷çL+;l·´eµ...</td>
-      <td>861060</td>
+      <th>2022-12-30</th>
+      <td>¾ \t\t\t \t\t \t4ü4    </td>
+      <td>769567</td>
       <td>Not Empty</td>
       <td>Other</td>
     </tr>
   </tbody>
 </table>
-<p>7830 rows × 4 columns</p>
+<p>1962 rows × 4 columns</p>
 </div>
 
 
@@ -838,14 +842,14 @@ data
       <th>Foundry</th>
       <th>AntPool</th>
       <th>F2Pool</th>
-      <th>ViaBTC</th>
       <th>Binance Pool</th>
-      <th>Other</th>
+      <th>ViaBTC</th>
       <th>Poolin</th>
       <th>Braiins Pool</th>
       <th>BTC.com</th>
-      <th>MARA Pool</th>
+      <th>Other</th>
       <th>Luxor</th>
+      <th>MARA Pool</th>
     </tr>
   </thead>
   <tbody>
@@ -854,40 +858,40 @@ data
       <td>0.191860</td>
       <td>0.191860</td>
       <td>0.156977</td>
-      <td>0.104651</td>
       <td>0.139535</td>
-      <td>0.081395</td>
+      <td>0.104651</td>
       <td>0.034884</td>
       <td>0.052326</td>
       <td>0.023256</td>
-      <td>0.005814</td>
+      <td>0.081395</td>
       <td>0.017442</td>
+      <td>0.005814</td>
     </tr>
     <tr>
       <th>2022-01-02</th>
       <td>0.145570</td>
       <td>0.164557</td>
       <td>0.126582</td>
-      <td>0.113924</td>
       <td>0.158228</td>
-      <td>0.082278</td>
+      <td>0.113924</td>
       <td>0.056962</td>
       <td>0.063291</td>
       <td>0.069620</td>
-      <td>NaN</td>
+      <td>0.082278</td>
       <td>0.018987</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>2022-01-03</th>
       <td>0.214286</td>
       <td>0.150000</td>
       <td>0.164286</td>
-      <td>0.107143</td>
       <td>0.085714</td>
-      <td>0.078571</td>
+      <td>0.107143</td>
       <td>0.071429</td>
       <td>0.057143</td>
       <td>0.057143</td>
+      <td>0.078571</td>
       <td>0.007143</td>
       <td>0.007143</td>
     </tr>
@@ -898,26 +902,26 @@ data
       <td>0.170068</td>
       <td>0.108844</td>
       <td>0.108844</td>
-      <td>0.088435</td>
       <td>0.068027</td>
       <td>0.054422</td>
       <td>0.061224</td>
-      <td>0.013605</td>
+      <td>0.088435</td>
       <td>0.020408</td>
+      <td>0.013605</td>
     </tr>
     <tr>
       <th>2022-01-05</th>
       <td>0.113333</td>
       <td>0.146667</td>
       <td>0.146667</td>
+      <td>0.126667</td>
       <td>0.140000</td>
-      <td>0.126667</td>
-      <td>0.126667</td>
       <td>0.100000</td>
       <td>0.033333</td>
       <td>0.040000</td>
-      <td>0.026667</td>
+      <td>0.126667</td>
       <td>NaN</td>
+      <td>0.026667</td>
     </tr>
     <tr>
       <th>...</th>
@@ -934,78 +938,78 @@ data
       <td>...</td>
     </tr>
     <tr>
-      <th>2024-09-08</th>
-      <td>0.341317</td>
-      <td>0.233533</td>
-      <td>0.095808</td>
-      <td>0.119760</td>
-      <td>0.023952</td>
-      <td>0.089820</td>
-      <td>0.005988</td>
-      <td>0.029940</td>
-      <td>0.005988</td>
-      <td>0.017964</td>
-      <td>0.035928</td>
+      <th>2022-12-26</th>
+      <td>0.255814</td>
+      <td>0.217054</td>
+      <td>0.193798</td>
+      <td>0.062016</td>
+      <td>0.108527</td>
+      <td>0.015504</td>
+      <td>0.031008</td>
+      <td>0.023256</td>
+      <td>0.046512</td>
+      <td>0.031008</td>
+      <td>0.015504</td>
     </tr>
     <tr>
-      <th>2024-09-09</th>
-      <td>0.351724</td>
-      <td>0.282759</td>
-      <td>0.075862</td>
-      <td>0.075862</td>
-      <td>0.013793</td>
-      <td>0.082759</td>
-      <td>0.006897</td>
-      <td>0.034483</td>
-      <td>0.013793</td>
-      <td>0.055172</td>
-      <td>0.006897</td>
-    </tr>
-    <tr>
-      <th>2024-09-10</th>
-      <td>0.321168</td>
-      <td>0.255474</td>
-      <td>0.116788</td>
-      <td>0.087591</td>
-      <td>0.058394</td>
-      <td>0.087591</td>
-      <td>0.007299</td>
-      <td>0.021898</td>
+      <th>2022-12-27</th>
+      <td>0.365217</td>
+      <td>0.217391</td>
+      <td>0.095652</td>
+      <td>0.095652</td>
+      <td>0.113043</td>
       <td>NaN</td>
-      <td>0.036496</td>
-      <td>0.007299</td>
+      <td>0.026087</td>
+      <td>0.017391</td>
+      <td>0.043478</td>
+      <td>0.008696</td>
+      <td>0.017391</td>
     </tr>
     <tr>
-      <th>2024-09-11</th>
-      <td>0.361111</td>
-      <td>0.231481</td>
-      <td>0.092593</td>
-      <td>0.120370</td>
-      <td>0.027778</td>
-      <td>0.092593</td>
-      <td>NaN</td>
-      <td>0.009259</td>
-      <td>NaN</td>
-      <td>0.046296</td>
-      <td>0.018519</td>
+      <th>2022-12-28</th>
+      <td>0.291667</td>
+      <td>0.220238</td>
+      <td>0.160714</td>
+      <td>0.095238</td>
+      <td>0.077381</td>
+      <td>0.023810</td>
+      <td>0.023810</td>
+      <td>0.035714</td>
+      <td>0.017857</td>
+      <td>0.023810</td>
+      <td>0.029762</td>
     </tr>
     <tr>
-      <th>2024-09-12</th>
-      <td>0.297710</td>
-      <td>0.267176</td>
-      <td>0.030534</td>
-      <td>0.145038</td>
-      <td>0.038168</td>
-      <td>0.114504</td>
-      <td>0.007634</td>
-      <td>0.015267</td>
-      <td>0.007634</td>
-      <td>0.045802</td>
-      <td>0.030534</td>
+      <th>2022-12-29</th>
+      <td>0.269504</td>
+      <td>0.234043</td>
+      <td>0.141844</td>
+      <td>0.120567</td>
+      <td>0.078014</td>
+      <td>0.014184</td>
+      <td>0.035461</td>
+      <td>0.007092</td>
+      <td>0.042553</td>
+      <td>0.042553</td>
+      <td>0.014184</td>
+    </tr>
+    <tr>
+      <th>2022-12-30</th>
+      <td>0.227848</td>
+      <td>0.189873</td>
+      <td>0.196203</td>
+      <td>0.120253</td>
+      <td>0.120253</td>
+      <td>NaN</td>
+      <td>0.037975</td>
+      <td>0.044304</td>
+      <td>0.044304</td>
+      <td>0.018987</td>
+      <td>NaN</td>
     </tr>
   </tbody>
 </table>
-<p>986 rows × 11 columns</p>
+<p>364 rows × 11 columns</p>
 </div>
 
 
@@ -1013,69 +1017,22 @@ data
 
 ```python
 # Plot the data as an area chart
-ax = data.plot.area(figsize=(15, 9),fontsize=13.5,color=colors)
+ax = data.plot.area(figsize=(8, 6),fontsize=13.5,color=colors)
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
-ax.set_title('\nBitcoin Mining Pool \nDominance (2022)\n',fontsize=22,fontdict={'font':'Lato'})
+ax.set_title('\nBitcoin Mining Pool \nDominance (2022)\n',fontsize=22,fontdict={'font':'arial'})
 ax.axhline(0.5, linestyle='--', color='black')
 plt.xlim([miners_tagged.index[0],miners_tagged.index[-1]])
 plt.ylim(0,1)
-plt.yticks([0.2, 0.4, 0.6, 0.8, 1.0], ['20%','40%','60%','80%','100%'],fontdict={'font':'Lato','size':15})
+plt.yticks([0.2, 0.4, 0.6, 0.8, 1.0], ['20%','40%','60%','80%','100%'],fontdict={'font':'arial','size':15})
 plt.legend(bbox_to_anchor=(1,1),frameon=False)
 plt.annotate('Source: Coin Metrics ATLAS',weight='book',font='arial',xy=(1.001, 0.001), xycoords='axes fraction',color='black',xytext=(-8, 6), textcoords='offset pixels',horizontalalignment='right',verticalalignment='bottom')
-plt.savefig('./Pool-Dominance-2022.png',facecolor='white',dpi=100)
+plt.savefig('./Pool-Dominance.png',facecolor='white',dpi=100)
 plt.show()
 ```
 
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:18 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:19 WARNING  findfont: Font family 'Lato' not found.
-
-
 
     
-![png](output_25_1.png)
+![png](output_25_0.png)
     
 
 
@@ -1112,44 +1069,44 @@ total_blocks
   </thead>
   <tbody>
     <tr>
-      <th>2024-02-02</th>
-      <td>188</td>
-    </tr>
-    <tr>
-      <th>2023-09-15</th>
-      <td>188</td>
-    </tr>
-    <tr>
       <th>2022-02-12</th>
       <td>187</td>
-    </tr>
-    <tr>
-      <th>2023-03-23</th>
-      <td>183</td>
     </tr>
     <tr>
       <th>2022-09-11</th>
       <td>183</td>
     </tr>
     <tr>
+      <th>2022-10-01</th>
+      <td>181</td>
+    </tr>
+    <tr>
+      <th>2022-01-13</th>
+      <td>179</td>
+    </tr>
+    <tr>
+      <th>2022-06-08</th>
+      <td>178</td>
+    </tr>
+    <tr>
       <th>...</th>
       <td>...</td>
     </tr>
     <tr>
+      <th>2022-12-27</th>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>2022-07-13</th>
+      <td>110</td>
+    </tr>
+    <tr>
+      <th>2022-11-26</th>
+      <td>109</td>
+    </tr>
+    <tr>
       <th>2022-06-17</th>
       <td>108</td>
-    </tr>
-    <tr>
-      <th>2023-06-28</th>
-      <td>108</td>
-    </tr>
-    <tr>
-      <th>2024-09-11</th>
-      <td>108</td>
-    </tr>
-    <tr>
-      <th>2023-02-25</th>
-      <td>107</td>
     </tr>
     <tr>
       <th>2022-12-24</th>
@@ -1157,7 +1114,7 @@ total_blocks
     </tr>
   </tbody>
 </table>
-<p>986 rows × 1 columns</p>
+<p>364 rows × 1 columns</p>
 </div>
 
 
@@ -1244,38 +1201,38 @@ empty_blocks
       <td>...</td>
     </tr>
     <tr>
-      <th>2024-09-12</th>
+      <th>2022-12-30</th>
+      <td>F2Pool</td>
+      <td>0.0</td>
+      <td>31.0</td>
+    </tr>
+    <tr>
+      <th>2022-12-30</th>
+      <td>Foundry</td>
+      <td>0.0</td>
+      <td>36.0</td>
+    </tr>
+    <tr>
+      <th>2022-12-30</th>
       <td>Luxor</td>
       <td>0.0</td>
-      <td>4.0</td>
+      <td>3.0</td>
     </tr>
     <tr>
-      <th>2024-09-12</th>
-      <td>MARA Pool</td>
-      <td>0.0</td>
-      <td>6.0</td>
-    </tr>
-    <tr>
-      <th>2024-09-12</th>
+      <th>2022-12-30</th>
       <td>Other</td>
-      <td>1.0</td>
-      <td>14.0</td>
-    </tr>
-    <tr>
-      <th>2024-09-12</th>
-      <td>Poolin</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>7.0</td>
     </tr>
     <tr>
-      <th>2024-09-12</th>
+      <th>2022-12-30</th>
       <td>ViaBTC</td>
       <td>0.0</td>
       <td>19.0</td>
     </tr>
   </tbody>
 </table>
-<p>10390 rows × 3 columns</p>
+<p>3862 rows × 3 columns</p>
 </div>
 
 
@@ -1430,7 +1387,7 @@ df_pivot
       <td>...</td>
     </tr>
     <tr>
-      <th>2024-09-08</th>
+      <th>2022-12-26</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1442,10 +1399,10 @@ df_pivot
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>167</td>
+      <td>129</td>
     </tr>
     <tr>
-      <th>2024-09-09</th>
+      <th>2022-12-27</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1454,13 +1411,28 @@ df_pivot
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>2022-12-28</th>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>145</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>168</td>
     </tr>
     <tr>
-      <th>2024-09-10</th>
+      <th>2022-12-29</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1472,10 +1444,10 @@ df_pivot
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>137</td>
+      <td>141</td>
     </tr>
     <tr>
-      <th>2024-09-11</th>
+      <th>2022-12-30</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1487,26 +1459,11 @@ df_pivot
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>108</td>
-    </tr>
-    <tr>
-      <th>2024-09-12</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>131</td>
+      <td>158</td>
     </tr>
   </tbody>
 </table>
-<p>986 rows × 12 columns</p>
+<p>364 rows × 12 columns</p>
 </div>
 
 
@@ -1524,8 +1481,8 @@ df_empty = df_empty[averages]
 
 
 ```python
-ax = df_empty.plot.bar(figsize=(15, 9),stacked=True,fontsize=13.5,color=colors,width=1.2)
-plt.title('\nEmpty Blocks\nTotal Percentage (2022)\n', fontdict = {'size':22, 'font': 'Lato'})
+ax = df_empty.plot.bar(figsize=(8, 6),stacked=True,fontsize=13.5,color=colors,width=1.2)
+plt.title('\nEmpty Blocks\nTotal Percentage (2022)\n', fontdict = {'size':18, 'font': 'arial'})
 ax.xaxis.set_major_locator(mdates.MonthLocator())
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
 plt.xticks(rotation=0)
@@ -1538,33 +1495,9 @@ plt.savefig('./Empty-Blocks-Total-2022.png',facecolor='white',dpi=100)
 plt.xlabel('');
 ```
 
-    2024-09-12 16:54:29 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:29 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:29 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:31 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:31 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:31 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:31 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:34 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:34 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:34 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:34 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:36 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:36 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:36 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:36 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:44 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:44 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:44 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:46 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:46 WARNING  findfont: Font family 'Lato' not found.
-
-
 
     
-![png](output_32_1.png)
+![png](output_32_0.png)
     
 
 
@@ -1615,53 +1548,53 @@ empty_blocks_total
     </tr>
     <tr>
       <th>AntPool</th>
-      <td>0.004297</td>
-      <td>0.995703</td>
+      <td>0.002657</td>
+      <td>0.997343</td>
     </tr>
     <tr>
       <th>F2Pool</th>
-      <td>0.003347</td>
-      <td>0.996653</td>
-    </tr>
-    <tr>
-      <th>ViaBTC</th>
-      <td>0.004266</td>
-      <td>0.995734</td>
+      <td>0.003707</td>
+      <td>0.996293</td>
     </tr>
     <tr>
       <th>Binance Pool</th>
-      <td>0.004765</td>
-      <td>0.995235</td>
+      <td>0.005204</td>
+      <td>0.994796</td>
     </tr>
     <tr>
-      <th>Other</th>
-      <td>0.006003</td>
-      <td>0.993997</td>
+      <th>ViaBTC</th>
+      <td>0.006603</td>
+      <td>0.993397</td>
     </tr>
     <tr>
       <th>Poolin</th>
-      <td>0.001840</td>
-      <td>0.998160</td>
+      <td>0.000903</td>
+      <td>0.999097</td>
     </tr>
     <tr>
       <th>Braiins Pool</th>
-      <td>0.003181</td>
-      <td>0.996819</td>
+      <td>0.003862</td>
+      <td>0.996138</td>
     </tr>
     <tr>
       <th>BTC.com</th>
-      <td>0.003754</td>
-      <td>0.996246</td>
+      <td>0.003584</td>
+      <td>0.996416</td>
+    </tr>
+    <tr>
+      <th>Other</th>
+      <td>0.001529</td>
+      <td>0.998471</td>
+    </tr>
+    <tr>
+      <th>Luxor</th>
+      <td>0.000000</td>
+      <td>1.000000</td>
     </tr>
     <tr>
       <th>MARA Pool</th>
       <td>0.000000</td>
       <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>Luxor</th>
-      <td>0.003325</td>
-      <td>0.996675</td>
     </tr>
   </tbody>
 </table>
@@ -1708,43 +1641,43 @@ pool_total_blocks
   <tbody>
     <tr>
       <th>Foundry</th>
-      <td>39258</td>
+      <td>11802</td>
     </tr>
     <tr>
       <th>AntPool</th>
-      <td>30255</td>
+      <td>8658</td>
     </tr>
     <tr>
       <th>F2Pool</th>
-      <td>19121</td>
-    </tr>
-    <tr>
-      <th>ViaBTC</th>
-      <td>15002</td>
+      <td>7824</td>
     </tr>
     <tr>
       <th>Binance Pool</th>
-      <td>12171</td>
+      <td>6149</td>
+    </tr>
+    <tr>
+      <th>ViaBTC</th>
+      <td>5149</td>
     </tr>
     <tr>
       <th>Poolin</th>
-      <td>5434</td>
+      <td>4431</td>
     </tr>
     <tr>
       <th>Braiins Pool</th>
-      <td>4401</td>
+      <td>2848</td>
     </tr>
     <tr>
       <th>BTC.com</th>
-      <td>3729</td>
-    </tr>
-    <tr>
-      <th>MARA Pool</th>
-      <td>3649</td>
+      <td>2232</td>
     </tr>
     <tr>
       <th>Luxor</th>
-      <td>3609</td>
+      <td>1359</td>
+    </tr>
+    <tr>
+      <th>MARA Pool</th>
+      <td>618</td>
     </tr>
   </tbody>
 </table>
@@ -1761,14 +1694,101 @@ empty_blocks_total = empty_blocks_total.drop('Other')
 
 
 ```python
-ax = empty_blocks_total['Empty'].plot.bar(figsize=(15, 9),stacked=True,fontsize=13.5,color=colors_no_other,width=0.8,zorder=2)
+pool_total_blocks.reset_index()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>miner</th>
+      <th>Total Blocks Mined</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Foundry</td>
+      <td>11802</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AntPool</td>
+      <td>8658</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>F2Pool</td>
+      <td>7824</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Binance Pool</td>
+      <td>6149</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ViaBTC</td>
+      <td>5149</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Poolin</td>
+      <td>4431</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Braiins Pool</td>
+      <td>2848</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>BTC.com</td>
+      <td>2232</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Luxor</td>
+      <td>1359</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>MARA Pool</td>
+      <td>618</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+ax = empty_blocks_total['Empty'].plot.bar(figsize=(8, 6),stacked=True,fontsize=12,color=colors_no_other,width=0.8,zorder=2)
 def format_percent(x, pos):
     return '{:.2%}'.format(x)
 formatter = FuncFormatter(format_percent)
 ax.yaxis.set_major_formatter(formatter)
-plt.xticks(rotation=0,size=12)
+plt.xticks(rotation=45,size=12)
 plt.yticks(rotation=0,size=12)
-plt.title('\nEmpty Blocks vs. Total Blocks\nby Mining Pool (2022)\n', fontdict = {'size':22, 'font': 'Lato'})
+plt.title('\nEmpty Blocks vs. Total Blocks\nby Mining Pool (2022)\n', fontdict = {'size':18, 'font': 'arial'})
 plt.xlabel('');
 plt.ylabel('Empty Blocks (%)',fontsize=14,labelpad=10);
 plt.tick_params(axis='both', which='both', length=0, pad=8)
@@ -1776,7 +1796,7 @@ plt.ylim(0,0.007)
 ax.grid(True, axis='y',linestyle='--',zorder=1,alpha=0.5)
 ax2 = ax.twinx()
 pool_total_blocks.plot.line(ax=ax2,color='black',linestyle='--',legend=True)
-pool_total_blocks.reset_index().plot.scatter(x='index',y='Total Blocks Mined',ax=ax2,color='black', s=50)
+pool_total_blocks.reset_index().plot.scatter(x='miner',y='Total Blocks Mined',ax=ax2,color='black', s=50)
 ax2.set_yticks([0,2000,4000,6000,8000,10000,12000,14000])
 plt.ylim(0,14000)
 ax2.yaxis.set_major_formatter(mtick.StrMethodFormatter('{x:,.0f}'))
@@ -1784,141 +1804,25 @@ plt.legend(bbox_to_anchor=(1,1.0),frameon=False,fontsize=11.3)
 plt.tick_params(axis='both', which='both', length=0, pad=8)
 plt.yticks(rotation=0,size=12)
 plt.ylabel('Total Blocks Mined\n',fontsize=14,labelpad=10);
-plt.annotate('Source: Coin Metrics ATLAS',weight='book',font='arial',fontsize=12,xy=(0.195, 0.95), xycoords='axes fraction',color='black',xytext=(-8, 6), textcoords='offset pixels',horizontalalignment='right',verticalalignment='bottom')
+plt.annotate(
+    'Source: Coin Metrics ATLAS',
+    weight='book',
+    font='arial',
+    fontsize=12,
+    xy=(1.0, 1.0),
+    xycoords='axes fraction',
+    color='black',
+    xytext=(-8, 6),
+    textcoords='offset pixels',
+    horizontalalignment='right',
+    verticalalignment='bottom'
+)
 plt.savefig('./Empty-Blocks-by-Pool.png',facecolor='white',dpi=100)
 ```
 
 
-    ---------------------------------------------------------------------------
-
-    KeyError                                  Traceback (most recent call last)
-
-    File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/core/indexes/base.py:3653, in Index.get_loc(self, key)
-       3652 try:
-    -> 3653     return self._engine.get_loc(casted_key)
-       3654 except KeyError as err:
-
-
-    File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/_libs/index.pyx:147, in pandas._libs.index.IndexEngine.get_loc()
-
-
-    File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/_libs/index.pyx:176, in pandas._libs.index.IndexEngine.get_loc()
-
-
-    File pandas/_libs/hashtable_class_helper.pxi:7080, in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-
-    File pandas/_libs/hashtable_class_helper.pxi:7088, in pandas._libs.hashtable.PyObjectHashTable.get_item()
-
-
-    KeyError: 'index'
-
     
-    The above exception was the direct cause of the following exception:
-
-
-    KeyError                                  Traceback (most recent call last)
-
-    Cell In[33], line 16
-         14 ax2 = ax.twinx()
-         15 pool_total_blocks.plot.line(ax=ax2,color='black',linestyle='--',legend=True)
-    ---> 16 pool_total_blocks.reset_index().plot.scatter(x='index',y='Total Blocks Mined',ax=ax2,color='black', s=50)
-         17 ax2.set_yticks([0,2000,4000,6000,8000,10000,12000,14000])
-         18 plt.ylim(0,14000)
-
-
-    File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/plotting/_core.py:1674, in PlotAccessor.scatter(self, x, y, s, c, **kwargs)
-       1591 def scatter(self, x, y, s=None, c=None, **kwargs) -> PlotAccessor:
-       1592     """
-       1593     Create a scatter plot with varying marker point size and color.
-       1594 
-       (...)
-       1672         ...                       colormap='viridis')
-       1673     """
-    -> 1674     return self(kind="scatter", x=x, y=y, s=s, c=c, **kwargs)
-
-
-    File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/plotting/_core.py:920, in PlotAccessor.__call__(self, *args, **kwargs)
-        918 if kind in self._dataframe_kinds:
-        919     if isinstance(data, ABCDataFrame):
-    --> 920         return plot_backend.plot(data, x=x, y=y, kind=kind, **kwargs)
-        921     else:
-        922         raise ValueError(f"plot kind {kind} can only be used for data frames")
-
-
-    File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/plotting/_matplotlib/__init__.py:71, in plot(data, kind, **kwargs)
-         69         kwargs["ax"] = getattr(ax, "left_ax", ax)
-         70 plot_obj = PLOT_CLASSES[kind](data, **kwargs)
-    ---> 71 plot_obj.generate()
-         72 plot_obj.draw()
-         73 return plot_obj.result
-
-
-    File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/plotting/_matplotlib/core.py:448, in MPLPlot.generate(self)
-        446 self._compute_plot_data()
-        447 self._setup_subplots()
-    --> 448 self._make_plot()
-        449 self._add_table()
-        450 self._make_legend()
-
-
-    File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/plotting/_matplotlib/core.py:1259, in ScatterPlot._make_plot(self)
-       1256 else:
-       1257     label = None
-       1258 scatter = ax.scatter(
-    -> 1259     data[x].values,
-       1260     data[y].values,
-       1261     c=c_values,
-       1262     label=label,
-       1263     cmap=cmap,
-       1264     norm=norm,
-       1265     **self.kwds,
-       1266 )
-       1267 if cb:
-       1268     cbar_label = c if c_is_column else ""
-
-
-    File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/core/frame.py:3761, in DataFrame.__getitem__(self, key)
-       3759 if self.columns.nlevels > 1:
-       3760     return self._getitem_multilevel(key)
-    -> 3761 indexer = self.columns.get_loc(key)
-       3762 if is_integer(indexer):
-       3763     indexer = [indexer]
-
-
-    File ~/opt/anaconda3/lib/python3.8/site-packages/pandas/core/indexes/base.py:3655, in Index.get_loc(self, key)
-       3653     return self._engine.get_loc(casted_key)
-       3654 except KeyError as err:
-    -> 3655     raise KeyError(key) from err
-       3656 except TypeError:
-       3657     # If we have a listlike key, _check_indexing_error will raise
-       3658     #  InvalidIndexError. Otherwise we fall through and re-raise
-       3659     #  the TypeError.
-       3660     self._check_indexing_error(key)
-
-
-    KeyError: 'index'
-
-
-    2024-09-12 16:54:49 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:49 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:49 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:49 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:49 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:49 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:49 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:49 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:49 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:49 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:50 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:50 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:50 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-12 16:54:50 WARNING  findfont: Font family 'Lato' not found.
-
-
-
-    
-![png](output_36_2.png)
+![png](output_37_0.png)
     
 
 
