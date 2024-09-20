@@ -30,8 +30,8 @@ For more information about our quotes data, please reference our [market order b
 
 Market quotes can be accessed using the `timeseries/market-quotes` and `timeseries-stream/market-quotes` for markets.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-quotes" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-quotes" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 {% tabs %}
@@ -64,12 +64,6 @@ print(
 ```
 {% endtab %}
 {% endtabs %}
-
-
-
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries-stream/market-quotes" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
 
 ### **Example**
 
