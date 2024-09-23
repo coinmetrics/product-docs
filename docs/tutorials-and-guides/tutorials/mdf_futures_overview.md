@@ -284,7 +284,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-![](output\_24\_0.png)
+![](../../getting-started/tutorials/output\_24\_0.png)
 
 <figure><img src="../../.gitbook/assets/mdf_futures_overview_btc_open_interest.png" alt=""><figcaption></figcaption></figure>
 
@@ -373,7 +373,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-![png](output\_32\_0.png)
+![png](../../getting-started/tutorials/output\_32\_0.png)
 
 <figure><img src="../../.gitbook/assets/mdf_futures_overview_binance-btcusdt-future.png" alt=""><figcaption></figcaption></figure>
 
@@ -536,7 +536,7 @@ for spine in ax.spines.values():
 plt.show()
 ```
 
-![png](output\_41\_0.png)
+![png](../../getting-started/tutorials/output\_41\_0.png)
 
 <figure><img src="../../.gitbook/assets/mdf_futures_overview_btc_hourly_liquidations_oi.png" alt=""><figcaption></figcaption></figure>
 
@@ -644,7 +644,7 @@ plt.legend(loc='upper left', fontsize=10, bbox_to_anchor=(0.76,1.2), frameon=Fal
 plt.show()
 ```
 
-![png](output\_50\_0.png)
+![png](../../getting-started/tutorials/output\_50\_0.png)
 
 <figure><img src="../../.gitbook/assets/mdf_futures_overview_perp_futures_funding_rates.png" alt=""><figcaption></figcaption></figure>
 
@@ -707,7 +707,7 @@ plt.legend(loc='upper right', fontsize=10, ncol=1, framealpha=0, bbox_to_anchor=
 plt.show()
 ```
 
-![png](output\_56\_0.png)
+![png](../../getting-started/tutorials/output\_56\_0.png)
 
 <figure><img src="../../.gitbook/assets/mdf_futures_overview_btc_perp_futures_agg_fund_rate.png" alt=""><figcaption></figcaption></figure>
 
@@ -807,7 +807,7 @@ plt.ylabel('')
 plt.show()
 ```
 
-![png](output\_61\_0.png)
+![png](../../getting-started/tutorials/output\_61\_0.png)
 
 <figure><img src="../../.gitbook/assets/mdf_futures_overview_btc_perp_agg_funding_rate_apr.png" alt=""><figcaption></figcaption></figure>
 
@@ -878,7 +878,7 @@ plt.legend(loc='upper right', fontsize=10, ncol=1, framealpha=0, bbox_to_anchor=
 plt.show()
 ```
 
-![png](output\_66\_0.png)
+![png](../../getting-started/tutorials/output\_66\_0.png)
 
 
 

@@ -2,7 +2,7 @@
 description: /timeseries/asset-metrics
 ---
 
-# Asset Metrics Overview
+# Asset Metrics
 
 Our Asset metrics include our Network Data time series metrics and certain Market Data metrics that are aggregated at the asset-level (e.g., Reference Rates/Prices and Trusted Volume).
 
@@ -28,7 +28,7 @@ The **Asset Metrics** endpoint returns time series data for each asset and metri
 | Field                  | Description                                                                                                                                                                                                                                                                                             |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | asset                  | Asset                                                                                                                                                                                                                                                                                                   |
-| time                   | [Timestamp](../access-our-data/api.md#timestamps)                                                                                                                                                                                                                                                       |
+| time                   | [Timestamp](../getting-started/access-our-data/api.md#timestamps)                                                                                                                                                                                                                                       |
 | {MetricID}             | Metric ID data (as identified in the hundreds of asset-metrics that follow) for the specific asset and timestamp                                                                                                                                                                                        |
 | {MetricID}-status      | Status for metrics that require human review (e.g., on-chain exchange supply and flows); responses include "flash" for when a metric is just computed and not reviewed, "reviewed" for when a metric has been manually reviewed, and "revised" if a metric has been revised since its first publication |
 | {MetricID}-status-time | Date of last human review for metrics that require periodic review (e.g., on-chain exchange supply and flows)                                                                                                                                                                                           |
