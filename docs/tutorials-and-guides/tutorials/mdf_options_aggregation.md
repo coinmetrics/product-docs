@@ -341,7 +341,7 @@ v.get_legend().remove()
 v.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, pos: '${:,.1f}'.format(x/1000000) + 'M'))
 ```
 
-![png](../../getting-started/tutorials/output\_32\_0.png)
+<figure><img src="../../.gitbook/assets/MDF_options_aggregation-deribit_eth_options_volume.png" alt=""><figcaption></figcaption></figure>
 
 ## OPEN INTEREST
 
@@ -454,7 +454,7 @@ oi.set_title(('\nDeribit ' + str(asset).upper() + ' Options Open Interest\n'),fo
 oi.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, pos: '${:,.2f}'.format(x/1_000_000) + 'M'))
 ```
 
-![png](../../getting-started/tutorials/output\_40\_0.png)
+<figure><img src="../../.gitbook/assets/MDF_options_aggregation__deribit_eth_options_oi.png" alt=""><figcaption></figcaption></figure>
 
 ### Split into Calls/Puts
 
@@ -544,7 +544,4 @@ pc.set_title(('\nDeribit ' + str(asset).upper() + ' Options\nPut/Call Ratio\n'),
 pc.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, pos: '{:,.2f}'.format(x)))
 ```
 
-![png](../../getting-started/tutorials/output\_49\_0.png)
-
-```python
-```
+<figure><img src="../../.gitbook/assets/MDF_options_aggregation__deribit_put_call_ratio.png" alt=""><figcaption></figcaption></figure>

@@ -314,11 +314,12 @@ plt.legend(bbox_to_anchor=(1,1),frameon=False)
 plt.annotate('Source: Coin Metrics ATLAS',weight='book',font='arial',xy=(1.001, 0.001), xycoords='axes fraction',color='black',xytext=(-8, 6), textcoords='offset pixels',horizontalalignment='right',verticalalignment='bottom')
 plt.savefig('./Pool-Dominance.png',facecolor='white',dpi=100)
 plt.show()
+
 ```
 
-![png](../../getting-started/tutorials/output\_25\_0.png)
+<figure><img src="../../.gitbook/assets/ATLAS_miner_signatures_bitcoin_mining_pool_dominance.png" alt=""><figcaption></figcaption></figure>
 
-```python
+```
 total_blocks = pd.DataFrame(miners_tagged.index.value_counts())
 total_blocks.rename(columns={total_blocks.columns[0]: 'Total Blocks'}, inplace=True)
 total_blocks
@@ -415,7 +416,7 @@ plt.savefig('./Empty-Blocks-Total-2022.png',facecolor='white',dpi=100)
 plt.xlabel('');
 ```
 
-![png](../../getting-started/tutorials/output\_32\_0.png)
+<figure><img src="../../.gitbook/assets/ATLAS_miner_signatures_empty_blocks_pct.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 empty_blocks_total = pd.DataFrame(miners_tagged.groupby([miners_tagged.miner])['category'].value_counts(normalize=True))
@@ -524,13 +525,4 @@ plt.annotate(
 plt.savefig('./Empty-Blocks-by-Pool.png',facecolor='white',dpi=100)
 ```
 
-![png](../../getting-started/tutorials/output\_37\_0.png)
-
-```python
-```
-
-```python
-```
-
-```python
-```
+<figure><img src="../../.gitbook/assets/ATLAS_miner_signatures_empty_vs_total_blocks.png" alt=""><figcaption></figcaption></figure>

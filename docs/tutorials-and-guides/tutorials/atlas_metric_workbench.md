@@ -153,9 +153,9 @@ ax.set_title('\nUSDC Transactions (Block-by-Block) \n', fontsize = 16)
 plt.show()
 ```
 
-![png](../../getting-started/tutorials/output\_13\_0.png)
+<figure><img src="../../.gitbook/assets/ATLAS_metric_workbench_usdc_txns.png" alt=""><figcaption></figcaption></figure>
 
-```python
+```
 largest_tx = usdc_tx.loc[usdc_tx['amount'].idxmax()]
 ```
 
@@ -243,11 +243,13 @@ plt.annotate(
     verticalalignment='bottom'
 )
 ax.set_title('\nUSDT Transactions (Block-by-Block) \n', fontsize = 17);
+
 ```
 
-![png](../../getting-started/tutorials/output\_20\_0.png)
+<figure><img src="../../.gitbook/assets/ATLAS_metric_workbench_usdt_txns.png" alt=""><figcaption></figcaption></figure>
 
-```python
+```
+
 largest_usdt_tx = usdt_eth_tx.loc[usdt_eth_tx['amount'].idxmax()]
 largest_usdt_tx
 ```
@@ -372,7 +374,7 @@ plt.annotate(
 ax.set_title('\nUSDC and USDT\nTransferred in Same Transaction\n', fontsize = 17);
 ```
 
-![png](../../getting-started/tutorials/output\_29\_0.png)
+<figure><img src="../../.gitbook/assets/ATLAS_metric_workbench_usdc_usdt_transfer_same_txn.png" alt=""><figcaption></figcaption></figure>
 
 ## Entity-Based Metrics
 
@@ -553,7 +555,7 @@ plt.annotate(
 plt.gca().set_yticklabels(['${:,.2f}M'.format(x/1000000) for x in plt.gca().get_yticks()]);
 ```
 
-![png](../../getting-started/tutorials/output\_46\_0.png)
+<figure><img src="../../.gitbook/assets/ATLAS_metric_workbench_usdt_eth_inflows_uniswap.png" alt=""><figcaption></figcaption></figure>
 
 #### Retrieve DEX Supply
 
@@ -633,16 +635,4 @@ plt.annotate('Source: Coin Metrics ATLAS',xy=(1, -0.195), xycoords='axes fractio
 plt.gca().set_yticklabels(['${:,.2f}M'.format(x/1000000) for x in plt.gca().get_yticks()]);
 ```
 
-![png](../../getting-started/tutorials/output\_54\_0.png)
-
-```python
-```
-
-```python
-```
-
-```python
-```
-
-```python
-```
+<figure><img src="../../.gitbook/assets/ATLAS_metric_workbench_usdt_eth_supply_uniswap_v3.png" alt=""><figcaption></figcaption></figure>

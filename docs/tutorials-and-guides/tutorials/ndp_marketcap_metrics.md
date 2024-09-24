@@ -176,9 +176,7 @@ plt.gca().yaxis.set_major_formatter(formatter)
 plt.savefig("ndp_capmrktcurusd.png");
 ```
 
-![png](../../getting-started/tutorials/output\_19\_0.png)
-
-![CapMrktCurUSD](../../getting-started/tutorials/ndp\_capmrktcurusd.png)
+<figure><img src="../../.gitbook/assets/NDP_marketcap_metrics_capmrktcur.png" alt=""><figcaption></figcaption></figure>
 
 ## Estimated Market Cap
 
@@ -247,7 +245,7 @@ plt.gca().yaxis.set_major_formatter(formatter)
 plt.show()
 ```
 
-![png](../../getting-started/tutorials/output\_30\_0.png)
+<figure><img src="../../.gitbook/assets/NDP_marketcap_metrics_capmrktest.png" alt=""><figcaption></figcaption></figure>
 
 ## Free Float Market Cap
 
@@ -358,9 +356,7 @@ plt.gca().xaxis.set_major_formatter(mdates.ConciseDateFormatter(mdates.AutoDateL
 plt.legend()
 
 plt.show()
+
 ```
 
-![png](../../getting-started/tutorials/output\_40\_0.png)
-
-```python
-```
+<figure><img src="../../.gitbook/assets/NDP_marketcap_metrics_capmrktff_vs_capmrktcur.png" alt=""><figcaption></figcaption></figure>

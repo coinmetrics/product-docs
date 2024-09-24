@@ -8,7 +8,7 @@ Most of our data requires an API Key. If you want an API key, get in touch with 
 
 We offer some data for free under our Community Data. For more information, go to: [coin-metrics-community-data.md](access-our-data/coin-metrics-community-data.md "mention")
 
-Data coverage can be seen by plugging in your API key at coverage.coinmetrics.io
+Data coverage can be seen by plugging in your API key at [coverage.coinmetrics.io](https://coverage.coinmetrics.io)
 
 ## Learn How to Use Coin Metrics Tools
 
@@ -20,13 +20,17 @@ You can use our [Data Viz](https://charts.coinmetrics.io/crypto-data/) to create
 
 &#x20;[data-visualization](data-visualization/ "mention")
 
+You can directly download files from your browser by adding a "format=csv" in your HTTP request, i.e. `https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=PriceUSD,FlowInGEMUSD&frequency=1d&pretty=true&api_key=<your_key>&format=csv`
+
+For more information on exporting data, see the guide: [exporting-data.md](tutorials-and-guides/user-guides/exporting-data.md "mention")
+
 ### For Developers
 
 You can use our REST [API](https://docs.coinmetrics.io/api/v4/) for accessing data. To get started on our API, see the API basics page.&#x20;
 
 [api.md](access-our-data/api.md "mention")
 
-We offer convenient interfaces for our API in different languages:
+We offer convenient wrappers for our API in different languages.&#x20;
 
 #### **Python Users**
 
@@ -48,6 +52,17 @@ In general, our examples are divided into these sections.
 
 ## Understand our Data
 
+Our Data Overviews explain the data that we cover in depth. You can find different metrics or data types by navigating the sidebar e.g. Market Data Overview > Volume > Trusted Volume, Network Data Overview > Addresses > Active Addresses.
+
+[market-data-overview](market-data/market-data-overview/ "mention")
+
+[network-data-overview](network-data/network-data-overview/ "mention")
+
+[index](index-data/index/ "mention")
+
+[Broken link](broken-reference "mention")
+
+The Core Concepts section provides high level explainers about Coin Metrics data that encompass multiple data types. Read this section to understand and be able reason about our data.
+
 [core-concepts](core-concepts/ "mention")
 
-In Core Concepts, we explain _why_ Coin Metrics tools and datasets are structured the way there are. Read this section to understand and be able reason about our data.

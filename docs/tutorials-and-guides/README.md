@@ -11,12 +11,15 @@ We recommend new users to read the following guides first to get a basic underst
 
 Refer to our more use-case-specific guides to make the most out of our data:
 
-* How To Speed Up Your Python API Client Queries (Parallelization and Other Tips)&#x20;
+* [how-to-use-the-coin-metrics-api-efficiently-http.md](user-guides/how-to-use-the-coin-metrics-api-efficiently-http.md "mention")
+* [how-to-use-the-python-api-client-efficiently-parallelization-and-other-tips.md](user-guides/how-to-use-the-python-api-client-efficiently-parallelization-and-other-tips.md "mention")
 * [How To Migrate From Catalog V1 to Catalog V2](user-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md)
 
 ## Product Tutorials
 
-Product tutorials will help you explore the specific types of data Coin Metrics offers.&#x20;
+Product tutorials will help you explore the specific types of data Coin Metrics offers. These can be viewed in [demos.coinmetrics.io](https://demos.coinmetrics.io).
+
+A curated set of these tutorials are hosted below.
 
 ### Market Data
 
