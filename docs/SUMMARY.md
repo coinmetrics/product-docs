@@ -31,7 +31,7 @@
     * [NDP: Creating Custom Network Data Metrics Using ATLAS](tutorials-and-guides/tutorials/atlas\_metric\_workbench.md)
     * [NDP: Marketcap Metrics](tutorials-and-guides/tutorials/ndp\_marketcap\_metrics.md)
     * [NDP: Mining Pool Dominance](tutorials-and-guides/tutorials/atlas\_miner\_signatures.md)
-    * [NDP: Staking Metrics](tutorials-and-guides/tutorials/NDP_ETH_staking_metrics.md)
+    * [NDP: Staking Metrics](tutorials-and-guides/tutorials/NDP\_ETH\_staking_metrics.md)
   * [How To Guides](tutorials-and-guides/user-guides/README.md)
     * [How To Export Data](tutorials-and-guides/user-guides/exporting-data.md)
     * [How To Migrate From Catalog V1 to Catalog V2 and Reference Data](tutorials-and-guides/user-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md)
