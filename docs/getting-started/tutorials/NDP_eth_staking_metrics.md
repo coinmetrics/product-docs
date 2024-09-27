@@ -34,8 +34,8 @@ import warnings
 sns.set_theme()
 warnings.filterwarnings('ignore')
 fig = plt.style.use('seaborn')
-sns.set(rc={'figure.figsize':(14,9)})
-sns.set_style("whitegrid",{'axes.grid' : True,'grid.linestyle': '--', 'grid.color': 'gray','axes.edgecolor': 'white','font.family': ['Lato']})
+sns.set(rc={'figure.figsize':(8,6)})
+sns.set_style("whitegrid",{'axes.grid' : True,'grid.linestyle': '--', 'grid.color': 'gray','axes.edgecolor': 'white','font.family': ['arial']})
 ```
 
 
@@ -59,7 +59,7 @@ except KeyError:
 client = CoinMetricsClient(api_key)
 ```
 
-    2024-09-09 12:39:25 INFO     Using API key found in environment
+    2024-09-27 14:45:08 INFO     Using API key found in environment
 
 
 # Calculate Estimated Validator Yield
@@ -73,7 +73,8 @@ A validator’s expected annual percentage return (APR) from staking rewards acc
 
 
 ```python
-start = '2022-01-01'
+start_time = '2022-01-01'
+end_time = '2022-12-31'
 ```
 
 ### Retrieve Consensus Layer Metrics
@@ -83,7 +84,8 @@ start = '2022-01-01'
 consensus_metrics = client.get_asset_metrics(
     assets='eth_cl',
     metrics=['ValidatorActOngCnt'],
-    start_time = start,
+    start_time = start_time,
+    end_time = end_time
 ).to_dataframe()
 ```
 
@@ -161,38 +163,38 @@ consensus_metrics
       <td>...</td>
     </tr>
     <tr>
-      <th>977</th>
+      <th>360</th>
       <td>eth_cl</td>
-      <td>2024-09-04 00:00:00+00:00</td>
-      <td>1069599</td>
+      <td>2022-12-27 00:00:00+00:00</td>
+      <td>491923</td>
     </tr>
     <tr>
-      <th>978</th>
+      <th>361</th>
       <td>eth_cl</td>
-      <td>2024-09-05 00:00:00+00:00</td>
-      <td>1070299</td>
+      <td>2022-12-28 00:00:00+00:00</td>
+      <td>492863</td>
     </tr>
     <tr>
-      <th>979</th>
+      <th>362</th>
       <td>eth_cl</td>
-      <td>2024-09-06 00:00:00+00:00</td>
-      <td>1070402</td>
+      <td>2022-12-29 00:00:00+00:00</td>
+      <td>493116</td>
     </tr>
     <tr>
-      <th>980</th>
+      <th>363</th>
       <td>eth_cl</td>
-      <td>2024-09-07 00:00:00+00:00</td>
-      <td>1070495</td>
+      <td>2022-12-30 00:00:00+00:00</td>
+      <td>493662</td>
     </tr>
     <tr>
-      <th>981</th>
+      <th>364</th>
       <td>eth_cl</td>
-      <td>2024-09-08 00:00:00+00:00</td>
-      <td>1070031</td>
+      <td>2022-12-31 00:00:00+00:00</td>
+      <td>493896</td>
     </tr>
   </tbody>
 </table>
-<p>982 rows × 3 columns</p>
+<p>365 rows × 3 columns</p>
 </div>
 
 
@@ -220,7 +222,8 @@ The expected annual number of blocks proposed in turn allows us to estimate the 
 execution_metrics = client.get_asset_metrics(
     assets='eth',
     metrics=['FeePrioTotNtv', 'BlkCnt'],
-    start_time = start,
+    start_time = start_time,
+    end_time = end_time
 ).to_dataframe()
 ```
 
@@ -305,43 +308,43 @@ execution_metrics
       <td>...</td>
     </tr>
     <tr>
-      <th>977</th>
+      <th>360</th>
       <td>eth</td>
-      <td>2024-09-04 00:00:00+00:00</td>
-      <td>7165</td>
-      <td>440.207866</td>
+      <td>2022-12-27 00:00:00+00:00</td>
+      <td>7156</td>
+      <td>343.663114</td>
     </tr>
     <tr>
-      <th>978</th>
+      <th>361</th>
       <td>eth</td>
-      <td>2024-09-05 00:00:00+00:00</td>
-      <td>7168</td>
-      <td>495.466343</td>
+      <td>2022-12-28 00:00:00+00:00</td>
+      <td>7173</td>
+      <td>353.437599</td>
     </tr>
     <tr>
-      <th>979</th>
+      <th>362</th>
       <td>eth</td>
-      <td>2024-09-06 00:00:00+00:00</td>
+      <td>2022-12-29 00:00:00+00:00</td>
       <td>7161</td>
-      <td>464.938243</td>
+      <td>324.786107</td>
     </tr>
     <tr>
-      <th>980</th>
+      <th>363</th>
       <td>eth</td>
-      <td>2024-09-07 00:00:00+00:00</td>
-      <td>7179</td>
-      <td>323.894622</td>
+      <td>2022-12-30 00:00:00+00:00</td>
+      <td>7166</td>
+      <td>319.41694</td>
     </tr>
     <tr>
-      <th>981</th>
+      <th>364</th>
       <td>eth</td>
-      <td>2024-09-08 00:00:00+00:00</td>
-      <td>7159</td>
-      <td>209.683444</td>
+      <td>2022-12-31 00:00:00+00:00</td>
+      <td>7166</td>
+      <td>290.772518</td>
     </tr>
   </tbody>
 </table>
-<p>982 rows × 4 columns</p>
+<p>365 rows × 4 columns</p>
 </div>
 
 
@@ -444,48 +447,48 @@ eth_metrics
       <td>...</td>
     </tr>
     <tr>
-      <th>977</th>
-      <td>2024-09-04 00:00:00+00:00</td>
-      <td>1069599</td>
-      <td>7165</td>
-      <td>440.207866</td>
-      <td>2.84295</td>
+      <th>360</th>
+      <td>2022-12-27 00:00:00+00:00</td>
+      <td>491923</td>
+      <td>7156</td>
+      <td>343.663114</td>
+      <td>4.192095</td>
     </tr>
     <tr>
-      <th>978</th>
-      <td>2024-09-05 00:00:00+00:00</td>
-      <td>1070299</td>
-      <td>7168</td>
-      <td>495.466343</td>
-      <td>2.84202</td>
+      <th>361</th>
+      <td>2022-12-28 00:00:00+00:00</td>
+      <td>492863</td>
+      <td>7173</td>
+      <td>353.437599</td>
+      <td>4.188095</td>
     </tr>
     <tr>
-      <th>979</th>
-      <td>2024-09-06 00:00:00+00:00</td>
-      <td>1070402</td>
+      <th>362</th>
+      <td>2022-12-29 00:00:00+00:00</td>
+      <td>493116</td>
       <td>7161</td>
-      <td>464.938243</td>
-      <td>2.841883</td>
+      <td>324.786107</td>
+      <td>4.187021</td>
     </tr>
     <tr>
-      <th>980</th>
-      <td>2024-09-07 00:00:00+00:00</td>
-      <td>1070495</td>
-      <td>7179</td>
-      <td>323.894622</td>
-      <td>2.84176</td>
+      <th>363</th>
+      <td>2022-12-30 00:00:00+00:00</td>
+      <td>493662</td>
+      <td>7166</td>
+      <td>319.41694</td>
+      <td>4.184704</td>
     </tr>
     <tr>
-      <th>981</th>
-      <td>2024-09-08 00:00:00+00:00</td>
-      <td>1070031</td>
-      <td>7159</td>
-      <td>209.683444</td>
-      <td>2.842376</td>
+      <th>364</th>
+      <td>2022-12-31 00:00:00+00:00</td>
+      <td>493896</td>
+      <td>7166</td>
+      <td>290.772518</td>
+      <td>4.183713</td>
     </tr>
   </tbody>
 </table>
-<p>982 rows × 5 columns</p>
+<p>365 rows × 5 columns</p>
 </div>
 
 
@@ -601,58 +604,58 @@ eth_metrics
       <td>...</td>
     </tr>
     <tr>
-      <th>977</th>
-      <td>2024-09-04 00:00:00+00:00</td>
-      <td>1069599</td>
-      <td>7165</td>
-      <td>440.207866</td>
-      <td>2.84295</td>
-      <td>2.458678</td>
-      <td>0.033981</td>
+      <th>360</th>
+      <td>2022-12-27 00:00:00+00:00</td>
+      <td>491923</td>
+      <td>7156</td>
+      <td>343.663114</td>
+      <td>4.192095</td>
+      <td>5.345959</td>
+      <td>0.048594</td>
     </tr>
     <tr>
-      <th>978</th>
-      <td>2024-09-05 00:00:00+00:00</td>
-      <td>1070299</td>
-      <td>7168</td>
-      <td>495.466343</td>
-      <td>2.84202</td>
-      <td>2.45707</td>
-      <td>0.036534</td>
+      <th>361</th>
+      <td>2022-12-28 00:00:00+00:00</td>
+      <td>492863</td>
+      <td>7173</td>
+      <td>353.437599</td>
+      <td>4.188095</td>
+      <td>5.335763</td>
+      <td>0.048059</td>
     </tr>
     <tr>
-      <th>979</th>
-      <td>2024-09-06 00:00:00+00:00</td>
-      <td>1070402</td>
+      <th>362</th>
+      <td>2022-12-29 00:00:00+00:00</td>
+      <td>493116</td>
       <td>7161</td>
-      <td>464.938243</td>
-      <td>2.841883</td>
-      <td>2.456834</td>
-      <td>0.038785</td>
+      <td>324.786107</td>
+      <td>4.187021</td>
+      <td>5.333025</td>
+      <td>0.047630</td>
     </tr>
     <tr>
-      <th>980</th>
-      <td>2024-09-07 00:00:00+00:00</td>
-      <td>1070495</td>
-      <td>7179</td>
-      <td>323.894622</td>
-      <td>2.84176</td>
-      <td>2.456621</td>
-      <td>0.039804</td>
+      <th>363</th>
+      <td>2022-12-30 00:00:00+00:00</td>
+      <td>493662</td>
+      <td>7166</td>
+      <td>319.41694</td>
+      <td>4.184704</td>
+      <td>5.327127</td>
+      <td>0.045280</td>
     </tr>
     <tr>
-      <th>981</th>
-      <td>2024-09-08 00:00:00+00:00</td>
-      <td>1070031</td>
-      <td>7159</td>
-      <td>209.683444</td>
-      <td>2.842376</td>
-      <td>2.457686</td>
-      <td>0.040130</td>
+      <th>364</th>
+      <td>2022-12-31 00:00:00+00:00</td>
+      <td>493896</td>
+      <td>7166</td>
+      <td>290.772518</td>
+      <td>4.183713</td>
+      <td>5.324603</td>
+      <td>0.044691</td>
     </tr>
   </tbody>
 </table>
-<p>982 rows × 7 columns</p>
+<p>365 rows × 7 columns</p>
 </div>
 
 
@@ -672,114 +675,24 @@ eth_metrics = eth_metrics.dropna().set_index('time')
 
 
 ```python
-ax = eth_metrics[['Validator Yield', 'Priority Tip Yield']].plot.area(stacked=True, figsize=(14, 8),color=['orange', 'red'])
+ax = eth_metrics[['Validator Yield', 'Priority Tip Yield']].plot.area(stacked=True, figsize=(8, 6),color=['orange', 'red'])
 ax.set_ylabel('Yield (%)')
 ax.set_xlabel('')
-ax.set_title('\nETH Staking \nEstimated Yield',fontsize=18)
-plt.legend(loc='upper right', bbox_to_anchor=(1, 1.11))
+ax.set_title('\nETH Staking \nEstimated Yield',fontsize=14)
+plt.legend(loc='upper right', bbox_to_anchor=(1.00, 1.0))
+plt.savefig("NDP_ETH_staking_metrics_validator_priority_tip_yield.png")
 plt.show()
 ```
 
-    2024-09-09 12:39:27 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:27 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:27 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:27 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:27 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:27 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:27 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:27 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:27 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:27 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:27 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:27 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:27 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:28 WARNING  findfont: Font family 'Lato' not found.
-
-
 
     
-![png](output_31_1.png)
+![png](output_31_0.png)
     
 
 
 # Calculate ETH Supply: Staked vs. Unstaked
 
 One of the many advantages of a blockchain-based ledger is auditability, but increasingly complex consensus architectures and supply mechanics can make it difficult to understand the full picture of asset supply. Ethereum's shift to proof-of-stake introduced a number of novel considerations in obtaining network-wide supply figures. In the following example, we combine various Supply metrics from ETH's Consensus and Execution Layers to ascertain the total amount of staked vs. unstaked supply.
-
-
-```python
-start = '2022-01-01'
-```
 
 ### Consensus Layer Metrics
 
@@ -788,7 +701,8 @@ start = '2022-01-01'
 cl_supply = client.get_asset_metrics(
     assets='eth_cl',
     metrics=['SplyCur','SplyStkedNtv'],
-    start_time = start,
+    start_time = start_time,
+    end_time = end_time,
     frequency = '1d'
 ).to_dataframe()
 
@@ -802,7 +716,8 @@ cl_supply = cl_supply.rename(columns={"SplyCur": "SplyCur_CL"})
 el_supply = client.get_asset_metrics(
     assets='eth',
     metrics=['SplyCur','SplyCLCont'],
-    start_time = start,
+    start_time = start_time,
+    end_time = end_time,
     frequency = '1d'
 ).to_dataframe()
 
@@ -944,58 +859,58 @@ adjusted_supply
       <td>...</td>
     </tr>
     <tr>
-      <th>2024-09-04 00:00:00+00:00</th>
-      <td>120326458.345307</td>
-      <td>34468981.476669</td>
-      <td>50262082.440898</td>
-      <td>34269233</td>
-      <td>104533357.381077</td>
-      <td>34269233</td>
-      <td>70264124.381077</td>
+      <th>2022-12-27 00:00:00+00:00</th>
+      <td>120528662.458689</td>
+      <td>16755428.289539</td>
+      <td>15813639.05565</td>
+      <td>15767369</td>
+      <td>121470451.692578</td>
+      <td>15767369</td>
+      <td>105703082.692578</td>
     </tr>
     <tr>
-      <th>2024-09-05 00:00:00+00:00</th>
-      <td>120328617.599027</td>
-      <td>34451811.992457</td>
-      <td>50295996.440898</td>
-      <td>34267977</td>
-      <td>104484433.150586</td>
-      <td>34267977</td>
-      <td>70216456.150586</td>
+      <th>2022-12-28 00:00:00+00:00</th>
+      <td>120528732.408086</td>
+      <td>16761680.161693</td>
+      <td>15819655.05565</td>
+      <td>15771865</td>
+      <td>121470757.51413</td>
+      <td>15771865</td>
+      <td>105698892.51413</td>
     </tr>
     <tr>
-      <th>2024-09-06 00:00:00+00:00</th>
-      <td>120330441.945122</td>
-      <td>34437288.464608</td>
-      <td>50321333.440898</td>
-      <td>34261953</td>
-      <td>104446396.968832</td>
-      <td>34261953</td>
-      <td>70184443.968832</td>
+      <th>2022-12-29 00:00:00+00:00</th>
+      <td>120528750.981834</td>
+      <td>16772281.136252</td>
+      <td>15834119.05565</td>
+      <td>15780713</td>
+      <td>121466913.062437</td>
+      <td>15780713</td>
+      <td>105686200.062437</td>
     </tr>
     <tr>
-      <th>2024-09-07 00:00:00+00:00</th>
-      <td>120332865.98932</td>
-      <td>34443814.448808</td>
-      <td>50339408.440898</td>
-      <td>34255462</td>
-      <td>104437271.99723</td>
-      <td>34255462</td>
-      <td>70181809.99723</td>
+      <th>2022-12-30 00:00:00+00:00</th>
+      <td>120528698.245699</td>
+      <td>16790630.62361</td>
+      <td>15846119.05565</td>
+      <td>15797305</td>
+      <td>121473209.81366</td>
+      <td>15797305</td>
+      <td>105675904.81366</td>
     </tr>
     <tr>
-      <th>2024-09-08 00:00:00+00:00</th>
-      <td>120335341.426537</td>
-      <td>34435042.84994</td>
-      <td>50354544.440898</td>
-      <td>34240844</td>
-      <td>104415839.835578</td>
-      <td>34240844</td>
-      <td>70174995.835578</td>
+      <th>2022-12-31 00:00:00+00:00</th>
+      <td>120528769.150157</td>
+      <td>16800132.616449</td>
+      <td>15854791.05565</td>
+      <td>15805049</td>
+      <td>121474110.710956</td>
+      <td>15805049</td>
+      <td>105669061.710956</td>
     </tr>
   </tbody>
 </table>
-<p>982 rows × 7 columns</p>
+<p>365 rows × 7 columns</p>
 </div>
 
 
@@ -1004,100 +919,23 @@ adjusted_supply
 
 
 ```python
-ax = adjusted_supply[['Staked Supply', 'Unstaked Supply']].plot.area(stacked=True, figsize=(14, 8),color=['pink', 'purple'])
+ax = adjusted_supply[['Staked Supply', 'Unstaked Supply']].plot.area(stacked=True, figsize=(8, 4),color=['pink', 'purple'])
 ax.set_ylabel('')
 ax.set_xlabel('')
-ax.set_title('\nETH Staked vs. Unstaked Supply\n',fontsize=18)
+ax.set_title('\nETH Staked vs. Unstaked Supply\n',fontsize=14)
 ax.yaxis.set_major_formatter(lambda x, _: f'{x*1e-6}M')
-plt.legend(loc='upper right', bbox_to_anchor=(1, 1.11))
+plt.legend(loc='upper right', bbox_to_anchor=(1.05, 1.15), fontsize=10)
+plt.savefig("NDP_ETH_Staking_Metrics_staked_vs_unstaked_supply.png")
 plt.show()
 ```
 
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-    2024-09-09 12:39:30 WARNING  findfont: Font family 'Lato' not found.
-
-
 
     
-![png](output_47_1.png)
+![png](output_46_0.png)
     
 
+
+
+```python
+
+```
