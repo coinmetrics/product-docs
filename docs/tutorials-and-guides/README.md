@@ -25,12 +25,12 @@ A curated set of these tutorials are hosted below.
 
 #### Examples
 
-* [Market Data: Overview](tutorials/mdf\_market\_data\_overview.md)
-* [Market Data: Options Aggregations](tutorials/mdf\_options\_aggregation.md)
-* [Market Data: Orderbook Depth](tutorials/mdf\_orderbook\_depth.md)
-* [Market Data: Futures Overview](tutorials/mdf\_futures\_overview.md)
-* [Market Data: Liquidity Metrics](tutorials/mdf-liquidity-metrics.md)
-* [Market Data: Stablecoin Prices](tutorials/mdf-stablecoin-prices.md)
+* [Market Data: Overview](tutorials/md\_market\_data\_overview.md)
+* [Market Data: Options Aggregations](tutorials/md\_options\_aggregation.md)
+* [Market Data: Orderbook Depth](tutorials/md\_orderbook\_depth.md)
+* [Market Data: Futures Overview](tutorials/md\_futures\_overview.md)
+* [Market Data: Liquidity Metrics](tutorials/md-liquidity-metrics.md)
+* [Market Data: Stablecoin Prices](tutorials/md-stablecoin-prices.md)
 
 **Resources**
 
@@ -45,7 +45,7 @@ A curated set of these tutorials are hosted below.
 * [Network Data: Metrics Workbench With ATLAS](tutorials/atlas\_metric\_workbench.md)
 * [Network Data: Marketcap Metrics](tutorials/ndp\_marketcap\_metrics.md)
 * [Network Data: Analyzing Miner Data With ATLAS](tutorials/atlas\_miner\_signatures.md)
-* [Network Data: Staking Metrics](tutorials/ndp-staking-metrics.md)
+* [Network Data: Staking Metrics](tutorials/nd-staking-metrics.md)
 
 **Useful Resources**
 

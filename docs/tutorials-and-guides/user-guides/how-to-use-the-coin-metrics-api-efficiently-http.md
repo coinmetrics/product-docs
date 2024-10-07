@@ -1,6 +1,8 @@
-# How to use the Coin Metrics API Efficiently (HTTP)
+# How to use the Coin Metrics API Efficiently
 
-Please follow these rules to use API most efficiently and get the best API performance. Note that some of these are auto
+## HTTP API
+
+Please follow these rules to use API most efficiently and get the best API performance.&#x20;
 
 The rules are sorted in the priority order. The first ones make the biggest impact.
 
@@ -13,3 +15,124 @@ The rules are sorted in the priority order. The first ones make the biggest impa
 * Avoid the sort=time query parameter since it provides worse performance than default sorting.
 * Avoid setting the granularity query parameter to any value other than "raw" (default). That parameter enables API-level downsampling of the raw data which is slow by design and, in some cases, can lead to a 524 timeout from Cloudflare.
 * Avoid the pretty=true query parameter in production code because it's always slower than pretty=false (default value).
+
+
+
+## Python API Client
+
+The Python API Client can be optimized in many ways to speed up your queries.
+
+### Page Size
+
+Queries can be made much faster by increasing the `page_size` parameter. The higher the page\_size, the faster the query, with a maximum of `page_size=10000`
+
+### Data Formats
+
+When a user calls the API using a `CoinMetricsClient`object, it returns a DataCollection. A DataCollection is an object that stores information about your client request.&#x20;
+
+<pre><code><strong>from coinmetrics.api_client import CoinMetricsClient
+</strong>
+client = CoinMetricsClient()
+data_collection = client.get_asset_metrics(assets='btc', metrics='PriceUSD', limit_per_asset=5)
+</code></pre>
+
+Responses can be returned in the following formats, in order of how fast they're returned:
+
+* A Python Generator (`DataCollection`)
+* A CSV/JSON file (`DataCollection.export_to_csv()`, `DataCollection.export_to_json()`)&#x20;
+* A list (`DataCollection.to_list()`)
+* A dataframe (`DataCollection.to_dataframe()`)
+
+### Wildcards
+
+Wildcards (`*`) allow you to query several entities, such as assets, exchanges, and markets, as one parameter. For example:
+
+```python
+asset_metrics = client.get_asset_metrics(assets='*', metrics='PriceUSD')
+
+market_candles_btc_usd = client.get_market_candles(markets=['*-btc-usd-spot'], limit_per_market=10)
+
+exchanges_reference = client.reference_data_exchanges().to_list()
+
+market_candles_spot = client.get_market_candles(markets=[f'{exchange}-*-spot' for exchange['exchange'] in exchanges_reference], limit_per_market=10)
+```
+
+### Parallelization
+
+API requests can be parallelized by calling `.parallel()` on a `DataCollection` object. Requests can be partitioned in the following ways:
+
+**By Column**
+
+```python
+# Parallelize on 'assets' column
+data = client.get_asset_metrics(
+    assets=['btc', 'eth'],
+    metrics=['PriceUSD', 'FeeMeanNtv'],
+    limit_per_asset=5
+).parallel("assets").to_list()
+
+# Parallelize on 'assets' and 'metrics' columns
+data = client.get_asset_metrics(
+    assets=['btc', 'eth'],
+    metrics=['PriceUSD', 'FeeMeanNtv'],
+    limit_per_asset=5
+).parallel(["assets", "metrics"]).to_list()
+```
+
+#### By Time or (Block) Height Increment&#x20;
+
+```python
+# Parallelize by time increment
+
+from datetime import timedelta
+from dateutil.relative_delta import relativedelta
+
+# Parallelize request in 1 month chunks
+data = client.get_asset_metrics(
+    assets=['btc', 'eth'],
+    metrics=['ReferenceRateUSD'],
+    start_time='2024-01-01',
+    end_time='2024-08-01',
+    frequency='1h'
+).parallel(time_increment = relativedelta(months=1)).to_list()
+
+# Parallelize request in 1 day chunks
+data = client.get_asset_metrics(
+    assets=['btc', 'eth'],
+    metrics=['ReferenceRateUSD'],
+    start_time='2024-01-01',
+    end_time='2024-08-01',
+    frequency='1h'
+).parallel(time_increment = timedelta(days=1))
+
+# Parallelize by 1000 blocks
+data = client.get_asset_metrics(
+    assets=['btc', 'eth'],
+    metrics=['FeeMeanNtv'],
+    start_height=0,
+    end_height=100_000,
+    frequency='1b'
+).parallel(height_increment=1000)
+```
+
+#### Persisting Large Data Requests
+
+Given that parallelization allows you to request large amounts of data, the methods for non-parallelized data may run slower. The `export_to_json_files()` and `export_to_csv_files()` allow you to save parallelized data in an organized way in your local directory.
+
+```
+### save data in local directory
+
+data = client.get_asset_metrics(
+    assets=['btc', 'eth'],
+    metrics=['FeeMeanNtv'],
+    start_height=0,
+    end_height=100_000,
+    frequency='1b'
+).parallel(height_increment=1000).export_to_json_files()
+```
+
+
+
+
+
+For more information, see: the [Python API Client documentation](https://coinmetrics.github.io/api-client-python/site/index.html#parallel-execution-for-faster-data-export).
