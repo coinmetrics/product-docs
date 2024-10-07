@@ -14,6 +14,7 @@
 * [Inactive Eligible Validators](validators.md#validatorextunslhcnt)
 * [Validators Pending Eligibility](validators.md#validatorpndinitcnt)
 * [Validator in Activation Queue](validators.md#validatorpndqedcnt)
+* [Full Participation Issuance](validators.md#validatorpndqedcnt-1)
 
 ## Count of Senders to CL Contract <a href="#sendercntclcont" id="sendercntclcont"></a>
 
@@ -64,9 +65,9 @@ Unique count of all senders to the Consensus Layer (CL) contract.
 
 Validators who have filed a voluntary request to exit.
 
-| Name                      | MetricID           | Unit       | Interval |
-| ------------------------- | ------------------ | ---------- | -------- |
-| Active Exiting Validators | ValidatorActExtCnt | Validators | 1 day    |
+| Name                      | MetricID           | Unit       | Interval      |
+| ------------------------- | ------------------ | ---------- | ------------- |
+| Active Exiting Validators | ValidatorActExtCnt | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -86,9 +87,9 @@ Validators who have filed a voluntary request to exit.
 
 Validators that are actively participating.
 
-| Name              | MetricID           | Unit       | Interval |
-| ----------------- | ------------------ | ---------- | -------- |
-| Active Validators | ValidatorActOngCnt | Validators | 1 day    |
+| Name              | MetricID           | Unit       | Interval      |
+| ----------------- | ------------------ | ---------- | ------------- |
+| Active Validators | ValidatorActOngCnt | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -108,9 +109,9 @@ Validators that are actively participating.
 
 Slashed validators scheduled to exit.
 
-| Name               | MetricID           | Unit       | Interval |
-| ------------------ | ------------------ | ---------- | -------- |
-| Slashed Validators | ValidatorActSlhCnt | Validators | 1 day    |
+| Name               | MetricID           | Unit       | Interval      |
+| ------------------ | ------------------ | ---------- | ------------- |
+| Slashed Validators | ValidatorActSlhCnt | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -130,9 +131,9 @@ Slashed validators scheduled to exit.
 
 Count of all validators.
 
-| Name            | MetricID     | Unit       | Interval |
-| --------------- | ------------ | ---------- | -------- |
-| Validator Count | ValidatorCnt | Validators | 1 day    |
+| Name            | MetricID     | Unit       | Interval      |
+| --------------- | ------------ | ---------- | ------------- |
+| Validator Count | ValidatorCnt | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -146,37 +147,15 @@ Count of all validators.
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorCnt" %}
 
-### Definition
-
-Count of validators removed daily.
-
-| Name                     | MetricID          | Unit       | Interval |
-| ------------------------ | ----------------- | ---------- | -------- |
-| Daily Removed Validators | ValidatorRemCnt1d | Validators | 1 day    |
-
-### Details
-
-* Number of validators removed from the Ethereum Consensus Layer (CL) on a daily interval.
-* This figure will remain low until withdrawals are enabled, capturing mostly slashing.
-* Captures number of validators with 'exited' status and 'exited slashed' status.
-
-### Release History
-
-* Released September 2022.
-
-### Availability for Assets
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorRemCnt1d" %}
-
 ## Daily Added Validators <a href="#validatoraddcnt1d" id="validatoraddcnt1d"></a>
 
 ### Definition
 
 Count of validators added daily.
 
-| Name                   | MetricID          | Unit       | Interval |
-| ---------------------- | ----------------- | ---------- | -------- |
-| Daily Added Validators | ValidatorAddCnt1d | Validators | 1 day    |
+| Name                   | MetricID          | Unit       | Interval      |
+| ---------------------- | ----------------- | ---------- | ------------- |
+| Daily Added Validators | ValidatorAddCnt1d | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -196,9 +175,9 @@ Count of validators added daily.
 
 Count of validators removed daily.
 
-| Name                     | MetricID          | Unit       | Interval |
-| ------------------------ | ----------------- | ---------- | -------- |
-| Daily Removed Validators | ValidatorRemCnt1d | Validators | 1 day    |
+| Name                     | MetricID          | Unit       | Interval      |
+| ------------------------ | ----------------- | ---------- | ------------- |
+| Daily Removed Validators | ValidatorRemCnt1d | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -220,9 +199,9 @@ Count of validators removed daily.
 
 Validators that have been slashed and are no longer active.
 
-| Name                           | MetricID           | Unit       | Interval |
-| ------------------------------ | ------------------ | ---------- | -------- |
-| Inactive Ineligible Validators | ValidatorExtSlhCnt | Validators | 1 day    |
+| Name                           | MetricID           | Unit       | Interval      |
+| ------------------------------ | ------------------ | ---------- | ------------- |
+| Inactive Ineligible Validators | ValidatorExtSlhCnt | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -242,9 +221,9 @@ Validators that have been slashed and are no longer active.
 
 Validators that have not been slashed but are no longer active.
 
-| Name                         | MetricID             | Unit       | Interval |
-| ---------------------------- | -------------------- | ---------- | -------- |
-| Inactive Eligible Validators | ValidatorExtUnslhCnt | Validators | 1 day    |
+| Name                         | MetricID             | Unit       | Interval      |
+| ---------------------------- | -------------------- | ---------- | ------------- |
+| Inactive Eligible Validators | ValidatorExtUnslhCnt | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -258,35 +237,15 @@ Validators that have not been slashed but are no longer active.
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorExtUnslhCnt" %}
 
-### Definition
-
-Validators that have been slashed and are no longer active.
-
-| Name                           | MetricID           | Unit       | Interval |
-| ------------------------------ | ------------------ | ---------- | -------- |
-| Inactive Ineligible Validators | ValidatorExtSlhCnt | Validators | 1 day    |
-
-### Details
-
-* Count of ETH Consensus Layer (CL) validators that have been slashed and are no longer active.
-
-### Release History
-
-* Released September 2022.
-
-### Availability for Assets
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorExtSlhCnt" %}
-
 ## Validators Pending Eligibility <a href="#validatorpndinitcnt" id="validatorpndinitcnt"></a>
 
 ### Definition
 
 Validators pending eligibility.
 
-| Name                           | MetricID            | Unit       | Interval |
-| ------------------------------ | ------------------- | ---------- | -------- |
-| Validators Pending Eligibility | ValidatorPndInitCnt | Validators | 1 day    |
+| Name                           | MetricID            | Unit       | Interval      |
+| ------------------------------ | ------------------- | ---------- | ------------- |
+| Validators Pending Eligibility | ValidatorPndInitCnt | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -306,9 +265,9 @@ Validators pending eligibility.
 
 Validators waiting in the activation queue
 
-| Name                           | MetricID           | Unit       | Interval |
-| ------------------------------ | ------------------ | ---------- | -------- |
-| Validators in Activation Queue | ValidatorPndQedCnt | Validators | 1 day    |
+| Name                           | MetricID           | Unit       | Interval      |
+| ------------------------------ | ------------------ | ---------- | ------------- |
+| Validators in Activation Queue | ValidatorPndQedCnt | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -321,6 +280,24 @@ Validators waiting in the activation queue
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorPndQedCnt" %}
+
+## Full Participation Issuance <a href="#validatorpndqedcnt" id="validatorpndqedcnt"></a>
+
+### Definition
+
+Maximum daily protocol issuance on the Ethereum consensus layer (beacon chain) as a function of the number of active validators.
+
+| Name                        | MetricID             | Unit         | Interval      |
+| --------------------------- | -------------------- | ------------ | ------------- |
+| Full Participation Issuance | IssFullParticipation | Native Units | 1 day, 1 hour |
+
+### Release History
+
+* Initially released November 2023.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/IssFullParticipation" %}
 
 ## API Endpoints
 

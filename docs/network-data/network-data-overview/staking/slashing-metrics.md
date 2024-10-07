@@ -145,13 +145,9 @@ Count of total number of slashing events.
 
 Amount of tokens slashed from Validators in native units
 
-| Name            | MetricID   | Unit         | Interval |
-| --------------- | ---------- | ------------ | -------- |
-| Slashed Amounts | SlashedNtv | Native Units | 1 day    |
-
-### Details
-
-* This metric operates on a 1 day frequency.
+| Name            | MetricID   | Unit         | Interval      |
+| --------------- | ---------- | ------------ | ------------- |
+| Slashed Amounts | SlashedNtv | Native Units | 1 day, 1 hour |
 
 ### Asset Specific Details
 
