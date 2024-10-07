@@ -34,6 +34,7 @@
     * [NDP: Marketcap Metrics](tutorials-and-guides/tutorials/ndp\_marketcap\_metrics.md)
     * [NDP: Mining Pool Dominance](tutorials-and-guides/tutorials/atlas\_miner\_signatures.md)
     * [NDP: Staking Metrics](tutorials-and-guides/tutorials/ndp-staking-metrics.md)
+    * [NDP: Hourly Metrics](tutorials-and-guides/tutorials/ndp-hourly-metrics.md)
   * [How To Guides](tutorials-and-guides/user-guides/README.md)
     * [How To Export Data](tutorials-and-guides/user-guides/exporting-data.md)
     * [How To Migrate From Catalog V1 to Catalog V2 and Reference Data](tutorials-and-guides/user-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md)
