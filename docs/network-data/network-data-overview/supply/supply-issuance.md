@@ -9,6 +9,18 @@
 * [Puell Multiple Total](supply-issuance.md#puellmultot)
 * [Puell Multiple, Coinbase Issuance](supply-issuance.md#puelmulcont)
 
+<!---->
+
+* [Coinbase Issuance](supply-issuance.md#isscontntv)
+* [Annual Inflation Rate](supply-issuance.md#isscontpctann)
+* [Daily Inflation Rate](supply-issuance.md#isscontpctday)
+* [Coinbase Issuance](supply-issuance.md#isscont)
+* [Total Issuance](supply-issuance.md#isstot)
+* [Puell Multiple Total](supply-issuance.md#puellmultot)
+* [Puell Multiple, Coinbase Issuance](supply-issuance.md#puelmulcont)
+* [Daily Supply Inflation Rates](supply-issuance.md#puellmultot-2)
+* [Annual Supply Inflation Rates](supply-issuance.md#puellmultot-3)
+
 ## Annual Inflation Rate <a href="#isscontpctann" id="isscontpctann"></a>
 
 ### Definition
@@ -214,6 +226,56 @@ The Puell Multiple provides insight into market cycles from a mining revenue per
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/PuellMulTot" %}
+
+## Daily Supply Inflation Rates <a href="#puellmultot" id="puellmultot"></a>
+
+### Definition
+
+The percent one-day change in supply. Also referred to as the daily inflation rate. Also available at a 30, 90, 180 day and 1 year moving average.
+
+| Name                           | MetricID      | Unit          | Interval |
+| ------------------------------ | ------------- | ------------- | -------- |
+| Daily Inflation Rate           | InfPct        | Dimensionless | 1d       |
+| Inflation Rate 30-Day Average  | InfPct30dAvg  | Dimensionless | 1d       |
+| Inflation Rate 90-Day Average  | InfPct90dAvg  | Dimensionless | 1d       |
+| Inflation Rate 180-Day Average | InfPct180dAvg | Dimensionless | 1d       |
+| Inflation Rate 1-Year Average  | InfPct1yAvg   | Dimensionless | 1d       |
+
+### Details
+
+* &#x20;$$InfPct=\frac{SplyCur(n-1)-SplyCur(n)}{SplyCur(n-1)}*100$$
+* $$InfPct[N]Avg=\frac{SplyCur(n-N)-SplyCur(n)}{SplyCur(n-N)}*100$$ where N is the days over which to average. This means that for a 30-Day average the formula would be: $$InfPct30dAvg=\frac{SplyCur(n-30d)-SplyCur(n)}{SplyCur(n-30d)}*100$$
+
+### Interpretation
+
+The Inflation rate of the asset over the timeframe defined in the metric. For example, Inflation Rate 1-Year Average shows what the daily inflation rate was based on the supply 1y ago and today.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/InfPct" %}
+
+## Annual Supply Inflation Rates <a href="#puellmultot" id="puellmultot"></a>
+
+### Definition
+
+The percent change in supply over 1 year. Also referred to as the annual inflation rate. Also available at a 30, 90, 180 day and 1 year moving average.
+
+| Name                                                  | MetricID         | Unit          | Interval |
+| ----------------------------------------------------- | ---------------- | ------------- | -------- |
+| Annualized Compounding Inflation Rate                 | InfPctAnn        | Dimensionless | 1d       |
+| Annualized Compounding Inflation Rate 30-Day Average  | InfPctAnn30dAvg  | Dimensionless | 1d       |
+| Annualized Compounding Inflation Rate 90-Day Average  | InfPctAnn90dAvg  | Dimensionless | 1d       |
+| Annualized Compounding Inflation Rate 180-Day Average | InfPctAnn180dAvg | Dimensionless | 1d       |
+| Annualized Compounding Inflation Rate 1-Year Average  | InfPctAnn1yAvg   | Dimensionless | 1d       |
+
+### Details
+
+* &#x20;$$InfPctAnn=((1+\frac{InfPct}{100})^{365}-1)*100$$
+* $$InfPctAnn[N]Avg=(1+\frac{InfPct[N]Avg}{100})^{365}-1$$ where N is the days over which to average. This means that for a 30-Day average the formula would be: $$InfPctAnn30dAvg=(1+\frac{InfPct30dAvg}{100})^{365}-1$$
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/InfPctAnn" %}
 
 ## API Endpoints
 

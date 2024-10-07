@@ -87,6 +87,7 @@
     * [Slashing Metrics](network-data/network-data-overview/staking/slashing-metrics.md)
     * [Validator Supply](network-data/network-data-overview/staking/validator-supply.md)
     * [Validators](network-data/network-data-overview/staking/validators.md)
+    * [Yield](network-data/network-data-overview/staking/yield.md)
   * [Supply](network-data/network-data-overview/supply/README.md)
     * [Active Supply](network-data/network-data-overview/supply/active-supply.md)
     * [Addresses with Balance](network-data/network-data-overview/supply/addresses-with-balance.md)
