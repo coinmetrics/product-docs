@@ -30,7 +30,7 @@ Queries can be made much faster by increasing the `page_size` parameter. The hig
 
 When a user calls the API using a `CoinMetricsClient`object, it returns a DataCollection. A DataCollection is an object that stores information about your client request.&#x20;
 
-<pre><code><strong>from coinmetrics.api_client import CoinMetricsClient
+<pre class="language-python"><code class="lang-python"><strong>from coinmetrics.api_client import CoinMetricsClient
 </strong>
 client = CoinMetricsClient()
 data_collection = client.get_asset_metrics(assets='btc', metrics='PriceUSD', limit_per_asset=5)
@@ -48,10 +48,13 @@ Responses can be returned in the following formats, in order of how fast they're
 Wildcards (`*`) allow you to query several entities, such as assets, exchanges, and markets, as one parameter. For example:
 
 ```python
-asset_metrics = client.get_asset_metrics(assets='*', metrics='PriceUSD')
+# Get prices for all assets
+asset_metrics = client.get_asset_metrics(assets='*', metrics='PriceUSD', limit_per_asset=1)
 
+# Get btc-usd candles for all exchanges
 market_candles_btc_usd = client.get_market_candles(markets=['*-btc-usd-spot'], limit_per_market=10)
 
+# Get all spot exchanges and pairs
 exchanges_reference = client.reference_data_exchanges().to_list()
 
 market_candles_spot = client.get_market_candles(markets=[f'{exchange}-*-spot' for exchange['exchange'] in exchanges_reference], limit_per_market=10)
@@ -119,7 +122,7 @@ data = client.get_asset_metrics(
 
 Given that parallelization allows you to request large amounts of data, the methods for non-parallelized data may run slower. The `export_to_json_files()` and `export_to_csv_files()` allow you to save parallelized data in an organized way in your local directory.
 
-```
+```python
 ### save data in local directory
 
 data = client.get_asset_metrics(
@@ -130,8 +133,6 @@ data = client.get_asset_metrics(
     frequency='1b'
 ).parallel(height_increment=1000).export_to_json_files()
 ```
-
-
 
 
 

@@ -40,7 +40,6 @@
     * [How To Export Data](tutorials-and-guides/user-guides/exporting-data.md)
     * [How To Migrate From Catalog V1 to Catalog V2 and Reference Data](tutorials-and-guides/user-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md)
     * [How to use the Coin Metrics API Efficiently](tutorials-and-guides/user-guides/how-to-use-the-coin-metrics-api-efficiently-http.md)
-    * [How to use the Python API Client efficiently (Parallelization and Other Tips)](tutorials-and-guides/user-guides/how-to-use-the-python-api-client-efficiently-parallelization-and-other-tips.md)
 * [Core Concepts](core-concepts/README.md)
   * [Explaining The API Structure](core-concepts/explaining-the-api-structure.md)
   * [API Data Types](core-concepts/api-data-types.md)

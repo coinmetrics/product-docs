@@ -12,7 +12,7 @@ We recommend new users to read the following guides first to get a basic underst
 Refer to our more use-case-specific guides to make the most out of our data:
 
 * [how-to-use-the-coin-metrics-api-efficiently-http.md](user-guides/how-to-use-the-coin-metrics-api-efficiently-http.md "mention")
-* [how-to-use-the-python-api-client-efficiently-parallelization-and-other-tips.md](user-guides/how-to-use-the-python-api-client-efficiently-parallelization-and-other-tips.md "mention")
+* [Broken link](broken-reference "mention")
 * [How To Migrate From Catalog V1 to Catalog V2](user-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md)
 
 ## Product Tutorials
