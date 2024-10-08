@@ -18,18 +18,18 @@ To deal with the problem of large response sizes and the schema inconsistencies,
 
 The response size limit changes will affect the following endpoints:
 
-/catalog/markets
-/catalog/market-trades
-/catalog/market-candles
-/catalog/market-orderbooks
-/catalog/market-quotes
-/catalog/market-funding-rates
-/catalog/market-contract-prices
-/catalog/market-implied-volatility
-/catalog/market-greeks
-/catalog/market-openinterest
-/catalog/market-liquidations
-/catalog/market-metrics
+* /catalog/markets&#x20;
+* /catalog/market-trades&#x20;
+* /catalog/market-candles&#x20;
+* /catalog/market-orderbooks
+* &#x20;/catalog/market-quotes&#x20;
+* /catalog/market-funding-rates&#x20;
+* /catalog/market-contract-prices&#x20;
+* /catalog/market-implied-volatility&#x20;
+* /catalog/market-greeks&#x20;
+* /catalog/market-openinterest&#x20;
+* /catalog/market-liquidations
+* &#x20;/catalog/market-metrics
 
 The /catalog-all version of the above endpoints will also be affected. We will refer to endpoints identified in this section as the “affected catalog endpoints” below.
 
@@ -45,7 +45,7 @@ Our existing catalog endpoints contain a mixture of both reference data and time
 
 Coin Metrics considers time availability data to be the time range of the timeseries we support and reference data to be metadata about all the entities in our coverage universe. Under our new design, our catalog v2 endpoints will solely contain time availability data and our reference data endpoints will contain solely our reference data.
 
-Let us examine the response from our /catalog-v2/asset-metrics as an example: 
+Let us examine the response from our /catalog-v2/asset-metrics as an example:
 
 ```
 {
@@ -99,10 +99,10 @@ Now let us examine the response from our /reference-data/asset-metrics endpoint:
 
 The /reference-data/asset-metrics endpoint describes the metadata for the PriceUSD metric such as the full name and description. It does not contain data about the time availability of the metric by asset.
 
-All of our catalog v2 and reference data endpoints will follow a similar schema. All of our catalog v2 and reference data endpoints will support pagination in a manner identical to our /timeseries endpoints. These new endpoints will support a page_size parameter with default value of 10,000. This means the response will by default contain the first 10,000 observations. To get the next set of 10,000 observations, the user should use the next_page_url to fetch the next page of results.
+All of our catalog v2 and reference data endpoints will follow a similar schema. All of our catalog v2 and reference data endpoints will support pagination in a manner identical to our /timeseries endpoints. These new endpoints will support a page\_size parameter with default value of 10,000. This means the response will by default contain the first 10,000 observations. To get the next set of 10,000 observations, the user should use the next\_page\_url to fetch the next page of results.
 
 ## I currently use one of the existing catalog endpoints. How do I switch to the new catalog v2 and reference data endpoints?
 
-We have created a mapping of how existing catalog endpoints will map to our new endpoints. The new endpoints should contain the same data as the existing catalog endpoint.
+We have created a mapping of how existing catalog endpoints will map to our new endpoints [here](../tutorials-and-guides/user-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md). The new endpoints should contain the same data as the existing catalog endpoint.
 
 If you have any questions or have any use cases that may be adversely impacted by this change, please contact us.

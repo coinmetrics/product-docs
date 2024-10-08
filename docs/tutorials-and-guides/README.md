@@ -7,12 +7,11 @@ We recommend new users to read the following guides first to get a basic underst
 * [Python API Client Walkthrough](../access-our-data/python-client/walkthrough\_community.md)
 * [Data Visualization Walkthrough](../data-visualization/)
 * [How To Export Data](user-guides/exporting-data.md)
-* [Explaining The API Structure](../core-concepts/explaining-the-api-structure.md)
+* [api-data-types.md](../core-concepts/api-data-types.md "mention")
 
 Refer to our more use-case-specific guides to make the most out of our data:
 
 * [how-to-use-the-coin-metrics-api-efficiently-http.md](user-guides/how-to-use-the-coin-metrics-api-efficiently-http.md "mention")
-* [Broken link](broken-reference "mention")
 * [How To Migrate From Catalog V1 to Catalog V2](user-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md)
 
 ## Product Tutorials

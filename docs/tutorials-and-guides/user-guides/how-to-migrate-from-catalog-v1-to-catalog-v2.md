@@ -1,6 +1,56 @@
-# How To Migrate From Catalog V1 to Catalog V2 and Reference Data
+# How To Migrate From Catalog to Catalog V2 and Reference Data
 
-This guide will help you migrate from Catalog V1 to Catalog V2.
+This guide will help you migrate from using Catalog ("Catalog V1") to Catalog V2 and Reference Data. The biggest difference between Catalog V1 and Catalog V2 is that Catalog V1 contains both static "reference data" (name, category, product, etc.) and coverage for a given data type (e.g. `min_time` and `max_time` for `trades`).
+
+Due to growing complexity in data coverage and the resulting performance bottlenecks from storing all of this data, this metadata is being separated. Catalog V2 and Reference Data allow for more lightweight and flexible queries as they can be queried across several dimensions (for example, `catalog-v2/asset-metrics` lets you filter by both asset and metric).
+
+For more information on the reasoning behind the catalog migration, see [catalog-v1-v2-migration.md](../../core-concepts/catalog-v1-v2-migration.md "mention")
+
+## Examples
+
+### **How do I...**
+
+#### ...get all hourly network data metrics?
+
+**V1:**
+
+* query catalog/asset-metrics, filter by frequency = '1h' and 'product' = 'Network Data'
+
+```python
+# Catalog V1
+
+df_catalog_asset_metrics = client.catalog_asset_metrics().to_dataframe()
+list_hourly_metrics_nd = list(df_catalog_asset_metrics.loc[
+    (df_catalog_asset_metrics['frequency']=='1h') & (df_catalog_asset_metrics['product']=='Network Data')
+])
+
+```
+
+**V2:**
+
+* query reference-data/asset-metrics, filter for 'product' = 'Network Data'
+* query catalog-v2/asset-metrics?metrics=\<LIST\_OF\_NETWORK\_DATA\_METRICS>, filter for frequency = '1h'
+
+```python
+# Catalog V2
+asset_metrics_reference = client.reference_data_asset_metrics().to_dataframe()
+list_metrics_nd = list(asset_metrics_reference.loc[asset_metrics_reference['product']=='Network Data', 'metric'])
+
+asset_metrics_catalog = client.catalog_asset_metrics_v2(metrics=list_metrics_nd).to_dataframe()
+list_hourly_metrics_nd = list(asset_metrics_catalog.loc[asset_metrics_catalog.frequency=='1h', 'metric'].unique())
+```
+
+#### ...get which assets are traded on each exchange?
+
+**V1:**
+
+* for each exchange, query catalog/markets?exchange=\<exchange>, filter responses' max\_time
+
+
+
+**V2:**
+
+* for each exchange, query catalog-v2/market-trades?exchange=\<exchange> filter responses' max\_time
 
 ## A Mapping of Catalog Endpoints to Catalog V2 and Reference Data Endpoints
 

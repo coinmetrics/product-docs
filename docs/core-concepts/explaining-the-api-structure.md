@@ -1,2 +1,0 @@
-# Explaining The API Structure
-
