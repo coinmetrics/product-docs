@@ -1,2 +1,0 @@
-# NDP: Staking Metrics
-

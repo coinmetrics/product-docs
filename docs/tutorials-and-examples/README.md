@@ -24,17 +24,17 @@ A curated set of these tutorials are hosted below.
 
 #### Examples
 
-* [Market Data: Getting Started](tutorials/md\_market\_data\_overview.md)
-* [Market Data: Options Aggregations](tutorials/md\_options\_aggregation.md)
-* [Market Data: Orderbook Depth](tutorials/md\_orderbook\_depth.md)
-* [Market Data: Futures Overview](tutorials/md\_futures\_overview.md)
-* [Market Data: Liquidity Metrics](tutorials/md-liquidity-metrics.md)
-* [Market Data: Stablecoin Prices](tutorials/md-stablecoin-prices.md)
-* [Market Data: Exchange Volume](tutorials/md-exchange-volume.md)
+* [Getting Started](tutorials/md\_market\_data\_overview.md)
+* [Options Aggregations](tutorials/md\_options\_aggregation.md)
+* [Orderbook Depth](tutorials/md\_orderbook\_depth.md)
+* [Futures Overview](tutorials/md\_futures\_overview.md)
+* [Liquidity Metrics](tutorials/liquidity-metrics.md)
+* [Stablecoin Prices](tutorials/stablecoin-prices.md)
+* [Exchange Volume](tutorials/exchange-volume.md)
 
 **Resources**
 
-* [Market Data Overview](../market-data/market-data-overview/) shows the data available under MDF
+* [Market Data Overview](../market-data/market-data-overview/)
 * [Market Data Methodologies](../market-data/methodologies/)
 * [Market Data FAQs](../market-data/faqs/)
 
@@ -42,11 +42,11 @@ A curated set of these tutorials are hosted below.
 
 #### Examples
 
-* [Network Data: Metrics Workbench With ATLAS](tutorials/atlas\_metric\_workbench.md)
-* [Network Data: Marketcap Metrics](tutorials/ndp\_marketcap\_metrics.md)
-* [Network Data: Analyzing Miner Data With ATLAS](tutorials/atlas\_miner\_signatures.md)
-* [Network Data: Staking Metrics](tutorials/nd-staking-metrics.md)
-* [Network Data: Hourly Metrics](tutorials/nd-hourly-metrics.md)
+* [Metrics Workbench With ATLAS](tutorials/atlas\_metric\_workbench.md)
+* [Marketcap Metrics](tutorials/ndp\_marketcap\_metrics.md)
+* [Analyzing Miner Data With ATLAS](tutorials/atlas\_miner\_signatures.md)
+* [Staking Metrics](tutorials/staking-metrics.md)
+* [Hourly Metrics](tutorials/hourly-metrics.md)
 
 **Useful Resources**
 
