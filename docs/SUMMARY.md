@@ -33,7 +33,7 @@
     * [MD: Exchange Volume](tutorials-and-guides/tutorials/md-exchange-volume.md)
     * [ND: Creating Custom Network Data Metrics Using ATLAS](tutorials-and-guides/tutorials/atlas\_metric\_workbench.md)
     * [ND: Marketcap Metrics](tutorials-and-guides/tutorials/ndp\_marketcap\_metrics.md)
-    * [ND: Mining Pool Dominance](tutorials-and-guides/tutorials/atlas\_miner\_signatures.md)
+    * [Atlas: Mining Pool Dominance](tutorials-and-guides/tutorials/atlas\_miner\_signatures.md)
     * [ND: Staking Metrics](tutorials-and-guides/tutorials/nd-staking-metrics.md)
     * [ND: Hourly Metrics](tutorials-and-guides/tutorials/nd-hourly-metrics.md)
   * [How To Guides](tutorials-and-guides/user-guides/README.md)

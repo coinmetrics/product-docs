@@ -1,6 +1,6 @@
-# NDP: Mining Pool Dominance
+# Atlas: Mining Pool Dominance
 
-![](https://5264302.fs1.hubspotusercontent-na1.net/hubfs/5264302/Demo%20Asset%20Resources/CM-Demo-miner\_signatures.png)
+<figure><img src="https://5264302.fs1.hubspotusercontent-na1.net/hubfs/5264302/Demo%20Asset%20Resources/CM-Demo-miner_signatures.png" alt=""><figcaption></figcaption></figure>
 
 For much of its history, the Bitcoin mining industry has been notoriously opaque. Luckily, it has become a common practice for many BTC mining pools to leave a subtle "miner signature" in each block's coinbase transaction (not to be confused with the popular crypto exchange by the same name). This transaction contains the miner reward— currently 6.25 BTC per block—but also leaves some extra space for arbitrary data, allowing the pool to publicly assert their claim. Using ATLAS v2, we're able to extract this miner signature, enabling us to derive a variety of mining pool metrics.
 
@@ -15,6 +15,18 @@ To understand the data that Coin Metrics offers, feel free to peruse the resourc
 * The [Coin Metrics API v4](https://docs.coinmetrics.io/api/v4) website contains the full set of endpoints and data offered by Coin Metrics.
 * The [Coin Metrics Knowledge Base](https://docs.coinmetrics.io/info) gives detailed, conceptual explanations of the data that Coin Metrics offers.
 * The [API Spec](https://coinmetrics.github.io/api-client-python/site/api\_client.html) contains a full list of functions.
+
+### File Download
+
+Download the entire notebook as either a jupyter notebook to run yourself or as a pdf from the two links below
+
+{% file src="../../.gitbook/assets/ATLAS_miner_signatures.pdf" %}
+PDF Version of notebook for easy offline viewing
+{% endfile %}
+
+{% file src="../../.gitbook/assets/ATLAS_miner_signatures.ipynb" %}
+Jupyter notebook to run code locally
+{% endfile %}
 
 ### Notebook Setup
 
@@ -61,7 +73,7 @@ client = CoinMetricsClient(api_key)
 ```
 
 ```
-2024-09-20 15:39:25 INFO     Using API key found in environment
+2024-10-04 13:46:00 INFO     Using API key found in environment
 ```
 
 ```python
@@ -82,28 +94,27 @@ array(['#80B1D3', '#8DD3C7', '#B3DE69', '#BC80BD', '#BEBADA', '#CCEBC5',
 ```python
 block_info = client.get_list_of_blocks_v2(
     asset='btc',
-    start_time="2022-01-01",
-    end_time="2022-12-31",
-    page_size=1000
+    start_time=datetime.now()-timedelta(days=365),
+    page_size=10000
 ).parallel(time_increment=timedelta(days=1)).to_dataframe()
 block_info['extra_data'] = block_info['extra_data'].astype(str)
 ```
 
 ```
-Exporting to dataframe type: 100%|████████████████████████████████████████████████| 364/364 [00:07<00:00, 48.53it/s]
+Exporting to dataframe type: 100%|██████████| 366/366 [00:06<00:00, 58.56it/s] 
 ```
 
 ```python
 block_info.head()
 ```
 
-|   | block\_hash                                       | height | consensus\_time           | miner\_time               | n\_transactions | n\_balance\_updates | parent\_block\_hash                               | nonce    | extra\_data                                       | version   | difficulty           | physical\_size | consensus\_size | consensus\_size\_limit |
-| - | ------------------------------------------------- | ------ | ------------------------- | ------------------------- | --------------- | ------------------- | ------------------------------------------------- | -------- | ------------------------------------------------- | --------- | -------------------- | -------------- | --------------- | ---------------------- |
-| 0 | 000000000000000000090759121a6def30d18f2ccaad98... | 716604 | 2022-01-01 00:04:14+00:00 | 2022-01-01 00:34:54+00:00 | 997             | 7834                | 000000000000000000072ba79db2b57c4efa08f11f1d8f... | 49519865 | 033cef0a04aea1cf61fabe6d6d6c7c4d17f3eff2236dc8... | 803250176 | 24272331996979.96875 | 737766         | 1840962         | 4000000                |
-| 1 | 0000000000000000000aa5bba90cc9c90a6a18b8a2160c... | 716605 | 2022-01-01 00:14:14+00:00 | 2022-01-01 00:39:14+00:00 | 674             | 3920                | 000000000000000000090759121a6def30d18f2ccaad98... | 85736e7b | 033def0a1362696e616e63652f383039ff001f0373a22e... | 536870912 | 24272331996979.96875 | 282321         | 765462          | 4000000                |
-| 2 | 00000000000000000005bd3c5d5c6da98d2d4a12460bfe... | 716606 | 2022-01-01 00:20:25+00:00 | 2022-01-01 00:39:58+00:00 | 123             | 701                 | 0000000000000000000aa5bba90cc9c90a6a18b8a2160c... | 703bda04 | 033eef0a1b4d696e656420627920416e74506f6f6c3734... | 536870916 | 24272331996979.96875 | 45448          | 127885          | 4000000                |
-| 3 | 00000000000000000000827b0c8805e164da3e3061fff1... | 716607 | 2022-01-01 00:23:25+00:00 | 2022-01-01 00:40:00+00:00 | 5               | 18                  | 00000000000000000005bd3c5d5c6da98d2d4a12460bfe... | a0953825 | 033fef0a04dfa2cf612f53424943727970746f2e636f6d... | 536870916 | 24272331996979.96875 | 1143           | 3483            | 4000000                |
-| 4 | 00000000000000000000bb3583fa3d8d9fd6332364ca62... | 716608 | 2022-01-01 00:28:47+00:00 | 2022-01-01 00:46:21+00:00 | 973             | 6925                | 00000000000000000000827b0c8805e164da3e3061fff1... | 241dba29 | 0340ef0a215c204d41524120506f6f6c205c000000004f... | 877617152 | 24272331996979.96875 | 538084         | 1455358         | 4000000                |
+|   | block\_hash                                       | height | consensus\_time           | miner\_time               | n\_transactions | n\_balance\_updates | parent\_block\_hash                               | nonce    | extra\_data                                       | version   | difficulty            | physical\_size | consensus\_size | consensus\_size\_limit |
+| - | ------------------------------------------------- | ------ | ------------------------- | ------------------------- | --------------- | ------------------- | ------------------------------------------------- | -------- | ------------------------------------------------- | --------- | --------------------- | -------------- | --------------- | ---------------------- |
+| 0 | 00000000000000000003cd8c9919b1073bab32cee67bfb... | 810761 | 2023-10-05 13:54:00+00:00 | 2023-10-05 15:21:03+00:00 | 3658            | 22668               | 00000000000000000002667c723b1a1f559ed920504ab6... | 3789b287 | 03095f0c1b4d696e656420627920416e74506f6f6c3830... | 545259520 | 57321508229258.039062 | 1543713        | 3993396         | 4000000                |
+| 1 | 000000000000000000000d070d5b4fb5c69ee6bae4bab6... | 810762 | 2023-10-05 14:04:54+00:00 | 2023-10-05 15:26:11+00:00 | 2689            | 18732               | 00000000000000000003cd8c9919b1073bab32cee67bfb... | 388afcd5 | 030a5f0c45022f62696e616e63652f323139fabe6d6d6d... | 536993792 | 57321508229258.039062 | 1494856        | 3993547         | 4000000                |
+| 2 | 00000000000000000004090783eb83951d6d9c91dd88f3... | 810763 | 2023-10-05 14:28:43+00:00 | 2023-10-05 15:33:08+00:00 | 2528            | 17306               | 000000000000000000000d070d5b4fb5c69ee6bae4bab6... | 9b7ba148 | 030b5f0c192f5669614254432f4d696e6564206279207a... | 536928256 | 57321508229258.039062 | 1422613        | 3993322         | 4000000                |
+| 3 | 00000000000000000004cd165ee9f93e68460c37173027... | 810764 | 2023-10-05 14:36:46+00:00 | 2023-10-05 15:40:56+00:00 | 3227            | 20335               | 00000000000000000004090783eb83951d6d9c91dd88f3... | 003804fb | 030c5f0c194d696e656420627920416e74506f6f6c20f8... | 805298176 | 57321508229258.039062 | 1572755        | 3993278         | 4000000                |
+| 4 | 00000000000000000000fb654d8199a1fc240af3bbc173... | 810765 | 2023-10-05 14:57:48+00:00 | 2023-10-05 15:50:03+00:00 | 3078            | 19352               | 00000000000000000004cd165ee9f93e68460c37173027... | 903b489a | 030d5f0c2cfabe6d6d0d426074ccdd9e3b0fe208ab9af1... | 538968064 | 57321508229258.039062 | 1515726        | 3997698         | 4000000                |
 
 ```python
 # Assign 'empty' to rows where n_transactions == 1
@@ -118,7 +129,7 @@ block_info['extra_data'][0]
 ```
 
 ```
-'033cef0a04aea1cf61fabe6d6d6c7c4d17f3eff2236dc876b0acc7bdc4d68ad831ba71d31ff61ce512d1e99e46020000001e34c5f062696e616e63652f686b37343772185774914865669376226bd21ef100000000000000'
+'03095f0c1b4d696e656420627920416e74506f6f6c383036f800c8022ace0b75fabe6d6d7a90b864b377b7d7de125f87ab7890c46a47d58edcd9d602a6758485a2d7a7c2020000000000000026bb0000d455000000000000'
 ```
 
 ```python
@@ -146,26 +157,26 @@ block_signed
 
 |       | miner\_tag                                          | height | consensus\_time           | category  |
 | ----- | --------------------------------------------------- | ------ | ------------------------- | --------- |
-| 0     | <ï\n®¡Ïaú¾mml\|Móïò#mÈv°¬Ç½ÄÖØ1ºqÓöåÑéF...  | 716604 | 2022-01-01 00:04:14+00:00 | Not Empty |
-| 1     | =ï\nbinance/809ÿ�s¢.Eú¾mmZ/Â@£"\[ÄÖ\|}öOÓ½... | 716605 | 2022-01-01 00:14:14+00:00 | Not Empty |
-| 2     | >ï\nMined by AntPool749ÿsäÖKú¾mm? nø\rz...   | 716606 | 2022-01-01 00:20:25+00:00 | Not Empty |
-| 3     | ?ï\nß¢Ïa/SBICrypto.com Pool/L8¨O ������          | 716607 | 2022-01-01 00:23:25+00:00 | Not Empty |
-| 4     | @ï\n!\ MARA Pool \����Oç>ð§/Gt<���             | 716608 | 2022-01-01 00:28:47+00:00 | Not Empty |
+| 0     | \t\_ Mined by AntPool806ø�È\*Î uú¾mmz¸d³w·×Þ... | 810761 | 2023-10-05 13:54:00+00:00 | Not Empty |
+| 1     | \n\_ E/binance/219ú¾mmm¡¾¼a04Vy>IC°Jgò ¡Ð0...  | 810762 | 2023-10-05 14:04:54+00:00 | Not Empty |
+| 2     |  \_ /ViaBTC/Mined by z180203/,ú¾mmñÊ1ä¾Ú!³K...  | 810763 | 2023-10-05 14:28:43+00:00 | Not Empty |
+| 3     |  \_ Mined by AntPool ø�¢1ê%-ú¾mm»âHjéZ¾®¨!M...  | 810764 | 2023-10-05 14:36:46+00:00 | Not Empty |
+| 4     | \r\_ ,ú¾mm\rB\`tÌÝ;â«ñ\tÆ¢èür¹³a\rmá\rÚ... | 810765 | 2023-10-05 14:57:48+00:00 | Not Empty |
 | ...   | ...                                                 | ...    | ...                       | ...       |
-| 53027 | \_¾ \|¯c/Foundry USA Pool #dropgold/ Q!Ù������ | 769631 | 2022-12-30 23:25:11+00:00 | Not Empty |
-| 53028 | \`¾ Mined by AntPool959\[�Q§õ-ìú¾mm²99ßãï6... | 769632 | 2022-12-30 23:31:09+00:00 | Not Empty |
-| 53029 | a¾ ,ú¾mmô±\t¥ü&óvm-1L´A¿ºVz¨µYTk@}Þò?(���...   | 769633 | 2022-12-30 23:39:09+00:00 | Not Empty |
-| 53030 | b¾ Ã¯c/Foundry USA Pool #dropgold/A��6���   | 769634 | 2022-12-30 23:40:35+00:00 | Not Empty |
-| 53031 | c¾ ú¾mmeè«úÆruÎ7æB¿"LNýôKü¦#âÓ\[�����...  | 769635 | 2022-12-30 23:47:15+00:00 | Not Empty |
+| 53385 | /\r< OCEAN.XYZ >3OD�ã.³Lð\n������        | 864146 | 2024-10-04 15:50:04+00:00 | Not Empty |
+| 53386 | /\r,ú¾mm÷$@oÈ$\~¸ÑÆn¹Ô3 ñîõä ¼���...  | 864147 | 2024-10-04 15:51:50+00:00 | Not Empty |
+| 53387 | /\rc�g/Foundry USA Pool #dropgold/+J�½­�...   | 864148 | 2024-10-04 15:56:39+00:00 | Not Empty |
+| 53388 | /\rMined by AntPool èAx®øú¾mm6úq2iF...   | 864149 | 2024-10-04 15:56:44+00:00 | Not Empty |
+| 53389 | /\rMined by AntPool �µóú¾mm¹ý½kØ]"...   | 864150 | 2024-10-04 16:22:20+00:00 | Not Empty |
 
-53032 rows × 4 columns
+53390 rows × 4 columns
 
 ```python
 # List of strings included in coinbase signature
 miners = ['AntPool', 'ViaBTC', 'binance', 'Binance', 'Foundry', 'Luxor', 
           'SlushPool', 'slush', 'BTC.com','BTC.COM','btc.com','btccom',
           'bitdeer','btcpool', 'F2Pool', 'poolin','xxxxxx.com','CKPool', 
-          'BTC.TOP', 'BTCC', 'MARA Pool', 'Mara Pool']
+          'BTC.TOP', 'BTCC', 'MARA Pool', 'Mara Pool', 'SpiderPool']
 ```
 
 ```python
@@ -175,9 +186,10 @@ def detect_keywords(df, column, keywords):
     # Iterate over the miner names
     for miner in miners:
         # Use the update method to detect the miner name in the specified column
-        df['miner'].update(df[column].str.extract(rf'({miner})', expand=False))
+        # df['miner'].update(df[column].str.extract(rf'({miner})', expand=False))
+        df.update({'miner':df[column].str.extract(rf'({miner})', expand=False)})
     # Replace any rows where the 'miner' column is None with 'Unknown'
-    df['miner'].replace({None: 'Other'}, inplace=True)
+    df['miner'] = df['miner'].replace({None: 'Other'})
     return df
 ```
 
@@ -187,22 +199,22 @@ miners_tagged = miners_tagged.set_index('consensus_time')
 miners_tagged
 ```
 
-|                           | miner\_tag                                          | height | category  | miner     |
-| ------------------------- | --------------------------------------------------- | ------ | --------- | --------- |
-| consensus\_time           |                                                     |        |           |           |
-| 2022-01-01 00:04:14+00:00 | <ï\n®¡Ïaú¾mml\|Móïò#mÈv°¬Ç½ÄÖØ1ºqÓöåÑéF...  | 716604 | Not Empty | binance   |
-| 2022-01-01 00:14:14+00:00 | =ï\nbinance/809ÿ�s¢.Eú¾mmZ/Â@£"\[ÄÖ\|}öOÓ½... | 716605 | Not Empty | binance   |
-| 2022-01-01 00:20:25+00:00 | >ï\nMined by AntPool749ÿsäÖKú¾mm? nø\rz...   | 716606 | Not Empty | AntPool   |
-| 2022-01-01 00:23:25+00:00 | ?ï\nß¢Ïa/SBICrypto.com Pool/L8¨O ������          | 716607 | Not Empty | Other     |
-| 2022-01-01 00:28:47+00:00 | @ï\n!\ MARA Pool \����Oç>ð§/Gt<���             | 716608 | Not Empty | MARA Pool |
-| ...                       | ...                                                 | ...    | ...       | ...       |
-| 2022-12-30 23:25:11+00:00 | \_¾ \|¯c/Foundry USA Pool #dropgold/ Q!Ù������ | 769631 | Not Empty | Foundry   |
-| 2022-12-30 23:31:09+00:00 | \`¾ Mined by AntPool959\[�Q§õ-ìú¾mm²99ßãï6... | 769632 | Not Empty | AntPool   |
-| 2022-12-30 23:39:09+00:00 | a¾ ,ú¾mmô±\t¥ü&óvm-1L´A¿ºVz¨µYTk@}Þò?(���...   | 769633 | Not Empty | F2Pool    |
-| 2022-12-30 23:40:35+00:00 | b¾ Ã¯c/Foundry USA Pool #dropgold/A��6���   | 769634 | Not Empty | Foundry   |
-| 2022-12-30 23:47:15+00:00 | c¾ ú¾mmeè«úÆruÎ7æB¿"LNýôKü¦#âÓ\[�����...  | 769635 | Not Empty | slush     |
+|                           | miner\_tag                                          | height | category  | miner   |
+| ------------------------- | --------------------------------------------------- | ------ | --------- | ------- |
+| consensus\_time           |                                                     |        |           |         |
+| 2023-10-05 13:54:00+00:00 | \t\_ Mined by AntPool806ø�È\*Î uú¾mmz¸d³w·×Þ... | 810761 | Not Empty | AntPool |
+| 2023-10-05 14:04:54+00:00 | \n\_ E/binance/219ú¾mmm¡¾¼a04Vy>IC°Jgò ¡Ð0...  | 810762 | Not Empty | binance |
+| 2023-10-05 14:28:43+00:00 |  \_ /ViaBTC/Mined by z180203/,ú¾mmñÊ1ä¾Ú!³K...  | 810763 | Not Empty | ViaBTC  |
+| 2023-10-05 14:36:46+00:00 |  \_ Mined by AntPool ø�¢1ê%-ú¾mm»âHjéZ¾®¨!M...  | 810764 | Not Empty | AntPool |
+| 2023-10-05 14:57:48+00:00 | \r\_ ,ú¾mm\rB\`tÌÝ;â«ñ\tÆ¢èür¹³a\rmá\rÚ... | 810765 | Not Empty | F2Pool  |
+| ...                       | ...                                                 | ...    | ...       | ...     |
+| 2024-10-04 15:50:04+00:00 | /\r< OCEAN.XYZ >3OD�ã.³Lð\n������        | 864146 | Not Empty | Other   |
+| 2024-10-04 15:51:50+00:00 | /\r,ú¾mm÷$@oÈ$\~¸ÑÆn¹Ô3 ñîõä ¼���...  | 864147 | Not Empty | F2Pool  |
+| 2024-10-04 15:56:39+00:00 | /\rc�g/Foundry USA Pool #dropgold/+J�½­�...   | 864148 | Not Empty | Foundry |
+| 2024-10-04 15:56:44+00:00 | /\rMined by AntPool èAx®øú¾mm6úq2iF...   | 864149 | Not Empty | AntPool |
+| 2024-10-04 16:22:20+00:00 | /\rMined by AntPool �µóú¾mm¹ý½kØ]"...   | 864150 | Not Empty | AntPool |
 
-53032 rows × 4 columns
+53390 rows × 4 columns
 
 ```python
 def transform_index_to_date(index):
@@ -220,21 +232,21 @@ miners_tagged.index = pd.to_datetime(date_index)
 miners_tagged
 ```
 
-|            | miner\_tag                                          | height | category  | miner     |
-| ---------- | --------------------------------------------------- | ------ | --------- | --------- |
-| 2022-01-01 | <ï\n®¡Ïaú¾mml\|Móïò#mÈv°¬Ç½ÄÖØ1ºqÓöåÑéF...  | 716604 | Not Empty | binance   |
-| 2022-01-01 | =ï\nbinance/809ÿ�s¢.Eú¾mmZ/Â@£"\[ÄÖ\|}öOÓ½... | 716605 | Not Empty | binance   |
-| 2022-01-01 | >ï\nMined by AntPool749ÿsäÖKú¾mm? nø\rz...   | 716606 | Not Empty | AntPool   |
-| 2022-01-01 | ?ï\nß¢Ïa/SBICrypto.com Pool/L8¨O ������          | 716607 | Not Empty | Other     |
-| 2022-01-01 | @ï\n!\ MARA Pool \����Oç>ð§/Gt<���             | 716608 | Not Empty | MARA Pool |
-| ...        | ...                                                 | ...    | ...       | ...       |
-| 2022-12-30 | \_¾ \|¯c/Foundry USA Pool #dropgold/ Q!Ù������ | 769631 | Not Empty | Foundry   |
-| 2022-12-30 | \`¾ Mined by AntPool959\[�Q§õ-ìú¾mm²99ßãï6... | 769632 | Not Empty | AntPool   |
-| 2022-12-30 | a¾ ,ú¾mmô±\t¥ü&óvm-1L´A¿ºVz¨µYTk@}Þò?(���...   | 769633 | Not Empty | F2Pool    |
-| 2022-12-30 | b¾ Ã¯c/Foundry USA Pool #dropgold/A��6���   | 769634 | Not Empty | Foundry   |
-| 2022-12-30 | c¾ ú¾mmeè«úÆruÎ7æB¿"LNýôKü¦#âÓ\[�����...  | 769635 | Not Empty | slush     |
+|            | miner\_tag                                          | height | category  | miner   |
+| ---------- | --------------------------------------------------- | ------ | --------- | ------- |
+| 2023-10-05 | \t\_ Mined by AntPool806ø�È\*Î uú¾mmz¸d³w·×Þ... | 810761 | Not Empty | AntPool |
+| 2023-10-05 | \n\_ E/binance/219ú¾mmm¡¾¼a04Vy>IC°Jgò ¡Ð0...  | 810762 | Not Empty | binance |
+| 2023-10-05 |  \_ /ViaBTC/Mined by z180203/,ú¾mmñÊ1ä¾Ú!³K...  | 810763 | Not Empty | ViaBTC  |
+| 2023-10-05 |  \_ Mined by AntPool ø�¢1ê%-ú¾mm»âHjéZ¾®¨!M...  | 810764 | Not Empty | AntPool |
+| 2023-10-05 | \r\_ ,ú¾mm\rB\`tÌÝ;â«ñ\tÆ¢èür¹³a\rmá\rÚ... | 810765 | Not Empty | F2Pool  |
+| ...        | ...                                                 | ...    | ...       | ...     |
+| 2024-10-04 | /\r< OCEAN.XYZ >3OD�ã.³Lð\n������        | 864146 | Not Empty | Other   |
+| 2024-10-04 | /\r,ú¾mm÷$@oÈ$\~¸ÑÆn¹Ô3 ñîõä ¼���...  | 864147 | Not Empty | F2Pool  |
+| 2024-10-04 | /\rc�g/Foundry USA Pool #dropgold/+J�½­�...   | 864148 | Not Empty | Foundry |
+| 2024-10-04 | /\rMined by AntPool èAx®øú¾mm6úq2iF...   | 864149 | Not Empty | AntPool |
+| 2024-10-04 | /\rMined by AntPool �µóú¾mm¹ý½kØ]"...   | 864150 | Not Empty | AntPool |
 
-53032 rows × 4 columns
+53390 rows × 4 columns
 
 ```python
 other_miners = miners_tagged.loc[miners_tagged['miner'] == 'Other']
@@ -243,31 +255,31 @@ other_miners
 
 |            | miner\_tag                                         | height | category  | miner |
 | ---------- | -------------------------------------------------- | ------ | --------- | ----- |
-| 2022-01-01 | ?ï\nß¢Ïa/SBICrypto.com Pool/L8¨O ������         | 716607 | Not Empty | Other |
-| 2022-01-01 | Hï\nä¶Ïa//ú¾mmWdîìdùªýQR:ë¹w4Q'À\*Á\t#{>... | 716616 | Not Empty | Other |
-| 2022-01-01 | Sï\nÌÕÏa//ú¾mmgk<»\n\`!5 jZBgÇyza­7ø... | 716627 | Not Empty | Other |
-| 2022-01-01 | \`ï\nèÏa/SBICrypto.com Pool/¡R:«j���        | 716640 | Not Empty | Other |
-| 2022-01-01 | jï\n@Ða/SBICrypto.com Pool/S!Y I����         | 716650 | Not Empty | Other |
+| 2023-10-05 |  \_ F°,ñ¿����/NiceHash/                        | 810784 | Not Empty | Other |
+| 2023-10-06 | ¬\_ /ultimus/783p�?�DòuÄú¾mm(0³4yï@×ì7HWlù»... | 810924 | Not Empty | Other |
+| 2023-10-06 | Ë\_  \t\t\t \t\t \t\_\[����                | 810955 | Not Empty | Other |
+| 2023-10-06 | Ö\_ /ultimus/787p�\ÏD­ú¾mmàÀ.,±r}?^º¿rE¨æ... | 810966 | Not Empty | Other |
+| 2023-10-07 | \` w !e/SBICrypto.com Pool/ø³bS�����         | 811027 | Not Empty | Other |
 | ...        | ...                                                | ...    | ...       | ...   |
-| 2022-12-30 | à½ Åp®c/SBICrypto.com Pool/Jñ1£²�����          | 769504 | Not Empty | Other |
-| 2022-12-30 | õ½ ­£®c/SBICrypto.com Pool/»Ì1¾�����          | 769525 | Not Empty | Other |
-| 2022-12-30 | ¾  \t\t\t \t\t \t@°$����                    | 769550 | Not Empty | Other |
-| 2022-12-30 | ¾ Çþ®c/SBICrypto.com Pool/ºï¢&{�����          | 769563 | Not Empty | Other |
-| 2022-12-30 | ¾  \t\t\t \t\t \t4 ü4����                    | 769567 | Not Empty | Other |
+| 2024-10-03 | /\rMined by SecPool�)Õ ­ú¾mmÑÀ)Ñgò2e...  | 864005 | Not Empty | Other |
+| 2024-10-03 | /\rMined by SecPool�9ÕuRíú¾mm(5L,±kÏä½...  | 864006 | Not Empty | Other |
+| 2024-10-04 | C/\r \t\t\t \t\t \tÉ��\n���                 | 864067 | Not Empty | Other |
+| 2024-10-04 | l/\rdÏÿf/SBICrypto.com Pool/\r$²v������        | 864108 | Not Empty | Other |
+| 2024-10-04 | /\r< OCEAN.XYZ >3OD�ã.³Lð\n������       | 864146 | Not Empty | Other |
 
-1962 rows × 4 columns
+3060 rows × 4 columns
 
 ```python
-miners_tagged['miner'].replace('xxxxxx.com', 'Poolin', inplace=True)
-miners_tagged['miner'].replace('poolin', 'Poolin', inplace=True)
-miners_tagged['miner'].replace('btccom', 'BTC.com', inplace=True)
-miners_tagged['miner'].replace('btc.com', 'BTC.com', inplace=True)
-miners_tagged['miner'].replace('btcpool', 'BTC.com', inplace=True)
-miners_tagged['miner'].replace('bitdeer', 'BTC.com', inplace=True)
-miners_tagged['miner'].replace('slush', 'Braiins Pool', inplace=True)
-miners_tagged['miner'].replace('binance', 'Binance Pool', inplace=True)
-miners_tagged['miner'].replace('Binance', 'Binance Pool', inplace=True)
-miners_tagged['miner'].replace('Mara Pool', 'MARA Pool', inplace=True)
+miners_tagged['miner'] = miners_tagged['miner'].replace('xxxxxx.com', 'Poolin')
+miners_tagged['miner'] = miners_tagged['miner'].replace('poolin', 'Poolin')
+miners_tagged['miner'] = miners_tagged['miner'].replace('btccom', 'BTC.com')
+miners_tagged['miner'] = miners_tagged['miner'].replace('btc.com', 'BTC.com')
+miners_tagged['miner'] = miners_tagged['miner'].replace('btcpool', 'BTC.com')
+miners_tagged['miner'] = miners_tagged['miner'].replace('bitdeer', 'BTC.com')
+miners_tagged['miner'] = miners_tagged['miner'].replace('slush', 'Braiins Pool')
+miners_tagged['miner'] = miners_tagged['miner'].replace('binance', 'Binance Pool')
+miners_tagged['miner'] = miners_tagged['miner'].replace('Binance', 'Binance Pool')
+miners_tagged['miner'] = miners_tagged['miner'].replace('Mara Pool', 'MARA Pool')
 ```
 
 ```python
@@ -285,27 +297,27 @@ data = data[averages]
 data
 ```
 
-| miner      | Foundry  | AntPool  | F2Pool   | Binance Pool | ViaBTC   | Poolin   | Braiins Pool | BTC.com  | Other    | Luxor    | MARA Pool |
-| ---------- | -------- | -------- | -------- | ------------ | -------- | -------- | ------------ | -------- | -------- | -------- | --------- |
-| 2022-01-01 | 0.191860 | 0.191860 | 0.156977 | 0.139535     | 0.104651 | 0.034884 | 0.052326     | 0.023256 | 0.081395 | 0.017442 | 0.005814  |
-| 2022-01-02 | 0.145570 | 0.164557 | 0.126582 | 0.158228     | 0.113924 | 0.056962 | 0.063291     | 0.069620 | 0.082278 | 0.018987 | NaN       |
-| 2022-01-03 | 0.214286 | 0.150000 | 0.164286 | 0.085714     | 0.107143 | 0.071429 | 0.057143     | 0.057143 | 0.078571 | 0.007143 | 0.007143  |
-| 2022-01-04 | 0.136054 | 0.170068 | 0.170068 | 0.108844     | 0.108844 | 0.068027 | 0.054422     | 0.061224 | 0.088435 | 0.020408 | 0.013605  |
-| 2022-01-05 | 0.113333 | 0.146667 | 0.146667 | 0.126667     | 0.140000 | 0.100000 | 0.033333     | 0.040000 | 0.126667 | NaN      | 0.026667  |
-| ...        | ...      | ...      | ...      | ...          | ...      | ...      | ...          | ...      | ...      | ...      | ...       |
-| 2022-12-26 | 0.255814 | 0.217054 | 0.193798 | 0.062016     | 0.108527 | 0.015504 | 0.031008     | 0.023256 | 0.046512 | 0.031008 | 0.015504  |
-| 2022-12-27 | 0.365217 | 0.217391 | 0.095652 | 0.095652     | 0.113043 | NaN      | 0.026087     | 0.017391 | 0.043478 | 0.008696 | 0.017391  |
-| 2022-12-28 | 0.291667 | 0.220238 | 0.160714 | 0.095238     | 0.077381 | 0.023810 | 0.023810     | 0.035714 | 0.017857 | 0.023810 | 0.029762  |
-| 2022-12-29 | 0.269504 | 0.234043 | 0.141844 | 0.120567     | 0.078014 | 0.014184 | 0.035461     | 0.007092 | 0.042553 | 0.042553 | 0.014184  |
-| 2022-12-30 | 0.227848 | 0.189873 | 0.196203 | 0.120253     | 0.120253 | NaN      | 0.037975     | 0.044304 | 0.044304 | 0.018987 | NaN       |
+| miner      | Foundry  | AntPool  | ViaBTC   | F2Pool   | Other    | Binance Pool | MARA Pool | Luxor    | SpiderPool | Braiins Pool | BTC.com  | Poolin   |
+| ---------- | -------- | -------- | -------- | -------- | -------- | ------------ | --------- | -------- | ---------- | ------------ | -------- | -------- |
+| 2023-10-05 | 0.178571 | 0.303571 | 0.160714 | 0.160714 | 0.017857 | 0.125000     | 0.017857  | 0.035714 | NaN        | NaN          | NaN      | NaN      |
+| 2023-10-06 | 0.237500 | 0.256250 | 0.112500 | 0.143750 | 0.018750 | 0.081250     | 0.062500  | 0.043750 | NaN        | 0.006250     | 0.012500 | 0.025000 |
+| 2023-10-07 | 0.263158 | 0.280702 | 0.087719 | 0.122807 | 0.046784 | 0.046784     | 0.040936  | 0.035088 | NaN        | 0.011696     | 0.046784 | 0.017544 |
+| 2023-10-08 | 0.310811 | 0.250000 | 0.121622 | 0.108108 | 0.033784 | 0.067568     | 0.027027  | 0.027027 | NaN        | 0.033784     | 0.013514 | 0.006757 |
+| 2023-10-09 | 0.269231 | 0.250000 | 0.115385 | 0.115385 | 0.038462 | 0.108974     | 0.038462  | 0.019231 | NaN        | 0.012821     | 0.019231 | 0.012821 |
+| ...        | ...      | ...      | ...      | ...      | ...      | ...          | ...       | ...      | ...        | ...          | ...      | ...      |
+| 2024-09-30 | 0.357664 | 0.255474 | 0.065693 | 0.131387 | 0.058394 | 0.021898     | 0.021898  | 0.007299 | 0.058394   | 0.007299     | NaN      | 0.014599 |
+| 2024-10-01 | 0.324841 | 0.305732 | 0.133758 | 0.095541 | 0.057325 | 0.012739     | 0.019108  | 0.019108 | 0.006369   | 0.025478     | NaN      | NaN      |
+| 2024-10-02 | 0.270968 | 0.219355 | 0.174194 | 0.083871 | 0.064516 | 0.032258     | 0.064516  | 0.025806 | 0.032258   | 0.012903     | 0.012903 | 0.006452 |
+| 2024-10-03 | 0.234177 | 0.316456 | 0.101266 | 0.107595 | 0.082278 | 0.037975     | 0.037975  | 0.012658 | 0.031646   | 0.025316     | 0.012658 | NaN      |
+| 2024-10-04 | 0.300000 | 0.281818 | 0.181818 | 0.054545 | 0.027273 | 0.027273     | 0.009091  | 0.036364 | 0.018182   | 0.045455     | 0.018182 | NaN      |
 
-364 rows × 11 columns
+366 rows × 12 columns
 
 ```python
 # Plot the data as an area chart
 ax = data.plot.area(figsize=(8, 6),fontsize=13.5,color=colors)
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
-ax.set_title('\nBitcoin Mining Pool \nDominance (2022)\n',fontsize=22,fontdict={'font':'arial'})
+ax.set_title('\nBitcoin Mining Pool \nDominance (2023 - 2024)\n',fontsize=22,fontdict={'font':'arial'})
 ax.axhline(0.5, linestyle='--', color='black')
 plt.xlim([miners_tagged.index[0],miners_tagged.index[-1]])
 plt.ylim(0,1)
@@ -314,12 +326,11 @@ plt.legend(bbox_to_anchor=(1,1),frameon=False)
 plt.annotate('Source: Coin Metrics ATLAS',weight='book',font='arial',xy=(1.001, 0.001), xycoords='axes fraction',color='black',xytext=(-8, 6), textcoords='offset pixels',horizontalalignment='right',verticalalignment='bottom')
 plt.savefig('./Pool-Dominance.png',facecolor='white',dpi=100)
 plt.show()
-
 ```
 
-<figure><img src="../../.gitbook/assets/ATLAS_miner_signatures_bitcoin_mining_pool_dominance.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ATLAS_miner_signatures_25_0.png" alt=""><figcaption></figcaption></figure>
 
-```
+```python
 total_blocks = pd.DataFrame(miners_tagged.index.value_counts())
 total_blocks.rename(columns={total_blocks.columns[0]: 'Total Blocks'}, inplace=True)
 total_blocks
@@ -327,19 +338,19 @@ total_blocks
 
 |            | Total Blocks |
 | ---------- | ------------ |
-| 2022-02-12 | 187          |
-| 2022-09-11 | 183          |
-| 2022-10-01 | 181          |
-| 2022-01-13 | 179          |
-| 2022-06-08 | 178          |
+| 2024-02-02 | 188          |
+| 2024-01-25 | 181          |
+| 2024-03-07 | 180          |
+| 2024-07-22 | 179          |
+| 2024-02-12 | 179          |
 | ...        | ...          |
-| 2022-12-27 | 115          |
-| 2022-07-13 | 110          |
-| 2022-11-26 | 109          |
-| 2022-06-17 | 108          |
-| 2022-12-24 | 89           |
+| 2024-01-15 | 114          |
+| 2024-06-23 | 112          |
+| 2024-10-04 | 110          |
+| 2024-09-11 | 108          |
+| 2023-10-05 | 56           |
 
-364 rows × 1 columns
+366 rows × 1 columns
 
 ```python
 empty_blocks = miners_tagged.groupby([miners_tagged.index.date,miners_tagged.miner])['category'].value_counts()
@@ -354,19 +365,19 @@ empty_blocks
 | category   | miner        | Empty | Not Empty |
 | ---------- | ------------ | ----- | --------- |
 | level\_0   |              |       |           |
-| 2022-01-01 | AntPool      | 0.0   | 33.0      |
-| 2022-01-01 | BTC.com      | 0.0   | 4.0       |
-| 2022-01-01 | Binance Pool | 0.0   | 24.0      |
-| 2022-01-01 | Braiins Pool | 0.0   | 9.0       |
-| 2022-01-01 | F2Pool       | 0.0   | 27.0      |
+| 2023-10-05 | AntPool      | 0.0   | 17.0      |
+| 2023-10-05 | Binance Pool | 0.0   | 7.0       |
+| 2023-10-05 | F2Pool       | 1.0   | 8.0       |
+| 2023-10-05 | Foundry      | 0.0   | 10.0      |
+| 2023-10-05 | Luxor        | 0.0   | 2.0       |
 | ...        | ...          | ...   | ...       |
-| 2022-12-30 | F2Pool       | 0.0   | 31.0      |
-| 2022-12-30 | Foundry      | 0.0   | 36.0      |
-| 2022-12-30 | Luxor        | 0.0   | 3.0       |
-| 2022-12-30 | Other        | 0.0   | 7.0       |
-| 2022-12-30 | ViaBTC       | 0.0   | 19.0      |
+| 2024-10-04 | Luxor        | 0.0   | 4.0       |
+| 2024-10-04 | MARA Pool    | 0.0   | 1.0       |
+| 2024-10-04 | Other        | 0.0   | 3.0       |
+| 2024-10-04 | SpiderPool   | 0.0   | 2.0       |
+| 2024-10-04 | ViaBTC       | 0.0   | 20.0      |
 
-3862 rows × 3 columns
+4004 rows × 3 columns
 
 ```python
 df_pivot = empty_blocks.pivot_table(index=empty_blocks.index, columns="miner", values="Empty")
@@ -375,22 +386,22 @@ df_pivot = df_pivot.fillna(0)
 df_pivot
 ```
 
-|            | AntPool | BTC.com | Binance Pool | Braiins Pool | F2Pool | Foundry | Luxor | MARA Pool | Other | Poolin | ViaBTC | Total Blocks |
-| ---------- | ------- | ------- | ------------ | ------------ | ------ | ------- | ----- | --------- | ----- | ------ | ------ | ------------ |
-| level\_0   |         |         |              |              |        |         |       |           |       |        |        |              |
-| 2022-01-01 | 0.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0    | 172          |
-| 2022-01-02 | 0.0     | 0.0     | 1.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0    | 158          |
-| 2022-01-03 | 0.0     | 0.0     | 1.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0    | 140          |
-| 2022-01-04 | 0.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0    | 147          |
-| 2022-01-05 | 0.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0    | 150          |
-| ...        | ...     | ...     | ...          | ...          | ...    | ...     | ...   | ...       | ...   | ...    | ...    | ...          |
-| 2022-12-26 | 0.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0    | 129          |
-| 2022-12-27 | 0.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0    | 115          |
-| 2022-12-28 | 1.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0    | 168          |
-| 2022-12-29 | 0.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0    | 141          |
-| 2022-12-30 | 0.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0    | 158          |
+|            | AntPool | BTC.com | Binance Pool | Braiins Pool | F2Pool | Foundry | Luxor | MARA Pool | Other | Poolin | SpiderPool | ViaBTC | Total Blocks |
+| ---------- | ------- | ------- | ------------ | ------------ | ------ | ------- | ----- | --------- | ----- | ------ | ---------- | ------ | ------------ |
+| level\_0   |         |         |              |              |        |         |       |           |       |        |            |        |              |
+| 2023-10-05 | 0.0     | 0.0     | 0.0          | 0.0          | 1.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0        | 0.0    | 56           |
+| 2023-10-06 | 0.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0        | 0.0    | 160          |
+| 2023-10-07 | 0.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0        | 0.0    | 171          |
+| 2023-10-08 | 0.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0        | 0.0    | 148          |
+| 2023-10-09 | 1.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0        | 0.0    | 156          |
+| ...        | ...     | ...     | ...          | ...          | ...    | ...     | ...   | ...       | ...   | ...    | ...        | ...    | ...          |
+| 2024-09-30 | 0.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0        | 0.0    | 137          |
+| 2024-10-01 | 1.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0        | 0.0    | 157          |
+| 2024-10-02 | 1.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 1.0   | 0.0       | 0.0   | 0.0    | 1.0        | 0.0    | 155          |
+| 2024-10-03 | 0.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0        | 0.0    | 158          |
+| 2024-10-04 | 0.0     | 0.0     | 0.0          | 0.0          | 0.0    | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0        | 0.0    | 110          |
 
-364 rows × 12 columns
+366 rows × 13 columns
 
 ```python
 df_empty = df_pivot.iloc[:,0:].div(df_pivot['Total Blocks'], axis=0)
@@ -399,24 +410,48 @@ df_empty = df_empty.drop(df_empty.columns[-1:], axis=1)
 
 ```python
 df_empty = df_empty[averages]
+df_empty
 ```
 
+|            | Foundry | AntPool  | ViaBTC | F2Pool   | Other | Binance Pool | MARA Pool | Luxor    | SpiderPool | Braiins Pool | BTC.com | Poolin |
+| ---------- | ------- | -------- | ------ | -------- | ----- | ------------ | --------- | -------- | ---------- | ------------ | ------- | ------ |
+| level\_0   |         |          |        |          |       |              |           |          |            |              |         |        |
+| 2023-10-05 | 0.0     | 0.000000 | 0.0    | 0.017857 | 0.0   | 0.0          | 0.0       | 0.000000 | 0.000000   | 0.0          | 0.0     | 0.0    |
+| 2023-10-06 | 0.0     | 0.000000 | 0.0    | 0.000000 | 0.0   | 0.0          | 0.0       | 0.000000 | 0.000000   | 0.0          | 0.0     | 0.0    |
+| 2023-10-07 | 0.0     | 0.000000 | 0.0    | 0.000000 | 0.0   | 0.0          | 0.0       | 0.000000 | 0.000000   | 0.0          | 0.0     | 0.0    |
+| 2023-10-08 | 0.0     | 0.000000 | 0.0    | 0.000000 | 0.0   | 0.0          | 0.0       | 0.000000 | 0.000000   | 0.0          | 0.0     | 0.0    |
+| 2023-10-09 | 0.0     | 0.006410 | 0.0    | 0.000000 | 0.0   | 0.0          | 0.0       | 0.000000 | 0.000000   | 0.0          | 0.0     | 0.0    |
+| ...        | ...     | ...      | ...    | ...      | ...   | ...          | ...       | ...      | ...        | ...          | ...     | ...    |
+| 2024-09-30 | 0.0     | 0.000000 | 0.0    | 0.000000 | 0.0   | 0.0          | 0.0       | 0.000000 | 0.000000   | 0.0          | 0.0     | 0.0    |
+| 2024-10-01 | 0.0     | 0.006369 | 0.0    | 0.000000 | 0.0   | 0.0          | 0.0       | 0.000000 | 0.000000   | 0.0          | 0.0     | 0.0    |
+| 2024-10-02 | 0.0     | 0.006452 | 0.0    | 0.000000 | 0.0   | 0.0          | 0.0       | 0.006452 | 0.006452   | 0.0          | 0.0     | 0.0    |
+| 2024-10-03 | 0.0     | 0.000000 | 0.0    | 0.000000 | 0.0   | 0.0          | 0.0       | 0.000000 | 0.000000   | 0.0          | 0.0     | 0.0    |
+| 2024-10-04 | 0.0     | 0.000000 | 0.0    | 0.000000 | 0.0   | 0.0          | 0.0       | 0.000000 | 0.000000   | 0.0          | 0.0     | 0.0    |
+
+366 rows × 12 columns
+
 ```python
-ax = df_empty.plot.bar(figsize=(8, 6),stacked=True,fontsize=13.5,color=colors,width=1.2)
-plt.title('\nEmpty Blocks\nTotal Percentage (2022)\n', fontdict = {'size':18, 'font': 'arial'})
+fig, ax = plt.subplots(figsize=(8, 6))
+cumval = 0
+i = 0
+for col in df_empty.columns:
+    plt.bar(df_empty.index, df_empty[col], bottom=cumval, label=col, color=colors[i])
+    cumval = cumval+df_empty[col]
+    i += 1
 ax.xaxis.set_major_locator(mdates.MonthLocator())
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
+plt.title('\nEmpty Blocks\nTotal Percentage (2023 - 2024)\n', fontdict = {'size':18, 'font': 'arial'})
 plt.xticks(rotation=0)
 plt.xlabel('')
 plt.legend(bbox_to_anchor=(1,1),frameon=False)
 plt.yticks([0.005, 0.010, 0.015, 0.02, 0.025], ['0.5%','1.0%','1.5%','2.0%','2.5%'],fontdict={'size':14})
 plt.grid(True, axis='y',linestyle='--',alpha=0.5)
 plt.annotate('Source: Coin Metrics ATLAS',weight='book',font='arial',xy=(1.00, 0.953), xycoords='axes fraction',color='black',xytext=(-8, 6), textcoords='offset pixels',horizontalalignment='right',verticalalignment='bottom')
-plt.savefig('./Empty-Blocks-Total-2022.png',facecolor='white',dpi=100)
+plt.savefig('./Empty-Blocks-Total-2023-2024.png',facecolor='white',dpi=100)
 plt.xlabel('');
 ```
 
-<figure><img src="../../.gitbook/assets/ATLAS_miner_signatures_empty_blocks_pct.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ATLAS_miner_signatures_32_0.png" alt=""><figcaption></figcaption></figure>
 
 ```python
 empty_blocks_total = pd.DataFrame(miners_tagged.groupby([miners_tagged.miner])['category'].value_counts(normalize=True))
@@ -430,16 +465,17 @@ empty_blocks_total
 | ------------ | -------- | --------- |
 | miner        |          |           |
 | Foundry      | 0.000000 | 1.000000  |
-| AntPool      | 0.002657 | 0.997343  |
-| F2Pool       | 0.003707 | 0.996293  |
-| Binance Pool | 0.005204 | 0.994796  |
-| ViaBTC       | 0.006603 | 0.993397  |
-| Poolin       | 0.000903 | 0.999097  |
-| Braiins Pool | 0.003862 | 0.996138  |
-| BTC.com      | 0.003584 | 0.996416  |
-| Other        | 0.001529 | 0.998471  |
-| Luxor        | 0.000000 | 1.000000  |
+| AntPool      | 0.005885 | 0.994115  |
+| ViaBTC       | 0.002395 | 0.997605  |
+| F2Pool       | 0.003208 | 0.996792  |
+| Other        | 0.003595 | 0.996405  |
+| Binance Pool | 0.002993 | 0.997007  |
 | MARA Pool    | 0.000000 | 1.000000  |
+| Luxor        | 0.005000 | 0.995000  |
+| SpiderPool   | 0.035996 | 0.964004  |
+| Braiins Pool | 0.002331 | 0.997669  |
+| BTC.com      | 0.004071 | 0.995929  |
+| Poolin       | 0.004640 | 0.995360  |
 
 ```python
 pool_total_blocks = pd.DataFrame(miners_tagged['miner'].value_counts())
@@ -451,16 +487,17 @@ pool_total_blocks
 |              | Total Blocks Mined |
 | ------------ | ------------------ |
 | miner        |                    |
-| Foundry      | 11802              |
-| AntPool      | 8658               |
-| F2Pool       | 7824               |
-| Binance Pool | 6149               |
-| ViaBTC       | 5149               |
-| Poolin       | 4431               |
-| Braiins Pool | 2848               |
-| BTC.com      | 2232               |
-| Luxor        | 1359               |
-| MARA Pool    | 618                |
+| Foundry      | 15492              |
+| AntPool      | 13595              |
+| ViaBTC       | 6680               |
+| F2Pool       | 5923               |
+| Binance Pool | 2339               |
+| MARA Pool    | 1986               |
+| Luxor        | 1400               |
+| SpiderPool   | 889                |
+| Braiins Pool | 858                |
+| BTC.com      | 737                |
+| Poolin       | 431                |
 
 ```python
 row_num = empty_blocks_total.index.get_loc('Other')
@@ -472,18 +509,19 @@ empty_blocks_total = empty_blocks_total.drop('Other')
 pool_total_blocks.reset_index()
 ```
 
-|   | miner        | Total Blocks Mined |
-| - | ------------ | ------------------ |
-| 0 | Foundry      | 11802              |
-| 1 | AntPool      | 8658               |
-| 2 | F2Pool       | 7824               |
-| 3 | Binance Pool | 6149               |
-| 4 | ViaBTC       | 5149               |
-| 5 | Poolin       | 4431               |
-| 6 | Braiins Pool | 2848               |
-| 7 | BTC.com      | 2232               |
-| 8 | Luxor        | 1359               |
-| 9 | MARA Pool    | 618                |
+|    | miner        | Total Blocks Mined |
+| -- | ------------ | ------------------ |
+| 0  | Foundry      | 15492              |
+| 1  | AntPool      | 13595              |
+| 2  | ViaBTC       | 6680               |
+| 3  | F2Pool       | 5923               |
+| 4  | Binance Pool | 2339               |
+| 5  | MARA Pool    | 1986               |
+| 6  | Luxor        | 1400               |
+| 7  | SpiderPool   | 889                |
+| 8  | Braiins Pool | 858                |
+| 9  | BTC.com      | 737                |
+| 10 | Poolin       | 431                |
 
 ```python
 ax = empty_blocks_total['Empty'].plot.bar(figsize=(8, 6),stacked=True,fontsize=12,color=colors_no_other,width=0.8,zorder=2)
@@ -493,17 +531,17 @@ formatter = FuncFormatter(format_percent)
 ax.yaxis.set_major_formatter(formatter)
 plt.xticks(rotation=45,size=12)
 plt.yticks(rotation=0,size=12)
-plt.title('\nEmpty Blocks vs. Total Blocks\nby Mining Pool (2022)\n', fontdict = {'size':18, 'font': 'arial'})
+plt.title('\nEmpty Blocks vs. Total Blocks\nby Mining Pool (Oct 2023 - Oct 2024)\n', fontdict = {'size':18, 'font': 'arial'})
 plt.xlabel('');
 plt.ylabel('Empty Blocks (%)',fontsize=14,labelpad=10);
 plt.tick_params(axis='both', which='both', length=0, pad=8)
-plt.ylim(0,0.007)
+plt.ylim(0,0.04)
 ax.grid(True, axis='y',linestyle='--',zorder=1,alpha=0.5)
 ax2 = ax.twinx()
 pool_total_blocks.plot.line(ax=ax2,color='black',linestyle='--',legend=True)
 pool_total_blocks.reset_index().plot.scatter(x='miner',y='Total Blocks Mined',ax=ax2,color='black', s=50)
-ax2.set_yticks([0,2000,4000,6000,8000,10000,12000,14000])
-plt.ylim(0,14000)
+ax2.set_yticks([0,2000,4000,6000,8000,10000,12000,14000,16000])
+plt.ylim(0,16000)
 ax2.yaxis.set_major_formatter(mtick.StrMethodFormatter('{x:,.0f}'))
 plt.legend(bbox_to_anchor=(1,1.0),frameon=False,fontsize=11.3)
 plt.tick_params(axis='both', which='both', length=0, pad=8)
@@ -525,4 +563,4 @@ plt.annotate(
 plt.savefig('./Empty-Blocks-by-Pool.png',facecolor='white',dpi=100)
 ```
 
-<figure><img src="../../.gitbook/assets/ATLAS_miner_signatures_empty_vs_total_blocks.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ATLAS_miner_signatures_37_0.png" alt=""><figcaption></figcaption></figure>
