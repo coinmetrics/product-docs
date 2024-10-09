@@ -103,6 +103,6 @@ All of our catalog v2 and reference data endpoints will follow a similar schema.
 
 ## I currently use one of the existing catalog endpoints. How do I switch to the new catalog v2 and reference data endpoints?
 
-We have created a mapping of how existing catalog endpoints will map to our new endpoints [here](../tutorials-and-guides/user-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md). The new endpoints should contain the same data as the existing catalog endpoint.
+We have created a mapping of how existing catalog endpoints will map to our new endpoints [here](../tutorials-and-examples/user-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md). The new endpoints should contain the same data as the existing catalog endpoint.
 
 If you have any questions or have any use cases that may be adversely impacted by this change, please contact us.

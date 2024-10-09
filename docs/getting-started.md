@@ -22,7 +22,7 @@ You can use our [Data Viz](https://charts.coinmetrics.io/crypto-data/) to create
 
 You can directly download files from your browser by adding a "format=csv" in your HTTP request, i.e. `https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=PriceUSD,FlowInGEMUSD&frequency=1d&pretty=true&api_key=<your_key>&format=csv`
 
-For more information on exporting data, see the guide: [exporting-data.md](tutorials-and-guides/user-guides/exporting-data.md "mention")
+For more information on exporting data, see the guide: [exporting-data.md](tutorials-and-examples/user-guides/exporting-data.md "mention")
 
 ### For Developers
 
@@ -42,7 +42,7 @@ We offer convenient wrappers for our API in different languages.&#x20;
 
 ## Use and Explore Coin Metrics Data
 
-[tutorials-and-guides](tutorials-and-guides/ "mention")
+[tutorials-and-examples](tutorials-and-examples/ "mention")
 
 In general, our examples are divided into these sections.
 

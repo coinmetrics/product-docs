@@ -1,4 +1,4 @@
-# Tutorials and Guides
+# Tutorials and Examples
 
 ## New User Guides
 
@@ -24,7 +24,7 @@ A curated set of these tutorials are hosted below.
 
 #### Examples
 
-* [Market Data: Overview](tutorials/md\_market\_data\_overview.md)
+* [Market Data: Getting Started](tutorials/md\_market\_data\_overview.md)
 * [Market Data: Options Aggregations](tutorials/md\_options\_aggregation.md)
 * [Market Data: Orderbook Depth](tutorials/md\_orderbook\_depth.md)
 * [Market Data: Futures Overview](tutorials/md\_futures\_overview.md)
