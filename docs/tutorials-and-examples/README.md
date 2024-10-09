@@ -28,9 +28,9 @@ A curated set of these tutorials are hosted below.
 * [Options Aggregations](tutorials/md\_options\_aggregation.md)
 * [Orderbook Depth](tutorials/md\_orderbook\_depth.md)
 * [Futures Overview](tutorials/md\_futures\_overview.md)
-* [Liquidity Metrics](tutorials/liquidity-metrics.md)
-* [Stablecoin Prices](tutorials/stablecoin-prices.md)
-* [Exchange Volume](tutorials/exchange-volume.md)
+* [Liquidity Metrics](tutorials/aggregating-orderbook-depth-to-create-liquidity-metrics.md)
+* [Stablecoin Prices](tutorials/comparing-stablecoin-prices-using-different-pricing-methods.md)
+* [Exchange Volume](tutorials/comparing-volumes-of-exchanges-and-assets.md)
 
 **Resources**
 
@@ -45,8 +45,8 @@ A curated set of these tutorials are hosted below.
 * [Metrics Workbench With ATLAS](tutorials/atlas\_metric\_workbench.md)
 * [Marketcap Metrics](tutorials/ndp\_marketcap\_metrics.md)
 * [Analyzing Miner Data With ATLAS](tutorials/atlas\_miner\_signatures.md)
-* [Staking Metrics](tutorials/staking-metrics.md)
-* [Hourly Metrics](tutorials/hourly-metrics.md)
+* [Staking Metrics](tutorials/using-staking-metrics-to-get-yield-and-staked-supply.md)
+* [Hourly Metrics](tutorials/granular-insights-on-chain-using-hourly-network-data-metrics.md)
 
 **Useful Resources**
 
