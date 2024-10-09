@@ -30,6 +30,7 @@ A curated set of these tutorials are hosted below.
 * [Market Data: Futures Overview](tutorials/md\_futures\_overview.md)
 * [Market Data: Liquidity Metrics](tutorials/md-liquidity-metrics.md)
 * [Market Data: Stablecoin Prices](tutorials/md-stablecoin-prices.md)
+* [Market Data: Exchange Volume](tutorials/md-exchange-volume.md)
 
 **Resources**
 
@@ -45,6 +46,7 @@ A curated set of these tutorials are hosted below.
 * [Network Data: Marketcap Metrics](tutorials/ndp\_marketcap\_metrics.md)
 * [Network Data: Analyzing Miner Data With ATLAS](tutorials/atlas\_miner\_signatures.md)
 * [Network Data: Staking Metrics](tutorials/nd-staking-metrics.md)
+* [Network Data: Hourly Metrics](tutorials/nd-hourly-metrics.md)
 
 **Useful Resources**
 
