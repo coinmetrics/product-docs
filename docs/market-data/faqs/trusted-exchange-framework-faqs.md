@@ -1,9 +1,5 @@
 # Trusted Exchange Framework FAQs
 
-### How often is the trusted exchange list updated?
-
-The list is updated quarterly.
-
 ### When is the data for Data Quality collected and reviewed?
 
 The data sampled for the Data Quality scores are representative as of the end of the previous quarter. In other words, Q1 results will reflect data collected as of the end of the previous year’s Q4, and Q3 results will reflect data collected as of the end of Q2 of that year.
