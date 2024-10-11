@@ -149,15 +149,9 @@ df_asset_metrics.head()
 df_asset_metrics.loc[df_asset_metrics.asset=='btc'].plot(x='time', y='ReferenceRateUSD')
 ```
 
-```
-<Axes: xlabel='time'>
+<figure><img src="../../.gitbook/assets/walkthrough_community_price.png" alt=""><figcaption></figcaption></figure>
 
 
-
-
-```
-
-![png](../../getting-started/tutorials/output\_16\_1.png)
 
 Coin Metrics supports several metrics for various data types such as exchanges, markets, and asset-pairs.
 
@@ -188,7 +182,7 @@ df_asset_metrics_limit
 
 The other common timeseries data type that you will encounter are individual observations.
 
-First, we will need to familiarize ourselves with the market convention which we can find on https://docs.coinmetrics.io/market-data/faqs#what-market-naming-conventions-does-coin-metrics-use. You can see a full list of markets by using the `reference-data` endpoint. 
+First, we will need to familiarize ourselves with the market convention which we can find on [faqs](../../market-data/faqs/ "mention"). You can see a full list of markets by using the `reference-data` endpoint.
 
 ```python
 df_coinbase_btc_markets = client.reference_data_markets(asset='btc', exchange='coinbase').to_dataframe()
@@ -230,16 +224,11 @@ df_coinbase_btc_trades.head()
 | 3 | coinbase-btc-usd-spot | 2024-09-13 16:55:03.143752+00:00 | 691698444         | 0.15742  | 59491.6  | 2024-09-13 16:55:03.771512+00:00 | sell |
 | 4 | coinbase-btc-usd-spot | 2024-09-13 16:55:03.143816+00:00 | 691698445         | 0.076281 | 59491.6  | 2024-09-13 16:55:03.771512+00:00 | sell |
 
-
-```
-
-![png](../../getting-started/tutorials/output\_48\_1.png)
-
-## Examples from State of the Network
+### Examples from State of the Network
 
 The Python API Client is often used for transforming data for [State of the Network](https://coinmetrics.substack.com/). Below are some examples of data transformations done to produce the data visualizations.
 
-### Example 1: Get returns by coin in the CM reference rates universe over the last 10-years
+#### Example 1: Get returns by coin in the CM reference rates universe over the last 10-years
 
 In [State of the Network #128](https://coinmetrics.substack.com/p/coin-metrics-state-of-the-network-53b), we looked at the returns for each asset dating back the last 10 years.
 
