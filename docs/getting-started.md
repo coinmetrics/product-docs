@@ -26,7 +26,7 @@ For more information on exporting data, see the guide: [exporting-data.md](tutor
 
 ### For Developers
 
-You can use our [API](https://docs.coinmetrics.io/api/v4/) for accessing data. To get started on our API, see the API basics page.&#x20;
+You can use our [API](https://docs.coinmetrics.io/api/v4/) for accessing data. To understand how our API schema is organized, see the [api-data-types.md](core-concepts/api-data-types.md "mention") page. To learn more about our API design, see the [API basics](access-our-data/api.md) page.&#x20;
 
 [api.md](access-our-data/api.md "mention")
 
@@ -34,7 +34,7 @@ We offer convenient wrappers for our API in different languages.&#x20;
 
 #### **Python Users**
 
-[python-client](access-our-data/python-client/ "mention")
+[python-client.md](access-our-data/python-client.md "mention")
 
 **R Users**
 
@@ -42,13 +42,18 @@ We offer convenient wrappers for our API in different languages.&#x20;
 
 ## Use and Explore Coin Metrics Data
 
-[tutorials-and-examples](tutorials-and-examples/ "mention")
+You can view examples of how to use Coin Metrics data in the [Tutorials and Examples](tutorials-and-examples/) section.
 
-In general, our examples are divided into these sections.
+We recommend new users to read the following guides first to get a basic understanding of Coin Metrics data:
 
-**Tutorials** are guides for exploring Coin Metrics data. The goal is for a user to achieve a basic familiarity with using Coin Metrics tools and explore what is possible with our data.
+* [Python API Client Walkthrough](tutorials-and-examples/tutorials/walkthrough\_community.md)
+* [Data Visualization Walkthrough](data-visualization/)
+* [How To Export Data](tutorials-and-examples/user-guides/exporting-data.md)
 
-**How-To Guides** are instructions for accomplishing specific tasks. These tasks  include "_how to export data into a CSV_" or "_how to make the Python API Client run faster_".&#x20;
+Refer to our more use-case-specific guides to make the most out of our data:
+
+* [how-to-use-the-coin-metrics-api-efficiently-http.md](tutorials-and-examples/user-guides/how-to-use-the-coin-metrics-api-efficiently-http.md "mention")
+* [How To Migrate From Catalog V1 to Catalog V2](tutorials-and-examples/user-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md)
 
 ## Understand our Data
 
@@ -69,7 +74,9 @@ More information on each dataset can be found in their respective sections. You 
 
 [Broken link](broken-reference "mention")
 
-The Core Concepts section provides high level explainers about Coin Metrics data that encompass multiple data types. Read this section to understand and be able reason about our data.
+The [Core Concepts](core-concepts/) section provides high level explainers about Coin Metrics data that encompass multiple data types. Read this section to understand and be able reason about our data.
 
-[core-concepts](core-concepts/ "mention")
+
+
+
 
