@@ -22,6 +22,10 @@ You can use our [Data Viz](https://charts.coinmetrics.io/crypto-data/) to create
 
 You can directly download files from your browser by adding a "format=csv" in your HTTP request, i.e. `https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=PriceUSD,FlowInGEMUSD&frequency=1d&pretty=true&api_key=<your_key>&format=csv`
 
+On Google Sheets, you can use the `IMPORTDATA` function on the formula tab:
+
+`=IMPORTDATA("`[`https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=CapMrktEstUSD,SplyCur,PriceUSD,CapMrktCurUSD&api_key=`](https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=CapMrktEstUSD,SplyCur,PriceUSD,CapMrktCurUSD\&api\_key=)`<API_KEY>&assets=usdc&frequency=1d&limit_per_asset=1&format=csv")`
+
 For more information on exporting data, see the guide: [exporting-data.md](tutorials-and-examples/user-guides/exporting-data.md "mention")
 
 ### For Developers
