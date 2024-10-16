@@ -4,7 +4,7 @@ This guide will help you migrate from using Catalog ("Catalog V1") to Catalog V2
 
 Due to growing complexity in data coverage and the resulting performance bottlenecks from storing all of this data, this metadata is being separated. Catalog V2 and Reference Data allow for more lightweight and flexible queries as they can be queried across several dimensions (for example, `catalog-v2/asset-metrics` lets you filter by both asset and metric).
 
-For more information on the reasoning behind the catalog migration, see [catalog-v1-v2-migration.md](../../core-concepts/catalog-v1-v2-migration.md "mention")
+For more information on the reasoning behind the catalog migration, see [catalog-v1-v2-migration.md](../../access-our-data/api/catalog-v1-v2-migration.md "mention")
 
 ## Examples
 

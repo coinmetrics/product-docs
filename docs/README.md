@@ -24,15 +24,15 @@ Welcome to **Coin Metrics Data Encyclopedia**. At Coin Metrics, we organize the 
 
 ### [Reference Rates](https://coinmetrics.io/reference-rates/)
 
-* **Reference Rates** provide prices calculated in U.S. Dollars and Euros for over 550 assets using a transparent and independent methodology, robust to manipulation and derived from high-quality constituent markets. This data is available through our [API](access-our-data/api.md) (`timeseries/asset-metrics` endpoint) and also in our [Data Visualization](data-visualization/) and [CM Pro Charts](data-visualization/cmpro/).
-* **Reference Rates Community** (Community [API](access-our-data/api.md), [Data Visualization](data-visualization/), [Pro Charts](data-visualization/cmpro/)) provides access to all of our reference rates with a limited amount of history for our more granular resolutions. For more info on our Community terms and offerings see our [Labs](https://coinmetrics.io/cm-labs/) page
+* **Reference Rates** provide prices calculated in U.S. Dollars and Euros for over 550 assets using a transparent and independent methodology, robust to manipulation and derived from high-quality constituent markets. This data is available through our [API](access-our-data/api/) (`timeseries/asset-metrics` endpoint) and also in our [Data Visualization](data-visualization/) and [CM Pro Charts](data-visualization/cmpro/).
+* **Reference Rates Community** (Community [API](access-our-data/api/), [Data Visualization](data-visualization/), [Pro Charts](data-visualization/cmpro/)) provides access to all of our reference rates with a limited amount of history for our more granular resolutions. For more info on our Community terms and offerings see our [Labs](https://coinmetrics.io/cm-labs/) page
 
 ## Indexes
 
 ### [Coin Metrics Bletchley Indexes (CMBI)](https://coinmetrics.io/cm-indexes/)
 
-* **Coin Metrics Bletchley Indexes (CMBI)** are a comprehensive suite of single-asset, multi-asset, and unique crypto asset benchmarks used by leading crypto and traditional financial institutions. This data is available through our [API](access-our-data/api.md) (`timeseries/index-levels` and `/timeseries/index-constituents` endpoints) and also in our [Data Visualization](data-visualization/) and [CM Pro Charts](data-visualization/cmpro/).
-* **CMBI Community** (Community [API](access-our-data/api.md), [Data Visualization](data-visualization/), [Pro Charts](data-visualization/cmpro/)) provides access to all of our index levels with a limited amount of history for our more granular resolutions. For more info on our Community terms and offerings see our [Labs](https://coinmetrics.io/cm-labs/) page. A further description of the limitations of this data is listed in the data concepts in the **Indexes** section of this Encyclopedia.
+* **Coin Metrics Bletchley Indexes (CMBI)** are a comprehensive suite of single-asset, multi-asset, and unique crypto asset benchmarks used by leading crypto and traditional financial institutions. This data is available through our [API](access-our-data/api/) (`timeseries/index-levels` and `/timeseries/index-constituents` endpoints) and also in our [Data Visualization](data-visualization/) and [CM Pro Charts](data-visualization/cmpro/).
+* **CMBI Community** (Community [API](access-our-data/api/), [Data Visualization](data-visualization/), [Pro Charts](data-visualization/cmpro/)) provides access to all of our index levels with a limited amount of history for our more granular resolutions. For more info on our Community terms and offerings see our [Labs](https://coinmetrics.io/cm-labs/) page. A further description of the limitations of this data is listed in the data concepts in the **Indexes** section of this Encyclopedia.
 
 ## Reference Data
 

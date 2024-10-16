@@ -6,7 +6,7 @@ Welcome! Follow the steps below to get started with using Coin Metrics data.
 
 Most of our data requires an API Key. If you want an API key, get in touch with us on our contact page: [https://coinmetrics.io/contact/](https://coinmetrics.io/contact/)
 
-We offer some data for free under our Community Data. For more information, go to: [coin-metrics-community-data.md](access-our-data/coin-metrics-community-data.md "mention")
+We offer some data for free under our Community Data. For more information, go to: [coin-metrics-community-data.md](packages/coin-metrics-community-data.md "mention")
 
 Data coverage can be seen by plugging in your API key at [coverage.coinmetrics.io](https://coverage.coinmetrics.io)
 
@@ -30,9 +30,9 @@ For more information on exporting data, see the guide: [exporting-data.md](tutor
 
 ### For Developers
 
-You can use our [API](https://docs.coinmetrics.io/api/v4/) for accessing data. To understand how our API schema is organized, see the [api-data-types.md](core-concepts/api-data-types.md "mention") page. To learn more about our API design, see the [API basics](access-our-data/api.md) page.&#x20;
+You can use our [API](https://docs.coinmetrics.io/api/v4/) for accessing data. To understand how our API schema is organized, see the [Broken link](broken-reference "mention") page. To learn more about our API design, see the [API basics](access-our-data/api/) page.&#x20;
 
-[api.md](access-our-data/api.md "mention")
+[api](access-our-data/api/ "mention")
 
 We offer convenient wrappers for our API in different languages.&#x20;
 
@@ -77,8 +77,6 @@ More information on each dataset can be found in their respective sections. You 
 [index](index-data/index/ "mention")
 
 [Broken link](broken-reference "mention")
-
-The [Core Concepts](core-concepts/) section provides high level explainers about Coin Metrics data that encompass multiple data types. Read this section to understand and be able reason about our data.
 
 
 
