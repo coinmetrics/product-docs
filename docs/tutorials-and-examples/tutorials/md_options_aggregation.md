@@ -1,4 +1,4 @@
-# MDF: Aggregating Options Data
+# Aggregating Options Data
 
 ## Coin Metrics Options Data Aggregation
 
@@ -13,6 +13,18 @@ To understand the data that Coin Metrics offers, feel free to peruse the resourc
 * The [Coin Metrics API v4](https://docs.coinmetrics.io/api/v4) website contains the full set of endpoints and data offered by Coin Metrics.
 * The [Coin Metrics Knowledge Base](https://docs.coinmetrics.io/info) gives detailed, conceptual explanations of the data that Coin Metrics offers.
 * The [API Spec](https://coinmetrics.github.io/api-client-python/site/api\_client.html) contains a full list of functions.
+
+
+
+### File Download
+
+Download the entire notebook as either a jupyter notebook to run yourself or as a pdf from the two links below
+
+{% file src="../../.gitbook/assets/MDF_options_aggregation.ipynb" %}
+
+{% file src="../../.gitbook/assets/MDF_options_aggregation.pdf" %}
+
+
 
 ### Notebook Setup
 
