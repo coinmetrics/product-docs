@@ -20,6 +20,7 @@
     * [Exploring Options, Open Interest, and Volatility Data](tutorials-and-examples/tutorials/exploring-options-open-interest-and-volatility-data.md)
     * [Calculating Total Value Locked in Liquidity Pools using DEX Data](tutorials-and-examples/tutorials/calculating-total-value-locked-in-liquidity-pools-using-dex-data.md)
     * [Calculating DEX Liquidity Pool Fees and Volumes](tutorials-and-examples/tutorials/calculating-dex-liquidity-pool-fees-and-volumes.md)
+    * [Analyzing DeFi Protocol Balance Sheets](tutorials-and-examples/tutorials/analyzing-defi-protocol-balance-sheets.md)
   * [How To Guides](tutorials-and-examples/user-guides/README.md)
     * [How To Export Data](tutorials-and-examples/user-guides/exporting-data.md)
     * [How To Migrate From Catalog to Catalog V2 and Reference Data](tutorials-and-examples/user-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md)

@@ -20,9 +20,9 @@ To understand the data that Coin Metrics offers, feel free to peruse the resourc
 
 Download the entire notebook as either a jupyter notebook to run yourself or as a pdf from the two links below
 
-{% file src="../../.gitbook/assets/DEFI - Dex Data.ipynb" %}
+{% file src="../../.gitbook/assets/DEFI - Dex Data (1).ipynb" %}
 
-{% file src="../../.gitbook/assets/DEFI_dex_data.pdf" %}
+{% file src="../../.gitbook/assets/DEFI_dex_data (2).pdf" %}
 
 
 
@@ -157,7 +157,7 @@ plt.xticks(fontweight='bold')
 plt.show()
 ```
 
-<figure><img src="../../.gitbook/assets/DEFI_dex_data_market_count.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DEFI_dex_data_market_count (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -410,7 +410,7 @@ plt.show()
 
 ```
 
-<figure><img src="../../.gitbook/assets/DEFI_dex_data_buy_sells.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DEFI_dex_data_buy_sells (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -483,7 +483,7 @@ plt.grid(color='black', linestyle='dotted')
 plt.show()
 ```
 
-<figure><img src="../../.gitbook/assets/DEFI_dex_data_buyers_per_hour.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DEFI_dex_data_buyers_per_hour (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -662,5 +662,5 @@ legend = vc.legend(fontsize=15, framealpha=0, bbox_to_anchor=(1.0, 1.2))
 vc.set_xlabel("");
 ```
 
-<figure><img src="../../.gitbook/assets/DEFI_dex_data_cex_dex_volume.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DEFI_dex_data_cex_dex_volume (1).png" alt=""><figcaption></figcaption></figure>
 
