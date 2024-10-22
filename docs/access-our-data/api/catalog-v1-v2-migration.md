@@ -106,3 +106,8 @@ All of our catalog v2 and reference data endpoints will follow a similar schema.
 We have created a mapping of how existing catalog endpoints will map to our new endpoints [here](../../tutorials-and-examples/user-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md). The new endpoints should contain the same data as the existing catalog endpoint.
 
 If you have any questions or have any use cases that may be adversely impacted by this change, please contact us.
+
+## What happened to \`catalog/\<markets, assets, asset-pairs, exchanges, indexes>\`?
+
+Under v2, the metadata returned by these endpoints are split into reference-data and catalog-v2. Metadata around when data is covered per data type, such as `min/max_time` , can be found on `catalog-v2/<data-type>` . Metadata around which entities are covered under what (e.g., markets in an exchange) can be found on `reference-data`.
+
