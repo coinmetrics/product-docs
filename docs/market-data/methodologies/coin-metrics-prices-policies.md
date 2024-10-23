@@ -1,6 +1,6 @@
 # Coin Metrics Prices Policies
 
-The full text of this document can be downloaded as a pdf document using the link below.&#x20;
+The full text of this document can be downloaded as a pdf document using the link below.
 
 {% file src="../../.gitbook/assets/coin-metrics-prices-policies.pdf" %}
 
@@ -14,17 +14,17 @@ The Coin Metrics Real-Time Reference Rates is published once a second and once e
 
 The Coin Metrics Principal Market Prices is published once a second and adheres to the guidelines regarding fair value measurement issued by the International Financial Reporting Standards and the Association of International Certified Professional Accountants, specifically standards IFRS 13 and FASB ASC 820. The Coin Metrics Principal Market Prices identifies a principal market for each asset and utilizes the most recent price from this market. Common use cases are for fair value measurement and for preparing financial statements.
 
-The CM Prices are designed to serve as a set of transparent and independent pricing sources that promote the functioning of efficient markets, reduce information asymmetries among market participants, facilitate trading in standardized contracts, and accelerate the adoption of cryptocurrencies as an asset class with the highest standards. The CM Prices are calculated using robust and resilient methodologies that are resistant to manipulation.&#x20;
+The CM Prices are designed to serve as a set of transparent and independent pricing sources that promote the functioning of efficient markets, reduce information asymmetries among market participants, facilitate trading in standardized contracts, and accelerate the adoption of cryptocurrencies as an asset class with the highest standards. The CM Prices are calculated using robust and resilient methodologies that are resistant to manipulation.
 
 ## Other Documents
 
-The CM Prices are collectively governed by rules-based methodologies described in [Coin Metrics Prices Methodology](https://docs.coinmetrics.io/market-data/methodologies/coin-metrics-prices-methodology) which describes our Market Selection Framework, a systematic method of producing a unique set of constituent markets for each asset, our data sources, calculation algorithm, and contingency rules. &#x20;
+The CM Prices are collectively governed by rules-based methodologies described in [Coin Metrics Prices Methodology](https://docs.coinmetrics.io/market-data/methodologies/coin-metrics-prices-methodology) which describes our Market Selection Framework, a systematic method of producing a unique set of constituent markets for each asset, our data sources, calculation algorithm, and contingency rules.
 
 ## Administration
 
 Coin Metrics serves as the administrator for the CM Prices and has primary responsibility for all aspects of the CM Prices determination process, including the development, definition, determination, dissemination, operation, and governance of the CM Prices. All aspects of the production of the CM Prices are carried out by Coin Metrics, and Coin Metrics does not rely on any third parties for the determination of the CM Prices.
 
-Coin Metrics ensures that transparency regarding significant decisions and associated rationale are published and made available to external stakeholders. Data contingency and data exclusion rules are in place to handle certain extraordinary circumstances and external factors beyond the control of Coin Metrics.&#x20;
+Coin Metrics ensures that transparency regarding significant decisions and associated rationale are published and made available to external stakeholders. Data contingency and data exclusion rules are in place to handle certain extraordinary circumstances and external factors beyond the control of Coin Metrics.
 
 ## Conflicts of Interest
 
@@ -42,7 +42,7 @@ If errors are discovered in the calculation process subsequent to the publicatio
 6. A ticker change or token swap for a constituent market is missed or misapplied
 7. Calculation methodology is incorrectly applied
 
-Recalculations to the prices are assessed on a case-by-case basis.  Decisions regarding recalculations take into consideration all the available data and the potential negative impact or disruption involved in a recalculation.&#x20;
+Recalculations to the prices are assessed on a case-by-case basis. Decisions regarding recalculations take into consideration all the available data and the potential negative impact or disruption involved in a recalculation.
 
 ## Internal Controls
 
@@ -72,6 +72,6 @@ Coin Metrics maintains records and has processes in place to comply with request
 
 ## Change Log
 
-1. **Version 1.1 on November 8, 2023:**  Changes to Coin Metrics Prices Policies to clarify distinctions between CMBI Single Asset Indexes and CM Prices.
-2. **Version 1.0 on March 17, 2023**: Initial publication of the Coin Metrics Prices Policies. Previously, the contents of this document were contained within the Hourly Reference Rate Methodology and Real-Time Reference Rates Methodology documents.
-
+1. **October 22, 2024:** Annual review by Coin Metrics Operating Committee. No changes to policy.
+2. **Version 1.1 on November 8, 2023:** Changes to Coin Metrics Prices Policies to clarify distinctions between CMBI Single Asset Indexes and CM Prices.
+3. **Version 1.0 on March 17, 2023**: Initial publication of the Coin Metrics Prices Policies. Previously, the contents of this document were contained within the Hourly Reference Rate Methodology and Real-Time Reference Rates Methodology documents.
