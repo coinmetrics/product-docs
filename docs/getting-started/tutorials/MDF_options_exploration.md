@@ -10,7 +10,7 @@ Coin Metrics offers a vast assortment of data for hundreds of cryptoassets. The 
 To understand the data that Coin Metrics offers, feel free to peruse the resources below.
 
 - The [Coin Metrics API v4](https://docs.coinmetrics.io/api/v4) website contains the full set of endpoints and data offered by Coin Metrics.
-- The [Coin Metrics Knowledge Base](https://docs.coinmetrics.io/info) gives detailed, conceptual explanations of the data that Coin Metrics offers.
+- The [Coin Metrics Product Documentation](https://docs.coinmetrics.io/info) gives detailed, conceptual explanations of the data that Coin Metrics offers.
 - The [API Spec](https://coinmetrics.github.io/api-client-python/site/api_client.html) contains a full list of functions.
 
 # Notebook Setup
