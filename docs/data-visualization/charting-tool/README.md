@@ -6,15 +6,15 @@ description: https://charts.coinmetrics.io/network-data/
 
 ## Selecting a Data Series
 
-The Charting Tool allows you to easily visualize our [Asset Metrics](../../api-data-types/asset-metrics-overview.md). Simply select the "Add" button from the top left selection dialogs.
+The Charting Tool allows you to easily visualize our [Asset Metrics](https://coverage.coinmetrics.io/asset-metrics-v2). Simply select the "Add" button from the top left selection dialogs.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.29.03 PM.png" alt=""><figcaption></figcaption></figure>
 
 Upon clicking the "Add" button, the Assets dialog will open to display the available assets. Assets can be searched by category or by typing the symbol or name into the "Asset Name or ID..." search window.
 
-Once you've made your asset selection, you can click on the "Proceed to Metrics" button, which will open the Metrics dialog to display the metrics available for the selected assets.&#x20;
+Once you've made your asset selection, you can click on the "Proceed to Metrics" button, which will open the Metrics dialog to display the metrics available for the selected assets.
 
-Instead of selecting the assets first, you can also select the "Start With Metrics" button in the bottom left of the dialog window and the list of all available metrics will be shown.&#x20;
+Instead of selecting the assets first, you can also select the "Start With Metrics" button in the bottom left of the dialog window and the list of all available metrics will be shown.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.33.27 PM.png" alt=""><figcaption></figcaption></figure>
 
@@ -32,11 +32,11 @@ The metric definition can be expanded via the "question symbol" to the right of 
 
 ![](<../../.gitbook/assets/Screen Shot 2021-03-09 at 8.57.53 PM.png>)
 
-Once all desired assets and metrics have been selected, continue by selecting the "+ Add to Chart" button in the bottom right of the dialog.&#x20;
+Once all desired assets and metrics have been selected, continue by selecting the "+ Add to Chart" button in the bottom right of the dialog.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.38.53 PM.png" alt=""><figcaption></figcaption></figure>
 
-You will then see the selected asset-metric pairs plotted in the charting tool as well as the selected combinations at the top of the chart. Additional items can be shown by selecting the down arrow next to the row of asset-metric pairs.&#x20;
+You will then see the selected asset-metric pairs plotted in the charting tool as well as the selected combinations at the top of the chart. Additional items can be shown by selecting the down arrow next to the row of asset-metric pairs.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.39.17 PM.png" alt=""><figcaption></figcaption></figure>
 

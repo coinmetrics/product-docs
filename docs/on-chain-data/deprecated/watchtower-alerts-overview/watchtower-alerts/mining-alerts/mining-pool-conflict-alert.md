@@ -1,2 +1,0 @@
-# Mining Pool Conflict Alert
-

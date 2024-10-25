@@ -54,7 +54,6 @@ print(
 ```
 {% endtab %}
 {% endtabs %}
-
 ## **Chart**
 
 <figure><img src="../.gitbook/assets/Binance-Orderbook-Depth.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>
