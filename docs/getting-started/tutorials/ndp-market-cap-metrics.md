@@ -1,2 +1,0 @@
-# NDP: Market Cap Metrics
-

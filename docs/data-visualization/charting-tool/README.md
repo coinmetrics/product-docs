@@ -6,7 +6,7 @@ description: https://charts.coinmetrics.io/network-data/
 
 ## Selecting a Data Series
 
-The Charting Tool allows you to easily visualize our [Asset Metrics](broken-reference). Simply select the "Add" button from the top left selection dialogs.
+The Charting Tool allows you to easily visualize our [Asset Metrics](https://coverage.coinmetrics.io/asset-metrics-v2). Simply select the "Add" button from the top left selection dialogs.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.29.03 PM.png" alt=""><figcaption></figcaption></figure>
 
