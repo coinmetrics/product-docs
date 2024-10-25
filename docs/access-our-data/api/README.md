@@ -4,10 +4,10 @@
 
 The Coin Metrics API is structured as the following:
 
-1. **Time Series** data is some of the most valuable data we provide for our customers: market data (trades, order books, candles etc.), metrics (asset metrics, exchange metrics, pair metrics etc.), index levels and so on.
-2. **Time Series Stream** data is time series data served in real-time through a Websocket connection.
-3. **Catalog** data describes the availability for time series or time series-like endpoints. For more information on the catalog migration, see [catalog-v1-v2-migration.md](catalog-v1-v2-migration.md "mention")
-4. **Reference data** is a handbook of the entities Coin Metrics ever supported, currently supports or plans to support in the future. This includes assets, exchanges, markets, their metrics etc.
+1. **Reference data** is a handbook of the entities Coin Metrics ever supported, currently supports or plans to support in the future. This includes assets, exchanges, markets, their metrics etc.
+2. **Catalog** data describes the availability for time series or time series-like endpoints. For more information on the catalog migration, see [catalog-v1-v2-migration.md](catalog-v1-v2-migration.md "mention")
+3. **Time Series** data is some of the most valuable data we provide for our customers: market data (trades, order books, candles etc.), metrics (asset metrics, exchange metrics, pair metrics etc.), index levels and so on.
+4. **Time Series Stream** data is time series data served in real-time through a Websocket connection.
 5. **Custom endpoints** - endpoints that do not fit to any of the mentioned ones. Examples of custom endpoints:
    1. **Blockchain** endpoints (ATLAS)
    2. **Blockchain Metadata**
@@ -50,7 +50,7 @@ The catalog endpoints allow you to know:
 We have two subtypes of catalog endpoints:&#x20;
 
 * /catalog prefixed endpoints - provide time ranges of the time series data available for your API key.&#x20;
-* /catalog-all prefixed endpoints - provide time ranges of the time series data supported by API.\
+* /catalog-all prefixed endpoints - provide time ranges of the time series data for our entire data set.\
 
 
 Catalog endpoints list all data types and possible entities and their combinations. The deepest part of each combination is the "min\_time" and "max\_time" values representing the availability of the corresponding time series(-like) endpoint. For example, `/catalog-v2/market-metrics`:\
@@ -79,7 +79,7 @@ Catalog endpoints list all data types and possible entities and their combinatio
 
 ```
 
-or `/catalog/exchange-metrics`:
+or `/catalog-v2/exchange-metrics`:
 
 ```json
 
@@ -109,13 +109,15 @@ or `/catalog/exchange-metrics`:
 
 ```
 
+_Note: This query was made on 2023-06-27. max\_time is subject to change depending on when a request is made._
+
 Catalog endpoints abide by the following guidelines:
 
-1. Normally, each Catalog endpoint should have a corresponding time series-like endpoint (for example, /catalog/market-metrics and /timeseries/market-metrics).&#x20;
+1. Normally, each catalog endpoint has a corresponding time series-like endpoint (for example, /catalog-v2/market-metrics and /timeseries/market-metrics).&#x20;
 2. Each catalog endpoint supports pagination
 3. Catalog endpoints do not require any filtering query parameters; by default, all records are being returned (paginated), but filtering query parameters (especially if they match the corresponding time series endpoint’s query parameters) are welcomed.
 4. Each Catalog endpoint must support json\_stream format. While it is not required for Time series endpoints (the response size may be impractically large to use with json\_stream)), it is mandatory for Catalog ones.
-5. Responses of endpoints for similar data types are consistent. For example, /catalog/asset-metrics, /catalog/exchange-metrics provide information about metrics and their availability, so the response schemas should not differ unnecessarily.
+5. Responses of endpoints for similar data types are consistent. For example, /catalog-v2/asset-metrics, /catalog-v2/exchange-metrics provide information about metrics and their availability, so the response schemas should not differ unnecessarily.
 6. Response format assumes that multiple frequencies can be added in the future.
 
 See [catalog-v1-v2-migration.md](catalog-v1-v2-migration.md "mention") for more details on the differences between catalog v1 and v2.
@@ -126,13 +128,14 @@ Timeseries endpoints return data or metrics over time. We have a set of paramete
 
 
 
-| Parameter        | Default value    | Description                                                         | Examples          |
-| ---------------- | ---------------- | ------------------------------------------------------------------- | ----------------- |
-| start\_time      | \<unix\_epoch>   | Start of the time interval.                                         | 2020-01-01        |
-| end\_time        | \<current\_time> | End of the time interval.                                           | 2020-01-02        |
-| start\_inclusive | true             | Inclusive or exclusive corresponding start\_\* parameters.          | false             |
-| end\_inclusive   | true             | Inclusive or exclusive corresponding end\_\* parameters.            | false             |
-| timezone         | UTC              | Timezone name for parsing the start\_time and end\_time timestamps. | America/New\_York |
+| Parameter        | Default value        | Description                                                         | Examples          |
+| ---------------- | -------------------- | ------------------------------------------------------------------- | ----------------- |
+| start\_time      | \<unix\_epoch>       | Start of the time interval.                                         | 2020-01-01        |
+| end\_time        | \<current\_time>     | End of the time interval.                                           | 2020-01-02        |
+| start\_inclusive | true                 | Inclusive or exclusive corresponding start\_\* parameters.          | false             |
+| end\_inclusive   | true                 | Inclusive or exclusive corresponding end\_\* parameters.            | false             |
+| timezone         | UTC                  | Timezone name for parsing the start\_time and end\_time timestamps. | America/New\_York |
+| page\_size       | varies (usually 100) | Number of items per single page of results.                         | 100, 10000        |
 
 
 
@@ -170,8 +173,6 @@ But they can support different sets of query parameters because of the different
 
 API has a standard set of errors and error message formats that it can send to clients.
 
-Usually, we don't need to create a new error message or code.
-
 \
 
 
@@ -186,8 +187,6 @@ Usually, we don't need to create a new error message or code.
 | 429  | Rate limits are violated. The client must slow down their requests.                                                                                                                        |
 | 524  | User closed connection. This is not returned by the API but is generated by a web service providern due to prolonged waiting.                                                              |
 | 500  | Something wrong happened in the API server.                                                                                                                                                |
-
-
 
 
 

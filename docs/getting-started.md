@@ -30,7 +30,7 @@ For more information on exporting data, see the guide: [exporting-data.md](tutor
 
 ### For Developers
 
-You can use our [API](https://docs.coinmetrics.io/api/v4/) for accessing data. To understand how our API schema is organized, see the [Broken link](broken-reference "mention") page. To learn more about our API design, see the [API basics](access-our-data/api/) page.&#x20;
+You can use our [API](https://docs.coinmetrics.io/api/v4/) for accessing data. To learn more about our API design, see the [API Conventions](access-our-data/api/) page.&#x20;
 
 [api](access-our-data/api/ "mention")
 
@@ -68,17 +68,15 @@ Coin Metrics Data is divided into the following types of data:&#x20;
 * **Index Data**: Independent measurements of cryptoasset market performance and network activity
 * **Reference Data**: Information about the properties of a token or other entity.
 
-More information on each dataset can be found in their respective sections. You can find different metrics or data types by navigating the sidebar e.g. Market Data Overview > Volume > Trusted Volume, Network Data Overview > Addresses > Active Addresses.
+[network-data-overview](network-data/network-data-overview/ "mention")
 
 [market-data-overview](market-data/market-data-overview/ "mention")
-
-[network-data-overview](network-data/network-data-overview/ "mention")
 
 [index](index-data/index/ "mention")
 
 [Broken link](broken-reference "mention")
 
-
+More information on each dataset can be found in their respective sections. You can find different metrics or data types by navigating the sidebar e.g. Market Data Overview > Volume > Trusted Volume, Network Data Overview > Addresses > Active Addresses.
 
 
 

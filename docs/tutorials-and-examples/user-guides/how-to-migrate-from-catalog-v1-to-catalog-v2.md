@@ -1,8 +1,8 @@
 # How To Migrate From Catalog to Catalog V2 and Reference Data
 
-This guide will help you migrate from using `catalog` ("Catalog V1") to `catalog-v2` ("Catalog V2") and `reference-data` ("Reference Data"). Catalog V1 contains both static "reference data" (name, category, product, etc.) and coverage for a given data type (e.g. `min_time` and `max_time` for `trades`). Due to growing complexity in data coverage and the resulting performance bottlenecks from surfacing all of this data, this metadata is being separated. Catalog V2 and Reference Data allow for more lightweight and flexible queries as they can be queried across several dimensions (for example, `catalog-v2/asset-metrics` lets you filter by both asset and metric).
+This guide will help you migrate from using `catalog` ("Catalog V1") to `catalog-v2` ("Catalog V2") and `reference-data` ("Reference Data"). Catalog V1 contains both static metadata (name, category, product, etc.) and coverage for a given data type (e.g. `min_time` and `max_time` for `trades`). Due to growing complexity in data coverage and the resulting performance bottlenecks from surfacing all of this data, this metadata is being separated. Catalog V2 and Reference Data allow for more lightweight and flexible queries as they can be queried across several dimensions (for example, `catalog-v2/asset-metrics` lets you filter by both asset and metric).
 
-Switching between catalog v1 to catalog v2 requires a subtle change in how to think about and find the data you're looking for. V2
+Switching between Catalog to Catalog V2 requires a subtle change in how to think about and find the data you're looking for.&#x20;
 
 **In general:**
 
@@ -60,9 +60,9 @@ list_exchanges = client.catalog_exchanges(exchanges="coinbase")[0]['markets']
 
 ### How do I get the markets for which an asset is a base/quote?
 
-**V1:** Use `catalog/markets?base=<ASSET>` or `catalog/markets?quote=<ASSET>`
+**V1:** For getting markets where the asset is only one of a base or quote, use `catalog/markets?base=<ASSET>` or `catalog/markets?quote=<ASSET>` respectively. For getting markets where the asset is either a base or quote, use `catalog/markets?asset=<ASSET>`.
 
-**V2:** Use `reference-data/markets?base=<ASSET>` or `reference-data/markets?quote=<ASSET>`
+**V2:** For getting markets where the asset is only one of a base or quote, use `reference-data/markets?base=<ASSET>` or `reference-data/markets?quote=<ASSET>` respectively. For getting markets where the asset is either a base or quote, use `reference-data/markets?asset=<ASSET>`.
 
 {% tabs %}
 {% tab title="V2" %}
@@ -78,7 +78,7 @@ list_markets = client.catalog_markets(base='btc')
 {% endtab %}
 {% endtabs %}
 
-### How do I get which metrics are covered for a given asset/pair/exchange/market?
+### How do I get which metrics are covered for a given asset/pair/exchange/market/exchange-asset/institution?
 
 **V1:** Use`catalog/*-metrics` respectively and pass asset, pair, exchange, or market where applicable. Then, loop through each element to search for the presence of that asset, pair, exchange, or market.
 
@@ -89,13 +89,13 @@ Suppose you wanted to know which `asset-metrics` are available for `btc`:
 {% tabs %}
 {% tab title="V2" %}
 ```python
-list_asset_metrics = client.catalog_asset_metrics_v2(assets="btc").to_list()[0]['metrics']
+list_asset_metrics = client.catalog_asset_metrics_v2(assets='btc').to_list()[0]['metrics']
 ```
 {% endtab %}
 
 {% tab title="V1" %}
 ```python
-list_asset_metrics = client.catalog_asset_metrics(metrics="PriceUSD").to_list()
+list_asset_metrics = client.catalog_asset_metrics(assets='btc').to_list()
 list_asset_metrics = [metric for metric in list_asset_metrics if 'btc' in metric['frequencies'][0]['assets']]
 ```
 {% endtab %}
@@ -127,22 +127,44 @@ list_assets = list_asset_metrics[0]['frequencies'][-1]['assets']
 {% endtab %}
 {% endtabs %}
 
-### How do I get which event (e.g. market level) data are covered for a given market?
+### How do I get which raw observation data are covered for a given market?
 
 **V1 and V2:** Use `catalog/market-*` and `catalog-v2/market-*` respectively and pass markets where applicable.&#x20;
 
-
+Below is an example of using market-trades:
 
 {% tabs %}
 {% tab title="V2" %}
 ```python
-list_markets = client.reference_data_markets(base="<ASSET>").to_list()
+list_markets = client.catalog_market_trades_v2(markets='<MARKET>').to_list()
 ```
 {% endtab %}
 
 {% tab title="V1" %}
 ```python
-list_markets = client.catalog_markets(base='btc')
+list_markets = client.catalog_market_trades(markets='<MARKET>')
+```
+{% endtab %}
+{% endtabs %}
+
+### **How do I get min and max time for a market?**
+
+**V1 and V2:** Use `catalog/market-trades?asset=<ASSET>&exchange=<EXCHANGE>` and `catalog-v2/market-trades?asset=<ASSET>&exchange=<EXCHANGE>` respectively and get the `min` and `max` times.
+
+{% tabs %}
+{% tab title="V2" %}
+```python
+trades = next(client.catalog_market_trades_v2(markets='coinbase-btc-usd-spot'))
+min_time = trades['min_time']
+max_time = trades['max_time']
+```
+{% endtab %}
+
+{% tab title="V1" %}
+```python
+trades = client.catalog_market_trades(markets='coinbase-btc-usd-spot'))
+min_time = trades[0]['min_time']
+max_time = trades[0]['max_time']
 ```
 {% endtab %}
 {% endtabs %}
@@ -154,9 +176,9 @@ list_markets = client.catalog_markets(base='btc')
 {% tabs %}
 {% tab title="V2" %}
 ```python
-trades = next(client.catalog_market_trades_v2(exchange='coinbase', asset='btc'))
-min_time = trades['min_time']
-max_time = trades['max_time']
+trades = client.catalog_market_trades_v2(exchange='coinbase', asset='btc').to_list()
+min_time = min([market['min_time'] for market in trades])
+max_time = max([market['max_time'] for market in trades])
 ```
 {% endtab %}
 

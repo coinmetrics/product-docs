@@ -72,14 +72,14 @@ data = client.get_asset_metrics(
     assets=['btc', 'eth'],
     metrics=['PriceUSD', 'FeeMeanNtv'],
     limit_per_asset=5
-).parallel("assets").to_list()
+).parallel('assets').to_list()
 
 # Parallelize on 'assets' and 'metrics' columns
 data = client.get_asset_metrics(
     assets=['btc', 'eth'],
     metrics=['PriceUSD', 'FeeMeanNtv'],
     limit_per_asset=5
-).parallel(["assets", "metrics"]).to_list()
+).parallel(['assets', 'metrics']).to_list()
 ```
 
 #### By Time or (Block) Height Increment&#x20;
@@ -97,7 +97,7 @@ data = client.get_asset_metrics(
     start_time='2024-01-01',
     end_time='2024-08-01',
     frequency='1h'
-).parallel(time_increment = relativedelta(months=1)).to_list()
+).parallel(time_increment=relativedelta(months=1)).to_list()
 
 # Parallelize request in 1 day chunks
 data = client.get_asset_metrics(
@@ -106,7 +106,7 @@ data = client.get_asset_metrics(
     start_time='2024-01-01',
     end_time='2024-08-01',
     frequency='1h'
-).parallel(time_increment = timedelta(days=1))
+).parallel(time_increment=timedelta(days=1))
 
 # Parallelize by 1000 blocks
 data = client.get_asset_metrics(
