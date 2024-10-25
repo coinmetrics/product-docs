@@ -12,9 +12,9 @@
 
 Supply staked in validators.
 
-| Name                        | MetricID     | Unit         | Interval |
-| --------------------------- | ------------ | ------------ | -------- |
-| Supply Staked in Validators | SplyStkedNtv | Native Units | 1 day    |
+| Name                        | MetricID     | Unit         | Interval      |
+| --------------------------- | ------------ | ------------ | ------------- |
+| Supply Staked in Validators | SplyStkedNtv | Native Units | 1 day, 1 hour |
 
 ### Details
 
@@ -30,7 +30,7 @@ Supply staked in validators.
 
 Supply from validators that were active that day.
 
-<table><thead><tr><th>Name</th><th width="159">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Active Staking Supply</td><td>SplyActStkedNtv</td><td>Native Units</td><td>1 day</td></tr></tbody></table>
+<table><thead><tr><th>Name</th><th width="159">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Active Staking Supply</td><td>SplyActStkedNtv</td><td>Native Units</td><td>1 day, 1 hour</td></tr></tbody></table>
 
 ### Details
 
@@ -46,9 +46,9 @@ Supply from validators that were active that day.
 
 Sum of all balances held by all validators.
 
-| Name                | MetricID        | Unit         | Interval |
-| ------------------- | --------------- | ------------ | -------- |
-| Total Staked Supply | SplyTotStkedNtv | Native Units | 1 day    |
+| Name                | MetricID        | Unit         | Interval      |
+| ------------------- | --------------- | ------------ | ------------- |
+| Total Staked Supply | SplyTotStkedNtv | Native Units | 1 day, 1 hour |
 
 ### Details
 

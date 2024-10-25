@@ -13,7 +13,7 @@ Coin Metrics calculates realized volatility using our [Real-Time Reference Rates
 Volatility is calculated using the close-to-close method, as this is optimal for continuous markets and is widely accepted across financial literature. For this calculation we use the population mean with zero drift, meaning the formula reduces to:
 
 $$
-RV=\sqrt{\frac{1}{N-1}\sum_{i=1}^{N}(ln(\frac{s_i}{s_i-1}) - 0)^2}\cdot\sqrt{T}
+RV=\sqrt{\frac{1}{N-1}\sum_{i=1}^{N}(ln(\frac{s_i}{s_{i-1}}) - 0)^2}\cdot\sqrt{T}
 $$
 
 Where $$RV$$is the realized volatility (annualized), $$N$$is the lookback window, $${s_i}$$ is the real-time reference rate price at timestep $$i$$, and $$T$$ is the time adjustment factor. Using an average return of 0 is standard in these calculations as it avoids misleading volatility numbers during sustained periods of substantially high or low return.

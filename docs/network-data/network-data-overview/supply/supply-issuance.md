@@ -2,6 +2,15 @@
 
 ## Contents
 
+* [Annual Inflation Rate](supply-issuance.md#isscontpctann)
+* [Daily Inflation Rate](supply-issuance.md#isscontpctday)
+* [Coinbase Issuance (Continuous Issuance)](supply-issuance.md#isscont)
+* [Total Issuance](supply-issuance.md#isstot)
+* [Puell Multiple Total](supply-issuance.md#puellmultot)
+* [Puell Multiple, Coinbase Issuance](supply-issuance.md#puelmulcont)
+
+<!---->
+
 * [Coinbase Issuance](supply-issuance.md#isscontntv)
 * [Annual Inflation Rate](supply-issuance.md#isscontpctann)
 * [Daily Inflation Rate](supply-issuance.md#isscontpctday)
@@ -9,34 +18,8 @@
 * [Total Issuance](supply-issuance.md#isstot)
 * [Puell Multiple Total](supply-issuance.md#puellmultot)
 * [Puell Multiple, Coinbase Issuance](supply-issuance.md#puelmulcont)
-
-## Coinbase Issuance (native units) <a href="#isscontntv" id="isscontntv"></a>
-
-### Definition
-
-The sum of native units issued that day. Only those native units that are issued by a protocol-mandated continuous emission schedule are included.
-
-| Name                             | MetricID   | Unit         | Interval |
-| -------------------------------- | ---------- | ------------ | -------- |
-| Coinbase Issuance (native units) | IssContNtv | Native units | 1 day    |
-
-### Details
-
-* Most protocols have a fixed monetary policy that describes how many native units must be issued per block. This metric tracks those policies.
-* It includes founders and community rewards if their amounts are predictable.
-
-### Asset-Specific Details
-
-* For XLM, the inflation process is considered continuous issuance as it is protocol mandated and predictable.
-* For SOL, counts all rewards paid as part of Voting or Staking rewards. Does not include Rent or Fee rewards
-
-### Release Details
-
-* Released in the 1.0 release of NDP
-
-### Availability for Assets
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/IssContNtv" %}
+* [Daily Supply Inflation Rates](supply-issuance.md#puellmultot-2)
+* [Annual Supply Inflation Rates](supply-issuance.md#puellmultot-3)
 
 ## Annual Inflation Rate <a href="#isscontpctann" id="isscontpctann"></a>
 
@@ -116,25 +99,29 @@ The percentage of new native units (continuous) issued on that day divided by th
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/IssContPctDay" %}
 
-## Coinbase Issuance <a href="#isscont" id="isscont"></a>
+## Coinbase Issuance (Continuous Issuance) <a href="#isscont" id="isscont"></a>
 
 ### Definition
 
 The sum of supply units issued that day. Only those native units that are issued by a protocol-mandated continuous emission schedule are included.
 
-| Name                             | MetricID   | Unit         | Interval |
-| -------------------------------- | ---------- | ------------ | -------- |
-| Coinbase Issuance (native units) | IssContNtv | Native units | 1 day    |
-| Coinbase Issuance (USD)          | IssContUSD | Native units | 1 day    |
+| Name                             | MetricID   | Unit         | Interval      |
+| -------------------------------- | ---------- | ------------ | ------------- |
+| Coinbase Issuance (native units) | IssContNtv | Native units | 1 day, 1 hour |
+| Coinbase Issuance (USD)          | IssContUSD | USD          | 1 day         |
 
 ### Details
 
 * Most protocols have a fixed monetary policy that describes how many native units must be issued per block. This metric tracks those policies.
 * It includes founders and community rewards if their amounts are predictable.
+* 1 hour frequency is available for ETH\_CL only.
 
 ### Asset-Specific Details
 
 * For XLM, the inflation process is considered continuous issuance as it is protocol mandated and predictable.
+* For ETH, prior to the Beacon Chain Launch, this metric captures the rewards issued from mining only. After the beacon chain launch and before the merge, this metric includes both rewards paid out as part of the mining process on the execution layer, as well as rewards paid out in the beacon chain as part of staking. Post merge, this metric captures rewards paid out on the consensus layer (and is equivalent to the value for ETH\_CL for this metric).
+  * To get the rewards on the ETH Consnsus layer, refer to this metric for the ETH\_CL ticker.
+* For SOL, counts all rewards paid as part of Voting or Staking rewards. Does not include Rent or Fee rewards
 
 ### Release Details
 
@@ -152,15 +139,22 @@ The sum of supply units issued that day. Only those native units that are issued
 
 The sum of all new supply units issued that day.
 
-| Name                          | MetricID  | Unit         | Interval |
-| ----------------------------- | --------- | ------------ | -------- |
-| Total Issuance (native units) | IssTotNtv | Native units | 1 day    |
-| Total Issuance (nUSD)         | IssTotUSD | Native units | 1 day    |
+| Name                          | MetricID  | Unit         | Interval      |
+| ----------------------------- | --------- | ------------ | ------------- |
+| Total Issuance (native units) | IssTotNtv | Native units | 1 day, 1 hour |
+| Total Issuance (USD)          | IssTotUSD | USD          | 1 day         |
 
 ### Details
 
 * In this metric, compared to the continuous one, all sources of issuance are taken into account.
 * This metric is the gross issuance: if in the same day, 100 units are issued and 10 burned, this metric’s value will be 100, not 90 (which would be the net issuance).
+* 1 hour frequency is available for ETH\_CL only.
+
+### Asset-Specific Details
+
+* For Ethereum total issuance differs between the eth and eth\_cl ticker.&#x20;
+  * The total issuance for the eth ticker is the total amount of ETH tokens issued in the Ethereum network. This is equivalent to rewards issued on the network which are also captured in Coinbase Issuance.
+  * The total issuance for the eth\_cl ticker represents all new ETH tokens issued on the consensus layer. This is equivalent to rewards issued plus any new deposits made to the consensus layer.
 
 ### Release History
 
@@ -232,6 +226,56 @@ The Puell Multiple provides insight into market cycles from a mining revenue per
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/PuellMulTot" %}
+
+## Daily Supply Inflation Rates <a href="#puellmultot" id="puellmultot"></a>
+
+### Definition
+
+The percent one-day change in supply. Also referred to as the daily inflation rate. Also available at a 30, 90, 180 day and 1 year moving average.
+
+| Name                           | MetricID      | Unit          | Interval |
+| ------------------------------ | ------------- | ------------- | -------- |
+| Daily Inflation Rate           | InfPct        | Dimensionless | 1d       |
+| Inflation Rate 30-Day Average  | InfPct30dAvg  | Dimensionless | 1d       |
+| Inflation Rate 90-Day Average  | InfPct90dAvg  | Dimensionless | 1d       |
+| Inflation Rate 180-Day Average | InfPct180dAvg | Dimensionless | 1d       |
+| Inflation Rate 1-Year Average  | InfPct1yAvg   | Dimensionless | 1d       |
+
+### Details
+
+* &#x20;$$InfPct=\frac{SplyCur(n-1)-SplyCur(n)}{SplyCur(n-1)}*100$$
+* $$InfPct[N]Avg=\frac{SplyCur(n-N)-SplyCur(n)}{SplyCur(n-N)}*100$$ where N is the days over which to average. This means that for a 30-Day average the formula would be: $$InfPct30dAvg=\frac{SplyCur(n-30d)-SplyCur(n)}{SplyCur(n-30d)}*100$$
+
+### Interpretation
+
+The Inflation rate of the asset over the timeframe defined in the metric. For example, Inflation Rate 1-Year Average shows what the daily inflation rate was based on the supply 1y ago and today.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/InfPct" %}
+
+## Annual Supply Inflation Rates <a href="#puellmultot" id="puellmultot"></a>
+
+### Definition
+
+The percent change in supply over 1 year. Also referred to as the annual inflation rate. Also available at a 30, 90, 180 day and 1 year moving average.
+
+| Name                                                  | MetricID         | Unit          | Interval |
+| ----------------------------------------------------- | ---------------- | ------------- | -------- |
+| Annualized Compounding Inflation Rate                 | InfPctAnn        | Dimensionless | 1d       |
+| Annualized Compounding Inflation Rate 30-Day Average  | InfPctAnn30dAvg  | Dimensionless | 1d       |
+| Annualized Compounding Inflation Rate 90-Day Average  | InfPctAnn90dAvg  | Dimensionless | 1d       |
+| Annualized Compounding Inflation Rate 180-Day Average | InfPctAnn180dAvg | Dimensionless | 1d       |
+| Annualized Compounding Inflation Rate 1-Year Average  | InfPctAnn1yAvg   | Dimensionless | 1d       |
+
+### Details
+
+* &#x20;$$InfPctAnn=((1+\frac{InfPct}{100})^{365}-1)*100$$
+* $$InfPctAnn[N]Avg=(1+\frac{InfPct[N]Avg}{100})^{365}-1$$ where N is the days over which to average. This means that for a 30-Day average the formula would be: $$InfPctAnn30dAvg=(1+\frac{InfPct30dAvg}{100})^{365}-1$$
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/InfPctAnn" %}
 
 ## API Endpoints
 

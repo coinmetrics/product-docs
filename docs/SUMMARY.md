@@ -52,7 +52,7 @@
 
 ## Network Data
 
-* [Network Data Overview](network-data/network-data-overview/README.md)
+* [Network Data Pro Overview](network-data/network-data-overview/README.md)
   * [Availability](network-data/network-data-overview/availability/README.md)
     * [Asset Completion Time](network-data/network-data-overview/availability/asseteodcompletiontime.md)
   * [Addresses](network-data/network-data-overview/addresses/README.md)
@@ -112,6 +112,7 @@
     * [Slashing Metrics](network-data/network-data-overview/staking/slashing-metrics.md)
     * [Validator Supply](network-data/network-data-overview/staking/validator-supply.md)
     * [Validators](network-data/network-data-overview/staking/validators.md)
+    * [Yield](network-data/network-data-overview/staking/yield.md)
   * [Supply](network-data/network-data-overview/supply/README.md)
     * [Active Supply](network-data/network-data-overview/supply/active-supply.md)
     * [Addresses with Balance](network-data/network-data-overview/supply/addresses-with-balance.md)
@@ -270,7 +271,7 @@
 * [Methodologies](index-data/coin-metrics-bletchley-indexes-cmbi/README.md)
   * [Fork Legitimacy Framework](index-data/coin-metrics-bletchley-indexes-cmbi/fork-legitimacy-framework.md)
   * [Adjusted Free Float Supply Methodology](index-data/coin-metrics-bletchley-indexes-cmbi/adjusted-free-float-supply-methodology.md)
-  * [CMBI Market Selection Framework](index-data/coin-metrics-bletchley-indexes-cmbi/cmbi-market-selection-framework.md)
+  * [Candidate Market Guidelines](index-data/coin-metrics-bletchley-indexes-cmbi/cmbi-market-selection-framework.md)
 * [Indexes Glossary](index-data/indexes-glossary.md)
 * [Index FAQs](index-data/index-faqs.md)
 

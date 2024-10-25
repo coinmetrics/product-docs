@@ -6,14 +6,17 @@ description: /timeseries/market-contract-prices
 
 ## **Definition**
 
-Market contract prices are used as reference prices to estimate the value of a derivatives contract. The mark price is typically calculated as the average of the best bid and best ask, while the index price is the price of the underlying index (usually based on the current value of a corresponding perpetual futures contract).
+Market contract prices are prices relevant to derivatives contract. It consists of the mark price, index price, and estimated settlement price.
+
+The estimated settlement price is an estimate of the settlement price if the contract were to be settled
 
 ## **Details**
 
 Exchanges report the following contract prices:
 
-* Mark price: The estimated 'fair value' of a derivatives contract. Usually, this is the average of the best bid and best ask price. However, for risk management purposes, exchanges often set additional limits on price bandwidth.
-* Index price: The price of the contract's underlying index, typically calculated using the current value of a corresponding perpetual futures contract.
+* **Mark price**: The mark price is used by an exchange to calculate a trader's unrealized profit and losses and to trigger liquidations for risk management purposes. Each exchange applies a unique methodology for calculating the mark price, which typically is a function of the index price, funding rate, and the best bid and best ask with some smoothing applied over a time interval to address market manipulation or volatility. This prevents unnecessary liquidations during volatile market environments. Exchanges typically do not use the last traded price for risk management purposes because it is susceptible to market manipulation.
+* **Index price**: The price of the derivative contract's underlying index. Each exchange applies a unique methodology for calculating the index price, which typically involves weighting the prices from spot markets from multiple different exchanges.
+* **Estimated settlement price**: An estimate of the settlement price if the contract were to be immediately settleed. Each exchange applies a unique methodology for calculating the final settlement price, which typically involves an average of the index price over some interval. The estimated settlement price applies this methodology continuously in real-time. The estimated settlement price can be helpful in hedging or calculating estimated profit and loss prior to contract expiration.
 
 ## **API Endpoints**
 
@@ -25,15 +28,17 @@ Market contract prices can be accessed using the `timeseries/market-contract-pri
 
 {% tabs %}
 {% tab title="Shell" %}
+{% code fullWidth="true" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-contract-prices?markets=coinbase-btc-usd-spot&pretty=true&api_key=<your_key>"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-contract-prices?markets=deribit-ETH-25MAR22-1200-P-option&limit_per_market=1&api_key=<your_key>"
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-contract-prices?markets=coinbase-btc-usd-spot&pretty=true&api_key=<your_key>').json()
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-contract-prices?markets=deribit-ETH-25MAR22-1200-P-option&limit_per_market=1&api_key=<your_key>').json()
 print(response)
 ```
 {% endtab %}
@@ -47,13 +52,13 @@ client = CoinMetricsClient(api_key)
 
 print(
     client.get_market_contract_prices(
-        markets="coinbase-btc-usd-spot",
-        limit_per_market=5
+        markets=["deribit-ETH-25MAR22-1200-P-option"], limit_per_market=5
     ).to_dataframe()
 )
 ```
 {% endtab %}
 {% endtabs %}
+
 
 
 ## **Example**
@@ -84,9 +89,9 @@ A sample of contract price data from our [`/timeseries/market-contract-prices`](
 
 * **`market`**: The id of the market. Market ids use the following naming convention for options markets: `exchangeName-optionsSymbol-option`
 * **`time`**: The time at which Coin Metrics queried the contract price from an exchange in ISO 8601 date-time format. Always with nanoseconds precision.
-* **`mark_price`**: The instrument market price, representing the contract's estimated "fair value."
+* **`mark_price`**: The instrument market price, which represents the contract's fair market value and is used to calculate a trader's unrealized profit and losses and to trigger liquidations for risk management purposes.
 * **`index_price`**: The price of the underlying benchmark index.
-* **`settlement_price_estimated`**: Represents what the underlying index settlement price would be if the contract immediately expired, helpful in calculating estimated profit and loss prior to contract expiration.
+* **`settlement_price_estimated`**: Represents what the underlying index settlement price would be if the contract immediately expired.
 * **`database_time`**: The timestamp when the data was saved in the database in ISO 8601 date-time format with nanoseconds precision. Always with nanoseconds precision.
 * **`exchange_time`**: The timestamp reported by the exchange. Can be null if the exchange does not report a timestamp.
 

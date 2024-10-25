@@ -10,28 +10,50 @@
 
 The sum held by an exchange at the end of that interval.
 
-| Name                           | MetricID   | Unit         | Interval |
-| ------------------------------ | ---------- | ------------ | -------- |
-| Bitfinex Supply (native units) | SplyBFXNtv | Native units | 1 day    |
-| Bitfinex Supply (USD)          | SplyBFXUSD | USD          | 1 day    |
-| BitMEX Supply (native units)   | SplyBMXNtv | Native units | 1 day    |
-| BitMEX Supply (USD)            | SplyBMXUSD | USD          | 1 day    |
-| Binance Supply (native units)  | SplyBNBNtv | Native units | 1 day    |
-| Binance Supply (USD)           | SplyBNBUSD | USD          | 1 day    |
-| Bitstamp Supply (native units) | SplyBSPNtv | Native units | 1 day    |
-| Bitstamp Supply (USD)          | SplyBSPUSD | USD          | 1 day    |
-| Bittrex Supply (native units)  | SplyBTXNtv | Native units | 1 day    |
-| Bittrex Supply (USD)           | SplyBTXUSD | USD          | 1 day    |
-| Exchange Supply (native units) | SplyExNtv  | Native units | 1 day    |
-| Exchange Supply (USD)          | SplyExUSD  | USD          | 1 day    |
-| Gemini Supply (native units)   | SplyGEMNtv | Native units | 1 day    |
-| Gemini Supply (USD)            | SplyGEMUSD | USD          | 1 day    |
-| Huobi Supply (native units)    | SplyHUONtv | Native units | 1 day    |
-| Huobi Supply (USD)             | SplyHUOUSD | USD          | 1 day    |
-| Kraken Supply (native units)   | SplyKRKNtv | Native units | 1 day    |
-| Kraken Supply (USD)            | SplyKRKUSD | USD          | 1 day    |
-| Poloniex Supply (native units) | SplyPOLNtv | Native units | 1 day    |
-| Poloniex Supply (USD)          | SplyPOLUSD | USD          | 1 day    |
+| Name                             | MetricID   | Unit         | Interval |
+| -------------------------------- | ---------- | ------------ | -------- |
+| Bitfinex Supply (native units)   | SplyBFXNtv | Native units | 1 day    |
+| Bitfinex Supply (USD)            | SplyBFXUSD | USD          | 1 day    |
+| BitMEX Supply (native units)     | SplyBMXNtv | Native units | 1 day    |
+| BitMEX Supply (USD)              | SplyBMXUSD | USD          | 1 day    |
+| Binance Supply (native units)    | SplyBNBNtv | Native units | 1 day    |
+| Binance Supply (USD)             | SplyBNBUSD | USD          | 1 day    |
+| Bitstamp Supply (native units)   | SplyBSPNtv | Native units | 1 day    |
+| Bitstamp Supply (USD)            | SplyBSPUSD | USD          | 1 day    |
+| Bittrex Supply (native units)    | SplyBTXNtv | Native units | 1 day    |
+| Bittrex Supply (USD)             | SplyBTXUSD | USD          | 1 day    |
+| Bybit Supply (native units)      | SplyBITNtv | Native units | 1 day    |
+| Bybit Supply (USD)               | SplyBITUSD | USD          | 1 day    |
+| Crypto.com Supply (native units) | SplyCRONtv | Native units | 1 day    |
+| Crypto.com Supply (USD)          | SplyCROUSD | USD          | 1 day    |
+| Deribit Supply (native units)    | SplyDERNtv | Native units | 1 day    |
+| Deribit Supply (USD)             | SplyDERUSD | USD          | 1 day    |
+| Exchange Supply (native units)   | SplyExNtv  | Native units | 1 day    |
+| Exchange Supply (USD)            | SplyExUSD  | USD          | 1 day    |
+| Gate.io Supply (native units)    | SplyGIONtv | Native units | 1 day    |
+| Gate.io Supply (USD)             | SplyGIOUSD | USD          | 1 day    |
+| Gemini Supply (native units)     | SplyGEMNtv | Native units | 1 day    |
+| Gemini Supply (USD)              | SplyGEMUSD | USD          | 1 day    |
+| HitBTC Supply (native units)     | SplyHBTNtv | Native units | 1 day    |
+| BitBTC Supply (USD)              | SplyHBTUSD | USD          | 1 day    |
+| Huobi Supply (native units)      | SplyHUONtv | Native units | 1 day    |
+| Huobi Supply (USD)               | SplyHUOUSD | USD          | 1 day    |
+| Korbit Supply (native units)     | SplyKORNtv | Native units | 1 day    |
+| Korbit Supply (USD)              | SplyKORUSD | USD          | 1 day    |
+| Kraken Supply (native units)     | SplyKRKNtv | Native units | 1 day    |
+| Kraken Supply (USD)              | SplyKRKUSD | USD          | 1 day    |
+| Kucoin Supply (native units)     | SplyKCNNtv | Native units | 1 day    |
+| Kucoin Supply (USD)              | SplyKCNUSD | USD          | 1 day    |
+| MEXC Supply (native units)       | SplyMXCNtv | Native units | 1 day    |
+| MEXC Supply (USD)                | SplyMXCUSD | USD          | 1 day    |
+| NBX Supply (native units)        | SplyNBXNtv | Native units | 1 day    |
+| NBX Supply (USD)                 | SplyNBXUSD | USD          | 1 day    |
+| OKX Supply (native units)        | SplyOKXNtv | Native units | 1 day    |
+| OKX Supply (USD)                 | SplyOKXUSD | USD          | 1 day    |
+| Poloniex Supply (native units)   | SplyPOLNtv | Native units | 1 day    |
+| Poloniex Supply (USD)            | SplyPOLUSD | USD          | 1 day    |
+| Poloniex Supply (native units)   | SplySBGNtv | Native units | 1 day    |
+| Poloniex Supply (USD)            | SplySBGUSD | USD          | 1 day    |
 
 ### Details
 

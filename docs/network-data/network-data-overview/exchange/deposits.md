@@ -11,26 +11,48 @@
 
 The sum of assets sent to an exchange that interval.
 
-| Name                             | MetricID     | Unit         | Interval       |
-| -------------------------------- | ------------ | ------------ | -------------- |
-| Bitfinex Deposits (native units) | FlowInBFXNtv | Native units | 1 block, 1 day |
-| Bitfinex Deposits (USD)          | FlowInBFXUSD | USD          | 1 block, 1 day |
-| BitMEX Deposits (native units)   | FlowInBMXNtv | Native units | 1 block, 1 day |
-| BitMEX Deposits (USD)            | FlowInBMXUSD | USD          | 1 block, 1 day |
-| Binance Deposits (native units)  | FlowInBNBNtv | Native units | 1 block, 1 day |
-| Binance Deposits (USD)           | FlowInBNBUSD | USD          | 1 block, 1 day |
-| Bitstamp Deposits (native units) | FlowInBSPNtv | Native units | 1 block, 1 day |
-| Bitstamp Deposits (USD)          | FlowInBSPUSD | USD          | 1 block, 1 day |
-| Bittrex Deposits (native units)  | FlowInBTCNtv | Native units | 1 block, 1 day |
-| Bittrex Deposit (USD)            | FlowInBTXUSD | USD          | 1 block, 1 day |
-| Gemini Deposits (native units)   | FlowInGEMNtv | Native units | 1 block, 1 day |
-| Gemini Deposits (USD)            | FlowInGEMUSD | USD          | 1 block, 1 day |
-| Huobi Deposits (native units)    | FlowInHUONtv | Native units | 1 block, 1 day |
-| Huobi Deposits (USD)             | FlowInHUOUSD | USD          | 1 block, 1 day |
-| Kraken Deposits (native units)   | FlowInKRKNtv | Native units | 1 block, 1 day |
-| Kraken Deposits (USD)            | FlowInKRKUSD | USD          | 1 block, 1 day |
-| Poloniex Deposits (native units) | FlowInPOLNtv | Native units | 1 block, 1 day |
-| Poloniex Deposits (USD)          | FlowInPOLUSD | USD          | 1 block, 1 day |
+| Name                              | MetricID     | Unit         | Interval       |
+| --------------------------------- | ------------ | ------------ | -------------- |
+| Bitfinex Deposits (native units)  | FlowInBFXNtv | Native units | 1 block, 1 day |
+| Bitfinex Deposits (USD)           | FlowInBFXUSD | USD          | 1 block, 1 day |
+| BitMEX Deposits (native units)    | FlowInBMXNtv | Native units | 1 block, 1 day |
+| BitMEX Deposits (USD)             | FlowInBMXUSD | USD          | 1 block, 1 day |
+| Binance Deposits (native units)   | FlowInBNBNtv | Native units | 1 block, 1 day |
+| Binance Deposits (USD)            | FlowInBNBUSD | USD          | 1 block, 1 day |
+| Bitstamp Deposits (native units)  | FlowInBSPNtv | Native units | 1 block, 1 day |
+| Bitstamp Deposits (USD)           | FlowInBSPUSD | USD          | 1 block, 1 day |
+| Bittrex Deposits (native units)   | FlowInBTCNtv | Native units | 1 block, 1 day |
+| Bittrex Deposit (USD)             | FlowInBTXUSD | USD          | 1 block, 1 day |
+| Bybit Deposit (native units)      | FlowInBITNtv | Native units | 1 day          |
+| Bybit Deposit (USD)               | FlowInBITUSD | USD          | 1 day          |
+| Crypto.com Deposit (native units) | FlowInCRONtv | Native units | 1 day          |
+| Crypto.com Deposit (USD)          | FlowInCROUSD | USD          | 1 day          |
+| Deribit Deposit (native units)    | FlowInDERNtv | Native units | 1 day          |
+| Deribit Deposit (USD)             | FlowInDERUSD | USD          | 1 day          |
+| Gate.io Deposit (native units)    | FlowInGIONtv | Native units | 1 day          |
+| Gate.io Deposit (USD)             | FlowInGIOUSD | USD          | 1 day          |
+| Gemini Deposits (native units)    | FlowInGEMNtv | Native units | 1 block, 1 day |
+| Gemini Deposits (USD)             | FlowInGEMUSD | USD          | 1 block, 1 day |
+| HitBTC Deposits (native units)    | FlowInHBTNtv | Native units | 1 day          |
+| HitBTC Deposits (USD)             | FlowInHBTUSD | USD          | 1 day          |
+| Huobi Deposits (native units)     | FlowInHUONtv | Native units | 1 block, 1 day |
+| Huobi Deposits (USD)              | FlowInHUOUSD | USD          | 1 block, 1 day |
+| Korbit Deposits (native units)    | FlowInKORNtv | Native units | 1 day          |
+| Korbit Deposits (USD)             | FlowInKORUSD | USD          | 1 day          |
+| Kraken Deposits (native units)    | FlowInKRKNtv | Native units | 1 block, 1 day |
+| Kraken Deposits (USD)             | FlowInKRKUSD | USD          | 1 block, 1 day |
+| Kucoin Deposits (native units)    | FlowInKCNNtv | Native units | 1 day          |
+| Kucoin Deposits (USD)             | FlowInKCNUSD | USD          | 1 day          |
+| MEXC Deposits (native units)      | FlowInMXCNtv | Native units | 1 day          |
+| MEXC Deposits (USD)               | FlowInMXCUSD | USD          | 1 day          |
+| NBX Deposits (native units)       | FlowInNBXNtv | Native units | 1 day          |
+| NBX Deposits (USD)                | FlowInNBXUSD | USD          | 1 day          |
+| OKX Deposits (native units)       | FlowInOKXNtv | Native units | 1 day          |
+| OKX Deposits (USD)                | FlowInOKXUSD | USD          | 1 day          |
+| Poloniex Deposits (native units)  | FlowInPOLNtv | Native units | 1 block, 1 day |
+| Poloniex Deposits (USD)           | FlowInPOLUSD | USD          | 1 block, 1 day |
+| SwissBorg Deposits (native units) | FlowInSBGNtv | Native units | 1 day          |
+| SwissBorg Deposits (USD)          | FlowInSBGUSD | USD          | 1 day          |
 
 ### Details
 
@@ -69,7 +91,7 @@ The sum of assets sent to an exchange that interval.
 
 The sum count of transfers to any address belonging to an exchange in that interval. If the sender address also belongs to Binfinex, the transfer is not counted.
 
-<table><thead><tr><th>Name</th><th width="181">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Bitfinex Deposit Cnt</td><td>FlowTfrInBFXCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>BitMEX Deposit Cnt</td><td>FlowTfrInBMXCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Binance Deposit Cnt</td><td>FlowTfrInBNBCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Bitstamp Deposit Cnt</td><td>FlowTfrInBSPCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Bittrex Deposit Cnt</td><td>FlowTfrInBTXCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Gemini Deposit Cnt</td><td>FlowTfrInGEMCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Huobi Deposit Cnt</td><td>FlowTfrInHUOCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Kraken Deposit Cnt</td><td>FlowTfrInKRKCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Poloniex Deposit Cnt</td><td>FlowTfrInPOLCnt</td><td>Native units</td><td>1 block, 1 day</td></tr></tbody></table>
+<table><thead><tr><th>Name</th><th width="181">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Bitfinex Deposit Cnt</td><td>FlowTfrInBFXCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>BitMEX Deposit Cnt</td><td>FlowTfrInBMXCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Binance Deposit Cnt</td><td>FlowTfrInBNBCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Bitstamp Deposit Cnt</td><td>FlowTfrInBSPCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Bittrex Deposit Cnt</td><td>FlowTfrInBTXCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Bybit Deposit Cnt</td><td>FlowTfrInBITCnt</td><td>Native units</td><td>1 day</td></tr><tr><td>Crypto.com Deposit Cnt</td><td>FlowTfrInCROCnt</td><td>Native units</td><td>1 day</td></tr><tr><td>Deribit Deposit Cnt</td><td>FlowTfrInDERCnt</td><td>Native units</td><td>1 day</td></tr><tr><td>Gate.io Deposit Cnt</td><td>FlowTfrInGIOCnt</td><td>Native units</td><td>1 day</td></tr><tr><td>Gemini Deposit Cnt</td><td>FlowTfrInGEMCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>HitBTC Deposit Cnt</td><td>FlowTfrInHBTCnt</td><td>Native Units</td><td>1 day</td></tr><tr><td>Huobi Deposit Cnt</td><td>FlowTfrInHUOCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Korbit Deposit Cnt</td><td>FlowTfrInKORCnt</td><td>Native units</td><td>1 day</td></tr><tr><td>Kraken Deposit Cnt</td><td>FlowTfrInKRKCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Kucoin Deposit Cnt</td><td>FlowTfrInKCNCnt</td><td>Native units</td><td>1 day</td></tr><tr><td>MEXC Deposit Cnt</td><td>FlowTfrInMXCCnt</td><td>Native units</td><td>1 day</td></tr><tr><td>NBX Deposit Cnt</td><td>FlowTfrInNBXCnt</td><td>Native units</td><td>1 day</td></tr><tr><td>OKX Deposit Cnt</td><td>FlowTfrInOKXCnt</td><td>Native units</td><td>1 day</td></tr><tr><td>Poloniex Deposit Cnt</td><td>FlowTfrInPOLCnt</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>SwissBorg Deposit Cnt</td><td>FlowTfrInSBGCnt</td><td>Native units</td><td>1 day</td></tr></tbody></table>
 
 ### Details
 
