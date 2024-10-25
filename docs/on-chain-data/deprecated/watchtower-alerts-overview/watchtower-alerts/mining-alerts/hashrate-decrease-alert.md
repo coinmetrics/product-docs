@@ -1,2 +1,0 @@
-# Hashrate Decrease Alert
-

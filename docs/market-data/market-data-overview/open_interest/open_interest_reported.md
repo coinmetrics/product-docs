@@ -153,14 +153,150 @@ and by passing in `open_interest_reported_*` metric ID's in the the `metrics` pa
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=open_interest_reported_future_coin_margined_usd&assets=btc&pretty=true&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=open_interest_reported_future_coin_margined_usd&assets=btc&pretty=true&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_asset_metrics(
+        metrics="open_interest_reported_future_coin_margined_usd", 
+        assets="btc",
+        limit_per_asset=5
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+
+
+
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
+
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/exchange-metrics?metrics=open_interest_reported_future_coin_margined_usd&exchanges=binance&pretty=true&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/exchange-metrics?metrics=open_interest_reported_future_coin_margined_usd&exchanges=binance&pretty=true&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_exchange_metrics(
+        metrics="open_interest_reported_future_coin_margined_usd", 
+        exchanges="binance",
+        limit_per_exchange=5
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+
 
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?metrics=open_interest_reported_future_coin_margined_usd&exchange_assets=binance-btc&pretty=true&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?metrics=open_interest_reported_future_coin_margined_usd&exchange_assets=binance-btc&pretty=true&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_exchange_asset_metrics(
+        metrics="open_interest_reported_future_coin_margined_usd", 
+        exchange_assets="binance-btc",
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+
+
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
+
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/pair-metrics?metrics=open_interest_reported_future_coin_margined_usd&pairs=btc-usd&pretty=true&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/pair-metrics?metrics=open_interest_reported_future_coin_margined_usd&pairs=btc-usd&pretty=true&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_asset_metrics(
+        metrics="open_interest_reported_future_coin_margined_usd", 
+        pairs="btc-usd",
+        limit_per_pair=5
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+

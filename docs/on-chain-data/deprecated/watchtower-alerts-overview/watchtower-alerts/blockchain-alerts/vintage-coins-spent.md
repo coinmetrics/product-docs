@@ -1,2 +1,0 @@
-# Vintage Coins Spent
-
