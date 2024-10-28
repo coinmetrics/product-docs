@@ -24,7 +24,7 @@
   * [How To Guides](tutorials-and-examples/user-guides/README.md)
     * [How To Export Data](tutorials-and-examples/user-guides/exporting-data.md)
     * [How To Migrate From Catalog to Catalog V2 and Reference Data](tutorials-and-examples/user-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md)
-    * [How to use the Coin Metrics API Efficiently](tutorials-and-examples/user-guides/how-to-use-the-coin-metrics-api-efficiently-http.md)
+    * [How To Use the Coin Metrics API Efficiently](tutorials-and-examples/user-guides/how-to-use-the-coin-metrics-api-efficiently-http.md)
   * [Dashboard Examples](tutorials-and-examples/dashboard-examples.md)
 * [Packages](packages/README.md)
   * [CM Labs](packages/cm-labs.md)

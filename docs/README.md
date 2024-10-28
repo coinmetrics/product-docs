@@ -14,7 +14,7 @@ Welcome to the **Coin Metrics Product Documentation**. At Coin Metrics, we organ
 
 ### [Blockchain Explorer (Atlas)](network-data/atlas-overview/)
 
-* **Atlas** is a complete blockchain search engine that enables users to look up information on transactions, addresses, and blocks through a high-performance [API](https://docs.coinmetrics.io/api/v4/). An API key is required to query the `/blockchain/` endpoint via our API. Specifics on the format of the API output are described below in the [**Atlas**](network-data/atlas-overview/) section of this Encyclopedia.
+* **Atlas** is a complete blockchain search engine that enables users to look up information on transactions, addresses, and blocks through a high-performance [API](https://docs.coinmetrics.io/api/v4/). An API key is required to query the `/blockchain-v2/` endpoint via our API. Specifics on the format of the API output are described below in the [**Atlas**](network-data/atlas-overview/) section of this Encyclopedia.
 
 ## [Market Data](market-data/market-data-overview/)
 
@@ -27,7 +27,7 @@ Welcome to the **Coin Metrics Product Documentation**. At Coin Metrics, we organ
 * **Reference Rates** provide prices calculated in U.S. Dollars and Euros for several assets using a transparent and independent methodology, robust to manipulation and derived from high-quality constituent markets. This data is available through our [API](access-our-data/api/) (`timeseries/asset-metrics` endpoint) and also in our [Data Visualization](data-visualization/) and [CM Pro Charts](data-visualization/cmpro/).
 * **Reference Rates Community** (Community [API](access-our-data/api/), [Data Visualization](data-visualization/), [Pro Charts](data-visualization/cmpro/)) provides access to all of our reference rates with a limited amount of history for our more granular resolutions. For more info on our Community terms and offerings see our [Labs](https://coinmetrics.io/cm-labs/) page
 
-## [Indexes](broken-reference)
+## [Indexes](broken-reference/)
 
 ### [Coin Metrics Bletchley Indexes (CMBI)](https://coinmetrics.io/cm-indexes/)
 

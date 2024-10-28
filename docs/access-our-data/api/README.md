@@ -6,12 +6,12 @@ The Coin Metrics API is structured as the following:
 
 1. **Reference data** is a handbook of the entities Coin Metrics ever supported, currently supports or plans to support in the future. This includes assets, exchanges, markets, their metrics etc.
 2. **Catalog** data describes the availability for time series or time series-like endpoints. For more information on the catalog migration, see [catalog-v1-v2-migration.md](catalog-v1-v2-migration.md "mention")
-3. **Time Series** data is some of the most valuable data we provide for our customers: market data (trades, order books, candles etc.), metrics (asset metrics, exchange metrics, pair metrics etc.), index levels and so on.
+3. **Timeseries** data is some of the most valuable data we provide for our customers: market data (trades, order books, candles etc.), metrics (asset metrics, exchange metrics, pair metrics etc.), index levels and so on.
 4. **Time Series Stream** data is time series data served in real-time through a Websocket connection.
-5. **Custom endpoints** - endpoints that do not fit to any of the mentioned ones. Examples of custom endpoints:
+5. **Custom endpoints** - endpoints that do not fit to any of the aforementioned. These endpoints follow the same design principles as the Timeseries data. Examples of custom endpoints:
    1. **Blockchain** endpoints (ATLAS)
-   2. **Blockchain Metadata**
-   3. Transaction tracker API.
+   2. **Blockchain Metadata** (Tagging)
+   3. Transaction tracker API
    4. Security Master
    5. Constituents
 
@@ -47,14 +47,12 @@ The catalog endpoints allow you to know:
 * what data types are available,
 * min and max time of each data type that API can provide.
 
-We have two subtypes of catalog endpoints:&#x20;
+We have two subtypes of catalog endpoints:
 
-* /catalog prefixed endpoints - provide time ranges of the time series data available for your API key.&#x20;
-* /catalog-all prefixed endpoints - provide time ranges of the time series data for our entire data set.\
+* /catalog prefixed endpoints - provide time ranges of the time series data available for your API key.
+* /catalog-all prefixed endpoints - provide time ranges of the time series data for our entire data set.
 
-
-Catalog endpoints list all data types and possible entities and their combinations. The deepest part of each combination is the "min\_time" and "max\_time" values representing the availability of the corresponding time series(-like) endpoint. For example, `/catalog-v2/market-metrics`:\
-
+Catalog endpoints list all data types and possible entities and their combinations. The deepest part of each combination is the "min\_time" and "max\_time" values representing the availability of the corresponding time series(-like) endpoint. For example, `/catalog-v2/market-metrics`:\\
 
 ```json
 {
@@ -113,7 +111,7 @@ _Note: This query was made on 2023-06-27. max\_time is subject to change dependi
 
 Catalog endpoints abide by the following guidelines:
 
-1. Normally, each catalog endpoint has a corresponding time series-like endpoint (for example, /catalog-v2/market-metrics and /timeseries/market-metrics).&#x20;
+1. Normally, each catalog endpoint has a corresponding time series-like endpoint (for example, /catalog-v2/market-metrics and /timeseries/market-metrics).
 2. Each catalog endpoint supports pagination
 3. Catalog endpoints do not require any filtering query parameters; by default, all records are being returned (paginated), but filtering query parameters (especially if they match the corresponding time series endpoint’s query parameters) are welcomed.
 4. Each Catalog endpoint must support json\_stream format. While it is not required for Time series endpoints (the response size may be impractically large to use with json\_stream)), it is mandatory for Catalog ones.
@@ -126,8 +124,6 @@ See [catalog-v1-v2-migration.md](catalog-v1-v2-migration.md "mention") for more 
 
 Timeseries endpoints return data or metrics over time. We have a set of parameters to filter time series responses.
 
-
-
 | Parameter        | Default value        | Description                                                         | Examples          |
 | ---------------- | -------------------- | ------------------------------------------------------------------- | ----------------- |
 | start\_time      | \<unix\_epoch>       | Start of the time interval.                                         | 2020-01-01        |
@@ -137,12 +133,9 @@ Timeseries endpoints return data or metrics over time. We have a set of paramete
 | timezone         | UTC                  | Timezone name for parsing the start\_time and end\_time timestamps. | America/New\_York |
 | page\_size       | varies (usually 100) | Number of items per single page of results.                         | 100, 10000        |
 
-
-
 Also, additional query parameters, apart from the pagination ones, can be specified to reduce the amount of returned data:
 
-\
-
+\\
 
 | Parameter             | Default value | Description                                        | Examples            |
 | --------------------- | ------------- | -------------------------------------------------- | ------------------- |
@@ -173,8 +166,7 @@ But they can support different sets of query parameters because of the different
 
 API has a standard set of errors and error message formats that it can send to clients.
 
-\
-
+\\
 
 | Code | Description                                                                                                                                                                                |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -187,8 +179,6 @@ API has a standard set of errors and error message formats that it can send to c
 | 429  | Rate limits are violated. The client must slow down their requests.                                                                                                                        |
 | 524  | User closed connection. This is not returned by the API but is generated by a web service providern due to prolonged waiting.                                                              |
 | 500  | Something wrong happened in the API server.                                                                                                                                                |
-
-
 
 ## API Versions
 
