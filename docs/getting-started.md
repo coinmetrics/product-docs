@@ -2,7 +2,7 @@
 
 Welcome! Follow the steps below to get started with using Coin Metrics data.
 
-## Set up Your API Key
+## 1. Set up Your API Key
 
 Most of our data requires an API Key. If you want an API key, get in touch with us on our contact page: [https://coinmetrics.io/contact/](https://coinmetrics.io/contact/)
 
@@ -10,7 +10,7 @@ We offer some data for free under our Community Data. For more information, go t
 
 Data coverage can be seen by plugging in your API key at [coverage.coinmetrics.io](https://coverage.coinmetrics.io)
 
-## Learn How to Use Coin Metrics Tools
+## 2. Learn How to Use Coin Metrics Tools
 
 Coin Metrics offers several ways to access our data.
 
@@ -18,7 +18,7 @@ Coin Metrics offers several ways to access our data.
 
 You can use our [Data Viz](https://charts.coinmetrics.io/crypto-data/) to create charts dynamically using a point-and-click interface without any code. To learn how to use the charting tool, see our data visualization guide.
 
-&#x20;[data-visualization](data-visualization/ "mention")
+[data-visualization](data-visualization/ "mention")
 
 You can directly download files from your browser by adding a "format=csv" in your HTTP request, i.e. `https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=PriceUSD,FlowInGEMUSD&frequency=1d&pretty=true&api_key=<your_key>&format=csv`
 
@@ -30,11 +30,11 @@ For more information on exporting data, see the guide: [exporting-data.md](tutor
 
 ### For Developers
 
-You can use our [API](https://docs.coinmetrics.io/api/v4/) for accessing data. To learn more about our API design, see the [API Conventions](access-our-data/api/) page.&#x20;
+You can use our [API](https://docs.coinmetrics.io/api/v4/) for accessing data. To learn more about our API design, see the [API Conventions](access-our-data/api/) page.
 
 [api](access-our-data/api/ "mention")
 
-We offer convenient wrappers for our API in different languages.&#x20;
+We offer convenient wrappers for our API in different languages.
 
 #### **Python Users**
 
@@ -44,7 +44,7 @@ We offer convenient wrappers for our API in different languages.&#x20;
 
 [r-client.md](access-our-data/r-client.md "mention")
 
-## Use and Explore Coin Metrics Data
+## 3. Use and Explore Coin Metrics Data
 
 You can view examples of how to use Coin Metrics data in the [Tutorials and Examples](tutorials-and-examples/) section.
 
@@ -59,11 +59,11 @@ Refer to our more use-case-specific guides to make the most out of our data:
 * [how-to-use-the-coin-metrics-api-efficiently-http.md](tutorials-and-examples/user-guides/how-to-use-the-coin-metrics-api-efficiently-http.md "mention")
 * [How To Migrate From Catalog V1 to Catalog V2](tutorials-and-examples/user-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md)
 
-## Understand our Data
+## 4. Understand our Data
 
-Coin Metrics Data is divided into the following types of data:&#x20;
+Coin Metrics data is divided into the following types of data:
 
-* **Network Data**: Data sourced directly onchain, primarily from nodes maintained by Coin Metrics.&#x20;
+* **Network Data**: Data sourced directly onchain, primarily from nodes maintained by Coin Metrics.
 * **Market Data**: Historical and real-time data from the world’s leading centralized and decentralized (Labs) spot and derivatives crypto exchanges
 * **Index Data**: Independent measurements of cryptoasset market performance and network activity
 * **Reference Data**: Information about the properties of a token or other entity.
@@ -78,5 +78,4 @@ Coin Metrics Data is divided into the following types of data:&#x20;
 
 More information on each dataset can be found in their respective sections. You can find different metrics or data types by navigating the sidebar e.g. Market Data Overview > Volume > Trusted Volume, Network Data Overview > Addresses > Active Addresses.
 
-
-
+Coin Metrics data is heavily featured in our research at [https://coinmetrics.io/insights/](https://coinmetrics.io/insights/). You can subscribe to our weekly newsletter State of the Network at [https://coinmetrics.substack.com/](https://coinmetrics.substack.com/).&#x20;
