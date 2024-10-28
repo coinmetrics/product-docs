@@ -7,7 +7,7 @@ The Coin Metrics API is structured as the following:
 1. **Reference data** is a handbook of the entities Coin Metrics ever supported, currently supports or plans to support in the future. This includes assets, exchanges, markets, their metrics etc.
 2. **Catalog** data describes the availability for time series or time series-like endpoints. For more information on the catalog migration, see [catalog-v1-v2-migration.md](catalog-v1-v2-migration.md "mention")
 3. **Timeseries** data is some of the most valuable data we provide for our customers: market data (trades, order books, candles etc.), metrics (asset metrics, exchange metrics, pair metrics etc.), index levels and so on.
-4. **Time Series Stream** data is time series data served in real-time through a Websocket connection.
+4. **Timeseries Stream** data is time series data served in real-time through a Websocket connection.
 5. **Custom endpoints** - endpoints that do not fit to any of the aforementioned. These endpoints follow the same design principles as the Timeseries data. Examples of custom endpoints:
    1. **Blockchain** endpoints (ATLAS)
    2. **Blockchain Metadata** (Tagging)
@@ -52,7 +52,7 @@ We have two subtypes of catalog endpoints:
 * /catalog prefixed endpoints - provide time ranges of the time series data available for your API key.
 * /catalog-all prefixed endpoints - provide time ranges of the time series data for our entire data set.
 
-Catalog endpoints list all data types and possible entities and their combinations. The deepest part of each combination is the "min\_time" and "max\_time" values representing the availability of the corresponding time series(-like) endpoint. For example, `/catalog-v2/market-metrics`:\\
+Catalog endpoints list all data types and possible entities and their combinations. The deepest part of each combination is the "min\_time" and "max\_time" values representing the availability of the corresponding time series(-like) endpoint. For example, `/catalog-v2/market-metrics`:
 
 ```json
 {
@@ -135,8 +135,6 @@ Timeseries endpoints return data or metrics over time. We have a set of paramete
 
 Also, additional query parameters, apart from the pagination ones, can be specified to reduce the amount of returned data:
 
-\\
-
 | Parameter             | Default value | Description                                        | Examples            |
 | --------------------- | ------------- | -------------------------------------------------- | ------------------- |
 | limit\_per\_\<entity> | <p><br></p>   | How many entries per entity result should contain. | limit\_per\_asset=1 |
@@ -166,7 +164,7 @@ But they can support different sets of query parameters because of the different
 
 API has a standard set of errors and error message formats that it can send to clients.
 
-\\
+
 
 | Code | Description                                                                                                                                                                                |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
