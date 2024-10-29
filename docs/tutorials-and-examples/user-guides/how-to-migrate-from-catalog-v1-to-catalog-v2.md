@@ -2,7 +2,7 @@
 
 This guide will help you migrate from using `catalog` ("Catalog V1") to `catalog-v2` ("Catalog V2") and `reference-data` ("Reference Data"). Catalog V1 contains both static metadata (name, category, product, etc.) and coverage for a given data type (e.g. `min_time` and `max_time` for `trades`). Due to growing complexity in data coverage and the resulting performance bottlenecks from surfacing all of this data, this metadata is being separated. Catalog V2 and Reference Data allow for more lightweight and flexible queries as they can be queried across several dimensions (for example, `catalog-v2/asset-metrics` lets you filter by both asset and metric).
 
-Switching between Catalog to Catalog V2 requires a subtle change in how to think about and find the data you're looking for.&#x20;
+Switching between Catalog to Catalog V2 requires a subtle change in how to think about and find the data you're looking for.
 
 **In general:**
 
@@ -13,6 +13,34 @@ Switching between Catalog to Catalog V2 requires a subtle change in how to think
 For more information on the reasoning behind the catalog migration, see [catalog-v1-v2-migration.md](../../access-our-data/api/catalog-v1-v2-migration.md "mention")
 
 ## Examples
+
+### How do I get the assets/markets/exchanges covered?
+
+**V1:**
+
+* Use catalog/assets, catalog/markets, or catalog/exchanges respectively
+
+**V2:**
+
+* Use reference-data/assets, reference-data/markets, or reference-data/exchanges respectively
+
+{% tabs %}
+{% tab title="V2" %}
+```python
+assets = client.reference_data_assets().to_list()
+markets = client.reference_data_markets().to_list()
+exchanges = client.reference_data_exchanges().to_list()
+```
+{% endtab %}
+
+{% tab title="V1" %}
+```python
+assets = client.catalog_assets()
+markets = client.catalog_markets()
+exchanges = client.catalog_exchanges()
+```
+{% endtab %}
+{% endtabs %}
 
 ### **How do I** get which assets have been on an exchange?
 
@@ -109,8 +137,6 @@ list_asset_metrics = [metric for metric in list_asset_metrics if 'btc' in metric
 
 Suppose you wanted to know what assets are covered by `PriceUSD`:
 
-
-
 {% tabs %}
 {% tab title="V2" %}
 ```python
@@ -129,7 +155,7 @@ list_assets = list_asset_metrics[0]['frequencies'][-1]['assets']
 
 ### How do I get which raw observation data are covered for a given market?
 
-**V1 and V2:** Use `catalog/market-*` and `catalog-v2/market-*` respectively and pass markets where applicable.&#x20;
+**V1 and V2:** Use `catalog/market-*` and `catalog-v2/market-*` respectively and pass markets where applicable.
 
 Below is an example of using market-trades:
 
