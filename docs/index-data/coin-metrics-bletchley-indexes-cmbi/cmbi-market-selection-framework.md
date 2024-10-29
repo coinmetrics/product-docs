@@ -43,8 +43,6 @@ The base asset for eligible markets is restricted to the underlying asset of the
 
 For BTC and ETH, eligible quote assets are limited to U.S. Dollar (USD).  No other quote currencies are considered. For all other cryptoassets (excluding BTC and ETH), markets must be quoted in U.S. Dollars (USD), USD Coin (USDC), or Tether (USDT).&#x20;
 
-{% include "../../.gitbook/includes/the-initial-universe-of-eli....md" %}
-
 ### Liquidity Assessment
 
 The observation window for the Liquidity Assessment is the previous 180 days. The data inputs for the assessment are sourced from Coin Metrics’ Market Data Feed.&#x20;
