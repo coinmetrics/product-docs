@@ -274,6 +274,10 @@
   * [Candidate Market Guidelines](index-data/coin-metrics-bletchley-indexes-cmbi/cmbi-market-selection-framework.md)
 * [Fact Sheets](index-data/fact-sheets/README.md)
   * [CMBI Single Asset Series Fact Sheet](index-data/fact-sheets/cmbi-single-asset-series-fact-sheet.md)
+  * [CMBI Multi Asset Series Fact Sheet](index-data/fact-sheets/cmbi-multi-asset-series-fact-sheet.md)
+  * [CMBI Total Market Series Fact Sheet](index-data/fact-sheets/cmbi-total-market-series-fact-sheet.md)
+  * [CMBI Mining Series](index-data/fact-sheets/cmbi-mining-series.md)
+  * [CMBI 10 Momentum](index-data/fact-sheets/cmbi-10-momentum.md)
 * [Indexes Glossary](index-data/indexes-glossary.md)
 * [Index FAQs](index-data/index-faqs.md)
 
