@@ -272,6 +272,8 @@
   * [Fork Legitimacy Framework](index-data/coin-metrics-bletchley-indexes-cmbi/fork-legitimacy-framework.md)
   * [Adjusted Free Float Supply Methodology](index-data/coin-metrics-bletchley-indexes-cmbi/adjusted-free-float-supply-methodology.md)
   * [Candidate Market Guidelines](index-data/coin-metrics-bletchley-indexes-cmbi/cmbi-market-selection-framework.md)
+* [Fact Sheets](index-data/fact-sheets/README.md)
+  * [CMBI Single Asset Series Fact Sheet](index-data/fact-sheets/cmbi-single-asset-series-fact-sheet.md)
 * [Indexes Glossary](index-data/indexes-glossary.md)
 * [Index FAQs](index-data/index-faqs.md)
 
