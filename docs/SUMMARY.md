@@ -277,7 +277,6 @@
   * [CMBI Multi Asset Series Fact Sheet](index-data/fact-sheets/cmbi-multi-asset-series-fact-sheet.md)
   * [CMBI Total Market Series Fact Sheet](index-data/fact-sheets/cmbi-total-market-series-fact-sheet.md)
   * [CMBI Mining Series Fact Sheet](index-data/fact-sheets/cmbi-mining-series-fact-sheet.md)
-  * [CMBI 10 Momentum Fact Sheet](index-data/fact-sheets/cmbi-10-momentum-fact-sheet.md)
 * [Indexes Glossary](index-data/indexes-glossary.md)
 * [Index FAQs](index-data/index-faqs.md)
 
