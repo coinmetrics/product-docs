@@ -4,52 +4,21 @@
 
 ## CMBI Single Asset Series
 
-<details>
-
-<summary>CMBI Single Asset Series</summary>
-
-[https://coinmetrics.io/cmbi-single-asset-methodology/](https://coinmetrics.io/cmbi-single-asset-methodology/)
-
-</details>
+{% file src="../../.gitbook/assets/CMBI-Multi-Asset-Series-Methodologyv1.3 (1).pdf" %}
 
 ## CMBI Multi Asset Series
 
-<details>
-
-<summary>CMBI Multi Asset Series</summary>
-
-[https://coinmetrics.io/cmbi-multi-asset-series-methodology/](https://coinmetrics.io/cmbi-multi-asset-series-methodology/)
-
-</details>
+{% file src="../../.gitbook/assets/CMBI-Multi-Asset-Series-Methodologyv1.3.pdf" %}
 
 ## CMBI Mining Series
 
-<details>
-
-<summary>CMBI Mining Series</summary>
-
-[https://coinmetrics.io/cmbi-mining-index-series-methodology/](https://coinmetrics.io/cmbi-mining-index-series-methodology/)
-
-</details>
+{% file src="../../.gitbook/assets/CMBI Mining Index Methodology v1.2.pdf" %}
 
 ## CMBI Momentum Series
 
-<details>
-
-<summary>CMBI Momentum Series</summary>
-
-[https://coinmetrics.io/cmbi-momentum-series-methodology/](https://coinmetrics.io/cmbi-momentum-series-methodology/)
-
-</details>
+{% file src="../../.gitbook/assets/CMBI Momentum Series Methodology v1.2.pdf" %}
 
 ## CMBI Total Market Series
 
-<details>
+{% file src="../../.gitbook/assets/CMBI Total Market Series Methodology v1.2.pdf" %}
 
-<summary>CMBI Total Market Series</summary>
-
-[https://coinmetrics.io/cmbi-total-market-series-methodology/](https://coinmetrics.io/cmbi-total-market-series-methodology/)
-
-</details>
-
-{% embed url="https://coinmetrics.io/wp-content/uploads/2022/12/CMBI-Total-Market-Series-Methodology.pdf" %}
