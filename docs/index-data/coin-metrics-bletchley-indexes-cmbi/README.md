@@ -1,6 +1,6 @@
 # Methodologies
 
-/**Coin Metrics Bletchley Indexes** (CMBI) are a comprehensive suite of single-asset, multi-asset and unique crypto asset benchmarks used by leading crypto and traditional financial institutions.&#x20;
+**Coin Metrics Bletchley Indexes** (CMBI) are a comprehensive suite of single-asset, multi-asset and unique crypto asset benchmarks used by leading crypto and traditional financial institutions.&#x20;
 
 ## CMBI Single Asset Series
 
@@ -26,6 +26,4 @@
 
 The CMBI Ethereum Staking Index (CMBIETHS) reflects the performance an investor would expect from purchasing and staking Ether. The total return consists of the hourly price return of Ether and the rewards earned from the Ethereum blockchain.
 
-
-
-{% file src="../../.gitbook/assets/_CMBI Ethereum Staking Methodolgy .pdf" %}
+{% file src="../../.gitbook/assets/_CMBI Ethereum Staking Methodology.pdf" %}
