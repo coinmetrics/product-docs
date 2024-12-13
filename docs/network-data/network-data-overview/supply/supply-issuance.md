@@ -8,18 +8,8 @@
 * [Total Issuance](supply-issuance.md#isstot)
 * [Puell Multiple Total](supply-issuance.md#puellmultot)
 * [Puell Multiple, Coinbase Issuance](supply-issuance.md#puelmulcont)
-
-<!---->
-
-* [Coinbase Issuance](supply-issuance.md#isscontntv)
-* [Annual Inflation Rate](supply-issuance.md#isscontpctann)
-* [Daily Inflation Rate](supply-issuance.md#isscontpctday)
-* [Coinbase Issuance](supply-issuance.md#isscont)
-* [Total Issuance](supply-issuance.md#isstot)
-* [Puell Multiple Total](supply-issuance.md#puellmultot)
-* [Puell Multiple, Coinbase Issuance](supply-issuance.md#puelmulcont)
-* [Daily Supply Inflation Rates](supply-issuance.md#puellmultot-2)
-* [Annual Supply Inflation Rates](supply-issuance.md#puellmultot-3)
+* ​[Daily Supply Inflation Rates](https://app.gitbook.com/o/-MQCo4hL7kbGqmZBgS2j/s/-MO23j33wWGzm0NrZseN/~/diff/~/changes/1022/network-data/network-data-overview/supply/supply-issuance#puellmultot-2)​
+* ​[Annual Supply Inflation Rates](https://app.gitbook.com/o/-MQCo4hL7kbGqmZBgS2j/s/-MO23j33wWGzm0NrZseN/~/diff/~/changes/1022/network-data/network-data-overview/supply/supply-issuance#puellmultot-3)
 
 ## Annual Inflation Rate <a href="#isscontpctann" id="isscontpctann"></a>
 

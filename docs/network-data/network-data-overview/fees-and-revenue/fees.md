@@ -25,6 +25,7 @@
 * [Mean fee per blob carrying transaction (FeeBlobTxMeanNtv, FeeBlobTxMeanUSD)](fees.md#mean-fee-per-blob-carrying-transaction)
 * [Total Blob Fees Paid by Layer 2s (FeeBlob\*TotNtv, FeeBlob\*TotUSD)](fees.md#total-blob-fees-paid-by-layer-2s)
 * [Mean Blob Fees Paid by Layer 2s (FeeBlob\*MeanNtv, FeeBlob\*MeanUSD)](fees.md#mean-blob-fees-paid-by-layer-2s)
+* [Network State Storage Fees](fees.md#network-state-storage-fees)
 
 ## Mean Tx Fee per Byte (native units)
 
@@ -267,15 +268,15 @@ Ethereum post-1559 requires users to pay for a Base Fee as a prerequisite to inc
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/FeePrioTotNtv" %}
 
-## Miner Revenue from Fees (%) <a href="#feerevpct" id="feerevpct"></a>
+## Revenue from Fees (%) <a href="#feerevpct" id="feerevpct"></a>
 
 ### Definition
 
-The percentage of miner revenue derived from fees that interval. This is equal to the fees divided by the miner revenue.
+The percentage of revenue derived from fees that interval. This is equal to the fees divided by the  revenue.
 
-| Name                        | MetricID  | Unit          | Interval |
-| --------------------------- | --------- | ------------- | -------- |
-| Miner Revenue from Fees (%) | FeeRevPct | Dimensionless | 1 day    |
+| Name                  | MetricID  | Unit          | Interval |
+| --------------------- | --------- | ------------- | -------- |
+| Revenue from Fees (%) | FeeRevPct | Dimensionless | 1 day    |
 
 ### Details
 
@@ -338,7 +339,7 @@ The mean transaction fee per weight unit in that interval in native units. Weigh
 
 ### Details
 
-* For more details on SegWit, check the [Bitcoin Wiki Entry](https://en.bitcoin.it/wiki/Segregated\_Witness)
+* For more details on SegWit, check the [Bitcoin Wiki Entry](https://en.bitcoin.it/wiki/Segregated_Witness)
 
 ### Asset-Specific Details
 
@@ -686,6 +687,22 @@ The sum of all fees paid by tagged Layer 2 sequencers for blob space, shown in n
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/FeeBlobL2MeanNtv" %}
+
+## Network State Storage Fees
+
+### Definition
+
+Total fees paid for storing state on the network within an interval in native units.
+
+<table><thead><tr><th>Name</th><th width="216">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Network state storage fees (native units)</td><td>FeeStorTotNtv</td><td>Native units</td><td>1 day</td></tr><tr><td>Network state storage fees (USD)</td><td>FeeStorTotUSD</td><td>USD</td><td>1 day</td></tr></tbody></table>
+
+#### Details
+
+* Solana removed network state storage fees in November of 2023 as of which time they are 0
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/FeeStorTotNtv" %}
 
 ### API Endpoints
 

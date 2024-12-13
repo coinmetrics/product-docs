@@ -1,40 +1,44 @@
-# Validator Supply
+# Staking Supply
 
 ## Contents
 
 * [Supply Staked in Validators](validator-supply.md#splystkedntc)
-* [Sum of all Balances from Active Validators](validator-supply.md#splyactstkedntv)
+* [Active Staked Supply](validator-supply.md#splyactstkedntv)
 * [Total Staked Supply](validator-supply.md#splytotstkedntv)
 
-## Supply Staked in Validators <a href="#splystkedntc" id="splystkedntc"></a>
+## Supply Staked by Stakers <a href="#splystkedntc" id="splystkedntc"></a>
 
 ### Definition
 
 Supply staked in validators.
 
-| Name                        | MetricID     | Unit         | Interval      |
-| --------------------------- | ------------ | ------------ | ------------- |
-| Supply Staked in Validators | SplyStkedNtv | Native Units | 1 day, 1 hour |
+| Name                                    | MetricID     | Unit         | Interval      |
+| --------------------------------------- | ------------ | ------------ | ------------- |
+| Supply Staked by Stakers (native units) | SplyStkedNtv | Native Units | 1 day, 1 hour |
+| Supply Staked by Stakers (USD)          | SplyStkedUSD | USD          | 1 day         |
 
 ### Details
 
-* Sum of all balances from all eligible active validators (validators with 'active' or 'pending' status).
+* For Ethereum:
+  * Sum of all balances from all eligible active validators (validators with 'active' or 'pending' status).
+* For other assets:
+  * Sum of all balances from all eligible stakers (delegators + validators)
 
 ### Release History
 
 * Released September 2022.
 
-## Sum of all Balances from Active Validators <a href="#splyactstkedntv" id="splyactstkedntv"></a>
+## Active Staked Supply <a href="#splyactstkedntv" id="splyactstkedntv"></a>
 
 ### Definition
 
 Supply from validators that were active that day.
 
-<table><thead><tr><th>Name</th><th width="159">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Active Staking Supply</td><td>SplyActStkedNtv</td><td>Native Units</td><td>1 day, 1 hour</td></tr></tbody></table>
+<table><thead><tr><th>Name</th><th width="159">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Sum of all balances from active stakers (native units)</td><td>SplyActStkedNtv</td><td>Native Units</td><td>1 day, 1 hour</td></tr><tr><td>Sum of all balances from active stakers (USD)</td><td>SplyActStkedUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum of all balances from active delegators (native units)</td><td>SplyDelegatorActStkedNtv</td><td>Native units</td><td>1 day</td></tr><tr><td>Sum of all balances from active delegators (USD)</td><td>SplyDelegatorActStkedUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum of all balances from active validators (native units)</td><td>SplyValidatorActStkedNtv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum of all balances from active validators (USD)</td><td>SplyValidatorActStkedUSD</td><td>USD</td><td>1 day</td></tr></tbody></table>
 
 ### Details
 
-* Sum of all balances from actively participating validators.
+* Sum of all balances from actively participating stakers.
 
 ### Release History
 
@@ -46,9 +50,10 @@ Supply from validators that were active that day.
 
 Sum of all balances held by all validators.
 
-| Name                | MetricID        | Unit         | Interval      |
-| ------------------- | --------------- | ------------ | ------------- |
-| Total Staked Supply | SplyTotStkedNtv | Native Units | 1 day, 1 hour |
+| Name                               | MetricID        | Unit         | Interval      |
+| ---------------------------------- | --------------- | ------------ | ------------- |
+| Total Staked Supply (native units) | SplyTotStkedNtv | Native Units | 1 day, 1 hour |
+| Total Staked Supply (USD)          | SplyTotStkedUSD | USD          | 1 day         |
 
 ### Details
 

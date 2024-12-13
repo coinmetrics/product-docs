@@ -10,11 +10,11 @@
 
 ### Definition
 
-The sum USD value of all miner revenue (fees plus newly issued native units) for all time.
+The sum USD value of all revenue (fees plus newly issued native units) for all time. This is measured for consensus participants (miners, stakers, validators or delegators).
 
-| Name                         | MetricID      | Unit | Interval |
-| ---------------------------- | ------------- | ---- | -------- |
-| All Time Miner Revenue (USD) | RevAllTimeUSD | USD  | All time |
+| Name                   | MetricID      | Unit | Interval |
+| ---------------------- | ------------- | ---- | -------- |
+| All Time Revenue (USD) | RevAllTimeUSD | USD  | All time |
 
 ### Details
 
@@ -33,19 +33,21 @@ The sum USD value of all miner revenue (fees plus newly issued native units) for
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/RevAllTimeUSD" %}
 
-## Miner Revenue (native units) <a href="#b" id="b"></a>
+## Revenue (native units) <a href="#b" id="b"></a>
 
 ### Definition
 
-The sum native units of miner revenue (fees plus newly issued native units) that interval.
+The sum native units of revenue (fees plus newly issued native units) that interval. This is measured for consensus participants (miners, stakers, validators or delegators).
 
-| Name                         | MetricID | Unit         | Interval       |
-| ---------------------------- | -------- | ------------ | -------------- |
-| Miner Revenue (native units) | RevNtv   | Native units | 1 day, 1 block |
+| Name                             | MetricID        | Unit         | Interval       |
+| -------------------------------- | --------------- | ------------ | -------------- |
+| Revenue (native units)           | RevNtv          | Native units | 1 day, 1 block |
+| Validator Revenue (native units) | RevValidatorNtv | Native units | 1 day          |
+| Delegator Revenue (native units) | RevDelegatorNtv | Native units | 1 day          |
 
 ### Details
 
-* Mining revenue doesn’t include founders reward/community funds issuance.
+* Revenue doesn’t include founders reward/community funds issuance.
 
 ### Asset-Specific Details
 
@@ -64,20 +66,23 @@ The sum native units of miner revenue (fees plus newly issued native units) that
 
 ### Definition
 
-The sum USD value of all miner revenue (fees plus newly issued native units) that day.
+The sum USD value of all revenue (fees plus newly issued native units) that day. This is measured for consensus participants (miners, stakers, validators or delegators).
 
-| Name                | MetricID | Unit | Interval       |
-| ------------------- | -------- | ---- | -------------- |
-| Miner Revenue (USD) | RevUSD   | USD  | 1 day, 1 block |
+| Name                    | MetricID        | Unit | Interval       |
+| ----------------------- | --------------- | ---- | -------------- |
+| Revenue (USD)           | RevUSD          | USD  | 1 day, 1 block |
+| Validator Revenue (USD) | RevValidatorUSD | USD  | 1 day          |
+| Delegator Revenue (USD) | RevDelegatorUSD | USD  | 1 day          |
 
 ### Details
 
-* Mining revenue doesn’t include founders reward/community funds issuance.
+* Revenue doesn’t include founders reward/community funds issuance.
 * Price used is PriceUSD
 
 ### Asset-Specific Details
 
 * Post Ethereum Merge, RevUSD includes only Priority Fees for ETH
+* For SOL, sum of all rewards earned for Voting, Staking, Fees & Rent by validators.
 
 ### Release History
 
