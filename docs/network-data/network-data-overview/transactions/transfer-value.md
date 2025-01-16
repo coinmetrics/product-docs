@@ -217,9 +217,31 @@ The sum of native units or USD transferred (i.e., the aggregate "size" of all tr
 | Xfer'd Val (native units) | TxTfrValNtv | Native units | 1 day, 1 hour |
 | Xfer'd Val (USD)          | TxTfrValUSD | USD          | 1 day, 1 hour |
 
-### Details
+**Details**
 
+* Transfers are movement of native units.
+* Only non-zero value, successful, transfers with distinct sender/recipient, are considered.
+* Failed transactions are not considered in TxTfrValNtv
+* For ETH, the fees sent from the original sender to the miner for the failed transaction are not considered
 * This metric counts transfers between two addresses, exluding transfers from or to the null account (issuance account) as those would be considered mints (transfers from) and burns (transfers to). These would be counted in our [SplyCur](../supply/current-supply.md) metric as an increase or decrease in the supply.
+
+#### Asset-Specific Details
+
+* For assets that have opt-in privacy features, like ZCash, it only takes the non-private activity.
+
+#### Release History
+
+* Released in the 1.0 release of NDP
+
+#### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValNtv" %}
+TxTfrValNtv Coverage
+{% endembed %}
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValUSD" %}
+TxTfrValUSD Coverage
+{% endembed %}
 
 ## Payments Above/Below X Amount (Count) <a href="#txtfrvalcnt" id="txtfrvalcnt"></a>
 
@@ -236,40 +258,59 @@ The sum count of payments (transfers) above or below X worth of a cryptoasset at
 | Xfers Below $500, Count    | TxTfrValBelUSD500Cnt   | Addresses | 1 day    |
 | Xfers Below $100, Count    | TxTfrValBelUSD100Cnt   | Addresses | 1 day    |
 
-## Sum Value of Payments Above/Below X Amount <a href="#txtfrvalabbel" id="txtfrvalabbel"></a>
+**Details**
+
+* This metrics shows the incidence (count) of payments above/below each of the supported thresholds.
+* Payments are defined as transfers (xfers) and represent the individual asset transfers _within_ a transaction.
+* A transaction may be a collection of transfers which, specially in UTXO-based blockchains, may represent several P2P payments.
+* A cryptoasset exchange, for example, may engage in _transaction batching_ whereby user withdraws are aggregated in a single transaction comprised of multiple outputs.
+* Each of the outputs represents a transfer. And while each transfer (output) may be going to different users, they are all processed within the same transaction.
+* For this reason, this metric is calculated at the transfer-level so all individual payments are accounted for.
+* In this version of this metric, change outputs are not adjusted. This means not only peer-to-peer tranfers are accounted for, but also when a user sends fund to their own wallets.
+  * For example, if after paying each of the users withdrawing, the exchange still has a remaining balance, the change output is still accounted for in this metric if it falls below the metric's threshold.
+  * In other words, if the recipients listed in a transaction's output require payments that, when added together, have a value that is _lower_ than the input, a change output that goes back to the sender must be created. In such circumstances, this metric would also account for the change output if it fell under the measuring threshold.
+
+**Interpretation**
+
+* This thresholds in this metric can be used to better understand the type of users interacting with a cryptoasset network.
+* For example, if a network is predominantly being used for retail transactions, one would expect payments under $100 to occur more frequently than payments above $10,000.
+* Similarly, it can show the predominance of different types of investors, such the balance between retail and institutional investors within a network.
+
+**Availability for Assets**
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValAbUSD100kCnt" %}
+TxTfrValAb/BelUSDXCnt Coverage
+{% endembed %}
+
+
+
+## Sum Value of Payments Above/Below X Amount (native units) <a href="#txtfrvalabbel" id="txtfrvalabbel"></a>
 
 The sum of all payments (transfers) that have occurred in the measuring interval above or below X worth of a cryptoasset, displayed in native units (e.g. BTC).
 
 <table data-header-hidden><thead><tr><th width="278">Name</th><th>MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Unit</td><td>Interval</td></tr><tr><td>Sum Value of Payments Above $100M (native units)</td><td>TxTfrValAbUSD100MNtv</td><td>Ntv</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $10M (native units)</td><td>TxTfrValAbUSD10MNtv</td><td>Ntv</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $1M (native units)</td><td>TxTfrValAbUSD1MNtv</td><td>Ntv</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $100k (native units)</td><td>TxTfrValAbUSD100kNtv</td><td>Ntv</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $100M (USD)</td><td>TxTfrValAbUSD100MUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $10M (USD)</td><td>TxTfrValAbUSD10MUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $1M (USD)</td><td>TxTfrValAbUSD1MUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $100k (USD)</td><td>TxTfrValAbUSD100kUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $10k (native units)</td><td>TxTfrValBelUSD10000Ntv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $1k (native units)</td><td>TxTfrValBelUSD1000Ntv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $500 (native units)</td><td>TxTfrValBelUSD500Ntv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $100 (native units)</td><td>TxTfrValBelUSD100Ntv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $10k (USD)</td><td>TxTfrValBelUSD10000USD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $1k (USD)</td><td>TxTfrValBelUSD1000USD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $500 (USD)</td><td>TxTfrValBelUSD500USD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $100 (USD)</td><td>TxTfrValBelUSD100USD</td><td>USD</td><td>1 day</td></tr></tbody></table>
 
-### Details
+**Details**
 
-* For more details on the methodology powering this metric, [please refer to the main page this family of metrics.](./)
+* This metrics shows the sum of payments above/below each of the supported thresholds.
+* Payments are defined as transfers (xfers) and represent the individual asset transfers _within_ a transaction.&#x20;
+* A transaction may be a collection of transfers which, specially in UTXO-based blockchains, may represent several P2P payments.&#x20;
+* A cryptoasset exchange, for example, may engage in transaction batching whereby user withdraws are aggregated in a single transaction comprised of multiple outputs.&#x20;
+* Each of the outputs represents a transfer. And while each transfer (output) may be going to different users, they are all processed within the same transaction.&#x20;
+* For this reason, this metric is calculated at the transfer-level so all individual payments are accounted for.&#x20;
+* In this version of this metric, change outputs are not adjusted. This means not only peer-to-peer tranfers are accounted for, but also when a user sends fund to their own wallets.&#x20;
+  * For example, if after paying each of the users withdrawing, the exchange still has a remaining balance, the change output is still accounted for in this metric if it falls below the metric's threshold.&#x20;
+  * In other words, if the recipients listed in a transaction's output require payments that, when added together, have a value that is lower than the input, a change output that goes back to the sender must be created. In such circumstances, this metric would also account for the change output if it fell under the measuring threshold.
 
-### Availability for Assets
+**Interpretation**
+
+* The thresholds supported by this metric family can be used to better understand the type of users interacting with a cryptoasset network.
+* For example, if a network is predominantly being used by whales, one would expect payments above $1M USD to occur more frequently than payments below $10 USD.
+* Similarly, it can show the predominance of different types of investors, such the balance between retail and institutional investors within a network.
+
+**Availability for Assets**
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValAbUSD100kNtv" %}
-
-#### Details
-
-* Transfers are movement of native units.
-* Only non-zero value, successful, transfers with distinct sender/recipient, are considered.
-* Failed transactions are not considered in TxTfrValNtv
-* For ETH, the fees sent from the original sender to the miner for the failed transaction are not considered
-
-#### Asset-Specific Details
-
-* For assets that have opt-in privacy features, like ZCash, it only takes the non-private activity.
-
-#### Release History
-
-* Released in the 1.0 release of NDP
-
-#### Availability for Assets
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValNtv" %}
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/TxTfrValUSD" %}
 
 ### API Endpoints
 
