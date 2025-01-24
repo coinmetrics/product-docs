@@ -166,7 +166,7 @@ Each component in brackets are optional components.
 * `[#bridgeUsed|#wrappedContractAddress]`: If the asset is a bridged asset, we append the bridge that was used using `#bridgeUsed`. If the asset is a wrapped asset, then we append the wrapped contract address using `#wrappedContractAddress`.
 * `[_network|_layer2Network.layer1Network|_bridgedToNetwork]`: If the asset represents the asset on a specific network, we append the network using `_network`. If the asset represents a bridged asset using `_bridgedToNetwork`. Please note that `_bridgedToNetwork` takes the naming convention of `layer2Network.layer1Network` like `base.eth` if the bridged to network is a layer 2 network.
 
-### **Why are their multiple versions of the same asset, such as `usdt` and `usdt_eth` and `usdt_sol`?**
+### Why are their multiple versions of the same asset, such as `usdt` and `usdt_eth` and `usdt_sol`?
 
 What is typically thought of as one asset can actually exist in various forms and across multiple networks. Coin Metrics will append the network as a suffix to the asset ticker to indicate the asset on a specific asset. For instance, Tether exists as an ERC-20 token on Ethereum as well as a Solana Token on Solana, and we assign the tickers `usdt_eth` and `usdt_sol` to these tokens, respectively.
 
