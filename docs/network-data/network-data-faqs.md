@@ -28,23 +28,23 @@ Another way to think about our Market Cap is to equate it to the Fully Diluted M
 
 No, but we do have a metric for [Sum Block Size (in bytes)](network-data-overview/network-usage/blocks.md#blksizebyte) (BlkSizeByte), which you can sum up to get blockchain size. You can also use our runningTotal function in our Formula Builder to show the size over time.
 
-![https://charts.coinmetrics.io/formulas/#1178](../.gitbook/assets/BTC\_Total\_Blockchain\_Size\_\(in\_bytes\).png)
+![https://charts.coinmetrics.io/formulas/#1178](../.gitbook/assets/BTC_Total_Blockchain_Size_\(in_bytes\).png)
 
 ### **Do you have metrics for total transactions?**
 
 No, we don’t have total transactions, but we have [Tx Cnt](network-data-overview/transactions/transactions.md#txcnt) (TxCnt or Transactions per interval), which you can sum up to get total transactions. You can also use our runningTotal function in our Formula Builder to show total transactions over time.
 
-![https://charts.coinmetrics.io/formulas/#1179](../.gitbook/assets/BTC\_Total\_Transaction\_Count.png)
+![https://charts.coinmetrics.io/formulas/#1179](../.gitbook/assets/BTC_Total_Transaction_Count.png)
 
 ### **How can you calculate total transfer value on the Ethereum Blockchain (ETH + other ERC20s)?**
 
 You can calculate this manually by summing the [transfer value](network-data-overview/transactions/transfers.md) for ETH and ERC20s. You can all use our charting tool to create a stacked view of all ERC20s' Transfer Values, or our formula builder to create an aggregate.
 
-![https://charts.coinmetrics.io/network-data/#1181](../.gitbook/assets/ETH\_ERC20\_Xfer\_Val\_\(USD\).png)
+![https://charts.coinmetrics.io/network-data/#1181](../.gitbook/assets/ETH_ERC20_Xfer_Val_\(USD\).png)
 
 ### **What is the best source for daily volume for Tether-Omni, Tether-ERC20, USDC and DAI?**
 
-We have a [Trusted Volume ](../market-data/market-data-overview/volume/volume\_trusted.md)metric in Network Data Pro for stablecoins (USDT, USDC, DAI, PAX, BUSD, TUSD, etc.), which represents the volume for these assets on the most trusted exchanges (a subset of our coverage universe).
+We have a [Trusted Volume ](../market-data/market-data-overview/volume/volume_trusted.md)metric in Network Data Pro for stablecoins (USDT, USDC, DAI, PAX, BUSD, TUSD, etc.), which represents the volume for these assets on the most trusted exchanges (a subset of our coverage universe).
 
 We also have trading volume that occurs on centralized exchanges for every market in our coverage universe available via our Market Data feed.
 
@@ -66,7 +66,7 @@ This discrepancy is likely the result of using differing timestamps. We use the 
 
 ### **How are your aggregated Exchange Flows calculated?**
 
-Exchange flows are estimated using the [common-input-ownership heuristic](https://en.bitcoin.it/wiki/Common-input-ownership\_heuristic), which assumes that addresses that are inputs to the same transaction share an owner. This technique is precise, but requires at least one seed address for every exchange, limiting coverage to a predetermined universe of exchanges. The heuristic is also broken by [CoinJoins](https://en.bitcoin.it/wiki/CoinJoin) and [peeling chains](https://en.bitcoin.it/wiki/Privacy#Change\_address\_detection). You can find a bit more context around these methodologies in this [research piece](https://coinmetrics.io/following-flows-ii-where-do-miners-sell/).
+Exchange flows are estimated using the [common-input-ownership heuristic](https://en.bitcoin.it/wiki/Common-input-ownership_heuristic), which assumes that addresses that are inputs to the same transaction share an owner. This technique is precise, but requires at least one seed address for every exchange, limiting coverage to a predetermined universe of exchanges. The heuristic is also broken by [CoinJoins](https://en.bitcoin.it/wiki/CoinJoin) and [peeling chains](https://en.bitcoin.it/wiki/Privacy#Change_address_detection). You can find a bit more context around these methodologies in this [research piece](https://coinmetrics.io/following-flows-ii-where-do-miners-sell/).
 
 ### **How are your aggregated Miner Flows calculated?**
 
@@ -132,16 +132,46 @@ To learn more, make sure to check out the Validator Economics section of our [Ma
 
 ### What asset ticker naming conventions does Coin Metrics use?
 
-Coin Metrics assigns a unique ticker symbol for each asset in our coverage universe using the following naming convention: `parentasset[_fullname][_network][_chain]`, where the `fullname`, `network`, and `chain` are optional. Market data and aggregated network data are assigned to the `parentasset` ticker, where aggregated network data consists of data from individual network or chain-specific forms of an asset.
+Coin Metrics assigns a unique ticker to each asset in our coverage universe. However, what might be considered as one asset can actually exist in various forms and across multiple networks. The naming convention we use must consider a number of situations.
 
-To understand our naming convention, we first introduce some important context surrounding the two primary considerations regarding unique ticker symbols.
+* An asset may be represented by tokens on more than one layer one network. For instance, Tether exists on 16 different networks, such as Ethereum, Solana, and Tron. Similarly, an asset may also exist on multiple versions of a layer two network deployed across multiple layer one networks.
+* An asset may undergo a contract upgrade to enable new features or address security flaws. This involves deploying a new smart contract to create a new token. Existing holders of the old token can exchange their old tokens for new tokens. Both new and old versions of an asset can exist simultaneously.
+* An asset may begin its existence as a token represented as a smart contract on a network but then migrate to being represented as a native asset on another network or as a smart contract on another network. Both forms of the asset can exist simultaneously.
+* Centralized exchanges allow users to deposit various forms of an asset. Users are then credited with a generic form of the asset and are able to trade the generic form of the asset on the exchange. For instance, an exchange may allow users to deposit Tether tokens on the Ethereum network and Tether tokens on the Solana network. Users would be credited with generic Tether and trade generic Tether. Centralized exchanges do not have one set of markets for Tether tokens on Ethereum and a separate set of markets for Tether tokens on Solana.
+* Units of an asset may be bridged from a Layer 1 network (L1) to a Layer 2 network (L2) or another Layer 1 network through a blockchain bridge. A blockchain bridge can be a centralized entity or a smart contract that allows units of an asset on a Layer 1 network to be locked and an equivalent amount of the asset to be issued on a Layer 1 or 2 network. Sometimes the asset that is bridged is referred to as a wrapped version of the asset.
+* For some assets, there is no industry-wide convention on the ticker. A centralized exchange may decide to use a ticker to refer to a specific asset that differs from another centralized exchange. Multiple assets may also share the same ticker.
 
-First, what is thought as a singular asset may actually exist in various forms across multiple layer one and layer two blockchains. From the perspective of the blockchain ledger, each form resides on a separate blockchain, and Coin Metrics collects and produces data for each form independently. To differentiate between the specific form, Coin Metrics appends the blockchain ticker as a suffix to the asset ticker. For example, Tether (`usdt`) exists on Tron, Ethereum, Solana, and several other blockchains. To track the network activity of each form, Coin Metrics uses `usdt_tron`, `usdt_eth`, and `usdt_sol` tickers, respectively.
+We assign assets into four different levels: project, layer one network, layer two network, and contract. They follow a hierarchy.
 
-Centralized exchanges, however, do not typically differentiate between different forms of an asset. They will allow users to deposit several forms of an asset and credit users internally with a generic parent form of the asset. Trading then occurs using the generic form of the asset, and all market data collected by Coin Metrics is assigned to the parent ticker.
+* Project: Represents the asset across all networks and contract instances. This is the broadest classification. Data collected from centralized exchanges are assigned to assets at the project level.
+* Layer One Network: Represents the asset on a specific layer one network, encompassing all contract instances and layer two networks on that network. Network data is assigned to this level.
+* Layer Two Network: Represents the asset on a specific layer two network, encompassing all the contract instances on the layer two network. Network data is also assigned to this level.&#x20;
+* Contract: Represents the asset at the individual smart contract level on a specific network. This is the lowest level of classification. Data from decentralized exchanges is assigned to this level.
 
-Returning to the Tether example, a centralized exchange may allow a user to deposit the ERC-20 form of Tether, which resides on Ethereum, as well as the TRC-20 form of Tether, which resides on Tron. Regardless of which form a user deposits, the user is credited with a generic parent form of Tether which is traded on all markets on the centralized exchange. Therefore, market data such as trades are assigned to the parent asset `usdt`.
+<figure><img src="../.gitbook/assets/cm-asset-ticker-conventions.png" alt=""><figcaption></figcaption></figure>
 
-Coin Metrics also aggregates data from individual forms of an asset to the parent asset for certain metrics. Therefore, metrics under the parent asset `usdt` represent an aggregation across `usdt_tron`, `usdt_eth`, and the other individual forms of Tether.
+We use an asset ticker naming convention that generalizes to the situations described above:
 
-Second, some assets may share the same display ticker as another asset. To resolve these ticker conflicts, Coin Metrics ensures that each asset ticker in our coverage universe is unique by appending the full name of the asset as a suffix to the asset ticker. For example, both Starcoin and Starchain share the same display ticker of `stc`. Coin Metrics resolves this ticker conflict by assigning the tickers `stc_starcoin` and `stc_starchain`, respectively.
+{% code overflow="wrap" %}
+```
+asset[_fullName][_contractVersion][>bridgedFromNetwork|>wrappedFromNetwork][#bridgeUsed|#wrappedContractAddress][_network|_layer2Network.layer1Network|_bridgedToNetwork]
+```
+{% endcode %}
+
+Each component in brackets are optional components.
+
+* `[_fullName]`: If a ticker conflict exists, we append the full name of the asset immediately after the asset, to make the ticker unique.
+* `[_contractVersion]`: If an asset is at the contract level and has multiple smart contract implementations, we append the contract version to uniquely identify each contract level asset. The contract version is a sequential integer starting with 1.&#x20;
+* `[>bridgedFromNetwork|>wrappedFromNetwork]`: If an asset is a bridged asset, we append the network from which the asset is bridged from using `>bridgedFromNetwork`. If an asset is a wrapped asset, we append the network from which the asset originally existed using `>wrappedFromNetwork`.
+* `[#bridgeUsed|#wrappedContractAddress]`: If the asset is a bridged asset, we append the bridge that was used using `#bridgeUsed`. If the asset is a wrapped asset, then we append the wrapped contract address using `#wrappedContractAddress`.
+* `[_network|_layer2Network.layer1Network|_bridgedToNetwork]`: If the asset represents the asset on a specific network, we append the network using `_network`. If the asset represents a bridged asset using `_bridgedToNetwork`. Please note that `_bridgedToNetwork` takes the naming convention of `layer2Network.layer1Network` like `base.eth` if the bridged to network is a layer 2 network.
+
+**Why are their multiple versions of the same asset, such as `usdt` and `usdt_eth` and `usdt_sol`?**
+
+What is typically thought of as one asset can actually exist in various forms and across multiple networks. Coin Metrics will append the network as a suffix to the asset ticker to indicate the asset on a specific asset. For instance, Tether exists as an ERC-20 token on Ethereum as well as a Solana Token on Solana, and we assign the tickers `usdt_eth` and `usdt_sol` to these tokens, respectively.
+
+Using Tether as an example, we refer to the ticker `usdt` as the project level asset, and we refer to the tickers `usdt_eth` and `usdt_sol` as network level assets.
+
+Network data that is specific to an asset on a specific network, such as a swap that occurs on a decentralized exchange, is assigned to network level asset tickers. Network data that can be aggregated across multiple networks is assigned to the project level asset. Market data is also assigned to the project level asset.
+
+For a more complete description of our asset ticker naming conventions, please see [What asset ticker naming conventions does Coin Metrics use?](network-data-faqs.md#what-asset-ticker-naming-conventions-does-coin-metrics-use)
