@@ -293,3 +293,11 @@
   * [Markets](reference-data/security-master-overview/markets.md)
 * [Methodologies](reference-data/methodologies/README.md)
   * [Guiding Principles and Methodology for datonomy](reference-data/methodologies/guiding-principles-and-methodology-for-datonomy.md)
+
+## BITTENSOR
+
+* [Precog Methodology](bittensor/precog-methodology/README.md)
+  * [Point Forecast Ranking](bittensor/precog-methodology/point-forecast-ranking.md)
+  * [Interval Forecast Ranking](bittensor/precog-methodology/interval-forecast-ranking.md)
+  * [Interval Score Examples](bittensor/precog-methodology/interval-score-examples.md)
+  * [Miner Weight from Rank](bittensor/precog-methodology/miner-weight-from-rank.md)
