@@ -6,7 +6,7 @@ description: >-
 
 # Miner Weight from Rank
 
-Broadly speaking, once the Miners are ranked according to Point and Interval Forecast, the Validator sets an exponentially decaying weight, which is transformed into emisisons by the Yuma Consensus algorithm.  Specifically the process goes:
+Broadly speaking, once the Miners are ranked according to Point and Interval Forecast, the Validator sets an exponentially decaying weight, which is transformed into emissions by the Yuma Consensus algorithm.  Specifically the process goes:
 
 1. Each miner gets 0.9^(rank) amount of weight.  Miners with tied rank get the same weight.
 2. The previous weight value is rolling-averaged with the weight determined from the last 12 evaluations; for each forecast independently.  This rolling average has an alpha decay of 0.1, so each older evaluation contributes 90% less to rolling average.&#x20;
