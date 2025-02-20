@@ -28,6 +28,7 @@ Exchange On-Chain Supply, Deposits, Withdrawals and Net Flows can be found in th
 | Bittrex    | BTX        |
 | Bybit      | BIT        |
 | Crypto.com | CRO        |
+| Coinbase   | CBS        |
 | Deribit    | DER        |
 | Gate.io    | GIO        |
 | Gemini     | GEM        |

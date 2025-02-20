@@ -24,6 +24,8 @@ The sum held by an exchange at the end of that interval.
 | Bittrex Supply (USD)             | SplyBTXUSD | USD          | 1 day    |
 | Bybit Supply (native units)      | SplyBITNtv | Native units | 1 day    |
 | Bybit Supply (USD)               | SplyBITUSD | USD          | 1 day    |
+| Coinbase Supply (native units)   | SplyCBSNtv | Native units | 1 day    |
+| Coinbase Supply (USD)            | SplyCBSUSD | USD          | 1 day    |
 | Crypto.com Supply (native units) | SplyCRONtv | Native units | 1 day    |
 | Crypto.com Supply (USD)          | SplyCROUSD | USD          | 1 day    |
 | Deribit Supply (native units)    | SplyDERNtv | Native units | 1 day    |

@@ -53,6 +53,8 @@ The sum of all non-fee transfers received by all addresses within one hop of a m
 | Flows Received One Hop from Miners from Bittrex (USD)             | FlowMinerIn1HopAllBTXUSD | USD          | 1 day    |
 | Flows Received One Hop from Miners from Bybit (native units)      | FlowMinerIn1HopAllBITNtv | Native units | 1 day    |
 | Flows Received One Hop from Miners from Bybit (USD)               | FlowMinerIn1HopAllBITUSD | USD          | 1 day    |
+| Flows Received One Hop from Miners from Coinbase (native units)   | FlowMinerIn1HopAllCBSNtv | Native units | 1 day    |
+| Flows Received One Hop from Miners from Coinbase (USD)            | FlowMinerIn1HopAllCBSUSD | USD          | 1 day    |
 | Flows Received One Hop from Miners from Crypto.com (native units) | FlowMinerIn1HopAllCRONtv | Native units | 1 day    |
 | Flows Received One Hop from Miners from Crypto.com (USD)          | FlowMinerIn1HopAllCROUSD | USD          | 1 day    |
 | Flows Received One Hop from Miners from Deribit (native units)    | FlowMinerIn1HopAllDERNtv | Native units | 1 day    |
@@ -143,6 +145,8 @@ The sum of all transfers sent by all addresses within one hop of a mining entity
 | Flows Sent One Hop from Miners to Bittrex (USD)             | FlowMinerOut1HopAllBTXUSD | USD          | 1 day    |
 | Flows Sent One Hop from Miners to Bybit (native units)      | FlowMinerOut1HopAllBITNtv | Native units | 1 day    |
 | Flows Sent One Hop from Miners to Bybit (USD)               | FlowMinerOut1HopAllBITUSD | USD          | 1 day    |
+| Flows Sent One Hop from Miners to Coinbase (native units)   | FlowMinerOut1HopAllCBSNtv | Native units | 1 day    |
+| Flows Sent One Hop from Miners to Coinbase (USD)            | FlowMinerOut1HopAllCBSUSD | USD          | 1 day    |
 | Flows Sent One Hop from Miners to Crypto.com (native units) | FlowMinerOut1HopAllCRONtv | Native units | 1 day    |
 | Flows Sent One Hop from Miners to Crypto.com (USD)          | FlowMinerOut1HopAllCROUSD | USD          | 1 day    |
 | Flows Sent One Hop from Miners to Deribit (native units)    | FlowMinerOut1HopAllDERNtv | Native units | 1 day    |
