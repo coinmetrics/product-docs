@@ -27,6 +27,8 @@ The sum of assets sent to an exchange that interval.
 | Bybit Deposit (USD)               | FlowInBITUSD | USD          | 1 day          |
 | Crypto.com Deposit (native units) | FlowInCRONtv | Native units | 1 day          |
 | Crypto.com Deposit (USD)          | FlowInCROUSD | USD          | 1 day          |
+| Coinbase Deposits (native units)  | FlowInCBSNtv | Native units | 1 day          |
+| Coinbase Deposits (USD)           | FlowInCBSUSD | USD          | 1 day          |
 | Deribit Deposit (native units)    | FlowInDERNtv | Native units | 1 day          |
 | Deribit Deposit (USD)             | FlowInDERUSD | USD          | 1 day          |
 | Gate.io Deposit (native units)    | FlowInGIONtv | Native units | 1 day          |
