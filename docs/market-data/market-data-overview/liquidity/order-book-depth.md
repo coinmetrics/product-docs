@@ -17,28 +17,24 @@ The liquidity depth metrics follow a structured naming convention:
 
 Each liquidity depth metric represents the cumulative volume available on either the bid or ask side of the order book at a specified percentage away from the midprice.
 
-* The midprice is defined as the average of the best bid and best ask prices:\
-  \
-  $$\text{Midprice} = \frac{\text{Best Bid Price} + \text{Best Ask Price}}{2}$$\
+The midprice is defined as the average of the best bid and best ask prices:
 
-* The total volume available on the order book at or within X% of the midprice, expressed in the base asset’s native units for spot markets and contract units for futures markets:\
-  \
-  $$\text{Liquidity Depth}_{X\%} = \sum_{p \geq P_{\text{mid}} (1 - X\%)} V_{\text{bid}}(p)  \quad \text{(for bids)}$$\
-  \
-  $$\text{Liquidity Depth}_{X\%} = \sum_{p \leq P_{\text{mid}} \times (1 + X\%)} V_{\text{ask}}(p)  \quad \text{(for asks)}$$\
+* $$\text{Midprice} = \frac{\text{Best Bid Price} + \text{Best Ask Price}}{2}$$
 
-* The total volume available on the order book at or within X% of the midprice, expressed in U.S. dollars for spot markets:\
-  \
-  $$\text{Liquidity Depth}_{X\%, USD} = \sum_{p \geq P_{\text{mid}} \times (1 - X\%)} V_{\text{bid}}(p) \times P_{\text{bid}}  \quad \text{(for bids)}$$\
-  \
-  $$\text{Liquidity Depth}_{X\%, USD} = \sum_{p \leq P_{\text{mid}} \times (1 + X\%)} V_{\text{ask}}(p) \times P_{\text{ask}}  \quad \text{(for asks)}$$\
+The total volume available on the order book at or within X% of the midprice, expressed in the base asset’s native units for spot markets and contract units for futures markets:
 
-* Futures markets follow a modified formula that takes into account the contract size:\
-  \
-  $$\text{Liquidity Depth}_{X\%, USD} = \sum_{p \geq P_{\text{mid}} \times (1 - X\%)} V_{\text{bid}}(p) \times \text{Contract Size} \times P_{\text{ContractSizeAsset,USD}}  \quad \text{(for bids)}$$\
-  \
-  $$\text{Liquidity Depth}_{X\%, USD} = \sum_{p \geq P_{\text{mid}} \times (1 + X\%)} V_{\text{ask}}(p) \times \text{Contract Size} \times P_{\text{ContractSizeAsset,USD}}  \quad \text{(for asks)}$$\
+* $$\text{Liquidity Depth}_{X\%} = \sum_{p \geq P_{\text{mid}} (1 - X\%)} V_{\text{bid}}(p)  \quad \text{(for bids)}$$
+* $$\text{Liquidity Depth}_{X\%} = \sum_{p \leq P_{\text{mid}} \times (1 + X\%)} V_{\text{ask}}(p)  \quad \text{(for asks)}$$
 
+The total volume available on the order book at or within X% of the midprice, expressed in U.S. dollars for spot markets:
+
+* $$\text{Liquidity Depth}_{X\%, USD} = \sum_{p \geq P_{\text{mid}} \times (1 - X\%)} V_{\text{bid}}(p) \times P_{\text{bid}}  \quad \text{(for bids)}$$
+* $$\text{Liquidity Depth}_{X\%, USD} = \sum_{p \leq P_{\text{mid}} \times (1 + X\%)} V_{\text{ask}}(p) \times P_{\text{ask}}  \quad \text{(for asks)}$$
+
+Futures markets follow a modified formula that takes into account the contract size:
+
+* $$\text{Liquidity Depth}_{X\%, USD} = \sum_{p \geq P_{\text{mid}} \times (1 - X\%)} V_{\text{bid}}(p) \times \text{Contract Size} \times P_{\text{ContractSizeAsset,USD}}  \quad \text{(for bids)}$$
+* $$\text{Liquidity Depth}_{X\%, USD} = \sum_{p \geq P_{\text{mid}} \times (1 + X\%)} V_{\text{ask}}(p) \times \text{Contract Size} \times P_{\text{ContractSizeAsset,USD}}  \quad \text{(for asks)}$$
 
 ## API Endpoints
 
