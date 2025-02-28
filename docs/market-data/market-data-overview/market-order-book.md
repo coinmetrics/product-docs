@@ -20,9 +20,9 @@ Coin Metrics also serves order book snapshots and updates for the top 100 bids a
 
 Market trades can be accessed using the `timeseries/market-orderbooks` endpoint.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-orderbooks" method="get" %}
+{% openapi src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-orderbooks" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}
@@ -54,7 +54,8 @@ print(
 ```
 {% endtab %}
 {% endtabs %}
-## **Chart**
+
+\## \*\*Chart\*\*
 
 <figure><img src="../.gitbook/assets/Binance-Orderbook-Depth.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>
 
@@ -152,6 +153,7 @@ While we collect full order book depth for all exchanges that make it available,
 | CEX.io     | Full book       |
 | CME        | Full book       |
 | Coinbase   | Full book       |
+| Crypto.com | Top 50 levels   |
 | Deribit    | Full book       |
 | FTX        | Top 100 levels  |
 | FTX.US     | Top 100 levels  |
