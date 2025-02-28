@@ -16,6 +16,8 @@ We calculate candles using trades collected from exchanges rather than collectin
 
 Our market data collection system consists of multiple redundant and resilient applications, ensuring that most data is collected with minimal latency (usually a few hundred milliseconds). However, due to the nature of real-time data collection, some trades may not be collected immediately. When certain trades observations are not collected in real-time, our system backfills missing trades with a short delay (usually a few seconds). Internal metrics show that for most exchanges, we collect 99.9 percent of trades observations within roughly 2 seconds of publication by the exchange.
 
+Candles are available immediately for spot and future markets from centralized exchanges. Option markets and spot markets from decentralized exchanges are available with a 20-minute delay.
+
 To address the small number of missing trades and to maintain accuracy, we recalculate the most recent candles 20 minutes after initial publication, and every hour for the next three hours after initial publication.
 
 Coin Metrics calculates candles for **spot** and **future** and **option** markets from exchanges that are listed on our exchange coverage universe.
@@ -24,9 +26,9 @@ Coin Metrics calculates candles for **spot** and **future** and **option** marke
 
 Candles can be accessed using the `timeseries/market-candles` or `timeseries/pair-candles` endpoint.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-candles" method="get" %}
+{% openapi src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-candles" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}
@@ -59,9 +61,9 @@ print(
 {% endtab %}
 {% endtabs %}
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-candles" method="get" %}
+{% openapi src="../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-candles" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}
