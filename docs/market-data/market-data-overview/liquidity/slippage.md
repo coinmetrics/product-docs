@@ -15,10 +15,15 @@ The metric is calculated using the following steps:
 1. Convert the market order in U.S. dollars to units of the base asset for spot markets and units of the contract:\
    $$\text{Market Order Size (units)} = \frac{\text{Market Order Size (USD)}}{\text{Price of Base Asset (USD)}}$$\
    $$\text{Market Order Size (contract units)} = \frac{\text{Market Order Size (USD)}}{\text{Contract Size} \times \text{Contract Size Asset (USD)}}$$
-2. Identify the best bid and ask price on the order book (the lowest price at which sellers are willing to buy and sell, respectively).
-3. Determine the cumulative bid or ask amount at increasing price levels including and above the best bid or ask. This is the total quantity of assets that are willing to be bought or available for sale at each price point.
-4. Find the price at which a $X market order in U.S. dollars can be fully executed. This is done by consuming the bid or ask orders starting at the best bid or ask and moving up the order book until $X worth of orders are filled.
-5. Calculate the slippage as the percentage difference between the effective execution price at which the order is executed and the best ask price (the price you would expect without slippage): $$\text{Liquidity Slippage } \$X \text{ Ask Percent} = \left( \frac{\text{Executed Price} - \text{Best Ask Price}}{\text{Midprice}} \right) \times 100$$$$\text{Liquidity Slippage } \$X \text{ Bid Percent} = \left( \frac{\text{Best Bid Price} - \text{Executed Price}}{\text{Midprice}} \right) \times 100$$
+2. Determine the cumulative bid or ask amount at increasing price levels including and above the best bid or ask. This is the total quantity of assets that are willing to be bought or available for sale at each price point:\
+   $$L(n) = \sum_{i=1}^{n} Q_i$$
+3. Find the price at which a $X market order in U.S. dollars can be fully executed. This is done by consuming the bid or ask orders starting at the best bid or ask and moving up the order book until $X worth of orders are filled. In other words, find the smallest $$n$$ such that:\
+   $$L(n) \geq \text {Market Order Size}$$
+4. Calculate the effective execution price as the volume-weighted average price of the orders that are required to fully execute the market order, taking into account that the last limit order that the market order matches with may only be partially executed:\
+   $$P_{\text{exec}} = \frac{\sum_{i=1}^{n} P_i \min\left(Q_i, X - L(i-1) \right)}{\sum_{i=1}^{n} \min\left(Q_i, X - L(i-1) \right)}$$
+5. Calculate the slippage as the percentage difference between the effective execution price at which the order is executed and the midprice (the price you would expect without slippage): \
+   $$\text{Liquidity Slippage } \$X \text{ Percent} = \left( \frac{\left| P_{\text{exec}} - P_{\text{midprice}} \right|}{P_{\text{midprice}}} \right) \times 100$$\
+
 
 For example, let’s say an investor wishes to purchase 1 BTC at the best ask price of $25,000 and they submit a market order. The top of the order book has a sell order at this price for 0.25 BTC, so .25 BTC is purchased at $25,000 per BTC. The next order in the orderbook is for 0.5 BTC, but at a price of $25,250. This is executed and 0.5 BTC is purchased at $25,250 per BTC. 0.75 BTC has now been purchased, and 0.25 BTC remain. The investor completes his order at the next offer in the orderbook, 0.5 BTC for $25,500. As only 0.25 BTC are needed to complete the 1 BTC purchase, the investor fills 0.25 BTC at the price of $25,500 per BTC. The effective execution price of this purchase is the average price of the individual orders, weighted by quantity:
 
