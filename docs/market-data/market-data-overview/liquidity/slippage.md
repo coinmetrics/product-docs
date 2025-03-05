@@ -128,6 +128,10 @@ If the order book depth for a market is insufficient to calculate a particular s
 
 For more information on the available order book depth by exchange, please see [**Are there any limitations to the order book depth provided by each exchange?**](https://docs.coinmetrics.io/market-data/market-data-overview/market-order-book#are-there-any-limitations-to-the-order-book-depth-provided-by-each-exchange) Please note that some exchanges only provide an order book with very shallow depth, such as the top 100 levels. Therefore, a large number of nulls can be expected from markets from these exchanges.
 
+### What units are the slippage metrics in?
+
+The values are in percent units. For example, if the value is 0.0076, it should be interpreted as 0.0076%.
+
 ### How often are the metrics calculated?
 
 The depth metrics are calculated once an hour.

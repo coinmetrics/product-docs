@@ -4,7 +4,7 @@
 
 Spread, one of the most common measures of liquidity and transaction costs, is the difference between the price that buyers are bidding at and the price that sellers are asking for. A large spread indicates disagreement between market participants on price and lends to inefficiencies in the market.
 
-<table><thead><tr><th width="187">Name</th><th width="308">MetricID</th><th width="140">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Liquidity Bid/Ask Spread Percentage, 1 Min</td><td><a href="https://coverage.coinmetrics.io/market-metrics-v2/liquidity_bid_ask_spread_percent_1m">liquidity_bid_ask_spread_percent_1m</a></td><td>Dimensionless</td><td>1m</td></tr><tr><td>Liquidity Bid/Ask Spread Percentage, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/market-metrics-v2/liquidity_bid_ask_spread_percent_1h">liquidity_bid_ask_spread_percent_1h</a></td><td>Dimensionless</td><td>1h</td></tr><tr><td>Liquidity Bid/Ask Spread Percentage, 1 Day</td><td><a href="../../liquidity/liquidity_bid_ask_spread_percent_1d/">liquidity_bid_ask_spread_percent_1d</a></td><td>Dimensionless</td><td>1d</td></tr></tbody></table>
+<table><thead><tr><th width="187">Name</th><th width="308">MetricID</th><th width="140">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Bid-Ask Spread, Mean, Percent, 1 Minute</td><td><a href="https://coverage.coinmetrics.io/market-metrics-v2/liquidity_bid_ask_spread_percent_1m">liquidity_bid_ask_spread_percent_1m</a></td><td>Dimensionless</td><td>1m</td></tr><tr><td>Bid-Ask Spread, Mean, Percent, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/market-metrics-v2/liquidity_bid_ask_spread_percent_1h">liquidity_bid_ask_spread_percent_1h</a></td><td>Dimensionless</td><td>1h</td></tr><tr><td>Bid-Ask Spread, Mean, Percent, 1 Day</td><td><a href="https://coverage.coinmetrics.io/market-metrics-v2/liquidity_bid_ask_spread_percent_1d">liquidity_bid_ask_spread_percent_1d</a></td><td>Dimensionless</td><td>1d</td></tr></tbody></table>
 
 ## Details
 
@@ -20,9 +20,9 @@ Liquidity bid-ask spread metrics can be accessed using the following endpoints:
 
 * `timeseries/market-metrics`
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-metrics" method="get" %}
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}
@@ -54,7 +54,6 @@ print(
 ```
 {% endtab %}
 {% endtabs %}
-
 
 ## Examples
 
@@ -92,8 +91,8 @@ A sample of the daily bid-ask spread for the `coinbase-btc-usd-spot` market is s
 }
 ```
 
-* **`market`**: The IDs of the market.\\
-* **`time`**: The time in ISO 8601 date-time format.\\
+* **`market`**: The IDs of the market.
+* **`time`**: The time in ISO 8601 date-time format.
 * **`liquidity_bid_ask_spread_percent_1d`**: The daily average spread between the bid-ask price, represented as a percentage of the mid price.
 
 ## Frequenty Asked Questions
