@@ -4,12 +4,12 @@ Coin Metrics tracks realized and predicted funding rates for individual markets 
 
 ## Metrics
 
-{% content-ref url="futures-funding-rates.md" %}
-[futures-funding-rates.md](futures-funding-rates.md)
+{% content-ref url="funding-rates.md" %}
+[funding-rates.md](funding-rates.md)
 {% endcontent-ref %}
 
-{% content-ref url="market-predicted-funding-rates.md" %}
-[market-predicted-funding-rates.md](market-predicted-funding-rates.md)
+{% content-ref url="predicted-funding-rates.md" %}
+[predicted-funding-rates.md](predicted-funding-rates.md)
 {% endcontent-ref %}
 
 {% content-ref url="aggregated-futures-funding-rate.md" %}

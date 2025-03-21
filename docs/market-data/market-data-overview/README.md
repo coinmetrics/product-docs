@@ -31,15 +31,15 @@ Data available at the market level is served through the API endpoints below, wh
 {% endcontent-ref %}
 
 {% content-ref url="open_interest/market-open-interest.md" %}
-[market-open-interest.md](open\_interest/market-open-interest.md)
+[market-open-interest.md](open_interest/market-open-interest.md)
 {% endcontent-ref %}
 
 {% content-ref url="liquidations/futures-liquidations.md" %}
 [futures-liquidations.md](liquidations/futures-liquidations.md)
 {% endcontent-ref %}
 
-{% content-ref url="funding-rates/futures-funding-rates.md" %}
-[futures-funding-rates.md](funding-rates/futures-funding-rates.md)
+{% content-ref url="funding-rates/funding-rates.md" %}
+[funding-rates.md](funding-rates/funding-rates.md)
 {% endcontent-ref %}
 
 {% content-ref url="market-order-book.md" %}
@@ -91,11 +91,11 @@ Coin Metrics calculates several metrics for assets such as `btc` and `eth`. The 
 Metrics available at the asset level are available through the [`/timeseries/asset-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesAssetMetrics) API endpoint and specific metrics are described in the pages linked in this section:
 
 {% content-ref url="../reference-rates-overview/reference_rate.md" %}
-[reference\_rate.md](../reference-rates-overview/reference\_rate.md)
+[reference\_rate.md](../reference-rates-overview/reference_rate.md)
 {% endcontent-ref %}
 
 {% content-ref url="open_interest/" %}
-[open\_interest](open\_interest/)
+[open\_interest](open_interest/)
 {% endcontent-ref %}
 
 {% content-ref url="volume/" %}
@@ -109,7 +109,7 @@ Coin Metrics calculates several metrics for exchanges such as `coinbase`, `binan
 Metrics available at the exchange level are available through the [`/timeseries/exchange-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesExchangeMetrics) API endpoint and specific metrics are described in the pages linked in this section:
 
 {% content-ref url="open_interest/" %}
-[open\_interest](open\_interest/)
+[open\_interest](open_interest/)
 {% endcontent-ref %}
 
 {% content-ref url="volume/" %}
@@ -131,7 +131,7 @@ Metrics available at the exchange-asset level are available through the [`/times
 {% endcontent-ref %}
 
 {% content-ref url="open_interest/" %}
-[open\_interest](open\_interest/)
+[open\_interest](open_interest/)
 {% endcontent-ref %}
 
 {% content-ref url="volume/" %}
@@ -147,7 +147,7 @@ Metrics available at the asset pair level are
 available through the [`/timeseries/pair-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesPairMetrics) API endpoint and specific metrics are described in the pages linked in this section:
 
 {% content-ref url="open_interest/" %}
-[open\_interest](open\_interest/)
+[open\_interest](open_interest/)
 {% endcontent-ref %}
 
 {% content-ref url="volume/" %}
