@@ -33,10 +33,6 @@ While the exact formula for calculating the funding rate varies by exchange, it 
 
 The funding rate is usually calculated at regular intervals (e.g., every 8 hours on many major exchanges) and applied periodically.
 
-## **Chart**
-
-<figure><img src="../../../.gitbook/assets/BTC-FundingRates.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>
-
 ## API Endpoints
 
 Funding rates can be accessed using the `timeseries/market-funding-rates` endpoint.
