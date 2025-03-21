@@ -4,8 +4,6 @@ description: /timeseries/market-funding-rates-predicted
 
 # Predicted Funding Rates
 
-
-
 ## Definition
 
 Funding rates are a mechanism used by exchanges to keep the price of perpetual futures contracts aligned with the underlying spot market price. Unlike traditional futures, perpetual futures have no expiration date, which means they can deviate from the spot price indefinitely. The funding rate system addresses this by facilitating periodic payments between long and short position holders. These payments incentivize traders to take positions that bring perpetual futures prices closer to the underlying spot price.
@@ -21,6 +19,41 @@ The calculation and interpretation of the predicted funding rate is identical to
 ## API Endpoints
 
 Funding rates can be accessed using the `timeseries/market-funding-rates-predicted` endpoint.
+
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-funding-rates-predicted" method="get" %}
+[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% endopenapi %}
+
+{% tabs %}
+{% tab title="Shell" %}
+```
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-funding-rates-predicted?start_time=2023-01-01&paging_from=start&markets=deribit-XRP_USDC-PERPETUAL-future&pretty=true&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-funding-rates-predicted?start_time=2023-01-01&paging_from=start&markets=deribit-XRP_USDC-PERPETUAL-future&pretty=true&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_market_funding_rates_predicted(
+        markets=["binance-BTCUSDT-future"], limit_per_market=5
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
 
 ## Example
 
