@@ -6,15 +6,30 @@ description: /timeseries/market-funding-rates
 
 ## **Definition**
 
-Funding rates are a mechanism that exchanges use to ensure that perpetual futures trade at a price that is close to the price of the underlying spot markets. The funding rate is used to calculate the funding fee which long position holders pay short position holders, or vice versa, as a way to incentivize market participants to take positions that keep perpetual futures prices close to the underlying.
+Funding rates are a mechanism used by exchanges to keep the price of perpetual futures contracts aligned with the underlying spot market price. Unlike traditional futures, perpetual futures have no expiration date, which means they can deviate from the spot price indefinitely. The funding rate system addresses this by facilitating periodic payments between long and short position holders. These payments incentivize traders to take positions that bring perpetual futures prices closer to the underlying spot price.
 
 ## **Details**
 
-Traditional futures contracts expire at a specified date in the future. At expiration, traditional futures contracts will settle at a price based on the futures contract underlying’s spot price. This causes the futures contract’s price to converge to the underlying’s spot price at expiration.
+In traditional futures markets, contracts have a set expiration date. At expiration, the futures price converges with the spot price of the underlying asset. This natural convergence ensures that the contract reflects the true market value of the asset when it settles.
 
-Perpetual futures contracts are similar to traditional futures contracts except that they never expire. To ensure that the perpetual futures contracts trade a price that is close to the underlying’s spot price, exchanges created a mechanism called the funding rate. Under this mechanism, there are periodic funding payments between long position holders and short position holders depending on whether the perpetual future’s price is higher or lower than the underlying’s spot price.
+However, perpetual futures contracts differ in that they do not expire. Without an expiration date, there is no natural point of convergence with the spot price. To prevent persistent price divergence, exchanges introduced the **funding rate mechanism**.
 
-While the formula for how the funding rate is calculated varies by exchange, the general principle is that the funding rate is positive if the perpetual futures’s price is higher than the underlying’s spot price and negative if the perpetual futures’s price is lower than the underlying’s spot price. If the funding rate is positive, long position holders will pay the funding payment to short position holders. If the funding rate is negative, short position holders will pay the funding payment to long position holders. Therefore, the funding rate mechanism encourages traders to take positions that keep perpetual futures’s prices in line with the underlying’s spot price.
+Under this system:
+
+* When the perpetual futures price exceeds the underlying spot price, the funding rate is positive. In this case, traders holding long positions pay funding fees to those holding short positions.
+* When the perpetual futures price trades below the spot price, the funding rate is negative, meaning short position holders pay funding fees to long position holders.
+
+This mechanism creates a financial incentive for traders to open positions that bring the perpetual futures price closer to the spot price. For example:
+
+* If the price of a perpetual contract is too high, short sellers are rewarded with funding payments, encouraging more short positions and pushing the price down.
+* Conversely, if the price is too low, long traders receive funding payments, motivating more buying activity and pushing the price up.
+
+While the exact formula for calculating the funding rate varies by exchange, it generally consists of two key components:
+
+* Interest Rate Differential: The difference between the borrowing rates of the two assets involved (e.g., USD and BTC).
+* Premium/Discount: The deviation between the perpetual futures price and the spot price.
+
+The funding rate is usually calculated at regular intervals (e.g., every 8 hours on many major exchanges) and applied periodically.
 
 ## **Chart**
 
@@ -22,11 +37,11 @@ While the formula for how the funding rate is calculated varies by exchange, the
 
 ## API Endpoints
 
-Market funding rates can be accessed using the `timeseries/market-funding-rates` and `timeseries-stream/market-funding-rates` for markets.
+Market funding rates can be accessed using the `timeseries/market-funding-rates` endpoint.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-funding-rates" method="get" %}
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-funding-rates" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}
@@ -59,39 +74,38 @@ print(
 {% endtab %}
 {% endtabs %}
 
-
 ## **Example**
 
-A sample of the funding rates data from the `bitmex-XBTUSD-future` market from our [`/timeseries/market-funding-rates`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketFundingRates) API endpoint is provided below.
+A sample of the funding rates data from the `binance-BTCUSDT-future` market from our [`/timeseries/market-funding-rates`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketFundingRates) API endpoint is provided below.
 
 ```
 {
   "data": [
     {
-      "market": "bitmex-XBTUSD-future",
-      "time": "2020-11-11T18:00:00.000000000Z",
-      "rate": "-0.000007",
+      "market": "binance-BTCUSDT-future",
+      "time": "2025-03-21T08:00:00.000000000Z",
+      "database_time": "2025-03-21T08:03:38.782388000Z",
+      "rate": "0.00005324",
       "period": "08:00:00",
-      "interval": "08:00:00",
-      "database_time": "2020-12-02T10:49:31.262231000Z"
+      "interval": "08:00:00"
     },
     {
-      "market": "bitmex-XBTUSD-future",
-      "time": "2020-11-11T19:00:00.000000000Z",
-      "rate": "0.2123",
+      "market": "binance-BTCUSDT-future",
+      "time": "2025-03-21T16:00:00.000000000Z",
+      "database_time": "2025-03-21T16:03:37.280592000Z",
+      "rate": "0.00002518",
       "period": "08:00:00",
-      "interval": "08:00:00",
-      "database_time": "2020-12-02T10:49:31.262231000Z"
+      "interval": "08:00:00"
     }
   ]
 }
 ```
 
-* **`market`**: The id of the market. Market ids use the following naming convention: `exchangeName-baseAsset-quoteAsset-spot` for spot markets, `exchangeName-futuresSymbol-future` for futures markets, and `exchangeName-optionsSymbol-option` for options markets. \\
-* **`time`**: The exchange-reported time in ISO 8601 date-time format. Always with nanoseconds precision.
-* **`rate`**: The funding rate expressed as a percentage over the period. For example, if the funding rate is 0.10%, expressed as an 8 hour rate and calculated over the past 8 hours, the rate is `0.0010`.\\
-* **`period`**: The periodicity of the funding rate. If the rate is `0.0010`then this rate would be applied every period defined by this field. \\
-* **`interval`**: The interval of time over which the funding rate is calculated. \\
+* **`market`**: The id of the market. Market ids use the following naming convention: `exchangeName-baseAsset-quoteAsset-spot` for spot markets, `exchangeName-futuresSymbol-future` for futures markets, and `exchangeName-optionsSymbol-option` for options markets.
+* **`time`**: The exchange-reported time in ISO 8601 date-time format with nanoseconds precision.
+* **`rate`**: The funding rate expressed as a percentage over the period. For example, if the funding rate is 0.10%, expressed as an 8 hour rate and calculated over the past 8 hours, the rate is `0.0010`.
+* **`period`**: The periodicity of the funding rate. If the rate is `0.0010`then this rate would be applied every period defined by this field. In other words, every period, the funding rate payments are calculated and the funding rate payments are exchanged between long and short position holders.
+* **`interval`**: The interval of time over which the funding rate is calculated.
 * **`database_time`**: The timestamp when the data was saved in the database in ISO 8601 date-time format with nanoseconds precision.
 
 ## **Frequently Asked Questions**
@@ -118,36 +132,30 @@ Bitfinex funding rate allows for 0% funding rates or no funding payments. [Bitfi
 
 Exchanges differ in their funding rate mechanism design and how they report the data through their API. This section will discuss the key differences between exchanges and our approach to creating a harmonized data model.
 
-* **Realized funding rate versus predicted funding rate:** Many exchanges report two different funding rates. The realized funding rate represents the actual funding rate calculated over the previous funding interval that is used in determining the funding payment. The predicted funding rate is the current estimate of what the funding rate will be at the end of the current funding interval. Some exchanges refer to this as the real-time funding rate or the next funding rate. While the predicted funding rate could be important to certain users, in this data concept we are concerned about the realized funding rate. Any references to the term “funding rate” in this document refer to the realized funding rate.\\
-* **Funding rate period:** Interest rates represent the change over a defined period of time. Many interest rates we encounter in daily life are reported on an annualized basis (a period of one year) because it is a logical period of time. But exchanges can differ on the funding rate period that they use. For many exchanges, the funding rate represents an 8 hour interest rate, so the funding rate period is 8 hours, but not all exchanges report their funding rate with the same funding rate period. We store the funding rate period as a separate column described below. With this information, a user can compare funding rates between exchanges that have different funding rate periods by converting the funding rates to a common funding period.\\
-* **Funding interval:** The funding interval represents how often the funding rate and funding payments are calculated. For many exchanges, a funding rate is produced every 8 hours and it is calculated based on the difference between the futures’s price and the spot’s price over the previous 8 hours. In this case, the funding interval is 8 hours. For some exchanges, the funding rate and funding payments are calculated on a continuous basis, so the funding interval is set to 1 millisecond by convention.\\
-* **Exchange-reported timestamp:** Exchanges differ in the how they report the timestamp associated with funding rates. Many exchanges report the funding rate as a timeseries, that is, a series of data points with timestamps that are equally spaced through time. The timestamps represent the time when the funding rate and funding payments are calculated. Other exchanges report the funding rate as a snapshot in time (similar to order book snapshots) and the exchange-reported timestamp represents the timestamp of the query. This method of reporting the funding rate requires some transformation to convert it to a timeseries. Regardless of how the exchanges report the timestamp, we store the funding rates as a timeseries, with one observation at the end of every funding interval.
-
-## Release History
-
-* [**CM MDF v2.2 on December 2, 2020**](https://coinmetrics.io/cm-market-data-feed-futures-data-expansion/)**:** Added funding rates for futures markets on Binance, Bitfinex, BitMEX, Deribit, FTX, Huobi, Kraken, and OKEx.\\
-* [**CM MDF v2.4 on September 1, 2021**](https://coinmetrics.io/cm-market-data-feed-v2-4-release-notes/): Added funding rates for futures markets on Bybit.
+* **Realized funding rate versus predicted funding rate:** Many exchanges report two different funding rates. The realized funding rate represents the actual funding rate calculated over the previous funding interval that is used in determining the funding payment. The predicted funding rate is the current estimate of what the funding rate will be at the end of the current funding interval. Some exchanges refer to the predicted funding rate as the real-time funding rate or the next funding rate. Any references to the term “funding rate” here refer to the realized funding rate.
+* **Funding rate period:** Interest rates represent the return over a defined period of time. Many interest rates we encounter are reported on an annualized basis (a period of one year), but exchanges can differ on the funding rate period that they use. For many exchanges, the funding rate represents an 8 hour interest rate, meaning that the rate represents the return based on the funding payment over an 8 hour period. To ensure accurate cross-exchange analysis, we store the funding rate period as a separate field in our data model. With this information, a user can compare funding rates between exchanges that have different funding rate periods by converting the funding rates to a common funding period.
+* **Funding interval:** The funding interval represents how often the funding rate and funding payments are calculated. For many exchanges, a funding rate is produced every 8 hours and it is calculated based on the difference between the perpetual futures price and the spot price over the previous interval. In this case, the funding interval is 8 hours. For some exchanges, the funding rate and funding payments are calculated on a continuous basis, so the funding interval is set to 1 millisecond by convention.
+* **Exchange-reported timestamp:** Exchanges differ in the how they report the timestamp associated with funding rates. Many exchanges report the funding rate as a timeseries, that is, a series of data points with timestamps that are equally spaced through time. The timestamps represent the time when the funding rate and funding payments are calculated. Other exchanges report the funding rate as a snapshot in time and the exchange-reported timestamp represents the timestamp of the query. This method of reporting the funding rate requires some transformation to convert it to a timeseries. Regardless of how the exchanges report the timestamp, we store the funding rates as a timeseries, with one observation at the end of every funding interval.
 
 ## **Availability**
 
 The previous 24 hours of funding rates data is available through our community API. Community data is available via HTTP API only and is limited to 10 API requests per 6 seconds per IP address. All of our funding rates data is available through our professional API with higher rate limits.
 
-### **Availability by Market Type**
+### **Availability by Market**
 
-| Type              | Market Count |
-| ----------------- | :----------: |
-| Perpetual Futures |      683     |
+{% embed url="https://coverage.coinmetrics.io/market-funding-rates-v2" %}
 
 ### Availability by Exchange
 
-| Exchange | Futures Market Count | Start Date |
-| -------- | :------------------: | :--------: |
-| Binance  |          143         | 2019-09-10 |
-| Bitfinex |          26          | 2020-12-02 |
-| BitMEX   |          24          | 2020-06-18 |
-| Bybit    |          24          | 2018-11-15 |
-| Deribit  |           2          | 2019-04-30 |
-| FTX      |          150         | 2019-03-06 |
-| Huobi    |          170         | 2020-03-25 |
-| Kraken   |           5          | 2018-08-31 |
-| OKEx     |          139         | 2020-10-30 |
+| Exchange | Start Date |
+| -------- | :--------: |
+| Binance  | 2019-09-10 |
+| Bitfinex | 2020-12-02 |
+| BitMEX   | 2020-06-18 |
+| Bybit    | 2018-11-15 |
+| Deribit  | 2019-04-30 |
+| dYdX     | 2025-02-01 |
+| FTX      | 2019-03-06 |
+| Huobi    | 2020-03-25 |
+| Kraken   | 2018-08-31 |
+| OKEx     | 2020-10-30 |
