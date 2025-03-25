@@ -35,7 +35,6 @@
     * [Catalog V1 to Catalog V2 Migration](access-our-data/api/catalog-v1-v2-migration.md)
   * [Python API Client](access-our-data/python-client.md)
   * [R API Client](access-our-data/r-client.md)
-  * [Flat Files (Labs)](access-our-data/flat-files-labs.md)
   * [Coverage](http://coverage.coinmetrics.io/)
   * [Status Page](access-our-data/status-page.md)
 * [Data Visualization](data-visualization/README.md)
