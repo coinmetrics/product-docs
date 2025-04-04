@@ -58,7 +58,7 @@ We use two timestamp conventions for our data types: point-in-time and beginning
 
 For any data type where the value represents a measurement at a point in time, we set the timestamp to that specific point in time. This is referred to as the “point-in-time” timestamp convention. We use this timestamp convention for any data type that represents a discrete event (such as a trade or order book update) or any data type that represents the snapshot of the state of something (such as an open interest snapshot or order book snapshot). For instance, if the `time` for a trade is `2021-08-04 23:56:00.356749000`, that means that the trade was executed exactly at that timestamp.
 
-For any data type that represents a summary statistic over an interval of time, we set the timestamp to the beginning of the time interval. This is referred to as the "beginning-of-interval" timestamp convention. Summary statistics can include transformations such as sum, mean, median, and count. Our candles is an example of a data type that follows this convention because it represents the open, high, low, close, and volume over an interval of time such as a day. For instance, if the `time` for a daily candle is `2021-08-04 00:00:00.000000000`, that means the candle represents the daily interval from `2021-08-04 00:00:00.000000000` to `2021-08-04 23:59:59.999999999`, inclusive. Here we represent `00:00:00.000000000` as the beginning of the day according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO\_8601).
+For any data type that represents a summary statistic over an interval of time, we set the timestamp to the beginning of the time interval. This is referred to as the "beginning-of-interval" timestamp convention. Summary statistics can include transformations such as sum, mean, median, and count. Our candles is an example of a data type that follows this convention because it represents the open, high, low, close, and volume over an interval of time such as a day. For instance, if the `time` for a daily candle is `2021-08-04 00:00:00.000000000`, that means the candle represents the daily interval from `2021-08-04 00:00:00.000000000` to `2021-08-04 23:59:59.999999999`, inclusive. Here we represent `00:00:00.000000000` as the beginning of the day according to the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601).
 
 The following API endpoints serve data using the point-in-time convention:
 
@@ -129,14 +129,16 @@ Coin Metrics has the ability to make the short delay extremely short or to elimi
 
 #### **Data types available immediately with no delay**:
 
-* The presence of the market and its associated metadata served through **`/catalog/markets`** and **`/catalog-all/markets`**
+* The presence of the market and its associated metadata served through **`/catalog/markets`** and **`/catalog-all/markets`**&#x20;
+* The presence of the market and its associated metadata served through `/catalog-v2/market-*`, `/catalog-all-v2/market-*`and  `/reference-data/markets`
 * Trades served through **`/timeseries/market-trades`** and **`/timeseries-stream/market-trades`**
 * Streaming order book served through **`/timeseries-stream/market-orderbooks`**
 * Streaming quotes served through **`/timeseries-stream/market-quotes`**
 * Futures candles served through **`/timeseries/market-candles`**
-* Futures open interest served through **`/timeseries/market-openinterest`**
-* Futures liquidations served through **`/timeseries/market-liquidations`**
-* Futures Funding rates served through **`/timeseries/market-funding-rates`**
+* Futures open interest served through **`/timeseries/market-openinterest`** and `/timeseries-stream/market-openinterest`
+* Futures liquidations served through **`/timeseries/market-liquidations`** and `/timeseries-stream/market-liquidations`
+* Futures funding rates served through **`/timeseries/market-funding-rates`**&#x20;
+* Futures predicted funding rates served through `/timeseries/market-funding-rates-predicted`
 * Futures and options order book snapshots served through **`/timeseries/market-orderbooks`**
 * Futures and options quote snapshots served through **`/timeseries/market-quotes`**
 * Futures and options contract prices served through **`/timeseries/market-contract-prices`**
@@ -145,12 +147,13 @@ Coin Metrics has the ability to make the short delay extremely short or to elimi
 
 #### **Data types available with a short delay:**
 
-* The presence of a new asset served through **`/catalog/assets`** and **`/catalog-all/assets`**.
-* Spot order book snapshots served through **`/timeseries/market-orderbooks`**.
-* Spot quote snapshots served through **`/timeseries/market-quotes`**.
-* Spot candles served through **`/timeseries/market-candles`**.
-* Reference Rates served through metric `ReferenceRate` served through **`/timeseries/asset-metrics`**.
-* Market-data related metrics such as reported volume served through **`/timeseries/asset-metrics`**, **`/timeseries/pair-metrics`**, **`/timeseries/exchange-metrics`**, **`/timeseries/exchange-asset-metrics`**, and **`/timeseries/market-metrics`**.
+* The presence of a new asset served through **`/catalog/assets`** and **`/catalog-all/assets`**&#x20;
+* The presence of the new asset served through `/catalog-v2/asset-metrics`, `/catalog-all-v2/asset-metrics`and  `/reference-data/assets`
+* Spot order book snapshots served through **`/timeseries/market-orderbooks`**
+* Spot quote snapshots served through **`/timeseries/market-quotes`**
+* Spot candles served through **`/timeseries/market-candles`**
+* Reference Rates served through metric `ReferenceRate` served through **`/timeseries/asset-metrics`**
+* Market-data related metrics such as reported volume served through **`/timeseries/asset-metrics`**, **`/timeseries/pair-metrics`**, **`/timeseries/exchange-metrics`**, **`/timeseries/exchange-asset-metrics`**, and **`/timeseries/market-metrics`**
 
 ### How do I interpret the value of your volume metrics like `volume_reported_spot_usd_1d`?
 
