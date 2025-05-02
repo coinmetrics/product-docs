@@ -26,7 +26,7 @@ Let us define the following notation:
 * $$\mathcal{I}_{\mathrm{fut}}(T)$$: set of futures trades in period $$T$$
 * $$\mathcal{I}_{\mathrm{opt}}(T)$$: set of option trades in period $$T$$
 
-The reported spot volume (`volume_reported_spot_*` ) is defined as:&#x20;
+The reported spot volume metrics `volume_reported_spot_*`  are defined as:&#x20;
 
 $$
 \mathrm{VolumeReportedSpot}(T)
@@ -37,7 +37,7 @@ Q_i
 \mathrm{ReferenceRate}(t_i)
 $$
 
-The reported futures volume (`volume_reported_future_*` )is defined as:
+The reported futures volume metrics `volume_reported_future_*`  are defined as:
 
 $$
 \mathrm{VolumeReportedFuture}(T)
@@ -50,7 +50,7 @@ S
 \mathrm{ReferenceRate}_{\mathrm{size}}(t_i)
 $$
 
-The reported option market value volume (`volume_reported_option_*_market_value_*` )is defined as:
+The reported option market value volume metrics `volume_reported_option_*_market_value_*`  are defined as:
 
 $$
 \mathrm{VolumeReportedOptionMarketValue}(T)
@@ -65,7 +65,7 @@ S
 \mathrm{ReferenceRate}_{\mathrm{margin}}(t_i)
 $$
 
-The reported option notional volume is defined (`volume_reported_option_*_notional_*` ) as:
+The reported option notional volume metrics `volume_reported_option_*_notional_*`  are defined as:
 
 $$
 \mathrm{VolumeReportedOptionNotional}(T)
@@ -78,7 +78,7 @@ S
 \mathrm{ReferenceRate}_{\mathrm{size}}(t_i)
 $$
 
-Coin Metrics calculates these metrics for various entities: assets, exchanges, exchange-assets, and pairs. For each entity, the markets used as input in the calculation differ. The entity defines a set of markets that are used in the calculation. The metric description further filters to a specific subset of markets as defined in the metric descri\[tion.
+Coin Metrics calculates these metrics for various entities: assets, exchanges, exchange-assets, and pairs. For each entity, the markets used as input in the calculation differ. The entity defines a set of markets that are used in the calculation. The metric description further filters to a specific subset of markets as defined in the metric description.
 
 * For **assets**, the markets included are any market where the asset is either the base asset or quote asset and match the markets in the metric description.
 * For **exchanges**, the markets included are any market that is listed on the exchange and match the markets in the metric description.
