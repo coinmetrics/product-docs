@@ -19,9 +19,9 @@ Let us define the following notation:
 * $$Q_i$$: quantity in contract-units of trade $$i$$
 * $$\mathrm{Price}(t_i)$$: price of trade $$i$$ at time $$t_i$$ (in margin-asset units per contract)
 * $$S$$: size of one futures or option contract (size-asset units per contract)
-* $$\mathrm{ReferenceRate}_{\mathrm{base}}(t_i)$$: USD per base-asset-unit at time $$t_i$$
-* $$\mathrm{ReferenceRate}_{\mathrm{size}}(t_i)$$: USD per size-asset-unit at time $$t_i$$
-* $$\mathrm{ReferenceRate}_{\mathrm{margin}}(t_i)$$: USD per margin-asset-unit at time $$t_i$$
+* $$\mathrm{ReferenceRate}_{\mathrm{base}}(t_i)$$: price of one unit of the base asset in U.S. dollars at time $$t_i$$
+* $$\mathrm{ReferenceRate}_{\mathrm{size}}(t_i)$$: price of one unit of the sizeasset at time $$t_i$$
+* $$\mathrm{ReferenceRate}_{\mathrm{margin}}(t_i)$$: price of one unit of the margin asset at time $$t_i$$
 * $$\mathcal{I}_{\mathrm{spot}}(T)$$: set of spot trades in period $$T$$
 * $$\mathcal{I}_{\mathrm{fut}}(T)$$: set of futures trades in period $$T$$
 * $$\mathcal{I}_{\mathrm{opt}}(T)$$: set of option trades in period $$T$$
@@ -83,7 +83,7 @@ Coin Metrics calculates these metrics for various entities: assets, exchanges, e
 * For **assets**, the markets included are any market where the asset is either the base asset or quote asset and match the markets in the metric description.
 * For **exchanges**, the markets included are any market that is listed on the exchange and match the markets in the metric description.
 * For **exchange-assets**, the markets included are any market that is listed on the exchange and the asset is either the base asset or quote asset and match the markets in the metric description.
-* For **pairs**, the markets included are any market across all exchanges that contain the pair and match the markets in the metric description.&#x20;
+* For **pairs**, the markets included are any market across all exchanges that contain the pair and match the markets in the metric description.
 
 ## Coverage
 

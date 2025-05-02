@@ -19,9 +19,8 @@ Let us define the following notation:
 * $$i$$: index of an individual trade
 * $$t_i$$: timestamp of trade $$i$$
 * $$Q_i$$: quantity in contract-units of trade $$i$$
-* $$\mathrm{Price}(t_i)$$: price of trade $$i$$ at time $$t_i$$ (in margin-asset units per contract)
-* $$\mathrm{ReferenceRate}_{\mathrm{base}}(t_i)$$: USD per base-asset-unit at time $$t_i$$
-* $$\mathcal{I}_{\mathrm{spot,truste}}(T)$$: set of spot trades in period $$T$$ from trusted exchanges
+* $$\mathrm{ReferenceRate}_{\mathrm{base}}(t_i)$$: price of one unit of the base asset at time $$t_i$$
+* $$\mathcal{I}_{\mathrm{spot,trusted}}(T)$$: set of spot trades in period $$T$$ from trusted exchanges
 
 The reported spot volume metrics `volume_trusted_spot_*`  are defined as:&#x20;
 
@@ -33,6 +32,11 @@ Q_i
 \;\times\;
 \mathrm{ReferenceRate_{base}}(t_i)
 $$
+
+Coin Metrics calculates these metrics for various entities: assets, exchanges, exchange-assets, and pairs. For each entity, the markets used as input in the calculation differ. The entity defines a set of markets that are used in the calculation. The metric description further filters to a specific subset of markets as defined in the metric description.
+
+* For **assets**, the markets included are any market where the asset is either the base asset or quote asset and match the markets in the metric description.
+* For **pairs**, the markets included are any market across all exchanges that contain the pair and match the markets in the metric description.
 
 ## Coverage
 
