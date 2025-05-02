@@ -1,121 +1,96 @@
 # Trusted Volume
 
-## Definition
+## Overview
 
-The sum of all volume from the spot markets of a set of trusted exchanges in units of U.S. dollars.[\
-](https://docs.coinmetrics.io/info/metrics/volume\_trusted\_spot\_usd\_1d)
+The sum of all volume from the spot markets of a set of trusted exchanges in U.S. dollars. These metrics are available for assets and pairs.
 
-<table><thead><tr><th width="166">Name</th><th width="169">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Trusted Spot Volume</td><td><a href="https://coverage.coinmetrics.io/asset-metrics/volume_trusted_spot_usd_1d">volume_trusted_spot_usd_1d</a></td><td>USD</td><td>1d</td></tr><tr><td>Trusted Spot Volume, 1 Hour</td><td><a href="https://coverage.coinmetrics.io/asset-metrics/volume_trusted_spot_usd_1h">volume_trusted_spot_usd_1h</a></td><td>USD</td><td>1h</td></tr></tbody></table>
+Fake trading volume is a persistent problem on crypto exchanges. With little regulatory oversight, it can be difficult to determine whether reported volume numbers are accurate or exaggerated. At Coin Metrics, we’ve taken a data driven approach to the problem and offer a trusted volume metric, derived from the [Trusted Exchange Framework](https://coinmetrics.io/special-insights/trusted-exchange-framework), to help identify legitimate trading volume. Our trusted volume metric is an aggregation of the reported volume from exchanges that we consider the most accurate and trustworthy. This is based on a combination of both quantitative and qualitative features.&#x20;
 
-## Details
+## Metrics
 
-Our trusted volume metric is an aggregation of the reported volume from exchanges that we consider the most accurate and trustworthy. The full list of constituent exchanges included in our Trusted Volume can be found [here](https://coinmetrics.io/special-insights/trusted-exchange-framework)
+<table data-full-width="true"><thead><tr><th>Metric</th><th>Description</th><th width="100">Frequency</th><th width="100">Coverage</th></tr></thead><tbody><tr><td><code>volume_trusted_spot_usd_1d</code></td><td>The sum of all volume from the spot markets of a set of trusted exchanges in units of U.S. dollars.</td><td>1d</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_trusted_spot_usd_1d">🔗</a></td></tr><tr><td><code>volume_trusted_spot_usd_1h</code></td><td>The sum of all volume from the spot markets of a set of trusted exchanges in units of U.S. dollars.</td><td>1h</td><td><a href="https://coverage.coinmetrics.io/search-results?query=volume_trusted_spot_usd_1h">🔗</a></td></tr></tbody></table>
+
+## Data Sources and Methodology
+
+The input data source for the trusted volume metrics are trades collected from exchanges that we consider the most accurate and trustworthy. The full list of constituent exchanges included in our Trusted Volume can be found [here](https://coinmetrics.io/special-insights/trusted-exchange-framework). The trade amounts are converted to U.S. dollars and summed over the interval defined in the metric name.
+
+Let us define the following notation:
+
+* $$i$$: index of an individual trade
+* $$t_i$$: timestamp of trade $$i$$
+* $$Q_i$$: quantity in contract-units of trade $$i$$
+* $$\mathrm{Price}(t_i)$$: price of trade $$i$$ at time $$t_i$$ (in margin-asset units per contract)
+* $$\mathrm{ReferenceRate}_{\mathrm{base}}(t_i)$$: USD per base-asset-unit at time $$t_i$$
+* $$\mathcal{I}_{\mathrm{spot,truste}}(T)$$: set of spot trades in period $$T$$ from trusted exchanges
+
+The reported spot volume metrics `volume_trusted_spot_*`  are defined as:&#x20;
+
+$$
+\mathrm{VolumeTrustedSpot}(T)
+\;=\;
+\sum_{i \,\in\, \mathcal{I_{spot,trusted}}(T)}
+Q_i
+\;\times\;
+\mathrm{ReferenceRate_{base}}(t_i)
+$$
+
+## Coverage
+
+{% embed url="https://coverage.coinmetrics.io/search-results?query=volume_trusted_%2A" %}
 
 ## API Endpoints
 
-Trusted Spot Volume can be accessed using the `timeseries/asset-metrics` or `timeseries/pair-metrics` endpoints by passing `volume_trusted_spot_usd_1d` or `volume_trusted_spot_usd_1h` into the `metrics` parameter.
+The metrics are served through the following endpoints:
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
-
-{% tabs %}
-{% tab title="Shell" %}
-```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=volume_trusted_spot_usd_1d&frequency=1d&pretty=true&api_key=<your_key>"
-```
-{% endtab %}
-
-{% tab title="Python" %}
-```python
-import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=volume_trusted_spot_usd_1d&frequency=1d&pretty=true&api_key=<your_key>').json()
-print(response)
-```
-{% endtab %}
-
-{% tab title="Python Client" %}
-```python
-from coinmetrics.api_client import CoinMetricsClient
-
-api_key = "<API_KEY>"
-client = CoinMetricsClient(api_key)
-
-print(
-    client.get_asset_metrics(
-        assets=["btc"], metrics="volume_trusted_spot_usd_1d", limit_per_asset=5
-    ).to_dataframe()
-)
-```
-{% endtab %}
-{% endtabs %}
-
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/pair-metrics" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
-
-{% tabs %}
-{% tab title="Shell" %}
-```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/pair-metrics?assets=btc&metrics=volume_trusted_spot_usd_1d&frequency=1d&pretty=true&api_key=<your_key>"
-```
-{% endtab %}
-
-{% tab title="Python" %}
-```python
-import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/pair-metrics?assets=btc&metrics=volume_trusted_spot_usd_1d&frequency=1d&pretty=true&api_key=<your_key>').json()
-print(response)
-```
-{% endtab %}
-
-{% tab title="Python Client" %}
-```python
-from coinmetrics.api_client import CoinMetricsClient
-
-api_key = "<API_KEY>"
-client = CoinMetricsClient(api_key)
-
-print(
-    client.get_pair_metrics(
-        assets=["btc"], metrics="volume_trusted_spot_usd_1d", limit_per_asset=5
-    ).to_dataframe()
-)
-```
-{% endtab %}
-{% endtabs %}
-
-## Chart
-
-![Trusted volume as a portion of total volume](../../../.gitbook/assets/BTC\_Trusted\_and\_Non-Trusted\_Volume.png)
+* [/timeseries/asset-metrics](https://docs.coinmetrics.io/api/v4/#tag/Timeseries/operation/getTimeseriesAssetMetrics)
+* [/timeseries/pair-metrics](https://docs.coinmetrics.io/api/v4/#tag/Timeseries/operation/getTimeseriesPairMetrics)
 
 ## Examples
 
-A sample of the daily trusted volumes data for Bitcoin is shown below:
+#### Example for Asset Metrics
 
-| assets | time                | volume\_trusted\_spot\_usd\_1d |
-| ------ | ------------------- | ------------------------------ |
-| btc    | 2020-09-21 00:00:00 | 44395555400                    |
-| btc    | 2020-09-22 00:00:00 | 60004540100                    |
-| btc    | 2020-09-23 00:00:00 | 45919134800                    |
+A sample of the `volume_trusted_spot_usd_1d` metric for the asset `btc` from our `/timeseries/asset-metrics` API endpoint is provided below. You can view this example in your browser [here](https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc\&metrics=volume_trusted_spot_usd_1d\&limit_per_asset=3\&api_key=YOUR_API_KEY).
 
-* asset. The IDs of the asset.
-* time. The reference rate time in ISO 8601 date-time format.
-* volume\_trusted\_spot\_usd\_1d. The trusted volume value in units of U.S. dollars.
+```json
+[
+  {
+    "asset": "btc",
+    "time": "2025-04-29T00:00:00.000000000Z",
+    "volume_trusted_spot_usd_1d": "9116127030.72694"
+  },
+  {
+    "asset": "btc",
+    "time": "2025-04-30T00:00:00.000000000Z",
+    "volume_trusted_spot_usd_1d": "10113171473.0258"
+  },
+  {
+    "asset": "btc",
+    "time": "2025-05-01T00:00:00.000000000Z",
+    "volume_trusted_spot_usd_1d": "11408714338.2257"
+  }
+]
+```
 
-## Release History
+#### Example for Pair Metrics
 
-* Release Version. Market Data Feed v2.2 - Jan 21, 2021 rollout (not a separate MDF version)
+A sample of the `volume_trusted_spot_usd_1d` metric for the pair `btc-usd` from our `/timeseries/pair-metrics` API endpoint is provided below. You can view this example in your browser [here](https://api.coinmetrics.io/v4/timeseries/pair-metrics?pairs=btc-usd\&metrics=volume_trusted_spot_usd_1d\&limit_per_pair=3\&api_key=YOUR_API_KEY).
 
-## Interpretation
-
-Fake trading volume is a persistent problem on crypto exchanges. With little regulatory oversight, it can be difficult to determine whether reported volume numbers are accurate or exaggerated. At Coin Metrics, we’ve taken a data driven approach to the problem and offer a trusted volume metric, derived from the [Trusted Exchange Framework](https://coinmetrics.io/special-insights/trusted-exchange-framework), to help identify legitimate trading volume. Our trusted volume metric is an aggregation of the reported volume from exchanges that we consider the most accurate and trustworthy. This is based on a combination of both quantitative and qualitative features. The current set of trusted volume metrics consider spot markets only and do not include futures or options markets.
-
-## See Also
-
-* [Trusted Volume Framework](https://coinmetrics.io/special-insights/trusted-exchange-framework)
-* [Reported Spot Volume](volume\_reported.md)
-
-## Availability for Assets
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/volume_trusted_spot_usd_1d" %}
+```json
+[
+  {
+    "pair": "btc-usd",
+    "time": "2025-04-29T00:00:00.000000000Z",
+    "volume_trusted_spot_usd_1d": "1655838700.58862"
+  },
+  {
+    "pair": "btc-usd",
+    "time": "2025-04-30T00:00:00.000000000Z",
+    "volume_trusted_spot_usd_1d": "2077481898.04856"
+  },
+  {
+    "pair": "btc-usd",
+    "time": "2025-05-01T00:00:00.000000000Z",
+    "volume_trusted_spot_usd_1d": "2334258095.40682"
+  }
+]
+```

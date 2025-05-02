@@ -31,10 +31,10 @@ The reported spot volume metrics `volume_reported_spot_*`  are defined as:&#x20;
 $$
 \mathrm{VolumeReportedSpot}(T)
 \;=\;
-\sum_{i \,\in\, \mathcal{I}(T)}
+\sum_{i \,\in\, \mathcal{I_{spot}}(T)}
 Q_i
 \;\times\;
-\mathrm{ReferenceRate}(t_i)
+\mathrm{ReferenceRate_{base}}(t_i)
 $$
 
 The reported futures volume metrics `volume_reported_future_*`  are defined as:
