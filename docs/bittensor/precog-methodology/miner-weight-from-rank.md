@@ -8,7 +8,9 @@ description: >-
 
 Broadly speaking, once the Miners are ranked according to Point and Interval Forecast, the Validator sets an exponentially decaying weight, which is transformed into emissions by the Yuma Consensus algorithm.  Specifically the process goes:
 
-1. Each miner gets 0.9^(rank) amount of weight.  Miners with tied rank get the same weight.
+1. Each miner gets 0.9^(rank) amount of weight. &#x20;
+   1. When miners tie, the weight of each rank occupied by tied miners gets averaged together, and assigned to each one. &#x20;
+   2. Then following the tied group, the next miner is the list gets 0.9^N weight, where N are the numbers of miners before. In other words, downstream miners see no change if miners above them are tied
 2. The previous weight value is rolling-averaged with the weight determined from the last 12 evaluations; for each forecast independently.  This rolling average has an alpha decay of 0.1, so each older evaluation contributes 90% less to rolling average.&#x20;
 3. We get the mean of the two averaged weights for each forecast type.
 4. The Miner's mean weight divided by the sum of all mean weights in Step 3, determines the final weight assigned by the Validator.  In other words these final weights will sum to 1.0.
