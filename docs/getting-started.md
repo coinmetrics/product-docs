@@ -24,11 +24,17 @@ You can directly download files from your browser by adding a "format=csv" in yo
 
 On Google Sheets, you can use the `IMPORTDATA` function on the formula tab:
 
-`=IMPORTDATA("`[`https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=CapMrktEstUSD,SplyCur,PriceUSD,CapMrktCurUSD&api_key=`](https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=CapMrktEstUSD,SplyCur,PriceUSD,CapMrktCurUSD\&api\_key=)`<API_KEY>&assets=usdc&frequency=1d&limit_per_asset=1&format=csv")`
+`=IMPORTDATA("`[`https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=CapMrktEstUSD,SplyCur,PriceUSD,CapMrktCurUSD&api_key=`](https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=CapMrktEstUSD,SplyCur,PriceUSD,CapMrktCurUSD\&api_key=)`<API_KEY>&assets=usdc&frequency=1d&limit_per_asset=1&format=csv")`
 
 For more information on exporting data, see the guide: [exporting-data.md](tutorials-and-examples/user-guides/exporting-data.md "mention")
 
 ### For Developers
+
+Check out this introduction that requires no special tools at all.
+
+{% embed url="https://youtu.be/b-olRlBUepc" %}
+Testing the Coin Metrics API in the Browser
+{% endembed %}
 
 You can use our [API](https://docs.coinmetrics.io/api/v4/) for accessing data. To learn more about our API design, see the [API Conventions](access-our-data/api/) page.
 
@@ -50,7 +56,7 @@ You can view examples of how to use Coin Metrics data in the [Tutorials and Exam
 
 We recommend new users to read the following guides first to get a basic understanding of Coin Metrics data:
 
-* [Python API Client Walkthrough](tutorials-and-examples/tutorials/walkthrough\_community.md)
+* [Python API Client Walkthrough](tutorials-and-examples/tutorials/walkthrough_community.md)
 * [Data Visualization Walkthrough](data-visualization/)
 * [How To Export Data](tutorials-and-examples/user-guides/exporting-data.md)
 

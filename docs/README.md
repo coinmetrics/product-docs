@@ -6,6 +6,12 @@ description: Crypto intelligence for the future of finance
 
 Welcome to the **Coin Metrics Product Documentation**. At Coin Metrics, we organize the world's crypto data and make it transparent and accessible. We offer network data, market data, indexes, and a holistic risk management offering.
 
+Let's review some of the most important data entities in the Coin Metrics universe.
+
+{% embed url="https://www.youtube.com/embed/kvGHbbkl_Wg?si=4sdp3Dy9OWYeMzHl" %}
+High Level Data Overview
+{% endembed %}
+
 ## Network Data
 
 ### [Network Data Pro (NDP)](network-data/network-data-overview/)
