@@ -187,8 +187,10 @@ There are also two additional endpoints that can be used to get a:
 
 These endpoints do not support any query parameters and return full block info and full transaction info. The objects returned are the same as those without the full prefix with **additional JSON fields**.
 
-### Sample Queries
+### New Async API Endpoints
 
-* **Accounts info for all accounts created in the blockchain**: /{asset}/accounts
-* **Account info for only specified accounts**: /{asset}/accounts?accounts=account1,account2
-* **Block info for all blocks created in the blockchain**: /{asset}/blocks
+{% embed url="https://youtu.be/yRwQce7g9TE?feature=shared" %}
+Async API
+{% endembed %}
+
+If you need to download large amounts of data, i.e. more than 100k rows, we recommend using the "[Blockchain Explorer Job API](https://docs.coinmetrics.io/api/v4/#tag/Blockchain-Explorer-Job)", also known as Async API.&#x20;
