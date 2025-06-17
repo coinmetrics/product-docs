@@ -11,3 +11,7 @@ Data providers must account for such events, otherwise any time series data woul
 We normalize the timestamp of every Bitcoin block using Median-Time-Past, which is the median timestamp of that block and its 11 predecessors. By using the median of roughly two hours worth of blocks, the impact of an erroneous or outright manipulated miner timestamp is eliminated. This ensures that the timestamps we use for metric calculation increase in tandem with block height and are never in the past, thereby making our time series data more accurate.&#x20;
 
 Since not all crypto data providers go through the effort of normalizing timestamps, our time series data for human intervals, such as _days,_ may differ.&#x20;
+
+### Update & Review History
+
+<table><thead><tr><th width="124.48046875">Date</th><th>Updates</th><th data-type="users" data-multiple>Updated By</th><th data-type="users" data-multiple>Reviewed By</th></tr></thead><tbody><tr><td>2024-10-31</td><td>None</td><td></td><td><a href="https://app.gitbook.com/u/Z8t0NtNLRdQ3WnTAvqWGuMSFQgI2">Sydney Rice</a><a href="https://app.gitbook.com/u/M1brbG8m8hZvW03Yee3TypAjTNp1">Kevin Bornatsch</a></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>
