@@ -1,6 +1,6 @@
 # Data Visualization
 
-## Introduction
+Introduction
 
 Our Data Visualization offering includes three tools:
 
@@ -36,7 +36,7 @@ This suite of charting tools can be accessed directly at [Charts](https://networ
 
 If you are a client of our professional data and you have an API Viz key, you can enter your key by selecting the "key" on the top of the right toolbar. If you are a client, and you do not have a Viz key, contact us to obtain one. Each user needs their own Viz key, as these keys have special permisssions. Also, any charts saved to our cloud are saved to your user-specific key.
 
-![](../../.gitbook/assets/Screen%20Shot%202020-12-20%20at%204.48.50%20PM.png)
+<figure><img src="../.gitbook/assets/Screen Shot 2020-12-20 at 4.48.50 PM.png" alt=""><figcaption></figcaption></figure>
 
 ## Saving Charts
 
@@ -45,13 +45,13 @@ You can save your charts in all three of our tools. Simply select the "save" ima
 * Save as... (only available to users with a Viz API key) - save your chart to your API key and reload it later from any device. Charts saved to your API key can be "named" (given a title) and can be shared via a chart-specific URL.
 * Save to local drive - save your chart to your local drive in a json format and reload it for later use.
 
-![Click on the "disk" to find the Save Options](../../.gitbook/assets/Screen%20Shot%202020-12-21%20at%2011.51.39%20AM.png)
+![Click on the "disk" to find the Save Options](<../.gitbook/assets/Screen Shot 2020-12-21 at 11.51.39 AM.png>)
 
 ## Loading Charts
 
 To load a previously saved chart, select the "folder" image on the right toolbar. If you saved your chart to your API key (to the Cloud), then "Load from cloud". If you saved your chart to your local drive, then "Load from file".
 
-![](../../.gitbook/assets/Screen%20Shot%202021-07-19%20at%2010.00.54%20AM.png)
+![](<../.gitbook/assets/Screen Shot 2021-07-19 at 10.00.54 AM.png>)
 
 If you "Load from file", then find your file/chart using the explorer window.
 
@@ -59,17 +59,17 @@ If you "Load from file", then find your file/chart using the explorer window.
 
 If you'd like to share a chart via a URL, you need an API via key. Once your API key is set, then, click the "share" button.
 
-![Click on the "share" button to copy a sharable URL to the desktop](../../.gitbook/assets/Screen%20Shot%202020-12-30%20at%2012.33.01%20PM.png)
+![Click on the "share" button to copy a sharable URL to the desktop](<../.gitbook/assets/Screen Shot 2020-12-30 at 12.33.01 PM.png>)
 
 If you've already saved your chart, then ensure that "Sharing on" is green, and click the copy button to copy the URL to the clipboard. If you haven't yet saved your chart, name the chart and then copy the URL to the clipboard.
 
-![](../../.gitbook/assets/Screen%20Shot%202020-12-30%20at%2012.36.51%20PM.png)
+![](<../.gitbook/assets/Screen Shot 2020-12-30 at 12.36.51 PM.png>)
 
 ## Downloading Charts
 
 Charts can be downloaded to data files (CSV or XLS) or image files (PNG with our without a legend). Simply select the "download" button on the right toolbar. If you'd like to see a title on your chart, save your chart and assign a name. The assigned name will be your title.
 
-![Click on the "download" button to find the Download Options](../../.gitbook/assets/Screen%20Shot%202020-12-30%20at%2012.21.12%20PM.png)
+![Click on the "download" button to find the Download Options](<../.gitbook/assets/Screen Shot 2020-12-30 at 12.21.12 PM.png>)
 
 ## Chart Options
 
@@ -81,4 +81,4 @@ There are several ways to adjust your plot in both the "Charting Tool" and the "
 * Right axis - chose which series you'd like to see on the right hand axis (RHS) (only on the primary charting tool, not in Formula Builder or Correlation Tool)
 * All/1M/3M/1Y/YTD - chose your preferred X-axis range
 
-![](../../.gitbook/assets/Screen%20Shot%202021-05-14%20at%209.01.54%20AM.png)
+![](<../.gitbook/assets/Screen Shot 2021-05-14 at 9.01.54 AM.png>)
