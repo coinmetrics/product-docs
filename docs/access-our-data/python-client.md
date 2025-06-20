@@ -2,7 +2,7 @@
 
 The CM Python API Client provides a simple way to access all data available via the Coin Metrics' API. D Use this client to query all kinds of data. In just a few lines of code, _anyone_ can access clean cryptocurrency data in a familiar form, such as a pandas dataframe. Detailed documentation & installation instructions can be found on [GitHub](https://coinmetrics.github.io/api-client-python/site/index.html).
 
-For a thorough walkthrough of what you can do with the community client, check out our [walkthrough](../tutorials-and-examples/tutorials/walkthrough\_community.md). Examples of exporting data can be found in How to Export Data > [#python-api-client](../tutorials-and-examples/user-guides/exporting-data.md#python-api-client "mention").
+For a thorough walkthrough of what you can do with the community client, check out our [walkthrough](../tutorials-and-examples/tutorials/walkthrough_community.md). Examples of exporting data can be found in How to Export Data > [#python-api-client](../tutorials-and-examples/user-guides/exporting-data.md#python-api-client "mention").
 
 ## Installation
 
@@ -20,4 +20,10 @@ For more in depth information on how to use the Python API Client, see the [Pyth
 
 ## Walkthrough
 
-See: [walkthrough\_community.md](../tutorials-and-examples/tutorials/walkthrough\_community.md "mention")
+See: [walkthrough\_community.md](../tutorials-and-examples/tutorials/walkthrough_community.md "mention")#
+
+### Tips and Tricks
+
+{% embed url="https://youtu.be/YR1nVNWt5Ds?feature=shared" %}
+Tips and Tricks for Python Client
+{% endembed %}
