@@ -7,6 +7,7 @@
     * [Python API Client Walkthrough](tutorials-and-examples/tutorials/walkthrough_community.md)
     * [Getting Started With Market Data](tutorials-and-examples/tutorials/md_market_data_overview.md)
     * [Getting Started With Futures Data](tutorials-and-examples/tutorials/md_futures_overview.md)
+    * [Getting Started With Options Data](tutorials-and-examples/tutorials/md_futures_overview-1.md)
     * [Aggregating Options Data](tutorials-and-examples/tutorials/md_options_aggregation.md)
     * [Examining Orderbook Depth](tutorials-and-examples/tutorials/md_orderbook_depth.md)
     * [Aggregating Orderbook Depth to Create Liquidity Metrics](tutorials-and-examples/tutorials/aggregating-orderbook-depth-to-create-liquidity-metrics.md)

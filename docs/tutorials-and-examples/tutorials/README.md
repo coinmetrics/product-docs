@@ -60,6 +60,16 @@ Below are some tutorials based on the products used and topic of exploration.\
 
 **Personas**: Quant Trader, Market Analyst, Fund Admin
 
+### [Getting Started With Options Data](md_futures_overview-1.md)
+
+**Products:** [Market Data](broken-reference)
+
+**Summary:** This github notebook steps through various options-specific data types across multiple aggregation windows.&#x20;
+
+**Use Cases**: Trading, Research, Asset Management
+
+**Personas**: Quant Trader, Market Analyst, Fund Admin
+
 ### [Aggregating Options Data](./#aggregating-options-dat)
 
 **Products:** [Market Data](broken-reference)

@@ -1,5 +1,6 @@
 ---
 description: Crypto intelligence for the future of finance
+coverY: 0
 ---
 
 # Welcome & Product Overview
