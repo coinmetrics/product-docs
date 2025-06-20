@@ -8,6 +8,10 @@ description: /timeseries/market-orderbooks
 
 An order book represents the list of buy orders and the list of sell orders for a given market organized by price level. In this context, a buy order or sell order indicates the amount of the base asset that a buyer or seller wishes to trade for a spot market or the amount of contracts for a derivatives market.
 
+{% embed url="https://youtu.be/9F0a46Ztsec?feature=shared" %}
+Orderbooks Demo
+{% endembed %}
+
 ## Details
 
 The price and amount that a trader is willing to buy is referred to as the bid. The price and amount that a trader is willing to sell is referred to as the ask. When a trade is executed between a buyer and a seller, an order is removed from the order book. While an order book is constantly updated in real-time as traders post new orders and as orders are matched, this data type represents a snapshot of the order book at a given moment in time.
