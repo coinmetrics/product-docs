@@ -1,10 +1,10 @@
 # Tutorials
 
-**General Tutorials**\
-**Market Data Tutorials**\
-**Network Data Tutorials**
-
-Below are some tutorials based on the products used and topic of exploration.
+Below are some tutorials based on the products used and topic of exploration.\
+[**General Tutorials**](./#general-tutorials)\
+[**Market Data Tutorials**](./#market-data-tutorials)\
+[**Network Data Tutorials**](./#network-data-tutorials)\
+[**Defi Data Tutorials**](./#defi-data-tutorials)
 
 ## General Tutorials
 
