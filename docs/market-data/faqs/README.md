@@ -142,15 +142,15 @@ Coin Metrics has the ability to make the short delay extremely short or to elimi
 #### **Data types available immediately with no delay**:
 
 * The presence of the market and its associated metadata served through **`/catalog/markets`** and **`/catalog-all/markets`**&#x20;
-* The presence of the market and its associated metadata served through `/catalog-v2/market-*`, `/catalog-all-v2/market-*`and  `/reference-data/markets`
+* The presence of the market and its associated metadata served through **`/catalog-v2/market-*`**, **`/catalog-all-v2/market-*`**&#x61;nd  **`/reference-data/markets`**
 * Trades served through **`/timeseries/market-trades`** and **`/timeseries-stream/market-trades`**
 * Streaming order book served through **`/timeseries-stream/market-orderbooks`**
 * Streaming quotes served through **`/timeseries-stream/market-quotes`**
 * Futures candles served through **`/timeseries/market-candles`**
 * Futures open interest served through **`/timeseries/market-openinterest`** and `/timeseries-stream/market-openinterest`
-* Futures liquidations served through **`/timeseries/market-liquidations`** and `/timeseries-stream/market-liquidations`
+* Futures liquidations served through **`/timeseries/market-liquidations`** and **`/timeseries-stream/market-liquidations`**
 * Futures funding rates served through **`/timeseries/market-funding-rates`**&#x20;
-* Futures predicted funding rates served through `/timeseries/market-funding-rates-predicted`
+* Futures predicted funding rates served through **`/timeseries/market-funding-rates-predicted`**
 * Futures and options order book snapshots served through **`/timeseries/market-orderbooks`**
 * Futures and options quote snapshots served through **`/timeseries/market-quotes`**
 * Futures and options contract prices served through **`/timeseries/market-contract-prices`**
@@ -159,9 +159,9 @@ Coin Metrics has the ability to make the short delay extremely short or to elimi
 
 #### **Data types available with a short delay:**
 
-* The presence of the new asset served through `/catalog-v2/asset-metrics`, `/catalog-all-v2/asset-metrics`and  `/reference-data/assets`
+* The presence of the new asset served through **`/catalog-v2/asset-metrics`**, **`/catalog-all-v2/asset-metrics`**&#x61;nd  **`/reference-data/assets`**
 * Spot candles served through **`/timeseries/market-candles`**
-* Reference Rates served through metric `ReferenceRate` served through **`/timeseries/asset-metrics`**
+* Reference Rates served through metric **`ReferenceRate`** served through **`/timeseries/asset-metrics`**
 * Market-data related metrics such as reported volume served through **`/timeseries/asset-metrics`**, **`/timeseries/pair-metrics`**, **`/timeseries/exchange-metrics`**, **`/timeseries/exchange-asset-metrics`**, and **`/timeseries/market-metrics`**
 
 ### How do I interpret the value of your volume metrics like `volume_reported_spot_usd_1d`?
