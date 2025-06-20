@@ -4,6 +4,10 @@
 
 Candles consist of summary statistics derived from individual trades that describe the trading activity of a market or pair over an interval of time.
 
+{% embed url="https://youtu.be/nGbw3-T3kTA?feature=shared" %}
+Market Candles Demo (for DyDx)
+{% endembed %}
+
 ## **Details**
 
 Coin Metrics engineers several statistics based on trades data that occurred over an interval of time: opening price, high price, low price, close price, volume-weighted average price, total volume in base asset units, total volume in U.S. dollars, and number of trades in the interval.
