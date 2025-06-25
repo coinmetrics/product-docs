@@ -1,22 +1,20 @@
-# How to use the Coin Metrics API Efficiently
+# How To Use the Coin Metrics API Efficiently
 
 ## HTTP API
 
-Please follow these rules to use API most efficiently and get the best API performance.&#x20;
+Please follow these rules to use API most efficiently and get the best API performance.
 
 The rules are sorted in the priority order. The first ones make the biggest impact.
 
-* Ensure that your HTTP client sends the proper request headers to enable HTTP compression. Your HTTP request should have an "Accept-Encoding: gzip" header.&#x20;
-* Use the line-delimited JSON format (format=json\_stream) if it's supported by an API endpoint (check API docs) instead of the default format=json. That format allows you to avoid paging so you can quickly request all data using only one HTTP request without facing page\_size limitations (10k elements per page) and related difficulties.
-* If you have to use the format=json (default value), strive to use the paging\_from=start query parameter instead of paging\_from=end (default value). It always produces faster responses.
-* Instead of sending individual requests for different entities, combine them in a single request using commas. For example, assets=btc,eth\&metrics=ReferenceRateUSD,ReferenceRateEUR.
-* Strive to use limit\_per\_\<entity> query parameters if you want to fetch recent metric values for multiple entities (for example, assets, markets, indexes) at the same time. For example, if you want to request recent reference rates for a set of assets, use the following request: https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc,eth\&frequency=1m\&metrics=ReferenceRates\&limit\_per\_asset=1\&page\_size=2\&api\_key=\<key>. Note that page\_size must be greater or equal to the number of requested entities (assets) multiplied by limit\_per\_\<entity> value.
-* Specify start\_time and end\_time query parameters instead of relying on their default values to narrow your results and improve API performance.
-* Avoid the sort=time query parameter since it provides worse performance than default sorting.
+* Ensure that your HTTP client sends the proper request headers to enable HTTP compression. Your HTTP request should have an "Accept-Encoding: gzip" header.
+* Use the line-delimited JSON format (`format=json_stream`) if it's supported by an API endpoint (currently only catalog-v2 functions) instead of the default format=json. That format allows you to avoid paging so you can quickly request all data using only one HTTP request without facing page\_size limitations (10k elements per page) and related difficulties.
+* If you have to use the format=json (default value), strive to use the `paging_from=start` query parameter instead of `paging_from=end` (default value). It always produces faster responses.
+* Instead of sending individual requests for different entities, combine them in a single request using commas. For example, `assets=btc,eth&metrics=ReferenceRateUSD,ReferenceRateEUR`. However, avoid combining two lists, e.g. a list of assets and a list of metrics.
+* Strive to use limit\_per\_\<entity> query parameters if you want to fetch recent metric values for multiple entities (for example, assets, markets, indexes) at the same time. For example, if you want to request recent reference rates for a set of assets, use the following request: `https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc,eth&frequency=1m&metrics=ReferenceRates&limit_per_asset=1&page_size=2&api_key=<key>`. Note that `page_size` must be greater or equal to the number of requested entities (assets) multiplied by `limit_per_<entity>` value.
+* Specify `start_time` and `end_time` query parameters instead of relying on their default values to narrow your results and improve API performance.
+* Avoid the `sort=time` query parameter since it provides worse performance than default sorting.
 * Avoid setting the granularity query parameter to any value other than "raw" (default). That parameter enables API-level downsampling of the raw data which is slow by design and, in some cases, can lead to a 524 timeout from Cloudflare.
-* Avoid the pretty=true query parameter in production code because it's always slower than pretty=false (default value).
-
-
+* Avoid the `pretty=true` query parameter in production code because it's always slower than `pretty=false` (default value).
 
 ## Python API Client
 
@@ -28,7 +26,7 @@ Queries can be made much faster by increasing the `page_size` parameter. The hig
 
 ### Data Formats
 
-When a user calls the API using a `CoinMetricsClient`object, it returns a DataCollection. A DataCollection is an object that stores information about your client request.&#x20;
+When a user calls the API using a `CoinMetricsClient`object, it returns a DataCollection. A DataCollection is an object that stores information about your client request.
 
 <pre class="language-python"><code class="lang-python"><strong>from coinmetrics.api_client import CoinMetricsClient
 </strong>
@@ -39,7 +37,7 @@ data_collection = client.get_asset_metrics(assets='btc', metrics='PriceUSD', lim
 Responses can be returned in the following formats, in order of how fast they're returned:
 
 * A Python Generator (`DataCollection`)
-* A CSV/JSON file (`DataCollection.export_to_csv()`, `DataCollection.export_to_json()`)&#x20;
+* A CSV/JSON file (`DataCollection.export_to_csv()`, `DataCollection.export_to_json()`)
 * A list (`DataCollection.to_list()`)
 * A dataframe (`DataCollection.to_dataframe()`)
 
@@ -82,7 +80,7 @@ data = client.get_asset_metrics(
 ).parallel(['assets', 'metrics']).to_list()
 ```
 
-#### By Time or (Block) Height Increment&#x20;
+#### By Time or (Block) Height Increment
 
 ```python
 # Parallelize by time increment
@@ -133,7 +131,5 @@ data = client.get_asset_metrics(
     frequency='1b'
 ).parallel(height_increment=1000).export_to_json_files()
 ```
-
-
 
 For more information, see: the [Python API Client documentation](https://coinmetrics.github.io/api-client-python/site/index.html#parallel-execution-for-faster-data-export).

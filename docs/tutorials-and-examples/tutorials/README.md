@@ -1,10 +1,11 @@
 # Tutorials
 
-Below are some tutorials based on the products used and topic of exploration.\
-[**General Tutorials**](./#general-tutorials)\
-[**Market Data Tutorials**](./#market-data-tutorials)\
-[**Network Data Tutorials**](./#network-data-tutorials)\
-[**Defi Data Tutorials**](./#defi-data-tutorials)
+Below are some demonstartion notebooks and videos based on the products used and topic of exploration.\
+\
+[**General Tutorials**](./#general-tutorials) **:** Covering our data tools and accessing our data\
+[**Market Data Tutorials**](./#market-data-tutorials)**:** Covering our Market Data Products, Market Data Feed, Market Data Pro\
+[**Network Data Tutorials**](./#network-data-tutorials)**:** Covering our Network Data Products: Network Data Pro Metrics and Atlas\
+[**Defi Data Tutorials**](./#defi-data-tutorials)**:** Covering Defi Products that include both Network Data and Market Data&#x20;
 
 ## General Tutorials
 
@@ -110,6 +111,45 @@ Below are some tutorials based on the products used and topic of exploration.\
 
 **Personas**: Quant Trader, Market Analyst
 
+### [Obtaining Futures Market Liquidations](./#obtaining-futures-market-liquidations)
+
+**Products:** [Market Data](broken-reference)
+
+**Summary:** The notebook shows how to obtain liquidation metrics for futures. We show both REST API calls and web socket connections for the same. The video also covers how to use Reference Data and Catalog. It is applicable for all market data / asset metrics.
+
+**Use Cases**: Trading, Research
+
+**Personas**: Quant Trader, Market Analyst
+
+### [Obtaining Predicted Funding Rates for Futures](./#obtaining-predicted-funding-rates-for-futures)
+
+**Products:** [Market Data](broken-reference)
+
+**Summary:** The notebook linked above shows how to obtain predicted funding rates for futures. While the _actual_ funding rates don't change very frequently, the _predicted_ funding rate is calculated every minute or so and therefore can be a leading indicator for funding rate changes.&#x20;
+
+**Use Cases**: Trading, Research
+
+**Personas**: Quant Trader, Market Analyst
+
+### [Exploring Availability of Market Data for CME (Derivatives) ](exploring-availability-of-market-data-for-cme-derivatives.md)
+
+**Products:** [Market Data](broken-reference)
+
+**Summary:** The notebook linked above shows how to explore data from CME (Chicago Mercantile Exchange), one of the big derivatives exchanges. Options on derivatives are probably the most complicated market instruments available on Coin Metrics, so this may be particularly interesting!
+
+**Use Cases**: Trading, Research
+
+**Personas**: Quant Trader, Market Analyst
+
+### [Analyzing BTC Liquidity ](./#analyzing-btc-liquidity)
+
+**Products:** [Market Data](../../market-data/market-data-overview/)\
+\
+**Summary:** This tutorial introduces core BTC liquidity metrics and explores how to interpret them across different exchanges. It distinguishes between “market” and “exchange-asset” metrics, walks through total BTC trading volume concentration, and examines slippage metrics to understand price impact for various order sizes. \
+**Use Cases**: Trading, Research
+
+**Personas**: Quant Trader, Market Analyst, Researchers
+
 ## Network Data Tutorials
 
 ### [Creating Custom Network Data Metrics Using ATLAS](./#creating-custom-network-data-metrics-using-atla)
@@ -161,6 +201,16 @@ Below are some tutorials based on the products used and topic of exploration.\
 **Use Cases**: Trading, Research, Risk Management
 
 **Personas**: Quant Trader, On-Chain Researcher, Risk Analyst
+
+### [Analyzing Free Float Supply](analyzing-free-float-supply.md)
+
+**Products:** [Network Data](broken-reference)
+
+**Summary:** The notebook shows how to obtain the asset metric "Free Float Supply" for a variety of crypto assets, and how to draw some conclusions by comparing the metric indexed to a particular date. The video covers how to use Reference Data and Catalog. It is applicable for all network data / asset metrics.&#x20;
+
+**Use Cases**: Research, Index Creation
+
+**Personas**: On-Chain Researcher, Risk Analyst, Trader
 
 ## DeFi Data Tutorials
 
