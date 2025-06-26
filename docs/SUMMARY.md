@@ -304,7 +304,8 @@
 ## BITTENSOR
 
 * [Precog Methodology](bittensor/precog-methodology/README.md)
-  * [Point Forecast Ranking](bittensor/precog-methodology/point-forecast-ranking.md)
-  * [Interval Forecast Ranking](bittensor/precog-methodology/interval-forecast-ranking.md)
+  * [Point Forecast Evaluation](bittensor/precog-methodology/point-forecast-evaluation.md)
+  * [Interval Forecast Evaluation](bittensor/precog-methodology/interval-forecast-evaluation.md)
   * [Interval Score Examples](bittensor/precog-methodology/interval-score-examples.md)
-  * [Miner Weight from Rank](bittensor/precog-methodology/miner-weight-from-rank.md)
+  * [Miner Shares from Ranks](bittensor/precog-methodology/miner-shares-from-ranks.md)
+  * [Final Weight](bittensor/precog-methodology/final-weight.md)
