@@ -1,7 +1,8 @@
 # Table of contents
 
-* [Welcome & Product Overview](README.md)
-* [Getting Started](getting-started.md)
+* [Welcome to Coin Metrics](README.md)
+* [Product Overview](readme-1.md)
+* [Getting Started with Coin Metrics Data](getting-started.md)
 * [Tutorials and Examples](tutorials-and-examples/README.md)
   * [Tutorials](tutorials-and-examples/tutorials/README.md)
     * [Python API Client Walkthrough](tutorials-and-examples/tutorials/walkthrough_community.md)
@@ -32,6 +33,7 @@
     * [How To Migrate From Catalog to Catalog V2 and Reference Data](tutorials-and-examples/user-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md)
     * [How To Use the Coin Metrics API Efficiently](tutorials-and-examples/user-guides/how-to-use-the-coin-metrics-api-efficiently-http.md)
   * [Dashboards](tutorials-and-examples/dashboard-examples.md)
+  * [Video Tutorials & Content](tutorials-and-examples/video-tutorials-and-content.md)
 * [Packages](packages/README.md)
   * [CM Labs](packages/cm-labs.md)
   * [Coin Metrics Community Data](packages/coin-metrics-community-data.md)

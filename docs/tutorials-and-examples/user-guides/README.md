@@ -2,7 +2,7 @@
 
 Our How To Guides can be used for better leveraging different parts of our data. These are focused on different ways of accessing our data.&#x20;
 
-Check back regularly for new How To Guides
+Check back regularly for new How To Guides.
 
 ### [How To Export Data](exporting-data.md)
 

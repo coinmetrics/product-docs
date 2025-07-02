@@ -1,48 +1,46 @@
 ---
 description: Crypto intelligence for the future of finance
+cover: .gitbook/assets/IMG_0992.jpg
 coverY: 0
+layout:
+  cover:
+    visible: true
+    size: full
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
-# Welcome & Product Overview
+# Welcome to Coin Metrics
 
-Welcome to the **Coin Metrics Product Documentation**. At Coin Metrics, we organize the world's crypto data and make it transparent and accessible. We offer network data, market data, indexes, and a holistic risk management offering.
+Welcome to the Coin Metrics Product Documentation!
 
-Let's review some of the most important data entities in the Coin Metrics universe.
+We’re really glad you’re here.
 
-{% embed url="https://www.youtube.com/embed/kvGHbbkl_Wg?si=4sdp3Dy9OWYeMzHl" %}
-High Level Data Overview
-{% endembed %}
+At Coin Metrics, our mission is to make digital asset data more accessible, trustworthy, and actionable, whether you’re a developer, analyst, researcher, or just exploring the space. Our data is trusted by some of the biggest financial institutions and crypto businesses in the world, and we’re proud to make those same tools and reliable data available to you.
 
-## Network Data
+This site is here to help you get started. Find what you need, and make the most of our data and APIs. We’ve worked hard to make it as easy as possible to navigate, understand, and use.
 
-### [Network Data Pro (NDP)](network-data/network-data-overview/)
+Thank you for choosing Coin Metrics. We’re excited to have you on this journey with us!
 
-* **Network Data Pro** is a data feed of insightful, aggregate network data metrics for all of the top cryptoassets. These metrics are available with an API key through our [API](https://docs.coinmetrics.io/api/v4/) via the `/timeseries/asset-metrics` endpoint or through our [Data Visualization](data-visualization/) tools or [CM Pro Charts](data-visualization/cmpro/). All Network Data metrics are described in Network Data Overview.
+If you’d like to learn more or have questions, we’re here to help:
 
-### [Blockchain Explorer (Atlas)](network-data/atlas-overview/)
+* **Sales and Account Management:** Evaluate options, expand usage and explore crypto-related insights. [Schedule a call with our team](https://coinmetrics.io/contact/).
+* **Solutions Engineering**: Get help integrating Coin Metrics data into your workflow. [Check out our Tutorials.](tutorials-and-examples/tutorials/)
+* **Product Team:** Share feedback or [learn about new features.](https://coinmetrics.io/news/product-announcements/)
+* **Research:** Check out our newest [State of the Network Newsletters](https://coinmetrics.io/insights/state-of-the-network/) and [Special Insights Reports](https://coinmetrics.io/special-insights/).
+* **Support:** Clients looking to report incidents or errors that require an immediate response from Coin Metrics can [submit a ticket to Zendesk ](https://coinmetricshelp.zendesk.com/)to engage with our on-call teams. For Assistance setting up your Zendesk access reach out to your Account Manager
+* **Status Updates:** Subscribe to product specific [status updates](https://status.coinmetrics.io/) for outage, maintenance or incident alerts.
 
-* **Atlas** is a complete blockchain search engine that enables users to look up information on transactions, addresses, and blocks through a high-performance [API](https://docs.coinmetrics.io/api/v4/). An API key is required to query the `/blockchain-v2/` endpoint via our API. Specifics on the format of the API output are described below in the [**Atlas**](network-data/atlas-overview/) section of this Encyclopedia.
+We’re always just a message away - don’t hesitate to get in touch.
 
-## [Market Data](market-data/market-data-overview/)
+– **Tim Rice, CEO, Coin Metrics**
 
-### [Market Data Feed (MDF)](market-data/market-data-overview/)
-
-* **Market Data Feed** provides access to historical and real-time data from over 30 of the world’s leading spot and derivatives crypto exchanges. This data is available primarily via the market data endpoints: `/timeseries/market-trades`, `/timeseries/market-openinterest`, `/timeseries/market-liquidations`, `/timeseries/market-funding-rates`, `/timeseries/market-orderbooks`, `/timeseries/market-quotes`, `/timeseries/market-candles` , and more. All endpoints and concepts are described in the [**Market Data**](market-data/market-data-overview/) section. There are also several aggregated market data metrics in `/timeseries/asset-metrics` and `/timeseries/pair-metrics`.
-
-### [CM Prices](./#cm-prices)
-
-* **Reference Rates** provide prices calculated in U.S. Dollars and Euros for several assets using a transparent and independent methodology, robust to manipulation and derived from high-quality constituent markets. This data is available through our [API](access-our-data/api/) (`timeseries/asset-metrics` endpoint) and also in our [Data Visualization](data-visualization/) and [CM Pro Charts](data-visualization/cmpro/).
-* **Reference Rates Community** (Community [API](access-our-data/api/), [Data Visualization](data-visualization/), [Pro Charts](data-visualization/cmpro/)) provides access to all of our reference rates with a limited amount of history for our more granular resolutions. For more info on our Community terms and offerings see our [Labs](https://coinmetrics.io/cm-labs/) page
-
-## [Indexes](broken-reference/)
-
-### [Coin Metrics Bletchley Indexes (CMBI)](https://coinmetrics.io/cm-indexes/)
-
-* **Coin Metrics Bletchley Indexes (CMBI)** are a comprehensive suite of single-asset, multi-asset, and unique crypto asset benchmarks used by leading crypto and traditional financial institutions. This data is available through our [API](access-our-data/api/) (`timeseries/index-levels` and `/timeseries/index-constituents` endpoints) and also in our [Data Visualization](data-visualization/) and [CM Pro Charts](data-visualization/cmpro/).
-* **CMBI Community** (Community [API](access-our-data/api/), [Data Visualization](data-visualization/), [Pro Charts](data-visualization/cmpro/)) provides access to all of our index levels with a limited amount of history for our more granular resolutions. For more info on our Community terms and offerings see our [Labs](https://coinmetrics.io/cm-labs/) page. A further description of the limitations of this data is listed in the data concepts in the **Indexes** section of this Encyclopedia.
-
-## [Reference Data](./#reference-data)
-
-* [**Datonomy**](reference-data/datonomy-overview/) is a digital asset classification system created by Coin Metrics, Goldman Sachs and MSCI that creates a consistent, standardized way for investors to analyze the digital assets ecosystem. This data is available via our API via the `/taxonomy/assets` endpoint.
-* [**Asset Profiles**](reference-data/asset-profiles-overview/asset-profiles.md) are descriptions of cryptoassets that supplement our asset metrics data to provide a comprehensive overview of a particular asset. This data is available via our API via the `/profiles/assets` endpoint.
-* The [**Security Master**](reference-data/security-master-overview/) is a dataset that unifies metadata and provides fundamental reference data about crypto assets and markets. The data is available via our API via the `/security-master/` endpoint.
+\
