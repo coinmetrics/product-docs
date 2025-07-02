@@ -1,6 +1,5 @@
 ---
 description: An Overview of the Coin Metrics Data Universe
-coverY: 0
 ---
 
 # Product Overview
