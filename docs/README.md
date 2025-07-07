@@ -2,20 +2,6 @@
 description: Crypto intelligence for the future of finance
 cover: .gitbook/assets/IMG_0992.jpg
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: full
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Welcome to Coin Metrics
@@ -36,7 +22,7 @@ If you’d like to learn more or have questions, we’re here to help:
 * **Solutions Engineering**: Get help integrating Coin Metrics data into your workflow. [Check out our Tutorials.](tutorials-and-examples/tutorials/)
 * **Product Team:** Share feedback or [learn about new features.](https://coinmetrics.io/news/product-announcements/)
 * **Research:** Check out our newest [State of the Network Newsletters](https://coinmetrics.io/insights/state-of-the-network/) and [Special Insights Reports](https://coinmetrics.io/special-insights/).
-* **Support:** Clients looking to report incidents or errors that require an immediate response from Coin Metrics can [submit a ticket to Zendesk ](https://coinmetricshelp.zendesk.com/)to engage with our on-call teams. For Assistance setting up your Zendesk access reach out to your Account Manager
+* **Support:** Clients looking to report incidents or errors that require an immediate response from Coin Metrics can submit a ticket to Zendesk to engage with our on-call teams. For Assistance setting up your Zendesk access reach out to your Account Manager.
 * **Status Updates:** Subscribe to product specific [status updates](https://status.coinmetrics.io/) for outage, maintenance or incident alerts.
 
 We’re always just a message away - don’t hesitate to get in touch.
