@@ -23,7 +23,6 @@ The sum withdrawn from an exchange that day.
 
 * This metric might not be available for all assets. Either that exchange doesn’t support this asset (BitMEX only trades in BTC for example), or we deemed that our coverage of the exchange was not complete enough to release the metric for it.
 * For Bitcoin, this metric excludes the effect of change outputs:
-*
   * If a transaction spends 100 BTC from exchange A but 90 BTC are sent back to it as change, the flow is -10 BTC, not -100 BTC and +90 BTC.
 
 ### Release History
@@ -85,7 +84,7 @@ The sum USD value withdrawn from exchanges that day, including exchange to excha
 
 ### Definition
 
-The sum count of transfers from any address belonging to exchange Bitfinex in that interval. If the recipient address also belongs to Bitfinex, the transfer is not counted.
+The sum count of transfers from any address belonging to an exchange in that interval. If the recipient address also belongs to the same exchange, the transfer is not counted.
 
 <table><thead><tr><th>Name</th><th width="186">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Bitfinex Withdrawal Cnt</td><td>FlowTfrOutBFXCnt</td><td>Transfers</td><td>1 block, 1 day</td></tr><tr><td>BitMEX Withdrawal Cnt</td><td>FlowTfrOutBMXCnt</td><td>Transfers</td><td>1 block, 1 day</td></tr><tr><td>Binance Withdrawal Cnt</td><td>FlowTfrOutBNBCnt</td><td>Transfers</td><td>1 block, 1 day</td></tr><tr><td>Bitstamp Withdrawal Cnt</td><td>FlowTfrOutBSPCnt</td><td>Transfers</td><td>1 block, 1 day</td></tr><tr><td>Bittrex Withdrawal Cnt</td><td>FlowTfrOutBTXCnt</td><td>Transfers</td><td>1 block, 1 day</td></tr><tr><td>ByBit Withdrawal Cnt</td><td>FlowTfrOutBITCnt</td><td>Transfers</td><td>1 day</td></tr><tr><td>Coinbase Withdrawal Cnt</td><td>FlowTfrOutCBSCnt</td><td>Transfers</td><td>1 day</td></tr><tr><td>Crypto.com Withdrawal Cnt</td><td>FlowTfrOutCROCnt</td><td>Transfers</td><td>1 day</td></tr><tr><td>Deribit Withdrawal Cnt</td><td>FlowTfrOutDERCnt</td><td>Transfers</td><td>1 day</td></tr><tr><td>Exchange Deposit Cnt</td><td>FlowTfrToExCnt</td><td>Transfers</td><td>1 block, 1 day</td></tr><tr><td>Gate.io Withdrawal Cnt</td><td>FlowTfrOutGIOCnt</td><td>Transfers</td><td>1 day</td></tr><tr><td>Gemini Withdrawal Cnt</td><td>FlowTfrOutGEMCnt</td><td>Transfers</td><td>1 block, 1 day</td></tr><tr><td>HitBTC Withdrawal Cnt</td><td>FlowTfrOutHBTCnt</td><td>Transfers</td><td>1 day</td></tr><tr><td>Huobi Withdrawal Cnt</td><td>FlowTfrOutHUOCnt</td><td>Transfers</td><td>1 block, 1 day</td></tr><tr><td>Korbit Withdrawal Cnt</td><td>FlowTfrOutKORCnt</td><td>Transfers</td><td>1 day</td></tr><tr><td>Kraken Withdrawal Cnt</td><td>FlowTfrOutKRKCnt</td><td>Transfers</td><td>1 block, 1 day</td></tr><tr><td>Kucoin Withdrawal Cnt</td><td>FlowTfrOutKCNCnt</td><td>Transfers</td><td>1 day</td></tr><tr><td>MEXC Withdrawal Cnt</td><td>FlowTfrOutMXCCnt</td><td>Transfers</td><td>1 day</td></tr><tr><td>NBX Withdrawal Cnt</td><td>FlowTfrOutNBXCnt</td><td>Transfers</td><td>1 day</td></tr><tr><td>OKX Withdrawal Cnt</td><td>FlowTfrOutOKXCnt</td><td>Transfers</td><td>1 day</td></tr><tr><td>Poloniex Withdrawal Cnt</td><td>FlowTfrOutPOLCnt</td><td>Transfers</td><td>1 block, 1 day</td></tr><tr><td>SwissBorg Withdrawal Cnt</td><td>FlowTfrOutSBGCnt</td><td>Transfers</td><td>1 day</td></tr></tbody></table>
 
@@ -95,9 +94,9 @@ The sum count of transfers from any address belonging to exchange Bitfinex in th
 
 ### Asset-Specific Details
 
-* For account-based protocols, if both sender and recipient belong to Bitfinex, then the transfer is not counted.
+* For account-based protocols, if both sender and recipient belong to the same exchange, then the transfer is not counted.
 * For UTXO-based protocols, this metric applies the following logic:
-  * If the input addresses belong to Bitfinex, then only the outputs where the address doesn’t belong to Bitfinex are counted as transfers from Bitfinex.
+  * If the input addresses belong to an exchange, then only the outputs where the address doesn’t belong to the same exchange are counted as transfers from that exchange.
 
 ### Release History
 
@@ -115,9 +114,9 @@ Withdrawal metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `FlowOut*` and `FlowTfrOut*` in the `metrics` parameter.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% openapi-operation spec="knowledge-coinmetrics-api" path="/timeseries/asset-metrics" method="get" %}
+[OpenAPI knowledge-coinmetrics-api](https://gitbook-x-prod-openapi.4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/raw/08e54b073fe224876d70fb093dff66c7f1921316515e8f46ff1b7a4836f20780.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20250725%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250725T204415Z&X-Amz-Expires=172800&X-Amz-Signature=82ce8f785f4457940857a4cf18c53a879b21ed8b91642ed521aa4f498f3913d4&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+{% endopenapi-operation %}
 
 {% tabs %}
 {% tab title="Shell" %}
