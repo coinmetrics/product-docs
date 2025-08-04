@@ -42,6 +42,7 @@
   * [API Conventions](access-our-data/api/README.md)
     * [Catalog V1 to Catalog V2 Migration](access-our-data/api/catalog-v1-v2-migration.md)
   * [Python API Client](access-our-data/python-client.md)
+  * [Using LLMs](access-our-data/using-llms.md)
   * [R API Client](access-our-data/r-client.md)
   * [Coverage](http://coverage.coinmetrics.io/)
   * [Status Page](access-our-data/status-page.md)

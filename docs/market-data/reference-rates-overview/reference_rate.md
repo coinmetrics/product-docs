@@ -24,15 +24,19 @@ Please note that `ReferenceRate` and `ReferenceRateUSD` metrics are identical to
 * `/timeseries/asset-metrics`
 * `/timeseries-stream/asset-metrics` by passing in the `<metric_id>` in the `metrics` parameter.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+{% openapi src="../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries-stream/asset-metrics" method="get" %}
+{% openapi src="../../.gitbook/assets/openapi.yaml" path="/timeseries-stream/asset-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 ## **Example**
+
+The notebook linked below discusses several interesting cases where the methodology chosen for Reference Rate is proven.&#x20;
+
+{% embed url="https://github.com/coinmetrics/demo/blob/master/coin_metrics_prices_case_study.ipynb" %}
 
 A sample of the reference rates data for Bitcoin with one hour frequency is shown below:
 
