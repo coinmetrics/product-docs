@@ -18,12 +18,12 @@ Coin Metrics collects trades data from **spot**, **future**, and **option** mark
 
 Market trades can be accessed using the `timeseries/market-trades` endpoint.
 
-{% openapi src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-trades" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endopenapi %}
+{% openapi-operation spec="coin-metrics-api-v4" path="/timeseries/market-trades" method="get" %}
+[OpenAPI coin-metrics-api-v4](https://docs.coinmetrics.io/api/static/openapi.yaml)
+{% endopenapi-operation %}
 
 {% openapi-operation spec="knowledge-coinmetrics-api" path="/timeseries/market-trades" method="get" %}
-[OpenAPI knowledge-coinmetrics-api](https://gitbook-x-prod-openapi.4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/raw/08e54b073fe224876d70fb093dff66c7f1921316515e8f46ff1b7a4836f20780.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20250804%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250804T163104Z&X-Amz-Expires=172800&X-Amz-Signature=1bcd09afaec3ca357f57ed4cdfda02ef4582eca99b1d046f3fb7dca2b003a4cd&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+[Broken link](broken-reference)
 {% endopenapi-operation %}
 
 {% tabs %}
