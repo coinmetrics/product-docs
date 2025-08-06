@@ -1,5 +1,19 @@
 ---
 description: /timeseries/market-trades
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
 ---
 
 # Trades
@@ -16,15 +30,11 @@ Coin Metrics collects trades data from **spot**, **future**, and **option** mark
 
 ## **API Endpoints**
 
-Market trades can be accessed using the `timeseries/market-trades` endpoint.
-
 {% openapi-operation spec="coin-metrics-api-v4" path="/timeseries/market-trades" method="get" %}
 [OpenAPI coin-metrics-api-v4](https://docs.coinmetrics.io/api/static/openapi.yaml)
 {% endopenapi-operation %}
 
-{% openapi-operation spec="knowledge-coinmetrics-api" path="/timeseries/market-trades" method="get" %}
-[Broken link](broken-reference)
-{% endopenapi-operation %}
+Market trades can be accessed using the `timeseries/market-trades` endpoint.
 
 {% tabs %}
 {% tab title="Shell" %}
