@@ -1,9 +1,5 @@
 # Coin Metrics Prices Methodology
 
-The full text of this document can be downloaded as a pdf document using the link below.
-
-{% file src="../../.gitbook/assets/coin-metrics-prices-methodology (5).pdf" %}
-
 ## Introduction
 
 Coin Metrics publishes a collection of prices for a set of cryptocurrencies and fiat currencies consisting of the Coin Metrics Reference Rates (“CM Reference Rates”) and the Coin Metrics Principal Market Prices (“CM Principal Market Prices”), which are collectively referred to as the Coin Metrics Prices (“CM Prices”). This document describes the data inputs, calculation methodologies, and data exclusion rules for the CM Prices.
