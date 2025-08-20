@@ -7,6 +7,7 @@
 * [Realized Cap to Thermo Cap (RCTC)](valuation.md#rctc)
 * [RVT Ratio (RVT)](valuation.md#rvt)
 * [Spent Output Price Ratio (SOPR)](valuation.md#sopr)
+* [Net Unrealized Profit/Loss (NUPL)](valuation.md#nupl)
 
 ## Network Value to Transactions <a href="#nvt" id="nvt"></a>
 
@@ -84,7 +85,7 @@ NVT has been much discussed; in short, it compares market capitalization to on-c
 
 ### Definition
 
-The ratio of the Realized Cap over Thermo Cap at the end of that interval. [Realized Cap](broken-reference) (CapRealUSD) is defined as the sum USD value based on the USD closing price on the day that a native unit last moved (i.e., last transacted) for all native units. Thermo Cap is calculated as RevAllTimeUSD and it represents the USD value of all funds disbursed to miners at the time of issuance.
+The ratio of the Realized Cap over Thermo Cap at the end of that interval. [Realized Cap](broken-reference/) (CapRealUSD) is defined as the sum USD value based on the USD closing price on the day that a native unit last moved (i.e., last transacted) for all native units. Thermo Cap is calculated as RevAllTimeUSD and it represents the USD value of all funds disbursed to miners at the time of issuance.
 
 | Name                              | IMetricD                                                          | Unit          | Interval |
 | --------------------------------- | ----------------------------------------------------------------- | ------------- | -------- |
@@ -92,13 +93,13 @@ The ratio of the Realized Cap over Thermo Cap at the end of that interval. [Real
 
 ### Details
 
-* Like [MVRV](broken-reference), RCTC can be used to better understand the market cycle as it identifies the ralationship between the network's overall cost basis (CapRealUSD) relative to the USD amount issued to miners by the protocol (RevAllTimeUSD).
+* Like [MVRV](broken-reference/), RCTC can be used to better understand the market cycle as it identifies the ralationship between the network's overall cost basis (CapRealUSD) relative to the USD amount issued to miners by the protocol (RevAllTimeUSD).
 * When evaluating market tops, RCTC provides a view on the realization of profits relative to the liquidity that is being issued to miners.
 * Miners are speculators as they are naturally exposed to the price of the currency they are mining. As such, they collectively make buy or sell decisions that ultimately impact the market.
 
 ### Chart
 
-![](../../../.gitbook/assets/coin\_metrics\_network\_chart-2-.png)
+![](../../../.gitbook/assets/coin_metrics_network_chart-2-.png)
 
 ### Interpretation
 
@@ -117,7 +118,7 @@ Only applicable to assets for which we have RevAllTimeUSD and CapRealUSD.
 ### See Also:
 
 * [MCRC (Market Cap / Realized Cap)](../../economics/miner-cap-to-realized-cap-mcrc.md)
-* [MVRV (Market Cap / Realized Market Cap)](broken-reference)
+* [MVRV (Market Cap / Realized Market Cap)](broken-reference/)
 
 ### Availability for Assets
 
@@ -137,7 +138,7 @@ The ratio of the network's realized value to its adjusted transfer value. Also r
 ### Details
 
 * Computed as realized value (aka realized market cap) over adjusted transfer value.
-* [Checkmate (2019)](https://medium.com/@\_Checkmatey\_/the-bitcoin-rvt-ratio-a-high-conviction-macro-indicator-615b68715b77) formulates the realized capitalization to transaction value (RVT) ratio which uses the same fundamental principles behind the NVT ratio but uses realized capitalization instead of market capitalization in the numerator of the ratio.
+* [Checkmate (2019)](https://medium.com/@_Checkmatey_/the-bitcoin-rvt-ratio-a-high-conviction-macro-indicator-615b68715b77) formulates the realized capitalization to transaction value (RVT) ratio which uses the same fundamental principles behind the NVT ratio but uses realized capitalization instead of market capitalization in the numerator of the ratio.
 * RVTAdj90 is computed as the network's realized value (aka realized market cap) over the 90-day moving average of USD adjusted transfer volume.
 
 ### Release History
@@ -152,7 +153,7 @@ RVT can be a slower moving, higher conviction signal tuned to the macro sentimen
 
 ### See Also
 
-* [Realized Market Cap (USD)](broken-reference)
+* [Realized Market Cap (USD)](broken-reference/)
 * [RVT 90-day Moving Avg](../../economics/rvtadj90.md)
 
 ### Availability for Assets
@@ -221,6 +222,28 @@ Historically, a high SOPR has signaled that bitcoin price is reaching a local ma
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/SOPR" %}
 
+## Net Unrealized Profit/Loss (NUPL) <a href="#nupl" id="nupl"></a>
+
+### Definition
+
+NUPL measures the proportion of an asset's market cap that represents unrealized profit or loss among all coins in circulation.&#x20;
+
+| Name | MetricID | Unit          | Interval |
+| ---- | -------- | ------------- | -------- |
+| NUPL | NUPL     | Dimensionless | 1 day    |
+
+### Details
+
+* Calculated as: (CapMrktCurUSD - CapRealUSD)/CapMrktCurUSD
+
+### Interpretation
+
+It indicates whether the market, on average, is in a state of unrealized gain (positive) or loss (negative), reflecting investor sentiment and potential market phases.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/NUPL" %}
+
 ## API Endpoints
 
 Address Balances can be accessed using these endpoints:
@@ -229,9 +252,9 @@ Address Balances can be accessed using these endpoints:
 
 and by passing in the metric ID's `NVT*` , `RVT*` and `SOPR*` in the `metrics` parameter.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}

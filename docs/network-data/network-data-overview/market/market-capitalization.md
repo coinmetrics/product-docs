@@ -254,6 +254,35 @@ Historically, a high ratio of market capitalization to realized capitalization h
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/CapMVRVFF" %}
 
+## MVRV Z-Score <a href="#g" id="g"></a>
+
+### Definition
+
+The ratio of the current market capitalization minus the realized market capitalization to the standard deviation of the current market capitalization.
+
+| Name         | IMetricD | Unit          | Interval |
+| ------------ | -------- | ------------- | -------- |
+| MVRV Z-Score | CapMVRVZ | Dimensionless | 1 day    |
+
+### Details
+
+* This metric is calculated as: (CapMrktCurUSD - CapRealUSD) / std(CapMrktCurUSD)
+* MVRV Z-Score adjusts for the long-term volatility in market cap, making it easier to compare across different market cycles and identify extreme deviations from historical norms.
+* Unlike regular MVRV (CapMVRVCur) or Free Float MVRV (CapMVRVFF), which are a raw ratio of market to realized value, MVRV Z-Score tells you how unusually high or low that relationship is compared to the asset's own historical behavior.
+
+### Interpretation
+
+The MVRV Z-Score measures how far Bitcoin’s market cap deviates from its realized cap, normalized by the historical volatility of market cap. It highlights periods where Bitcoin may be significantly overvalued or undervalued relative to its past trends, making it useful for spotting potential market tops and bottoms.
+
+### See Also
+
+* MVRV (Market Cap / Realized Market Cap)
+* Free Float MVRV (Free Float Market Cap / Realized Market Cap)
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/CapMVRVZ" %}
+
 ## Realized Market Cap (USD) <a href="#h" id="h"></a>
 
 ### Definition
