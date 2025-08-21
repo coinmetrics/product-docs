@@ -4,7 +4,7 @@
 
 * [Mean Tx Fee per Byte (native units) (FeeByteMeanNtv)](fees.md#mean-tx-fee-per-byte-native-units)
 * [Mean Tx Fee (native units, USD) (FeeMeanNtv, FeeMeanUSD)](fees.md#feemean)
-* [Median Tx Fee (native units, USD) (FeeMeanNtv, FeeMeanUSD)](fees.md#feemed)
+* [Median Tx Fee (native units, USD) (FeeMedNtv, FeeMedUSD)](fees.md#feemed)
 * [Mean Miner Tip (native units, USD) (FeePrioMeanNtv, FeePrioMeanUSD)](fees.md#feepriomean)
 * [Median Miner Tip (native units, USD) (FeePrioMedNtv, FeePrioMedUSD)](fees.md#e)
 * [Total Miner Tips (native units, USD) (FeePrioTotNtv, FeePrioTotUSD)](fees.md#feepriotot)
@@ -68,7 +68,7 @@ During the BTC mining ban in China in 2021, we saw an influx of miners turn off 
 
 ### Definition
 
-The mean transaction fee per byte of all blocks that interval in native units.
+The mean fee per transaction in native units in that interval.
 
 | Name                       | MetricID   | Unit         | Interval      |
 | -------------------------- | ---------- | ------------ | ------------- |
@@ -79,7 +79,6 @@ The mean transaction fee per byte of all blocks that interval in native units.
 
 * 0-fee transactions are included
 * If there were no transactions that interval, this metric isn’t computed
-* FeeByteMeanNtv is Computed as FeeTotNtv / BlkSizeByte
 * FeeMeanUSD is Computed as FeeMeanNtv \* PriceUSD
 * The price used is the daily close price
 
@@ -87,10 +86,6 @@ The mean transaction fee per byte of all blocks that interval in native units.
 
 * Any blockchain where users are paying for block space rather than computation.
 * For SOL, this metric does not include vote transactions. Includes successful and unsuccessful transactions.
-
-### Examples
-
-During the BTC mining ban in China in 2021, we saw an influx of miners turn off their operations so the block interval time increased significantly due to less hash power on the network. In effect, because less miners were online, we saw a spike in the mean transaction fee per byte since less miners were available to include transactions in the blocks, therefore transactions costs higher before the next difficulty adjustment.
 
 ### Release History
 
