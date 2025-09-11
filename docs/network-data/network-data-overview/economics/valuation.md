@@ -8,6 +8,7 @@
 * [RVT Ratio (RVT)](valuation.md#rvt)
 * [Spent Output Price Ratio (SOPR)](valuation.md#sopr)
 * [Net Unrealized Profit/Loss (NUPL)](valuation.md#nupl)
+* Long-Term and Short-Term Holder SOPR (SOPRLthX)
 
 ## Network Value to Transactions <a href="#nvt" id="nvt"></a>
 
@@ -243,6 +244,105 @@ It indicates whether the market, on average, is in a state of unrealized gain (p
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/NUPL" %}
+
+## Long-Term and Short-Term Holder SOPR
+
+### Definition
+
+Long-Term and Short-Term Holder SOPR metrics segment the traditional SOPR calculation based on the age of the UTXOs being spent. These metrics separate profit/loss realization behavior between holders who have held their positions for different time periods, providing deeper insights into market dynamics by distinguishing between committed long-term investors and more active short-term traders.
+
+There are two versions of this metric, one weighted by the value of each output and the other unweighted.&#x20;
+
+| Name                                                                                         | MetricID                                   | Unit          | Interval |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------ | ------------- | -------- |
+| Spent Output Profit Ratio (SOPR) 30 day Long-Term Holder / Short-Term Holder                 | SOPRLth30d / SOPRSth30d                    | Dimensionless | 1 day    |
+| Spent Output Profit Ratio (SOPR) 90 day Long-Term Holder / Short-Term Holder                 | <p>SOPRLth90d /<br>SOPRSth90d</p>          | Dimensionless | 1 day    |
+| Spent Output Profit Ratio (SOPR) 155 day Long-Term Holder / Short-Term Holder                | <p>SOPRLth155d / <br>SOPRSth155d</p>       | Dimensionless | 1 day    |
+| Spent Output Profit Ratio (SOPR) 1 year Long-Term Holder / Short-Term Holder                 | <p>SOPRLth1y / <br>SOPRSth1y</p>           | Dimensionless | 1 day    |
+| Spent Output Profit Ratio (SOPR) 5 years Long-Term Holder / Short-Term Holder                | <p>SOPRLth5y / <br>SOPRSth5y</p>           | Dimensionless | 1 day    |
+| Spent Output Profit Ratio Unweighted (SOPR Out) 30 day Long-Term Holder / Short-Term Holder  | <p>SOPRLthOut30d / <br>SOPRSthOut30d</p>   | Dimensionless | 1 day    |
+| Spent Output Profit Ratio Unweighted (SOPR Out) 90 day Long-Term Holder / Short-Term Holder  | <p>SOPRLthOut90d / <br>SOPRSthOut90d</p>   | Dimensionless | 1 day    |
+| Spent Output Profit Ratio Unweighted (SOPR Out) 155 day Long-Term Holder / Short-Term Holder | <p>SOPRLthOut155d / <br>SOPRSthOut155d</p> | Dimensionless | 1 day    |
+| Spent Output Profit Ratio Unweighted (SOPR Out) 1 year Long-Term Holder / Short-Term Holder  | <p>SOPRLthOut1y / <br>SOPRSthOut1y</p>     | Dimensionless | 1 day    |
+| Spent Output Profit Ratio Unweighted (SOPR Out) 5 years Long-Term Holder / Short-Term Holder | <p>SOPRLthOut5y / <br>SOPRSthOut5y</p>     | Dimensionless | 1 day    |
+
+### Details
+
+The Long-Term and Short-Term Holder SOPR metrics use the same fundamental calculation as the traditional SOPR but apply filters based on the age of UTXOs:
+
+**For SOPRLth (Long-Term Holders):**
+
+* Only includes UTXOs that were created more than X days/years ago
+* Calculation: (Sum of spent value of old UTXOs) / (Sum of creation value of old UTXOs)
+
+**For SOPRSth (Short-Term Holders):**
+
+* Only includes UTXOs that were created X days/years ago or less
+* Calculation: (Sum of spent value of recent UTXOs) / (Sum of creation value of recent UTXOs)
+
+**Weighted vs Unweighted Versions:**
+
+Like the traditional SOPR, these metrics come in two variants:
+
+1. **Weighted (SOPR):** Value-weighted by the size of each output
+2. **Unweighted (SOPROut):** Each output is treated equally regardless of size
+
+The unweighted versions are denoted with "Out" suffix (e.g., SOPRLthOut155d, SOPRSthOut155d).
+
+Both versions oscillate around 1:
+
+* Values > 1 indicate holders are realizing gains on average
+* Values < 1 indicate holders are realizing losses on average
+* Values = 1 indicate break-even realization
+
+### Example
+
+Using data from October 15, 2023, with a 155-day threshold:
+
+* **SOPR (All):** 1.0019 - Overall market slightly profitable
+* **SOPR Long-Term Holders (155d):** 1.0953 - Long-term holders realizing \~9.5% profits
+* **SOPR Short-Term Holders (155d):** 1.0084 - Short-term holders barely profitable at \~0.8%
+* **SOPR Out (All):** 0.9732 - Unweighted average shows slight losses
+* **SOPR Out Long-Term Holders (155d):** 0.9133 - Most long-term holder transactions at loss
+* **SOPR Out Short-Term Holders (155d):** 1.0064 - Most short-term holder transactions slightly profitable
+
+This example demonstrates how the weighted vs unweighted versions can tell different stories. While large long-term holders were realizing substantial profits (SOPRLth155d = 1.0953), the majority of long-term holder transactions by count were actually at a loss (SOPRLthOut155d = 0.9133), suggesting that smaller holders were selling at losses while larger holders captured gains.
+
+### Interpretation
+
+Long-Term and Short-Term Holder SOPR metrics provide nuanced insights into market behavior:
+
+**Long-Term Holder SOPR Patterns:**
+
+* High values often coincide with market tops, as committed holders finally take profits
+* Sharp increases can signal capitulation events where even long-term holders sell
+* Sustained values above 1.5-2.0 historically indicate overheated market conditions
+* Values consistently below 1 may suggest strong conviction among long-term holders to hold despite losses
+
+**Short-Term Holder SOPR Patterns:**
+
+* Generally more range-bound and closer to 1 due to frequent trading
+* Quick oscillations around 1 reflect active trading and price discovery
+* Extreme values (very high or low) are less common but can signal intense short-term sentiment
+* Divergences with long-term holder SOPR can indicate shifts in market regime
+
+**Time Threshold Selection:**
+
+* **30d/90d:** Captures very short-term vs medium-term holder behavior
+* **155d:** Approximately one market cycle, widely used benchmark
+* **1y:** Separates annual traders from multi-year investors
+* **5y:** Distinguishes true long-term hodlers from shorter-term positions
+
+**Analytical Applications:**
+
+* **Market Timing:** Extreme divergences between LTH and STH SOPR can signal regime changes
+* **Sentiment Analysis:** LTH SOPR spikes may indicate distribution phases
+* **Risk Management:** High STH SOPR with low LTH SOPR suggests short-term speculation
+* **Cycle Analysis:** Compare across different time thresholds to understand holder behavior evolution
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/SOPRLth30d" %}
 
 ## API Endpoints
 
