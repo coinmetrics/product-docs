@@ -32,6 +32,8 @@
     * [How To Export Data](tutorials-and-examples/user-guides/exporting-data.md)
     * [How To Migrate From Catalog to Catalog V2 and Reference Data](tutorials-and-examples/user-guides/how-to-migrate-from-catalog-v1-to-catalog-v2.md)
     * [How To Use the Coin Metrics API Efficiently](tutorials-and-examples/user-guides/how-to-use-the-coin-metrics-api-efficiently-http.md)
+    * [How to Troubleshoot Common Errors](tutorials-and-examples/user-guides/how-to-troubleshoot-common-errors.md)
+    * [How To Use Websockets](tutorials-and-examples/user-guides/how-to-use-websockets.md)
   * [Dashboards](tutorials-and-examples/dashboard-examples.md)
   * [Video Tutorials & Content](tutorials-and-examples/video-tutorials-and-content.md)
 * [Packages](packages/README.md)
