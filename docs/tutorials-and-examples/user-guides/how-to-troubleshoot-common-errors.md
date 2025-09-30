@@ -91,7 +91,7 @@ print(f"SSL Certs Location: {SSL_CERT_LOCATION}")
 client = CoinMetricsClient(verify_ssl_certs=SSL_CERT_LOCATION)
 ```
 
-#### 400 Bad Parameter
+### 400 Bad Parameter
 
 This error occurs when an invalid parameter value is passed, e.g. `client.get_asset_metrics(assets='bad_asset_name')` yields `"Bad parameter 'assets'. Value 'bad_asset_name' is not supported."`. There are two ways to fix this:
 
