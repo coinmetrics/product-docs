@@ -41,22 +41,7 @@ Responses can be returned in the following formats, in order of how fast they're
 * A list (`DataCollection.to_list()`)
 * A dataframe (`DataCollection.to_dataframe()`)
 
-### Wildcards
 
-Wildcards (`*`) allow you to query several entities, such as assets, exchanges, and markets, as one parameter. For example:
-
-```python
-# Get prices for all assets
-asset_metrics = client.get_asset_metrics(assets='*', metrics='PriceUSD', limit_per_asset=1)
-
-# Get btc-usd candles for all exchanges
-market_candles_btc_usd = client.get_market_candles(markets=['*-btc-usd-spot'], limit_per_market=10)
-
-# Get all spot exchanges and pairs
-exchanges_reference = client.reference_data_exchanges().to_list()
-
-market_candles_spot = client.get_market_candles(markets=[f'{exchange}-*-spot' for exchange['exchange'] in exchanges_reference], limit_per_market=10)
-```
 
 ### Parallelization
 
@@ -80,7 +65,7 @@ data = client.get_asset_metrics(
 ).parallel(['assets', 'metrics']).to_list()
 ```
 
-#### By Time or (Block) Height Increment
+**By Time or (Block) Height Increment**
 
 ```python
 # Parallelize by time increment
@@ -116,6 +101,49 @@ data = client.get_asset_metrics(
 ).parallel(height_increment=1000)
 ```
 
+Note, it is **much faster** to get data the available entities by **first** using the catalog-v2 or reference-data endpoints and then passing that list to the client method as a parallelized call over using a wildcard. This method also bypasses the 414 error code [#id-414-uri-too-long](how-to-troubleshoot-common-errors.md#id-414-uri-too-long "mention").
+
+```python
+assets = [
+    asset['asset'] 
+    for asset in client.catalog_asset_metrics_v2(
+    metrics="ReferenceRateUSD")
+]
+df_assets = client.get_asset_metrics(
+    assets=assets,
+    metrics=['ReferenceRateUSD'],
+    limit_per_asset=1
+).parallel().to_dataframe()
+
+markets = [
+    market['market']
+    for market in client.reference_data_markets(
+        base='btc', quote='usd', type='spot'
+    )
+]
+df_markets = client.get_market_trades(
+    markets=markets,
+    limit_per_market=1
+).parallel().to_dataframe()
+```
+
+### Wildcards
+
+Wildcards (`*`) allow you to query several entities, such as assets, exchanges, and markets, as one parameter. For example:
+
+```python
+# Get prices for all assets
+asset_metrics = client.get_asset_metrics(assets='*', metrics='PriceUSD', limit_per_asset=1)
+
+# Get btc-usd candles for all exchanges
+market_candles_btc_usd = client.get_market_candles(markets=['*-btc-usd-spot'], limit_per_market=10)
+
+# Get all spot exchanges and pairs
+exchanges_reference = client.reference_data_exchanges().to_list()
+
+market_candles_spot = client.get_market_candles(markets=[f'{exchange}-*-spot' for exchange['exchange'] in exchanges_reference], limit_per_market=10)
+```
+
 #### Persisting Large Data Requests
 
 Given that parallelization allows you to request large amounts of data, the methods for non-parallelized data may run slower. The `export_to_json_files()` and `export_to_csv_files()` allow you to save parallelized data in an organized way in your local directory.
@@ -132,4 +160,4 @@ data = client.get_asset_metrics(
 ).parallel(height_increment=1000).export_to_json_files()
 ```
 
-For more information, see: the [Python API Client documentation](https://coinmetrics.github.io/api-client-python/site/index.html#parallel-execution-for-faster-data-export).
+For more information, see the guide for How to Export Data using the Python API Client:[#python-api-client](exporting-data.md#python-api-client "mention") .
