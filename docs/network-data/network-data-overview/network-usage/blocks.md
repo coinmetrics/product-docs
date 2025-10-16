@@ -12,6 +12,7 @@
 * [Uncle Reward](blocks.md#blkuncrwd)
 * [Mean Block Weight](blocks.md#blkwghtmean)
 * [Sum Block Weight](blocks.md#blkwghttot)
+* [MEV Block Cnt](blocks.md#blkwghttot-1)
 
 ## Block Cnt <a href="#blkcnt" id="blkcnt"></a>
 
@@ -469,6 +470,34 @@ Block weight is useful to determine how used a chain is.
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/BlkWghtTot" %}
 
+## MEV Block Count <a href="#blkwghttot" id="blkwghttot"></a>
+
+### Definition
+
+The sum count of MEV-related blocks created that interval that were included in the main (base) chain.
+
+### Dictionary
+
+| Name            | MetricID  | Unit   | Interval |
+| --------------- | --------- | ------ | -------- |
+| MEV Block Count | MevBlkCnt | Blocks | 1 day    |
+
+### Details
+
+* Only mainchain (non-orphaned/uncles) blocks are counted.
+* For chains that use median time, the day is defined using it, otherwise, it’s defined using the block’s timestamps.
+
+### Asset-Specific Details
+
+* This metric is only available for Solana.
+* For Solana, the entire block is considered MEV when the leader of the slot is running the `Jito-Solana` client.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/MevBlkCnt" %}
+
+
+
 ## API Endpoints
 
 Block metrics can be accessed using these endpoints:
@@ -477,9 +506,9 @@ Block metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `Blk*` in the `metrics` parameter.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}

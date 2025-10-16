@@ -8,9 +8,10 @@
 * [Active Addresses (Sent) (AdrActSentCnt)](active-addresses.md#adractsent)
 * [Active Addresses (Received) (AdrActRecCnt)](active-addresses.md#adractrec)
 * [Active Smart Contract Addresses (AdrActContCnt)](active-addresses.md#adractcont)
-* Active Blob Addresses (AdrActBlobCnt)
-* Active Blob Addresses (Sent) (AdrActBlobSendCnt)
-* Active Blob Addresses (Received) (AdrActBlobRecCnt)
+* [Active Blob Addresses (AdrActBlobCnt)](active-addresses.md#adractcont-1)
+* [Active Blob Addresses (Sent) (AdrActBlobSendCnt)](active-addresses.md#adractcont-2)
+* [Active Blob Addresses (Received) (AdrActBlobRecCnt)](active-addresses.md#adractcont-3)
+* [MEV Active Address Count (MevAdrActCnt)](active-addresses.md#adractcont-4)
 
 ### **Interpretation**
 
@@ -192,6 +193,28 @@ The sum count of unique addresses that were active receiving blob transactions i
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/AdrActBlobRecCnt" %}
 
+## MEV Active Address Count <a href="#adractcont" id="adractcont"></a>
+
+<table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>MEV Active Address Count</td><td>MevAdrActCnt</td><td>Addresses</td><td>1 day</td></tr></tbody></table>
+
+### Definition
+
+The sum count of unique addresses that were active in a MEV-enabled transaction in the network. An MEV-enabled transaction is one that paid an MEV tip to miners/validators in exchange for specific block ordering. Individual addresses are not double-counted if previously active.
+
+### Details
+
+* Ledger changes can include activities such as Decentralized Finance (DeFi) trades, DAO votes, token transfers, as well as any other activity facilitated by a smart contract.
+* All participants of a ledger change activity are included.
+* If an address was active multiple times during the aggregation interval (e.g., 1 day), it is counted only once.
+
+### **Asset-Specific Details**
+
+* For Solana, slots proposed by validators running the Jito-Solana client are considered as MEV slots. Further, in Solana it is possible to identify which transactions paid MEV tip in addition to simply identifying the slot. For this metric each individual transaction is evaluated to determine which are MEV-enabled and which aren't.
+
+### Coverage
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/MevAdrActCnt" %}
+
 ## API Endpoints
 
 Active Addresses can be accessed using these endpoints:
@@ -200,9 +223,9 @@ Active Addresses can be accessed using these endpoints:
 
 and by passing in the metric ID's `AdrAct30dCnt`, `AdrAct7dCnt`, etc. in the `metrics` parameter.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}

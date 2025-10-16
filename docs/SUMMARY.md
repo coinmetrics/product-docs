@@ -86,6 +86,8 @@
     * [Withdrawals](network-data/network-data-overview/exchange-traded-fund/withdrawals.md)
   * [Fees and Revenue](network-data/network-data-overview/fees-and-revenue/README.md)
     * [Fees](network-data/network-data-overview/fees-and-revenue/fees.md)
+    * [Blob Fees](network-data/network-data-overview/fees-and-revenue/blob-fees.md)
+    * [MEV Fees](network-data/network-data-overview/fees-and-revenue/mev-fees.md)
     * [Revenue](network-data/network-data-overview/fees-and-revenue/revenue.md)
   * [Market](network-data/network-data-overview/market/README.md)
     * [Market Capitalization](network-data/network-data-overview/market/market-capitalization.md)
