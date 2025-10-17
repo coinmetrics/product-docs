@@ -1,5 +1,19 @@
 # Network Data FAQs
 
+### How do I see full Stablecoin Universe Market Cap?
+
+Coin Metrics provides several metrics for determining market capitalization.
+
+**Current Market Cap (CapMrktCurUSD):** This metric is available at both the _asset\_network (USDC\_ETH)_ and _aggregate asset (USDC)_ levels. It is based on Coin Metrics Reference Rates and the _Supply Current_ (SplyCur) metric. These values represent the total market cap of all tokens on a network at the specified level.
+
+To view the _aggregated stablecoin market cap_ for a specific asset, use the _asset_ level for this metric. (ex. USDC.CapMrktCurUSD)
+
+**Estimated Market Cap (CapMrktEstUSD):** This metric is available at the _asset_ level and is calculated using Coin Metrics Reference Rates combined with a self-reported supply figure from the project. Supply data is sourced via CoinGecko at the _asset_ level
+
+For Comparison of  **Stablecoin Market Cap** and **Estimated Market Cap** Universe please see this [Chart](https://charts.coinmetrics.io/formulas?id=11271). For the universe included in the aggregation see the Formula builder by clicking <img src="../.gitbook/assets/Screenshot 2025-10-17 at 7.43.25 PM.png" alt="" data-size="line"> on the right side.&#x20;
+
+https://charts.coinmetrics.io/formulas?id=11271
+
 ### **Why don’t you have Coinbase deposits/withdrawals (on-chain flows) supply data?**
 
 We don't have on-chain metrics for Coinbase addresses because they don't reuse addresses. At this time, no data providers can get an accurate measurement on their on-chain activity.
