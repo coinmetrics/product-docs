@@ -1,6 +1,6 @@
 # Examining Orderbook Depth
 
-![](https://5264302.fs1.hubspotusercontent-na1.net/hubfs/5264302/Demo%20Asset%20Resources/CM-Demo-orderbook\_depth.png)
+![](https://5264302.fs1.hubspotusercontent-na1.net/hubfs/5264302/Demo%20Asset%20Resources/CM-Demo-orderbook_depth.png)
 
 Exchange order book data is one of the most foundational data types in the crypto asset industry— arguably, even more foundational than trades data, as two orders must be matched for a trade to occur. Order book data is useful for various entities, including market makers, systematic or quantitative traders, and funds studying trade execution patterns. The Coin Metrics **Market Data Feed** offering includes various API endpoints that allow users to retrieve order book snapshots and updates across a collection of top crypto exchanges.
 
@@ -14,7 +14,7 @@ To understand the data that Coin Metrics offers, feel free to peruse the resourc
 
 * The [Coin Metrics API v4](https://docs.coinmetrics.io/api/v4) website contains the full set of endpoints and data offered by Coin Metrics.
 * The [Coin Metrics Product Documentation](https://docs.coinmetrics.io/info) gives detailed, conceptual explanations of the data that Coin Metrics offers.
-* The [API Spec](https://coinmetrics.github.io/api-client-python/site/api\_client.html) contains a full list of functions.
+* The [API Spec](https://coinmetrics.github.io/api-client-python/site/api_client.html) contains a full list of functions.
 
 ### File Download
 
@@ -23,8 +23,6 @@ Download the entire notebook as either a jupyter notebook to run yourself or as 
 {% file src="../../.gitbook/assets/MDF_orderbook_depth.ipynb" %}
 
 {% file src="../../.gitbook/assets/MDF_orderbook_depth.pdf" %}
-
-
 
 ### Notebook Setup
 
@@ -156,11 +154,12 @@ def get_depth(df_orderbook,within=2):
         bids["size_usd"] = bids["size"] * bids["price"]
         bids["cumulative_vol_usd"] = bids.size_usd.cumsum()
         # within depth limit - default 2%
-        asks = asks[asks.percent_from_best <= within]
-        bids = bids[bids.percent_from_best <= within]
+        asks = asks[asks.percent_from_best <= within].copy()
+        bids = bids[bids.percent_from_best <= within].copy()
         # group into bins of 0.01% (1 bps)
-        bids['grouping'] = pd.cut(bids.percent_from_best,bins=20,include_lowest=True,precision=1)
-        asks['grouping'] = pd.cut(asks.percent_from_best,bins=20,include_lowest=True,precision=1)
+        bins = np.arange(0, 2.001, 0.10)
+        bids['grouping'] = pd.cut(bids.percent_from_best, bins=bins, precision=1, include_lowest=True)
+        asks['grouping'] = pd.cut(asks.percent_from_best, bins=bins, precision=1, include_lowest=True)
         # collapse
         bids = bids.groupby('grouping').agg({"size":[sum],"size_usd":[sum]})#.cumsum()
         bids.index = [x/100 for x in range(1,201,10)]
