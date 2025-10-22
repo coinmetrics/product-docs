@@ -35,12 +35,12 @@ For more details on asset coverage for ETF supply or flows metrics, see the indi
 
 ## Metrics
 
-[**Deposits**](../exchange/deposits.md)
+[**Deposits**](deposits.md)
 
-[**Exchange Supply**](../exchange/exchange-supply.md)
+[**Exchange Supply**](exchange-traded-fund-supply.md)
 
-[**Net Flows**](../exchange/net-flows.md)
+[**Net Flows**](net-flows.md)
 
-[**Transaction Count**](../exchange/transaction-count.md)
+[**Transaction Count**](transaction-count.md)
 
-[**Withdrawals**](../exchange/withdrawals.md)
+[**Withdrawals**](withdrawals.md)
