@@ -30,9 +30,9 @@ For more information about our quotes data, please reference our [market order b
 
 Market quotes can be accessed using the `timeseries/market-quotes` and `timeseries-stream/market-quotes` for markets.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-quotes" method="get" %}
+{% openapi src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-quotes" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}
@@ -168,9 +168,9 @@ $$
 
 Pair quotes can be accessed using the `timeseries-stream/pair-quotes` endpoints.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries-stream/pair-quotes" method="get" %}
+{% openapi src="../../.gitbook/assets/openapi.yaml" path="/timeseries-stream/pair-quotes" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 ### Example
 
@@ -202,15 +202,15 @@ Pair quotes can be accessed using the `timeseries-stream/pair-quotes` endpoints.
 
 Our `/timeseries-stream/asset-quotes` endpoint supports multiple aggregation methods to aggregate the quotes data from individual constituent markets for a given asset. The different aggregation methods can be specified using the `aggregation_method` parameter.
 
-Currently, only the [`aggregated_spread`](quotes.md#agg\_spread) method is implemented, and alternative methods will be implemented in the future.
+Currently, only the [`aggregated_spread`](quotes.md#agg_spread) method is implemented, and alternative methods will be implemented in the future.
 
 ### API Endpoints
 
 Asset quotes can be accessed using the `/timeseries-stream/asset-quotes` endpoint.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries-stream/asset-quotes" method="get" %}
+{% openapi src="../../.gitbook/assets/openapi.yaml" path="/timeseries-stream/asset-quotes" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 ### Example
 
@@ -258,4 +258,6 @@ Our websocket API will send a new message once every 250 milliseconds.
 
 ### Availability
 
-The asset quotes are currently available for the following assets: `btc`, `eth`, `ltc`, `xrp`, `bnb`, `usdt`, `trx` `link`, `doge`, `usdc`, `ada`, `atom`, `matic`, `dai`, `sol`, `dot`, `avax`, `uni`.
+The asset quotes are available for any asset listed on the Coin Metrics set of trusted exchanges where the quote currency can be converted to U.S. dollars. The coverage consists of over 2,000 assets.
+
+The pair quotes similarly available for any pair listed on the Coin Metrics set of trusted exchanges. The coverage consists of over 4,000 pairs.
