@@ -71,7 +71,7 @@ data = client.get_asset_metrics(
 # Parallelize by time increment
 
 from datetime import timedelta
-from dateutil.relative_delta import relativedelta
+from dateutil.relativedelta import relativedelta
 
 # Parallelize request in 1 month chunks
 data = client.get_asset_metrics(
