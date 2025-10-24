@@ -49,7 +49,7 @@ $$
 The reported option notional volume metrics `open_interest_reported_option_*_notional_*`  are defined as:
 
 $$
-\mathrm{OpenInterestReportedOptionMarketValue}(T)
+\mathrm{OpenInterestReportedOptionNotional}(T)
 \;=\;
 Q(T)
 \;\times\;
