@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Welcome to Coin Metrics](README.md)
-* [Product Overview](readme-1.md)
+* [Product Overview](product-overview.md)
 * [Getting Started with Coin Metrics Data](getting-started.md)
 * [Tutorials and Examples](tutorials-and-examples/README.md)
   * [Tutorials](tutorials-and-examples/tutorials/README.md)
