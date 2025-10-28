@@ -9,6 +9,7 @@
 * [Capitalization, market, free float](market-capitalization.md#e)
 * [Capitalization, MVRV, free float](market-capitalization.md#g)
 * [Capitalization, realized, USD](market-capitalization.md#h)
+* Estimated Market Cap Dominance
 
 ## Active Market Cap (1yr) (USD) <a href="#a" id="a"></a>
 
@@ -341,6 +342,25 @@ Realized capitalization (sometimes referred to as Realized Value) is one of Coin
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/CapRealUSD" %}
+
+## Estimated Market Cap Dominance
+
+### Definition
+
+The relative share of the total crypto market cap for the asset in question, measured in percent.
+
+| Name                           | MetricID         | Unit    | Interval |
+| ------------------------------ | ---------------- | ------- | -------- |
+| Estimated Market Cap Dominance | CapMrktEstDomPct | Percent | 1 day    |
+
+### Details
+
+* Measures the relative share of a single assets market cap compared to the total crypto market cap as covered by Coin Metrics.
+* Calculated as `ASSET.CapMrktEstUSD/SUM(CapMrktEstUSD)*100`
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/CapMrktEstDomPct" %}
 
 ### API Endpoints
 

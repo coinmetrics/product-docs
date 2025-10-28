@@ -256,13 +256,19 @@ The sum count of payments (transfers) above or below X worth of a cryptoasset at
 | Payments Above $10M Cnt    | TxTfrValAbUSD10MCnt    | Transfers | 1 day    |
 | Payments Above $1M Cnt     | TxTfrValAbUSD1MCnt     | Transfers | 1 day    |
 | Payments Above $100k Cnt   | TxTfrValAbUSD100kCnt   | Transfers | 1 day    |
-| Xfers Below $10,000, Count | TxTfrValBelUSD10000Cnt | Addresses | 1 day    |
-| Xfers Below $1,000, Count  | TxTfrValBelUSD1000Cnt  | Addresses | 1 day    |
-| Xfers Below $500, Count    | TxTfrValBelUSD500Cnt   | Addresses | 1 day    |
-| Xfers Below $100, Count    | TxTfrValBelUSD100Cnt   | Addresses | 1 day    |
+| Xfers Below $10,000, Count | TxTfrValBelUSD10000Cnt | Transfers | 1 day    |
+| Xfers Below $1,000, Count  | TxTfrValBelUSD1000Cnt  | Transfers | 1 day    |
+| Xfers Below $500, Count    | TxTfrValBelUSD500Cnt   | Transfers | 1 day    |
+| Xfers Below $100, Count    | TxTfrValBelUSD100Cnt   | Transfers | 1 day    |
+| Xfers Below $50, Count     | TxTfrValBelUSD50Cnt    | Transfers | 1 day    |
+| Xfers Below $20, Count     | TxTfrValBelUSD20Cnt    | Transfers | 1 day    |
+| Xfers Below $10, Count     | TxTfrValBelUSD10Cnt    | Transfers | 1 day    |
+| Xfers Below $5, Count      | TxTfrValBelUSD5Cnt     | Transfers | 1 day    |
 
 **Details**
 
+* For these metrics, the bands are inclusive of one another. This means that, for example, all transactions included in the TxTfrValBelUSD5Cnt are also included in the TxTfrValBelUSD10Cnt. To get the value for a specific band exclusive of the lower/higher bands, these need to be excluded.
+  * If you want to only get transfers between $20-$50 you would need to calculate this as TxTfrValBelUSD50Cnt - TxTfrValBelUSD20Cnt
 * This metrics shows the incidence (count) of payments above/below each of the supported thresholds.
 * Payments are defined as transfers (xfers) and represent the individual asset transfers _within_ a transaction.
 * A transaction may be a collection of transfers which, specially in UTXO-based blockchains, may represent several P2P payments.
@@ -277,6 +283,7 @@ The sum count of payments (transfers) above or below X worth of a cryptoasset at
 
 * This thresholds in this metric can be used to better understand the type of users interacting with a cryptoasset network.
 * For example, if a network is predominantly being used for retail transactions, one would expect payments under $100 to occur more frequently than payments above $10,000.
+* If a network is predominantly being used for retail payments use cases, one would expect transfers under $20 or $10 to occur more frequently than payments above $1000
 * Similarly, it can show the predominance of different types of investors, such the balance between retail and institutional investors within a network.
 
 **Availability for Assets**
@@ -291,10 +298,12 @@ TxTfrValAb/BelUSDXCnt Coverage
 
 The sum of all payments (transfers) that have occurred in the measuring interval above or below X worth of a cryptoasset, displayed in native units (e.g. BTC).
 
-<table data-header-hidden><thead><tr><th width="278">Name</th><th>MetricID</th><th width="135.765625">Unit</th><th width="111.84765625">Interval</th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Unit</td><td>Interval</td></tr><tr><td>Sum Value of Payments Above $100M (native units)</td><td>TxTfrValAbUSD100MNtv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $10M (native units)</td><td>TxTfrValAbUSD10MNtv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $1M (native units)</td><td>TxTfrValAbUSD1MNtv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $100k (native units)</td><td>TxTfrValAbUSD100kNtv</td><td>Ntv</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $100M (USD)</td><td>TxTfrValAbUSD100MUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $10M (USD)</td><td>TxTfrValAbUSD10MUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $1M (USD)</td><td>TxTfrValAbUSD1MUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $100k (USD)</td><td>TxTfrValAbUSD100kUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $10k (native units)</td><td>TxTfrValBelUSD10kNtv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $1k (native units)</td><td>TxTfrValBelUSD1kNtv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $500 (native units)</td><td>TxTfrValBelUSD500Ntv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $100 (native units)</td><td>TxTfrValBelUSD100Ntv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $10k (USD)</td><td>TxTfrValBelUSD10kUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $1k (USD)</td><td>TxTfrValBelUSD1kUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $500 (USD)</td><td>TxTfrValBelUSD500USD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $100 (USD)</td><td>TxTfrValBelUSD100USD</td><td>USD</td><td>1 day</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="278">Name</th><th>MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Name</td><td>MetricID</td><td>Unit</td><td>Interval</td></tr><tr><td>Sum Value of Payments Above $100M (native units)</td><td>TxTfrValAbUSD100MNtv</td><td>Ntv</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $10M (native units)</td><td>TxTfrValAbUSD10MNtv</td><td>Ntv</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $1M (native units)</td><td>TxTfrValAbUSD1MNtv</td><td>Ntv</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $100k (native units)</td><td>TxTfrValAbUSD100kNtv</td><td>Ntv</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $100M (USD)</td><td>TxTfrValAbUSD100MUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $10M (USD)</td><td>TxTfrValAbUSD10MUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $1M (USD)</td><td>TxTfrValAbUSD1MUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Above $100k (USD)</td><td>TxTfrValAbUSD100kUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $10k (native units)</td><td>TxTfrValBelUSD10000Ntv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $1k (native units)</td><td>TxTfrValBelUSD1000Ntv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $500 (native units)</td><td>TxTfrValBelUSD500Ntv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $100 (native units)</td><td>TxTfrValBelUSD100Ntv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $50 (native units)</td><td>TxTfrValBelUSD50Ntv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $20 (native units)</td><td>TxTfrValBelUSD20Ntv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $10 (native units)</td><td>TxTfrValBelUSD10Ntv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $5 (native units)</td><td>TxTfrValBelUSD5Ntv</td><td>Native Units</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $10k (USD)</td><td>TxTfrValBelUSD10000USD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $1k (USD)</td><td>TxTfrValBelUSD1000USD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $500 (USD)</td><td>TxTfrValBelUSD500USD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $100 (USD)</td><td>TxTfrValBelUSD100USD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $50 (USD)</td><td>TxTfrValBelUSD50USD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $20 (USD)</td><td>TxTfrValBelUSD20USD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $10 (USD)</td><td>TxTfrValBelUSD10USD</td><td>USD</td><td>1 day</td></tr><tr><td>Sum Value of Payments Below $5 (USD)</td><td>TxTfrValBelUSD5USD</td><td>USD</td><td>1 day</td></tr></tbody></table>
 
 **Details**
 
+* For these metrics, the bands are inclusive of one another. This means that, for example, all transactions included in the TxTfrValBelUSD5USD are also included in the TxTfrValBelUSD10USD. To get the value for a specific band exclusive of the lower/higher bands, these need to be excluded.
+  * If you want to only get transfers between $20-$50 you would need to calculate this as TxTfrValBelUSD50USD - TxTfrValBelUSD20USD
 * This metrics shows the sum of payments above/below each of the supported thresholds.
 * Payments are defined as transfers (xfers) and represent the individual asset transfers _within_ a transaction.&#x20;
 * A transaction may be a collection of transfers which, specially in UTXO-based blockchains, may represent several P2P payments.&#x20;
