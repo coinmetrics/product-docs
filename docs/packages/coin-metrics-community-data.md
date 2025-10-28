@@ -6,15 +6,11 @@ Available to the community under the [Creative Commons](https://creativecommons.
 
 ## Community Data Offering
 
-**Network Data Community** ([Data Downloads, ](https://coinmetrics.io/community-network-data/)Community [API](https://docs.coinmetrics.io/access-our-data/api), [Data Visualization](https://docs.coinmetrics.io/charting-tools/data-visualization)) is a subset of our Network Data Pro data available for free for community use.&#x20;
+**Coin Metrics Community Metrics**(Community [API](https://docs.coinmetrics.io/access-our-data/api), [Data Visualization](https://docs.coinmetrics.io/charting-tools/data-visualization)) is a subset of our Network Data Pro and Market Data Pro data available for free for community use.
 
 **Atlas Community** (Community [API](https://docs.coinmetrics.io/api/v4/#tag/List-of-blockchain-entities), [Atlas Explorer](https://atlas.coinmetrics.io/)) is a limited history access to our Atlas data set for free use by the community. This is available for limited assets and 30 days of history.
 
-**Market Data Community** (Community [API](https://docs.coinmetrics.io/access-our-data/api), [Pro Charts](../data-visualization/cmpro/)) is a subset of our Market Data Feed available for free for community use. The limitations of our community data are described in each data concept listed in the [**Market Data**](../market-data/market-data-overview/) section of this Encyclopedia.
-
-**Reference Rates Community** (Community [API](https://docs.coinmetrics.io/access-our-data/api), [Data Visualization](https://docs.coinmetrics.io/charting-tools/data-visualization), [Pro Charts](https://docs.coinmetrics.io/charting-tools/cmpro)) provides access to all of our reference rates with a limited amount of history for our more granular resolutions.&#x20;
-
-**CMBI Community** (Community [API](https://docs.coinmetrics.io/access-our-data/api), [Data Visualization](https://docs.coinmetrics.io/charting-tools/data-visualization), [Pro Charts](https://docs.coinmetrics.io/charting-tools/cmpro)) provides access to all of our index levels with a limited amount of history for our more granular resolutions. A further description of the limitations of this data is listed in the data concepts in the **Indexes** section of this Encyclopedia.
+**Reference Rates Community** (Community[ API](https://docs.coinmetrics.io/access-our-data/api),[ Data Visualization](https://docs.coinmetrics.io/charting-tools/data-visualization),[ Pro Charts](https://docs.coinmetrics.io/charting-tools/cmpro)) provides access to all of our reference rates with a limited amount of history for our more granular resolutions. This is available and limited to the last 7 data points.
 
 For more info on our Community terms and offerings see our [Labs](https://coinmetrics.io/cm-labs/) page.
 
