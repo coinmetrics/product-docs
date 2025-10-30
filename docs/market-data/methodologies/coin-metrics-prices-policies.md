@@ -68,6 +68,7 @@ Coin Metrics maintains records and has processes in place to comply with request
 
 ## Change Log
 
-1. **October 22, 2024:** Annual review by Coin Metrics Operating Committee. No changes to policy.
-2. **Version 1.1 on November 8, 2023:** Changes to Coin Metrics Prices Policies to clarify distinctions between CMBI Single Asset Indexes and CM Prices.
-3. **Version 1.0 on March 17, 2023**: Initial publication of the Coin Metrics Prices Policies. Previously, the contents of this document were contained within the Hourly Reference Rate Methodology and Real-Time Reference Rates Methodology documents.
+1. **October 21, 2025:** Annual review by Coin Metrics Operating Committee. No changes to policy.
+2. **October 22, 2024:** Annual review by Coin Metrics Operating Committee. No changes to policy.
+3. **Version 1.1 on November 8, 2023:** Changes to Coin Metrics Prices Policies to clarify distinctions between CMBI Single Asset Indexes and CM Prices.
+4. **Version 1.0 on March 17, 2023**: Initial publication of the Coin Metrics Prices Policies. Previously, the contents of this document were contained within the Hourly Reference Rate Methodology and Real-Time Reference Rates Methodology documents.
