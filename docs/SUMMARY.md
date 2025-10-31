@@ -313,7 +313,7 @@
 * [Methodologies](reference-data/methodologies/README.md)
   * [Guiding Principles and Methodology for datonomy](reference-data/methodologies/guiding-principles-and-methodology-for-datonomy.md)
 
-## BITTENSOR
+## Bittensor
 
 * [Precog Methodology](bittensor/precog-methodology/README.md)
   * [Point Forecast Evaluation](bittensor/precog-methodology/point-forecast-evaluation.md)
