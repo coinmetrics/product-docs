@@ -709,9 +709,7 @@ redirects:
   market-data-timeseries/market-orderbooks: market-data/market-data-overview/orderbooks/market-order-book.md
   market-data-timeseries/market-quotes: market-data/market-data-overview/quotes/quotes.md#market
   market-data-timeseries/trades: market-data/market-data-overview/trades/trades.md
-  market-data/faqs/cm-prices-faqs: market-data/faqs/cm-prices-faqs.md
   market-data/faqs/market-data-faqs: market-data/faqs/market-data-faqs.md
-  market-data/faqs/trusted-exchange-framework-faqs: market-data/faqs/trusted-exchange-framework-faqs.md
   market-metrics/liquidations/liquidations_reported_future_buy_units_1d: market-data/market-data-overview/liquidations/liquidation-metrics.md
   market-metrics/liquidations/liquidations_reported_future_buy_units_1h: market-data/market-data-overview/liquidations/liquidation-metrics.md
   market-metrics/liquidations/liquidations_reported_future_buy_units_5m: market-data/market-data-overview/liquidations/liquidation-metrics.md
