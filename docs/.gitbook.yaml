@@ -1,4 +1,11 @@
 redirects:
+  market-data/faqs: resources/faqs.md
+  market-data/faqs/cm-prices-faqs: resources/faqs.md
+  market-data/faqs/trusted-exchange-framework-faqs: resources/faqs.md
+  network-data/network-data-faqs: resources/faqs.md
+  network-data/defi-data-overview/defi-faqs: resources/faqs.md
+  index-data/index-faqs: resources/faqs.md
+  reference-data/datonomy-overview/datonomy-faqs: resources/faqs.md
   api-data-types/asset-metrics-overview: explainers/asset-metrics-overview.md
   api-data-types: explainers/api-data-types.md
   asset-metrics/addresses/adract30dcnt: network-data/network-data-overview/addresses/active-addresses.md
@@ -274,8 +281,8 @@ redirects:
   asset-metrics/market/futures_cumulative_funding_rate_usd_margin_7d: market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate.md
   asset-metrics/market/pricebtc: network-data/network-data-overview/market/price.md
   asset-metrics/market/priceusd: network-data/network-data-overview/market/price.md
-  asset-metrics/market/principal_market_price_usd: market-data/market-data-overview/prices/principal\_market\_price\_usd.md
-  asset-metrics/market/principal_market_usd: market-data/market-data-overview/prices/principal\_market\_price\_usd.md
+  asset-metrics/market/principal_market_price_usd: market-data/market-data-overview/prices/principal_market_price_usd.md
+  asset-metrics/market/principal_market_usd: market-data/market-data-overview/prices/principal_market_price_usd.md
   asset-metrics/market/referencerate: market-data/market-data-overview/reference_rate.md
   asset-metrics/market/referenceratebtc: market-data/market-data-overview/reference_rate.md
   asset-metrics/market/referenceratechicago0315pm: market-data/market-data-overview/reference_rate.md
@@ -640,7 +647,7 @@ redirects:
   charting-tools/data-visualization/dashboard: data-visualization/dashboard/README.md
   charting-tools/data-visualization/formula-builder: data-visualization/charting-tool/formula-builder.md
   charting-tools/data-visualization/trouble-shooting: data-visualization/charting-tool/trouble-shooting.md
-  datonomy-faqs: reference-data/dataonomy-overview/datonomy-faqs.md
+  datonomy-faqs: reference-data/datonomy-overview/datonomy-faqs.md
   defi-balance-sheets/defi-balance-sheets-overview: network-data/defi-data-overview/defi-balance-sheets-overview.md
   defi-data/defi-data-overview: network-data/defi/defi-data-overview.md
   defi-data/defi-faqs: network-data/defi/defi-faqs.md
@@ -689,7 +696,7 @@ redirects:
   institution-metrics/grayscale/market-price: market-data/market-data-overview/institution-metrics/grayscale/market-price.md
   institution-metrics/grayscale/net-asset-value: market-data/market-data-overview/institution-metrics/grayscale/net-asset-value.md
   institution-metrics/grayscale/shares-outstanding: market-data/market-data-overview/institution-metrics/grayscale/shares-outstanding.md
-  institution-metrics/grayscale/total-assets.md: market-data/market-data-overview/institution-metrics/grayscale/total-assets.md
+  institution-metrics/grayscale/total-assets: market-data/market-data-overview/institution-metrics/grayscale/total-assets.md
   institution-metrics/grayscale: market-data/market-data-overview/institution-metrics/grayscale/README.md
   institution-metrics: market-data/market-data-overview/institution-metrics/
   market-data-timeseries/futures-funding-rates: market-data/market-data-overview/funding-rates/futures-funding-rates.md
@@ -702,9 +709,7 @@ redirects:
   market-data-timeseries/market-orderbooks: market-data/market-data-overview/orderbooks/market-order-book.md
   market-data-timeseries/market-quotes: market-data/market-data-overview/quotes/quotes.md#market
   market-data-timeseries/trades: market-data/market-data-overview/trades/trades.md
-  market-data/faqs/cm-prices-faqs: market-data/faqs/cm-prices-faqs.md
   market-data/faqs/market-data-faqs: market-data/faqs/market-data-faqs.md
-  market-data/faqs/trusted-exchange-framework-faqs: market-data/faqs/trusted-exchange-framework-faqs.md
   market-metrics/liquidations/liquidations_reported_future_buy_units_1d: market-data/market-data-overview/liquidations/liquidation-metrics.md
   market-metrics/liquidations/liquidations_reported_future_buy_units_1h: market-data/market-data-overview/liquidations/liquidation-metrics.md
   market-metrics/liquidations/liquidations_reported_future_buy_units_5m: market-data/market-data-overview/liquidations/liquidation-metrics.md
@@ -779,7 +784,7 @@ redirects:
   security-master/assets: reference-data/security-master-overview/assets.md
   security-master/markets: reference-data/security-master-overview/markets.md
   tagging-data/tagging-meta-data: network-data/tagging-data/tagging-meta-data
-  taxonomy/taxonomy-for-assets: reference-data/dataonomy-overview/taxonomy-for-assets.md
-  taxonomy/taxonomy-metadata-for-assets: reference-data/dataonomy-overview/taxonomy-metadata-for-assets.md
+  taxonomy/taxonomy-for-assets: reference-data/datonomy-overview/taxonomy-for-assets.md
+  taxonomy/taxonomy-metadata-for-assets: reference-data/datonomy-overview/taxonomy-metadata-for-assets.md
   timeseries-stream/asset-quotes: market-data/market-data-overview/quotes/quotes.md#asset
   timeseries-stream/pair-quotes: market-data/market-data-overview/quotes/quotes.md#pair
