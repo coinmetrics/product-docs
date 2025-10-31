@@ -696,7 +696,7 @@ redirects:
   institution-metrics/grayscale/market-price: market-data/market-data-overview/institution-metrics/grayscale/market-price.md
   institution-metrics/grayscale/net-asset-value: market-data/market-data-overview/institution-metrics/grayscale/net-asset-value.md
   institution-metrics/grayscale/shares-outstanding: market-data/market-data-overview/institution-metrics/grayscale/shares-outstanding.md
-  institution-metrics/grayscale/total-assets.md: market-data/market-data-overview/institution-metrics/grayscale/total-assets.md
+  institution-metrics/grayscale/total-assets: market-data/market-data-overview/institution-metrics/grayscale/total-assets.md
   institution-metrics/grayscale: market-data/market-data-overview/institution-metrics/grayscale/README.md
   institution-metrics: market-data/market-data-overview/institution-metrics/
   market-data-timeseries/futures-funding-rates: market-data/market-data-overview/funding-rates/futures-funding-rates.md
