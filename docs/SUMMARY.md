@@ -317,5 +317,4 @@
 
 ## Resources
 
-* [Resources](resources/README.md)
-  * [FAQs](resources/faqs.md)
+* [FAQs](resources/faqs.md)
