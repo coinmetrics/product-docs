@@ -168,7 +168,6 @@
 * [DeFi Overview](network-data/defi-data-overview/README.md)
   * [Decentralized Exchange Data](network-data/defi-data-overview/decentralized-exchange-data.md)
   * [DeFi Balance Sheets](network-data/defi-data-overview/defi-balance-sheets-overview.md)
-  * [DeFi FAQs](network-data/defi-data-overview/defi-faqs.md)
 * [Tagging Meta Data](network-data/tagging-meta-data.md)
 * [Transaction Tracker](network-data/transaction-tracker.md)
 * [CM Labs](network-data/cm-labs/README.md)
@@ -222,7 +221,6 @@
         * [Mempool Congestion Alert - DEPRECATED](network-data/deprecated/watchtower-alerts-overview-deprecated/watchtower-alerts-deprecated/mempool-alerts-deprecated/mempool-congestion-alert-deprecated.md)
     * [WatchTower API Fields - DEPRECATED](network-data/deprecated/watchtower-alerts-overview-deprecated/watchtower-api-fields-deprecated.md)
 * [Network Data Glossary](network-data/on-chain-basics.md)
-* [Network Data FAQs](network-data/network-data-faqs.md)
 
 ## Market Data
 
@@ -272,9 +270,6 @@
   * [Coin Metrics Prices Policies](market-data/methodologies/coin-metrics-prices-policies.md)
   * [Coin Metrics Prices Methodology](market-data/methodologies/coin-metrics-prices-methodology.md)
   * [Trusted Exchange Framework](market-data/methodologies/trusted-exchange-framework.md)
-* [Market Data FAQs](market-data/faqs/README.md)
-  * [CM Prices FAQs](market-data/faqs/cm-prices-faqs.md)
-  * [Trusted Exchange Framework FAQs](market-data/faqs/trusted-exchange-framework-faqs.md)
 
 ## Index Data
 
@@ -296,14 +291,12 @@
   * [CMBI Total Market Series Fact Sheet](index-data/fact-sheets/cmbi-total-market-series-fact-sheet.md)
   * [CMBI Mining Series Fact Sheet](index-data/fact-sheets/cmbi-mining-series-fact-sheet.md)
 * [Indexes Glossary](index-data/indexes-glossary.md)
-* [Index FAQs](index-data/index-faqs.md)
 
 ## Reference Data
 
 * [datonomy Overview](reference-data/datonomy-overview/README.md)
   * [Taxonomy for Assets](reference-data/datonomy-overview/taxonomy-for-assets.md)
   * [Taxonomy Metadata for Assets](reference-data/datonomy-overview/taxonomy-metadata-for-assets.md)
-  * [datonomy FAQs](reference-data/datonomy-overview/datonomy-faqs.md)
 * [Profiles Overview](reference-data/asset-profiles-overview/README.md)
   * [Asset Profiles](reference-data/asset-profiles-overview/asset-profiles.md)
   * [Network Profiles](reference-data/asset-profiles-overview/network-profiles.md)
@@ -321,3 +314,7 @@
   * [Interval Score Examples](bittensor/precog-methodology/interval-score-examples.md)
   * [Miner Shares from Ranks](bittensor/precog-methodology/miner-shares-from-ranks.md)
   * [Final Weight](bittensor/precog-methodology/final-weight.md)
+
+## Resources
+
+* [FAQs](resources/faqs.md)

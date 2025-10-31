@@ -1,4 +1,11 @@
 redirects:
+  market-data/faqs: resources/faqs.md
+  market-data/faqs/cm-prices-faqs: resources/faqs.md
+  market-data/faqs/trusted-exchange-framework-faqs: resources/faqs.md
+  network-data/network-data-faqs: resources/faqs.md
+  network-data/defi-data-overview/defi-faqs: resources/faqs.md
+  index-data/index-faqs: resources/faqs.md
+  reference-data/datonomy-overview/datonomy-faqs: resources/faqs.md
   api-data-types/asset-metrics-overview: explainers/asset-metrics-overview.md
   api-data-types: explainers/api-data-types.md
   asset-metrics/addresses/adract30dcnt: network-data/network-data-overview/addresses/active-addresses.md
