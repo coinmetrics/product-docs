@@ -4,14 +4,14 @@ This page contains frequently asked questions about Coin Metrics data products, 
 
 ## Quick Navigation
 
-- [General](#general)
-- [Network Data](#network-data)
-- [Market Data](#market-data)
-- [Prices](#prices)
-- [Indexes](#indexes)
-- [Reference Data](#reference-data)
+* [General](faqs.md#general)
+* [Network Data](faqs.md#network-data)
+* [Market Data](faqs.md#market-data)
+* [Prices](faqs.md#prices)
+* [Indexes](faqs.md#indexes)
+* [Reference Data](faqs.md#reference-data)
 
----
+***
 
 ## General
 
@@ -23,7 +23,7 @@ In general, we use snake case (ex: snake\_case) when naming our metrics in which
 
 The order of terms is ordered from the most general to most specific and ends with the unit used, if applicable. For example, the order of terms in the metric `volume_reported_future_perpetual_usd_1d` is ordered such that the `volume` term is first and all subsequent terms are modifiers to what type of volume the metric represents.
 
-Some metrics are naturally represented as an aggregation (such as a sum or mean) over a time interval (such as a block, an hour, or day). If the metric represents an aggregation over a time interval, the interval is appended as a suffix to the metric name. If the metric represents a value at a point in time, there is no suffix. Please see the frequently asked question ["What timestamp conventions does Coin Metrics use?"](#what-timestamp-conventions-does-coin-metrics-use).
+Some metrics are naturally represented as an aggregation (such as a sum or mean) over a time interval (such as a block, an hour, or day). If the metric represents an aggregation over a time interval, the interval is appended as a suffix to the metric name. If the metric represents a value at a point in time, there is no suffix. Please see the frequently asked question ["What timestamp conventions does Coin Metrics use?"](faqs.md#what-timestamp-conventions-does-coin-metrics-use).
 
 The exception to this convention is that all Network Data Pro metrics use upper camel case (ex: CamelCase) in which names omit spaces and the separation of words is indicated by a single capitalized letter. The first word is also capitalized. Network Data Pro metrics used the upper camel case naming convention prior to our adoption of the snake case naming convention for all other metrics, so we maintain the upper camel case naming convention for Network Data Pro metrics for consistency and backwards compatibility.
 
@@ -118,9 +118,9 @@ The `pool_config_id` usually takes an integer value that represents the order in
 
 </details>
 
-[⬆️ Back to top](#faqs)
+[⬆️ Back to top](faqs.md#faqs)
 
----
+***
 
 ## Network Data
 
@@ -136,7 +136,7 @@ To view the _aggregated stablecoin market cap_ for a specific asset, use the _as
 
 **Estimated Market Cap (CapMrktEstUSD):** This metric is available at the _asset_ level and is calculated using Coin Metrics Reference Rates combined with a self-reported supply figure from the project. Supply data is sourced via CoinGecko at the _asset_ level
 
-For Comparison of  **Stablecoin Market Cap** and **Estimated Market Cap** Universe please see this [Chart](https://charts.coinmetrics.io/formulas?id=11271). For the universe included in the aggregation see the Formula builder by clicking <img src="../../.gitbook/assets/Screenshot 2025-10-17 at 7.43.25 PM.png" alt="" data-size="line"> on the right side.&#x20;
+For Comparison of **Stablecoin Market Cap** and **Estimated Market Cap** Universe please see this [Chart](https://charts.coinmetrics.io/formulas?id=11271). For the universe included in the aggregation see the Formula builder by clicking <img src="../../.gitbook/assets/Screenshot%202025-10-17%20at%207.43.25%20PM.png" alt="" data-size="line"> on the right side.
 
 https://charts.coinmetrics.io/formulas?id=11271
 
@@ -284,15 +284,11 @@ Our trusted volume metric is an aggregation of the reported volume from exchange
 
 A validator's expected annual percentage return (APR) from staking rewards accumulated on the Consensus Layer, assuming perfect performance and uptime, can be estimated with the formula below based on protocol parameters ([source for derivation](https://eth2book.info/altair/part2/incentives/issuance#validator-rewards)):
 
-$$
-2940.21 \div \, \sqrt[]{ValidatorActOngCnt}
-$$
+
 
 For example, with 423,000 active validators as of September 9, 2022 this comes out to a 4.52% expected return on a validator's 32 ETH effective balance. The expected annual protocol issuance can also be calculated from the following formula ([source for derivation](https://eth2book.info/altair/part2/incentives/issuance#overall-issuance)):
 
-$$
-940.87 \times \, \sqrt[]{ValidatorActOngCnt}
-$$
+
 
 With 423,000 active validators this comes out to 611,927 ETH issued per year.
 
@@ -300,33 +296,25 @@ After The Merge, validators will also receive user priority transaction fees on 
 
 **First**, finding the average tips paid per block, which fluctuates greatly depending on the demand for Ethereum blockspace:
 
-$$
-sma(FeePrioTotNtv / BlkCnt, 30)
-$$
+
 
 This comes out to 0.07 ETH over the last 30 days.
 
 **Next**, from the equation above we can find the yearly per-validator expected ETH reward from participating on the Consensus Layer with a specified number of active validators:
 
-$$
-940.87 \times \sqrt[]{ValidatorActOngCnt} \div ValidatorActOngCnt
-$$
+
 
 ​This comes out to an average 1.45 ETH in yearly rewards with 423,000 active validators.
 
 **Then**, with 2,629,800 chances to propose blocks on the Consensus Layer each year, the average number of times a validator will get the opportunity to propose a block (and collect tips) can be found from:
 
-$$
-(1/ValidatorActOngCnt) \times (2,629,800)
-$$
+
 
 ​This comes to 6.22 with 423,000 active validators (assuming they all have an equal 32 ETH effective balance there is a 1 in _ValidatorActOngCnt_ chance of being selected to propose at a given slot on the CL).
 
 **Finally**, taking this all together:
 
-$$
-100\times(((32 +1.45 + (0.07\times6.22))/32) - 1)
-$$
+
 
 ​This comes out to 5.89%, an increase of roughly 140 basis points to the APR from Consensus Layer rewards.
 
@@ -353,7 +341,7 @@ We assign assets into four different levels: project, layer one network, layer t
 
 * Project: Represents the asset across all networks and contract instances. This is the broadest classification. Data collected from centralized exchanges are assigned to assets at the project level.
 * Layer One Network: Represents the asset on a specific layer one network, encompassing all contract instances and layer two networks on that network. Network data is assigned to this level.
-* Layer Two Network: Represents the asset on a specific layer two network, encompassing all the contract instances on the layer two network. Network data is also assigned to this level.&#x20;
+* Layer Two Network: Represents the asset on a specific layer two network, encompassing all the contract instances on the layer two network. Network data is also assigned to this level.
 * Contract: Represents the asset at the individual smart contract level on a specific network. This is the lowest level of classification. Data from decentralized exchanges is assigned to this level.
 
 <figure><img src="../../.gitbook/assets/cm-asset-ticker-conventions.png" alt=""><figcaption></figcaption></figure>
@@ -369,7 +357,7 @@ asset[_fullName][_contractVersion][>bridgedFromNetwork|>wrappedFromNetwork][#bri
 Each component in brackets are optional components.
 
 * `[_fullName]`: If a ticker conflict exists, we append the full name of the asset immediately after the asset, to make the ticker unique.
-* `[_contractVersion]`: If an asset is at the contract level and has multiple smart contract implementations, we append the contract version to uniquely identify each contract level asset. The contract version is a sequential integer starting with 1.&#x20;
+* `[_contractVersion]`: If an asset is at the contract level and has multiple smart contract implementations, we append the contract version to uniquely identify each contract level asset. The contract version is a sequential integer starting with 1.
 * `[>bridgedFromNetwork|>wrappedFromNetwork]`: If an asset is a bridged asset, we append the network from which the asset is bridged from using `>bridgedFromNetwork`. If an asset is a wrapped asset, we append the network from which the asset originally existed using `>wrappedFromNetwork`.
 * `[#bridgeUsed|#wrappedContractAddress]`: If the asset is a bridged asset, we append the bridge that was used using `#bridgeUsed`. If the asset is a wrapped asset, then we append the wrapped contract address using `#wrappedContractAddress`.
 * `[_network|_layer2Network.layer1Network|_bridgedToNetwork]`: If the asset represents the asset on a specific network, we append the network using `_network`. If the asset represents a bridged asset using `_bridgedToNetwork`. Please note that `_bridgedToNetwork` takes the naming convention of `layer2Network.layer1Network` like `base.eth` if the bridged to network is a layer 2 network.
@@ -386,7 +374,7 @@ Using Tether as an example, we refer to the ticker `usdt` as the project level a
 
 Network data that is specific to an asset on a specific network, such as a swap that occurs on a decentralized exchange, is assigned to network level asset tickers. Network data that can be aggregated across multiple networks is assigned to the project level asset. Market data is also assigned to the project level asset.
 
-For a more complete description of our asset ticker naming conventions, please see [What asset ticker naming conventions does Coin Metrics use?](#what-asset-ticker-naming-conventions-does-coin-metrics-use)
+For a more complete description of our asset ticker naming conventions, please see [What asset ticker naming conventions does Coin Metrics use?](faqs.md#what-asset-ticker-naming-conventions-does-coin-metrics-use)
 
 </details>
 
@@ -404,9 +392,9 @@ The swap _beneficiary_ address can be used to approximate the number of unique b
 
 </details>
 
-[⬆️ Back to top](#faqs)
+[⬆️ Back to top](faqs.md#faqs)
 
----
+***
 
 ## Market Data
 
@@ -464,10 +452,6 @@ Yes! All of our endpoints that accept the `markets` parameter will accept wildca
 
 We have pre-calculated volume metrics that represent total volume by asset, by exchange, by pair, or by exchange-asset pair. Please take a look at the following volume metrics below.
 
-{% content-ref url="../../market-data/market-data-overview/volume/" %}
-[volume](../../market-data/market-data-overview/volume/)
-{% endcontent-ref %}
-
 </details>
 
 <details>
@@ -478,17 +462,17 @@ Generally, for many critical data types, Coin Metrics will support a new asset o
 
 Coin Metrics has the ability to make the short delay extremely short or to eliminate the delay entirely on a one-off basis for new assets or markets that are considered important. A more complete description of which data types are available immediately with no delay and which are available with a short delay follows below.
 
-#### **Data types available immediately with no delay**:
+**Data types available immediately with no delay:**
 
-* The presence of the market and its associated metadata served through **`/catalog/markets`** and **`/catalog-all/markets`**&#x20;
-* The presence of the market and its associated metadata served through **`/catalog-v2/market-*`**, **`/catalog-all-v2/market-*`**&#x61;nd  **`/reference-data/markets`**
+* The presence of the market and its associated metadata served through **`/catalog/markets`** and **`/catalog-all/markets`**
+* The presence of the market and its associated metadata served through **`/catalog-v2/market-*`**, **`/catalog-all-v2/market-*`**&#x61;nd **`/reference-data/markets`**
 * Trades served through **`/timeseries/market-trades`** and **`/timeseries-stream/market-trades`**
 * Streaming order book served through **`/timeseries-stream/market-orderbooks`**
 * Streaming quotes served through **`/timeseries-stream/market-quotes`**
 * Futures candles served through **`/timeseries/market-candles`**
 * Futures open interest served through **`/timeseries/market-openinterest`** and `/timeseries-stream/market-openinterest`
 * Futures liquidations served through **`/timeseries/market-liquidations`** and **`/timeseries-stream/market-liquidations`**
-* Futures funding rates served through **`/timeseries/market-funding-rates`**&#x20;
+* Futures funding rates served through **`/timeseries/market-funding-rates`**
 * Futures predicted funding rates served through **`/timeseries/market-funding-rates-predicted`**
 * Futures and options order book snapshots served through **`/timeseries/market-orderbooks`**
 * Futures and options quote snapshots served through **`/timeseries/market-quotes`**
@@ -496,9 +480,9 @@ Coin Metrics has the ability to make the short delay extremely short or to elimi
 * Options implied volatility served through **`/timeseries/market-implied-volatility`**
 * Options greeks through **`/timeseries/market-greeks`**
 
-#### **Data types available with a short delay:**
+**Data types available with a short delay:**
 
-* The presence of the new asset served through **`/catalog-v2/asset-metrics`**, **`/catalog-all-v2/asset-metrics`**&#x61;nd  **`/reference-data/assets`**
+* The presence of the new asset served through **`/catalog-v2/asset-metrics`**, **`/catalog-all-v2/asset-metrics`**&#x61;nd **`/reference-data/assets`**
 * Spot candles served through **`/timeseries/market-candles`**
 * Reference Rates served through metric **`ReferenceRate`** served through **`/timeseries/asset-metrics`**
 * Market-data related metrics such as reported volume served through **`/timeseries/asset-metrics`**, **`/timeseries/pair-metrics`**, **`/timeseries/exchange-metrics`**, **`/timeseries/exchange-asset-metrics`**, and **`/timeseries/market-metrics`**
@@ -524,7 +508,7 @@ Our volume metrics are calculated by summing the candles volume in U.S. dollars 
 
 Based on our experience in maintaining a persistent data connection with many exchanges over several years, we have found that certain exchanges have a tendency to publish outliers in their reported data which represent data quality errors. Including such outliers in our reported volume metrics would result in inaccurate values. Therefore, we exclude ZB.com, LBank, and LocalBitcoins from being included in our volume metrics.
 
-We also exclude Binance Aggregate's (`binance_aggregate`) futures markets to prevent double-counting, as its data is identical to Binance's futures except it is reported at a different level of aggregation. We also exclude any Uniswap v3 Ethereum  aggregate markets (any market with the `agg` from our volume metrics, such as `uniswap_v3_eth-agg-weth-usdt_eth-spot`) to prevent double-counting, as these markets represent an aggregation of individual pools containing the same pair of assets.
+We also exclude Binance Aggregate's (`binance_aggregate`) futures markets to prevent double-counting, as its data is identical to Binance's futures except it is reported at a different level of aggregation. We also exclude any Uniswap v3 Ethereum aggregate markets (any market with the `agg` from our volume metrics, such as `uniswap_v3_eth-agg-weth-usdt_eth-spot`) to prevent double-counting, as these markets represent an aggregation of individual pools containing the same pair of assets.
 
 </details>
 
@@ -568,7 +552,7 @@ Exchanges differ in the amount of order book depth provided through their API. S
 
 In calculating our liquidity depth metrics, we were forced to decide how to represent metric values when the reported order book depth is insufficient to calculate the depth for a given percent away from midprice. In these situations, we decided to represent this as a null value so that it is transparent to the user.
 
-Please note that for markets with high liquidity, even exchanges with relatively large order book depth of say 5,000 levels will only consist of prices less than 1 percent away from midprice. Therefore, it is common for many exchanges to have metrics with null values unless the exchange reports full order book depth. &#x20;
+Please note that for markets with high liquidity, even exchanges with relatively large order book depth of say 5,000 levels will only consist of prices less than 1 percent away from midprice. Therefore, it is common for many exchanges to have metrics with null values unless the exchange reports full order book depth.
 
 </details>
 
@@ -576,7 +560,7 @@ Please note that for markets with high liquidity, even exchanges with relatively
 
 <summary>How do I interpret the volume for futures markets and convert volume to U.S. dollars?</summary>
 
-By convention, the volume for futures markets is measured in contract units. Each futures market has unique contract specifications that define the notional value of one contract. Let us use the following response from our `/timeseries/market-trades` endpoint for market `cme-BTCN4-future` as an example.&#x20;
+By convention, the volume for futures markets is measured in contract units. Each futures market has unique contract specifications that define the notional value of one contract. Let us use the following response from our `/timeseries/market-trades` endpoint for market `cme-BTCN4-future` as an example.
 
 ```
 {
@@ -626,7 +610,7 @@ According to the contract specifications for this futures market, one contract i
 
 The `"contract_size": "5"` and `"size_asset": "btc"` define the contract size. The contract size is unique to each futures market and other markets may have different contract size.
 
-To convert a futures market volume in contract units to U.S. dollars, the following formula can be used: `[amount in contract units] * [contract size] * [U.S. dollar price of contract size asset]`.&#x20;
+To convert a futures market volume in contract units to U.S. dollars, the following formula can be used: `[amount in contract units] * [contract size] * [U.S. dollar price of contract size asset]`.
 
 </details>
 
@@ -672,7 +656,7 @@ We welcome any feedback on how to improve the trusted framework. Note that the a
 
 <summary>Does the trusted exchange framework include futures exchanges?</summary>
 
-Yes. However, we only assess the data quality score for spot exchanges. The lack of data quality score does not count against a futures exchange's overall score, but it does disqualify them from being included in the [trusted spot volume](https://coverage.coinmetrics.io/search-results?query=volume\_trusted\_spot\_usd\_1d) metric.
+Yes. However, we only assess the data quality score for spot exchanges. The lack of data quality score does not count against a futures exchange's overall score, but it does disqualify them from being included in the [trusted spot volume](https://coverage.coinmetrics.io/search-results?query=volume_trusted_spot_usd_1d) metric.
 
 </details>
 
@@ -706,7 +690,7 @@ See the Grading Scale section.
 
 Yes. They can be accessed by using the [constituent-snapshots](https://docs.coinmetrics.io/api/v4/#tag/Constituent-Snapshots/operation/getConstituentSnapshotsAssetMetrics) endpoint. Sample request:
 
-[https://api.coinmetrics.io/v4/constituent-snapshots/asset-metrics?metric=volume\_trusted\_spot\_usd\_1d\&api\_key=\<your\_key>](https://api.coinmetrics.io/v4/constituent-snapshots/asset-metrics?metric=volume\_trusted\_spot\_usd\_1d\&api\_key=%3Cyour\_key%3E)
+[https://api.coinmetrics.io/v4/constituent-snapshots/asset-metrics?metric=volume\_trusted\_spot\_usd\_1d\&api\_key=\<your\_key>](https://api.coinmetrics.io/v4/constituent-snapshots/asset-metrics?metric=volume_trusted_spot_usd_1d\&api_key=%3Cyour_key%3E)
 
 </details>
 
@@ -728,9 +712,9 @@ We are happy to elaborate deeper as to why exchanges are assigned their scores. 
 
 </details>
 
-[⬆️ Back to top](#faqs)
+[⬆️ Back to top](faqs.md#faqs)
 
----
+***
 
 ## Prices
 
@@ -739,10 +723,6 @@ We are happy to elaborate deeper as to why exchanges are assigned their scores. 
 <summary>How do you calculate the CM Reference Rates?</summary>
 
 The CM Prices are collectively governed by rules-based methodologies described in [Coin Metrics Prices Methodology](../../market-data/methodologies/coin-metrics-prices-methodology.md) which describes our Market Selection Framework, a systematic method of producing a unique set of constituent markets for each asset, our data sources, calculation algorithm, and contingency rules..
-
-{% content-ref url="../../market-data/methodologies/coin-metrics-prices-methodology.md" %}
-[coin-metrics-prices-methodology.md](../../market-data/methodologies/coin-metrics-prices-methodology.md)
-{% endcontent-ref %}
 
 </details>
 
@@ -782,7 +762,7 @@ Other metrics, like `ReferenceRate` (and many other data types like trades, open
 
 When you compare something that uses the "point-in-time" convention with something that uses the "start-of-interval" convention, it can seem like the "start-of-interval" timeseries is lagged or is potentially missing data. I can assure that this is not the case, but we certainly understand your confusion here since the different values are delivered via the same `timeseries/asset-metrics` endpoint.
 
-For more information, please see [What timestamp conventions does Coin Metrics use?](#what-timestamp-conventions-does-coin-metrics-use)
+For more information, please see [What timestamp conventions does Coin Metrics use?](faqs.md#what-timestamp-conventions-does-coin-metrics-use)
 
 </details>
 
@@ -798,10 +778,6 @@ ReferenceRate with frequency 1m or 1s or 200ms extract the most recent trade fro
 
 The CM Prices are collectively governed by rules-based methodologies described in [Coin Metrics Prices Methodology](../../market-data/methodologies/coin-metrics-prices-methodology.md) which describes our Market Selection Framework, a systematic method of producing a unique set of constituent markets for each asset, our data sources, calculation algorithm, and contingency rules.
 
-{% content-ref url="../../market-data/methodologies/coin-metrics-prices-methodology.md" %}
-[coin-metrics-prices-methodology.md](../../market-data/methodologies/coin-metrics-prices-methodology.md)
-{% endcontent-ref %}
-
 </details>
 
 <details>
@@ -812,7 +788,7 @@ Our CM Prices are served through our [/timeseries/asset-metrics](https://docs.co
 
 The `1d` frequency represents a daily frequency that ends at 00:00:00 in the UTC timezone and the `1d-ny-close` represents a daily frequency that ends at 16:00:00 in the America/New\_York timezone. These timestamps are not altered for weekends or holidays.
 
-Please also see our FAQ on [What timestamp conventions does Coin Metrics use?](#what-timestamp-conventions-does-coin-metrics-use) for more information.
+Please also see our FAQ on [What timestamp conventions does Coin Metrics use?](faqs.md#what-timestamp-conventions-does-coin-metrics-use) for more information.
 
 </details>
 
@@ -822,13 +798,13 @@ Please also see our FAQ on [What timestamp conventions does Coin Metrics use?](#
 
 The difference is due to different timestamp conventions. Candles and `PriceUSD` use the beginning-of-interval timestamp convention while `ReferenceRate` and index values use the point-in-time timestamp convention.
 
-For more discussion on these timestamp conventions, please see the frequently asked question [What timestamp conventions does Coin Metrics use?](#what-timestamp-conventions-does-coin-metrics-use).
+For more discussion on these timestamp conventions, please see the frequently asked question [What timestamp conventions does Coin Metrics use?](faqs.md#what-timestamp-conventions-does-coin-metrics-use).
 
 </details>
 
-[⬆️ Back to top](#faqs)
+[⬆️ Back to top](faqs.md#faqs)
 
----
+***
 
 ## Indexes
 
@@ -836,7 +812,7 @@ For more discussion on these timestamp conventions, please see the frequently as
 
 <summary>How are the CMBI Single Asset Index and CMBI Multi Asset Index levels calculated?</summary>
 
-The price inputs for our indexes are informed by our reference rates methodologies.  We have methodologies for both hourly rates and real-time rates. Our hourly and daily levels use our Hourly Reference Rates methodology and our 15 second levels use our Real-Time Reference Rates methodology. Links to the methodology documents are listed below.&#x20;
+The price inputs for our indexes are informed by our reference rates methodologies. We have methodologies for both hourly rates and real-time rates. Our hourly and daily levels use our Hourly Reference Rates methodology and our 15 second levels use our Real-Time Reference Rates methodology. Links to the methodology documents are listed below.
 
 * [Coin Metrics Prices Policies](../../market-data/methodologies/coin-metrics-prices-policies.md)
 * [Coin Metrics Prices Methodology](../../market-data/methodologies/coin-metrics-prices-methodology.md)
@@ -847,11 +823,11 @@ The price inputs for our indexes are informed by our reference rates methodologi
 
 <summary>What's the difference between your reference rate and a single-asset index for the same asset?</summary>
 
-The calculation methodology for reference rates and single asset indexes are identical and they both represent the price for a specific asset. However, the constituent markets used in the calculation can be different because our indexes require a higher consideration for investability. Additionally, single asset indexes are administered under different policies that are specific for indexes, such as additional reporting requirements and policies for dealing with corporate actions like hard forks and airdrops.&#x20;
+The calculation methodology for reference rates and single asset indexes are identical and they both represent the price for a specific asset. However, the constituent markets used in the calculation can be different because our indexes require a higher consideration for investability. Additionally, single asset indexes are administered under different policies that are specific for indexes, such as additional reporting requirements and policies for dealing with corporate actions like hard forks and airdrops.
 
-Single asset indexes tend to select markets from regulated U.S.-based exchanges, while a reference rate for the same asset evaluates a larger pool of global constituent markets. You can learn more about our [Market Selection Framework](../../market-data/methodologies/coin-metrics-prices-methodology.md#data-inputs) which selects high quality constituent markets for our reference rates. Our indexes then use these markets and excludes certain markets to enhance the investability of the index. &#x20;
+Single asset indexes tend to select markets from regulated U.S.-based exchanges, while a reference rate for the same asset evaluates a larger pool of global constituent markets. You can learn more about our [Market Selection Framework](../../market-data/methodologies/coin-metrics-prices-methodology.md#data-inputs) which selects high quality constituent markets for our reference rates. Our indexes then use these markets and excludes certain markets to enhance the investability of the index.
 
-Our single asset indexes are linked to investable financial products, so there is a stricter change and consultation process in the case of any methodology changes. Single asset indexes also have a different revision policy than our reference rates since trades or fund accounting may have occurred around printed levels, whereas we occasionally conduct recalculations of limited portions of reference rates history to increase the quality of the rates. &#x20;
+Our single asset indexes are linked to investable financial products, so there is a stricter change and consultation process in the case of any methodology changes. Single asset indexes also have a different revision policy than our reference rates since trades or fund accounting may have occurred around printed levels, whereas we occasionally conduct recalculations of limited portions of reference rates history to increase the quality of the rates.
 
 </details>
 
@@ -859,7 +835,7 @@ Our single asset indexes are linked to investable financial products, so there i
 
 <summary>Is there an index equivalent of the metric AssetEODCompletionTime? When should I expect an end-of-day index value to be published?</summary>
 
-Completion timing is less relevant for indexes as the publishing time for index values is largely deterministic. Blockchain metrics must wait a few blocks for finality and are impacted by non-deterministic block mining times. The index rates for end-of-day values (New York, Singapore, or UTC) are computed at 5 minutes past the hour and usually available within a minute.&#x20;
+Completion timing is less relevant for indexes as the publishing time for index values is largely deterministic. Blockchain metrics must wait a few blocks for finality and are impacted by non-deterministic block mining times. The index rates for end-of-day values (New York, Singapore, or UTC) are computed at 5 minutes past the hour and usually available within a minute.
 
 </details>
 
@@ -867,12 +843,12 @@ Completion timing is less relevant for indexes as the publishing time for index 
 
 <summary>What are the constituent exchanges included in the CMBI Bitcoin Index, along with details such as the domicile, regulation and legal compliance?</summary>
 
-| **Exchange**    | **Domicile**           | **NY Bit License**   | **Money Service Business** | **Broker Dealer** |
-| --------------- | ---------------------- | -------------------- | -------------------------- | ----------------- |
-| Coinbase        | Delaware Corporation   | Yes                  | Yes                        | Yes               |
-| Kraken          | Delaware Corporation   |                      | Yes                        |                   |
-| Bitstamp (USA)  | Delaware Corporation   | Yes                  | Yes                        |                   |
-| Gemini          | New York Trust Company | Yes                  | Yes                        |                   |
+| **Exchange**   | **Domicile**           | **NY Bit License** | **Money Service Business** | **Broker Dealer** |
+| -------------- | ---------------------- | ------------------ | -------------------------- | ----------------- |
+| Coinbase       | Delaware Corporation   | Yes                | Yes                        | Yes               |
+| Kraken         | Delaware Corporation   |                    | Yes                        |                   |
+| Bitstamp (USA) | Delaware Corporation   | Yes                | Yes                        |                   |
+| Gemini         | New York Trust Company | Yes                | Yes                        |                   |
 
 You can find the latest constituent markets in our [fact sheet](https://cmbi-indexes.coinmetrics.io/cmbibtc).
 
@@ -894,9 +870,9 @@ This clause in the methodology provides us with future optionality. Given the cu
 
 </details>
 
-[⬆️ Back to top](#faqs)
+[⬆️ Back to top](faqs.md#faqs)
 
----
+***
 
 ## Reference Data
 
@@ -904,9 +880,9 @@ This clause in the methodology provides us with future optionality. Given the cu
 
 <summary>How do you classify the assets?</summary>
 
-Digital asset classifications are based on the primary use of the asset and its parent protocol, as defined by the project creators and what is widely observed in the market.  This is fundamentally different from classifying based on the technical architecture of how a protocol is designed or what rights a particular asset provides to its holders (e.g., governance voting). Assets classified within a sub-sector may exist on blockchains with different design choices, such as "Proof of Stake" vs. "Proof of Work". Some may leverage a 'parent' or 'Layer 1' blockchain, while others are hosted on their own blockchain. Each asset aims to facilitate a primary use-case, and the technical implementations are a means of facilitating that use-case.
+Digital asset classifications are based on the primary use of the asset and its parent protocol, as defined by the project creators and what is widely observed in the market. This is fundamentally different from classifying based on the technical architecture of how a protocol is designed or what rights a particular asset provides to its holders (e.g., governance voting). Assets classified within a sub-sector may exist on blockchains with different design choices, such as "Proof of Stake" vs. "Proof of Work". Some may leverage a 'parent' or 'Layer 1' blockchain, while others are hosted on their own blockchain. Each asset aims to facilitate a primary use-case, and the technical implementations are a means of facilitating that use-case.
 
-As digital assets become eligible for classification, MSCI will initiate an independent review process. A determination of use-case and Taxonomy classification will be made using a mosaic approach with the support of a variety of data sources.  This analysis will be documented and presented to an MSCI committee of senior researchers for review and approval before final classification decisions are made by MSCI and implemented for distribution.
+As digital assets become eligible for classification, MSCI will initiate an independent review process. A determination of use-case and Taxonomy classification will be made using a mosaic approach with the support of a variety of data sources. This analysis will be documented and presented to an MSCI committee of senior researchers for review and approval before final classification decisions are made by MSCI and implemented for distribution.
 
 </details>
 
@@ -914,7 +890,7 @@ As digital assets become eligible for classification, MSCI will initiate an inde
 
 <summary>How often is the taxonomy structure reviewed?</summary>
 
-MSCI will, at minimum, review the taxonomy structure annually.  This review will include input from the datonomy Advisory Board members and commentary from market participants. MSCI may decide to perform ad-hoc reviews of the datonomy structure on an as-needed basis.
+MSCI will, at minimum, review the taxonomy structure annually. This review will include input from the datonomy Advisory Board members and commentary from market participants. MSCI may decide to perform ad-hoc reviews of the datonomy structure on an as-needed basis.
 
 </details>
 
@@ -924,11 +900,8 @@ MSCI will, at minimum, review the taxonomy structure annually.  This review will
 
 The datonomy Advisory Board is Co-Chaired by MSCI, Goldman Sachs and Coin Metrics with membership open to select industry participants and experts on an invitation basis as agreed to by the Co-Chairs. The Advisory Board provides expert Input that MSCI may use as a source of information in connection with administering the Taxonomy, including information and insight with respect to industry trends, technologies and any other information relating to the Taxonomy. The Advisory Board members will also review and provide feedback on asset coverage universe, asset classifications, consultations, and Taxonomy structure evolution on an as-needed basis.
 
-
-
 ***
 
 </details>
 
-[⬆️ Back to top](#faqs)
-
+[⬆️ Back to top](faqs.md#faqs)

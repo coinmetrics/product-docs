@@ -1,8 +1,0 @@
-- label: Shell
-  source: |
-    curl --compressed "https://api.coinmetrics.io/v4/timeseries/index-candles?start_time=2022-06-28&paging_from=start&indexes=CMBIBTC&frequency=1d&pretty=true&api_key=<your_key>"
-- label: Python
-  source: |
-    import requests
-    response = requests.get('https://api.coinmetrics.io/v4/timeseries/index-candles?start_time=2022-06-28&paging_from=start&indexes=CMBIBTC&frequency=1d&pretty=true&api_key=<your_key>').json()
-    print(response)

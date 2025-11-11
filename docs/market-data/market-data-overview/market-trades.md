@@ -162,7 +162,7 @@ We are currently supporting all major liquidity pools on Uniswap v2, Uniswap v3,
 
 Please take a look at this question in the Market Data FAQs page linked below.
 
-[faqs](../faqs/ "mention")
+[Broken link](broken-reference "mention")
 
 ## **Release History**
 

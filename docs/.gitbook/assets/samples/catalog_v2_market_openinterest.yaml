@@ -1,8 +1,0 @@
-- label: Shell
-  source: |
-    curl --compressed "https://api.coinmetrics.io/v4/catalog-v2/market-openinterest?pretty=true&api_key=<your_key>"
-- label: Python
-  source: |
-    import requests
-    response = requests.get('https://api.coinmetrics.io/v4/catalog-v2/market-openinterest?pretty=true&api_key=<your_key>').json()
-    print(response)

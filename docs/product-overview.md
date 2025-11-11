@@ -26,7 +26,7 @@ High Level Data Overview
 
 * **Market Data Feed** provides access to historical and real-time data from over 30 of the world’s leading spot and derivatives crypto exchanges. This data is available primarily via the market data endpoints: `/timeseries/market-trades`, `/timeseries/market-openinterest`, `/timeseries/market-liquidations`, `/timeseries/market-funding-rates`, `/timeseries/market-orderbooks`, `/timeseries/market-quotes`, `/timeseries/market-candles` , and more. All endpoints and concepts are described in the [**Market Data**](market-data/market-data-overview/) section. There are also several aggregated market data metrics in `/timeseries/asset-metrics` and `/timeseries/pair-metrics`.
 
-### [CM Prices](readme-1.md#cm-prices)
+### [CM Prices](product-overview.md#cm-prices)
 
 * **Reference Rates** provide prices calculated in U.S. Dollars and Euros for several assets using a transparent and independent methodology, robust to manipulation and derived from high-quality constituent markets. This data is available through our [API](access-our-data/api/) (`timeseries/asset-metrics` endpoint) and also in our [Data Visualization](data-visualization/) and [CM Pro Charts](data-visualization/cmpro/).
 * **Reference Rates Community** (Community [API](access-our-data/api/), [Data Visualization](data-visualization/), [Pro Charts](data-visualization/cmpro/)) provides access to all of our reference rates with a limited amount of history for our more granular resolutions. For more info on our Community terms and offerings see our [Labs](https://coinmetrics.io/cm-labs/) page
@@ -38,7 +38,7 @@ High Level Data Overview
 * **Coin Metrics Bletchley Indexes (CMBI)** are a comprehensive suite of single-asset, multi-asset, and unique crypto asset benchmarks used by leading crypto and traditional financial institutions. This data is available through our [API](access-our-data/api/) (`timeseries/index-levels` and `/timeseries/index-constituents` endpoints) and also in our [Data Visualization](data-visualization/) and [CM Pro Charts](data-visualization/cmpro/).
 * **CMBI Community** (Community [API](access-our-data/api/), [Data Visualization](data-visualization/), [Pro Charts](data-visualization/cmpro/)) provides access to all of our index levels with a limited amount of history for our more granular resolutions. For more info on our Community terms and offerings see our [Labs](https://coinmetrics.io/cm-labs/) page. A further description of the limitations of this data is listed in the data concepts in the **Indexes** section of this Encyclopedia.
 
-## [Reference Data](readme-1.md#reference-data)
+## [Reference Data](product-overview.md#reference-data)
 
 * [**Datonomy**](reference-data/datonomy-overview/) is a digital asset classification system created by Coin Metrics, Goldman Sachs and MSCI that creates a consistent, standardized way for investors to analyze the digital assets ecosystem. This data is available via our API via the `/taxonomy/assets` endpoint.
 * [**Asset Profiles**](reference-data/asset-profiles-overview/asset-profiles.md) are descriptions of cryptoassets that supplement our asset metrics data to provide a comprehensive overview of a particular asset. This data is available via our API via the `/profiles/assets` endpoint.
