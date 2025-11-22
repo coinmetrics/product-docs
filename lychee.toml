@@ -1,0 +1,18 @@
+# Exclude patterns
+exclude = [
+  "localhost",
+  "127.0.0.1",
+  "^file://",
+]
+
+# Network settings
+max_retries = 3
+timeout = 20
+max_concurrency = 10
+
+# Check behavior
+include_verbatim = true
+
+# Cache for faster repeated runs
+cache = true
+

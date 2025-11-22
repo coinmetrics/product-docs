@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
@@ -35,3 +33,7 @@ choco.sh
 knowledge-base/lib/python3.8/*
 knowledge-base/bin/*
 .vscode/*
+
+# Documentation testing
+test-reports/
+.vale-cache/
