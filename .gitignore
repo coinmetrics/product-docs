@@ -37,3 +37,4 @@ knowledge-base/bin/*
 # Documentation testing
 test-reports/
 .vale-cache/
+.lycheecache
