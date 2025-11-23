@@ -1368,6 +1368,10 @@ def main():
     print(f"Generated HTML report: {html_path}")
     
     print(f"\nTotal issues found: {len(all_issues)}")
+    
+    # Exit with non-zero if issues found
+    if len(all_issues) > 0:
+        sys.exit(1)
 
 
 if __name__ == '__main__':

@@ -41,26 +41,14 @@ test-quick: lint check-code check-structure report
 lint:
 	@echo "Running Markdown linting..."
 	@mkdir -p test-reports
-	$(QUIET)markdownlint-cli2 "docs/**/*.md" > test-reports/markdownlint.txt 2>&1; \
-	EXIT_CODE=$$?; \
-	if [ $$EXIT_CODE -ne 0 ] && [ $(VERBOSE) -eq 1 ]; then \
-		echo "Markdown linting found issues (exit code: $$EXIT_CODE)"; \
-		cat test-reports/markdownlint.txt; \
-	fi; \
-	exit 0
+	-$(QUIET)markdownlint-cli2 "docs/**/*.md" > test-reports/markdownlint.txt 2>&1
 
 # Spell checking and prose quality
 spell:
 	@echo "Running Vale spell and style checking..."
 	@mkdir -p test-reports
-	$(QUIET)vale sync $(REDIRECT); \
-	vale --output=JSON docs > test-reports/vale.json 2>&1; \
-	EXIT_CODE=$$?; \
-	if [ $$EXIT_CODE -ne 0 ] && [ $(VERBOSE) -eq 1 ]; then \
-		echo "Vale found issues (exit code: $$EXIT_CODE)"; \
-		cat test-reports/vale.json; \
-	fi; \
-	exit 0
+	-$(QUIET)vale sync $(REDIRECT)
+	-$(QUIET)vale --output=JSON docs > test-reports/vale.json 2>&1
 
 # Link validation (all links)
 check-links: check-links-internal check-links-external
@@ -69,66 +57,32 @@ check-links: check-links-internal check-links-external
 check-links-internal:
 	@echo "Checking internal documentation links..."
 	@mkdir -p test-reports
-	$(QUIET)lychee --offline --exclude "localhost" --exclude "127.0.0.1" --format json --no-progress "docs/**/*.md" 2>/dev/null > test-reports/lychee-internal.json; \
-	EXIT_CODE=$$?; \
-	if [ $$EXIT_CODE -ne 0 ] && [ $(VERBOSE) -eq 1 ]; then \
-		echo "Internal link checking found issues (exit code: $$EXIT_CODE)"; \
-		cat test-reports/lychee-internal.json; \
-	fi; \
-	echo "Note: Internal checking only validates relative file paths. Use check-links-external for HTTP/HTTPS URLs."; \
-	exit 0
+	-$(QUIET)lychee --config lychee.toml --offline --include-fragments --format json --no-progress "docs/**/*.md" 2>/dev/null > test-reports/lychee-internal.json
+	@echo "Note: Internal checking only validates relative file paths. Use check-links-external for HTTP/HTTPS URLs."
 
 # External links (includes all HTTP/HTTPS) - can be slower
 check-links-external:
 	@echo "Checking all HTTP/HTTPS links..."
 	@mkdir -p test-reports
-	$(QUIET)lychee --config lychee.toml --format json --no-progress "docs/**/*.md" 2>/dev/null > test-reports/lychee-external.json; \
-	EXIT_CODE=$$?; \
-	if [ $$EXIT_CODE -ne 0 ] && [ $(VERBOSE) -eq 1 ]; then \
-		echo "External link checking found issues (exit code: $$EXIT_CODE)"; \
-		cat test-reports/lychee-external.json; \
-	fi; \
-	exit 0
+	-$(QUIET)lychee --config lychee.toml --exclude "^file://" --format json --no-progress "docs/**/*.md" 2>/dev/null > test-reports/lychee-external.json
 
 # Code sample syntax validation
 check-code:
 	@echo "Validating code samples..."
 	@mkdir -p test-reports
-	$(QUIET)python3 scripts/validate_code_samples.py $(REDIRECT); \
-	EXIT_CODE=$$?; \
-	if [ $$EXIT_CODE -ne 0 ]; then \
-		echo "Code validation found issues (exit code: $$EXIT_CODE)"; \
-		if [ $(VERBOSE) -eq 1 ] && [ -f test-reports/code-validation.xml ]; then \
-			cat test-reports/code-validation.xml; \
-		fi; \
-	fi; \
-	exit 0
+	-$(QUIET)python3 scripts/validate_code_samples.py $(REDIRECT)
 
 # GitBook structure validation
 check-structure:
 	@echo "Validating GitBook structure..."
 	@mkdir -p test-reports
-	$(QUIET)python3 scripts/validate_gitbook.py $(REDIRECT); \
-	EXIT_CODE=$$?; \
-	if [ $$EXIT_CODE -ne 0 ]; then \
-		echo "GitBook structure validation found issues (exit code: $$EXIT_CODE)"; \
-		if [ $(VERBOSE) -eq 1 ] && [ -f test-reports/gitbook-validation.xml ]; then \
-			cat test-reports/gitbook-validation.xml; \
-		fi; \
-	fi; \
-	exit 0
+	-$(QUIET)python3 scripts/validate_gitbook.py $(REDIRECT)
 
 # Generate consolidated report
 report:
 	@echo "Generating consolidated report..."
-	$(QUIET)python3 scripts/generate_report.py $(REDIRECT); \
-	EXIT_CODE=$$?; \
-	if [ $$EXIT_CODE -ne 0 ]; then \
-		echo "Report generation encountered issues (exit code: $$EXIT_CODE)"; \
-	else \
-		echo "Report generated at test-reports/index.html"; \
-	fi; \
-	exit 0
+	-$(QUIET)python3 scripts/generate_report.py $(REDIRECT)
+	@echo "Report generated at test-reports/index.html"
 
 # Clean up test artifacts
 clean:
