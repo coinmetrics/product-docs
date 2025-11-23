@@ -38,3 +38,7 @@ knowledge-base/bin/*
 test-reports/
 .vale-cache/
 .lycheecache
+
+# Vale: Ignore downloaded style packages but keep custom config
+.vale/styles/*
+!.vale/styles/config/

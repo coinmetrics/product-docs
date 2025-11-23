@@ -53,7 +53,8 @@ lint:
 spell:
 	@echo "Running Vale spell and style checking..."
 	@mkdir -p test-reports
-	$(QUIET)vale --output=JSON docs > test-reports/vale.json 2>&1; \
+	$(QUIET)vale sync $(REDIRECT); \
+	vale --output=JSON docs > test-reports/vale.json 2>&1; \
 	EXIT_CODE=$$?; \
 	if [ $$EXIT_CODE -ne 0 ] && [ $(VERBOSE) -eq 1 ]; then \
 		echo "Vale found issues (exit code: $$EXIT_CODE)"; \
