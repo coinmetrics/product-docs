@@ -12,11 +12,9 @@ Checks:
 """
 
 import argparse
-import os
 import re
 import sys
 from pathlib import Path
-from collections import Counter
 from urllib.parse import unquote
 import yaml
 from junit_xml import TestSuite, TestCase
