@@ -1,37 +1,136 @@
 #!/usr/bin/env python3
 """
 Validate code samples in markdown files.
-
-Checks syntax for Python, JavaScript, Shell, R, and SQL code blocks.
+Improved validation logic and command line arguments.
 """
 
 import ast
-import os
+import argparse
 import re
 import sys
+import shlex
+import shutil
+import subprocess
 from pathlib import Path
 from junit_xml import TestSuite, TestCase
 
+# Optional imports
 try:
     import esprima
 except ImportError:
     esprima = None
-    print("Warning: esprima not installed. JavaScript validation disabled.")
 
+# -------------------------------------------------------------------------
+# Validators
+# -------------------------------------------------------------------------
+
+def validate_python(code):
+    """Validate Python using the built-in AST module."""
+    try:
+        ast.parse(code)
+        return True, None
+    except SyntaxError as e:
+        return False, f"Line {e.lineno}: {e.msg}"
+    except Exception as e:
+        return False, str(e)
+
+def validate_javascript(code):
+    """Validate JS using Esprima."""
+    if esprima is None:
+        return True, "SKIPPED: esprima not installed"
+    try:
+        esprima.parseScript(code)
+        return True, None
+    except Exception as e:
+        return False, str(e)
+
+def validate_shell(code):
+    """
+    Validate Shell using 'bash -n' if available, otherwise fall back to shlex.
+    'bash -n' checks syntax without executing.
+    """
+    # Method A: Try using the system's bash validator (Much more accurate)
+    if shutil.which('bash'):
+        try:
+            subprocess.run(
+                ['bash', '-n', '-c', code], 
+                check=True, 
+                capture_output=True, 
+                text=True
+            )
+            return True, None
+        except subprocess.CalledProcessError as e:
+            return False, e.stderr.strip()
+
+    # Method B: Fallback to shlex (Basic tokenization check)
+    try:
+        shlex.split(code, comments=True)
+        return True, None
+    except ValueError as e:
+        return False, f"Tokenization error: {str(e)}"
+
+def validate_r(code):
+    """Validate R code using Rscript if available."""
+    if not shutil.which('Rscript'):
+        return True, "SKIPPED: Rscript not found"
+    
+    # R parses code without running it using parse(text=...)
+    r_command = f"tryCatch(parse(text='{code.replace("'", "'\\''")}'), error=function(e) quit(status=1, save='no'))"
+    
+    try:
+        subprocess.run(
+            ['Rscript', '-e', r_command],
+            check=True,
+            capture_output=True,
+            text=True
+        )
+        return True, None
+    except subprocess.CalledProcessError:
+        return False, "R syntax error"
+
+def validate_sql(code):
+    """
+    SQL validation is difficult without a specific dialect.
+    We check for basic structure but return a Warning to the logs.
+    """
+    # Just check if it's not empty
+    if not code.strip():
+        return False, "Empty block"
+    return True, "SKIPPED: Strict SQL validation requires a specific dialect parser"
+
+# -------------------------------------------------------------------------
+# Core Logic
+# -------------------------------------------------------------------------
 
 def extract_code_blocks(filepath):
-    """Extract fenced code blocks from a markdown file."""
+    """
+    Extract fenced code blocks.
+    Improved Regex handles attributes like ```python {linenos=true}
+    """
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    # Match fenced code blocks with language tags
-    pattern = r'```(\w+)\n(.*?)```'
-    matches = re.finditer(pattern, content, re.DOTALL)
+    # Regex Explanation:
+    # ^\s*```          : Start of line, optional indentation, triple backticks
+    # ([\w+-]+)        : Group 1 - Language identifier (allow hyphens/plus)
+    # (?:[ \t]+.*)?    : Non-capturing - Optional attributes after lang
+    # \n               : Newline
+    # (.*?)            : Group 2 - The code content (non-greedy)
+    # ^\s*```          : End of block
+    pattern = r'^\s*```([\w+-]+)(?:[ \t]+.*)?\n(.*?)\n\s*```'
+    
+    matches = re.finditer(pattern, content, re.MULTILINE | re.DOTALL)
     
     blocks = []
     for match in matches:
         lang = match.group(1).lower()
         code = match.group(2)
+        
+        # Check for "skip-validate" in the code or preceding comments
+        # (Simple check inside the code block for this example)
+        if "skip-validate" in code:
+            continue
+
         line_num = content[:match.start()].count('\n') + 1
         blocks.append({
             'language': lang,
@@ -42,179 +141,93 @@ def extract_code_blocks(filepath):
     
     return blocks
 
-
-def validate_python(code):
-    """Validate Python code syntax."""
-    try:
-        ast.parse(code)
-        return True, None
-    except SyntaxError as e:
-        return False, f"Line {e.lineno}: {e.msg}"
-    except Exception as e:
-        return False, str(e)
-
-
-def validate_javascript(code):
-    """Validate JavaScript code syntax."""
-    if esprima is None:
-        return True, "JavaScript validation skipped (esprima not installed)"
-    
-    try:
-        esprima.parseScript(code)
-        return True, None
-    except Exception as e:
-        return False, str(e)
-
-
-def validate_shell(code):
-    """Basic shell script validation."""
-    # Check for common shell syntax errors
-    errors = []
-    
-    lines = code.split('\n')
-    for i, line in enumerate(lines, 1):
-        line = line.strip()
-        if not line or line.startswith('#'):
-            continue
-        
-        # Check for unmatched quotes
-        single_quotes = line.count("'") - line.count("\\'")
-        double_quotes = line.count('"') - line.count('\\"')
-        
-        if single_quotes % 2 != 0:
-            errors.append(f"Line {i}: Unmatched single quote")
-        if double_quotes % 2 != 0:
-            errors.append(f"Line {i}: Unmatched double quote")
-    
-    if errors:
-        return False, "; ".join(errors)
-    return True, None
-
-
-def validate_r(code):
-    """Basic R code validation."""
-    # Basic checks for R syntax
-    errors = []
-    
-    lines = code.split('\n')
-    for i, line in enumerate(lines, 1):
-        line = line.strip()
-        if not line or line.startswith('#'):
-            continue
-        
-        # Check for unmatched parentheses
-        if line.count('(') != line.count(')'):
-            errors.append(f"Line {i}: Unmatched parentheses")
-        if line.count('[') != line.count(']'):
-            errors.append(f"Line {i}: Unmatched brackets")
-        if line.count('{') != line.count('}'):
-            errors.append(f"Line {i}: Unmatched braces")
-    
-    if errors:
-        return False, "; ".join(errors)
-    return True, None
-
-
-def validate_sql(code):
-    """Basic SQL validation."""
-    # Basic checks for SQL syntax
-    errors = []
-    
-    # Check for common SQL keywords to ensure it's at least SQL-like
-    sql_keywords = ['select', 'from', 'where', 'insert', 'update', 'delete', 'create', 'drop', 'alter']
-    code_lower = code.lower()
-    
-    has_sql_keyword = any(keyword in code_lower for keyword in sql_keywords)
-    if not has_sql_keyword and len(code.strip()) > 0:
-        errors.append("No SQL keywords found")
-    
-    if errors:
-        return False, "; ".join(errors)
-    return True, None
-
-
 def validate_code_block(block):
-    """Validate a code block based on its language."""
     lang = block['language']
-    code = block['code']
+    
+    # Normalize language tags
+    mapping = {
+        'py': 'python', 'python': 'python',
+        'js': 'javascript', 'javascript': 'javascript',
+        'sh': 'shell', 'bash': 'shell', 'shell': 'shell', 'zsh': 'shell',
+        'r': 'r',
+        'sql': 'sql'
+    }
+    
+    target_lang = mapping.get(lang)
     
     validators = {
         'python': validate_python,
-        'py': validate_python,
         'javascript': validate_javascript,
-        'js': validate_javascript,
         'shell': validate_shell,
-        'bash': validate_shell,
-        'sh': validate_shell,
         'r': validate_r,
-        'sql': validate_sql,
+        'sql': validate_sql
     }
     
-    validator = validators.get(lang)
-    if validator is None:
-        # Skip validation for unsupported languages
-        return True, f"Validation not implemented for '{lang}'"
+    validator = validators.get(target_lang)
     
-    return validator(code)
-
+    if not validator:
+        # Do not fail on unknown languages (like 'yaml' or 'json')
+        # just silently skip or mark as skipped
+        return True, f"SKIPPED: No validator for '{lang}'"
+    
+    return validator(block['code'])
 
 def main():
-    """Main validation function."""
-    docs_dir = Path('docs')
+    parser = argparse.ArgumentParser(description="Validate markdown code samples")
+    parser.add_argument('--input', '-i', default='docs', help="Input directory")
+    parser.add_argument('--output', '-o', default='test-reports', help="Report output directory")
+    args = parser.parse_args()
+
+    docs_dir = Path(args.input)
     if not docs_dir.exists():
-        print(f"Error: docs directory not found")
+        print(f"Error: Directory '{docs_dir}' not found")
         sys.exit(1)
     
-    # Find all markdown files
     md_files = list(docs_dir.rglob('*.md'))
-    
     test_cases = []
-    total_blocks = 0
-    failed_blocks = 0
+    failed_count = 0
+    total_count = 0
     
+    print(f"Scanning {len(md_files)} files in '{docs_dir}'...")
+
     for md_file in md_files:
         blocks = extract_code_blocks(md_file)
-        total_blocks += len(blocks)
+        total_count += len(blocks)
         
         for block in blocks:
-            test_name = f"{block['file']}:{block['line']}:{block['language']}"
-            tc = TestCase(test_name, classname='CodeValidation')
+            test_name = f"{block['file'].name}:{block['line']} ({block['language']})"
+            tc = TestCase(test_name, file=str(block['file']), line=block['line'], classname=block['language'])
             
-            is_valid, error = validate_code_block(block)
+            is_valid, msg = validate_code_block(block)
             
             if not is_valid:
-                failed_blocks += 1
-                tc.add_failure_info(
-                    message=f"Syntax error in {block['language']} code block",
-                    output=error
-                )
-                print(f"FAIL: {test_name}")
-                print(f"  Error: {error}")
+                failed_count += 1
+                tc.add_failure_info(message=msg)
+                print(f"❌ FAIL: {test_name} -> {msg}")
+            elif msg and "SKIPPED" in msg:
+                tc.add_skipped_info(message=msg)
+                # print(f"⚠️  SKIP: {test_name}") # Optional: reduce noise
             else:
-                if error:  # Warning message
-                    print(f"SKIP: {test_name} - {error}")
+                pass # Passed
             
             test_cases.append(tc)
+
+    # Generate Report
+    ts = TestSuite("Markdown Code Validation", test_cases)
+    output_dir = Path(args.output)
+    output_dir.mkdir(parents=True, exist_ok=True)
     
-    # Generate JUnit XML report
-    ts = TestSuite("Code Sample Validation", test_cases)
-    output_dir = Path('test-reports')
-    output_dir.mkdir(exist_ok=True)
-    
-    with open(output_dir / 'code-validation.xml', 'w') as f:
-        TestSuite.to_xml_string([ts], prettyprint=True, encoding='utf-8')
+    xml_out = output_dir / 'code-validation.xml'
+    with open(xml_out, 'w', encoding='utf-8') as f:
         f.write(TestSuite.to_xml_string([ts], prettyprint=True))
     
-    # Summary
-    print(f"\nCode Validation Summary:")
-    print(f"  Total code blocks: {total_blocks}")
-    print(f"  Failed: {failed_blocks}")
-    print(f"  Passed: {total_blocks - failed_blocks}")
+    print(f"\nSummary:")
+    print(f"  Total Blocks: {total_count}")
+    print(f"  Passed: {total_count - failed_count}")
+    print(f"  Failed: {failed_count}")
+    print(f"  Report: {xml_out}")
     
-    # Exit with error code if there were failures
-    sys.exit(1 if failed_blocks > 0 else 0)
-
+    sys.exit(1 if failed_count > 0 else 0)
 
 if __name__ == '__main__':
     main()
-

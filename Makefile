@@ -70,7 +70,7 @@ check-links-external:
 check-code:
 	@echo "Validating code samples..."
 	@mkdir -p test-reports
-	-$(QUIET)python3 scripts/validate_code_samples.py $(REDIRECT)
+	-$(QUIET)python3 scripts/validate_code_samples.py --input docs --output test-reports $(REDIRECT)
 
 # GitBook structure validation
 check-structure:
