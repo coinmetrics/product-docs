@@ -191,14 +191,18 @@ def extract_image_references(docs_dir):
         with open(md_file, 'r', encoding='utf-8') as f:
             content = f.read()
         
-        # Fixed regex: handles escaped chars, stops at whitespace
-        pattern = r'!\[.*?\]\(((?:\\.|[^\s)])+)'
+        # Fixed regex: handles escaped chars, angle brackets for paths with spaces
+        pattern = r'!\[.*?\]\((?:<([^>]+)>|((?:\\.|[^\s)])+))'
         matches = re.findall(pattern, content)
         
         for match in matches:
-            if not match.startswith('http'):
+            # match is a tuple: (group1, group2)
+            # Use group1 if matched (angle brackets), otherwise group2 (regular path)
+            path = match[0] if match[0] else match[1]
+            
+            if not path.startswith('http'):
                 # Strip anchors and query strings
-                path = match.split('#')[0].split('?')[0]
+                path = path.split('#')[0].split('?')[0]
                 
                 # Unescape markdown characters
                 unescaped = path.replace('\\(', '(').replace('\\)', ')').replace('\\_', '_')
