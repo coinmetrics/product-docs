@@ -170,7 +170,7 @@ def find_orphaned_files(docs_dir):
     for md_file in docs_dir.rglob('*.md'):
         # Get relative path from docs/
         rel_path = md_file.relative_to(docs_dir)
-        all_md_files.append(str(rel_path))
+        all_md_files.append(rel_path.as_posix())
     
     # Find orphans (excluding SUMMARY.md and README.md at root)
     orphans = []
