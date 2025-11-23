@@ -76,7 +76,7 @@ check-code:
 check-structure:
 	@echo "Validating GitBook structure..."
 	@mkdir -p test-reports
-	-$(QUIET)python3 scripts/validate_gitbook.py $(REDIRECT)
+	-$(QUIET)python3 scripts/validate_gitbook.py --input docs --output test-reports $(REDIRECT)
 
 # Generate consolidated report
 report:

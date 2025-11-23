@@ -11,6 +11,7 @@ Checks:
 - No unused images
 """
 
+import argparse
 import os
 import re
 import sys
@@ -20,11 +21,11 @@ import yaml
 from junit_xml import TestSuite, TestCase
 
 
-def load_gitbook_yaml():
+def load_gitbook_yaml(docs_dir):
     """Load and parse .gitbook.yaml file."""
-    gitbook_path = Path('docs/.gitbook.yaml')
+    gitbook_path = docs_dir / '.gitbook.yaml'
     if not gitbook_path.exists():
-        return None, "File not found: docs/.gitbook.yaml"
+        return None, f"File not found: {gitbook_path}"
     
     try:
         with open(gitbook_path, 'r', encoding='utf-8') as f:
@@ -47,12 +48,11 @@ def check_duplicate_redirects(gitbook_data):
     return duplicates
 
 
-def check_redirect_targets(gitbook_data):
+def check_redirect_targets(gitbook_data, docs_dir):
     """Check that all redirect targets exist."""
     if not gitbook_data or 'redirects' not in gitbook_data:
         return []
     
-    docs_dir = Path('docs')
     errors = []
     
     for source, target in gitbook_data['redirects'].items():
@@ -64,9 +64,9 @@ def check_redirect_targets(gitbook_data):
     return errors
 
 
-def parse_summary_md():
+def parse_summary_md(docs_dir):
     """Parse SUMMARY.md and extract all referenced files."""
-    summary_path = Path('docs/SUMMARY.md')
+    summary_path = docs_dir / 'SUMMARY.md'
     if not summary_path.exists():
         return [], "SUMMARY.md not found"
     
@@ -87,13 +87,12 @@ def parse_summary_md():
     return files, None
 
 
-def check_summary_files():
+def check_summary_files(docs_dir):
     """Check that all files in SUMMARY.md exist."""
-    files, error = parse_summary_md()
+    files, error = parse_summary_md(docs_dir)
     if error:
         return [error]
     
-    docs_dir = Path('docs')
     errors = []
     
     for file_path in files:
@@ -104,9 +103,9 @@ def check_summary_files():
     return errors
 
 
-def find_orphaned_files():
+def find_orphaned_files(docs_dir):
     """Find markdown files not referenced in SUMMARY.md."""
-    summary_files, error = parse_summary_md()
+    summary_files, error = parse_summary_md(docs_dir)
     if error:
         return []
     
@@ -114,7 +113,6 @@ def find_orphaned_files():
     summary_set = set(summary_files)
     
     # Find all markdown files
-    docs_dir = Path('docs')
     all_md_files = []
     
     for md_file in docs_dir.rglob('*.md'):
@@ -131,9 +129,8 @@ def find_orphaned_files():
     return orphans
 
 
-def extract_image_references():
+def extract_image_references(docs_dir):
     """Extract all image references from markdown files."""
-    docs_dir = Path('docs')
     images = set()
     
     for md_file in docs_dir.rglob('*.md'):
@@ -152,10 +149,9 @@ def extract_image_references():
     return images
 
 
-def check_image_references():
+def check_image_references(docs_dir):
     """Check that all referenced images exist."""
-    images = extract_image_references()
-    docs_dir = Path('docs')
+    images = extract_image_references(docs_dir)
     errors = []
     
     for image in images:
@@ -170,12 +166,12 @@ def check_image_references():
     return errors
 
 
-def find_unused_images():
+def find_unused_images(docs_dir):
     """Find images not referenced in any markdown file."""
-    referenced_images = extract_image_references()
+    referenced_images = extract_image_references(docs_dir)
     
     # Find all images in .gitbook/assets/
-    assets_dir = Path('docs/.gitbook/assets')
+    assets_dir = docs_dir / '.gitbook/assets'
     if not assets_dir.exists():
         return []
     
@@ -183,7 +179,7 @@ def find_unused_images():
     for img in assets_dir.rglob('*'):
         if img.is_file() and img.suffix.lower() in ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.pdf', '.ipynb']:
             # Get path relative to docs/
-            rel_path = img.relative_to(Path('docs'))
+            rel_path = img.relative_to(docs_dir)
             all_images.append(str(rel_path))
     
     # Find unused
@@ -201,10 +197,20 @@ def find_unused_images():
 
 def main():
     """Main validation function."""
+    parser = argparse.ArgumentParser(description="Validate GitBook structure")
+    parser.add_argument('--input', '-i', default='docs', help="Input directory")
+    parser.add_argument('--output', '-o', default='test-reports', help="Report output directory")
+    args = parser.parse_args()
+
+    docs_dir = Path(args.input)
+    if not docs_dir.exists():
+        print(f"Error: Directory '{docs_dir}' not found")
+        sys.exit(1)
+    
     test_cases = []
     
     # Test 1: Load .gitbook.yaml
-    gitbook_data, error = load_gitbook_yaml()
+    gitbook_data, error = load_gitbook_yaml(docs_dir)
     tc = TestCase("Load .gitbook.yaml", classname='GitBookValidation')
     if error:
         tc.add_failure_info(message=error)
@@ -228,7 +234,7 @@ def main():
     # Test 3: Check redirect targets exist
     tc = TestCase("All redirect targets exist", classname='GitBookValidation')
     if gitbook_data:
-        errors = check_redirect_targets(gitbook_data)
+        errors = check_redirect_targets(gitbook_data, docs_dir)
         if errors:
             tc.add_failure_info(
                 message=f"Found {len(errors)} redirect target errors",
@@ -243,7 +249,7 @@ def main():
     
     # Test 4: Check SUMMARY.md files exist
     tc = TestCase("All SUMMARY.md files exist", classname='GitBookValidation')
-    errors = check_summary_files()
+    errors = check_summary_files(docs_dir)
     if errors:
         tc.add_failure_info(
             message=f"Found {len(errors)} missing files in SUMMARY.md",
@@ -258,7 +264,7 @@ def main():
     
     # Test 5: Check for orphaned files
     tc = TestCase("No orphaned markdown files", classname='GitBookValidation')
-    orphans = find_orphaned_files()
+    orphans = find_orphaned_files(docs_dir)
     if orphans:
         tc.add_failure_info(message=f"Found {len(orphans)} orphaned files", output="\n".join(orphans))
         print(f"WARN: {len(orphans)} orphaned markdown file(s) not in SUMMARY.md")
@@ -272,7 +278,7 @@ def main():
     
     # Test 6: Check image references
     tc = TestCase("All referenced images exist", classname='GitBookValidation')
-    errors = check_image_references()
+    errors = check_image_references(docs_dir)
     if errors:
         tc.add_failure_info(
             message=f"Found {len(errors)} missing image references",
@@ -289,7 +295,7 @@ def main():
     
     # Test 7: Check for unused images
     tc = TestCase("No unused images", classname='GitBookValidation')
-    unused = find_unused_images()
+    unused = find_unused_images(docs_dir)
     if unused:
         tc.add_failure_info(message=f"Found {len(unused)} unused images", output="\n".join(unused))
         print(f"INFO: {len(unused)} unused image(s) in .gitbook/assets/")
@@ -303,8 +309,8 @@ def main():
     
     # Generate JUnit XML report
     ts = TestSuite("GitBook Structure Validation", test_cases)
-    output_dir = Path('test-reports')
-    output_dir.mkdir(exist_ok=True)
+    output_dir = Path(args.output)
+    output_dir.mkdir(parents=True, exist_ok=True)
     
     with open(output_dir / 'gitbook-validation.xml', 'w') as f:
         f.write(TestSuite.to_xml_string([ts], prettyprint=True))
