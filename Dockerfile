@@ -32,15 +32,15 @@ RUN ARCH=$(dpkg --print-architecture) && \
 # Install lychee based on architecture
 RUN ARCH=$(dpkg --print-architecture) && \
     if [ "$ARCH" = "amd64" ]; then \
-        wget https://github.com/lycheeverse/lychee/releases/download/v0.14.3/lychee-v0.14.3-x86_64-unknown-linux-gnu.tar.gz && \
-        tar -xvf lychee-v0.14.3-x86_64-unknown-linux-gnu.tar.gz && \
+        wget https://github.com/lycheeverse/lychee/releases/download/lychee-v0.21.0/lychee-x86_64-unknown-linux-gnu.tar.gz && \
+        tar -xvf lychee-x86_64-unknown-linux-gnu.tar.gz && \
         mv lychee /usr/local/bin/ && \
-        rm lychee-v0.14.3-x86_64-unknown-linux-gnu.tar.gz; \
+        rm lychee-x86_64-unknown-linux-gnu.tar.gz; \
     elif [ "$ARCH" = "arm64" ]; then \
-        wget https://github.com/lycheeverse/lychee/releases/download/v0.14.3/lychee-v0.14.3-aarch64-unknown-linux-gnu.tar.gz && \
-        tar -xvf lychee-v0.14.3-aarch64-unknown-linux-gnu.tar.gz && \
+        wget https://github.com/lycheeverse/lychee/releases/download/lychee-v0.21.0/lychee-aarch64-unknown-linux-gnu.tar.gz && \
+        tar -xvf lychee-aarch64-unknown-linux-gnu.tar.gz && \
         mv lychee /usr/local/bin/ && \
-        rm lychee-v0.14.3-aarch64-unknown-linux-gnu.tar.gz; \
+        rm lychee-aarch64-unknown-linux-gnu.tar.gz; \
     else \
         echo "Unsupported architecture: $ARCH" && exit 1; \
     fi

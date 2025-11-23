@@ -93,10 +93,11 @@ def parse_lychee(report_path):
         
         issues = []
         
-        # Lychee outputs a single JSON object with a fail_map containing failed links
-        fail_map = data.get('fail_map', {})
+        # Lychee v0.21.0+ uses error_map, older versions used fail_map
+        # Try error_map first (new format), fall back to fail_map (old format)
+        error_map = data.get('error_map', data.get('fail_map', {}))
         
-        for file_path, failures in fail_map.items():
+        for file_path, failures in error_map.items():
             for failure in failures:
                 url = failure.get('url', 'unknown')
                 status = failure.get('status', {})
