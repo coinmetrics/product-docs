@@ -35,16 +35,67 @@ def load_gitbook_yaml(docs_dir):
         return None, f"Failed to parse .gitbook.yaml: {e}"
 
 
-def check_duplicate_redirects(gitbook_data):
-    """Check for duplicate redirect keys."""
-    if not gitbook_data or 'redirects' not in gitbook_data:
+def check_duplicate_redirects(docs_dir):
+    """Check for duplicate redirect keys by analyzing raw YAML text.
+    
+    Note: This must analyze the raw text because yaml.safe_load() silently
+    overwrites duplicate keys before we can detect them.
+    """
+    gitbook_path = docs_dir / '.gitbook.yaml'
+    if not gitbook_path.exists():
         return []
     
-    redirects = gitbook_data['redirects']
-    keys = list(redirects.keys())
-    counts = Counter(keys)
+    try:
+        with open(gitbook_path, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+    except Exception:
+        return []
     
-    duplicates = [key for key, count in counts.items() if count > 1]
+    # Extract redirect keys from raw YAML
+    # Pattern matches indented lines with key: value format
+    # ^ - Start of line anchor
+    # \s+ - One or more whitespace characters (matches the indentation before each redirect key)
+    # ([^:]+) - Capture group 1 (the redirect source key)
+    # [^:] - any character except a colon
+    # + - one or more times
+    # This captures everything before the colon (e.g., market-data/faqs)
+    # : - Literal colon character (the separator in YAML)
+    # \s* - Zero or more whitespace (spaces after the colon)
+    # (.+) - Capture group 2 (the redirect target)
+    # . - any character
+    # + - one or more times
+    # This captures the target path (e.g., resources/faqs.md)
+    # $ - End of line anchor
+    pattern = re.compile(r'^\s+([^:]+):\s*(.+)$')
+    
+    key_occurrences = {}  # key -> list of line numbers
+    in_redirects_section = False
+    
+    for line_num, line in enumerate(lines, start=1):
+        # Check if we're entering the redirects section
+        if line.strip() == 'redirects:':
+            in_redirects_section = True
+            continue
+        
+        # Check if we've left the redirects section (new top-level key)
+        if in_redirects_section and line and not line[0].isspace():
+            in_redirects_section = False
+        
+        # Only process lines within the redirects section
+        if in_redirects_section:
+            match = pattern.match(line)
+            if match:
+                key = match.group(1).strip()
+                if key not in key_occurrences:
+                    key_occurrences[key] = []
+                key_occurrences[key].append(line_num)
+    
+    # Find duplicates (keys that appear more than once)
+    duplicates = []
+    for key, line_numbers in key_occurrences.items():
+        if len(line_numbers) > 1:
+            duplicates.append(f"{key} (lines: {', '.join(map(str, line_numbers))})")
+    
     return duplicates
 
 
@@ -221,14 +272,13 @@ def main():
     
     # Test 2: Check for duplicate redirects
     tc = TestCase("No duplicate redirect keys", classname='GitBookValidation')
-    if gitbook_data:
-        duplicates = check_duplicate_redirects(gitbook_data)
-        if duplicates:
-            msg = f"Duplicate redirect keys found: {', '.join(duplicates)}"
-            tc.add_failure_info(message=msg)
-            print(f"FAIL: {msg}")
-        else:
-            print("PASS: No duplicate redirect keys")
+    duplicates = check_duplicate_redirects(docs_dir)
+    if duplicates:
+        msg = f"Duplicate redirect keys found: {', '.join(duplicates)}"
+        tc.add_failure_info(message=msg)
+        print(f"FAIL: {msg}")
+    else:
+        print("PASS: No duplicate redirect keys")
     test_cases.append(tc)
     
     # Test 3: Check redirect targets exist
