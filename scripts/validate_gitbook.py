@@ -17,6 +17,7 @@ import re
 import sys
 from pathlib import Path
 from collections import Counter
+from urllib.parse import unquote
 import yaml
 from junit_xml import TestSuite, TestCase
 
@@ -181,21 +182,40 @@ def find_orphaned_files(docs_dir):
 
 
 def extract_image_references(docs_dir):
-    """Extract all image references from markdown files."""
-    images = set()
+    """Extract all image references, resolving relative paths."""
+    images = {}  # resolved_path -> source_file
     
     for md_file in docs_dir.rglob('*.md'):
+        md_dir = md_file.parent
+        
         with open(md_file, 'r', encoding='utf-8') as f:
             content = f.read()
         
-        # Match markdown images: ![alt](path)
-        pattern = r'!\[.*?\]\((.*?)\)'
+        # Fixed regex: handles escaped chars, stops at whitespace
+        pattern = r'!\[.*?\]\(((?:\\.|[^\s)])+)'
         matches = re.findall(pattern, content)
         
         for match in matches:
-            # Only track local images (not URLs)
             if not match.startswith('http'):
-                images.add(match)
+                # Strip anchors and query strings
+                path = match.split('#')[0].split('?')[0]
+                
+                # Unescape markdown characters
+                unescaped = path.replace('\\(', '(').replace('\\)', ')').replace('\\_', '_')
+                
+                # URL-decode (e.g., %20 -> space)
+                decoded = unquote(unescaped)
+                
+                # Resolve relative to source file's directory
+                resolved = (md_dir / decoded).resolve()
+                
+                try:
+                    rel_path = resolved.relative_to(docs_dir.resolve())
+                    # Use as_posix() for cross-platform consistency
+                    images[rel_path.as_posix()] = md_file.relative_to(docs_dir).as_posix()
+                except ValueError:
+                    # Path outside docs_dir - skip (will be caught as error later)
+                    pass
     
     return images
 
@@ -205,44 +225,31 @@ def check_image_references(docs_dir):
     images = extract_image_references(docs_dir)
     errors = []
     
-    for image in images:
-        # Images can be relative to docs/ or absolute from repo root
-        image_path = docs_dir / image
-        if not image_path.exists():
-            # Try from repo root
-            image_path = Path(image)
-            if not image_path.exists():
-                errors.append(f"Referenced image does not exist: {image}")
+    for image_path, source_file in images.items():
+        full_path = docs_dir / image_path
+        if not full_path.exists():
+            errors.append(f"Referenced image does not exist: {image_path} (referenced in {source_file})")
     
     return errors
 
 
 def find_unused_images(docs_dir):
     """Find images not referenced in any markdown file."""
-    referenced_images = extract_image_references(docs_dir)
+    referenced_images = set(extract_image_references(docs_dir).keys())
     
     # Find all images in .gitbook/assets/
     assets_dir = docs_dir / '.gitbook/assets'
     if not assets_dir.exists():
         return []
     
-    all_images = []
+    all_images = set()
     for img in assets_dir.rglob('*'):
         if img.is_file() and img.suffix.lower() in ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.pdf', '.ipynb']:
-            # Get path relative to docs/
-            rel_path = img.relative_to(docs_dir)
-            all_images.append(str(rel_path))
+            # Use as_posix() for consistency
+            rel_path = img.relative_to(docs_dir).as_posix()
+            all_images.add(rel_path)
     
-    # Find unused
-    unused = []
-    for img in all_images:
-        # Check various path formats
-        if img not in referenced_images and f"./{img}" not in referenced_images and f"/{img}" not in referenced_images:
-            # Also check without docs/ prefix
-            img_name = img.replace('.gitbook/assets/', '')
-            if img_name not in referenced_images:
-                unused.append(img)
-    
+    unused = sorted(all_images - referenced_images)
     return unused
 
 
