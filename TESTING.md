@@ -30,6 +30,83 @@ The testing suite validates:
 
 All tests run in a Docker container with all tools pre-installed - no local installation required.
 
+### Detailed Test Catalog
+
+#### 1. Markdown Linting (markdownlint-cli2)
+
+Validates markdown formatting and style consistency:
+- Runs all enabled rules from `.markdownlint.json`
+- Currently disabled rules: MD013 (line length), MD033 (inline HTML), MD041 (first line heading)
+- Catches common issues: multiple blank lines, missing blank lines around lists, inconsistent heading styles
+
+#### 2. Spelling and Style Checking (Vale)
+
+Checks prose quality and spelling across multiple style guides:
+- **Style packages**: Vale, Microsoft, Google, write-good, proselint, Readability
+- **Minimum alert level**: suggestion (includes all warnings and errors)
+- **Custom vocabulary**: Uses CoinMetrics-specific terms from `.vale/styles/config/vocabularies/`
+- Catches: passive voice, unclear wording, jargon, spelling errors, readability issues
+
+#### 3. Link Validation (lychee)
+
+Validates all links in markdown files with two modes:
+
+**Internal Links** (offline mode):
+- Validates relative file paths within the repository
+- Checks anchor links (#sections) exist in target files
+- Fast validation without network requests
+
+**External Links** (online mode):
+- Checks HTTP/HTTPS URLs for accessibility
+- Configured with 3 retries and 20-second timeout
+- Excludes localhost and 127.0.0.1
+- Uses realistic user agent to avoid bot blocking
+
+#### 4. Code Sample Syntax Validation (validate_code_samples.py)
+
+Validates syntax of code blocks in markdown files:
+
+**Supported languages**:
+- **Python**: AST parsing for syntax errors
+- **JavaScript**: esprima parser validation
+- **Shell/Bash/Zsh**: bash -n syntax checking
+- **R**: Rscript parse validation
+- **SQL**: Basic structure validation
+
+**Features**:
+- Automatically detects language from code fence tags
+- Skips validation for code blocks with "skip-validate" comment
+- Reports line numbers and specific syntax errors
+- Generates JUnit XML for CI integration
+
+#### 5. GitBook Structure Validation (validate_gitbook.py)
+
+Performs 9 comprehensive checks on GitBook structure:
+
+1. **`.gitbook.yaml` file loads** - Ensures YAML is valid and parseable
+2. **No duplicate redirect keys** - Checks for duplicate entries in redirects section
+3. **Redirect targets exist** - Verifies all redirect destinations point to real files
+4. **SUMMARY.md files exist** - Confirms all files referenced in table of contents exist
+5. **No orphaned markdown files** - Finds files not included in SUMMARY.md
+6. **Referenced images exist** - Validates all image references point to actual files
+7. **No unused images** - Identifies orphaned images in `.gitbook/assets/`
+8. **Metrics documented** - Checks that metrics from `coinmetrics/resources/metrics.json` are documented
+9. **URL slugs map to files** - Verifies `url_slug_doc` fields in metrics.json point to existing files
+
+**Note**: Metrics checks (8 & 9) require GitLab authentication and are skipped if credentials are unavailable locally.
+
+#### 6. Report Generation (generate_report.py)
+
+Consolidates all test results:
+- **JUnit XML** (`test-reports/junit.xml`) - Machine-readable format for GitLab CI
+- **Interactive HTML Report** (`test-reports/index.html`) - Human-readable with:
+  - Severity distribution charts
+  - Top 10 most problematic files
+  - Most common rule violations
+  - Searchable and filterable issue list
+  - Dark mode support
+  - Copy-to-clipboard for quick fixes
+
 ## Quick Start
 
 ### Build the Docker Image (First Time Only)
@@ -65,6 +142,29 @@ The Docker image is **built automatically** in the CI pipeline on every commit:
 4. The `test_documentation` job then uses this freshly built image
 
 **You don't need to manually build or push the Docker image** - it happens automatically!
+
+### Tool Versions
+
+The Docker image includes the following testing tools (see `Dockerfile` for exact versions):
+
+| Tool | Version | Purpose |
+|------|---------|---------|
+| **Node.js** | 20-slim | Base runtime for JavaScript tools |
+| **markdownlint-cli2** | latest (npm) | Markdown formatting and style validation |
+| **Vale** | v3.0.0 | Spelling and prose quality checking |
+| **lychee** | v0.21.0 | Link validation (internal and external) |
+| **Python** | 3.x (system) | Runtime for custom validation scripts |
+| **R** | r-base (system) | R code syntax validation |
+| **Bash** | System default | Shell script syntax validation |
+
+**Python Dependencies** (from `requirements.txt`):
+- `PyYAML>=6.0.1` - YAML parsing for .gitbook.yaml
+- `markdown-it-py>=3.0.0` - Markdown parsing utilities
+- `esprima>=4.0.1` - JavaScript syntax validation
+- `junit-xml>=1.9` - JUnit XML report generation
+- `requests>=2.31.0` - HTTP requests for metrics validation
+
+The Docker image is built for both `amd64` and `arm64` architectures, automatically detecting and installing the appropriate binaries for Vale and lychee.
 
 ## Running Tests
 
@@ -430,11 +530,16 @@ Customize markdown rules:
 ```json
 {
   "default": true,
-  "MD013": { "line_length": 120 },
+  "MD013": false,
   "MD033": false,
   "MD041": false
 }
 ```
+
+Current configuration disables:
+- `MD013` - Line length checking (no maximum line length enforced)
+- `MD033` - Inline HTML allowed
+- `MD041` - First line doesn't need to be a top-level heading
 
 ### Vale (.vale.ini)
 
@@ -445,24 +550,49 @@ StylesPath = .vale/styles
 MinAlertLevel = suggestion
 Vocab = CoinMetrics
 
+Packages = Microsoft, Google, write-good, proselint, Readability
+
 [*.md]
-BasedOnStyles = Vale, write-good
+BasedOnStyles = Vale, Microsoft, Google, write-good, proselint, Readability
 ```
+
+Current configuration uses 6 style packages:
+- `Vale` - Core Vale rules
+- `Microsoft` - Microsoft Writing Style Guide
+- `Google` - Google Developer Documentation Style Guide
+- `write-good` - Grammar and readability checks
+- `proselint` - Prose linting
+- `Readability` - Readability metrics
 
 ### Link Checking (lychee.toml)
 
 Configure link validation:
 
 ```toml
+# Exclude patterns
 exclude = [
   "localhost",
-  "127.0.0.1",
-  "^file://",
+  "127.0.0.1"
 ]
 
+# Network settings
 max_retries = 3
 timeout = 20
+max_concurrency = 10
+user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+
+# Check behavior
+include_verbatim = true
+
+# Cache for faster repeated runs
+cache = true
 ```
+
+Configuration notes:
+- Excludes localhost and local IP addresses from checking
+- 3 retries with 20-second timeout per link
+- Uses realistic user agent to avoid bot blocking
+- Caching enabled for faster repeated runs
 
 ## CI/CD Integration
 
@@ -474,22 +604,38 @@ The Docker image is built automatically in CI. You don't need to build or push i
 
 ### GitLab CI Pipeline
 
-The pipeline has two stages:
+The pipeline has three stages:
 
-1. **Build Stage** - Builds the Docker image with all testing tools
+1. **Build Stage** - Builds the Docker image with all testing tools and layer caching
 2. **Test Stage** - Runs the full test suite using the freshly built image
+3. **Update Docs Stage** - Manual job to sync tutorial docs from `cm_demo_assets` repository
 
 Configuration in `.gitlab-ci.yml`:
 
 ```yaml
+stages:
+  - build
+  - test
+  - update_docs
+
 build-docs-test:
-  stage: build
   image: docker:27.0.3
+  stage: build
   services:
     - docker:27.0.3-dind
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - docker build -t $CI_REGISTRY_IMAGE/docs-test:$CI_COMMIT_SHA .
+    # Pull previous image for cache (speeds up builds)
+    - docker pull $CI_REGISTRY_IMAGE/docs-test:latest || true
+    # Build with layer caching
+    - docker build --cache-from $CI_REGISTRY_IMAGE/docs-test:latest -t $CI_REGISTRY_IMAGE/docs-test:$CI_COMMIT_SHA -t $CI_REGISTRY_IMAGE/docs-test:$CI_COMMIT_REF_SLUG -t $CI_REGISTRY_IMAGE/docs-test:latest .
+    # Push all tags to registry
     - docker push $CI_REGISTRY_IMAGE/docs-test:$CI_COMMIT_SHA
+    - docker push $CI_REGISTRY_IMAGE/docs-test:$CI_COMMIT_REF_SLUG
+    - docker push $CI_REGISTRY_IMAGE/docs-test:latest
+  tags:
+    - svc-docker
 
 test_documentation:
   stage: test
@@ -504,7 +650,27 @@ test_documentation:
       - test-reports/
     expire_in: 30 days
   allow_failure: true
+  tags:
+    - svc-docker
+
+update_tutorials:
+  stage: update_docs
+  image: alpine:latest
+  script:
+    # Syncs tutorial markdown and assets from cm_demo_assets repository
+    # Creates merge request automatically if changes detected
+  when: manual
+  tags:
+    - svc-docker
 ```
+
+**Pipeline Features:**
+- **Layer caching**: Pulls previous image to speed up Docker builds
+- **Multi-tag strategy**: Tags images with commit SHA, branch name, and latest
+- **Automatic testing**: Tests run on every commit
+- **Non-blocking**: Tests marked as `allow_failure: true` (report issues but don't block merges)
+- **30-day artifacts**: Test reports retained for historical analysis
+- **Manual tutorial sync**: `update_tutorials` job runs on-demand to sync external content
 
 ### Viewing Results in GitLab
 
@@ -559,5 +725,4 @@ When adding new documentation:
 - Check this guide for common issues
 - Review test reports in `test-reports/index.html`
 - Run tests with `VERBOSE=1` for detailed output
-- Ask in #documentation channel for assistance
 
