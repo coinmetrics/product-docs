@@ -101,14 +101,14 @@ docker-build:
 docker-test:
 	@echo "Running tests in Docker container..."
 	@echo ""
-	docker run --rm -v $(CURDIR):/workspace $(DOCKER_IMAGE) make test VERBOSE=$(VERBOSE)
+	docker run --rm -v $(CURDIR):/workspace -e GITLAB_TOKEN=${GITLAB_TOKEN} -e CI_JOB_TOKEN=${CI_JOB_TOKEN} $(DOCKER_IMAGE) make test VERBOSE=$(VERBOSE)
 	@echo ""
 	@echo "✓ Tests complete. View report at: test-reports/index.html"
 
 docker-test-quick:
 	@echo "Running quick tests in Docker container..."
 	@echo ""
-	docker run --rm -v $(CURDIR):/workspace $(DOCKER_IMAGE) make test-quick VERBOSE=$(VERBOSE)
+	docker run --rm -v $(CURDIR):/workspace -e GITLAB_TOKEN=${GITLAB_TOKEN} -e CI_JOB_TOKEN=${CI_JOB_TOKEN} $(DOCKER_IMAGE) make test-quick VERBOSE=$(VERBOSE)
 	@echo ""
 	@echo "✓ Tests complete. View report at: test-reports/index.html"
 

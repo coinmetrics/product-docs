@@ -9,15 +9,19 @@ Checks:
 - No orphaned markdown files
 - All referenced images exist
 - No unused images
+- All metrics in metrics.json exist in the documentation
 """
 
 import argparse
+import json
+import os
 import re
 import sys
 from pathlib import Path
 from urllib.parse import unquote
 import yaml
 from junit_xml import TestSuite, TestCase
+import requests
 
 
 def load_gitbook_yaml(docs_dir):
@@ -255,6 +259,84 @@ def find_unused_images(docs_dir):
     return unused
 
 
+def fetch_metrics_from_gitlab():
+    """Fetch metrics.json from GitLab resources repository.
+    
+    Returns:
+        tuple: (list of metrics, error message)
+        - On success: (metrics_list, None)
+        - On failure: (None, error_string)
+    """
+    # Use GitLab API to fetch raw file from private repository
+    # URL encode the file path: metrics.json -> metrics.json
+    # URL encode the project path: coinmetrics/resources -> coinmetrics%2Fresources
+    url = "https://gitlab.com/api/v4/projects/coinmetrics%2Fresources/repository/files/metrics.json/raw?ref=master"
+    
+    # Try CI_JOB_TOKEN first (GitLab CI), then GITLAB_TOKEN (local dev)
+    ci_job_token = os.getenv('CI_JOB_TOKEN')
+    gitlab_token = os.getenv('GITLAB_TOKEN')
+    
+    if not ci_job_token and not gitlab_token:
+        return None, "No GitLab token available (set CI_JOB_TOKEN or GITLAB_TOKEN)"
+    
+    try:
+        # Use appropriate header based on token type
+        if ci_job_token:
+            headers = {'JOB-TOKEN': ci_job_token}
+        else:
+            headers = {'PRIVATE-TOKEN': gitlab_token}
+        
+        response = requests.get(url, headers=headers, timeout=30)
+        response.raise_for_status()
+        metrics = response.json()
+        return metrics, None
+    except requests.exceptions.RequestException as e:
+        return None, f"Failed to fetch metrics.json: {e}"
+    except json.JSONDecodeError as e:
+        return None, f"Failed to parse metrics.json: {e}"
+
+
+def check_metrics_documented(docs_dir):
+    """Check which metrics are documented in the knowledge base.
+    
+    Returns:
+        tuple: (found_count, missing_metrics, error_message)
+    """
+    metrics, error = fetch_metrics_from_gitlab()
+    if error:
+        return 0, [], error
+    
+    # Extract short_form from each metric
+    metric_names = []
+    for metric in metrics:
+        if isinstance(metric, dict) and 'short_form' in metric:
+            metric_names.append(metric['short_form'])
+    
+    if not metric_names:
+        return 0, [], "No metrics found in metrics.json"
+    
+    # Read all markdown files and build a searchable content string
+    all_content = ""
+    for md_file in docs_dir.rglob('*.md'):
+        try:
+            with open(md_file, 'r', encoding='utf-8') as f:
+                all_content += f.read().lower() + "\n"
+        except Exception:
+            # Skip files that can't be read
+            pass
+    
+    # Check which metrics are mentioned
+    found = []
+    missing = []
+    for metric_name in metric_names:
+        if metric_name.lower() in all_content:
+            found.append(metric_name)
+        else:
+            missing.append(metric_name)
+    
+    return len(found), missing, None
+
+
 def main():
     """Main validation function."""
     parser = argparse.ArgumentParser(description="Validate GitBook structure")
@@ -364,6 +446,30 @@ def main():
             print(f"  ... and {len(unused) - 10} more")
     else:
         print("PASS: No unused images")
+    test_cases.append(tc)
+    
+    # Test 8: Check metrics documentation coverage
+    tc = TestCase("All metrics documented", classname='GitBookValidation')
+    found_count, missing_metrics, error = check_metrics_documented(docs_dir)
+    if error:
+        # If we can't fetch metrics, skip the test (don't fail)
+        print(f"SKIPPED: Metrics check - {error}")
+    elif missing_metrics:
+        total_count = found_count + len(missing_metrics)
+        # Add output to test case for visibility in reports, but don't fail
+        tc.add_failure_info(
+            message=f"{found_count}/{total_count} metrics found in documentation",
+            output="\n".join(missing_metrics)
+        )
+        print(f"INFO: {found_count}/{total_count} metrics found in documentation")
+        print(f"INFO: {len(missing_metrics)} metric(s) not found in documentation")
+        for metric in missing_metrics[:10]:  # Show first 10
+            print(f"  - {metric}")
+        if len(missing_metrics) > 10:
+            print(f"  ... and {len(missing_metrics) - 10} more")
+    else:
+        total_count = found_count
+        print(f"PASS: All {total_count} metrics found in documentation")
     test_cases.append(tc)
     
     # Generate JUnit XML report

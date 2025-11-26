@@ -26,6 +26,7 @@ The testing suite validates:
 - **Link validity** (lychee)
 - **Code sample syntax** (custom Python validator)
 - **GitBook structure** (custom Python validator)
+- **Metrics documentation coverage** (custom Python validator)
 
 All tests run in a Docker container with all tools pre-installed - no local installation required.
 
@@ -375,6 +376,50 @@ Remove unused images to reduce repository size:
 ```bash
 rm docs/.gitbook/assets/old-screenshot.png
 ```
+
+#### Issue: Metrics not documented
+
+**Example:**
+```
+INFO: 450/500 metrics found in documentation
+INFO: 50 metric(s) not found in documentation
+  - AdrAccCnt
+  - BlkCnt
+  ...
+```
+
+**About this check:**
+The validation script fetches `metrics.json` from the `coinmetrics/resources` repository and checks if each metric's `short_form` (e.g., "AdrAccCnt") is mentioned somewhere in the documentation.
+
+**In CI/CD:**
+The check runs automatically using `CI_JOB_TOKEN` to access the private `resources` repository. No configuration needed.
+
+**For local testing:**
+If you want to run this check locally, you need to provide GitLab credentials:
+
+1. Create a GitLab Personal Access Token:
+   - Go to GitLab → User Settings → Access Tokens
+   - Create a token with `read_api` scope
+   - Copy the token
+
+2. Set the environment variable in your terminal:
+   ```bash
+   export GITLAB_TOKEN="your_token_here"
+   ```
+
+3. Run the validation:
+   ```bash
+   # Direct Python execution
+   python scripts/validate_gitbook.py
+   
+   # Or via Docker (token is automatically passed to container)
+   make docker-test
+   ```
+
+**Note:** If no GitLab token is available locally, the metrics check will be skipped with a "SKIPPED" message. This is expected behavior and won't prevent you from running other validations. The Makefile automatically passes `GITLAB_TOKEN` and `CI_JOB_TOKEN` to the Docker container when running `make docker-test`.
+
+**Fix:**
+Add documentation for missing metrics in the appropriate markdown files under `docs/`.
 
 ## Configuration Files
 
