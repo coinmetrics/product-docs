@@ -11,6 +11,9 @@ make docker-build
 # Run tests
 make docker-test
 
+# Auto-fix markdown formatting
+make docker-format
+
 # View results
 open test-reports/index.html
 ```
@@ -187,6 +190,39 @@ docker run --rm -v $(pwd):/workspace docs-test make check-code
 docker run --rm -v $(pwd):/workspace docs-test make check-structure
 ```
 
+## Auto-Fixing Formatting Issues
+
+Some markdown formatting issues can be fixed automatically using markdownlint-cli2's --fix flag:
+
+```bash
+# Auto-fix formatting issues in Docker
+make docker-format
+
+# View what changed
+git diff
+```
+
+**What gets auto-fixed:**
+- Extra blank lines (MD012)
+- Missing blank lines around lists (MD032)
+- Inconsistent list marker styles (MD004)
+- Trailing whitespace (MD009)
+- And other objective formatting rules
+
+**What doesn't get auto-fixed:**
+- Spelling errors (Vale)
+- Broken links (lychee)
+- Code syntax errors
+- Content-related issues requiring manual review
+
+**Best practices:**
+1. Run `make docker-format` to auto-fix issues
+2. Review changes with `git diff` before committing
+3. Run `make docker-test` to verify all issues are resolved
+4. Manually fix any remaining issues that couldn't be auto-corrected
+
+**Note:** Auto-formatting is a convenience tool, not a replacement for careful review. Always check the changes to ensure they're appropriate.
+
 ## Understanding Test Results
 
 ### Test Reports Location
@@ -221,6 +257,10 @@ Note: In CI, tests run with `allow_failure: true`, so they won't block merges bu
 ## Common Issues and Fixes
 
 ### Markdown Formatting Issues
+
+**Quick fix:** Many markdown formatting issues can be auto-fixed with `make docker-format`. See the "Auto-Fixing Formatting Issues" section above for details.
+
+Below are examples of common issues and how they're fixed:
 
 #### Issue: Line too long (MD013)
 

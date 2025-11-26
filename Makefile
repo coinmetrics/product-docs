@@ -1,4 +1,4 @@
-.PHONY: help test test-quick lint spell check-links check-links-internal check-links-external check-code check-structure report clean docker-build docker-test docker-test-quick
+.PHONY: help test test-quick lint spell check-links check-links-internal check-links-external check-code check-structure report clean format docker-build docker-test docker-test-quick docker-format
 
 # Docker image name
 DOCKER_IMAGE ?= docs-test
@@ -23,6 +23,7 @@ help:
 	@echo "  make docker-build      - Build the Docker image (first time only)"
 	@echo "  make docker-test       - Run full test suite"
 	@echo "  make docker-test-quick - Run fast tests (skip external link checking)"
+	@echo "  make docker-format     - Auto-fix markdown formatting issues"
 	@echo "  make clean             - Remove test reports"
 	@echo ""
 	@echo "Options:"
@@ -42,6 +43,13 @@ lint:
 	@echo "Running Markdown linting..."
 	@mkdir -p test-reports
 	-$(QUIET)markdownlint-cli2 "docs/**/*.md" > test-reports/markdownlint.txt 2>&1
+
+# Auto-fix markdown formatting
+format:
+	@echo "Auto-fixing Markdown formatting..."
+	@mkdir -p test-reports
+	-$(QUIET)markdownlint-cli2 "docs/**/*.md" --fix
+	@echo "✓ Markdown formatting fixes applied. Run 'make test' to verify."
 
 # Spell checking and prose quality
 spell:
@@ -111,4 +119,11 @@ docker-test-quick:
 	docker run --rm -v $(CURDIR):/workspace -e GITLAB_TOKEN=${GITLAB_TOKEN} -e CI_JOB_TOKEN=${CI_JOB_TOKEN} $(DOCKER_IMAGE) make test-quick VERBOSE=$(VERBOSE)
 	@echo ""
 	@echo "✓ Tests complete. View report at: test-reports/index.html"
+
+docker-format:
+	@echo "Auto-fixing Markdown formatting in Docker container..."
+	@echo ""
+	docker run --rm -v $(CURDIR):/workspace $(DOCKER_IMAGE) make format
+	@echo ""
+	@echo "✓ Formatting complete. Run 'make docker-test' to verify."
 
