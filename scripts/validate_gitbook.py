@@ -10,6 +10,7 @@ Checks:
 - All referenced images exist
 - No unused images
 - All metrics in metrics.json exist in the documentation
+- All url_slug_doc fields in metrics.json map to existing markdown files
 """
 
 import argparse
@@ -337,6 +338,47 @@ def check_metrics_documented(docs_dir):
     return len(found), missing, None
 
 
+def check_metrics_url_slugs(docs_dir):
+    """Check that url_slug_doc fields in metrics.json map to actual markdown files.
+    
+    Returns:
+        tuple: (valid_count, invalid_paths, warnings, error_message)
+        - valid_count: number of valid url_slug_doc entries
+        - invalid_paths: list of url_slug_doc values that don't map to files
+        - warnings: list of metrics with missing/null/empty url_slug_doc
+        - error_message: error string if fetching failed, None otherwise
+    """
+    metrics, error = fetch_metrics_from_gitlab()
+    if error:
+        return 0, [], [], error
+    
+    valid = []
+    invalid = []
+    warnings = []
+    
+    for metric in metrics:
+        if not isinstance(metric, dict):
+            continue
+        
+        url_slug = metric.get('url_slug_doc')
+        metric_name = metric.get('short_form', 'Unknown')
+        
+        # Check if url_slug_doc is missing/null/empty
+        if not url_slug:
+            warnings.append(f"{metric_name}: missing url_slug_doc")
+            continue
+        
+        # Construct path: url_slug_doc -> docs/{url_slug_doc}.md
+        file_path = docs_dir / f"{url_slug}.md"
+        
+        if file_path.exists():
+            valid.append(url_slug)
+        else:
+            invalid.append(f"{metric_name}: {url_slug} -> {file_path.relative_to(docs_dir.parent)}")
+    
+    return len(valid), invalid, warnings, None
+
+
 def main():
     """Main validation function."""
     parser = argparse.ArgumentParser(description="Validate GitBook structure")
@@ -470,6 +512,39 @@ def main():
     else:
         total_count = found_count
         print(f"PASS: All {total_count} metrics found in documentation")
+    test_cases.append(tc)
+    
+    # Test 9: Check metrics URL slugs map to files
+    tc = TestCase("Metrics URL slugs map to files", classname='GitBookValidation')
+    valid_count, invalid_paths, warnings, error = check_metrics_url_slugs(docs_dir)
+    if error:
+        # If we can't fetch metrics, skip the test (don't fail)
+        print(f"SKIPPED: Metrics URL slug check - {error}")
+    else:
+        # Report warnings for missing url_slug_doc (don't fail)
+        if warnings:
+            print(f"INFO: {len(warnings)} metric(s) have missing/empty url_slug_doc")
+            for warning in warnings[:10]:  # Show first 10
+                print(f"  - {warning}")
+            if len(warnings) > 10:
+                print(f"  ... and {len(warnings) - 10} more")
+        
+        # Report errors for invalid url_slug_doc (fail the test)
+        if invalid_paths:
+            tc.add_failure_info(
+                message=f"Found {len(invalid_paths)} invalid url_slug_doc paths",
+                output="\n".join(invalid_paths)
+            )
+            print(f"FAIL: {len(invalid_paths)} url_slug_doc path(s) do not map to existing files")
+            for error_msg in invalid_paths[:10]:  # Show first 10
+                print(f"  - {error_msg}")
+            if len(invalid_paths) > 10:
+                print(f"  ... and {len(invalid_paths) - 10} more")
+        else:
+            total_count = valid_count + len(warnings)
+            print(f"PASS: All {valid_count} url_slug_doc paths map to existing files")
+            if warnings:
+                print(f"      ({len(warnings)} metrics have missing/empty url_slug_doc)")
     test_cases.append(tc)
     
     # Generate JUnit XML report
