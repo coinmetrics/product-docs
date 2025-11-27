@@ -7,12 +7,40 @@ Parses outputs from all test tools and creates:
 2. HTML summary report for human review
 """
 
+# Standard library imports
 import json
 import re
 import sys
-from pathlib import Path
-from datetime import datetime
 import xml.etree.ElementTree as ET
+from datetime import datetime
+from pathlib import Path
+
+
+# Configuration constants
+TOP_ITEMS_LIMIT = 10
+TOOL_SOURCES = [
+    'markdownlint',
+    'vale',
+    'lychee-internal',
+    'lychee-external',
+    'code-validation',
+    'gitbook-validation',
+    'gitleaks'
+]
+TOOL_ICONS = {
+    'markdownlint': '📝',
+    'vale': '✍️',
+    'lychee-internal': '🔗',
+    'lychee-external': '🌐',
+    'code-validation': '💻',
+    'gitbook-validation': '📚',
+    'gitleaks': '🔐'
+}
+
+
+# Parser functions referenced by name in PARSER_CONFIG
+# Note: These are defined before PARSER_CONFIG for clarity,
+# but PARSER_CONFIG is used in main() after all parsers are defined
 
 
 def parse_markdownlint(report_path):
@@ -48,7 +76,8 @@ def parse_vale(report_path):
     try:
         with open(report_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
-    except:
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Error parsing Vale report: {e}")
         return []
     
     if 'Code' in data and 'Text' in data:
@@ -126,7 +155,8 @@ def parse_gitleaks(report_path):
             if not content:
                 return []
             data = json.loads(content)
-    except:
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Error parsing Gitleaks report: {e}")
         return []
     
     issues = []
@@ -211,8 +241,21 @@ def parse_junit_xml(report_path):
                     })
         
         return issues
-    except:
+    except (ET.ParseError, IOError) as e:
+        print(f"Error parsing JUnit XML report: {e}")
         return []
+
+
+# Parser configuration for main() function
+PARSER_CONFIG = [
+    ('markdownlint', 'parse_markdownlint', 'markdownlint.txt', 'markdownlint issues'),
+    ('vale', 'parse_vale', 'vale.json', 'Vale issues'),
+    ('lychee-internal', 'parse_lychee', 'lychee-internal.json', 'internal link issues'),
+    ('lychee-external', 'parse_lychee', 'lychee-external.json', 'external link issues'),
+    ('code-validation', 'parse_junit_xml', 'code-validation.xml', 'code validation issues'),
+    ('gitbook-validation', 'parse_junit_xml', 'gitbook-validation.xml', 'GitBook structure issues'),
+    ('gitleaks', 'parse_gitleaks', 'gitleaks.json', 'secret/API key issues'),
+]
 
 
 def generate_junit_xml(all_issues):
@@ -268,20 +311,17 @@ def generate_junit_xml(all_issues):
     return tree
 
 
-def generate_html_report(all_issues):
-    """Generate HTML summary report."""
+def prepare_grouped_data(all_issues):
+    """Prepare grouped data structures from all issues."""
     by_source = {}
     by_file = {}
+    by_rule = {}
     
-    sources_list = [
-        'markdownlint', 'vale', 'lychee-internal', 
-        'lychee-external', 'code-validation', 
-        'gitbook-validation', 'gitleaks'
-    ]
-    
-    for source in sources_list:
+    # Initialize by_source with all known sources
+    for source in TOOL_SOURCES:
         by_source[source] = []
-
+    
+    # Group issues by source and file
     for issue in all_issues:
         source = issue.get('source', 'unknown')
         if source not in by_source:
@@ -290,37 +330,36 @@ def generate_html_report(all_issues):
         
         file_path = issue.get('file', 'unknown')
         by_file[file_path] = by_file.get(file_path, 0) + 1
-    
-    top_files = sorted(by_file.items(), key=lambda x: x[1], reverse=True)[:10]
-    
-    # Calculate global severity counts
-    severity_counts = {'error': 0, 'warning': 0, 'suggestion': 0}
-    for issue in all_issues:
-        s = issue.get('severity', 'error').lower()
-        # map any non-standard severities to 'error' or 'suggestion' as needed
-        if s not in severity_counts:
-            s = 'error' 
-        severity_counts[s] = severity_counts.get(s, 0) + 1
-            
-    by_rule = {}
-    for issue in all_issues:
+        
+        # Group by rule for top violations
         rule_key = f"{issue.get('rule', 'unknown')} ({issue.get('source', 'unknown')})"
-        if rule_key not in by_rule: 
+        if rule_key not in by_rule:
             by_rule[rule_key] = {'count': 0, 'source': issue.get('source'), 'rule': issue.get('rule')}
         by_rule[rule_key]['count'] += 1
-    top_rules = sorted(by_rule.items(), key=lambda x: x[1]['count'], reverse=True)[:10]
+    
+    return by_source, by_file, by_rule
 
-    icons = {
-        'markdownlint': '📝',
-        'vale': '✍️',
-        'lychee-internal': '🔗',
-        'lychee-external': '🌐',
-        'code-validation': '💻',
-        'gitbook-validation': '📚',
-        'gitleaks': '🔐'
-    }
 
-    html = f"""<!DOCTYPE html>
+def calculate_severity_counts(issues):
+    """Calculate severity counts from issues."""
+    severity_counts = {'error': 0, 'warning': 0, 'suggestion': 0}
+    for issue in issues:
+        sev = issue.get('severity', 'error').lower()
+        # Map any non-standard severities to 'error'
+        if sev not in severity_counts:
+            sev = 'error'
+        severity_counts[sev] = severity_counts.get(sev, 0) + 1
+    return severity_counts
+
+
+def get_top_items(data_dict, limit):
+    """Get top N items from a dictionary sorted by value (descending)."""
+    return sorted(data_dict.items(), key=lambda x: x[1] if isinstance(x[1], int) else x[1]['count'], reverse=True)[:limit]
+
+
+def generate_html_header(timestamp):
+    """Generate HTML header with CSS and controls."""
+    return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -638,7 +677,7 @@ def generate_html_report(all_issues):
         <div class="header-content">
             <div class="header-title">
                 <h1>🛡️ Product Docs Test Summary Results</h1>
-                <div class="timestamp">Generated: {datetime.now().strftime('%B %d, %Y at %I:%M %p')}</div>
+                <div class="timestamp">Generated: {timestamp}</div>
             </div>
             <div class="controls">
                 <input type="text" id="search" class="search-box" placeholder="Search by file or message..." onkeyup="filterIssues()">
@@ -653,18 +692,11 @@ def generate_html_report(all_issues):
 
     <div class="container">
 """
-    
-    if len(all_issues) == 0:
-        html += """
-        <div class="zero-state">
-            <div style="font-size: 48px; margin-bottom: 16px">✨</div>
-            <h2>No issues found</h2>
-            <p>Your documentation passed all checks.</p>
-        </div>
-        """
-    else:
-        # Overview Stats
-        html += f"""
+
+
+def generate_stats_section(all_issues, by_file, severity_counts):
+    """Generate overview statistics section."""
+    return f"""
         <div class="grid-header">Overview</div>
         <div class="stats-grid">
             <div class="card">
@@ -688,27 +720,33 @@ def generate_html_report(all_issues):
                 <div class="stat-label">🔵 Suggestions</div>
             </div>
         </div>
+"""
 
+
+def generate_tools_grid(by_source):
+    """Generate tool breakdown grid."""
+    html = """
         <div class="grid-header">Tool Breakdown</div>
         <div class="tools-grid">
         """
+    
+    for source in TOOL_SOURCES:
+        source_issues = by_source.get(source, [])
+        count = len(source_issues)
         
-        for source in sources_list:
-            source_issues = by_source.get(source, [])
-            count = len(source_issues)
-            
-            # Calculate breakdown per tool
-            counts = {'error': 0, 'warning': 0, 'suggestion': 0}
-            for i in source_issues:
-                s = i.get('severity', 'error').lower()
-                if s not in counts: s = 'error'
-                counts[s] += 1
-            
-            if count == 0:
-                html += f"""
+        # Calculate breakdown per tool
+        counts = {'error': 0, 'warning': 0, 'suggestion': 0}
+        for issue in source_issues:
+            sev = issue.get('severity', 'error').lower()
+            if sev not in counts:
+                sev = 'error'
+            counts[sev] += 1
+        
+        if count == 0:
+            html += f"""
                 <a href="#sec-{source}" class="tool-card empty" onclick="expandSection('sec-{source}')">
                     <div class="tool-info">
-                        <h3>{icons.get(source, '')} {source.title().replace('-', ' ')}</h3>
+                        <h3>{TOOL_ICONS.get(source, '')} {source.title().replace('-', ' ')}</h3>
                         <div class="tool-breakdown">
                             <span class="pass-badge">✓ All Clear</span>
                         </div>
@@ -716,124 +754,135 @@ def generate_html_report(all_issues):
                     <span class="tool-count pass">0</span>
                 </a>
                 """
-            else:
-                # Generate breakdown badges
-                badges_html = ""
-                if counts['error'] > 0:
-                    badges_html += f'<span class="breakdown-badge bd-error">{counts["error"]} Errors</span>'
-                if counts['warning'] > 0:
-                    badges_html += f'<span class="breakdown-badge bd-warning">{counts["warning"]} Warnings</span>'
-                if counts['suggestion'] > 0:
-                    badges_html += f'<span class="breakdown-badge bd-suggestion">{counts["suggestion"]} Suggestions</span>'
+        else:
+            # Generate breakdown badges
+            badges_html = ""
+            if counts['error'] > 0:
+                badges_html += f'<span class="breakdown-badge bd-error">{counts["error"]} Errors</span>'
+            if counts['warning'] > 0:
+                badges_html += f'<span class="breakdown-badge bd-warning">{counts["warning"]} Warnings</span>'
+            if counts['suggestion'] > 0:
+                badges_html += f'<span class="breakdown-badge bd-suggestion">{counts["suggestion"]} Suggestions</span>'
 
-                html += f"""
+            html += f"""
                 <a href="#sec-{source}" class="tool-card" onclick="expandSection('sec-{source}')">
                     <div class="tool-info">
-                        <h3>{icons.get(source, '')} {source.title().replace('-', ' ')}</h3>
+                        <h3>{TOOL_ICONS.get(source, '')} {source.title().replace('-', ' ')}</h3>
                         <div class="tool-breakdown">
                             {badges_html}
                         </div>
                     </div>
                 </a>
                 """
-        
-        html += """
+    
+    html += """
         </div>
+"""
+    return html
 
+
+def generate_charts_section(top_files, top_rules):
+    """Generate ranked charts section."""
+    html = """
         <div class="charts-row">
             <div class="card">
                 <div class="grid-header" style="margin-bottom:16px">📁 Top Problematic Files</div>
                 <div class="ranked-list">
         """
-        
-        for idx, (fpath, count) in enumerate(top_files, 1):
-            filename = fpath.split('/')[-1]
-            html += f"""
+    
+    for idx, (fpath, count) in enumerate(top_files, 1):
+        filename = fpath.split('/')[-1]
+        html += f"""
                     <div class="rank-item" title="{fpath}">
                         <span class="rank-number">#{idx}</span>
                         <span class="rank-label">{filename}</span>
                         <span class="rank-count">{count}</span>
                     </div>
             """
-            
-        html += """
+    
+    html += """
                 </div>
             </div>
             <div class="card">
                 <div class="grid-header" style="margin-bottom:16px">⚠️ Top Violations</div>
                 <div class="ranked-list">
         """
-        
-        for idx, (rkey, rdata) in enumerate(top_rules, 1):
-            count = rdata['count']
-            clean_rule = rkey.split('(')[0].strip()
-            html += f"""
+    
+    for idx, (rkey, rdata) in enumerate(top_rules, 1):
+        count = rdata['count']
+        clean_rule = rkey.split('(')[0].strip()
+        html += f"""
                     <div class="rank-item" title="{rkey}">
                         <span class="rank-number">#{idx}</span>
                         <span class="rank-label">{clean_rule}</span>
                         <span class="rank-count">{count}</span>
                     </div>
             """
-
-        html += """
+    
+    html += """
                 </div>
             </div>
         </div>
         """
+    return html
 
-        # Detailed Sections
-        for source in sources_list:
-            issues = by_source.get(source, [])
-            
-            # Calculate severity breakdown for this section
-            section_counts = {'error': 0, 'warning': 0, 'suggestion': 0}
-            for issue in issues:
-                sev = issue.get('severity', 'error').lower()
-                if sev not in section_counts:
-                    sev = 'error'
-                section_counts[sev] += 1
-            
-            # Build subtitle text
-            subtitle_parts = []
-            if section_counts['error'] > 0:
-                subtitle_parts.append(f"{section_counts['error']:,} errors")
-            if section_counts['warning'] > 0:
-                subtitle_parts.append(f"{section_counts['warning']:,} warnings")
-            if section_counts['suggestion'] > 0:
-                subtitle_parts.append(f"{section_counts['suggestion']:,} suggestions")
-            subtitle = ", ".join(subtitle_parts) if subtitle_parts else "No issues"
-            
-            html += f"""
+
+def generate_details_sections(by_source):
+    """Generate detailed issue sections."""
+    html = ""
+    
+    for source in TOOL_SOURCES:
+        issues = by_source.get(source, [])
+        
+        # Calculate severity breakdown for this section
+        section_counts = {'error': 0, 'warning': 0, 'suggestion': 0}
+        for issue in issues:
+            sev = issue.get('severity', 'error').lower()
+            if sev not in section_counts:
+                sev = 'error'
+            section_counts[sev] += 1
+        
+        # Build subtitle text
+        subtitle_parts = []
+        if section_counts['error'] > 0:
+            subtitle_parts.append(f"{section_counts['error']:,} errors")
+        if section_counts['warning'] > 0:
+            subtitle_parts.append(f"{section_counts['warning']:,} warnings")
+        if section_counts['suggestion'] > 0:
+            subtitle_parts.append(f"{section_counts['suggestion']:,} suggestions")
+        subtitle = ", ".join(subtitle_parts) if subtitle_parts else "No issues"
+        
+        html += f"""
             <div class="section collapsed" id="sec-{source}">
                 <div class="section-header" onclick="toggleSection('sec-{source}')">
                     <div class="section-title">
                         <div class="section-title-main">
                             <span class="arrow">▼</span>
-                            {icons.get(source, '')} {source.title().replace('-', ' ')}
+                            {TOOL_ICONS.get(source, '')} {source.title().replace('-', ' ')}
                         </div>
                         <div class="section-subtitle">{subtitle}</div>
                     </div>
-                    <span class="tool-count { 'has-issues' if len(issues) > 0 else 'pass' }">{len(issues)}</span>
+                    <span class="tool-count {'has-issues' if len(issues) > 0 else 'pass'}">{len(issues)}</span>
                 </div>
                 <div class="issue-grid">
             """
-            
-            if len(issues) == 0:
-                # Empty state for tools with no issues
-                html += """
+        
+        if len(issues) == 0:
+            # Empty state for tools with no issues
+            html += """
                     <div class="zero-state">
                         <div style="font-size: 32px; margin-bottom: 8px">✨</div>
                         <h3 style="margin-bottom: 4px;">No issues found</h3>
                         <p>This tool passed all checks.</p>
                     </div>
                 """
-            else:
-                for issue in issues:
-                    sev = issue.get('severity', 'error').lower()
-                    msg = issue.get('message', '').replace('<', '&lt;').replace('>', '&gt;')
-                    loc = f"{issue['file']}:{issue['line']}"
-                    
-                    html += f"""
+        else:
+            for issue in issues:
+                sev = issue.get('severity', 'error').lower()
+                msg = issue.get('message', '').replace('<', '&lt;').replace('>', '&gt;')
+                loc = f"{issue['file']}:{issue['line']}"
+                
+                html += f"""
                     <div class="issue {sev}" data-sev="{sev}" data-text="{issue['file']} {msg}">
                         <div class="sev-col">
                             <div class="sev-badge">{sev.capitalize()}</div>
@@ -844,9 +893,14 @@ def generate_html_report(all_issues):
                         </div>
                     </div>
                     """
-            html += "</div></div>"
+        html += "</div></div>"
+    
+    return html
 
-    html += """
+
+def generate_html_footer():
+    """Generate HTML footer with JavaScript."""
+    return """
     </div>
     <script>
         if(localStorage.getItem('dark')==='1') document.body.classList.add('dark-mode');
@@ -914,6 +968,36 @@ def generate_html_report(all_issues):
 </body>
 </html>
 """
+
+
+def generate_html_report(all_issues):
+    """Generate HTML summary report."""
+    # Prepare data
+    by_source, by_file, by_rule = prepare_grouped_data(all_issues)
+    severity_counts = calculate_severity_counts(all_issues)
+    top_files = get_top_items(by_file, TOP_ITEMS_LIMIT)
+    top_rules = get_top_items(by_rule, TOP_ITEMS_LIMIT)
+    
+    timestamp = datetime.now().strftime('%B %d, %Y at %I:%M %p')
+    
+    # Build HTML report
+    html = generate_html_header(timestamp)
+    
+    if len(all_issues) == 0:
+        html += """
+        <div class="zero-state">
+            <div style="font-size: 48px; margin-bottom: 16px">✨</div>
+            <h2>No issues found</h2>
+            <p>Your documentation passed all checks.</p>
+        </div>
+        """
+    else:
+        html += generate_stats_section(all_issues, by_file, severity_counts)
+        html += generate_tools_grid(by_source)
+        html += generate_charts_section(top_files, top_rules)
+        html += generate_details_sections(by_source)
+    
+    html += generate_html_footer()
     return html
 
 
@@ -927,40 +1011,14 @@ def main():
     
     all_issues = []
     
-    issues = parse_markdownlint(reports_dir / 'markdownlint.txt')
-    for issue in issues: issue['source'] = 'markdownlint'
-    all_issues.extend(issues)
-    print(f"Found {len(issues)} markdownlint issues")
-    
-    issues = parse_vale(reports_dir / 'vale.json')
-    for issue in issues: issue['source'] = 'vale'
-    all_issues.extend(issues)
-    print(f"Found {len(issues)} Vale issues")
-    
-    issues = parse_lychee(reports_dir / 'lychee-internal.json')
-    for issue in issues: issue['source'] = 'lychee-internal'
-    all_issues.extend(issues)
-    print(f"Found {len(issues)} internal link issues")
-    
-    issues = parse_lychee(reports_dir / 'lychee-external.json')
-    for issue in issues: issue['source'] = 'lychee-external'
-    all_issues.extend(issues)
-    print(f"Found {len(issues)} external link issues")
-    
-    issues = parse_junit_xml(reports_dir / 'code-validation.xml')
-    for issue in issues: issue['source'] = 'code-validation'
-    all_issues.extend(issues)
-    print(f"Found {len(issues)} code validation issues")
-    
-    issues = parse_junit_xml(reports_dir / 'gitbook-validation.xml')
-    for issue in issues: issue['source'] = 'gitbook-validation'
-    all_issues.extend(issues)
-    print(f"Found {len(issues)} GitBook structure issues")
-    
-    issues = parse_gitleaks(reports_dir / 'gitleaks.json')
-    for issue in issues: issue['source'] = 'gitleaks'
-    all_issues.extend(issues)
-    print(f"Found {len(issues)} secret/API key issues")
+    # Process all parsers using configuration
+    for source, parser_name, filename, label in PARSER_CONFIG:
+        parser_func = globals()[parser_name]
+        issues = parser_func(reports_dir / filename)
+        for issue in issues:
+            issue['source'] = source
+        all_issues.extend(issues)
+        print(f"Found {len(issues)} {label}")
     
     junit_tree = generate_junit_xml(all_issues)
     junit_path = reports_dir / 'junit.xml'
