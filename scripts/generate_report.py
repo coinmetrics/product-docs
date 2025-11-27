@@ -125,6 +125,53 @@ def parse_lychee(report_path):
         return []
 
 
+def parse_gitleaks(report_path):
+    """Parse Gitleaks JSON output."""
+    if not report_path.exists():
+        return []
+    
+    try:
+        with open(report_path, 'r', encoding='utf-8') as f:
+            content = f.read().strip()
+            # Check if file is empty
+            if not content:
+                return []
+            data = json.loads(content)
+    except:
+        return []
+    
+    issues = []
+    # Gitleaks returns a list of findings
+    if isinstance(data, list):
+        for finding in data:
+            # Extract relevant information
+            file_path = finding.get('File', 'unknown')
+            start_line = finding.get('StartLine', 1)
+            end_line = finding.get('EndLine', start_line)
+            rule_id = finding.get('RuleID', 'unknown')
+            description = finding.get('Description', 'Secret detected')
+            secret = finding.get('Secret', '')
+            
+            # Mask the secret for display (show first/last few chars)
+            if len(secret) > 10:
+                masked_secret = f"{secret[:4]}...{secret[-4:]}"
+            else:
+                masked_secret = "***"
+            
+            message = f"{description}: {masked_secret}"
+            
+            issues.append({
+                'file': file_path,
+                'line': str(start_line),
+                'column': '1',
+                'rule': rule_id,
+                'message': message,
+                'severity': 'error'
+            })
+    
+    return issues
+
+
 def parse_junit_xml(report_path):
     """Parse existing JUnit XML reports."""
     if not report_path.exists():
@@ -201,7 +248,8 @@ def generate_junit_xml(all_issues):
         'lychee-internal': [],
         'lychee-external': [],
         'code-validation': [],
-        'gitbook-validation': []
+        'gitbook-validation': [],
+        'gitleaks': []
     }
     
     for issue in all_issues:
@@ -926,11 +974,12 @@ def generate_html_report(all_issues):
         'lychee-internal': '🔗',
         'lychee-external': '🌐',
         'code-validation': '💻',
-        'gitbook-validation': '📚'
+        'gitbook-validation': '📚',
+        'gitleaks': '🔐'
     }
     
     # Add source-specific counts
-    for source in ['markdownlint', 'vale', 'lychee-internal', 'lychee-external', 'code-validation', 'gitbook-validation']:
+    for source in ['markdownlint', 'vale', 'lychee-internal', 'lychee-external', 'code-validation', 'gitbook-validation', 'gitleaks']:
         count = len(by_source.get(source, []))
         icon = source_icons.get(source, '📄')
         html += f"""
@@ -1076,7 +1125,7 @@ def generate_html_report(all_issues):
 """
     
     # Add sections for each source
-    for source in ['markdownlint', 'vale', 'lychee-internal', 'lychee-external', 'code-validation', 'gitbook-validation']:
+    for source in ['markdownlint', 'vale', 'lychee-internal', 'lychee-external', 'code-validation', 'gitbook-validation', 'gitleaks']:
         issues = by_source.get(source, [])
         if not issues:
             continue
@@ -1353,6 +1402,13 @@ def main():
         issue['source'] = 'gitbook-validation'
     all_issues.extend(issues)
     print(f"Found {len(issues)} GitBook structure issues")
+    
+    # Parse Gitleaks secrets detection
+    issues = parse_gitleaks(reports_dir / 'gitleaks.json')
+    for issue in issues:
+        issue['source'] = 'gitleaks'
+    all_issues.extend(issues)
+    print(f"Found {len(issues)} secret/API key issues")
     
     # Generate consolidated JUnit XML
     junit_tree = generate_junit_xml(all_issues)

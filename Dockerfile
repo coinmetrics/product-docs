@@ -46,6 +46,22 @@ RUN ARCH=$(dpkg --print-architecture) && \
         echo "Unsupported architecture: $ARCH" && exit 1; \
     fi
 
+# Install Gitleaks based on architecture
+RUN ARCH=$(dpkg --print-architecture) && \
+    if [ "$ARCH" = "amd64" ]; then \
+        wget https://github.com/gitleaks/gitleaks/releases/download/v8.21.2/gitleaks_8.21.2_linux_x64.tar.gz && \
+        tar -xvf gitleaks_8.21.2_linux_x64.tar.gz && \
+        mv gitleaks /usr/local/bin/ && \
+        rm gitleaks_8.21.2_linux_x64.tar.gz; \
+    elif [ "$ARCH" = "arm64" ]; then \
+        wget https://github.com/gitleaks/gitleaks/releases/download/v8.21.2/gitleaks_8.21.2_linux_arm64.tar.gz && \
+        tar -xvf gitleaks_8.21.2_linux_arm64.tar.gz && \
+        mv gitleaks /usr/local/bin/ && \
+        rm gitleaks_8.21.2_linux_arm64.tar.gz; \
+    else \
+        echo "Unsupported architecture: $ARCH" && exit 1; \
+    fi
+
 # Install Python dependencies
 COPY requirements.txt /tmp/requirements.txt
 RUN pip3 install --no-cache-dir --break-system-packages -r /tmp/requirements.txt

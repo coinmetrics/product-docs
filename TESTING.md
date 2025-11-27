@@ -30,6 +30,7 @@ The testing suite validates:
 - **Code sample syntax** (custom Python validator)
 - **GitBook structure** (custom Python validator)
 - **Metrics documentation coverage** (custom Python validator)
+- **Secrets detection** (Gitleaks)
 
 All tests run in a Docker container with all tools pre-installed - no local installation required.
 
@@ -98,7 +99,29 @@ Performs 9 comprehensive checks on GitBook structure:
 
 **Note**: Metrics checks (8 & 9) require GitLab authentication and are skipped if credentials are unavailable locally.
 
-#### 6. Report Generation (generate_report.py)
+#### 6. Secrets Detection (Gitleaks)
+
+Scans documentation and code samples for accidentally leaked secrets:
+
+**Detects**:
+- **API keys**: Generic API keys, service-specific keys (AWS, Google, Stripe, etc.)
+- **Authentication tokens**: Bearer tokens, OAuth tokens, JWT secrets
+- **Passwords and credentials**: Database passwords, private keys, SSH keys
+- **High-entropy strings**: Randomly generated secrets that match entropy patterns
+
+**Features**:
+- 200+ built-in detection patterns from Gitleaks
+- Custom rules for Coin Metrics API key formats
+- Scans current files only (not git history) for fast execution
+- JSON output for easy integration with reporting
+- `.gitleaksignore` file for handling false positives
+
+**False Positive Handling**:
+- Common placeholders (YOUR_API_KEY, EXAMPLE_KEY) are automatically ignored
+- Use `.gitleaksignore` to exclude specific detected strings
+- Allowlist patterns in `.gitleaks.toml` for documentation examples
+
+#### 7. Report Generation (generate_report.py)
 
 Consolidates all test results:
 - **JUnit XML** (`test-reports/junit.xml`) - Machine-readable format for GitLab CI
@@ -156,6 +179,7 @@ The Docker image includes the following testing tools (see `Dockerfile` for exac
 | **markdownlint-cli2** | latest (npm) | Markdown formatting and style validation |
 | **Vale** | v3.0.0 | Spelling and prose quality checking |
 | **lychee** | v0.21.0 | Link validation (internal and external) |
+| **Gitleaks** | v8.21.2 | Secrets and API key detection |
 | **Python** | 3.x (system) | Runtime for custom validation scripts |
 | **R** | r-base (system) | R code syntax validation |
 | **Bash** | System default | Shell script syntax validation |
@@ -188,6 +212,7 @@ docker run --rm -v $(pwd):/workspace docs-test make lint
 docker run --rm -v $(pwd):/workspace docs-test make spell
 docker run --rm -v $(pwd):/workspace docs-test make check-code
 docker run --rm -v $(pwd):/workspace docs-test make check-structure
+docker run --rm -v $(pwd):/workspace docs-test make check-secrets
 ```
 
 ## Auto-Fixing Formatting Issues
@@ -235,6 +260,7 @@ All test reports are saved to `test-reports/`:
 - `lychee-external.json` - External link issues
 - `code-validation.xml` - Code syntax issues (JUnit XML)
 - `gitbook-validation.xml` - GitBook structure issues (JUnit XML)
+- `gitleaks.json` - Secrets detection results (JSON)
 - `junit.xml` - Consolidated JUnit XML for CI
 - `index.html` - Human-readable HTML report
 
@@ -561,6 +587,71 @@ If you want to run this check locally, you need to provide GitLab credentials:
 **Fix:**
 Add documentation for missing metrics in the appropriate markdown files under `docs/`.
 
+### Secrets Detection Issues (Gitleaks)
+
+#### Issue: False positive - documentation placeholder detected
+
+**Example:**
+```
+FAIL: API key detected in docs/tutorials/api-guide.md:42
+  Secret: YOUR_API_KEY_HERE
+```
+
+**Fix Option 1:** Add to `.gitleaksignore`:
+```bash
+echo "YOUR_API_KEY_HERE" >> .gitleaksignore
+```
+
+**Fix Option 2:** Update `.gitleaks.toml` allowlist if it's a pattern:
+```toml
+[allowlist]
+regexes = [
+  # ... existing patterns ...
+  '''YOUR_SPECIFIC_PATTERN''',
+]
+```
+
+#### Issue: Real secret detected
+
+**Example:**
+```
+ERROR: API key detected in docs/examples/code-sample.md:15
+  Secret: ak_live_1234567890abcdef
+```
+
+**Fix:**
+1. **Immediately rotate the exposed secret** - change it in your production system
+2. Remove the secret from the file
+3. Update documentation to use placeholder instead:
+   ```markdown
+   <!-- Bad -->
+   api_key = "ak_live_1234567890abcdef"
+   
+   <!-- Good -->
+   api_key = "YOUR_API_KEY_HERE"
+   ```
+4. Check git history to ensure secret wasn't committed:
+   ```bash
+   git log -p -- docs/examples/code-sample.md
+   ```
+5. If secret was committed, consider using tools like `git-filter-repo` to remove it from history
+
+#### Issue: High-entropy string in legitimate code
+
+**Example:**
+```
+WARN: Potential secret detected in docs/technical/hash-examples.md:88
+  Secret: 5f4dcc3b5aa765d61d8327deb882cf99
+```
+
+**Fix:**
+If this is a legitimate example (like a hash or UUID), add the specific string to `.gitleaksignore`:
+```bash
+echo "5f4dcc3b5aa765d61d8327deb882cf99" >> .gitleaksignore
+```
+
+**Note:** Only ignore if you're absolutely certain it's not a real secret!
+
 ## Configuration Files
 
 ### Markdown Linting (.markdownlint.json)
@@ -633,6 +724,58 @@ Configuration notes:
 - 3 retries with 20-second timeout per link
 - Uses realistic user agent to avoid bot blocking
 - Caching enabled for faster repeated runs
+
+### Secrets Detection (.gitleaks.toml)
+
+Configure Gitleaks secret detection:
+
+```toml
+[extend]
+# Use Gitleaks' default ruleset (200+ built-in patterns)
+useDefault = true
+
+# Custom rules for Coin Metrics specific patterns
+[[rules]]
+id = "coinmetrics-api-key"
+description = "Coin Metrics API Key"
+regex = '''(?i)(api[_-]?key\s*[=:]\s*['"]?[a-zA-Z0-9]{15,30}['"]?)'''
+
+[allowlist]
+description = "Global allowlist for false positives"
+regexes = [
+  # Common placeholder patterns in documentation
+  '''(?i)(YOUR[_-]?API[_-]?KEY|API[_-]?KEY[_-]?HERE)''',
+  '''<API_KEY>''',
+]
+paths = [
+  # Skip test report files
+  '''test-reports/''',
+]
+```
+
+Configuration notes:
+- Extends Gitleaks default rules (200+ patterns)
+- Custom rules can be added for specific API key formats
+- Allowlist supports regex patterns and file paths
+- Scans files only (not git history) for speed
+
+### False Positive Management (.gitleaksignore)
+
+Add specific detected secrets that are safe to ignore:
+
+```
+# Format: one secret string per line
+# Only add strings you're absolutely certain are not real secrets
+
+# Example placeholders
+YOUR_API_KEY_HERE
+example-key-12345
+```
+
+**Warning:** Be extremely careful when adding entries. Only ignore strings that are:
+- Documentation placeholders
+- Public example keys from official documentation
+- Test fixtures that contain no real credentials
 
 ## CI/CD Integration
 

@@ -1,4 +1,4 @@
-.PHONY: help test test-quick lint spell check-links check-links-internal check-links-external check-code check-structure report clean format docker-build docker-test docker-test-quick docker-format
+.PHONY: help test test-quick lint spell check-links check-links-internal check-links-external check-code check-structure check-secrets report clean format docker-build docker-test docker-test-quick docker-format
 
 # Docker image name
 DOCKER_IMAGE ?= docs-test
@@ -33,10 +33,10 @@ help:
 	@echo ""
 
 # Full test suite (all checks)
-test: lint spell check-links check-code check-structure report
+test: lint spell check-links check-code check-structure check-secrets report
 
 # Quick test suite (skip slow checks)
-test-quick: lint check-code check-structure report
+test-quick: lint check-code check-structure check-secrets report
 
 # Markdown linting
 lint:
@@ -85,6 +85,12 @@ check-structure:
 	@echo "Validating GitBook structure..."
 	@mkdir -p test-reports
 	-$(QUIET)python3 scripts/validate_gitbook.py --input docs --output test-reports $(REDIRECT)
+
+# Secrets detection with Gitleaks
+check-secrets:
+	@echo "Checking for leaked secrets and API keys..."
+	@mkdir -p test-reports
+	-$(QUIET)gitleaks detect --source=docs/ --config=.gitleaks.toml --report-path=test-reports/gitleaks.json --report-format=json --no-git $(REDIRECT)
 
 # Generate consolidated report
 report:
