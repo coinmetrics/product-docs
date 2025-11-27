@@ -890,6 +890,32 @@ def generate_tools_grid(by_source):
     return html
 
 
+def get_display_path(fpath, all_fpaths):
+    """
+    Get display path with appropriate context for disambiguation.
+    Shows just filename unless there are similarly-named files.
+    """
+    parts = fpath.split('/')
+    filename = parts[-1]
+    
+    # Check if any other file has the same filename
+    has_duplicate = False
+    for other_fpath in all_fpaths:
+        if other_fpath != fpath and other_fpath.split('/')[-1] == filename:
+            has_duplicate = True
+            break
+    
+    # If no duplicates, just show filename
+    if not has_duplicate:
+        return filename
+    
+    # If duplicates exist, show parent directory + filename
+    if len(parts) >= 2:
+        return f"{parts[-2]}/{filename}"
+    
+    return filename
+
+
 def generate_charts_section(top_files, top_rules):
     """Generate ranked charts section."""
     html = """
@@ -899,12 +925,15 @@ def generate_charts_section(top_files, top_rules):
                 <div class="ranked-list">
         """
     
+    # Get all file paths for duplicate detection
+    all_fpaths = [fpath for fpath, _ in top_files]
+    
     for idx, (fpath, count) in enumerate(top_files, 1):
-        filename = fpath.split('/')[-1]
+        display_path = get_display_path(fpath, all_fpaths)
         html += f"""
                     <div class="rank-item" title="{fpath}">
                         <span class="rank-number">#{idx}</span>
-                        <span class="rank-label">{filename}</span>
+                        <span class="rank-label">{display_path}</span>
                         <span class="rank-count">{count}</span>
                     </div>
             """
