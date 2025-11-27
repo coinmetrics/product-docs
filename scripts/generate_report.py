@@ -441,16 +441,23 @@ def generate_html_header(timestamp):
             position: sticky;
             top: 0;
             z-index: 100;
-            background: var(--header-bg);
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             color: white;
             padding: 16px 0;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 8px 16px -4px rgb(0 0 0 / 0.05);
             border-bottom: 1px solid rgba(255,255,255,0.1);
             margin-bottom: 32px;
         }}
         
         body:not(.dark-mode) .header {{
+            background: rgba(30, 41, 59, 0.75);
             border-bottom: 1px solid rgba(0,0,0,0.1);
+        }}
+        
+        body.dark-mode .header {{
+            background: rgba(15, 23, 42, 0.8);
         }}
         
         .header-content {{
