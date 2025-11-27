@@ -24,8 +24,6 @@ def parse_markdownlint(report_path):
         content = f.read()
     
     issues = []
-    # Pattern: docs/path/file.md:123 error MD013/line-length Line length [Expected: 120; Actual: 145]
-    # or: docs/path/file.md:123:45 error MD013/line-length Line length [Expected: 120; Actual: 145]
     pattern = r'(docs/.*?\.md):(\d+)(?::(\d+))?\s+error\s+(MD\d+)/(\S+)\s+(.*)'
     
     for match in re.finditer(pattern, content):
@@ -53,20 +51,16 @@ def parse_vale(report_path):
     except:
         return []
     
-    # Handle Vale error format (e.g., missing styles)
     if 'Code' in data and 'Text' in data:
-        # Vale returned an error, not results
         print(f"Vale error: {data.get('Text', 'Unknown error')}")
         return []
     
     issues = []
     for file_path, file_issues in data.items():
-        # Skip if file_issues is not a list (could be error message)
         if not isinstance(file_issues, list):
             continue
             
         for issue in file_issues:
-            # Skip if issue is not a dict
             if not isinstance(issue, dict):
                 continue
                 
@@ -92,9 +86,6 @@ def parse_lychee(report_path):
             data = json.load(f)
         
         issues = []
-        
-        # Lychee v0.21.0+ uses error_map, older versions used fail_map
-        # Try error_map first (new format), fall back to fail_map (old format)
         error_map = data.get('error_map', data.get('fail_map', {}))
         
         for file_path, failures in error_map.items():
@@ -104,7 +95,6 @@ def parse_lychee(report_path):
                 status_text = status.get('text', 'Unknown error')
                 status_code = status.get('code', '')
                 
-                # Format error message
                 if status_code:
                     message = f"Broken link [{status_code}]: {url} - {status_text}"
                 else:
@@ -133,7 +123,6 @@ def parse_gitleaks(report_path):
     try:
         with open(report_path, 'r', encoding='utf-8') as f:
             content = f.read().strip()
-            # Check if file is empty
             if not content:
                 return []
             data = json.loads(content)
@@ -141,18 +130,14 @@ def parse_gitleaks(report_path):
         return []
     
     issues = []
-    # Gitleaks returns a list of findings
     if isinstance(data, list):
         for finding in data:
-            # Extract relevant information
             file_path = finding.get('File', 'unknown')
             start_line = finding.get('StartLine', 1)
-            end_line = finding.get('EndLine', start_line)
             rule_id = finding.get('RuleID', 'unknown')
             description = finding.get('Description', 'Secret detected')
             secret = finding.get('Secret', '')
             
-            # Mask the secret for display (show first/last few chars)
             if len(secret) > 10:
                 masked_secret = f"{secret[:4]}...{secret[-4:]}"
             else:
@@ -186,29 +171,21 @@ def parse_junit_xml(report_path):
             failure = testcase.find('failure')
             if failure is not None:
                 test_name = testcase.get('name', '')
-                classname = testcase.get('classname', 'validation')
-                
-                # Check if failure has detailed text content
                 failure_text = failure.text
+                
                 if failure_text and failure_text.strip():
-                    # Split by newlines to get individual errors
                     error_lines = [line.strip() for line in failure_text.strip().split('\n') if line.strip()]
                     
-                    # Create an issue for each individual error line
                     for error_line in error_lines:
-                        # Try to extract file from error message
                         file_name = 'unknown'
                         
-                        # Pattern 1: "some text: path/to/file.md"
                         if ': ' in error_line and ('.md' in error_line or 'file' in error_line.lower()):
                             parts = error_line.split(': ')
                             if len(parts) >= 2:
-                                # Check if the last part looks like a file path
                                 potential_file = parts[-1].strip()
                                 if '/' in potential_file or '.md' in potential_file:
                                     file_name = potential_file
                         
-                        # Pattern 2: File name at start (e.g., "docs/path/file.md something")
                         if file_name == 'unknown' and error_line.startswith('docs/'):
                             parts = error_line.split()
                             if parts:
@@ -218,18 +195,17 @@ def parse_junit_xml(report_path):
                             'file': file_name,
                             'line': '1',
                             'column': '1',
-                            'rule': test_name,  # Use test case name instead of classname
+                            'rule': test_name,
                             'message': error_line,
                             'severity': 'error'
                         })
                 else:
-                    # No detailed text, use summary message
                     parts = test_name.split(':')
                     issues.append({
                         'file': parts[0] if parts else 'unknown',
                         'line': parts[1] if len(parts) > 1 else '1',
                         'column': '1',
-                        'rule': test_name,  # Use test case name for consistency
+                        'rule': test_name,
                         'message': failure.get('message', 'Test failed'),
                         'severity': 'error'
                     })
@@ -241,7 +217,6 @@ def parse_junit_xml(report_path):
 
 def generate_junit_xml(all_issues):
     """Generate consolidated JUnit XML."""
-    # Group issues by type
     groups = {
         'markdownlint': [],
         'vale': [],
@@ -254,12 +229,20 @@ def generate_junit_xml(all_issues):
     
     for issue in all_issues:
         source = issue.get('source', 'unknown')
-        groups[source].append(issue)
+        if source in groups:
+            groups[source].append(issue)
+        else:
+            # Handle unexpected sources gracefully
+            if 'other' not in groups:
+                groups['other'] = []
+            groups['other'].append(issue)
     
-    # Build XML
     testsuites = ET.Element('testsuites')
     
     for group_name, issues in groups.items():
+        if not issues:
+            continue
+            
         testsuite = ET.SubElement(testsuites, 'testsuite', {
             'name': group_name,
             'tests': str(len(issues)),
@@ -287,11 +270,9 @@ def generate_junit_xml(all_issues):
 
 def generate_html_report(all_issues):
     """Generate HTML summary report."""
-    # Group issues by source
     by_source = {}
     by_file = {}
     
-    # Pre-define sources to ensure order and existence even if empty
     sources_list = [
         'markdownlint', 'vale', 'lychee-internal', 
         'lychee-external', 'code-validation', 
@@ -312,9 +293,13 @@ def generate_html_report(all_issues):
     
     top_files = sorted(by_file.items(), key=lambda x: x[1], reverse=True)[:10]
     
+    # Calculate global severity counts
     severity_counts = {'error': 0, 'warning': 0, 'suggestion': 0}
     for issue in all_issues:
-        s = issue.get('severity', 'error')
+        s = issue.get('severity', 'error').lower()
+        # map any non-standard severities to 'error' or 'suggestion' as needed
+        if s not in severity_counts:
+            s = 'error' 
         severity_counts[s] = severity_counts.get(s, 0) + 1
             
     by_rule = {}
@@ -325,7 +310,6 @@ def generate_html_report(all_issues):
         by_rule[rule_key]['count'] += 1
     top_rules = sorted(by_rule.items(), key=lambda x: x[1]['count'], reverse=True)[:15]
 
-    # Icon mapping
     icons = {
         'markdownlint': '📝',
         'vale': '✍️',
@@ -344,10 +328,9 @@ def generate_html_report(all_issues):
     <title>Quality Report</title>
     <style>
         :root {{
-            /* Professional Blue Palette */
-            --primary: #2563eb;       /* Royal Blue */
+            --primary: #2563eb;
             --primary-dark: #1e40af;
-            --header-bg: #1e293b;     /* Slate 800 */
+            --header-bg: #1e293b;
             
             --bg-body: #f8fafc;
             --bg-card: #ffffff;
@@ -355,7 +338,6 @@ def generate_html_report(all_issues):
             --text-muted: #64748b;
             --border: #e2e8f0;
             
-            /* Severities */
             --error: #ef4444;
             --error-bg: #fef2f2;
             --error-border: #fecaca;
@@ -395,7 +377,6 @@ def generate_html_report(all_issues):
             padding-bottom: 60px;
         }}
         
-        /* Header */
         .header {{
             position: sticky;
             top: 0;
@@ -431,7 +412,6 @@ def generate_html_report(all_issues):
             min-width: 200px;
             font-size: 14px;
         }}
-        .search-box::placeholder {{ color: rgba(255,255,255,0.5); }}
         .search-box:focus {{ outline: none; background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.5); }}
 
         .btn {{
@@ -450,7 +430,6 @@ def generate_html_report(all_issues):
 
         .container {{ max-width: 1200px; margin: 0 auto; padding: 0 24px; }}
         
-        /* Stats Grid */
         .grid-header {{ font-size: 14px; font-weight: 600; color: var(--text-muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }}
         
         .stats-grid {{
@@ -471,19 +450,17 @@ def generate_html_report(all_issues):
             display: block;
         }}
         
-        a.card:hover {{ transform: translateY(-2px); border-color: var(--primary); }}
-        
         .stat-value {{ font-size: 28px; font-weight: 700; line-height: 1.2; margin-bottom: 4px; color: var(--text-main); }}
         .stat-label {{ color: var(--text-muted); font-size: 13px; font-weight: 500; }}
-        .stat-icon {{ float: right; font-size: 20px; opacity: 0.8; }}
         
         .text-error {{ color: var(--error); }}
         .text-warning {{ color: var(--warning); }}
+        .text-info {{ color: var(--info); }}
         
-        /* Tool Breakdown Grid */
         .tools-grid {{
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-auto-rows: 1fr;
             gap: 16px;
             margin-bottom: 32px;
         }}
@@ -494,25 +471,37 @@ def generate_html_report(all_issues):
             border-radius: var(--radius);
             padding: 16px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
             cursor: pointer;
             transition: all 0.2s;
             text-decoration: none;
         }}
         .tool-card:hover {{ border-color: var(--primary); box-shadow: var(--shadow); }}
-        .tool-card.empty {{ opacity: 0.6; }}
+        .tool-card.empty {{ opacity: 0.6; cursor: default; }}
         
-        .tool-info h3 {{ font-size: 14px; font-weight: 600; color: var(--text-main); margin-bottom: 2px; }}
-        .tool-info span {{ font-size: 12px; color: var(--text-muted); }}
-        .tool-count {{ 
-            font-size: 16px; font-weight: 700; 
-            background: var(--bg-body); padding: 4px 10px; border-radius: 20px; 
-            color: var(--text-main);
+        .tool-info h3 {{ font-size: 14px; font-weight: 600; color: var(--text-main); margin-bottom: 4px; }}
+        
+        .tool-breakdown {{ display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }}
+        
+        .breakdown-badge {{ 
+            font-size: 11px; font-weight: 600; 
+            padding: 2px 6px; border-radius: 4px;
+            display: inline-flex; align-items: center;
         }}
-        .tool-count.has-issues {{ background: var(--error-bg); color: var(--error); }}
+        .bd-error {{ background: var(--error-bg); color: var(--error); border: 1px solid var(--error-border); }}
+        .bd-warning {{ background: var(--warning-bg); color: var(--warning); border: 1px solid var(--warning-border); }}
+        .bd-suggestion {{ background: var(--info-bg); color: var(--info); border: 1px solid var(--info-border); }}
+        .bd-total {{ background: var(--bg-body); color: var(--text-main); border: 1px solid var(--border); }}
+        
+        .tool-count {{ 
+            font-size: 18px; font-weight: 700; 
+            margin-left: 12px;
+            color: var(--text-muted);
+        }}
+        .tool-count.has-issues {{ color: var(--text-main); }}
 
-        /* Charts */
+        /* Charts & Lists */
         .charts-row {{
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -521,7 +510,6 @@ def generate_html_report(all_issues):
         }}
         @media (max-width: 900px) {{ .charts-row {{ grid-template-columns: 1fr; }} }}
 
-        /* Bar Chart */
         .bar-chart {{ display: flex; flex-direction: column; gap: 10px; }}
         .bar-row {{ display: flex; align-items: center; gap: 12px; font-size: 13px; }}
         .bar-label {{ width: 180px; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: monospace; color: var(--text-muted); }}
@@ -529,7 +517,6 @@ def generate_html_report(all_issues):
         .bar-fill {{ height: 100%; background: var(--primary); border-radius: 4px; width: 0; transition: width 1s ease; }}
         .bar-value {{ width: 30px; font-weight: 600; color: var(--text-muted); }}
 
-        /* Sections (Collapsed by default) */
         .section {{ background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; margin-bottom: 16px; }}
         
         .section-header {{
@@ -554,7 +541,6 @@ def generate_html_report(all_issues):
         .collapsed .issue-grid {{ display: none; }}
         .collapsed .arrow {{ transform: rotate(-90deg); }}
         
-        /* Issues */
         .issue {{
             padding: 12px 20px;
             border-bottom: 1px solid var(--border);
@@ -613,12 +599,12 @@ def generate_html_report(all_issues):
         </div>
         """
     else:
-        # 1. Global Stats
+        # Overview Stats
         html += f"""
         <div class="grid-header">Overview</div>
         <div class="stats-grid">
             <div class="card">
-                <div class="stat-value text-error">{len(all_issues)}</div>
+                <div class="stat-value">{len(all_issues)}</div>
                 <div class="stat-label">Total Issues</div>
             </div>
             <div class="card">
@@ -633,6 +619,10 @@ def generate_html_report(all_issues):
                 <div class="stat-value text-warning">{severity_counts['warning']}</div>
                 <div class="stat-label">Warnings</div>
             </div>
+             <div class="card">
+                <div class="stat-value text-info">{severity_counts['suggestion']}</div>
+                <div class="stat-label">Suggestions</div>
+            </div>
         </div>
 
         <div class="grid-header">Tool Breakdown</div>
@@ -640,25 +630,46 @@ def generate_html_report(all_issues):
         """
         
         for source in sources_list:
-            count = len(by_source.get(source, []))
+            source_issues = by_source.get(source, [])
+            count = len(source_issues)
+            
+            # Calculate breakdown per tool
+            counts = {'error': 0, 'warning': 0, 'suggestion': 0}
+            for i in source_issues:
+                s = i.get('severity', 'error').lower()
+                if s not in counts: s = 'error'
+                counts[s] += 1
+            
             if count == 0:
                 html += f"""
                 <div class="tool-card empty">
                     <div class="tool-info">
                         <h3>{icons.get(source, '')} {source.title().replace('-', ' ')}</h3>
-                        <span>Pass</span>
+                        <div class="tool-breakdown">
+                            <span style="font-size:12px; color:var(--text-muted)">Pass</span>
+                        </div>
                     </div>
                     <span class="tool-count">0</span>
                 </div>
                 """
             else:
+                # Generate breakdown badges
+                badges_html = ""
+                if counts['error'] > 0:
+                    badges_html += f'<span class="breakdown-badge bd-error">{counts["error"]} Errors</span>'
+                if counts['warning'] > 0:
+                    badges_html += f'<span class="breakdown-badge bd-warning">{counts["warning"]} Warnings</span>'
+                if counts['suggestion'] > 0:
+                    badges_html += f'<span class="breakdown-badge bd-suggestion">{counts["suggestion"]} Suggestions</span>'
+
                 html += f"""
                 <a href="#sec-{source}" class="tool-card" onclick="expandSection('sec-{source}')">
                     <div class="tool-info">
                         <h3>{icons.get(source, '')} {source.title().replace('-', ' ')}</h3>
-                        <span>{count} issues</span>
+                        <div class="tool-breakdown">
+                            {badges_html}
+                        </div>
                     </div>
-                    <span class="tool-count has-issues">{count}</span>
                 </a>
                 """
         
@@ -709,7 +720,7 @@ def generate_html_report(all_issues):
         </div>
         """
 
-        # 4. Detailed Sections (Collapsed by default)
+        # Detailed Sections
         for source in sources_list:
             issues = by_source.get(source, [])
             if not issues: continue
@@ -727,14 +738,14 @@ def generate_html_report(all_issues):
             """
             
             for issue in issues:
-                sev = issue.get('severity', 'error')
+                sev = issue.get('severity', 'error').lower()
                 msg = issue.get('message', '').replace('<', '&lt;').replace('>', '&gt;')
                 loc = f"{issue['file']}:{issue['line']}"
                 
                 html += f"""
                     <div class="issue {sev}" data-sev="{sev}" data-text="{issue['file']} {msg}">
                         <div class="sev-col">
-                            <div class="sev-badge">{sev}</div>
+                            <div class="sev-badge">{sev.capitalize()}</div>
                         </div>
                         <div class="issue-content">
                             <div class="issue-loc">{loc} &middot; {issue.get('rule', '')}</div>
@@ -747,27 +758,23 @@ def generate_html_report(all_issues):
     html += """
     </div>
     <script>
-        // Dark Mode
         if(localStorage.getItem('dark')==='1') document.body.classList.add('dark-mode');
         function toggleDark() {
             document.body.classList.toggle('dark-mode');
             localStorage.setItem('dark', document.body.classList.contains('dark-mode') ? '1' : '0');
         }
         
-        // Toggles
         function toggleSection(id) {
             document.getElementById(id).classList.toggle('collapsed');
         }
         
         function expandSection(id) {
             document.getElementById(id).classList.remove('collapsed');
-            // Small delay to allow expansion before scroll
             setTimeout(() => {
                 document.getElementById(id).scrollIntoView({behavior: 'smooth', block: 'start'});
             }, 100);
         }
         
-        // Filters
         let activeSev = 'all';
         function filterSeverity(sev, btn) {
             activeSev = sev;
@@ -804,7 +811,6 @@ def generate_html_report(all_issues):
                     sec.classList.add('hidden');
                 } else {
                     sec.classList.remove('hidden');
-                    // If searching, auto-expand relevant sections
                     if (query !== '' || activeSev !== 'all') {
                         sec.classList.remove('collapsed');
                     }
@@ -812,7 +818,6 @@ def generate_html_report(all_issues):
             });
         }
         
-        // Init animations
         setTimeout(() => {
             document.querySelectorAll('.bar-fill').forEach(el => el.style.width = el.style.width);
         }, 100);
@@ -831,65 +836,48 @@ def main():
         print("No test reports directory found")
         sys.exit(0)
     
-    # Collect all issues
     all_issues = []
     
-    # Parse markdownlint
     issues = parse_markdownlint(reports_dir / 'markdownlint.txt')
-    for issue in issues:
-        issue['source'] = 'markdownlint'
+    for issue in issues: issue['source'] = 'markdownlint'
     all_issues.extend(issues)
     print(f"Found {len(issues)} markdownlint issues")
     
-    # Parse Vale
     issues = parse_vale(reports_dir / 'vale.json')
-    for issue in issues:
-        issue['source'] = 'vale'
+    for issue in issues: issue['source'] = 'vale'
     all_issues.extend(issues)
     print(f"Found {len(issues)} Vale issues")
     
-    # Parse lychee internal
     issues = parse_lychee(reports_dir / 'lychee-internal.json')
-    for issue in issues:
-        issue['source'] = 'lychee-internal'
+    for issue in issues: issue['source'] = 'lychee-internal'
     all_issues.extend(issues)
     print(f"Found {len(issues)} internal link issues")
     
-    # Parse lychee external
     issues = parse_lychee(reports_dir / 'lychee-external.json')
-    for issue in issues:
-        issue['source'] = 'lychee-external'
+    for issue in issues: issue['source'] = 'lychee-external'
     all_issues.extend(issues)
     print(f"Found {len(issues)} external link issues")
     
-    # Parse code validation
     issues = parse_junit_xml(reports_dir / 'code-validation.xml')
-    for issue in issues:
-        issue['source'] = 'code-validation'
+    for issue in issues: issue['source'] = 'code-validation'
     all_issues.extend(issues)
     print(f"Found {len(issues)} code validation issues")
     
-    # Parse GitBook validation
     issues = parse_junit_xml(reports_dir / 'gitbook-validation.xml')
-    for issue in issues:
-        issue['source'] = 'gitbook-validation'
+    for issue in issues: issue['source'] = 'gitbook-validation'
     all_issues.extend(issues)
     print(f"Found {len(issues)} GitBook structure issues")
     
-    # Parse Gitleaks secrets detection
     issues = parse_gitleaks(reports_dir / 'gitleaks.json')
-    for issue in issues:
-        issue['source'] = 'gitleaks'
+    for issue in issues: issue['source'] = 'gitleaks'
     all_issues.extend(issues)
     print(f"Found {len(issues)} secret/API key issues")
     
-    # Generate consolidated JUnit XML
     junit_tree = generate_junit_xml(all_issues)
     junit_path = reports_dir / 'junit.xml'
     junit_tree.write(junit_path, encoding='utf-8', xml_declaration=True)
     print(f"\nGenerated JUnit XML: {junit_path}")
     
-    # Generate HTML report
     html = generate_html_report(all_issues)
     html_path = reports_dir / 'index.html'
     with open(html_path, 'w', encoding='utf-8') as f:
@@ -898,11 +886,9 @@ def main():
     
     print(f"\nTotal issues found: {len(all_issues)}")
     
-    # Exit with non-zero if issues found
     if len(all_issues) > 0:
         sys.exit(1)
 
 
 if __name__ == '__main__':
     main()
-
