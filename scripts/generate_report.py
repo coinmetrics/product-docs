@@ -308,7 +308,7 @@ def generate_html_report(all_issues):
         if rule_key not in by_rule: 
             by_rule[rule_key] = {'count': 0, 'source': issue.get('source'), 'rule': issue.get('rule')}
         by_rule[rule_key]['count'] += 1
-    top_rules = sorted(by_rule.items(), key=lambda x: x[1]['count'], reverse=True)[:15]
+    top_rules = sorted(by_rule.items(), key=lambda x: x[1]['count'], reverse=True)[:10]
 
     icons = {
         'markdownlint': '📝',
@@ -325,7 +325,7 @@ def generate_html_report(all_issues):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quality Report</title>
+    <title>Product Docs Test Summary Results</title>
     <style>
         :root {{
             --primary: #2563eb;
@@ -347,6 +347,9 @@ def generate_html_report(all_issues):
             --info: #3b82f6;
             --info-bg: #eff6ff;
             --info-border: #bfdbfe;
+            --success: #10b981;
+            --success-bg: rgba(16, 185, 129, 0.1);
+            --success-border: rgba(16, 185, 129, 0.3);
             
             --radius: 8px;
             --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -365,6 +368,9 @@ def generate_html_report(all_issues):
             --warning-border: #78350f;
             --info-bg: #172554;
             --info-border: #1e40af;
+            --success: #10b981;
+            --success-bg: #064e3b;
+            --success-border: #065f46;
         }}
         
         * {{ box-sizing: border-box; margin: 0; padding: 0; }}
@@ -478,7 +484,11 @@ def generate_html_report(all_issues):
             text-decoration: none;
         }}
         .tool-card:hover {{ border-color: var(--primary); box-shadow: var(--shadow); }}
-        .tool-card.empty {{ opacity: 0.6; cursor: default; }}
+        .tool-card.empty {{ 
+            cursor: default; 
+            border-color: var(--success);
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--success-bg) 100%);
+        }}
         
         .tool-info h3 {{ font-size: 14px; font-weight: 600; color: var(--text-main); margin-bottom: 4px; }}
         
@@ -500,6 +510,19 @@ def generate_html_report(all_issues):
             color: var(--text-muted);
         }}
         .tool-count.has-issues {{ color: var(--text-main); }}
+        .tool-count.pass {{ color: var(--success); }}
+        
+        .pass-badge {{
+            font-size: 12px; font-weight: 600;
+            color: var(--success);
+            background: var(--success-bg);
+            border: 1px solid var(--success-border);
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }}
 
         /* Charts & Lists */
         .charts-row {{
@@ -510,12 +533,39 @@ def generate_html_report(all_issues):
         }}
         @media (max-width: 900px) {{ .charts-row {{ grid-template-columns: 1fr; }} }}
 
-        .bar-chart {{ display: flex; flex-direction: column; gap: 10px; }}
-        .bar-row {{ display: flex; align-items: center; gap: 12px; font-size: 13px; }}
-        .bar-label {{ width: 180px; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: monospace; color: var(--text-muted); }}
-        .bar-track {{ flex: 1; background: var(--bg-body); border: 1px solid var(--border); height: 8px; border-radius: 4px; overflow: hidden; }}
-        .bar-fill {{ height: 100%; background: var(--primary); border-radius: 4px; width: 0; transition: width 1s ease; }}
-        .bar-value {{ width: 30px; font-weight: 600; color: var(--text-muted); }}
+        .ranked-list {{ display: flex; flex-direction: column; gap: 8px; }}
+        .rank-item {{ 
+            display: flex; align-items: center; gap: 12px; 
+            padding: 10px 12px; 
+            background: var(--bg-body); 
+            border: 1px solid var(--border); 
+            border-radius: 6px;
+            font-size: 13px;
+            transition: all 0.2s;
+        }}
+        .rank-item:hover {{ border-color: var(--primary); background: var(--bg-card); }}
+        .rank-number {{ 
+            font-weight: 700; 
+            color: var(--text-muted); 
+            min-width: 24px; 
+            text-align: center;
+            font-size: 12px;
+        }}
+        .rank-label {{ 
+            flex: 1; 
+            font-family: monospace; 
+            color: var(--text-main); 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            white-space: nowrap; 
+        }}
+        .rank-count {{ 
+            font-weight: 700; 
+            color: var(--primary); 
+            min-width: 32px; 
+            text-align: right;
+            font-size: 15px;
+        }}
 
         .section {{ background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; margin-bottom: 16px; }}
         
@@ -576,12 +626,13 @@ def generate_html_report(all_issues):
 <body>
     <div class="header">
         <div class="header-content">
-            <h1>🛡️ Quality Report</h1>
+            <h1>🛡️ Product Docs Test Summary Results</h1>
             <div class="controls">
                 <input type="text" id="search" class="search-box" placeholder="Filter files..." onkeyup="filterIssues()">
                 <button class="btn active" onclick="filterSeverity('all', this)">All</button>
                 <button class="btn" onclick="filterSeverity('error', this)">Errors</button>
                 <button class="btn" onclick="filterSeverity('warning', this)">Warnings</button>
+                <button class="btn" onclick="filterSeverity('suggestion', this)">Suggestions</button>
                 <button class="btn" onclick="toggleDark()">🌙</button>
             </div>
         </div>
@@ -646,10 +697,10 @@ def generate_html_report(all_issues):
                     <div class="tool-info">
                         <h3>{icons.get(source, '')} {source.title().replace('-', ' ')}</h3>
                         <div class="tool-breakdown">
-                            <span style="font-size:12px; color:var(--text-muted)">Pass</span>
+                            <span class="pass-badge">✓ All Clear</span>
                         </div>
                     </div>
-                    <span class="tool-count">0</span>
+                    <span class="tool-count pass">0</span>
                 </div>
                 """
             else:
@@ -678,18 +729,17 @@ def generate_html_report(all_issues):
 
         <div class="charts-row">
             <div class="card">
-                <div class="grid-header" style="margin-bottom:16px">Top Problematic Files</div>
-                <div class="bar-chart">
+                <div class="grid-header" style="margin-bottom:16px">📁 Top Problematic Files</div>
+                <div class="ranked-list">
         """
         
-        max_f = top_files[0][1] if top_files else 1
-        for fpath, count in top_files:
-            pct = (count / max_f) * 100
+        for idx, (fpath, count) in enumerate(top_files, 1):
+            filename = fpath.split('/')[-1]
             html += f"""
-                    <div class="bar-row">
-                        <div class="bar-label" title="{fpath}">{fpath.split('/')[-1]}</div>
-                        <div class="bar-track"><div class="bar-fill" style="width: {pct}%"></div></div>
-                        <div class="bar-value">{count}</div>
+                    <div class="rank-item" title="{fpath}">
+                        <span class="rank-number">#{idx}</span>
+                        <span class="rank-label">{filename}</span>
+                        <span class="rank-count">{count}</span>
                     </div>
             """
             
@@ -697,20 +747,18 @@ def generate_html_report(all_issues):
                 </div>
             </div>
             <div class="card">
-                <div class="grid-header" style="margin-bottom:16px">Top Violations</div>
-                <div class="bar-chart">
+                <div class="grid-header" style="margin-bottom:16px">⚠️ Top Violations</div>
+                <div class="ranked-list">
         """
         
-        max_r = top_rules[0][1]['count'] if top_rules else 1
-        for rkey, rdata in top_rules:
+        for idx, (rkey, rdata) in enumerate(top_rules, 1):
             count = rdata['count']
-            pct = (count / max_r) * 100
             clean_rule = rkey.split('(')[0].strip()
             html += f"""
-                    <div class="bar-row">
-                        <div class="bar-label" title="{rkey}">{clean_rule}</div>
-                        <div class="bar-track"><div class="bar-fill" style="width: {pct}%"></div></div>
-                        <div class="bar-value">{count}</div>
+                    <div class="rank-item" title="{rkey}">
+                        <span class="rank-number">#{idx}</span>
+                        <span class="rank-label">{clean_rule}</span>
+                        <span class="rank-count">{count}</span>
                     </div>
             """
 
@@ -817,10 +865,6 @@ def generate_html_report(all_issues):
                 }
             });
         }
-        
-        setTimeout(() => {
-            document.querySelectorAll('.bar-fill').forEach(el => el.style.width = el.style.width);
-        }, 100);
     </script>
 </body>
 </html>
