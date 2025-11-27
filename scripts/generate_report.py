@@ -406,6 +406,8 @@ def generate_html_report(all_issues):
         }}
 
         .header h1 {{ font-size: 20px; font-weight: 600; display: flex; align-items: center; gap: 10px; }}
+        .header-title {{ display: flex; flex-direction: column; gap: 4px; }}
+        .timestamp {{ font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 400; }}
         
         .controls {{ display: flex; gap: 10px; flex-wrap: wrap; }}
         
@@ -584,7 +586,10 @@ def generate_html_report(all_issues):
         
         .section:not(.collapsed) .section-header {{ border-bottom-color: var(--border); background: var(--bg-body); }}
 
-        .section-title {{ font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 8px; color: var(--text-main); }}
+        .section-title {{ font-weight: 600; font-size: 15px; display: flex; flex-direction: column; gap: 4px; color: var(--text-main); }}
+        .section-title-main {{ display: flex; align-items: center; gap: 8px; }}
+        .section-subtitle {{ font-size: 11px; font-weight: 400; color: var(--text-muted); }}
+        .section:not(.collapsed) .section-subtitle {{ display: none; }}
         .arrow {{ transition: transform 0.2s; color: var(--text-muted); }}
         
         .issue-grid {{ display: block; }}
@@ -626,9 +631,12 @@ def generate_html_report(all_issues):
 <body>
     <div class="header">
         <div class="header-content">
-            <h1>🛡️ Product Docs Test Summary Results</h1>
+            <div class="header-title">
+                <h1>🛡️ Product Docs Test Summary Results</h1>
+                <div class="timestamp">Generated: {datetime.now().strftime('%B %d, %Y at %I:%M %p')}</div>
+            </div>
             <div class="controls">
-                <input type="text" id="search" class="search-box" placeholder="Filter files..." onkeyup="filterIssues()">
+                <input type="text" id="search" class="search-box" placeholder="Search by file or message..." onkeyup="filterIssues()">
                 <button class="btn active" onclick="filterSeverity('all', this)">All</button>
                 <button class="btn" onclick="filterSeverity('error', this)">Errors</button>
                 <button class="btn" onclick="filterSeverity('warning', this)">Warnings</button>
@@ -656,23 +664,23 @@ def generate_html_report(all_issues):
         <div class="stats-grid">
             <div class="card">
                 <div class="stat-value">{len(all_issues)}</div>
-                <div class="stat-label">Total Issues</div>
+                <div class="stat-label">📊 Total Issues</div>
             </div>
             <div class="card">
                 <div class="stat-value">{len(by_file)}</div>
-                <div class="stat-label">Files Affected</div>
+                <div class="stat-label">📄 Files Affected</div>
             </div>
              <div class="card">
                 <div class="stat-value text-error">{severity_counts['error']}</div>
-                <div class="stat-label">Errors</div>
+                <div class="stat-label">🔴 Errors</div>
             </div>
              <div class="card">
                 <div class="stat-value text-warning">{severity_counts['warning']}</div>
-                <div class="stat-label">Warnings</div>
+                <div class="stat-label">🟡 Warnings</div>
             </div>
              <div class="card">
                 <div class="stat-value text-info">{severity_counts['suggestion']}</div>
-                <div class="stat-label">Suggestions</div>
+                <div class="stat-label">🔵 Suggestions</div>
             </div>
         </div>
 
@@ -773,12 +781,33 @@ def generate_html_report(all_issues):
             issues = by_source.get(source, [])
             if not issues: continue
             
+            # Calculate severity breakdown for this section
+            section_counts = {'error': 0, 'warning': 0, 'suggestion': 0}
+            for issue in issues:
+                sev = issue.get('severity', 'error').lower()
+                if sev not in section_counts:
+                    sev = 'error'
+                section_counts[sev] += 1
+            
+            # Build subtitle text
+            subtitle_parts = []
+            if section_counts['error'] > 0:
+                subtitle_parts.append(f"{section_counts['error']:,} errors")
+            if section_counts['warning'] > 0:
+                subtitle_parts.append(f"{section_counts['warning']:,} warnings")
+            if section_counts['suggestion'] > 0:
+                subtitle_parts.append(f"{section_counts['suggestion']:,} suggestions")
+            subtitle = ", ".join(subtitle_parts) if subtitle_parts else "No issues"
+            
             html += f"""
             <div class="section collapsed" id="sec-{source}">
                 <div class="section-header" onclick="toggleSection('sec-{source}')">
                     <div class="section-title">
-                        <span class="arrow">▼</span>
-                        {icons.get(source, '')} {source.title().replace('-', ' ')}
+                        <div class="section-title-main">
+                            <span class="arrow">▼</span>
+                            {icons.get(source, '')} {source.title().replace('-', ' ')}
+                        </div>
+                        <div class="section-subtitle">{subtitle}</div>
                     </div>
                     <span class="tool-count { 'has-issues' if len(issues) > 0 else '' }">{len(issues)}</span>
                 </div>
