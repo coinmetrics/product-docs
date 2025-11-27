@@ -375,6 +375,10 @@ def generate_html_report(all_issues):
         
         * {{ box-sizing: border-box; margin: 0; padding: 0; }}
         
+        html {{
+            scroll-padding-top: 90px;
+        }}
+        
         body {{
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background: var(--bg-body);
@@ -487,7 +491,6 @@ def generate_html_report(all_issues):
         }}
         .tool-card:hover {{ border-color: var(--primary); box-shadow: var(--shadow); }}
         .tool-card.empty {{ 
-            cursor: default; 
             border-color: var(--success);
             background: linear-gradient(135deg, var(--bg-card) 0%, var(--success-bg) 100%);
         }}
@@ -625,6 +628,8 @@ def generate_html_report(all_issues):
         .issue-msg {{ color: var(--text-main); word-wrap: break-word; }}
 
         .zero-state {{ text-align: center; padding: 60px; color: var(--text-muted); }}
+        .zero-state h3 {{ color: var(--text-main); font-size: 16px; }}
+        .zero-state p {{ font-size: 14px; }}
         .hidden {{ display: none !important; }}
     </style>
 </head>
@@ -701,7 +706,7 @@ def generate_html_report(all_issues):
             
             if count == 0:
                 html += f"""
-                <div class="tool-card empty">
+                <a href="#sec-{source}" class="tool-card empty" onclick="expandSection('sec-{source}')">
                     <div class="tool-info">
                         <h3>{icons.get(source, '')} {source.title().replace('-', ' ')}</h3>
                         <div class="tool-breakdown">
@@ -709,7 +714,7 @@ def generate_html_report(all_issues):
                         </div>
                     </div>
                     <span class="tool-count pass">0</span>
-                </div>
+                </a>
                 """
             else:
                 # Generate breakdown badges
@@ -779,7 +784,6 @@ def generate_html_report(all_issues):
         # Detailed Sections
         for source in sources_list:
             issues = by_source.get(source, [])
-            if not issues: continue
             
             # Calculate severity breakdown for this section
             section_counts = {'error': 0, 'warning': 0, 'suggestion': 0}
@@ -809,17 +813,27 @@ def generate_html_report(all_issues):
                         </div>
                         <div class="section-subtitle">{subtitle}</div>
                     </div>
-                    <span class="tool-count { 'has-issues' if len(issues) > 0 else '' }">{len(issues)}</span>
+                    <span class="tool-count { 'has-issues' if len(issues) > 0 else 'pass' }">{len(issues)}</span>
                 </div>
                 <div class="issue-grid">
             """
             
-            for issue in issues:
-                sev = issue.get('severity', 'error').lower()
-                msg = issue.get('message', '').replace('<', '&lt;').replace('>', '&gt;')
-                loc = f"{issue['file']}:{issue['line']}"
-                
-                html += f"""
+            if len(issues) == 0:
+                # Empty state for tools with no issues
+                html += """
+                    <div class="zero-state">
+                        <div style="font-size: 32px; margin-bottom: 8px">✨</div>
+                        <h3 style="margin-bottom: 4px;">No issues found</h3>
+                        <p>This tool passed all checks.</p>
+                    </div>
+                """
+            else:
+                for issue in issues:
+                    sev = issue.get('severity', 'error').lower()
+                    msg = issue.get('message', '').replace('<', '&lt;').replace('>', '&gt;')
+                    loc = f"{issue['file']}:{issue['line']}"
+                    
+                    html += f"""
                     <div class="issue {sev}" data-sev="{sev}" data-text="{issue['file']} {msg}">
                         <div class="sev-col">
                             <div class="sev-badge">{sev.capitalize()}</div>
@@ -829,7 +843,7 @@ def generate_html_report(all_issues):
                             <div class="issue-msg">{msg}</div>
                         </div>
                     </div>
-                """
+                    """
             html += "</div></div>"
 
     html += """
@@ -871,6 +885,7 @@ def generate_html_report(all_issues):
             sections.forEach(sec => {
                 let visibleCount = 0;
                 const rows = sec.querySelectorAll('.issue');
+                const hasZeroState = sec.querySelector('.zero-state');
                 
                 rows.forEach(row => {
                     const matchesSev = activeSev === 'all' || row.dataset.sev === activeSev;
@@ -884,7 +899,8 @@ def generate_html_report(all_issues):
                     }
                 });
                 
-                if (visibleCount === 0) {
+                // Keep sections with zero issues visible (they have zero-state div)
+                if (visibleCount === 0 && !hasZeroState) {
                     sec.classList.add('hidden');
                 } else {
                     sec.classList.remove('hidden');
