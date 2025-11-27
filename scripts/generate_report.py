@@ -793,6 +793,91 @@ def generate_html_header(timestamp):
                 font-size: var(--font-lg);
             }}
         }}
+        
+        /* Loading Skeleton States */
+        .skeleton-overlay {{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-card);
+            z-index: 10;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.15s ease-in;
+        }}
+        
+        .skeleton-overlay.active {{
+            opacity: 1;
+            pointer-events: all;
+        }}
+        
+        .skeleton-item {{
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            gap: 16px;
+            align-items: flex-start;
+        }}
+        
+        .skeleton-badge {{
+            height: 20px;
+            background: linear-gradient(
+                90deg,
+                var(--border) 0%,
+                var(--bg-body) 50%,
+                var(--border) 100%
+            );
+            background-size: 200% 100%;
+            border-radius: 4px;
+            animation: shimmer 1.5s ease-in-out infinite;
+        }}
+        
+        .skeleton-content {{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }}
+        
+        .skeleton-line {{
+            height: 12px;
+            background: linear-gradient(
+                90deg,
+                var(--border) 0%,
+                var(--bg-body) 50%,
+                var(--border) 100%
+            );
+            background-size: 200% 100%;
+            border-radius: 4px;
+            animation: shimmer 1.5s ease-in-out infinite;
+        }}
+        
+        .skeleton-line.short {{
+            width: 60%;
+        }}
+        
+        .skeleton-line.medium {{
+            width: 80%;
+        }}
+        
+        .skeleton-line.long {{
+            width: 100%;
+        }}
+        
+        @keyframes shimmer {{
+            0% {{
+                background-position: -200% 0;
+            }}
+            100% {{
+                background-position: 200% 0;
+            }}
+        }}
+        
+        .section {{
+            position: relative;
+        }}
     </style>
 </head>
 <body>
@@ -1028,6 +1113,24 @@ def generate_details_sections(by_source):
                 </div>
                 """
         
+        # Generate skeleton loader HTML
+        skeleton_html = """
+                <div class="skeleton-overlay">
+        """
+        for i in range(5):  # Show 5 skeleton items
+            skeleton_html += """
+                    <div class="skeleton-item">
+                        <div class="skeleton-badge"></div>
+                        <div class="skeleton-content">
+                            <div class="skeleton-line short"></div>
+                            <div class="skeleton-line long"></div>
+                        </div>
+                    </div>
+            """
+        skeleton_html += """
+                </div>
+        """
+        
         html += f"""
             <div class="section collapsed" id="sec-{source}">
                 <div class="section-header" onclick="toggleSection('sec-{source}')">
@@ -1041,6 +1144,7 @@ def generate_details_sections(by_source):
                     <span class="tool-count {'has-issues' if len(issues) > 0 else 'pass'}">{len(issues)}</span>
                 </div>
                 {legend_html}
+                {skeleton_html}
                 <div class="issue-grid">
             """
         
@@ -1107,6 +1211,20 @@ def generate_html_footer():
         }
         
         let activeSev = 'all';
+        let filterTimeout = null;
+        
+        function showSkeletons() {
+            document.querySelectorAll('.skeleton-overlay').forEach(skeleton => {
+                skeleton.classList.add('active');
+            });
+        }
+        
+        function hideSkeletons() {
+            document.querySelectorAll('.skeleton-overlay').forEach(skeleton => {
+                skeleton.classList.remove('active');
+            });
+        }
+        
         function filterSeverity(sev, btn) {
             activeSev = sev;
             document.querySelectorAll('.controls .btn').forEach(b => b.classList.remove('active'));
@@ -1115,39 +1233,61 @@ def generate_html_footer():
         }
         
         function filterIssues() {
-            applyFilters();
+            // Clear any pending filter operations
+            if (filterTimeout) {
+                clearTimeout(filterTimeout);
+            }
+            
+            // Show skeletons immediately for better perceived performance
+            showSkeletons();
+            
+            // Debounce the actual filtering to allow skeleton to render
+            filterTimeout = setTimeout(() => {
+                applyFilters();
+            }, 150);
         }
         
         function applyFilters() {
-            const query = document.getElementById('search').value.toLowerCase();
-            const sections = document.querySelectorAll('.section');
+            // Show skeleton loaders
+            showSkeletons();
             
-            sections.forEach(sec => {
-                let visibleCount = 0;
-                const rows = sec.querySelectorAll('.issue');
-                const hasZeroState = sec.querySelector('.zero-state');
-                
-                rows.forEach(row => {
-                    const matchesSev = activeSev === 'all' || row.dataset.sev === activeSev;
-                    const matchesText = row.dataset.text.toLowerCase().includes(query);
+            // Use requestAnimationFrame to ensure skeleton renders before filtering
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    const query = document.getElementById('search').value.toLowerCase();
+                    const sections = document.querySelectorAll('.section');
                     
-                    if (matchesSev && matchesText) {
-                        row.classList.remove('hidden');
-                        visibleCount++;
-                    } else {
-                        row.classList.add('hidden');
-                    }
+                    sections.forEach(sec => {
+                        let visibleCount = 0;
+                        const rows = sec.querySelectorAll('.issue');
+                        const hasZeroState = sec.querySelector('.zero-state');
+                        
+                        rows.forEach(row => {
+                            const matchesSev = activeSev === 'all' || row.dataset.sev === activeSev;
+                            const matchesText = row.dataset.text.toLowerCase().includes(query);
+                            
+                            if (matchesSev && matchesText) {
+                                row.classList.remove('hidden');
+                                visibleCount++;
+                            } else {
+                                row.classList.add('hidden');
+                            }
+                        });
+                        
+                        // Keep sections with zero issues visible (they have zero-state div)
+                        if (visibleCount === 0 && !hasZeroState) {
+                            sec.classList.add('hidden');
+                        } else {
+                            sec.classList.remove('hidden');
+                            if (query !== '' || activeSev !== 'all') {
+                                sec.classList.remove('collapsed');
+                            }
+                        }
+                    });
+                    
+                    // Hide skeletons after filtering is complete
+                    hideSkeletons();
                 });
-                
-                // Keep sections with zero issues visible (they have zero-state div)
-                if (visibleCount === 0 && !hasZeroState) {
-                    sec.classList.add('hidden');
-                } else {
-                    sec.classList.remove('hidden');
-                    if (query !== '' || activeSev !== 'all') {
-                        sec.classList.remove('collapsed');
-                    }
-                }
             });
         }
         
