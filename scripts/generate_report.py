@@ -445,7 +445,12 @@ def generate_html_header(timestamp):
             color: white;
             padding: 16px 0;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             margin-bottom: 32px;
+        }}
+        
+        body:not(.dark-mode) .header {{
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }}
         
         .header-content {{
@@ -476,6 +481,14 @@ def generate_html_header(timestamp):
         }}
         .search-box:focus {{ outline: none; background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.5); }}
 
+        .btn-group {{
+            display: inline-flex;
+            padding: 2px;
+            border-radius: 999px;
+            background: rgba(15,23,42,0.6);
+            gap: 0;
+        }}
+
         .btn {{
             background: transparent;
             border: 1px solid rgba(255,255,255,0.2);
@@ -489,6 +502,15 @@ def generate_html_header(timestamp):
         }}
         .btn:hover {{ background: rgba(255,255,255,0.1); color: white; }}
         .btn.active {{ background: var(--primary); border-color: var(--primary); color: white; }}
+        
+        .btn-group .btn {{
+            border: none;
+            border-radius: 999px;
+        }}
+        .btn-group .btn.active {{
+            background: white;
+            color: var(--header-bg);
+        }}
 
         .container {{ max-width: 1200px; margin: 0 auto; padding: 0 24px; }}
         
@@ -742,11 +764,13 @@ def generate_html_header(timestamp):
             </div>
             <div class="controls">
                 <input type="text" id="search" class="search-box" placeholder="Search by file or message..." onkeyup="filterIssues()">
-                <button class="btn active" onclick="filterSeverity('all', this)">All</button>
-                <button class="btn" onclick="filterSeverity('error', this)">Errors</button>
-                <button class="btn" onclick="filterSeverity('warning', this)">Warnings</button>
-                <button class="btn" onclick="filterSeverity('suggestion', this)">Suggestions</button>
-                <button class="btn" onclick="toggleDark()">🌙</button>
+                <div class="btn-group">
+                    <button class="btn active" onclick="filterSeverity('all', this)">All</button>
+                    <button class="btn" onclick="filterSeverity('error', this)">Errors</button>
+                    <button class="btn" onclick="filterSeverity('warning', this)">Warnings</button>
+                    <button class="btn" onclick="filterSeverity('suggestion', this)">Suggestions</button>
+                </div>
+                <button class="btn" id="darkToggle" onclick="toggleDark()">🌙</button>
             </div>
         </div>
     </div>
@@ -968,10 +992,19 @@ def generate_html_footer():
     return """
     </div>
     <script>
-        if(localStorage.getItem('dark')==='1') document.body.classList.add('dark-mode');
+        // Initialize dark mode
+        const isDarkStored = localStorage.getItem('dark') === '1';
+        if (isDarkStored) {
+            document.body.classList.add('dark-mode');
+        }
+        // Set initial icon
+        document.getElementById('darkToggle').textContent = isDarkStored ? '☀️' : '🌙';
+        
         function toggleDark() {
             document.body.classList.toggle('dark-mode');
-            localStorage.setItem('dark', document.body.classList.contains('dark-mode') ? '1' : '0');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('dark', isDark ? '1' : '0');
+            document.getElementById('darkToggle').textContent = isDark ? '☀️' : '🌙';
         }
         
         function toggleSection(id) {
