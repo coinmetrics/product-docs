@@ -670,6 +670,56 @@ def generate_html_header(timestamp):
         .zero-state h3 {{ color: var(--text-main); font-size: 16px; }}
         .zero-state p {{ font-size: 14px; }}
         .hidden {{ display: none !important; }}
+        
+        /* Return to Top Button */
+        .return-to-top {{
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+        }}
+        
+        .return-to-top.visible {{
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }}
+        
+        .return-to-top:hover {{
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }}
+        
+        .return-to-top:active {{
+            transform: translateY(0);
+        }}
+        
+        @media (max-width: 768px) {{
+            .return-to-top {{
+                bottom: 16px;
+                right: 16px;
+                width: 44px;
+                height: 44px;
+                font-size: 18px;
+            }}
+        }}
     </style>
 </head>
 <body>
@@ -689,6 +739,10 @@ def generate_html_header(timestamp):
             </div>
         </div>
     </div>
+    
+    <button class="return-to-top" id="returnToTop" aria-label="Return to top" title="Return to top">
+        ↑
+    </button>
 
     <div class="container">
 """
@@ -964,6 +1018,26 @@ def generate_html_footer():
                 }
             });
         }
+        
+        // Return to top button functionality
+        const returnToTopBtn = document.getElementById('returnToTop');
+        
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                returnToTopBtn.classList.add('visible');
+            } else {
+                returnToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // Scroll to top when button is clicked
+        returnToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 </body>
 </html>
