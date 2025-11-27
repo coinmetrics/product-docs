@@ -718,6 +718,19 @@ def generate_html_header(timestamp):
         
         .issue-loc {{ font-family: monospace; font-size: var(--font-xs); color: var(--text-muted); margin-bottom: 4px; }}
         .issue-msg {{ color: var(--text-main); word-wrap: break-word; }}
+        .issue-msg code {{ 
+            display: block;
+            background: var(--bg-body); 
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+            font-size: var(--font-sm);
+            color: var(--text-main);
+            white-space: pre-wrap;
+            word-break: break-word;
+            overflow-x: auto;
+        }}
 
         .zero-state {{ text-align: center; padding: 60px; color: var(--text-muted); }}
         .zero-state h3 {{ color: var(--text-main); font-size: var(--font-lg); letter-spacing: -0.01em; }}
@@ -1046,7 +1059,7 @@ def generate_details_sections(by_source):
                         </div>
                         <div class="issue-content">
                             <div class="issue-loc">{loc} &middot; {issue.get('rule', '')}</div>
-                            <div class="issue-msg">{msg}</div>
+                            <div class="issue-msg"><code>{msg}</code></div>
                         </div>
                     </div>
                     """
