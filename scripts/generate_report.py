@@ -981,11 +981,11 @@ def generate_tools_grid(by_source):
             # Generate breakdown badges
             badges_html = ""
             if counts['error'] > 0:
-                badges_html += f'<span class="breakdown-badge bd-error">{counts["error"]} Errors</span>'
+                badges_html += f'<span class="breakdown-badge bd-error">🔴 {counts["error"]} Errors</span>'
             if counts['warning'] > 0:
-                badges_html += f'<span class="breakdown-badge bd-warning">{counts["warning"]} Warnings</span>'
+                badges_html += f'<span class="breakdown-badge bd-warning">🟡 {counts["warning"]} Warnings</span>'
             if counts['suggestion'] > 0:
-                badges_html += f'<span class="breakdown-badge bd-suggestion">{counts["suggestion"]} Suggestions</span>'
+                badges_html += f'<span class="breakdown-badge bd-suggestion">🔵 {counts["suggestion"]} Suggestions</span>'
 
             html += f"""
                 <a href="#sec-{source}" class="tool-card" onclick="expandSection('sec-{source}')">
@@ -1109,11 +1109,11 @@ def generate_details_sections(by_source):
         if len(issues) > 0:
             legend_badges = []
             if section_counts['error'] > 0:
-                legend_badges.append(f'<span class="breakdown-badge bd-error">{section_counts["error"]} errors</span>')
+                legend_badges.append(f'<span class="breakdown-badge bd-error">🔴 {section_counts["error"]} errors</span>')
             if section_counts['warning'] > 0:
-                legend_badges.append(f'<span class="breakdown-badge bd-warning">{section_counts["warning"]} warnings</span>')
+                legend_badges.append(f'<span class="breakdown-badge bd-warning">🟡 {section_counts["warning"]} warnings</span>')
             if section_counts['suggestion'] > 0:
-                legend_badges.append(f'<span class="breakdown-badge bd-suggestion">{section_counts["suggestion"]} suggestions</span>')
+                legend_badges.append(f'<span class="breakdown-badge bd-suggestion">🔵 {section_counts["suggestion"]} suggestions</span>')
             
             if legend_badges:
                 legend_html = f"""
