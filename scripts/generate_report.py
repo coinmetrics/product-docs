@@ -565,13 +565,22 @@ def generate_html_header(timestamp):
             align-items: flex-start;
             justify-content: space-between;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.25s ease;
             text-decoration: none;
+            box-shadow: var(--shadow);
         }}
-        .tool-card:hover {{ border-color: var(--primary); box-shadow: var(--shadow); }}
+        .tool-card:hover {{ 
+            border-color: var(--primary); 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }}
         .tool-card.empty {{ 
             border-color: var(--success);
             background: linear-gradient(135deg, var(--bg-card) 0%, var(--success-bg) 100%);
+        }}
+        .tool-card.empty:hover {{
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+            border-color: var(--success);
         }}
         
         .tool-info h3 {{ font-size: var(--font-base); font-weight: 600; color: var(--text-main); margin-bottom: 4px; }}
