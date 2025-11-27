@@ -392,6 +392,17 @@ def generate_html_header(timestamp):
             
             --radius: 8px;
             --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            
+            /* Typography Scale */
+            --font-xs: 11px;
+            --font-sm: 13px;
+            --font-base: 14px;
+            --font-md: 15px;
+            --font-lg: 16px;
+            --font-xl: 20px;
+            --font-2xl: 24px;
+            --font-3xl: 32px;
+            --font-4xl: 48px;
         }}
         
         body.dark-mode {{
@@ -448,9 +459,9 @@ def generate_html_header(timestamp):
             gap: 16px;
         }}
 
-        .header h1 {{ font-size: 20px; font-weight: 600; display: flex; align-items: center; gap: 10px; }}
+        .header h1 {{ font-size: var(--font-xl); font-weight: 600; display: flex; align-items: center; gap: 10px; letter-spacing: -0.02em; }}
         .header-title {{ display: flex; flex-direction: column; gap: 4px; }}
-        .timestamp {{ font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 400; }}
+        .timestamp {{ font-size: var(--font-xs); color: rgba(255,255,255,0.7); font-weight: 400; }}
         
         .controls {{ display: flex; gap: 10px; flex-wrap: wrap; }}
         
@@ -461,7 +472,7 @@ def generate_html_header(timestamp):
             padding: 6px 12px;
             border-radius: 6px;
             min-width: 200px;
-            font-size: 14px;
+            font-size: var(--font-base);
         }}
         .search-box:focus {{ outline: none; background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.5); }}
 
@@ -472,7 +483,7 @@ def generate_html_header(timestamp):
             padding: 6px 12px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 13px;
+            font-size: var(--font-sm);
             font-weight: 500;
             transition: all 0.2s;
         }}
@@ -481,7 +492,7 @@ def generate_html_header(timestamp):
 
         .container {{ max-width: 1200px; margin: 0 auto; padding: 0 24px; }}
         
-        .grid-header {{ font-size: 14px; font-weight: 600; color: var(--text-muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }}
+        .grid-header {{ font-size: var(--font-base); font-weight: 600; color: var(--text-muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }}
         
         .stats-grid {{
             display: grid;
@@ -501,8 +512,8 @@ def generate_html_header(timestamp):
             display: block;
         }}
         
-        .stat-value {{ font-size: 28px; font-weight: 700; line-height: 1.2; margin-bottom: 4px; color: var(--text-main); }}
-        .stat-label {{ color: var(--text-muted); font-size: 13px; font-weight: 500; }}
+        .stat-value {{ font-size: var(--font-3xl); font-weight: 700; line-height: 1.2; margin-bottom: 4px; color: var(--text-main); letter-spacing: -0.03em; }}
+        .stat-label {{ color: var(--text-muted); font-size: var(--font-sm); font-weight: 500; }}
         
         .text-error {{ color: var(--error); }}
         .text-warning {{ color: var(--warning); }}
@@ -534,12 +545,12 @@ def generate_html_header(timestamp):
             background: linear-gradient(135deg, var(--bg-card) 0%, var(--success-bg) 100%);
         }}
         
-        .tool-info h3 {{ font-size: 14px; font-weight: 600; color: var(--text-main); margin-bottom: 4px; }}
+        .tool-info h3 {{ font-size: var(--font-base); font-weight: 600; color: var(--text-main); margin-bottom: 4px; }}
         
         .tool-breakdown {{ display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }}
         
         .breakdown-badge {{ 
-            font-size: 11px; font-weight: 600; 
+            font-size: var(--font-xs); font-weight: 600; 
             padding: 2px 6px; border-radius: 4px;
             display: inline-flex; align-items: center;
         }}
@@ -549,7 +560,7 @@ def generate_html_header(timestamp):
         .bd-total {{ background: var(--bg-body); color: var(--text-main); border: 1px solid var(--border); }}
         
         .tool-count {{ 
-            font-size: 18px; font-weight: 700; 
+            font-size: var(--font-lg); font-weight: 700; 
             margin-left: 12px;
             color: var(--text-muted);
         }}
@@ -557,7 +568,7 @@ def generate_html_header(timestamp):
         .tool-count.pass {{ color: var(--success); }}
         
         .pass-badge {{
-            font-size: 12px; font-weight: 600;
+            font-size: var(--font-xs); font-weight: 600;
             color: var(--success);
             background: var(--success-bg);
             border: 1px solid var(--success-border);
@@ -584,7 +595,7 @@ def generate_html_header(timestamp):
             background: var(--bg-body); 
             border: 1px solid var(--border); 
             border-radius: 6px;
-            font-size: 13px;
+            font-size: var(--font-sm);
             transition: all 0.2s;
         }}
         .rank-item:hover {{ border-color: var(--primary); background: var(--bg-card); }}
@@ -593,7 +604,7 @@ def generate_html_header(timestamp):
             color: var(--text-muted); 
             min-width: 24px; 
             text-align: center;
-            font-size: 12px;
+            font-size: var(--font-xs);
         }}
         .rank-label {{ 
             flex: 1; 
@@ -608,7 +619,7 @@ def generate_html_header(timestamp):
             color: var(--primary); 
             min-width: 32px; 
             text-align: right;
-            font-size: 15px;
+            font-size: var(--font-md);
         }}
 
         .section {{ background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; margin-bottom: 16px; }}
@@ -628,9 +639,9 @@ def generate_html_header(timestamp):
         
         .section:not(.collapsed) .section-header {{ border-bottom-color: var(--border); background: var(--bg-body); }}
 
-        .section-title {{ font-weight: 600; font-size: 15px; display: flex; flex-direction: column; gap: 4px; color: var(--text-main); }}
+        .section-title {{ font-weight: 600; font-size: var(--font-md); display: flex; flex-direction: column; gap: 4px; color: var(--text-main); }}
         .section-title-main {{ display: flex; align-items: center; gap: 8px; }}
-        .section-subtitle {{ font-size: 11px; font-weight: 400; color: var(--text-muted); }}
+        .section-subtitle {{ font-size: var(--font-xs); font-weight: 400; color: var(--text-muted); }}
         .section:not(.collapsed) .section-subtitle {{ display: none; }}
         .arrow {{ transition: transform 0.2s; color: var(--text-muted); }}
         
@@ -646,7 +657,7 @@ def generate_html_header(timestamp):
             grid-template-columns: 70px 1fr;
             gap: 16px;
             align-items: flex-start;
-            font-size: 14px;
+            font-size: var(--font-base);
         }}
         .issue:last-child {{ border-bottom: none; }}
         .issue:hover {{ background: var(--bg-body); }}
@@ -656,19 +667,19 @@ def generate_html_header(timestamp):
         .issue.suggestion {{ border-left-color: var(--info); }}
         
         .sev-badge {{
-            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            font-size: var(--font-xs); font-weight: 700; text-transform: uppercase;
             text-align: center; padding: 2px 0; border-radius: 4px;
         }}
         .issue.error .sev-badge {{ color: var(--error); background: var(--error-bg); border: 1px solid var(--error-border); }}
         .issue.warning .sev-badge {{ color: var(--warning); background: var(--warning-bg); border: 1px solid var(--warning-border); }}
         .issue.suggestion .sev-badge {{ color: var(--info); background: var(--info-bg); border: 1px solid var(--info-border); }}
         
-        .issue-loc {{ font-family: monospace; font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }}
+        .issue-loc {{ font-family: monospace; font-size: var(--font-xs); color: var(--text-muted); margin-bottom: 4px; }}
         .issue-msg {{ color: var(--text-main); word-wrap: break-word; }}
 
         .zero-state {{ text-align: center; padding: 60px; color: var(--text-muted); }}
-        .zero-state h3 {{ color: var(--text-main); font-size: 16px; }}
-        .zero-state p {{ font-size: 14px; }}
+        .zero-state h3 {{ color: var(--text-main); font-size: var(--font-lg); letter-spacing: -0.01em; }}
+        .zero-state p {{ font-size: var(--font-base); }}
         .hidden {{ display: none !important; }}
         
         /* Return to Top Button */
@@ -683,7 +694,7 @@ def generate_html_header(timestamp):
             border: none;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 20px;
+            font-size: var(--font-xl);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -717,7 +728,7 @@ def generate_html_header(timestamp):
                 right: 16px;
                 width: 44px;
                 height: 44px;
-                font-size: 18px;
+                font-size: var(--font-lg);
             }}
         }}
     </style>
