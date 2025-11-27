@@ -648,18 +648,26 @@ def generate_html_header(timestamp):
         
         .section-header {{
             padding: 14px 20px;
-            background: var(--bg-card);
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
             user-select: none;
             border-bottom: 1px solid transparent;
-            transition: background 0.2s;
+            transition: background 0.2s, border-bottom-color 0.2s;
         }}
-        .section-header:hover {{ background: var(--bg-body); }}
         
-        .section:not(.collapsed) .section-header {{ border-bottom-color: var(--border); background: var(--bg-body); }}
+        .section.collapsed .section-header {{
+            background: var(--bg-card);
+        }}
+        .section.collapsed .section-header:hover {{
+            background: var(--bg-body);
+        }}
+        
+        .section:not(.collapsed) .section-header {{
+            background: var(--bg-body);
+            border-bottom-color: var(--border);
+        }}
 
         .section-title {{ font-weight: 600; font-size: var(--font-md); display: flex; flex-direction: column; gap: 4px; color: var(--text-main); }}
         .section-title-main {{ display: flex; align-items: center; gap: 8px; }}
@@ -667,8 +675,20 @@ def generate_html_header(timestamp):
         .section:not(.collapsed) .section-subtitle {{ display: none; }}
         .arrow {{ transition: transform 0.2s; color: var(--text-muted); }}
         
-        .issue-grid {{ display: block; }}
+        .section-legend {{
+            padding: 12px 20px 8px 20px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            background: var(--bg-body);
+        }}
+        
+        .issue-grid {{ 
+            display: block; 
+            padding: 8px 0 12px;
+        }}
         .collapsed .issue-grid {{ display: none; }}
+        .collapsed .section-legend {{ display: none; }}
         .collapsed .arrow {{ transform: rotate(-90deg); }}
         
         .issue {{
@@ -941,6 +961,24 @@ def generate_details_sections(by_source):
             subtitle_parts.append(f"{section_counts['suggestion']:,} suggestions")
         subtitle = ", ".join(subtitle_parts) if subtitle_parts else "No issues"
         
+        # Generate section legend badges (only if there are issues)
+        legend_html = ""
+        if len(issues) > 0:
+            legend_badges = []
+            if section_counts['error'] > 0:
+                legend_badges.append(f'<span class="breakdown-badge bd-error">{section_counts["error"]} errors</span>')
+            if section_counts['warning'] > 0:
+                legend_badges.append(f'<span class="breakdown-badge bd-warning">{section_counts["warning"]} warnings</span>')
+            if section_counts['suggestion'] > 0:
+                legend_badges.append(f'<span class="breakdown-badge bd-suggestion">{section_counts["suggestion"]} suggestions</span>')
+            
+            if legend_badges:
+                legend_html = f"""
+                <div class="section-legend">
+                    {' '.join(legend_badges)}
+                </div>
+                """
+        
         html += f"""
             <div class="section collapsed" id="sec-{source}">
                 <div class="section-header" onclick="toggleSection('sec-{source}')">
@@ -953,6 +991,7 @@ def generate_details_sections(by_source):
                     </div>
                     <span class="tool-count {'has-issues' if len(issues) > 0 else 'pass'}">{len(issues)}</span>
                 </div>
+                {legend_html}
                 <div class="issue-grid">
             """
         
