@@ -1,0 +1,19 @@
+# Gitleaks ignore file
+# 
+# Use this file to ignore false positives from Gitleaks secret detection.
+# Each line should contain a specific string that Gitleaks detected but is not actually a secret.
+#
+# Format: Paste the exact secret string that was detected (without quotes)
+# You can find these in the Gitleaks output or test-reports/gitleaks.json
+#
+# Examples:
+# - Documentation placeholder keys: YOUR_API_KEY_HERE
+# - Example keys in code samples: example-key-12345
+# - Test/demo credentials that are intentionally shown
+#
+# Note: Be very careful when adding entries here. Only add strings that you're
+# absolutely certain are not real secrets!
+
+# Example placeholders commonly used in documentation
+# (Add specific entries as needed when false positives are discovered)
+
