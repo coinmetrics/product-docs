@@ -1,0 +1,17 @@
+# Exclude patterns
+exclude = [
+  "localhost",
+  "127.0.0.1"
+]
+
+# Network settings
+max_retries = 3
+timeout = 20
+max_concurrency = 10
+user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+
+# Check behavior
+include_verbatim = true
+
+# Cache for faster repeated runs
+cache = true

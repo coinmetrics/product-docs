@@ -1,5 +1,42 @@
 stages:
+  - build
+  - test
   - update_docs
+
+build-docs-test:
+  image: docker:27.0.3
+  stage: build
+  services:
+    - docker:27.0.3-dind
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    # Pull previous image for cache (speeds up builds)
+    - docker pull $CI_REGISTRY_IMAGE/docs-test:latest || true
+    # Build with layer caching
+    - docker build --cache-from $CI_REGISTRY_IMAGE/docs-test:latest -t $CI_REGISTRY_IMAGE/docs-test:$CI_COMMIT_SHA -t $CI_REGISTRY_IMAGE/docs-test:$CI_COMMIT_REF_SLUG -t $CI_REGISTRY_IMAGE/docs-test:latest .
+    # Push all tags to registry
+    - docker push $CI_REGISTRY_IMAGE/docs-test:$CI_COMMIT_SHA
+    - docker push $CI_REGISTRY_IMAGE/docs-test:$CI_COMMIT_REF_SLUG
+    - docker push $CI_REGISTRY_IMAGE/docs-test:latest
+  tags:
+    - svc-docker
+
+test_documentation:
+  stage: test
+  image: $CI_REGISTRY_IMAGE/docs-test:$CI_COMMIT_SHA
+  script:
+    - make test
+  artifacts:
+    when: always
+    reports:
+      junit: test-reports/junit.xml
+    paths:
+      - test-reports/
+    expire_in: 30 days
+  allow_failure: true
+  tags:
+    - svc-docker
 
 update_tutorials:
   stage: update_docs
@@ -28,6 +65,4 @@ update_tutorials:
       fi
   when: manual
   tags:
-    - coinmetrics-build-runner
-    - linux
-    - docker
+    - svc-docker
