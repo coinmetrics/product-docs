@@ -14,12 +14,6 @@ import subprocess
 from pathlib import Path
 from junit_xml import TestSuite, TestCase
 
-# Optional imports
-try:
-    import esprima
-except ImportError:
-    esprima = None
-
 # -------------------------------------------------------------------------
 # Validators
 # -------------------------------------------------------------------------
@@ -31,16 +25,6 @@ def validate_python(code):
         return True, None
     except SyntaxError as e:
         return False, f"Line {e.lineno}: {e.msg}"
-    except Exception as e:
-        return False, str(e)
-
-def validate_javascript(code):
-    """Validate JS using Esprima."""
-    if esprima is None:
-        return True, "SKIPPED: esprima not installed"
-    try:
-        esprima.parseScript(code)
-        return True, None
     except Exception as e:
         return False, str(e)
 
@@ -68,35 +52,6 @@ def validate_shell(code):
         return True, None
     except ValueError as e:
         return False, f"Tokenization error: {str(e)}"
-
-def validate_r(code):
-    """Validate R code using Rscript if available."""
-    if not shutil.which('Rscript'):
-        return True, "SKIPPED: Rscript not found"
-    
-    # R parses code without running it using parse(text=...)
-    r_command = f"tryCatch(parse(text='{code.replace("'", "'\\''")}'), error=function(e) quit(status=1, save='no'))"
-    
-    try:
-        subprocess.run(
-            ['Rscript', '-e', r_command],
-            check=True,
-            capture_output=True,
-            text=True
-        )
-        return True, None
-    except subprocess.CalledProcessError:
-        return False, "R syntax error"
-
-def validate_sql(code):
-    """
-    SQL validation is difficult without a specific dialect.
-    We check for basic structure but return a Warning to the logs.
-    """
-    # Just check if it's not empty
-    if not code.strip():
-        return False, "Empty block"
-    return True, "SKIPPED: Strict SQL validation requires a specific dialect parser"
 
 # -------------------------------------------------------------------------
 # Core Logic
@@ -147,20 +102,14 @@ def validate_code_block(block):
     # Normalize language tags
     mapping = {
         'py': 'python', 'python': 'python',
-        'js': 'javascript', 'javascript': 'javascript',
-        'sh': 'shell', 'bash': 'shell', 'shell': 'shell', 'zsh': 'shell',
-        'r': 'r',
-        'sql': 'sql'
+        'sh': 'shell', 'bash': 'shell', 'shell': 'shell', 'zsh': 'shell'
     }
     
     target_lang = mapping.get(lang)
     
     validators = {
         'python': validate_python,
-        'javascript': validate_javascript,
-        'shell': validate_shell,
-        'r': validate_r,
-        'sql': validate_sql
+        'shell': validate_shell
     }
     
     validator = validators.get(target_lang)

@@ -72,10 +72,7 @@ Validates syntax of code blocks in markdown files:
 
 **Supported languages**:
 - **Python**: AST parsing for syntax errors
-- **JavaScript**: esprima parser validation
 - **Shell/Bash/Zsh**: bash -n syntax checking
-- **R**: Rscript parse validation
-- **SQL**: Basic structure validation
 
 **Features**:
 - Automatically detects language from code fence tags
@@ -187,7 +184,6 @@ The Docker image includes the following testing tools (see `Dockerfile` for exac
 **Python Dependencies** (from `requirements.txt`):
 - `PyYAML>=6.0.1` - YAML parsing for .gitbook.yaml
 - `markdown-it-py>=3.0.0` - Markdown parsing utilities
-- `esprima>=4.0.1` - JavaScript syntax validation
 - `junit-xml>=1.9` - JUnit XML report generation
 - `requests>=2.31.0` - HTTP requests for metrics validation
 

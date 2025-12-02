@@ -1,6 +1,5 @@
 PyYAML>=6.0.1
 markdown-it-py>=3.0.0
-esprima>=4.0.1
 junit-xml>=1.9
 requests>=2.31.0
 
