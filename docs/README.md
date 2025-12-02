@@ -26,5 +26,3 @@ If you’d like to learn more or have questions, we’re here to help:
 * **Status Updates:** Subscribe to product specific [status updates](https://status.coinmetrics.io/) for outage, maintenance or incident alerts.
 
 We’re always just a message away - don’t hesitate to get in touch.
-
-* [Test URL](https://www.sdjfkldjfkljefwedsfjsjfkljfeiojdfmsdfjkljdlkfjklskjdfs.com)

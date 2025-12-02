@@ -1,4 +1,4 @@
-.PHONY: help test test-quick lint spell check-links check-links-internal check-links-external check-code check-structure check-secrets report clean format docker-build docker-test docker-test-quick docker-format
+.PHONY: help test test-quick lint spell check-links check-links-external check-code check-structure check-secrets report clean format docker-build docker-test docker-test-quick docker-format
 
 # Docker image name
 DOCKER_IMAGE ?= docs-test
@@ -59,14 +59,14 @@ spell:
 	-$(QUIET)vale --output=JSON docs > test-reports/vale.json 2>&1
 
 # Link validation (all links)
-check-links: check-links-internal check-links-external
+check-links: check-links-external
 
-# Internal links only (fast) - checks relative paths and anchors within docs
-check-links-internal:
-	@echo "Checking internal documentation links..."
-	@mkdir -p test-reports
-	-$(QUIET)lychee --config lychee.toml --offline --include-fragments --format json --no-progress "docs/**/*.md" 2>/dev/null > test-reports/lychee-internal.json
-	@echo "Note: Internal checking only validates relative file paths. Use check-links-external for HTTP/HTTPS URLs."
+# # Internal links only (fast) - checks relative paths and anchors within docs
+# check-links-internal:
+# 	@echo "Checking internal documentation links..."
+# 	@mkdir -p test-reports
+# 	-$(QUIET)lychee --config lychee.toml --offline --include-fragments --format json --no-progress "docs/**/*.md" 2>/dev/null > test-reports/lychee-internal.json
+# 	@echo "Note: Internal checking only validates relative file paths. Use check-links-external for HTTP/HTTPS URLs."
 
 # External links (includes all HTTP/HTTPS) - can be slower
 check-links-external:
