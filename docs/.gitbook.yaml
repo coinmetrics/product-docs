@@ -6,8 +6,6 @@ redirects:
   network-data/defi-data-overview/defi-faqs: resources/faqs.md
   index-data/index-faqs: resources/faqs.md
   reference-data/datonomy-overview/datonomy-faqs: resources/faqs.md
-  api-data-types/asset-metrics-overview: explainers/asset-metrics-overview.md
-  api-data-types: explainers/api-data-types.md
   asset-metrics/addresses/adract30dcnt: network-data/network-data-overview/addresses/active-addresses.md
   asset-metrics/addresses/adract7dcnt: network-data/network-data-overview/addresses/active-addresses.md
   asset-metrics/addresses/adractcnt: network-data/network-data-overview/addresses/active-addresses.md
@@ -43,9 +41,9 @@ redirects:
   asset-metrics/addresses/adrbalusd1mcnt: network-data/network-data-overview/addresses/address-balances.md
   asset-metrics/addresses/adrnewbalcnt: network-data/network-data-overview/addresses/address-balances.md
   asset-metrics/addresses/adrnewcnt: network-data/network-data-overview/addresses/address-balances.md
-  asset-metrics/addresses/walactcnt: network-data/network-data-overview/addresses/active-wallets.md
-  asset-metrics/addresses/walactreccnt: network-data/network-data-overview/addresses/active-wallets.md
-  asset-metrics/addresses/walactsentcnt: network-data/network-data-overview/addresses/active-wallets.md
+  asset-metrics/addresses/walactcnt: network-data/network-data-overview/wallets/active-wallets.md
+  asset-metrics/addresses/walactreccnt: network-data/network-data-overview/wallets/active-wallets.md
+  asset-metrics/addresses/walactsentcnt: network-data/network-data-overview/wallets/active-wallets.md
   asset-metrics/asset-metrics-overview: api-data-types/asset-metrics-overview
   asset-metrics/availability/assetcompletiontime: network-data/network-data-overview/availability.md
   asset-metrics/availability/asseteodcompletiontime: network-data/network-data-overview/availability.md
@@ -408,11 +406,11 @@ redirects:
   asset-metrics/network-usage/utxoday: network-data/network-data-overview/network-usage/utxos.md
   asset-metrics/network-usage/utxolosscnt: network-data/network-data-overview/network-usage/profitability.md
   asset-metrics/network-usage/utxoprofcnt: network-data/network-data-overview/network-usage/profitability.md
-  asset-metrics/open-interest/open_interest_reported_future_coin_margined_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
-  asset-metrics/open-interest/open_interest_reported_future_nonperpetual_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
-  asset-metrics/open-interest/open_interest_reported_future_perpetual_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
-  asset-metrics/open-interest/open_interest_reported_future_tether_margined_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
-  asset-metrics/open-interest/open_interest_reported_future_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
+  asset-metrics/open-interest/open_interest_reported_future_coin_margined_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
+  asset-metrics/open-interest/open_interest_reported_future_nonperpetual_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
+  asset-metrics/open-interest/open_interest_reported_future_perpetual_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
+  asset-metrics/open-interest/open_interest_reported_future_tether_margined_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
+  asset-metrics/open-interest/open_interest_reported_future_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
   asset-metrics/staking/attestcnt: network-data/network-data-overview/staking/consensus-health.md
   asset-metrics/staking/attestepochcnt: network-data/network-data-overview/staking/consensus-health.md
   asset-metrics/staking/attestepochvalcnt: network-data/network-data-overview/staking/consensus-health.md
@@ -445,16 +443,16 @@ redirects:
   asset-metrics/staking/validatorpndinitcnt: network-data/network-data-overview/staking/validators.md
   asset-metrics/staking/validatorpndqedcnt: network-data/network-data-overview/staking/validators.md
   asset-metrics/staking/validatorremcnt1d: network-data/network-data-overview/staking/validators.md
-  asset-metrics/supply/isscontntv: network-data/network-data-overview/supply/issuance.md
-  asset-metrics/supply/isscontpctann: network-data/network-data-overview/supply/issuance.md
-  asset-metrics/supply/isscontpctday: network-data/network-data-overview/supply/issuance.md
-  asset-metrics/supply/isscontusd: network-data/network-data-overview/supply/issuance.md
-  asset-metrics/supply/isstotntv: network-data/network-data-overview/supply/issuance.md
-  asset-metrics/supply/isstotusd: network-data/network-data-overview/supply/issuance.md
+  asset-metrics/supply/isscontntv: network-data/network-data-overview/supply/supply-issuance.md
+  asset-metrics/supply/isscontpctann: network-data/network-data-overview/supply/supply-issuance.md
+  asset-metrics/supply/isscontpctday: network-data/network-data-overview/supply/supply-issuance.md
+  asset-metrics/supply/isscontusd: network-data/network-data-overview/supply/supply-issuance.md
+  asset-metrics/supply/isstotntv: network-data/network-data-overview/supply/supply-issuance.md
+  asset-metrics/supply/isstotusd: network-data/network-data-overview/supply/supply-issuance.md
   asset-metrics/supply/ndf: network-data/network-data-overview/supply/current-supply.md
-  asset-metrics/supply/puellmulcont: network-data/network-data-overview/supply/issuance.md
+  asset-metrics/supply/puellmulcont: network-data/network-data-overview/supply/supply-issuance.md
   asset-metrics/supply/puellmulrev: network-data/network-data-overview/supply/miner-revenue.md
-  asset-metrics/supply/puellmultot: network-data/network-data-overview/supply/issuance.md
+  asset-metrics/supply/puellmultot: network-data/network-data-overview/supply/supply-issuance.md
   asset-metrics/supply/ser: network-data/network-data-overview/supply/current-supply.md
   asset-metrics/supply/splyact10yr: network-data/network-data-overview/supply/active-supply.md
   asset-metrics/supply/splyact180d: network-data/network-data-overview/supply/active-supply.md
@@ -504,8 +502,8 @@ redirects:
   asset-metrics/supply/splycontntv: network-data/network-data-overview/supply/addresses-with-balance.md
   asset-metrics/supply/splycontusd: network-data/network-data-overview/supply/addresses-with-balance.md
   asset-metrics/supply/splycur: network-data/network-data-overview/supply/current-supply.md
-  asset-metrics/supply/splyexpfut10yr: network-data/network-data-overview/supply/future-expected.md
-  asset-metrics/supply/splyexpfut10yrcmbi: network-data/network-data-overview/supply/future-expected.md
+  asset-metrics/supply/splyexpfut10yr: network-data/network-data-overview/supply/future-expected-supply.md
+  asset-metrics/supply/splyexpfut10yrcmbi: network-data/network-data-overview/supply/future-expected-supply.md
   asset-metrics/supply/splyff: network-data/network-data-overview/supply/free-float-supply.md
   asset-metrics/supply/splyrvv180d: network-data/network-data-overview/supply/revived-supply.md
   asset-metrics/supply/splyrvv1yr: network-data/network-data-overview/supply/revived-supply.md
@@ -655,11 +653,11 @@ redirects:
   exchange-asset-metrics/basis/basis_annualized_30d_exp: market-data/market-data-overview/basis.md
   exchange-asset-metrics/basis/basis_annualized_60d_exp: market-data/market-data-overview/basis.md
   exchange-asset-metrics/basis/basis_annualized_90d_exp: market-data/market-data-overview/basis.md
-  exchange-asset-metrics/open-interest/open_interest_reported_future_coin_margined_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
-  exchange-asset-metrics/open-interest/open_interest_reported_future_nonperpetual_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
-  exchange-asset-metrics/open-interest/open_interest_reported_future_perpetual_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
-  exchange-asset-metrics/open-interest/open_interest_reported_future_tether_margined_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
-  exchange-asset-metrics/open-interest/open_interest_reported_future_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
+  exchange-asset-metrics/open-interest/open_interest_reported_future_coin_margined_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
+  exchange-asset-metrics/open-interest/open_interest_reported_future_nonperpetual_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
+  exchange-asset-metrics/open-interest/open_interest_reported_future_perpetual_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
+  exchange-asset-metrics/open-interest/open_interest_reported_future_tether_margined_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
+  exchange-asset-metrics/open-interest/open_interest_reported_future_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
   exchange-metrics/liquidations/liquidations_reported_future_buy_units_1d: market-data/market-data-overview/liquidations/liquidation-metrics.md
   exchange-metrics/liquidations/liquidations_reported_future_buy_units_1h: market-data/market-data-overview/liquidations/liquidation-metrics.md
   exchange-metrics/liquidations/liquidations_reported_future_buy_units_5m: market-data/market-data-overview/liquidations/liquidation-metrics.md
@@ -672,11 +670,11 @@ redirects:
   exchange-metrics/liquidations/liquidations_reported_future_sell_usd_1d: market-data/market-data-overview/liquidations/liquidation-metrics.md
   exchange-metrics/liquidations/liquidations_reported_future_sell_usd_1h: market-data/market-data-overview/liquidations/liquidation-metrics.md
   exchange-metrics/liquidations/liquidations_reported_future_sell_usd_5m: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  exchange-metrics/open-interest/open_interest_reported_future_coin_margined_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
-  exchange-metrics/open-interest/open_interest_reported_future_nonperpetual_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
-  exchange-metrics/open-interest/open_interest_reported_future_perpetual_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
-  exchange-metrics/open-interest/open_interest_reported_future_tether_margined_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
-  exchange-metrics/open-interest/open_interest_reported_future_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
+  exchange-metrics/open-interest/open_interest_reported_future_coin_margined_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
+  exchange-metrics/open-interest/open_interest_reported_future_nonperpetual_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
+  exchange-metrics/open-interest/open_interest_reported_future_perpetual_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
+  exchange-metrics/open-interest/open_interest_reported_future_tether_margined_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
+  exchange-metrics/open-interest/open_interest_reported_future_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
   exchange-metrics/volume/volume_reported_future_coin_margined_usd_1d: market-data/market-data-overview/volume/volume_reported.md
   exchange-metrics/volume/volume_reported_future_coin_margined_usd_1h: market-data/market-data-overview/volume/volume_reported.md
   exchange-metrics/volume/volume_reported_future_nonperpetual_usd_1d: market-data/market-data-overview/volume/volume_reported.md
@@ -763,11 +761,11 @@ redirects:
   on-chain-data/asset-metrics-faqs: network-data/network-data-faqs.md
   on-chain-data/farum-overview: network-data/network-data-overview/key-risk-indicator-kri-feed/kri.md
   pair-data-timeseries/pair-candles: market-data/market-data-overview/candles/candles.md
-  pair-metrics/open-interest/open_interest_reported_future_coin_margined_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
-  pair-metrics/open-interest/open_interest_reported_future_nonperpetual_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
-  pair-metrics/open-interest/open_interest_reported_future_perpetual_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
-  pair-metrics/open-interest/open_interest_reported_future_tether_margined_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
-  pair-metrics/open-interest/open_interest_reported_future_usd: market-data/market-data-overview/open-interest/open_interest_reported.md
+  pair-metrics/open-interest/open_interest_reported_future_coin_margined_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
+  pair-metrics/open-interest/open_interest_reported_future_nonperpetual_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
+  pair-metrics/open-interest/open_interest_reported_future_perpetual_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
+  pair-metrics/open-interest/open_interest_reported_future_tether_margined_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
+  pair-metrics/open-interest/open_interest_reported_future_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
   pair-metrics/volume/volume_reported_future_coin_margined_usd_1d: market-data/market-data-overview/volume/volume_reported.md
   pair-metrics/volume/volume_reported_future_coin_margined_usd_1h: market-data/market-data-overview/volume/volume_reported.md
   pair-metrics/volume/volume_reported_future_nonperpetual_usd_1d: market-data/market-data-overview/volume/volume_reported.md
