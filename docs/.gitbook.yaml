@@ -44,7 +44,6 @@ redirects:
   asset-metrics/addresses/walactcnt: network-data/network-data-overview/wallets/active-wallets.md
   asset-metrics/addresses/walactreccnt: network-data/network-data-overview/wallets/active-wallets.md
   asset-metrics/addresses/walactsentcnt: network-data/network-data-overview/wallets/active-wallets.md
-  asset-metrics/asset-metrics-overview: api-data-types/asset-metrics-overview
   asset-metrics/availability/assetcompletiontime: network-data/network-data-overview/availability.md
   asset-metrics/availability/asseteodcompletiontime: network-data/network-data-overview/availability.md
   asset-metrics/economics/mcrc: network-data/network-data-overview/economics/mining.md#mcrc
@@ -281,16 +280,16 @@ redirects:
   asset-metrics/market/priceusd: network-data/network-data-overview/market/price.md
   asset-metrics/market/principal_market_price_usd: market-data/market-data-overview/prices/principal_market_price_usd.md
   asset-metrics/market/principal_market_usd: market-data/market-data-overview/prices/principal_market_price_usd.md
-  asset-metrics/market/referencerate: market-data/market-data-overview/reference_rate.md
-  asset-metrics/market/referenceratebtc: market-data/market-data-overview/reference_rate.md
-  asset-metrics/market/referenceratechicago0315pm: market-data/market-data-overview/reference_rate.md
-  asset-metrics/market/referencerateeth: market-data/market-data-overview/reference_rate.md
-  asset-metrics/market/referencerateeur: market-data/market-data-overview/reference_rate.md
-  asset-metrics/market/referenceratelondon1030am: market-data/market-data-overview/reference_rate.md
-  asset-metrics/market/referenceratelondon1100am: market-data/market-data-overview/reference_rate.md
-  asset-metrics/market/referenceratenewyork0400pm: market-data/market-data-overview/reference_rate.md
-  asset-metrics/market/referenceratenewyork1200pm: market-data/market-data-overview/reference_rate.md
-  asset-metrics/market/referencerateusd: market-data/market-data-overview/reference_rate.md
+  asset-metrics/market/referencerate: market-data/reference-rates-overview/reference_rate.md
+  asset-metrics/market/referenceratebtc: market-data/reference-rates-overview/reference_rate.md
+  asset-metrics/market/referenceratechicago0315pm: market-data/reference-rates-overview/reference_rate.md
+  asset-metrics/market/referencerateeth: market-data/reference-rates-overview/reference_rate.md
+  asset-metrics/market/referencerateeur: market-data/reference-rates-overview/reference_rate.md
+  asset-metrics/market/referenceratelondon1030am: market-data/reference-rates-overview/reference_rate.md
+  asset-metrics/market/referenceratelondon1100am: market-data/reference-rates-overview/reference_rate.md
+  asset-metrics/market/referenceratenewyork0400pm: market-data/reference-rates-overview/reference_rate.md
+  asset-metrics/market/referenceratenewyork1200pm: market-data/reference-rates-overview/reference_rate.md
+  asset-metrics/market/referencerateusd: market-data/reference-rates-overview/reference_rate.md
   asset-metrics/market/roi1yr: network-data/network-data-overview/market/returns.md
   asset-metrics/market/roi30d: network-data/network-data-overview/market/returns.md
   asset-metrics/market/utxolossunrealusd: network-data/network-data-overview/market/profitability.md
@@ -634,7 +633,7 @@ redirects:
   atlas/atlas-explorer-user-interface: network-data/data-visualization/atlas-explorer-user-interface
   atlas/balance-updates: network-data/atlas-overview/balance-updates.md
   atlas/blocks/full-blocks: network-data/atlas-overview/blocks/README.md
-  atlas/blocks: network-data/atlas-overview/blocks.md
+  atlas/blocks: network-data/atlas-overview/blocks/README.md
   atlas/transactions/full-transaction/full-transaction-info-for-block: network-data/atlas-overview/transactions/full-transaction/full-transaction-info-for-block.md
   charting-tools/data-visualization/charting-tool/: data-visualization/charting-tool/README.md
   charting-tools/data-visualization/charting-tool/embedded-charts: data-visualization/charting-tool/embedded-charts.md
