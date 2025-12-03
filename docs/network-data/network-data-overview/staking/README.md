@@ -1,9 +1,13 @@
 # Staking
+
+## Staking
+
 Metrics that measure staking activity for Proof of Stake blockchains.
 
-# Metrics
+## Metrics
 
 [**Consensus Health Metrics**](consensus-health.md)
+
 * AttestCnt
 * AttestEpochCnt
 * AttestEpochValCnt
@@ -14,12 +18,17 @@ Metrics that measure staking activity for Proof of Stake blockchains.
 * EpochJust
 
 [**Flows**](flows.md)
+
 * FlowToCLCont
+* StkDepositTotNtv
+* StkWithdrawTotNtv
 
 [**Penalty Metrics**](penalty-metrics.md)
+
 * PenaltyNtv
 
 [**Slashing Metrics**](slashing-metrics.md)
+
 * SlashAttDblEvCnt
 * SlashAttEvCnt
 * SlashAttSurrEvCnt
@@ -28,11 +37,13 @@ Metrics that measure staking activity for Proof of Stake blockchains.
 * SlashedNtv
 
 [**Validator Supply**](validator-supply.md)
+
 * FlowToLidoCont
 * SplyCLCont
 * SplyLidoCont
 
 [**Validators**](validators.md)
+
 * IssFullParticipation
 * SenderCntCLCont
 * SenderTotCLCont

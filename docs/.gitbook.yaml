@@ -646,8 +646,8 @@ redirects:
   charting-tools/data-visualization/trouble-shooting: data-visualization/charting-tool/trouble-shooting.md
   datonomy-faqs: reference-data/datonomy-overview/datonomy-faqs.md
   defi-balance-sheets/defi-balance-sheets-overview: network-data/defi-data-overview/defi-balance-sheets-overview.md
-  defi-data/defi-data-overview: network-data/defi/defi-data-overview.md
-  defi-data/defi-faqs: network-data/defi/defi-faqs.md
+  defi-data/defi-data-overview: network-data/defi-data-overview/README.md
+  defi-data/defi-faqs: network-data/defi-data-overview/faqs.md
   exchange-asset-metrics/basis/basis_annualized_120d_exp: market-data/market-data-overview/basis.md
   exchange-asset-metrics/basis/basis_annualized_30d_exp: market-data/market-data-overview/basis.md
   exchange-asset-metrics/basis/basis_annualized_60d_exp: market-data/market-data-overview/basis.md
@@ -695,7 +695,7 @@ redirects:
   intitution-metrics-overview/grayscale/shares-outstanding: market-data/market-data-overview/intitution-metrics-overview/grayscale/shares-outstanding.md
   intitution-metrics-overview/grayscale/total-assets: market-data/market-data-overview/intitution-metrics-overview/grayscale/total-assets.md
   intitution-metrics-overview/grayscale: market-data/market-data-overview/intitution-metrics-overview/grayscale/README.md
-  institution-metrics: market-data/market-data-overview/institution-metrics/
+  institution-metrics: market-data/market-data-overview/institution-metrics-overview/README.md
   market-data-timeseries/futures-funding-rates: market-data/market-data-overview/funding-rates/futures-funding-rates.md
   market-data-timeseries/futures-liquidations: market-data/market-data-overview/liquidations/futures-liquidations.md
   market-data-timeseries/market-candles: market-data/market-data-overview/candles/candles.md
