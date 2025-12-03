@@ -168,7 +168,7 @@
 * [DeFi Overview](network-data/defi-data-overview/README.md)
   * [Decentralized Exchange Data](network-data/defi-data-overview/decentralized-exchange-data.md)
   * [DeFi Balance Sheets](network-data/defi-data-overview/defi-balance-sheets-overview.md)
-  * [FAQs]((network-data/defi-data-overview/faqs.md))
+  * [FAQs](network-data/defi-data-overview/faqs.md)
 * [Tagging Meta Data](network-data/tagging-meta-data.md)
 * [Transaction Tracker](network-data/transaction-tracker.md)
 * [CM Labs](network-data/cm-labs/README.md)
