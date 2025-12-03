@@ -199,55 +199,55 @@ redirects:
   asset-metrics/fees-and-revenue/revusd: network-data/network-data-overview/fees-and-revenue/revenue.md
   asset-metrics/fees-and-revenue/total-blob-fees-native-units: network-data/network-data-overview/fees-and-revenue/fees.md#total-blob-fees
   asset-metrics/fees-and-revenue/total-blob-fees-usd: network-data/network-data-overview/fees-and-revenue/fees.md#total-blob-fees
-  asset-metrics/key-risk-indicator-kri-feed/average-hashrate: network-data/network-data-overview/key-risk-indicator-kri-feed/hashrate.md
-  asset-metrics/key-risk-indicator-kri-feed/average-mining-reward: network-data/network-data-overview/key-risk-indicator-kri-feed/rewards.md
-  asset-metrics/key-risk-indicator-kri-feed/base-fee-for-block: network-data/network-data-overview/key-risk-indicator-kri-feed/block-attributes.md
-  asset-metrics/key-risk-indicator-kri-feed/block-count-at-tip: network-data/network-data-overview/key-risk-indicator-kri-feed/blocks.md
-  asset-metrics/key-risk-indicator-kri-feed/block-count-by-same-miner: network-data/network-data-overview/key-risk-indicator-kri-feed/blocks.md
-  asset-metrics/key-risk-indicator-kri-feed/block-difficulty-change: network-data/network-data-overview/key-risk-indicator-kri-feed/difficulty.md
-  asset-metrics/key-risk-indicator-kri-feed/block-difficulty: network-data/network-data-overview/key-risk-indicator-kri-feed/difficulty.md
-  asset-metrics/key-risk-indicator-kri-feed/block-max-feerate: network-data/network-data-overview/key-risk-indicator-kri-feed/transaction-feerates.md
-  asset-metrics/key-risk-indicator-kri-feed/block-maximum-fees: network-data/network-data-overview/key-risk-indicator-kri-feed/transaction-fees.md
-  asset-metrics/key-risk-indicator-kri-feed/block-mean-feerate: network-data/network-data-overview/key-risk-indicator-kri-feed/transaction-feerates.md
-  asset-metrics/key-risk-indicator-kri-feed/block-mean-fees: network-data/network-data-overview/key-risk-indicator-kri-feed/transaction-fees.md
-  asset-metrics/key-risk-indicator-kri-feed/block-median-feerate: network-data/network-data-overview/key-risk-indicator-kri-feed/transaction-feerates.md
-  asset-metrics/key-risk-indicator-kri-feed/block-median-fees: network-data/network-data-overview/key-risk-indicator-kri-feed/transaction-fees.md
-  asset-metrics/key-risk-indicator-kri-feed/block-minimum-feerate: network-data/network-data-overview/key-risk-indicator-kri-feed/transaction-feerates.md
-  asset-metrics/key-risk-indicator-kri-feed/block-minimum-fees: network-data/network-data-overview/key-risk-indicator-kri-feed/transaction-fees.md
-  asset-metrics/key-risk-indicator-kri-feed/block-missed-slots: network-data/network-data-overview/key-risk-indicator-kri-feed/empty-blocks.md
-  asset-metrics/key-risk-indicator-kri-feed/block-size: network-data/network-data-overview/key-risk-indicator-kri-feed/block-size.md
-  asset-metrics/key-risk-indicator-kri-feed/blocks-by-unknown_miners: network-data/network-data-overview/key-risk-indicator-kri-feed/blocks.md
-  asset-metrics/key-risk-indicator-kri-feed/consecutive-empty-blocks: network-data/network-data-overview/key-risk-indicator-kri-feed/empty-blocks.md
-  asset-metrics/key-risk-indicator-kri-feed/empty-blocks: network-data/network-data-overview/key-risk-indicator-kri-feed/empty-blocks.md
-  asset-metrics/key-risk-indicator-kri-feed/fees-entered-mempool-1-minute: network-data/network-data-overview/key-risk-indicator-kri-feed/fees.md
-  asset-metrics/key-risk-indicator-kri-feed/mean-feerate-mempool: network-data/network-data-overview/key-risk-indicator-kri-feed/feerates.md
-  asset-metrics/key-risk-indicator-kri-feed/mean-fees-entered-mempool-1-minute: network-data/network-data-overview/key-risk-indicator-kri-feed/fees.md
-  asset-metrics/key-risk-indicator-kri-feed/median-feerate-mempool: network-data/network-data-overview/key-risk-indicator-kri-feed/feerates.md
-  asset-metrics/key-risk-indicator-kri-feed/mempool-fee-sum: network-data/network-data-overview/key-risk-indicator-kri-feed/fees.md
-  asset-metrics/key-risk-indicator-kri-feed/mempool-fees-mean: network-data/network-data-overview/key-risk-indicator-kri-feed/fees.md
-  asset-metrics/key-risk-indicator-kri-feed/mempool-fees-median: network-data/network-data-overview/key-risk-indicator-kri-feed/fees.md
-  asset-metrics/key-risk-indicator-kri-feed/mempool-size-entered-1-minute: network-data/network-data-overview/key-risk-indicator-kri-feed/transaction-sizes.md
-  asset-metrics/key-risk-indicator-kri-feed/mempool-size-left-1-minute: network-data/network-data-overview/key-risk-indicator-kri-feed/transaction-sizes.md
-  asset-metrics/key-risk-indicator-kri-feed/mempool-size: network-data/network-data-overview/key-risk-indicator-kri-feed/transaction-sizes.md
-  asset-metrics/key-risk-indicator-kri-feed/mempool-transaction-count-entered-1m: network-data/network-data-overview/key-risk-indicator-kri-feed/transactions.md
-  asset-metrics/key-risk-indicator-kri-feed/mempool-transaction-count: network-data/network-data-overview/key-risk-indicator-kri-feed/transactions.md
-  asset-metrics/key-risk-indicator-kri-feed/mempool-transaction-output-value-entered-1m: network-data/network-data-overview/key-risk-indicator-kri-feed/outputs.md
-  asset-metrics/key-risk-indicator-kri-feed/mempool-transaction-output-value: network-data/network-data-overview/key-risk-indicator-kri-feed/outputs.md
-  asset-metrics/key-risk-indicator-kri-feed/mempool-vsize-entered-1-minute: network-data/network-data-overview/key-risk-indicator-kri-feed/transaction-sizes.md
-  asset-metrics/key-risk-indicator-kri-feed/mempool-vsize-left-1-minute: network-data/network-data-overview/key-risk-indicator-kri-feed/transaction-sizes.md
-  asset-metrics/key-risk-indicator-kri-feed/mempool-vsize: network-data/network-data-overview/key-risk-indicator-kri-feed/transaction-sizes.md
-  asset-metrics/key-risk-indicator-kri-feed/miner-fees-per-block: network-data/network-data-overview/key-risk-indicator-kri-feed/transaction-fees.md
-  asset-metrics/key-risk-indicator-kri-feed/mining-reward-spread: network-data/network-data-overview/key-risk-indicator-kri-feed/rewards.md
-  asset-metrics/key-risk-indicator-kri-feed/next-block-average-feerate: network-data/network-data-overview/key-risk-indicator-kri-feed/feerates.md
-  asset-metrics/key-risk-indicator-kri-feed/next-block-maximum-feerate: network-data/network-data-overview/key-risk-indicator-kri-feed/feerates.md
-  asset-metrics/key-risk-indicator-kri-feed/next-block-maximum-recommended-fee: network-data/network-data-overview/key-risk-indicator-kri-feed/feerates.md
-  asset-metrics/key-risk-indicator-kri-feed/next-block-median-feerate: network-data/network-data-overview/key-risk-indicator-kri-feed/feerates.md
-  asset-metrics/key-risk-indicator-kri-feed/next-block-minimum-feerate: network-data/network-data-overview/key-risk-indicator-kri-feed/feerates.md
-  asset-metrics/key-risk-indicator-kri-feed/non-segwit-blocks: network-data/network-data-overview/key-risk-indicator-kri-feed/blocks.md
-  asset-metrics/key-risk-indicator-kri-feed/priority-fee-for-block: network-data/network-data-overview/key-risk-indicator-kri-feed/block-attributes.md
-  asset-metrics/key-risk-indicator-kri-feed/time-between-blocks: network-data/network-data-overview/key-risk-indicator-kri-feed/block-times.md#time_inter_block
-  asset-metrics/key-risk-indicator-kri-feed/time-since-last-block: network-data/network-data-overview/key-risk-indicator-kri-feed/block-times.md#time_since_last_block
-  asset-metrics/key-risk-indicator-kri-feed/transactions-in-block: network-data/network-data-overview/key-risk-indicator-kri-feed/transactions.md
+  asset-metrics/kri/average-hashrate: network-data/network-data-overview/kri/hashrate.md
+  asset-metrics/kri/average-mining-reward: network-data/network-data-overview/kri/rewards.md
+  asset-metrics/kri/base-fee-for-block: network-data/network-data-overview/kri/block-attributes.md
+  asset-metrics/kri/block-count-at-tip: network-data/network-data-overview/kri/blocks.md
+  asset-metrics/kri/block-count-by-same-miner: network-data/network-data-overview/kri/blocks.md
+  asset-metrics/kri/block-difficulty-change: network-data/network-data-overview/kri/difficulty.md
+  asset-metrics/kri/block-difficulty: network-data/network-data-overview/kri/difficulty.md
+  asset-metrics/kri/block-max-feerate: network-data/network-data-overview/kri/transaction-feerates.md
+  asset-metrics/kri/block-maximum-fees: network-data/network-data-overview/kri/transaction-fees.md
+  asset-metrics/kri/block-mean-feerate: network-data/network-data-overview/kri/transaction-feerates.md
+  asset-metrics/kri/block-mean-fees: network-data/network-data-overview/kri/transaction-fees.md
+  asset-metrics/kri/block-median-feerate: network-data/network-data-overview/kri/transaction-feerates.md
+  asset-metrics/kri/block-median-fees: network-data/network-data-overview/kri/transaction-fees.md
+  asset-metrics/kri/block-minimum-feerate: network-data/network-data-overview/kri/transaction-feerates.md
+  asset-metrics/kri/block-minimum-fees: network-data/network-data-overview/kri/transaction-fees.md
+  asset-metrics/kri/block-missed-slots: network-data/network-data-overview/kri/empty-blocks.md
+  asset-metrics/kri/block-size: network-data/network-data-overview/kri/block-size.md
+  asset-metrics/kri/blocks-by-unknown_miners: network-data/network-data-overview/kri/blocks.md
+  asset-metrics/kri/consecutive-empty-blocks: network-data/network-data-overview/kri/empty-blocks.md
+  asset-metrics/kri/empty-blocks: network-data/network-data-overview/kri/empty-blocks.md
+  asset-metrics/kri/fees-entered-mempool-1-minute: network-data/network-data-overview/kri/fees.md
+  asset-metrics/kri/mean-feerate-mempool: network-data/network-data-overview/kri/feerates.md
+  asset-metrics/kri/mean-fees-entered-mempool-1-minute: network-data/network-data-overview/kri/fees.md
+  asset-metrics/kri/median-feerate-mempool: network-data/network-data-overview/kri/feerates.md
+  asset-metrics/kri/mempool-fee-sum: network-data/network-data-overview/kri/fees.md
+  asset-metrics/kri/mempool-fees-mean: network-data/network-data-overview/kri/fees.md
+  asset-metrics/kri/mempool-fees-median: network-data/network-data-overview/kri/fees.md
+  asset-metrics/kri/mempool-size-entered-1-minute: network-data/network-data-overview/kri/transaction-sizes.md
+  asset-metrics/kri/mempool-size-left-1-minute: network-data/network-data-overview/kri/transaction-sizes.md
+  asset-metrics/kri/mempool-size: network-data/network-data-overview/kri/transaction-sizes.md
+  asset-metrics/kri/mempool-transaction-count-entered-1m: network-data/network-data-overview/kri/transactions.md
+  asset-metrics/kri/mempool-transaction-count: network-data/network-data-overview/kri/transactions.md
+  asset-metrics/kri/mempool-transaction-output-value-entered-1m: network-data/network-data-overview/kri/outputs.md
+  asset-metrics/kri/mempool-transaction-output-value: network-data/network-data-overview/kri/outputs.md
+  asset-metrics/kri/mempool-vsize-entered-1-minute: network-data/network-data-overview/kri/transaction-sizes.md
+  asset-metrics/kri/mempool-vsize-left-1-minute: network-data/network-data-overview/kri/transaction-sizes.md
+  asset-metrics/kri/mempool-vsize: network-data/network-data-overview/kri/transaction-sizes.md
+  asset-metrics/kri/miner-fees-per-block: network-data/network-data-overview/kri/transaction-fees.md
+  asset-metrics/kri/mining-reward-spread: network-data/network-data-overview/kri/rewards.md
+  asset-metrics/kri/next-block-average-feerate: network-data/network-data-overview/kri/feerates.md
+  asset-metrics/kri/next-block-maximum-feerate: network-data/network-data-overview/kri/feerates.md
+  asset-metrics/kri/next-block-maximum-recommended-fee: network-data/network-data-overview/kri/feerates.md
+  asset-metrics/kri/next-block-median-feerate: network-data/network-data-overview/kri/feerates.md
+  asset-metrics/kri/next-block-minimum-feerate: network-data/network-data-overview/kri/feerates.md
+  asset-metrics/kri/non-segwit-blocks: network-data/network-data-overview/kri/blocks.md
+  asset-metrics/kri/priority-fee-for-block: network-data/network-data-overview/kri/block-attributes.md
+  asset-metrics/kri/time-between-blocks: network-data/network-data-overview/kri/block-times.md#time_inter_block
+  asset-metrics/kri/time-since-last-block: network-data/network-data-overview/kri/block-times.md#time_since_last_block
+  asset-metrics/kri/transactions-in-block: network-data/network-data-overview/kri/transactions.md
   asset-metrics/market/capact1yrusd: network-data/network-data-overview/market/market-capitalization.md
   asset-metrics/market/capfutexp10yrusd: network-data/network-data-overview/market/market-capitalization.md
   asset-metrics/market/capmrktcurusd: network-data/network-data-overview/market/market-capitalization.md
@@ -690,12 +690,12 @@ redirects:
   indexes-timeseries/index-candles: index-data/index/indexes-timeseries/index-candles
   indexes-timeseries/index-constituents: index-data/index/indexes-timeseries/index-constituents
   indexes-timeseries/index-levels: index-data/index/indexes-timeseries/index-levels
-  institution-metrics/grayscale/coin-per-share: market-data/market-data-overview/institution-metrics/grayscale/coin-per-share.md
-  institution-metrics/grayscale/market-price: market-data/market-data-overview/institution-metrics/grayscale/market-price.md
-  institution-metrics/grayscale/net-asset-value: market-data/market-data-overview/institution-metrics/grayscale/net-asset-value.md
-  institution-metrics/grayscale/shares-outstanding: market-data/market-data-overview/institution-metrics/grayscale/shares-outstanding.md
-  institution-metrics/grayscale/total-assets: market-data/market-data-overview/institution-metrics/grayscale/total-assets.md
-  institution-metrics/grayscale: market-data/market-data-overview/institution-metrics/grayscale/README.md
+  intitution-metrics-overview/grayscale/coin-per-share: market-data/market-data-overview/intitution-metrics-overview/grayscale/coin-per-share.md
+  intitution-metrics-overview/grayscale/market-price: market-data/market-data-overview/intitution-metrics-overview/grayscale/market-price.md
+  intitution-metrics-overview/grayscale/net-asset-value: market-data/market-data-overview/intitution-metrics-overview/grayscale/net-asset-value.md
+  intitution-metrics-overview/grayscale/shares-outstanding: market-data/market-data-overview/intitution-metrics-overview/grayscale/shares-outstanding.md
+  intitution-metrics-overview/grayscale/total-assets: market-data/market-data-overview/intitution-metrics-overview/grayscale/total-assets.md
+  intitution-metrics-overview/grayscale: market-data/market-data-overview/intitution-metrics-overview/grayscale/README.md
   institution-metrics: market-data/market-data-overview/institution-metrics/
   market-data-timeseries/futures-funding-rates: market-data/market-data-overview/funding-rates/futures-funding-rates.md
   market-data-timeseries/futures-liquidations: market-data/market-data-overview/liquidations/futures-liquidations.md
@@ -759,7 +759,7 @@ redirects:
   market-metrics/liquidity/liquidity_slippage_5k_ask_percent: market-data/market-data-overview/liquidity/slippage.md
   market-metrics/liquidity/liquidity_slippage_5k_bid_percent: market-data/market-data-overview/liquidity/slippage.md
   on-chain-data/asset-metrics-faqs: network-data/network-data-faqs.md
-  on-chain-data/farum-overview: network-data/network-data-overview/key-risk-indicator-kri-feed/kri.md
+  on-chain-data/farum-overview: network-data/network-data-overview/kri/kri.md
   pair-data-timeseries/pair-candles: market-data/market-data-overview/candles/candles.md
   pair-metrics/open-interest/open_interest_reported_future_coin_margined_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
   pair-metrics/open-interest/open_interest_reported_future_nonperpetual_usd: market-data/market-data-overview/open_interest/open_interest_reported.md

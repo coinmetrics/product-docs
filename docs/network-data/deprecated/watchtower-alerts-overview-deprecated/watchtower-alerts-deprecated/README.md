@@ -1,2 +1,0 @@
-# WatchTower Alerts - DEPRECATED
-
