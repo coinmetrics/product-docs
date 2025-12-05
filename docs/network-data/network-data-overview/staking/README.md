@@ -57,3 +57,15 @@ Metrics that measure staking activity for Proof of Stake blockchains.
 * ValidatorPndInitCnt
 * ValidatorPndQedCnt
 * ValidatorRemCnt1d
+
+[**Yield**](yield.md)
+
+* StakingAPRNominal
+* StakingAPYReal
+* StakingAPYNominal
+* ValidatorAPYNominal
+* ValidatorAPYReal
+* ValidatorAPRNominal
+* DelegatorAPRNominal
+* DelegatorAPYReal
+* DelegatorAPYNominal

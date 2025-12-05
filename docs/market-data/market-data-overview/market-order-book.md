@@ -61,8 +61,6 @@ print(
 
 \## \*\*Chart\*\*
 
-<figure><img src="../.gitbook/assets/Binance-Orderbook-Depth.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>
-
 ## **Example**
 
 A sample of the order book snapshot data from the `coinbase-btc-usd-spot`market from our [`/timeseries/market-orderbooks`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketOrderbooks) API endpoint is provided below.

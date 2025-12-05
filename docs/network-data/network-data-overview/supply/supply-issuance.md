@@ -8,8 +8,8 @@
 * [Total Issuance](supply-issuance.md#isstot)
 * [Puell Multiple Total](supply-issuance.md#puellmultot)
 * [Puell Multiple, Coinbase Issuance](supply-issuance.md#puelmulcont)
-* ​[Daily Supply Inflation Rates](https://app.gitbook.com/o/-MQCo4hL7kbGqmZBgS2j/s/-MO23j33wWGzm0NrZseN/~/diff/~/changes/1022/network-data/network-data-overview/supply/supply-issuance#puellmultot-2)​
-* ​[Annual Supply Inflation Rates](https://app.gitbook.com/o/-MQCo4hL7kbGqmZBgS2j/s/-MO23j33wWGzm0NrZseN/~/diff/~/changes/1022/network-data/network-data-overview/supply/supply-issuance#puellmultot-3)
+* ​[Daily Supply Inflation Rates](supply-issuance.md#puellmultot-2)​
+* ​[Annual Supply Inflation Rates](supply-issuance.md#puellmultot-3)
 
 ## Annual Inflation Rate <a href="#isscontpctann" id="isscontpctann"></a>
 
@@ -142,7 +142,7 @@ The sum of all new supply units issued that day.
 
 ### Asset-Specific Details
 
-* For Ethereum total issuance differs between the eth and eth\_cl ticker.&#x20;
+* For Ethereum total issuance differs between the eth and eth\_cl ticker.
   * The total issuance for the eth ticker is the total amount of ETH tokens issued in the Ethereum network. This is equivalent to rewards issued on the network which are also captured in Coinbase Issuance.
   * The total issuance for the eth\_cl ticker represents all new ETH tokens issued on the consensus layer. This is equivalent to rewards issued plus any new deposits made to the consensus layer.
 
@@ -233,7 +233,7 @@ The percent one-day change in supply. Also referred to as the daily inflation ra
 
 ### Details
 
-* &#x20;$$InfPct=\frac{SplyCur(n-1)-SplyCur(n)}{SplyCur(n-1)}*100$$
+* $$InfPct=\frac{SplyCur(n-1)-SplyCur(n)}{SplyCur(n-1)}*100$$
 * $$InfPct[N]Avg=\frac{SplyCur(n-N)-SplyCur(n)}{SplyCur(n-N)}*100$$ where N is the days over which to average. This means that for a 30-Day average the formula would be: $$InfPct30dAvg=\frac{SplyCur(n-30d)-SplyCur(n)}{SplyCur(n-30d)}*100$$
 
 ### Interpretation
@@ -260,7 +260,7 @@ The percent change in supply over 1 year. Also referred to as the annual inflati
 
 ### Details
 
-* &#x20;$$InfPctAnn=((1+\frac{InfPct}{100})^{365}-1)*100$$
+* $$InfPctAnn=((1+\frac{InfPct}{100})^{365}-1)*100$$
 * $$InfPctAnn[N]Avg=(1+\frac{InfPct[N]Avg}{100})^{365}-1$$ where N is the days over which to average. This means that for a 30-Day average the formula would be: $$InfPctAnn30dAvg=(1+\frac{InfPct30dAvg}{100})^{365}-1$$
 
 ### Availability for Assets
@@ -275,9 +275,9 @@ Supply Issuance metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `Iss*` in the `metrics` parameter.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}

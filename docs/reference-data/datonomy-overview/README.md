@@ -14,8 +14,6 @@ To be eligible for classification, an asset must be widely available to an every
 
 Assets are classified based on primary use as defined by the project creators themselves. The taxonomy has three levels.
 
-<figure><img src="../.gitbook/assets/Screen%20Shot%202022-08-31%20at%207.02.01%20PM.png" alt=""><figcaption></figcaption></figure>
-
 Each asset in the coverage universe is in only one subsector and every covered asset has a **6-digit industry code** and **name.**
 
 #### **Example**

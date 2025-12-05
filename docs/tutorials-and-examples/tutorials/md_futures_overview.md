@@ -1,12 +1,6 @@
 # Getting Started With Futures Data
 
-
-
-
-
-
-
-![](https://5264302.fs1.hubspotusercontent-na1.net/hubfs/5264302/Demo%20Asset%20Resources/Demo%20Covers/CM-Demo-futures\_overview.png)
+![](https://5264302.fs1.hubspotusercontent-na1.net/hubfs/5264302/Demo%20Asset%20Resources/Demo%20Covers/CM-Demo-futures_overview.png)
 
 This notebook demonstrates basic functionality offered by the Coin Metrics Python API Client and **Market Data Feed.**
 
@@ -18,7 +12,7 @@ To understand the data that Coin Metrics offers, feel free to peruse the resourc
 
 * The [Coin Metrics API v4](https://docs.coinmetrics.io/api/v4) website contains the full set of endpoints and data offered by Coin Metrics.
 * The [Coin Metrics Product Documentation](https://docs.coinmetrics.io/info) gives detailed, conceptual explanations of the data that Coin Metrics offers.
-* The [API Spec](https://coinmetrics.github.io/api-client-python/site/api\_client.html) contains a full list of functions.
+* The [API Spec](https://coinmetrics.github.io/api-client-python/site/api_client.html) contains a full list of functions.
 
 ### File Download
 
@@ -27,8 +21,6 @@ Download the entire notebook as either a jupyter notebook to run yourself or as 
 {% file src="../../.gitbook/assets/MDF_futures_overview.ipynb" %}
 
 {% file src="../../.gitbook/assets/MDF_futures_overview.pdf" %}
-
-
 
 ### Notebook Setup
 
@@ -294,8 +286,6 @@ plt.tight_layout()
 plt.show()
 ```
 
-![](../../getting-started/tutorials/output\_24\_0.png)
-
 <figure><img src="../../.gitbook/assets/mdf_futures_overview_btc_open_interest.png" alt=""><figcaption></figcaption></figure>
 
 ## Liquidations
@@ -382,8 +372,6 @@ plt.grid(color='black', linestyle='dotted')
 plt.tight_layout() 
 plt.show()
 ```
-
-![png](../../getting-started/tutorials/output\_32\_0.png)
 
 <figure><img src="../../.gitbook/assets/mdf_futures_overview_binance-btcusdt-future.png" alt=""><figcaption></figcaption></figure>
 
@@ -546,8 +534,6 @@ for spine in ax.spines.values():
 plt.show()
 ```
 
-![png](../../getting-started/tutorials/output\_41\_0.png)
-
 <figure><img src="../../.gitbook/assets/mdf_futures_overview_btc_hourly_liquidations_oi.png" alt=""><figcaption></figcaption></figure>
 
 ## Funding Rates
@@ -654,8 +640,6 @@ plt.legend(loc='upper left', fontsize=10, bbox_to_anchor=(0.76,1.2), frameon=Fal
 plt.show()
 ```
 
-![png](../../getting-started/tutorials/output\_50\_0.png)
-
 <figure><img src="../../.gitbook/assets/mdf_futures_overview_perp_futures_funding_rates.png" alt=""><figcaption></figcaption></figure>
 
 ### Aggregated Funding Rates
@@ -716,8 +700,6 @@ plt.gca().xaxis.set_major_formatter(mdates.ConciseDateFormatter(mdates.AutoDateL
 plt.legend(loc='upper right', fontsize=10, ncol=1, framealpha=0, bbox_to_anchor=(0.99, 1.13))
 plt.show()
 ```
-
-![png](../../getting-started/tutorials/output\_56\_0.png)
 
 <figure><img src="../../.gitbook/assets/mdf_futures_overview_btc_perp_futures_agg_fund_rate.png" alt=""><figcaption></figcaption></figure>
 
@@ -817,8 +799,6 @@ plt.ylabel('')
 plt.show()
 ```
 
-![png](../../getting-started/tutorials/output\_61\_0.png)
-
 <figure><img src="../../.gitbook/assets/mdf_futures_overview_btc_perp_agg_funding_rate_apr.png" alt=""><figcaption></figcaption></figure>
 
 ### Cumulative Funding Rate
@@ -887,9 +867,5 @@ plt.gca().xaxis.set_major_formatter(mdates.ConciseDateFormatter(mdates.AutoDateL
 plt.legend(loc='upper right', fontsize=10, ncol=1, framealpha=0, bbox_to_anchor=(0.99, 1.13))
 plt.show()
 ```
-
-![png](../../getting-started/tutorials/output\_66\_0.png)
-
-
 
 <figure><img src="../../.gitbook/assets/mdf_futures_overview_btc_perp_futures_cum_fund_rate.png" alt=""><figcaption></figcaption></figure>

@@ -78,8 +78,7 @@ NVT has been much discussed; in short, it compares market capitalization to on-c
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/NVTAdjFF" %}
-[\
-](https://docs.coinmetrics.io/asset-metrics/economics/nvtadjff)
+[<br>](https://docs.coinmetrics.io/asset-metrics/economics/nvtadjff)
 {% endembed %}
 
 ## Realized Cap to Thermo Cap (RCTC) <a href="#rctc" id="rctc"></a>
@@ -100,7 +99,7 @@ The ratio of the Realized Cap over Thermo Cap at the end of that interval. [Real
 
 ### Chart
 
-![](../../../.gitbook/assets/coin_metrics_network_chart-2-.png)
+![](<../../../.gitbook/assets/coin_metrics_network_chart(2) (1).png>)
 
 ### Interpretation
 
@@ -227,7 +226,7 @@ Historically, a high SOPR has signaled that bitcoin price is reaching a local ma
 
 ### Definition
 
-NUPL measures the proportion of an asset's market cap that represents unrealized profit or loss among all coins in circulation.&#x20;
+NUPL measures the proportion of an asset's market cap that represents unrealized profit or loss among all coins in circulation.
 
 | Name | MetricID | Unit          | Interval |
 | ---- | -------- | ------------- | -------- |
@@ -251,20 +250,20 @@ It indicates whether the market, on average, is in a state of unrealized gain (p
 
 Long-Term and Short-Term Holder SOPR metrics segment the traditional SOPR calculation based on the age of the UTXOs being spent. These metrics separate profit/loss realization behavior between holders who have held their positions for different time periods, providing deeper insights into market dynamics by distinguishing between committed long-term investors and more active short-term traders.
 
-There are two versions of this metric, one weighted by the value of each output and the other unweighted.&#x20;
+There are two versions of this metric, one weighted by the value of each output and the other unweighted.
 
-| Name                                                                                         | MetricID                                   | Unit          | Interval |
-| -------------------------------------------------------------------------------------------- | ------------------------------------------ | ------------- | -------- |
-| Spent Output Profit Ratio (SOPR) 30 day Long-Term Holder / Short-Term Holder                 | SOPRLth30d / SOPRSth30d                    | Dimensionless | 1 day    |
-| Spent Output Profit Ratio (SOPR) 90 day Long-Term Holder / Short-Term Holder                 | <p>SOPRLth90d /<br>SOPRSth90d</p>          | Dimensionless | 1 day    |
-| Spent Output Profit Ratio (SOPR) 155 day Long-Term Holder / Short-Term Holder                | <p>SOPRLth155d / <br>SOPRSth155d</p>       | Dimensionless | 1 day    |
-| Spent Output Profit Ratio (SOPR) 1 year Long-Term Holder / Short-Term Holder                 | <p>SOPRLth1y / <br>SOPRSth1y</p>           | Dimensionless | 1 day    |
-| Spent Output Profit Ratio (SOPR) 5 years Long-Term Holder / Short-Term Holder                | <p>SOPRLth5y / <br>SOPRSth5y</p>           | Dimensionless | 1 day    |
-| Spent Output Profit Ratio Unweighted (SOPR Out) 30 day Long-Term Holder / Short-Term Holder  | <p>SOPRLthOut30d / <br>SOPRSthOut30d</p>   | Dimensionless | 1 day    |
-| Spent Output Profit Ratio Unweighted (SOPR Out) 90 day Long-Term Holder / Short-Term Holder  | <p>SOPRLthOut90d / <br>SOPRSthOut90d</p>   | Dimensionless | 1 day    |
-| Spent Output Profit Ratio Unweighted (SOPR Out) 155 day Long-Term Holder / Short-Term Holder | <p>SOPRLthOut155d / <br>SOPRSthOut155d</p> | Dimensionless | 1 day    |
-| Spent Output Profit Ratio Unweighted (SOPR Out) 1 year Long-Term Holder / Short-Term Holder  | <p>SOPRLthOut1y / <br>SOPRSthOut1y</p>     | Dimensionless | 1 day    |
-| Spent Output Profit Ratio Unweighted (SOPR Out) 5 years Long-Term Holder / Short-Term Holder | <p>SOPRLthOut5y / <br>SOPRSthOut5y</p>     | Dimensionless | 1 day    |
+| Name                                                                                         | MetricID                                  | Unit          | Interval |
+| -------------------------------------------------------------------------------------------- | ----------------------------------------- | ------------- | -------- |
+| Spent Output Profit Ratio (SOPR) 30 day Long-Term Holder / Short-Term Holder                 | SOPRLth30d / SOPRSth30d                   | Dimensionless | 1 day    |
+| Spent Output Profit Ratio (SOPR) 90 day Long-Term Holder / Short-Term Holder                 | <p>SOPRLth90d /<br>SOPRSth90d</p>         | Dimensionless | 1 day    |
+| Spent Output Profit Ratio (SOPR) 155 day Long-Term Holder / Short-Term Holder                | <p>SOPRLth155d /<br>SOPRSth155d</p>       | Dimensionless | 1 day    |
+| Spent Output Profit Ratio (SOPR) 1 year Long-Term Holder / Short-Term Holder                 | <p>SOPRLth1y /<br>SOPRSth1y</p>           | Dimensionless | 1 day    |
+| Spent Output Profit Ratio (SOPR) 5 years Long-Term Holder / Short-Term Holder                | <p>SOPRLth5y /<br>SOPRSth5y</p>           | Dimensionless | 1 day    |
+| Spent Output Profit Ratio Unweighted (SOPR Out) 30 day Long-Term Holder / Short-Term Holder  | <p>SOPRLthOut30d /<br>SOPRSthOut30d</p>   | Dimensionless | 1 day    |
+| Spent Output Profit Ratio Unweighted (SOPR Out) 90 day Long-Term Holder / Short-Term Holder  | <p>SOPRLthOut90d /<br>SOPRSthOut90d</p>   | Dimensionless | 1 day    |
+| Spent Output Profit Ratio Unweighted (SOPR Out) 155 day Long-Term Holder / Short-Term Holder | <p>SOPRLthOut155d /<br>SOPRSthOut155d</p> | Dimensionless | 1 day    |
+| Spent Output Profit Ratio Unweighted (SOPR Out) 1 year Long-Term Holder / Short-Term Holder  | <p>SOPRLthOut1y /<br>SOPRSthOut1y</p>     | Dimensionless | 1 day    |
+| Spent Output Profit Ratio Unweighted (SOPR Out) 5 years Long-Term Holder / Short-Term Holder | <p>SOPRLthOut5y /<br>SOPRSthOut5y</p>     | Dimensionless | 1 day    |
 
 ### Details
 

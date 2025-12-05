@@ -32,8 +32,6 @@ The sum count of all unique addresses that were newly created and funded (e.g. h
 
 [New Addr Cnt](https://docs.coinmetrics.io/asset-metrics/adresses/adrnewcnt) showcases all new addresses observed in the network over the previous day, and New Funded Addr Cnt is a subset of New Addr Cnt that only counts addresses with a balance greater than 0.
 
-![Source: CM Network Data Charts](../../../../.gitbook/assets/9%20-%20New%20Addresses.png)
-
 ### **Asset-Specific Details**
 
 This metric is not available for assets that have full privacy, like Monero and Grin. For assets that have opt-in privacy features, like ZCash, it only takes the non-private activities into account.
@@ -91,8 +89,6 @@ The sum count of all unique addresses that were newly created that interval.
 
 New Addr Cnt showcases all new addresses observed in the network over the previous day, and [New Funded Addr Cnt](https://docs.coinmetrics.io/asset-metrics/adresses/adrnewbalcnt) is a subset of New Addr Cnt that only counts addresses with a balance greater than 0.
 
-![Source: CM Network Data Charts](../../../../.gitbook/assets/9%20-%20New%20Addresses.png)
-
 ### **Asset-Specific Details**
 
 * This metric is not available for assets that have full privacy, like Monero and Grin. For assets that have opt-in privacy features, like ZCash, it only takes the non-private activities into account.
@@ -134,9 +130,9 @@ New Address metrics can be accessed using these endpoints:
 
 and by passing in the metric IDs `AdrNewBal` `AdrNewCnt` in the `metrics` parameter.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}

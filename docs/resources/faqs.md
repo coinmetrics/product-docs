@@ -136,7 +136,7 @@ To view the _aggregated stablecoin market cap_ for a specific asset, use the _as
 
 **Estimated Market Cap (CapMrktEstUSD):** This metric is available at the _asset_ level and is calculated using Coin Metrics Reference Rates combined with a self-reported supply figure from the project. Supply data is sourced via CoinGecko at the _asset_ level
 
-For Comparison of **Stablecoin Market Cap** and **Estimated Market Cap** Universe please see this [Chart](https://charts.coinmetrics.io/formulas?id=11271). For the universe included in the aggregation see the Formula builder by clicking <img src="../../.gitbook/assets/Screenshot%202025-10-17%20at%207.43.25%20PM.png" alt="" data-size="line"> on the right side.
+For Comparison of **Stablecoin Market Cap** and **Estimated Market Cap** Universe please see this [Chart](https://charts.coinmetrics.io/formulas?id=11271). For the universe included in the aggregation see the Formula builder by clicking  on the right side.
 
 https://charts.coinmetrics.io/formulas?id=11271
 
@@ -192,8 +192,6 @@ Another way to think about our Market Cap is to equate it to the Fully Diluted M
 
 No, but we do have a metric for [Sum Block Size (in bytes)](../../network-data/network-data-overview/network-usage/blocks.md#blksizebyte) (BlkSizeByte), which you can sum up to get blockchain size. You can also use our runningTotal function in our Formula Builder to show the size over time.
 
-![https://charts.coinmetrics.io/formulas/#1178](../../.gitbook/assets/BTC_Total_Blockchain_Size_\(in_bytes\).png)
-
 </details>
 
 <details>
@@ -202,8 +200,6 @@ No, but we do have a metric for [Sum Block Size (in bytes)](../../network-data/n
 
 No, we don't have total transactions, but we have [Tx Cnt](../../network-data/network-data-overview/transactions/transactions.md#txcnt) (TxCnt or Transactions per interval), which you can sum up to get total transactions. You can also use our runningTotal function in our Formula Builder to show total transactions over time.
 
-![https://charts.coinmetrics.io/formulas/#1179](../../.gitbook/assets/BTC_Total_Transaction_Count.png)
-
 </details>
 
 <details>
@@ -211,8 +207,6 @@ No, we don't have total transactions, but we have [Tx Cnt](../../network-data/ne
 <summary>How can you calculate total transfer value on the Ethereum Blockchain (ETH + other ERC20s)?</summary>
 
 You can calculate this manually by summing the [transfer value](../../network-data/network-data-overview/transactions/transfers.md) for ETH and ERC20s. You can all use our charting tool to create a stacked view of all ERC20s' Transfer Values, or our formula builder to create an aggregate.
-
-![https://charts.coinmetrics.io/network-data/#1181](../../.gitbook/assets/ETH_ERC20_Xfer_Val_\(USD\).png)
 
 </details>
 
@@ -284,11 +278,7 @@ Our trusted volume metric is an aggregation of the reported volume from exchange
 
 A validator's expected annual percentage return (APR) from staking rewards accumulated on the Consensus Layer, assuming perfect performance and uptime, can be estimated with the formula below based on protocol parameters ([source for derivation](https://eth2book.info/altair/part2/incentives/issuance#validator-rewards)):
 
-
-
 For example, with 423,000 active validators as of September 9, 2022 this comes out to a 4.52% expected return on a validator's 32 ETH effective balance. The expected annual protocol issuance can also be calculated from the following formula ([source for derivation](https://eth2book.info/altair/part2/incentives/issuance#overall-issuance)):
-
-
 
 With 423,000 active validators this comes out to 611,927 ETH issued per year.
 
@@ -296,25 +286,17 @@ After The Merge, validators will also receive user priority transaction fees on 
 
 **First**, finding the average tips paid per block, which fluctuates greatly depending on the demand for Ethereum blockspace:
 
-
-
 This comes out to 0.07 ETH over the last 30 days.
 
 **Next**, from the equation above we can find the yearly per-validator expected ETH reward from participating on the Consensus Layer with a specified number of active validators:
-
-
 
 ​This comes out to an average 1.45 ETH in yearly rewards with 423,000 active validators.
 
 **Then**, with 2,629,800 chances to propose blocks on the Consensus Layer each year, the average number of times a validator will get the opportunity to propose a block (and collect tips) can be found from:
 
-
-
 ​This comes to 6.22 with 423,000 active validators (assuming they all have an equal 32 ETH effective balance there is a 1 in _ValidatorActOngCnt_ chance of being selected to propose at a given slot on the CL).
 
 **Finally**, taking this all together:
-
-
 
 ​This comes out to 5.89%, an increase of roughly 140 basis points to the APR from Consensus Layer rewards.
 
@@ -343,8 +325,6 @@ We assign assets into four different levels: project, layer one network, layer t
 * Layer One Network: Represents the asset on a specific layer one network, encompassing all contract instances and layer two networks on that network. Network data is assigned to this level.
 * Layer Two Network: Represents the asset on a specific layer two network, encompassing all the contract instances on the layer two network. Network data is also assigned to this level.
 * Contract: Represents the asset at the individual smart contract level on a specific network. This is the lowest level of classification. Data from decentralized exchanges is assigned to this level.
-
-<figure><img src="../../.gitbook/assets/cm-asset-ticker-conventions.png" alt=""><figcaption></figcaption></figure>
 
 We use an asset ticker naming convention that generalizes to the situations described above:
 
