@@ -185,7 +185,7 @@ The ratio of the sum USD value of the current supply to the sum "realized" USD v
 
 ### Chart
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -231,7 +231,7 @@ The ratio of the free float market capitalization (CapMrktFFUSD) to the sum "rea
 
 ### Chart
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Asset-Specific Details
 
