@@ -83,9 +83,8 @@ Where $$S$$ is the set of standard tenors $${1d, 2d, ..., 1y}$$. If a requested 
 
 ### Exception Handling
 
-**Insufficient market data**: The interpolation requires bracketing contracts (one shorter, one longer than the target tenor). If suitable contracts cannot be identified to bracket the target delta or tenor, the metric returns `null` for that timestamp.
-
-**Gap filling**: Ideally, input data is continuous. In rare instances where source data has gaps, we apply standard exception handling to maintain timeseries continuity by using the most recent available data.
+* **Insufficient market data**: The interpolation requires bracketing contracts (one shorter, one longer than the target tenor). If suitable contracts cannot be identified to bracket the target delta or tenor, the metric returns `null` for that timestamp.
+* **Gap filling**: Ideally, input data is continuous. In rare instances where source data has gaps, we apply standard exception handling to maintain timeseries continuity by using the most recent available data.
 
 ## Coverage
 
