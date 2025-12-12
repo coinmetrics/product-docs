@@ -15,7 +15,7 @@ By interpolating this surface, we generate constant maturity, constant delta met
 
 ## Metrics
 
-There are 260 implied volatility metrics across various combinations of option type, delta, and expiry. The metrics follow the naming convention:\
+There are 260 implied volatility metrics across various combinations of option type, delta, and tenor. The metrics follow the naming convention:\
 \
 `volatility_implied_[type]_delta_[delta]_[tenor]_expiration`
 
