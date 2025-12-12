@@ -31,7 +31,7 @@ The tenor dimension and its values are:&#x20;
 
 The calculation creates a normalized value by interpolating between the implied volatility reported by exchanges for existing market contracts. The process is defined as follows:
 
-**1. Horizon Selection**\
+**1. Horizon Selection** \
 \
 For every observation, we define a target time horizon, $$T_{target}$$ (e.g., 30 days, 90 days, or 365 days).
 
@@ -115,4 +115,4 @@ A sample of the `volatility_implied_atm_30d_expiration` metric for the exchange\
 
 #### What units are the implied volatility metrics in? <a href="#what-units-are-the-realized-volatility-metrics-in" id="what-units-are-the-realized-volatility-metrics-in"></a>
 
-The realized volatility metrics are presented in raw units. For instance, a value of `0.5223685` should be interpreted as `52.23685%`.
+The metrics are presented in raw units. For instance, a value of `0.5223685` should be interpreted as `52.23685%`.
