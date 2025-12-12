@@ -21,9 +21,9 @@ There are 260 implied volatility metrics across various combinations of option t
 
 The following dimensions and their values are:
 
-* **`[type]`**: `call`, `put`
-* **`[delta]`**: `05`, `10`, `15`, `20`, `25`, `30`, `35`, `40`, `45`, `50`
-* **`[tenor]`**: `1d`, `2d`, `3d`, `7d`, `14d`, `21d`, `30d`, `60d`, `90d`, `120d`, `180d`, `270d`, `1y`
+* `[type]`: `call`, `put`
+* `[delta]`: `05`, `10`, `15`, `20`, `25`, `30`, `35`, `40`, `45`, `50`
+* `[tenor]`: `1d`, `2d`, `3d`, `7d`, `14d`, `21d`, `30d`, `60d`, `90d`, `120d`, `180d`, `270d`, `1y`
 
 Note: Delta is represented as an absolute value. A "delta 25 put" refers to a put with a mathematical delta of -0.25.
 
