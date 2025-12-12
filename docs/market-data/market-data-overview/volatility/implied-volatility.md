@@ -21,11 +21,11 @@ To resolve these inconsistencies, we provide constant-maturity, at-the-money (AT
 
 The calculation creates a normalized value by interpolating between the implied volatility reported by exchanges for existing market contracts. The process is defined as follows:
 
-**·1. Horizon Selection**\
+**1. Horizon Selection**\
 \
 For every observation, we define a target time horizon, $$T_{target}$$ (e.g., 30 days, 90 days, or 365 days).\
 \
-2\. **Contract Identification**\
+**2. Contract Identification**\
 \
 We identify the market price of the underlying asset, $$S_t$$, using the Coin Metrics Real-Time Reference Rate. We then select two sets of call options based on their expiration dates relative to the target:\
 \
@@ -33,7 +33,7 @@ Near-Term Options: Expiration $$T_{near} < T_{target}$$\
 \
 Far-Term Options: Expiration $$T_{far} > T_{target}$$\
 \
-3\. **ATM Selection**\
+**3. ATM Selection**\
 \
 From both the Near-Term and Far-Term sets, we select the specific contract where the strike price $$K$$ is closest to the spot price $$S_t$$ (minimizing $$|S_t - K|$$). This yields two reference implied volatilities:\
 \
@@ -41,7 +41,7 @@ $$\sigma_{near}$$: The implied volatility of the closest ATM option expiring bef
 \
 $$\sigma_{far}$$: The implied volatility of the closest ATM option expiring after the target.\
 \
-4\. **Time-Weighted Interpolation**\
+**4. Time-Weighted Interpolation**\
 \
 To determine the synthetic volatility at exactly $$T_{target}$$, we calculate a weighted mean of $$\sigma_{near}$$ and $$\sigma_{far}$$. The weights are inversely proportional to the time difference between the option's expiration and the target date.\
 \
@@ -49,7 +49,7 @@ Let $$\Delta t$$ represent the absolute time difference: $$\Delta t_{i} = | T_{t
 \
 The weight $$w_i$$ for each option is calculated as: $$w_i = \frac{1}{\Delta t_{i}}$$\
 \
-5\. **Final Calculation**\
+**5. Final Calculation**\
 \
 The final implied volatility $$\sigma_{target}$$ is the weighted average of the two selected options. This ensures that an option expiring closer to the target date exerts a stronger influence on the final metric than one further away:\
 \
