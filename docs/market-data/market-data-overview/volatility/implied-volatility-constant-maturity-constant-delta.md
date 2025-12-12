@@ -100,24 +100,24 @@ The metrics are served through the following endpoints:
 
 #### **Example for Exchange Asset Metrics**
 
-A sample of the `volatility_implied_call_delta_25_30d_expiration` metric for the exchange\_asset `deribit-btc-usd` from our `/timeseries/exchange-pair-metrics` API endpoint is provided below. You can view this example in your browser [here](https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=deribit-btc\&metrics=volatility_implied_atm_30d_expiration\&limit_per_exchange_asset=3\&frequency=1d\&api_key=YOUR_API_KEY).
+A sample of the `volatility_implied_call_delta_25_30d_expiration` metric for the exchange\_asset `deribit-btc-usd` from our `/timeseries/exchange-pair-metrics` API endpoint is provided below. You can view this example in your browser [here](https://api.coinmetrics.io/v4/timeseries/exchange-pair-metrics?exchange_pairs=deribit-btc-usd\&metrics=volatility_implied_call_delta_25_30d_expiration\&limit_per_exchange_pair=3\&frequency=1d\&api_key=YOUR_API_KEY).
 
 ```json
 [
   {
     "exchange_pair": "deribit-btc-usd",
-    "time": "2025-12-09T00:00:00.000000000Z",
-    "volatility_implied_call_delta_25_30d_expiration": "0.4708629"
-  },
-  {
-    "exchange_pair": "deribit-btc-usd",
     "time": "2025-12-10T00:00:00.000000000Z",
-    "volatility_implied_call_delta_25_30d_expiration": "0.4496676"
+    "volatility_implied_call_delta_25_30d_expiration": "0.432419083343269"
   },
   {
     "exchange_pair": "deribit-btc-usd",
     "time": "2025-12-11T00:00:00.000000000Z",
-    "volatility_implied_call_delta_25_30d_expiration": "0.4313029"
+    "volatility_implied_call_delta_25_30d_expiration": "0.41659762354355"
+  },
+  {
+    "exchange_pair": "deribit-btc-usd",
+    "time": "2025-12-12T00:00:00.000000000Z",
+    "volatility_implied_call_delta_25_30d_expiration": "0.412614514580369"
   }
 ]
 ```

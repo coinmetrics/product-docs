@@ -264,6 +264,7 @@
     * [Market Implied Volatility](market-data/market-data-overview/volatility/market-implied-volatility.md)
     * [Implied Volatility, Constant Maturity, At-The-Money](market-data/market-data-overview/volatility/implied-volatility.md)
     * [Implied Volatility, Constant Maturity, Constant Delta](market-data/market-data-overview/volatility/implied-volatility-constant-maturity-constant-delta.md)
+    * [Skew, Constant Maturity, Constant Delta](market-data/market-data-overview/volatility/skew-constant-maturity-constant-delta.md)
     * [Realized Volatility](market-data/market-data-overview/volatility/realized-volatility.md)
   * [Volume](market-data/market-data-overview/volume/README.md)
     * [Trusted Volume](market-data/market-data-overview/volume/volume_trusted.md)
