@@ -110,3 +110,9 @@ A sample of the `volatility_implied_atm_30d_expiration` metric for the exchange\
   }
 ]
 ```
+
+## Frequently Asked Questions
+
+#### What units are the implied volatility metrics in? <a href="#what-units-are-the-realized-volatility-metrics-in" id="what-units-are-the-realized-volatility-metrics-in"></a>
+
+The realized volatility metrics are presented in raw units. For instance, a value of `0.5223685` should be interpreted as `52.23685%`.

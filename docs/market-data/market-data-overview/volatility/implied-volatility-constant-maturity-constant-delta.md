@@ -103,9 +103,7 @@ The metrics are served through the following endpoints:
 
 A sample of the `volatility_implied_call_delta_25_30d_expiration` metric for the exchange\_asset `deribit-btc-usd` from our `/timeseries/exchange-pair-metrics` API endpoint is provided below. You can view this example in your browser [here](https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=deribit-btc\&metrics=volatility_implied_atm_30d_expiration\&limit_per_exchange_asset=3\&frequency=1d\&api_key=YOUR_API_KEY).
 
-Copy
-
-```
+```json
 [
   {
     "exchange_pair": "deribit-btc-usd",
@@ -127,6 +125,6 @@ Copy
 
 ## Frequently Asked Questions
 
-#### What units are the realized volatility metrics in? <a href="#what-units-are-the-realized-volatility-metrics-in" id="what-units-are-the-realized-volatility-metrics-in"></a>
+#### What units are the implied volatility metrics in? <a href="#what-units-are-the-realized-volatility-metrics-in" id="what-units-are-the-realized-volatility-metrics-in"></a>
 
 The realized volatility metrics are presented in raw units. For instance, a value of `0.5223685` should be interpreted as `52.23685%`.
