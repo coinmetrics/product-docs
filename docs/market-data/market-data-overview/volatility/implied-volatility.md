@@ -2,7 +2,7 @@
 
 ## Overview
 
-A continuous timeseries representing the annualized implied volatility of an option at constant maturity using at-the-money option contracts. These metrics are available for exchange-assets.
+A continuous timeseries representing the annualized implied volatility of an option at constant maturity using at-the-money option contracts. The metrics are available for exchange-assets.
 
 Implied volatility ($$\sigma_{imp}$$) is a metric derived from options contracts that quantifies the market’s expectation of future price fluctuations for an underlying asset. In standard option pricing models (such as Black-Scholes), $$\sigma_{imp}$$ is the variable that equates the theoretical model price to the current market price of the option.
 
@@ -11,7 +11,9 @@ Tracking $$\sigma_{imp}$$ as a continuous timeseries presents two significant ch
 1. Time Decay ($$T$$): The time to expiration for any specific contract decreases linearly. If an option expires in $$30$$ days at time $$t$$, it will expire in $$29$$ days at time $$t+1$$. Comparing volatility day-over-day requires disentangling the effects of changing market conditions from the mechanical decay of time.
 2. Moneyness ($$\frac{S}{K}$$): As the spot price of the underlying asset ($$S$$) fluctuates, the significance of a fixed strike price ($$K$$) changes. For example, a strike price of $$\$60,000$$ represents a different risk profile when the underlying asset trades at $$\$40,000$$ versus $$\$59,000$$.
 
-To resolve these inconsistencies, we provide constant-maturity, at-the-money (ATM) implied volatility metrics. This synthetic metrics estimate the implied volatility for a hypothetical option that always has a fixed time horizon and a strike price equal to the current spot price.
+To resolve these inconsistencies, we provide constant-maturity, at-the-money (ATM) implied volatility metrics. These synthetic metrics estimate the implied volatility for a hypothetical option that always has a fixed time horizon and a strike price equal to the current spot price.
+
+These implied volatility curves enable cross-sectional and timeseries comparison of volatility expectations across assets, independent of contract expiries or moneyness distortions.&#x20;
 
 ## Metrics
 
