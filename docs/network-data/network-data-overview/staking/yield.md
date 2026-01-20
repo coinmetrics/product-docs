@@ -2,11 +2,11 @@
 
 ## Contents
 
-* [Staking Yield Metrics](yield.md#sendercntclcont)
-* [Validator Yield Metrics](yield.md#sendercntclcont-1)
-* [Delegator Yield Metrics](yield.md#sendercntclcont-2)
+* [Staking Yield Metrics](yield.md#staking-yield-metrics)
+* [Validator Yield Metrics](yield.md#validator-yield-metrics)
+* [Delegator Yield Metrics](yield.md#delegator-yield-metrics)
 
-## Staking Yield Metrics <a href="#sendercntclcont" id="sendercntclcont"></a>
+## Staking Yield Metrics <a href="#staking-yield-metrics" id="staking-yield-metrics"></a>
 
 ### Definition
 
@@ -28,7 +28,7 @@ Annual real and nominal percentage rates and yields for active stakers. A staker
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/StakingAPRNominal" %}
 
-## Validator Yield Metrics <a href="#sendercntclcont" id="sendercntclcont"></a>
+## Validator Yield Metrics <a href="#validator-yield-metrics" id="validator-yield-metrics"></a>
 
 ### Definition
 
@@ -50,7 +50,7 @@ Annual real and nominal percentage rates and yields for active validators. A val
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/ValidatorAPRNominal" %}
 
-## Delegator Yield Metrics <a href="#sendercntclcont" id="sendercntclcont"></a>
+## Delegator Yield Metrics <a href="#delegator-yield-metrics" id="delegator-yield-metrics"></a>
 
 ### Definition
 
