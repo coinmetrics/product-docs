@@ -1,6 +1,6 @@
 # Calculating DEX Liquidity Pool Fees and Volumes
 
-![](https://5264302.fs1.hubspotusercontent-na1.net/hubfs/5264302/Demo%20Asset%20Resources/Demo%20Covers/CM-Demo-dex\_data-Cover.png)
+![](https://5264302.fs1.hubspotusercontent-na1.net/hubfs/5264302/Demo%20Asset%20Resources/Demo%20Covers/CM-Demo-dex_data-Cover.png)
 
 Decentralized exchanges are playing an increasingly important role in supporting cryptoasset trading, particularly when it comes to tokens using the ERC-20 standard. Coin Metrics has been actively working on collecting data from major DeFi protocols. For our first release, we have added support for all major liquidity pools on **Uniswap v2, Uniswap v3,** and **Sushiswap v1.**
 
@@ -14,7 +14,7 @@ To understand the data that Coin Metrics offers, feel free to peruse the resourc
 
 * The [Coin Metrics API v4](https://docs.coinmetrics.io/api/v4) website contains the full set of endpoints and data offered by Coin Metrics.
 * The [Coin Metrics Product Documentation](https://docs.coinmetrics.io/info) gives detailed, conceptual explanations of the data that Coin Metrics offers.
-* The [API Spec](https://coinmetrics.github.io/api-client-python/site/api\_client.html) contains a full list of functions.
+* The [API Spec](https://coinmetrics.github.io/api-client-python/site/api_client.html) contains a full list of functions.
 
 ### File Download
 
@@ -22,9 +22,7 @@ Download the entire notebook as either a jupyter notebook to run yourself or as 
 
 {% file src="../../.gitbook/assets/DEFI - Dex Data (1).ipynb" %}
 
-{% file src="../../.gitbook/assets/DEFI_dex_data (2).pdf" %}
-
-
+{% file src="../../.gitbook/assets/DEFI_dex_data (1) (1).pdf" %}
 
 ### Setup
 
@@ -158,8 +156,6 @@ plt.show()
 ```
 
 <figure><img src="../../.gitbook/assets/DEFI_dex_data_market_count (1).png" alt=""><figcaption></figcaption></figure>
-
-
 
 ```python
 # Show fields
@@ -412,8 +408,6 @@ plt.show()
 
 <figure><img src="../../.gitbook/assets/DEFI_dex_data_buy_sells (1).png" alt=""><figcaption></figcaption></figure>
 
-
-
 ```python
 pd.DataFrame(defi_trades.iloc[0])
 ```
@@ -484,8 +478,6 @@ plt.show()
 ```
 
 <figure><img src="../../.gitbook/assets/DEFI_dex_data_buyers_per_hour (1).png" alt=""><figcaption></figcaption></figure>
-
-
 
 ```python
 # Unique buyer addresses
@@ -663,4 +655,3 @@ vc.set_xlabel("");
 ```
 
 <figure><img src="../../.gitbook/assets/DEFI_dex_data_cex_dex_volume (1).png" alt=""><figcaption></figcaption></figure>
-
