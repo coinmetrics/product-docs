@@ -24,7 +24,67 @@ Data available at the asset level is available through the [profile/assets](http
 
 ## Change Log
 
+
+
 {% updates format="full" %}
+{% update date="2026-02-13" %}
+## Asset Profiles - Added Stablecoins
+
+Added RLUSD, USDCV, USD0, and USD1 to Asset Profiles endpoint and made adjustments to USDC regulations and XLM upgrade history. Full details below.
+
+1. RLUSD Asset Profile
+
+* Includes:
+  * Overview, token purpose, project team
+  * Website, Whitepaper, Creation Date
+  * New Token Issuance Recipient
+  * Issuing Networks
+  * Significant Historical Changes, Upgrade History
+  * Blog
+  * Asset Regulation Status
+
+2\. USDCV Asset Profile<br>
+
+* Includes:
+  * Overview, token purpose, project team
+  * Website, Whitepaper, Creation Date
+  * New Token Issuance Recipient
+  * Issuing Networks
+  * Upgrade History
+  * Blog
+  * Asset Regulation Status
+
+3\. USD0 Asset Profile<br>
+
+* Includes:
+  * Overview, token purpose, project team
+  * Website, Whitepaper, Creation Date
+  * New Token Issuance Recipient
+  * Issuing Networks
+  * Significant Historical Changes, Upgrade History
+  * Blog
+
+4\. USD1 Asset Profile<br>
+
+* Includes:
+  * Overview, token purpose, project team
+  * Website, Whitepaper, Creation Date
+  * New Token Issuance Recipient
+  * Issuing Networks
+  * Upgrade History
+  * Blog
+
+5\. USDC Asset Regulation<br>
+
+* Added USDC regulated by GENIUS Act
+
+6\. Stellar Upgrade History<br>
+
+* Protocol 25 or X-Ray Upgrade added to XLM (January 22)
+
+
+{% endupdate %}
+
 {% update date="2026-01-29" %}
 ## Network Profiles - Added BNB Smart Chain
 
