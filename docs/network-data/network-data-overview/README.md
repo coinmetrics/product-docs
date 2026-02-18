@@ -72,6 +72,12 @@ xsgd\_eth
 </details>
 {% endupdate %}
 
+{% update date="2025-11-19" %}
+## Release Exchange Flows for USDC & PYUSD on Ethereum
+
+Added Exchange flow metrics for USDC\_ETH and PYUSD\_ETH at the daily frequency. For details on Exchange Flow metric coverage please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInExNtv). For details on exchange metrics please refer to the [exchange](exchange/ "mention")documentation page.
+{% endupdate %}
+
 {% update date="2025-12-03" %}
 ## Added xStocks on Solana to ND Metrics
 
@@ -243,7 +249,13 @@ All `flow` assets and metrics have been categorized as experimental due to ongoi
 {% update date="2026-01-19" %}
 ## Released Exchange Flows for USDT\_ETH
 
-Relesaed exchange flows for the usdt\_eth asset at the 1d frequency. For details on the supported metrics please refer to the [exchange](exchange/ "mention")page. For details on Exchange Flow metric coverage please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInExNtv).
+Released exchange flows for the usdt\_eth asset at the 1d frequency. For details on the supported metrics please refer to the [exchange](exchange/ "mention")page. For details on Exchange Flow metric coverage please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInExNtv).
+{% endupdate %}
+
+{% update date="2026-02-17" %}
+## Release Hourly Exchange and ETF Flow Metrics
+
+Expanded our exchange flow and BTC ETF coverage with hourly flows metrics for all existing assets and exchanges/ETFs. For the full list of exchange please refer to our [Exchange coverage](exchange/#on-chain-exchange-coverage) and for a full coverage of our ETF coverage please refer to our [ETF Coverage](exchange-traded-fund/#on-chain-etf-coverage). For details on asset coverage for Exchange Flows and ETF Flows metric please refer to our coverage page ([Exchanges](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInExNtv), [ETFs](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInEtfNtv))
 {% endupdate %}
 {% endupdates %}
 
