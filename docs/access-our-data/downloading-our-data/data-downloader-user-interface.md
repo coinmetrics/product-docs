@@ -1,6 +1,8 @@
 # Data Downloader User Interface
 
-With the Data Downloader, traders, researchers, and analysts can quickly retrieve large datasets directly from their browser in convenient formats like CSV, line-delimited JSON, or Apache Parquet. Whether you’re backtesting strategies, building models, or conducting research, the Data Downloader provides a faster, more intuitive way to get the data you need.
+<a href="https://download.coinmetrics.io/" class="button primary" data-icon="file-arrow-down">Data Downloader</a>
+
+With the Data Downloader at [download.coinmetrics.io](https://download.coinmetrics.io/), traders, researchers, and analysts can quickly retrieve large datasets directly from their browser in convenient formats like CSV, line-delimited JSON, or Apache Parquet. Whether you’re backtesting strategies, building models, or conducting research, the Data Downloader provides a faster, more intuitive way to get the data you need.
 
 Data sets available include:
 

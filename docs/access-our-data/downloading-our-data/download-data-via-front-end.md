@@ -8,7 +8,9 @@ description: >-
 
 ## Downloading in Charting Tool
 
-After navigating to charts.coinmetrics.io and selecting the data set, assets and metrics you are looking to chart there are a few options to directly download the data avalable.&#x20;
+<a href="https://charts.coinmetrics.io/crypto-data/" class="button primary" data-icon="chart-line-up">Charting Tool</a>
+
+After navigating to [charts.coinmetrics.io](https://charts.coinmetrics.io) and selecting the data set, assets and metrics you are looking to chart there are a few options to directly download the data avalable.&#x20;
 
 The First is directly within the Charting Frame by selecting the download button in the top left and selecting csv or excel. Additionally we offer downloads of the chart images as .jpeg. by default these are downloaded with the legends attached.&#x20;
 
