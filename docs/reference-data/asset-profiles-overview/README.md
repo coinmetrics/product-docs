@@ -32,6 +32,10 @@ Data available at the asset level is available through the [profile/assets](http
 
 Added RLUSD, USDCV, USD0, and USD1 to Asset Profiles endpoint and made adjustments to USDC regulations and XLM upgrade history. Full details below.
 
+<details>
+
+<summary>Full Details</summary>
+
 1. RLUSD Asset Profile
 
 * Includes:
@@ -54,7 +58,7 @@ Added RLUSD, USDCV, USD0, and USD1 to Asset Profiles endpoint and made adjustmen
   * Blog
   * Asset Regulation Status
 
-3\. USD0 Asset Profile<br>
+3\. USD0 Asset Profile
 
 * Includes:
   * Overview, token purpose, project team
@@ -64,7 +68,7 @@ Added RLUSD, USDCV, USD0, and USD1 to Asset Profiles endpoint and made adjustmen
   * Significant Historical Changes, Upgrade History
   * Blog
 
-4\. USD1 Asset Profile<br>
+4\. USD1 Asset Profile
 
 * Includes:
   * Overview, token purpose, project team
@@ -74,13 +78,15 @@ Added RLUSD, USDCV, USD0, and USD1 to Asset Profiles endpoint and made adjustmen
   * Upgrade History
   * Blog
 
-5\. USDC Asset Regulation<br>
+5\. USDC Asset Regulation
 
 * Added USDC regulated by GENIUS Act
 
-6\. Stellar Upgrade History<br>
+6\. Stellar Upgrade History
 
 * Protocol 25 or X-Ray Upgrade added to XLM (January 22)
+
+</details>
 
 
 {% endupdate %}
