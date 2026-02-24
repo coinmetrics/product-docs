@@ -12,6 +12,7 @@
 * [Active Blob Addresses (Sent) (AdrActBlobSendCnt)](active-addresses.md#adractcont-2)
 * [Active Blob Addresses (Received) (AdrActBlobRecCnt)](active-addresses.md#adractcont-3)
 * [MEV Active Address Count (MevAdrActCnt)](active-addresses.md#adractcont-4)
+* [Economically Active Addresses (AdrActUSDXCnt)](active-addresses.md#economically-active-addresses)
 
 ### **Interpretation**
 
@@ -45,6 +46,30 @@ The sum count of unique addresses that were active in the network (either as a r
 * [AdrAct30dCnt](https://coverage.coinmetrics.io/search-results?query=AdrAct30dCnt)
 * [AdrAct7dCnt](https://coverage.coinmetrics.io/search-results?query=AdrAct7dCnt)
 * [AdrActCnt](https://coverage.coinmetrics.io/search-results?query=AdrActCnt)
+
+## Economically Active Addresses <a href="#economically-active-addresses" id="economically-active-addresses"></a>
+
+<table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td><a href="https://coverage.coinmetrics.io/asset-metrics-v2/AdrActUSD1Cnt">Economically Active Addr Cnt >1 USD</a></td><td><a href="https://coverage.coinmetrics.io/asset-metrics-v2/AdrActUSD1Cnt">AdrActUSD1Cnt</a></td><td>Addresses</td><td>1 day</td></tr></tbody></table>
+
+### Definition
+
+The sum count of unique addresses that were active in the network (either as a recipient or originator of a ledger change) that interval for any transfer worth more than the USD threshold for that metric in native units. All parties in a ledger change action (recipients and originators) are counted. Individual addresses are not double-counted if previously active.
+
+### Details
+
+* The same [details](active-addresses.md#details) as for AdrActCnt apply to this metric with the exception of the USD threshold being added to this metric.
+* To be counted, an address needs to have at least one ledger change that is larger than the threshold for the metric. The USD equivalent price is calculated based on the `PriceUSD` metric for the given day.
+
+### Examples
+
+* Address A has participated in 10 ledger changes for BTC, each for 1 BTC on a given day. The PriceUSD value on that day for BTC is $70,000.
+  * Address A is counted as 1 address for the AdrActUSD1Cnt for BTC
+* Address B has 1 ledger change for BTC for 0.000001 at a PriceUSD of $70,000. This ledger change is worth $0.07. For this metric this address will not be counted.
+* Address C has 10 ledger changes in the given interval that are each for the equivalent of $0.11. While the sum of these ledger changes adds up to $1.10 the address is not counted since none of the individual transfers is worth more than the threshold of 1 USD.
+
+### Coverage
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/AdrActUSD1Cnt" %}
 
 ## Active Addresses (Sent) <a href="#adractsent" id="adractsent"></a>
 
