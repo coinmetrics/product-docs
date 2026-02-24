@@ -27,6 +27,12 @@ Details on the specific metrics are described in the pages linked in this sectio
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-02-24" %}
+## Added Economically Relevant Addresses
+
+Added a new metric for Ethereum and Solana that captures the count of economically relevant addresses, defined as any address that transacted at least 1 USD in a single transfer - **`AdrActUSD1Cnt`**. For full details and examples refer to the [documentation](https://docs.coinmetrics.io/network-data/network-data-overview/addresses/active-addresses#economically-active-addresses). For full coverage details refer to the coverage page [here](https://coverage.coinmetrics.io/asset-metrics-v2/AdrActUSD1Cnt).
+{% endupdate %}
+
 {% update date="2026-02-17" %}
 ## Release Hourly Exchange and ETF Flow Metrics
 
