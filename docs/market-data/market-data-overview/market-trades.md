@@ -1,19 +1,5 @@
 ---
 description: /timeseries/market-trades
-layout:
-  width: default
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
 ---
 
 # Trades
@@ -162,7 +148,7 @@ We are currently supporting all major liquidity pools on Uniswap v2, Uniswap v3,
 
 Please take a look at this question in the Market Data FAQs page linked below.
 
-[Broken link](broken-reference "mention")
+[broken-reference](broken-reference/ "mention")
 
 ## **Release History**
 
