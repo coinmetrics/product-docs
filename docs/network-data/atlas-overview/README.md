@@ -194,3 +194,25 @@ Async API
 {% endembed %}
 
 If you need to download large amounts of data, i.e. more than 100k rows, we recommend using the "[Blockchain Explorer Job API](https://docs.coinmetrics.io/api/v4/#tag/Blockchain-Explorer-Job)", also known as Async API.&#x20;
+
+## Change Log
+
+{% updates format="full" %}
+{% update date="2026-02-10" %}
+## Added XRP Token Support to Atlas
+
+Added support for five XRP-based tokens to Atlas (blockchain-v2 endpoints).
+
+<details>
+
+<summary>XRP tokens added:</summary>
+
+* EURCV\_XRP - Euro Coin V on XRP Ledger
+* RLUSD\_XRP - Ripple USD on XRP Ledger
+* TBILL\_XRP - T-Bill Token on XRP Ledger
+* USDC\_XRP - USD Coin on XRP Ledger
+* XSGD\_XRP - XSGD on XRP Ledger
+
+</details>
+{% endupdate %}
+{% endupdates %}
