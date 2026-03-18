@@ -27,6 +27,37 @@ Data available at the asset level is available through the [profile/assets](http
 
 
 {% updates format="full" %}
+{% update date="2026-03-18" %}
+## Asset Profiles - Added EURC and Updated USDC
+
+Added EURC to Asset Profiles endpoint and updated USDC official name. Full details below.
+
+<details>
+
+<summary>Full Details</summary>
+
+1\. EURC Asset Profile
+
+* Includes:
+  * Overview, token purpose, project team
+  * Website, Whitepaper, Creation Date
+  * New Token Issuance Recipient
+  * Issuing Networks
+  * Significant Historical Changes, Upgrade History
+  * Blog
+  * Asset Regulation Status
+
+2\. USDC Asset Updates
+
+* Updated official name from "USD Coin" to "USDC"
+* Updated description and overview to reflect new name
+* Added significant historical change: "USD Coin officially renamed to USDC" (September 22, 2023)
+
+</details>
+
+
+{% endupdate %}
+
 {% update date="2026-02-13" %}
 ## Asset Profiles - Added Stablecoins
 
