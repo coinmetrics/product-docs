@@ -193,11 +193,31 @@ These endpoints do not support any query parameters and return full block info a
 Async API
 {% endembed %}
 
-If you need to download large amounts of data, i.e. more than 100k rows, we recommend using the "[Blockchain Explorer Job API](https://docs.coinmetrics.io/api/v4/#tag/Blockchain-Explorer-Job)", also known as Async API.&#x20;
+If you need to download large amounts of data, i.e. more than 100k rows, we recommend using the "[Blockchain Explorer Job API](https://docs.coinmetrics.io/api/v4/#tag/Blockchain-Explorer-Job)", also known as Async API.
 
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-03-23" %}
+## Added US Treasury Tokens
+
+Added support for US Treasury tokens on ETH + OUSG\_XRP
+
+<details>
+
+<summary>Tokens Added</summary>
+
+* USTB\_ETH - Superstate Short Duration US Government Securities Fund On Ethereum
+* WTGXX\_ETH - WisdomTree Government Money Market Digital Fund On Ethereum
+* USDY\_ETH - Ondo US Dollar Yield on Ethereum
+* JTRSY\_ETH - Janus Henderson Anemoy Treasury Fund On Ethereum
+* JAAA\_ETH - Janus Henderson Anemoy AAA CLO Fund Token On Ethereum
+* OUSG\_ETH - Ondo Short-Term U.S. Government Bond Fund On Ethereum
+* OUSG\_XRP - Ondo Short-Term U.S. Government Bond Fund On XRP Ledger
+
+</details>
+{% endupdate %}
+
 {% update date="2026-02-10" %}
 ## Added XRP Token Support to Atlas
 
