@@ -67,7 +67,7 @@ The following API endpoints serve data using the point-in-time convention:
 * `/timeseries/market-greeks`
 * `/timeseries/index-levels`
 * `/timeseries/index-constituents`
-* Any metric in `/timeseries/asset-metrics`, `/timeseries/exchange-metrics`, `/timeseries/exchange-asset-metrics`, `/timeseries/pair-metrics`, `/timeseries/institution-metrics` , `/timeseries/market-metrics` with `snake_case` naming convention and without an interval suffix, such as `open_interest_reported_future_usd`
+* Any metric in `/timeseries/asset-metrics`, `/timeseries/exchange-metrics`, `/timeseries/exchange-asset-metrics`, `/timeseries/pair-metrics`, `/timeseries/institution-metrics` , `/timeseries/market-metrics` with `snake_case` naming convention and **without** an interval suffix, such as `open_interest_reported_future_usd`
 * The [Reference Rate](../market-data/reference-rates-overview/reference_rate.md) asset metrics, including `ReferenceRate`, `ReferenceRateUSD`, `ReferenceRateEUR`, etc. which follow an older convention before we adopted snake case.
 
 The following API endpoints serve data using the beginning-of-interval convention:
@@ -75,7 +75,7 @@ The following API endpoints serve data using the beginning-of-interval conventio
 * `/timeseries/pair-candles`
 * `/timeseries/market-candles`
 * Any metric in `/timeseries/asset-metrics` with upper camel case (ex: `UpperCamelCase`) naming convention
-* Any metric in `/timeseries/asset-metrics`, `/timeseries/exchange-metrics`, `/timeseries/exchange-asset-metrics`, `/timeseries/pair-metrics`, `/timeseries/institution-metrics`, `/timeseries/market-metrics` with `snake_case` naming convention and with an interval suffix, such as `volume_reported_future_perpetual_usd_1d`
+* Any metric in `/timeseries/asset-metrics`, `/timeseries/exchange-metrics`, `/timeseries/exchange-asset-metrics`, `/timeseries/pair-metrics`, `/timeseries/institution-metrics`, `/timeseries/market-metrics` with `snake_case` naming convention and **with** an interval suffix, such as `volume_reported_future_perpetual_usd_1d`
 
 </details>
 
