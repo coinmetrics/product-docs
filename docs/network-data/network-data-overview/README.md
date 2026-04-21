@@ -40,21 +40,21 @@ Released exchange flow metrics for ETH on the Huobi (HTX) exchange. For details 
 {% endupdate %}
 
 {% update date="2026-04-02" %}
-## Added New Assets to ND Metrics
+## Expand CapMrktEstUSD to New Assets
 
-Added the following assets to Network Data metrics:
+Added estimated market cap to the following new assets:
 
 <details>
 
-<summary>New Assets Added</summary>
+<summary>Estimated Market Cap added to the following assets:</summary>
 
-* APR - aPriori
-* DMC - DeLorean
-* OBOL
-* PRO
-* SSV - SSV Network
-* TUT
-* ZEREBRO
+1. apr
+2. dmc
+3. obol
+4. pro
+5. ssv
+6. tut
+7. zerebro
 
 </details>
 {% endupdate %}
