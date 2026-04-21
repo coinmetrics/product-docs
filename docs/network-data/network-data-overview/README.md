@@ -60,9 +60,9 @@ Added the following assets to Network Data metrics:
 {% endupdate %}
 
 {% update date="2026-04-01" %}
-## Added xStocks and RWA Tokens on Ethereum to ND Metrics
+## Added xStocks on Ethereum to ND Metrics
 
-Added Network Data metrics for xStock tokenized equities and Real World Asset (RWA) tokens on Ethereum. This includes Backed Finance xStocks, tokenized US Treasury funds, and other ERC-20 assets tracked via Atlas.
+Added Network Data metrics for xStock tokenized equities on Ethereum. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
 
 <details>
 
@@ -145,33 +145,8 @@ Added Network Data metrics for xStock tokenized equities and Real World Asset (R
 * VTX\_ETH - Vertex xStock on Ethereum
 * VX\_ETH - Vega xStock on Ethereum
 * WMTX\_WALMARTXSTOCK\_ETH - Walmart xStock on Ethereum
-* XOMX\_ETH - ExxonMobil xStock on Ethereum
-
-</details>
-
-<details>
-
-<summary>RWA and other ERC-20 tokens added:</summary>
-
-* BENJI\_ETH - Franklin OnChain U.S. Government Money Fund on Ethereum
-* FDIT\_ETH - Fidelity Digital Interest Token on Ethereum
-* JAAA\_ETH - Janus Henderson AAA CLO Fund on Ethereum
-* JTRSY\_ETH - Janus Henderson Anemoy Treasury Fund on Ethereum
-* MNT\_ETH - Mantle on Ethereum
-* ONDO\_ETH - Ondo Finance on Ethereum
-* OUSG\_ETH - Ondo Short-Term U.S. Government Bond Fund on Ethereum
-* PEPE\_ETH - Pepe on Ethereum
-* TBILL\_ETH - OpenEden T-Bills on Ethereum
-* USDTB\_ETH - USDTb on Ethereum
-* USDY\_ETH - Ondo U.S. Dollar Yield on Ethereum
-* USTB\_ETH - Superstate Short Duration U.S. Government Securities Fund on Ethereum
-* USYC\_ETH - US Yield Coin on Ethereum
-* VBILL\_ETH - VanEck Treasury Fund on Ethereum
-* WBETH\_ETH - Wrapped Binance Beacon ETH on Ethereum
 * WTGXX\_ETH - WisdomTree Government Money Market Digital Fund on Ethereum
-* USDC\_ARB.ETH - USDC on Arbitrum
-* USDS\_ETH - USDS Stablecoin on Ethereum
-* XSGD\_XRP - XSGD on XRP
+* XOMX\_ETH - ExxonMobil xStock on Ethereum
 
 </details>
 {% endupdate %}
