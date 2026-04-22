@@ -27,6 +27,346 @@ Details on the specific metrics are described in the pages linked in this sectio
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-04-22" %}
+## Added Tokenized RWA Assets on Ethereum to ND Metrics
+
+Added Network Data metrics for tokenized Real World Asset (RWA) tokens on Ethereum, including tokenized US Treasury funds and money market funds. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
+
+<details>
+
+<summary>RWA tokens added:</summary>
+
+* BENJI\_ETH - Franklin OnChain U.S. Government Money Fund on Ethereum
+* FDIT\_ETH - Fidelity Digital Interest Token on Ethereum
+* JAAA\_ETH - Janus Henderson Anemoy AAA CLO Fund Token on Ethereum
+* JTRSY\_ETH - Janus Henderson Anemoy Treasury Fund on Ethereum
+* OUSG\_ETH - Ondo Short-Term U.S. Government Bond Fund on Ethereum
+* TBILL\_ETH - OpenEden T-Bills on Ethereum
+* USDY\_ETH - Ondo U.S. Dollar Yield on Ethereum
+* USTB\_ETH - Superstate Short Duration U.S. Government Securities Fund on Ethereum
+* VBILL\_ETH - VanEck Treasury Fund on Ethereum
+
+</details>
+{% endupdate %}
+
+{% update date="2026-04-16" %}
+## Added BUIDL\_SOL to Network Data Metrics
+
+Added metrics support for BlackRock's BUIDL tokenized money market fund on Solana (`buidl_sol`). For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
+{% endupdate %}
+
+{% update date="2026-04-02" %}
+## Added Huobi Exchange Flows for ETH
+
+Released exchange flow metrics for ETH on the Huobi (HTX) exchange. For details on the supported metrics please refer to the [exchange](exchange/ "mention") page. For details on Exchange Flow metric coverage please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInExNtv).
+{% endupdate %}
+
+{% update date="2026-04-02" %}
+## Expand CapMrktEstUSD to New Assets
+
+Added estimated market cap to the following new assets:
+
+<details>
+
+<summary>Estimated Market Cap added to the following assets:</summary>
+
+1. apr
+2. dmc
+3. obol
+4. pro
+5. ssv
+6. tut
+7. zerebro
+
+</details>
+{% endupdate %}
+
+{% update date="2026-04-01" %}
+## Added xStocks on Ethereum to ND Metrics
+
+Added Network Data metrics for xStock tokenized equities on Ethereum. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
+
+<details>
+
+<summary>xStock tokens on Ethereum added:</summary>
+
+* AAPLX\_ETH - Apple xStock on Ethereum
+* ABBVX\_ETH - AbbVie xStock on Ethereum
+* ABTX\_ETH - Abbott xStock on Ethereum
+* ACNX\_ETH - Accenture xStock on Ethereum
+* AMBRX\_ETH - Ambarella xStock on Ethereum
+* AMDX\_ETH - AMD xStock on Ethereum
+* AMZNX\_ETH - Amazon xStock on Ethereum
+* APPX\_ETH - Appian xStock on Ethereum
+* AVGOX\_ETH - Avago xStock on Ethereum
+* AZNX\_ETH - AstraZeneca xStock on Ethereum
+* BACX\_ETH - Bank of America xStock on Ethereum
+* BMNRX\_ETH - Bowman xStock on Ethereum
+* BRK.BX\_ETH - Berkshire Hathaway xStock on Ethereum
+* BTBTX\_ETH - Bit Digital xStock on Ethereum
+* BTGOX\_ETH - Bitgold xStock on Ethereum
+* CMCSAX\_ETH - Comcast xStock on Ethereum
+* COINX\_ETH - Coinbase xStock on Ethereum
+* COPXX\_ETH - ConocoPhillips xStock on Ethereum
+* CRCLX\_ETH - Circle xStock on Ethereum
+* CRMX\_ETH - Salesforce xStock on Ethereum
+* CRWDX\_ETH - CrowdStrike xStock on Ethereum
+* CSCOX\_ETH - Cisco xStock on Ethereum
+* CVXX\_ETH - CVS xStock on Ethereum
+* DFDVX\_ETH - DeFi Dev xStock on Ethereum
+* DHRX\_ETH - Danaher xStock on Ethereum
+* GLDX\_ETH - Gold ETF xStock on Ethereum
+* GMEX\_ETH - GM xStock on Ethereum
+* GOOGLX\_ETH - Alphabet xStock on Ethereum
+* GSX\_ETH - Goldman Sachs xStock on Ethereum
+* HDX\_ETH - Home Depot xStock on Ethereum
+* HONX\_ETH - Honeywell xStock on Ethereum
+* HOODX\_ETH - Robinhood xStock on Ethereum
+* IBMX\_ETH - IBM xStock on Ethereum
+* IEMGX\_ETH - iShares Emerging Markets ETF xStock on Ethereum
+* IJRX\_ETH - iShares Small Cap ETF xStock on Ethereum
+* INTCX\_ETH - Intel xStock on Ethereum
+* IWMX\_ETH - iShares Russell 2000 ETF xStock on Ethereum
+* JNJX\_ETH - Johnson & Johnson xStock on Ethereum
+* JPMX\_ETH - JPMorgan xStock on Ethereum
+* KOX\_ETH - Coca-Cola xStock on Ethereum
+* KRAQX\_ETH - Kraken xStock on Ethereum
+* LINX\_ETH - Linkedin xStock on Ethereum
+* LLYX\_ETH - Lilly xStock on Ethereum
+* MAX\_MASTERCARDXSTOCK\_ETH - Mastercard xStock on Ethereum
+* MCDX\_ETH - McDonald's xStock on Ethereum
+* MDTX\_ETH - Medtronic xStock on Ethereum
+* MRKX\_ETH - Merck xStock on Ethereum
+* MRVLX\_ETH - Marvell xStock on Ethereum
+* MSFTX\_ETH - Microsoft xStock on Ethereum
+* MSTRX\_ETH - MicroStrategy xStock on Ethereum
+* NFLXX\_ETH - Netflix xStock on Ethereum
+* NVDAX\_ETH - NVIDIA xStock on Ethereum
+* NVOX\_ETH - Novo Nordisk xStock on Ethereum
+* OPENX\_ETH - OpenAI xStock on Ethereum
+* ORCLX\_ETH - Oracle xStock on Ethereum
+* PALLX\_ETH - Palladium ETF xStock on Ethereum
+* PEPX\_ETH - PepsiCo xStock on Ethereum
+* PFEX\_ETH - Pfizer xStock on Ethereum
+* PGX\_ETH - Procter & Gamble xStock on Ethereum
+* PLTRX\_ETH - Palantir xStock on Ethereum
+* PMX\_ETH - Philip Morris xStock on Ethereum
+* PPLTX\_ETH - PPL xStock on Ethereum
+* QQQX\_ETH - Nasdaq 100 ETF xStock on Ethereum
+* SCHFX\_ETH - Schwab International ETF xStock on Ethereum
+* SLVX\_ETH - Silver ETF xStock on Ethereum
+* SPYX\_ETH - S&P 500 ETF xStock on Ethereum
+* STRCX\_ETH - Strategy xStock on Ethereum
+* TBLLX\_ETH - T-Bill xStock on Ethereum
+* TMOX\_ETH - Thermo Fisher xStock on Ethereum
+* TONXX\_ETH - TON xStock on Ethereum
+* TQQQX\_ETH - 3x Nasdaq ETF xStock on Ethereum
+* TSLAX\_ETH - Tesla xStock on Ethereum
+* UNHX\_ETH - UnitedHealth xStock on Ethereum
+* VTIX\_ETH - Viti xStock on Ethereum
+* VTX\_ETH - Vertex xStock on Ethereum
+* VX\_ETH - Vega xStock on Ethereum
+* WMTX\_WALMARTXSTOCK\_ETH - Walmart xStock on Ethereum
+* WTGXX\_ETH - WisdomTree Government Money Market Digital Fund on Ethereum
+* XOMX\_ETH - ExxonMobil xStock on Ethereum
+
+</details>
+{% endupdate %}
+
+{% update date="2026-03-31" %}
+## Expanded CapMrktEstUSD to 150+ New Assets
+
+Added estimated market cap to over 150 new assets.
+
+<details>
+
+<summary>Estimated Market Cap added to the following assets:</summary>
+
+a2z\
+a8\
+ace\_fusionist\
+acs\
+act\
+acx\
+aero\
+aevo\
+aixbt\
+allo\
+arty\
+awe\
+b3\
+ban\
+bananas31\
+babydoge\
+beamx\
+bigtime\
+blast\
+bluai\
+blue\
+bmt\
+camp\
+carv\
+cat\
+cati\
+cetus\
+cgpt\
+chillguy\
+clanker\
+cloud\
+cookie\
+coq\
+cow\
+cspr\
+cta\
+cxt\
+degen\
+dogs\
+dolo\
+dood\
+duck\
+dym\
+ela\
+elizaos\
+ept\
+era\
+es\
+f\
+fhe\
+fitfi\
+flock\
+fort\
+g\
+giga\
+goat\
+gps\
+griffain\
+gtai\
+gun\
+haedal\
+high\
+hippo\
+hmstr\
+home\
+house\
+hpos10i\
+htx\
+hyper\
+init\
+io\
+j\
+kas\
+kernel\
+lat\
+linea\
+lista\
+lmwr\
+lrds\
+manta\
+mavia\
+melania\
+memefi\
+mew\
+michi\
+mmt\
+mubarak\
+naka\
+navx\
+neirocto\
+nil\
+nom\_nomina\
+ntrn\
+obt\
+one\_harmony\
+open\_openledger\
+parti\
+planck\
+polyx\
+ponke\
+prcl\
+puffer\
+rdnt\
+resolv\
+rez\
+rss3\
+saga\
+sapien\
+saros\
+sca\
+sfund\
+shell\
+sign\
+solv\
+somi\
+sonic\
+soph\
+spa\
+sqd\
+sto\
+swarms\
+sweat\
+swell\
+sxt\
+syn\
+synd\
+taiko\
+time\
+token\
+towns\
+trump\
+trust\
+turbo\
+usual\
+uxlink\
+vanry\
+velo\_velodromefinance\
+vic\
+vine\
+vinu\
+vvv\
+wct\
+well\
+win\_wink\
+wmtx\
+xan\
+xch\
+xion\
+xter\
+yb\
+zbt\
+zeus\
+zig\
+zkc\
+zora\
+zrx
+
+</details>
+{% endupdate %}
+
+{% update date="2026-03-16" %}
+## Added XRP Token Metrics
+
+Added Network Data metrics support for tokens on the XRP Ledger. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
+
+<details>
+
+<summary>XRP tokens added:</summary>
+
+* EURCV\_XRP - EUR CoinVertible on XRP
+* OUSG\_XRP - Ondo Short-Term U.S. Government Bond Fund on XRP
+* RLUSD\_XRP - Ripple USD on XRP
+* TBILL\_XRP - OpenEden T-Bill on XRP
+* USDC\_XRP - USD Coin on XRP
+* XSGD\_XRP - XSGD on XRP
+
+</details>
+{% endupdate %}
+
+{% update date="2026-03-10" %}
+## Extended Economically Active Addresses to BTC
+
+Extended the `AdrActUSD1Cnt` metric to Bitcoin, capturing addresses that transacted at least 1 USD in a single transfer. This metric was previously available for Ethereum and Solana. For full details refer to the [documentation](https://docs.coinmetrics.io/network-data/network-data-overview/addresses/active-addresses#economically-active-addresses). For full coverage details refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/AdrActUSD1Cnt).
+{% endupdate %}
+
 {% update date="2026-02-24" %}
 ## Added Economically Relevant Addresses
 
