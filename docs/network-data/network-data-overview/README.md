@@ -27,6 +27,28 @@ Details on the specific metrics are described in the pages linked in this sectio
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-04-22" %}
+## Added Tokenized RWA Assets on Ethereum to ND Metrics
+
+Added Network Data metrics for tokenized Real World Asset (RWA) tokens on Ethereum, including tokenized US Treasury funds and money market funds. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
+
+<details>
+
+<summary>RWA tokens added:</summary>
+
+* BENJI\_ETH - Franklin OnChain U.S. Government Money Fund on Ethereum
+* FDIT\_ETH - Fidelity Digital Interest Token on Ethereum
+* JAAA\_ETH - Janus Henderson Anemoy AAA CLO Fund Token on Ethereum
+* JTRSY\_ETH - Janus Henderson Anemoy Treasury Fund on Ethereum
+* OUSG\_ETH - Ondo Short-Term U.S. Government Bond Fund on Ethereum
+* TBILL\_ETH - OpenEden T-Bills on Ethereum
+* USDY\_ETH - Ondo U.S. Dollar Yield on Ethereum
+* USTB\_ETH - Superstate Short Duration U.S. Government Securities Fund on Ethereum
+* VBILL\_ETH - VanEck Treasury Fund on Ethereum
+
+</details>
+{% endupdate %}
+
 {% update date="2026-04-16" %}
 ## Added BUIDL\_SOL to Network Data Metrics
 
