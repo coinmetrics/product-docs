@@ -241,25 +241,6 @@ Added support for four additional tokenized Real World Asset tokens on Ethereum.
 Added support for AZNX\_ETH (AstraZeneca xStock on Ethereum).
 {% endupdate %}
 
-{% update date="2026-03-09" %}
-## Added New ERC-20 Tokens on Ethereum
-
-Added support for a new batch of ERC-20 tokens on Ethereum.
-
-<details>
-
-<summary>Assets Added</summary>
-
-* MNT\_ETH - Mantle on Ethereum
-* ONDO\_ETH - Ondo Finance on Ethereum
-* PEPE\_ETH - Pepe on Ethereum
-* USDTB\_ETH - USDTb on Ethereum
-* USYC\_ETH - US Yield Coin on Ethereum
-* WBETH\_ETH - Wrapped Binance Beacon ETH on Ethereum
-
-</details>
-{% endupdate %}
-
 {% update date="2026-02-27" %}
 ## Added xStock Tokenized Equities on Ethereum
 
