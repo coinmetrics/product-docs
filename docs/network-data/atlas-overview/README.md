@@ -235,19 +235,6 @@ Added support for four additional tokenized Real World Asset tokens on Ethereum.
 </details>
 {% endupdate %}
 
-{% update date="2026-03-17" %}
-## Renamed xStock Tickers
-
-Corrected tickers for four xStock tokens to align with the standardized naming convention.
-
-| Old Ticker | New Ticker |
-|---|---|
-| ABBV\_ETH | ABBVX\_ETH |
-| CMCSA\_ETH | CMCSAX\_ETH |
-| CRWD\_ETH | CRWDX\_ETH |
-| WMTX\_ETH | WMTX\_WALMARTXSTOCK\_ETH |
-{% endupdate %}
-
 {% update date="2026-03-11" %}
 ## Added AstraZeneca xStock on Ethereum
 
@@ -255,15 +242,14 @@ Added support for AZNX\_ETH (AstraZeneca xStock on Ethereum).
 {% endupdate %}
 
 {% update date="2026-03-09" %}
-## Added New ERC-20 and Bitcoin Cash Support
+## Added New ERC-20 Tokens on Ethereum
 
-Added support for Bitcoin Cash and a new batch of ERC-20 tokens on Ethereum.
+Added support for a new batch of ERC-20 tokens on Ethereum.
 
 <details>
 
 <summary>Assets Added</summary>
 
-* BCH - Bitcoin Cash
 * MNT\_ETH - Mantle on Ethereum
 * ONDO\_ETH - Ondo Finance on Ethereum
 * PEPE\_ETH - Pepe on Ethereum
@@ -277,7 +263,7 @@ Added support for Bitcoin Cash and a new batch of ERC-20 tokens on Ethereum.
 {% update date="2026-02-27" %}
 ## Added xStock Tokenized Equities on Ethereum
 
-Added support for ~80 Backed Finance xStock tokenized equities and related tokens on Ethereum.
+Added support for ~80 Backed Finance xStock tokenized equities on Ethereum.
 
 <details>
 
@@ -363,20 +349,6 @@ Added support for ~80 Backed Finance xStock tokenized equities and related token
 
 </details>
 
-<details>
-
-<summary>Other tokens added:</summary>
-
-* USDC\_ARB.ETH - USDC on Arbitrum
-* USDS\_ETH - USDS Stablecoin on Ethereum
-* WETH.E\_ARB.ETH - WETH on Arbitrum
-* WSTETH.E\_BASE.ETH - wstETH on Base
-* WSTETH.E\_OP.ETH - wstETH on Optimism
-* XIDR\_ETH - XIDR on Ethereum
-* XSGD\_ETH - XSGD on Ethereum
-* XSGD\_XRP - XSGD on XRP Ledger
-
-</details>
 {% endupdate %}
 
 {% update date="2026-02-18" %}
