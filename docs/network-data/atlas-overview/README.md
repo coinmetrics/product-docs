@@ -218,6 +218,173 @@ Added support for US Treasury tokens on ETH + OUSG\_XRP
 </details>
 {% endupdate %}
 
+{% update date="2026-03-18" %}
+## Added Tokenized Treasury and Money Market Fund Tokens
+
+Added support for four additional tokenized Real World Asset tokens on Ethereum.
+
+<details>
+
+<summary>Tokens Added</summary>
+
+* BENJI\_ETH - Franklin OnChain U.S. Government Money Fund on Ethereum
+* FDIT\_ETH - Fidelity Digital Interest Token on Ethereum
+* TBILL\_ETH - OpenEden T-Bills on Ethereum
+* VBILL\_ETH - VanEck Treasury Fund on Ethereum
+
+</details>
+{% endupdate %}
+
+{% update date="2026-03-17" %}
+## Renamed xStock Tickers
+
+Corrected tickers for four xStock tokens to align with the standardized naming convention.
+
+| Old Ticker | New Ticker |
+|---|---|
+| ABBV\_ETH | ABBVX\_ETH |
+| CMCSA\_ETH | CMCSAX\_ETH |
+| CRWD\_ETH | CRWDX\_ETH |
+| WMTX\_ETH | WMTX\_WALMARTXSTOCK\_ETH |
+{% endupdate %}
+
+{% update date="2026-03-11" %}
+## Added AstraZeneca xStock on Ethereum
+
+Added support for AZNX\_ETH (AstraZeneca xStock on Ethereum).
+{% endupdate %}
+
+{% update date="2026-03-09" %}
+## Added New ERC-20 and Bitcoin Cash Support
+
+Added support for Bitcoin Cash and a new batch of ERC-20 tokens on Ethereum.
+
+<details>
+
+<summary>Assets Added</summary>
+
+* BCH - Bitcoin Cash
+* MNT\_ETH - Mantle on Ethereum
+* ONDO\_ETH - Ondo Finance on Ethereum
+* PEPE\_ETH - Pepe on Ethereum
+* USDTB\_ETH - USDTb on Ethereum
+* USYC\_ETH - US Yield Coin on Ethereum
+* WBETH\_ETH - Wrapped Binance Beacon ETH on Ethereum
+
+</details>
+{% endupdate %}
+
+{% update date="2026-02-27" %}
+## Added xStock Tokenized Equities on Ethereum
+
+Added support for ~80 Backed Finance xStock tokenized equities and related tokens on Ethereum.
+
+<details>
+
+<summary>xStock tokens added:</summary>
+
+* AAPLX\_ETH - Apple xStock on Ethereum
+* ABBVX\_ETH - AbbVie xStock on Ethereum
+* ABTX\_ETH - Abbott xStock on Ethereum
+* ACNX\_ETH - Accenture xStock on Ethereum
+* AMBRX\_ETH - Ambarella xStock on Ethereum
+* AMDX\_ETH - AMD xStock on Ethereum
+* AMZNX\_ETH - Amazon xStock on Ethereum
+* APPX\_ETH - Appian xStock on Ethereum
+* AVGOX\_ETH - Avago xStock on Ethereum
+* BACX\_ETH - Bank of America xStock on Ethereum
+* BMNRX\_ETH - Bowman xStock on Ethereum
+* BRK.BX\_ETH - Berkshire Hathaway xStock on Ethereum
+* BTBTX\_ETH - Bit Digital xStock on Ethereum
+* BTGOX\_ETH - Bitgold xStock on Ethereum
+* CMCSAX\_ETH - Comcast xStock on Ethereum
+* COINX\_ETH - Coinbase xStock on Ethereum
+* COPXX\_ETH - ConocoPhillips xStock on Ethereum
+* CRCLX\_ETH - Circle xStock on Ethereum
+* CRMX\_ETH - Salesforce xStock on Ethereum
+* CRWDX\_ETH - CrowdStrike xStock on Ethereum
+* CSCOX\_ETH - Cisco xStock on Ethereum
+* CVXX\_ETH - CVS xStock on Ethereum
+* DFDVX\_ETH - DeFi Dev xStock on Ethereum
+* DHRX\_ETH - Danaher xStock on Ethereum
+* GLDX\_ETH - Gold ETF xStock on Ethereum
+* GMEX\_ETH - GM xStock on Ethereum
+* GOOGLX\_ETH - Alphabet xStock on Ethereum
+* GSX\_ETH - Goldman Sachs xStock on Ethereum
+* HDX\_ETH - Home Depot xStock on Ethereum
+* HONX\_ETH - Honeywell xStock on Ethereum
+* HOODX\_ETH - Robinhood xStock on Ethereum
+* IBMX\_ETH - IBM xStock on Ethereum
+* IEMGX\_ETH - iShares Emerging Markets ETF xStock on Ethereum
+* IJRX\_ETH - iShares Small Cap ETF xStock on Ethereum
+* INTCX\_ETH - Intel xStock on Ethereum
+* IWMX\_ETH - iShares Russell 2000 ETF xStock on Ethereum
+* JNJX\_ETH - Johnson & Johnson xStock on Ethereum
+* JPMX\_ETH - JPMorgan xStock on Ethereum
+* KOX\_ETH - Coca-Cola xStock on Ethereum
+* KRAQX\_ETH - Kraken xStock on Ethereum
+* LINX\_ETH - LinkedIn xStock on Ethereum
+* LLYX\_ETH - Lilly xStock on Ethereum
+* MAX\_MASTERCARDXSTOCK\_ETH - Mastercard xStock on Ethereum
+* MCDX\_ETH - McDonald's xStock on Ethereum
+* MDTX\_ETH - Medtronic xStock on Ethereum
+* MRKX\_ETH - Merck xStock on Ethereum
+* MRVLX\_ETH - Marvell xStock on Ethereum
+* MSFTX\_ETH - Microsoft xStock on Ethereum
+* MSTRX\_ETH - MicroStrategy xStock on Ethereum
+* NFLXX\_ETH - Netflix xStock on Ethereum
+* NVDAX\_ETH - NVIDIA xStock on Ethereum
+* NVOX\_ETH - Novo Nordisk xStock on Ethereum
+* OPENX\_ETH - OpenAI xStock on Ethereum
+* ORCLX\_ETH - Oracle xStock on Ethereum
+* PALLX\_ETH - Palladium ETF xStock on Ethereum
+* PEPX\_ETH - PepsiCo xStock on Ethereum
+* PFEX\_ETH - Pfizer xStock on Ethereum
+* PGX\_ETH - Procter & Gamble xStock on Ethereum
+* PLTRX\_ETH - Palantir xStock on Ethereum
+* PMX\_ETH - Philip Morris xStock on Ethereum
+* PPLTX\_ETH - PPL xStock on Ethereum
+* QQQX\_ETH - Nasdaq 100 ETF xStock on Ethereum
+* SCHFX\_ETH - Schwab International ETF xStock on Ethereum
+* SLVX\_ETH - Silver ETF xStock on Ethereum
+* SPYX\_ETH - S&P 500 ETF xStock on Ethereum
+* STRCX\_ETH - Strategy xStock on Ethereum
+* TBLLX\_ETH - T-Bill xStock on Ethereum
+* TMOX\_ETH - Thermo Fisher xStock on Ethereum
+* TONXX\_ETH - TON xStock on Ethereum
+* TQQQX\_ETH - 3x Nasdaq ETF xStock on Ethereum
+* TSLAX\_ETH - Tesla xStock on Ethereum
+* UNHX\_ETH - UnitedHealth xStock on Ethereum
+* VTIX\_ETH - Viti xStock on Ethereum
+* VTX\_ETH - Vertex xStock on Ethereum
+* VX\_ETH - Vega xStock on Ethereum
+* WMTX\_WALMARTXSTOCK\_ETH - Walmart xStock on Ethereum
+* XOMX\_ETH - ExxonMobil xStock on Ethereum
+
+</details>
+
+<details>
+
+<summary>Other tokens added:</summary>
+
+* USDC\_ARB.ETH - USDC on Arbitrum
+* USDS\_ETH - USDS Stablecoin on Ethereum
+* WETH.E\_ARB.ETH - WETH on Arbitrum
+* WSTETH.E\_BASE.ETH - wstETH on Base
+* WSTETH.E\_OP.ETH - wstETH on Optimism
+* XIDR\_ETH - XIDR on Ethereum
+* XSGD\_ETH - XSGD on Ethereum
+* XSGD\_XRP - XSGD on XRP Ledger
+
+</details>
+{% endupdate %}
+
+{% update date="2026-02-18" %}
+## Added SoFi USD on Ethereum
+
+Added support for SOFID\_ETH (SoFi USD on Ethereum).
+{% endupdate %}
+
 {% update date="2026-02-10" %}
 ## Added XRP Token Support to Atlas
 
