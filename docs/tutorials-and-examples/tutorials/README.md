@@ -41,7 +41,7 @@ Below are some demonstartion notebooks and videos based on the products used and
 
 **Personas**: Fund Admin, Oracles, Quant Trader, Market Analyst
 
-### [Comparing Volumes of Exchanges and Assets](./#comparing-volumes-of-exchanges-and-asset)
+### [Comparing Volumes of Exchanges and Assets](comparing-volumes-of-exchanges-and-assets.md)
 
 **Products:** [Market Data](broken-reference/)
 
@@ -71,7 +71,7 @@ Below are some demonstartion notebooks and videos based on the products used and
 
 **Personas**: Quant Trader, Market Analyst, Fund Admin
 
-### [Aggregating Options Data](./#aggregating-options-dat)
+### [Aggregating Options Data](md_options_aggregation.md)
 
 **Products:** [Market Data](broken-reference/)
 
@@ -81,7 +81,7 @@ Below are some demonstartion notebooks and videos based on the products used and
 
 **Personas**: Quant Trader, Market Analyst
 
-### [Examining Orderbook Depth](./#examining-orderbook-dept)
+### [Examining Orderbook Depth](md_orderbook_depth.md)
 
 **Products:** [Market Data Feed](broken-reference/)
 
@@ -91,7 +91,7 @@ Below are some demonstartion notebooks and videos based on the products used and
 
 **Personas**: Quant Trader, Market Analyst
 
-### [Aggregating Orderbook Depth to Create Liquidity Metrics](./#aggregating-orderbook-depth-to-create-liquidity-metrics)
+### [Aggregating Orderbook Depth to Create Liquidity Metrics](aggregating-orderbook-depth-to-create-liquidity-metrics.md)
 
 **Products:** [Market Data](broken-reference/)
 
@@ -101,7 +101,7 @@ Below are some demonstartion notebooks and videos based on the products used and
 
 **Personas**: Quant Trader, Market Analyst, Operations/Risk Analyst
 
-### [Exploring Options, Open Interest and Volatility Data](./#exploring-options-open-interest-and-volatility-dat)
+### [Exploring Options, Open Interest and Volatility Data](exploring-options-open-interest-and-volatility-data.md)
 
 **Products:** [Market Data](broken-reference/)
 
@@ -111,7 +111,7 @@ Below are some demonstartion notebooks and videos based on the products used and
 
 **Personas**: Quant Trader, Market Analyst
 
-### [Obtaining Futures Market Liquidations](./#obtaining-futures-market-liquidations)
+### [Obtaining Futures Market Liquidations](obtaining-futures-market-liquidations.md)
 
 **Products:** [Market Data](broken-reference/)
 
@@ -121,7 +121,7 @@ Below are some demonstartion notebooks and videos based on the products used and
 
 **Personas**: Quant Trader, Market Analyst
 
-### [Obtaining Predicted Funding Rates for Futures](./#obtaining-predicted-funding-rates-for-futures)
+### [Obtaining Predicted Funding Rates for Futures](obtaining-predicted-funding-rates-for-futures.md)
 
 **Products:** [Market Data](broken-reference/)
 
@@ -141,7 +141,7 @@ Below are some demonstartion notebooks and videos based on the products used and
 
 **Personas**: Quant Trader, Market Analyst
 
-### [Analyzing BTC Liquidity](./#analyzing-btc-liquidity)
+### [Analyzing BTC Liquidity](analyzing-btc-liquidity.md)
 
 **Products:** [Market Data](../../market-data/market-data-overview/)\
 \
@@ -152,7 +152,7 @@ Below are some demonstartion notebooks and videos based on the products used and
 
 ## Network Data Tutorials
 
-### [Creating Custom Network Data Metrics Using ATLAS](./#creating-custom-network-data-metrics-using-atla)
+### [Creating Custom Network Data Metrics Using ATLAS](atlas_metric_workbench.md)
 
 **Products:** [Network Data](broken-reference/), [ATLAS](../../network-data/atlas-overview/)
 
@@ -162,7 +162,7 @@ Below are some demonstartion notebooks and videos based on the products used and
 
 **Personas**: Quant Trader, On-Chain Researcher
 
-### [Applying Different Types of MarketCap Metrics](./#applying-different-types-of-marketcap-metric)
+### [Applying Different Types of MarketCap Metrics](ndp_marketcap_metrics.md)
 
 **Products:** [Network Data](broken-reference/)
 
@@ -172,7 +172,7 @@ Below are some demonstartion notebooks and videos based on the products used and
 
 **Personas**: On-Chain Researcher, Fund Admin, Trader
 
-### [Comparing the Dominance of Mining Pools Using ATLAS](./#comparing-the-dominance-of-mining-pools-using-atla)
+### [Comparing the Dominance of Mining Pools Using ATLAS](atlas_miner_signatures.md)
 
 **Products:** [Network Data](broken-reference/), [ATLAS](../../network-data/atlas-overview/)
 
@@ -182,7 +182,7 @@ Below are some demonstartion notebooks and videos based on the products used and
 
 **Personas**: On-Chain Researcher, Risk Analyst
 
-### [Using Staking Metrics to Get Yield and Staked Supply](using-staking-metrics-to-get-yield-and-staked-supply.md#resources)
+### [Using Staking Metrics to Get Yield and Staked Supply](using-staking-metrics-to-get-yield-and-staked-supply.md)
 
 **Products:** [Network Data](broken-reference/)
 
@@ -192,7 +192,7 @@ Below are some demonstartion notebooks and videos based on the products used and
 
 **Personas**: Fund Admin, On-Chain Researcher, Operations/Risk Analyst, Trader
 
-### [Granular Insights On-Chain Using Hourly Network Data Metrics](./#granular-insights-on-chain-using-hourly-network-data-metrics)
+### [Granular Insights On-Chain Using Hourly Network Data Metrics](granular-insights-on-chain-using-hourly-network-data-metrics.md)
 
 **Products:** [Network Data](broken-reference/)
 
@@ -224,7 +224,7 @@ Below are some demonstartion notebooks and videos based on the products used and
 
 **Personas**: On-Chain Researcher, Quant Trader, Operations/Risk Analyst
 
-### [Calculating DEX Liquidity Pool Fees and Volumes](./#calculating-dex-liquidity-pool-fees-and-volume)
+### [Calculating DEX Liquidity Pool Fees and Volumes](calculating-dex-liquidity-pool-fees-and-volumes.md)
 
 **Products:** [Network Data](broken-reference/), [ATLAS](../../network-data/atlas-overview/), [Market Data](broken-reference/), [DeFi](../../network-data/defi-data-overview/)
 
@@ -234,7 +234,7 @@ Below are some demonstartion notebooks and videos based on the products used and
 
 **Personas**: OnChain Researcher, Quant Trader
 
-### [Analyzing DeFi Protocol Balance Sheets](./#analyzing-defi-protocol-balance-sheet)
+### [Analyzing DeFi Protocol Balance Sheets](analyzing-defi-protocol-balance-sheets.md)
 
 **Products:** [Network Data](broken-reference/), [DeFi](../../network-data/defi-data-overview/)
 
