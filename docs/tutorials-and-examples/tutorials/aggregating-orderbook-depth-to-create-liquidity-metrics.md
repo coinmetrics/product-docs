@@ -54,7 +54,7 @@ import matplotlib.ticker as mticker
 import matplotlib as mpl
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import matplotlib.image as mpimg
-%matplotlib inline
+# %matplotlib inline
 ```
 
 ```python

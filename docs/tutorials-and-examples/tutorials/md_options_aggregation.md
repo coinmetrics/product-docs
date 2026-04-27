@@ -45,7 +45,7 @@ import matplotlib.ticker as mticker
 from matplotlib.ticker import ScalarFormatter
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-%matplotlib inline
+# %matplotlib inline
 from plotly import graph_objects as go
 ```
 
@@ -358,9 +358,6 @@ v.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, pos: '${:,.1f}'.form
 ## OPEN INTEREST
 
 Open interest represents the number of contracts that are currently outstanding and not settled for a specific derivatives market.
-
-```python
-```
 
 ```python
 # Drop markets without open interest data

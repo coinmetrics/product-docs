@@ -41,7 +41,7 @@ import calendar
 from datetime import date
 import matplotlib.ticker as mtick
 import matplotlib.pyplot as plt
-%matplotlib inline
+# %matplotlib inline
 ```
 
 ```python

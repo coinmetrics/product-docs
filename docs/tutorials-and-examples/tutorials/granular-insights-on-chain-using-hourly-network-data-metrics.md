@@ -41,7 +41,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 from matplotlib.ticker import FuncFormatter
 import warnings
-%matplotlib inline
+# %matplotlib inline
 ```
 
 ```python

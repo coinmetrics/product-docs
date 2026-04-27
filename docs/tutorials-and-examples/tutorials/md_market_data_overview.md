@@ -33,7 +33,7 @@ from coinmetrics.api_client import CoinMetricsClient
 import logging
 import matplotlib.pyplot as plt
 
-%matplotlib inline
+# %matplotlib inline
 ```
 
 ```python

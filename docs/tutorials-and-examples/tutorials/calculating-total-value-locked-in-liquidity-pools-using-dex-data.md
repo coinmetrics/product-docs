@@ -43,7 +43,7 @@ from datetime import timezone as timezone_info
 from dateutil.relativedelta import relativedelta
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
-%matplotlib inline
+# %matplotlib inline
 ```
 
 ```python

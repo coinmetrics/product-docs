@@ -43,7 +43,7 @@ import matplotlib.dates as mdates
 from IPython.display import Markdown as md
 import matplotlib.pyplot as plt
 import plotly.express as px 
-%matplotlib inline
+# %matplotlib inline
 ```
 
 ```python
@@ -179,7 +179,7 @@ pd.DataFrame(exp_markets.loc[exp_markets['exchange'] == 'uniswap_v3_eth'].iloc[0
 | quote\_address       | 6b175474e89094c44da98b954eedeac495271d0f |
 | experimental         | True                                     |
 
-#### DEX markets include metadata for 3 different smart contracts:
+#### DEX markets include metadata for 3 different smart contracts
 
 * **contract\_address:** The address of the liquidity pool contract. Each liquidity pool is a unique instance of a smart contract, deployed at a dedicated address. The pool contract holds both the base and the quote asset.
 * **base\_address:** The address of the ERC-20 token contract associated with the _base_ asset.
@@ -428,7 +428,7 @@ pd.DataFrame(defi_trades.iloc[0])
 | sender            | 3fc91a3afd70395cd496c647d5a6cc9d4b2b7fad          |
 | beneficiary       | 3fc91a3afd70395cd496c647d5a6cc9d4b2b7fad          |
 
-#### Unlike centralized exchanges, where there is an unknown buyer and a seller, each swap is associated with 3 different Ethereum addresses:
+#### Unlike centralized exchanges, where there is an unknown buyer and a seller, each swap is associated with 3 different Ethereum addresses
 
 * **Initiator** is the ethereum address which submitted the transaction as a result of which the swap/liquidity action occurred
 * **Sender** is the ethereum address that invoked the uniswap pool smart contract's function for swapping or adding/removing liquidity

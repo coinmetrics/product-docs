@@ -44,7 +44,7 @@ import matplotlib.ticker as mticker
 from matplotlib.ticker import ScalarFormatter
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-%matplotlib inline
+# %matplotlib inline
 import ast
 import plotly.express as px
 from tqdm import tqdm

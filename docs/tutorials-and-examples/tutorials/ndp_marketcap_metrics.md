@@ -42,7 +42,7 @@ from matplotlib.dates import DateFormatter
 from matplotlib.ticker import FuncFormatter
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-%matplotlib inline
+# %matplotlib inline
 ```
 
 ```python
@@ -56,9 +56,6 @@ logging.basicConfig(
 ```python
 end_time = datetime.today().date()
 start_time = end_time - timedelta(days=90)
-```
-
-```python
 ```
 
 ```python

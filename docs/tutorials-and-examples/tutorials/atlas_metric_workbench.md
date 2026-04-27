@@ -38,7 +38,7 @@ import json
 import logging
 import seaborn as sns
 import matplotlib.pyplot as plt
-%matplotlib inline
+# %matplotlib inline
 from IPython.display import Markdown as md
 ```
 

@@ -44,7 +44,7 @@ from matplotlib.ticker import FuncFormatter
 from matplotlib.dates import DateFormatter
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-%matplotlib inline
+# %matplotlib inline
 ```
 
 ```python
@@ -169,7 +169,7 @@ Name: 151, dtype: object
 
 Open interest represents the number of contracts that are currently outstanding and not settled for a specific derivatives market.
 
-#### Open Interest is available at various levels:
+#### Open Interest is available at various levels
 
 * Assets level (i.e btc)
 * Asset Pair level (i.e. btc-usd)
