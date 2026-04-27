@@ -42,7 +42,7 @@ from datetime import date, datetime, timedelta
 from coinmetrics.api_client import CoinMetricsClient
 
 import matplotlib.pyplot as plt
-%matplotlib inline
+# %matplotlib inline
 ```
 
 ```python

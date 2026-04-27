@@ -47,7 +47,7 @@ from matplotlib.ticker import FormatStrFormatter, FuncFormatter
 from matplotlib import font_manager
 import cmasher as cmr
 import re
-%matplotlib inline
+# %matplotlib inline
 import plotly
 from plotly.subplots import make_subplots
 ```

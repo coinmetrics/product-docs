@@ -30,7 +30,7 @@ curl --compressed "https://api.coinmetrics.io/v4/timeseries/exchange-metrics?exc
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/exchange-metrics?exchanges=binance&metrics=liquidations_reported_future_sell_usd_1d&limit_per_exchange=1&api_key=<your_key>
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/exchange-metrics?exchanges=binance&metrics=liquidations_reported_future_sell_usd_1d&limit_per_exchange=1&api_key=<your_key>')
 print(response)
 ```
 {% endtab %}
@@ -65,7 +65,7 @@ curl --compressed "https://api.coinmetrics.io/v4/timeseries/exchange-asset-metri
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=binance-btc&metrics=liquidations_reported_future_sell_usd_1d&limit_per_exchange_asset=1&api_key=<your_key>
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=binance-btc&metrics=liquidations_reported_future_sell_usd_1d&limit_per_exchange_asset=1&api_key=<your_key>')
 print(response)
 ```
 {% endtab %}
@@ -100,7 +100,7 @@ curl --compressed "https://api.coinmetrics.io/v4/timeseries/pair-metrics?pairs=b
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/pair-metrics?pairs=btc-usd&metrics=liquidations_reported_future_sell_usd_1d&limit_per_pair=1&api_key=<your_key>
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/pair-metrics?pairs=btc-usd&metrics=liquidations_reported_future_sell_usd_1d&limit_per_pair=1&api_key=<your_key>')
 print(response)
 ```
 {% endtab %}

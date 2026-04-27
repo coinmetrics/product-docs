@@ -188,7 +188,7 @@ max_time = trades['max_time']
 
 {% tab title="V1" %}
 ```python
-trades = client.catalog_market_trades(markets='coinbase-btc-usd-spot'))
+trades = client.catalog_market_trades(markets='coinbase-btc-usd-spot')
 min_time = trades[0]['min_time']
 max_time = trades[0]['max_time']
 ```

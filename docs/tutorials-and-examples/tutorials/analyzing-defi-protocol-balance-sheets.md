@@ -47,7 +47,7 @@ import matplotlib.pyplot as plt
 import requests
 import locale
 import ast
-%matplotlib inline
+# %matplotlib inline
 ```
 
 ```python

@@ -48,7 +48,7 @@ curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=futures_cumulative_funding_rate_usd_margin_1d&limit_per_asset=1&api_key=<your_key>
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=futures_cumulative_funding_rate_usd_margin_1d&limit_per_asset=1&api_key=<your_key>')
 print(response)
 ```
 {% endtab %}
@@ -83,7 +83,7 @@ curl --compressed "https://api.coinmetrics.io/v4/timeseries/exchange-asset-metri
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=binance-btc&metrics=futures_cumulative_funding_rate_usd_margin_1d&limit_per_exchange_asset=1&api_key=<your_key>
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=binance-btc&metrics=futures_cumulative_funding_rate_usd_margin_1d&limit_per_exchange_asset=1&api_key=<your_key>')
 print(response)
 ```
 {% endtab %}

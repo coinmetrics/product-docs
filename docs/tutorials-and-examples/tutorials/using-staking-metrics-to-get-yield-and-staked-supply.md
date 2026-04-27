@@ -37,7 +37,7 @@ from coinmetrics.api_client import CoinMetricsClient
 import logging
 import matplotlib.pyplot as plt
 import warnings
-%matplotlib inline
+# %matplotlib inline
 ```
 
 ```python

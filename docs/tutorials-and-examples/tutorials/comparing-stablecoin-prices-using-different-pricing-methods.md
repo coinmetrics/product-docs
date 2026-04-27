@@ -47,7 +47,7 @@ from matplotlib.ticker import NullFormatter
 import matplotlib.pyplot as plt
 import plotly.express as px 
 import numpy as np
-%matplotlib inline
+# %matplotlib inline
 ```
 
 ```python
