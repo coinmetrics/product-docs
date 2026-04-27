@@ -3,6 +3,40 @@ stages:
   - test
   - update_docs
 
+# ---------------------------------------------------------------------------
+# Python client docs sync
+# ---------------------------------------------------------------------------
+# The Python client documentation under docs/access-our-data/python-client/
+# is generated from docstrings in api-client-python/coinmetrics/ by
+# api-client-python/scripts/build_docs.py. The job below regenerates the docs
+# and fails if the working tree drifts from what is committed, ensuring the
+# rendered GitBook content stays in sync with the vendored source.
+
+python-client-docs:
+  stage: test
+  image: python:3.11-slim
+  rules:
+    - changes:
+        - api-client-python/coinmetrics/**/*
+        - api-client-python/docs-src/**/*
+        - api-client-python/scripts/**/*
+        - api-client-python/CHANGELOG.md
+  before_script:
+    - apt-get update && apt-get install -y --no-install-recommends git
+  script:
+    - cd api-client-python
+    - python scripts/build_docs.py
+    - cd ..
+    - |
+      if ! git diff --quiet -- docs/access-our-data/python-client docs/SUMMARY.md; then
+        echo "Python client docs are out of date."
+        echo "Run 'cd api-client-python && python scripts/build_docs.py' locally and commit the result."
+        git --no-pager diff -- docs/access-our-data/python-client docs/SUMMARY.md
+        exit 1
+      fi
+  tags:
+    - svc-docker
+
 build-docs-test:
   image: docker:27.0.3
   stage: build

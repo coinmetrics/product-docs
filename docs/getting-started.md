@@ -44,7 +44,7 @@ We offer convenient wrappers for our API in different languages.
 
 #### **Python Users**
 
-[python-client.md](access-our-data/python-client.md "mention")
+[python-client](access-our-data/python-client/README.md "mention")
 
 **R Users**
 

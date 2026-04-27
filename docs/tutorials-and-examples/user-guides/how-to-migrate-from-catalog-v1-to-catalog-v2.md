@@ -8,7 +8,7 @@ Switching between Catalog to Catalog V2 requires a subtle change in how to think
 
 * Use catalog-v2 to get information on **when** a **data type** is present.
 * Use reference-data to get information on **which** **entities** are available and descriptions of **what** they are.
-* catalog-v2 and reference-data take **less time** to retrieve data per call and go through pagination (which the [python-client.md](../../access-our-data/python-client.md "mention") automatically takes care of).
+* catalog-v2 and reference-data take **less time** to retrieve data per call and go through pagination (which the [python-client](../../access-our-data/python-client/README.md "mention") automatically takes care of).
 
 For more information on the reasoning behind the catalog migration, see [catalog-v1-v2-migration.md](../../access-our-data/api/catalog-v1-v2-migration.md "mention")
 
