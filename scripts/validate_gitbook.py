@@ -159,84 +159,132 @@ def check_summary_files(docs_dir):
 
 
 def find_orphaned_files(docs_dir):
-    """Find markdown files not referenced in SUMMARY.md."""
+    """Find markdown files not referenced in SUMMARY.md or as a .gitbook.yaml redirect target."""
     summary_files, error = parse_summary_md(docs_dir)
     if error:
         return []
-    
+
     # Normalize summary files to set
     summary_set = set(summary_files)
-    
+
+    # Also collect all redirect targets from .gitbook.yaml — a file that is a
+    # redirect target is reachable even if it's not listed in SUMMARY.md.
+    gitbook_data, _ = load_gitbook_yaml(docs_dir)
+    redirect_targets = set()
+    if gitbook_data and 'redirects' in gitbook_data:
+        for target in gitbook_data['redirects'].values():
+            redirect_targets.add(str(target))
+
     # Find all markdown files
     all_md_files = []
-    
     for md_file in docs_dir.rglob('*.md'):
-        # Get relative path from docs/
         rel_path = md_file.relative_to(docs_dir)
         all_md_files.append(rel_path.as_posix())
-    
-    # Find orphans (excluding SUMMARY.md and README.md at root)
+
+    # Find orphans (excluding SUMMARY.md, root README.md, and redirect targets)
     orphans = []
     for md_file in all_md_files:
-        if md_file not in summary_set and md_file not in ['SUMMARY.md', 'README.md']:
+        if (md_file not in summary_set
+                and md_file not in ['SUMMARY.md', 'README.md']
+                and md_file not in redirect_targets):
             orphans.append(md_file)
-    
+
     return orphans
 
 
 def extract_image_references(docs_dir):
-    """Extract all image references, resolving relative paths."""
+    """Extract all asset references from markdown files, resolving relative paths.
+
+    Covers all reference patterns used in GitBook markdown:
+      1. Markdown images:        ![alt](path/to/file.png)
+      2. Markdown links:         [text](path/to/file.pdf)
+      3. GitBook file blocks:    {% file src="path/to/file.ipynb" %}
+      4. GitBook content-ref:    {% content-ref url="path" %}
+      5. HTML src/href attrs:    <img src="...">, <a href="...">
+    """
     images = {}  # resolved_path -> source_file
-    
+
+    # Patterns that yield a single path capture group each
+    RAW_PATTERNS = [
+        # 1. Markdown images:  ![alt](<path>) or ![alt](path)
+        r'!\[.*?\]\((?:<([^>]+)>|((?:\\.|[^\s)#?])+))',
+        # 2. Markdown links (non-image):  [text](<path>) or [text](path)
+        r'(?<!!)\[.*?\]\((?:<([^>]+)>|((?:\\.|[^\s)#?])+))',
+        # 3. GitBook {% file src="..." %} blocks
+        r'\{%[-\s]*file\s+src=["\'](.*?)["\']',
+        # 4. GitBook {% content-ref url="..." %} blocks
+        r'\{%[-\s]*content-ref\s+url=["\'](.*?)["\']',
+        # 5. HTML src/href attributes
+        r'(?:src|href)=["\']([^"\']+)["\']',
+    ]
+
     for md_file in docs_dir.rglob('*.md'):
         md_dir = md_file.parent
-        
+        source_label = md_file.relative_to(docs_dir).as_posix()
+
         with open(md_file, 'r', encoding='utf-8') as f:
             content = f.read()
-        
-        # Fixed regex: handles escaped chars, angle brackets for paths with spaces
-        pattern = r'!\[.*?\]\((?:<([^>]+)>|((?:\\.|[^\s)])+))'
-        matches = re.findall(pattern, content)
-        
-        for match in matches:
-            # match is a tuple: (group1, group2)
-            # Use group1 if matched (angle brackets), otherwise group2 (regular path)
-            path = match[0] if match[0] else match[1]
-            
-            if not path.startswith('http'):
-                # Strip anchors and query strings
-                path = path.split('#')[0].split('?')[0]
-                
-                # Unescape markdown characters
-                unescaped = path.replace('\\(', '(').replace('\\)', ')').replace('\\_', '_')
-                
-                # URL-decode (e.g., %20 -> space)
-                decoded = unquote(unescaped)
-                
-                # Resolve relative to source file's directory
+
+        raw_paths = []
+
+        # Patterns 1 & 2 return tuple matches (angle-bracket group, plain group)
+        for pat in RAW_PATTERNS[:2]:
+            for match in re.findall(pat, content):
+                raw_paths.append(match[0] if match[0] else match[1])
+
+        # Patterns 3-5 return a single string capture group
+        for pat in RAW_PATTERNS[2:]:
+            for match in re.findall(pat, content):
+                raw_paths.append(match)
+
+        for path in raw_paths:
+            if not path or path.startswith('http') or path.startswith('mailto'):
+                continue
+
+            # Strip anchors and query strings
+            path = path.split('#')[0].split('?')[0].strip()
+            if not path:
+                continue
+
+            # Unescape markdown and URL-encode characters
+            unescaped = path.replace('\\(', '(').replace('\\)', ')').replace('\\_', '_')
+            decoded = unquote(unescaped)
+
+            # Resolve relative to source file's directory
+            try:
                 resolved = (md_dir / decoded).resolve()
-                
-                try:
-                    rel_path = resolved.relative_to(docs_dir.resolve())
-                    # Use as_posix() for cross-platform consistency
-                    images[rel_path.as_posix()] = md_file.relative_to(docs_dir).as_posix()
-                except ValueError:
-                    # Path outside docs_dir - skip (will be caught as error later)
-                    pass
-    
+                rel_path = resolved.relative_to(docs_dir.resolve())
+                images[rel_path.as_posix()] = source_label
+            except (ValueError, OSError):
+                # Path outside docs_dir or unresolvable - skip
+                pass
+
     return images
 
 
 def check_image_references(docs_dir):
-    """Check that all referenced images exist."""
+    """Check that all referenced asset files exist.
+
+    Only validates paths that point into .gitbook/assets/ — page links (.md),
+    external URLs, GitBook broken-reference tokens, and other non-asset paths
+    are intentionally skipped here (they are validated elsewhere or are not
+    filesystem resources).
+    """
     images = extract_image_references(docs_dir)
     errors = []
-    
+
     for image_path, source_file in images.items():
+        # Skip anything that isn't a .gitbook/assets/ reference:
+        # - markdown page links (.md files)
+        # - external URLs (http/https)
+        # - GitBook broken-reference tokens
+        # - content-ref page paths without an asset extension
+        if '.gitbook/assets/' not in image_path:
+            continue
         full_path = docs_dir / image_path
         if not full_path.exists():
-            errors.append(f"Referenced image does not exist: {image_path} (referenced in {source_file})")
-    
+            errors.append(f"Referenced asset does not exist: {image_path} (referenced in {source_file})")
+
     return errors
 
 
