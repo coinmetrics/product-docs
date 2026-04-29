@@ -44,11 +44,11 @@ redirects:
   asset-metrics/addresses/walactcnt: network-data/network-data-overview/wallets/active-wallets.md
   asset-metrics/addresses/walactreccnt: network-data/network-data-overview/wallets/active-wallets.md
   asset-metrics/addresses/walactsentcnt: network-data/network-data-overview/wallets/active-wallets.md
-  asset-metrics/availability/assetcompletiontime: network-data/network-data-overview/availability.md
-  asset-metrics/availability/asseteodcompletiontime: network-data/network-data-overview/availability.md
-  asset-metrics/economics/mcrc: network-data/network-data-overview/economics/mining.md#mcrc
-  asset-metrics/economics/mctc: network-data/network-data-overview/economics/mining.md#mctc
-  asset-metrics/economics/momr: network-data/network-data-overview/economics/mining.md#momr
+  asset-metrics/availability/assetcompletiontime: network-data/network-data-overview/availability/README.md
+  asset-metrics/availability/asseteodcompletiontime: network-data/network-data-overview/availability/README.md
+  asset-metrics/economics/mcrc: network-data/network-data-overview/economics/mining.md  # anchor #mcrc removed: GitBook redirect targets do not resolve URL fragments
+  asset-metrics/economics/mctc: network-data/network-data-overview/economics/mining.md  # anchor #mctc removed: GitBook redirect targets do not resolve URL fragments
+  asset-metrics/economics/momr: network-data/network-data-overview/economics/mining.md  # anchor #momr removed: GitBook redirect targets do not resolve URL fragments
   asset-metrics/economics/nvtadj90: network-data/network-data-overview/economics/valuation.md
   asset-metrics/economics/nvtadj: network-data/network-data-overview/economics/valuation.md
   asset-metrics/economics/nvtadjff90: network-data/network-data-overview/economics/valuation.md
@@ -56,7 +56,7 @@ redirects:
   asset-metrics/economics/rctc: network-data/network-data-overview/economics/valuation.md
   asset-metrics/economics/rvtadj90: network-data/network-data-overview/economics/valuation.md
   asset-metrics/economics/rvtadj: network-data/network-data-overview/economics/valuation.md
-  asset-metrics/economics/sopr: network-data/network-data-overview/economics/valuation.md#sopr
+  asset-metrics/economics/sopr: network-data/network-data-overview/economics/valuation.md  # anchor #sopr removed: GitBook redirect targets do not resolve URL fragments
   asset-metrics/economics/soprout: network-data/network-data-overview/economics/valuation.md
   asset-metrics/exchange/flowinbfxntv: network-data/network-data-overview/exchange/deposits.md
   asset-metrics/exchange/flowinbfxusd: network-data/network-data-overview/exchange/deposits.md
@@ -185,26 +185,26 @@ redirects:
   asset-metrics/fees-and-revenue/gaslmttxmean: network-data/network-data-overview/fees-and-revenue/fees.md
   asset-metrics/fees-and-revenue/gasusedtx: network-data/network-data-overview/fees-and-revenue/fees.md
   asset-metrics/fees-and-revenue/gasusedtxmean: network-data/network-data-overview/fees-and-revenue/fees.md
-  asset-metrics/fees-and-revenue/mean-blob-fees-native-units: network-data/network-data-overview/fees-and-revenue/fees.md#mean-blob-fees
-  asset-metrics/fees-and-revenue/mean-blob-fees-usd: network-data/network-data-overview/fees-and-revenue/fees.md#mean-blob-fees
-  asset-metrics/fees-and-revenue/mean-fee-per-blob-byte-native-units: network-data/network-data-overview/fees-and-revenue/fees.md#mean-fee-per-blob-byte
-  asset-metrics/fees-and-revenue/mean-fee-per-blob-byte-usd: network-data/network-data-overview/fees-and-revenue/fees.md#mean-fee-per-blob-byte
-  asset-metrics/fees-and-revenue/mean-fee-per-blob-carrying-transaction-native-units: network-data/network-data-overview/fees-and-revenue/fees.md#mean-fee-per-blob-carrying-transaction
-  asset-metrics/fees-and-revenue/mean-fee-per-blob-carrying-transaction-usd: network-data/network-data-overview/fees-and-revenue/fees.md#mean-fee-per-blob-carrying-transaction
-  asset-metrics/fees-and-revenue/median-blob-fees-native-units: network-data/network-data-overview/fees-and-revenue/fees.md#median-blob-fees
-  asset-metrics/fees-and-revenue/median-blob-fees-usd: network-data/network-data-overview/fees-and-revenue/fees.md#median-blob-fees
+  asset-metrics/fees-and-revenue/mean-blob-fees-native-units: network-data/network-data-overview/fees-and-revenue/blob-fees.md
+  asset-metrics/fees-and-revenue/mean-blob-fees-usd: network-data/network-data-overview/fees-and-revenue/blob-fees.md
+  asset-metrics/fees-and-revenue/mean-fee-per-blob-byte-native-units: network-data/network-data-overview/fees-and-revenue/blob-fees.md
+  asset-metrics/fees-and-revenue/mean-fee-per-blob-byte-usd: network-data/network-data-overview/fees-and-revenue/blob-fees.md
+  asset-metrics/fees-and-revenue/mean-fee-per-blob-carrying-transaction-native-units: network-data/network-data-overview/fees-and-revenue/blob-fees.md
+  asset-metrics/fees-and-revenue/mean-fee-per-blob-carrying-transaction-usd: network-data/network-data-overview/fees-and-revenue/blob-fees.md
+  asset-metrics/fees-and-revenue/median-blob-fees-native-units: network-data/network-data-overview/fees-and-revenue/blob-fees.md
+  asset-metrics/fees-and-revenue/median-blob-fees-usd: network-data/network-data-overview/fees-and-revenue/blob-fees.md
   asset-metrics/fees-and-revenue/revalltimeusd: network-data/network-data-overview/fees-and-revenue/revenue.md
   asset-metrics/fees-and-revenue/revntv: network-data/network-data-overview/fees-and-revenue/revenue.md
   asset-metrics/fees-and-revenue/revusd: network-data/network-data-overview/fees-and-revenue/revenue.md
-  asset-metrics/fees-and-revenue/total-blob-fees-native-units: network-data/network-data-overview/fees-and-revenue/fees.md#total-blob-fees
-  asset-metrics/fees-and-revenue/total-blob-fees-usd: network-data/network-data-overview/fees-and-revenue/fees.md#total-blob-fees
+  asset-metrics/fees-and-revenue/total-blob-fees-native-units: network-data/network-data-overview/fees-and-revenue/blob-fees.md
+  asset-metrics/fees-and-revenue/total-blob-fees-usd: network-data/network-data-overview/fees-and-revenue/blob-fees.md
   asset-metrics/kri/average-hashrate: network-data/network-data-overview/kri/hashrate.md
   asset-metrics/kri/average-mining-reward: network-data/network-data-overview/kri/rewards.md
   asset-metrics/kri/base-fee-for-block: network-data/network-data-overview/kri/block-attributes.md
   asset-metrics/kri/block-count-at-tip: network-data/network-data-overview/kri/blocks.md
   asset-metrics/kri/block-count-by-same-miner: network-data/network-data-overview/kri/blocks.md
-  asset-metrics/kri/block-difficulty-change: network-data/network-data-overview/kri/difficulty.md
-  asset-metrics/kri/block-difficulty: network-data/network-data-overview/kri/difficulty.md
+  asset-metrics/kri/block-difficulty-change: network-data/network-data-overview/mining/difficulty.md
+  asset-metrics/kri/block-difficulty: network-data/network-data-overview/mining/difficulty.md
   asset-metrics/kri/block-max-feerate: network-data/network-data-overview/kri/transaction-feerates.md
   asset-metrics/kri/block-maximum-fees: network-data/network-data-overview/kri/transaction-fees.md
   asset-metrics/kri/block-mean-feerate: network-data/network-data-overview/kri/transaction-feerates.md
@@ -244,8 +244,8 @@ redirects:
   asset-metrics/kri/next-block-minimum-feerate: network-data/network-data-overview/kri/feerates.md
   asset-metrics/kri/non-segwit-blocks: network-data/network-data-overview/kri/blocks.md
   asset-metrics/kri/priority-fee-for-block: network-data/network-data-overview/kri/block-attributes.md
-  asset-metrics/kri/time-between-blocks: network-data/network-data-overview/kri/block-times.md#time_inter_block
-  asset-metrics/kri/time-since-last-block: network-data/network-data-overview/kri/block-times.md#time_since_last_block
+  asset-metrics/kri/time-between-blocks: network-data/network-data-overview/kri/block-times.md  # anchor #time_inter_block removed: GitBook redirect targets do not resolve URL fragments
+  asset-metrics/kri/time-since-last-block: network-data/network-data-overview/kri/block-times.md  # anchor #time_since_last_block removed: GitBook redirect targets do not resolve URL fragments
   asset-metrics/kri/transactions-in-block: network-data/network-data-overview/kri/transactions.md
   asset-metrics/market/capact1yrusd: network-data/network-data-overview/market/market-capitalization.md
   asset-metrics/market/capfutexp10yrusd: network-data/network-data-overview/market/market-capitalization.md
@@ -255,18 +255,18 @@ redirects:
   asset-metrics/market/capmvrvcur: network-data/network-data-overview/market/market-capitalization.md
   asset-metrics/market/capmvrvff: network-data/network-data-overview/market/market-capitalization.md
   asset-metrics/market/caprealusd: network-data/network-data-overview/market/market-capitalization.md
-  asset-metrics/market/futures_aggregate_funding: market-data/market-data-overview/funding-rates/aggregate-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_all_margin_1y_period: market-data/market-data-overview/funding-rates/aggregate-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_all_margin_30d_period: market-data/market-data-overview/funding-rates/aggregate-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_all_margin_8h_period: market-data/market-data-overview/funding-rates/aggregate-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_1d_period: market-data/market-data-overview/funding-rates/aggregate-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_1y_period: market-data/market-data-overview/funding-rates/aggregate-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_30d_period: market-data/market-data-overview/funding-rates/aggregate-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_8h_period: market-data/market-data-overview/funding-rates/aggregate-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_1d_period: market-data/market-data-overview/funding-rates/aggregate-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_1y_period: market-data/market-data-overview/funding-rates/aggregate-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_30d_period: market-data/market-data-overview/funding-rates/aggregate-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_8h_period: market-data/market-data-overview/funding-rates/aggregate-futures-funding-rate.md
+  asset-metrics/market/futures_aggregate_funding: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
+  asset-metrics/market/futures_aggregate_funding_rate_all_margin_1y_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
+  asset-metrics/market/futures_aggregate_funding_rate_all_margin_30d_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
+  asset-metrics/market/futures_aggregate_funding_rate_all_margin_8h_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
+  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_1d_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
+  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_1y_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
+  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_30d_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
+  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_8h_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
+  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_1d_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
+  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_1y_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
+  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_30d_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
+  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_8h_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
   asset-metrics/market/futures_cumulative_funding_rate_all_margin_1d: market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate.md
   asset-metrics/market/futures_cumulative_funding_rate_all_margin_30d: market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate.md
   asset-metrics/market/futures_cumulative_funding_rate_all_margin_7d: market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate.md
@@ -278,8 +278,8 @@ redirects:
   asset-metrics/market/futures_cumulative_funding_rate_usd_margin_7d: market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate.md
   asset-metrics/market/pricebtc: network-data/network-data-overview/market/price.md
   asset-metrics/market/priceusd: network-data/network-data-overview/market/price.md
-  asset-metrics/market/principal_market_price_usd: market-data/market-data-overview/prices/principal_market_price_usd.md
-  asset-metrics/market/principal_market_usd: market-data/market-data-overview/prices/principal_market_price_usd.md
+  asset-metrics/market/principal_market_price_usd: market-data/reference-rates-overview/principal_market_price_usd.md
+  asset-metrics/market/principal_market_usd: market-data/reference-rates-overview/principal_market_price_usd.md
   asset-metrics/market/referencerate: market-data/reference-rates-overview/reference_rate.md
   asset-metrics/market/referenceratebtc: market-data/reference-rates-overview/reference_rate.md
   asset-metrics/market/referenceratechicago0315pm: market-data/reference-rates-overview/reference_rate.md
@@ -294,9 +294,9 @@ redirects:
   asset-metrics/market/roi30d: network-data/network-data-overview/market/returns.md
   asset-metrics/market/utxolossunrealusd: network-data/network-data-overview/market/profitability.md
   asset-metrics/market/utxoprofunrealusd: network-data/network-data-overview/market/profitability.md
-  asset-metrics/market/volatility_realized_usd_rolling_24h: market-data/market-data-overview/volatility/market-realized-volatility.md
-  asset-metrics/market/volatility_realized_usd_rolling_30d: market-data/market-data-overview/volatility/market-realized-volatility.md
-  asset-metrics/market/volatility_realized_usd_rolling_7d: market-data/market-data-overview/volatility/market-realized-volatility.md
+  asset-metrics/market/volatility_realized_usd_rolling_24h: market-data/market-data-overview/volatility/realized-volatility.md
+  asset-metrics/market/volatility_realized_usd_rolling_30d: market-data/market-data-overview/volatility/realized-volatility.md
+  asset-metrics/market/volatility_realized_usd_rolling_7d: market-data/market-data-overview/volatility/realized-volatility.md
   asset-metrics/market/vtydayret180d: network-data/network-data-overview/market/volatility.md
   asset-metrics/market/vtydayret30d: network-data/network-data-overview/market/volatility.md
   asset-metrics/market/vtydayret60d: network-data/network-data-overview/market/volatility.md
@@ -518,9 +518,9 @@ redirects:
   asset-metrics/supply/splytotstkedntv: network-data/network-data-overview/supply/validator-supply.md
   asset-metrics/supply/splyutxoloss: network-data/network-data-overview/supply/profitability.md
   asset-metrics/supply/splyutxoprof: network-data/network-data-overview/supply/profitability.md
-  asset-metrics/transactions/blob-carrying-transaction-count: network-data/network-data-overview/network-usage/transactions.md#blob-carrying-transaction-count
-  asset-metrics/transactions/mean-blob-carrying-transactions-per-block-count: network-data/network-data-overview/network-usage/transactions.md#mean-blob-carrying-transaction-count
-  asset-metrics/transactions/median-blob-carrying-transactions-per-block-count: network-data/network-data-overview/network-usage/transactions.md#median-blob-carrying-transaction-count
+  asset-metrics/transactions/blob-carrying-transaction-count: network-data/network-data-overview/transactions/blobs.md
+  asset-metrics/transactions/mean-blob-carrying-transactions-per-block-count: network-data/network-data-overview/transactions/blobs.md
+  asset-metrics/transactions/median-blob-carrying-transactions-per-block-count: network-data/network-data-overview/transactions/blobs.md
   asset-metrics/transactions/txcnt: network-data/network-data-overview/transactions/transactions.md
   asset-metrics/transactions/txcntsec: network-data/network-data-overview/transactions/transactions.md
   asset-metrics/transactions/txcontcallcnt: network-data/network-data-overview/transactions/contracts.md
@@ -630,13 +630,13 @@ redirects:
   asset-profiles: reference-data/asset-profiles-overview/asset-profiles.md
   atlas/account-balance: network-data/atlas-overview/account-balance.md
   atlas/accounts: network-data/atlas-overview/accounts.md
-  atlas/atlas-explorer-user-interface: network-data/data-visualization/atlas-explorer-user-interface
+  atlas/atlas-explorer-user-interface: data-visualization/atlas-explorer-user-interface.md
   atlas/balance-updates: network-data/atlas-overview/balance-updates.md
   atlas/blocks/full-blocks: network-data/atlas-overview/blocks/README.md
   atlas/blocks: network-data/atlas-overview/blocks/README.md
-  atlas/transactions/full-transaction/full-transaction-info-for-block: network-data/atlas-overview/transactions/full-transaction/full-transaction-info-for-block.md
+  atlas/transactions/full-transaction/full-transaction-info-for-block: network-data/atlas-overview/transactions/full-transaction/full-transaction-for-block.md
   charting-tools/data-visualization/charting-tool/: data-visualization/charting-tool/README.md
-  charting-tools/data-visualization/charting-tool/embedded-charts: data-visualization/charting-tool/embedded-charts.md
+  charting-tools/data-visualization/charting-tool/embedded-charts: data-visualization/charting-tool/embeded-charts.md
   charting-tools/data-visualization/cmpro/troubleshooting: data-visualization/cmpro/troubleshooting.md
   charting-tools/data-visualization/cmpro: data-visualization/cmpro/README.md
   charting-tools/data-visualization/correlation-tool: data-visualization/charting-tool/correlation-tool.md
@@ -644,7 +644,7 @@ redirects:
   charting-tools/data-visualization/dashboard: data-visualization/dashboard/README.md
   charting-tools/data-visualization/formula-builder: data-visualization/charting-tool/formula-builder.md
   charting-tools/data-visualization/trouble-shooting: data-visualization/charting-tool/trouble-shooting.md
-  datonomy-faqs: reference-data/datonomy-overview/datonomy-faqs.md
+  datonomy-faqs: resources/faqs.md
   defi-balance-sheets/defi-balance-sheets-overview: network-data/defi-data-overview/defi-balance-sheets-overview.md
   defi-data/defi-data-overview: network-data/defi-data-overview/README.md
   defi-data/defi-faqs: network-data/defi-data-overview/faqs.md
@@ -686,27 +686,27 @@ redirects:
   exchange-metrics/volume/volume_reported_future_usd_1h: market-data/market-data-overview/volume/volume_reported.md
   exchange-metrics/volume/volume_reported_spot_usd_1d: market-data/market-data-overview/volume/volume_reported.md
   exchange-metrics/volume/volume_reported_spot_usd_1h: market-data/market-data-overview/volume/volume_reported.md
-  indexes-timeseries/index-candles: index-data/index/indexes-timeseries/index-candles
-  indexes-timeseries/index-constituents: index-data/index/indexes-timeseries/index-constituents
-  indexes-timeseries/index-levels: index-data/index/indexes-timeseries/index-levels
-  intitution-metrics-overview/grayscale/coin-per-share: market-data/market-data-overview/intitution-metrics-overview/grayscale/coin-per-share.md
-  intitution-metrics-overview/grayscale/market-price: market-data/market-data-overview/intitution-metrics-overview/grayscale/market-price.md
-  intitution-metrics-overview/grayscale/net-asset-value: market-data/market-data-overview/intitution-metrics-overview/grayscale/net-asset-value.md
-  intitution-metrics-overview/grayscale/shares-outstanding: market-data/market-data-overview/intitution-metrics-overview/grayscale/shares-outstanding.md
-  intitution-metrics-overview/grayscale/total-assets: market-data/market-data-overview/intitution-metrics-overview/grayscale/total-assets.md
-  intitution-metrics-overview/grayscale: market-data/market-data-overview/intitution-metrics-overview/grayscale/README.md
+  indexes-timeseries/index-candles: index-data/index/index-timeseries/index-candles.md
+  indexes-timeseries/index-constituents: index-data/index/index-timeseries/index-constituents.md
+  indexes-timeseries/index-levels: index-data/index/index-timeseries/index-levels.md
+  intitution-metrics-overview/grayscale/coin-per-share: market-data/market-data-overview/institution-metrics-overview/grayscale/coin-per-share.md
+  intitution-metrics-overview/grayscale/market-price: market-data/market-data-overview/institution-metrics-overview/grayscale/market-price.md
+  intitution-metrics-overview/grayscale/net-asset-value: market-data/market-data-overview/institution-metrics-overview/grayscale/net-asset-value.md
+  intitution-metrics-overview/grayscale/shares-outstanding: market-data/market-data-overview/institution-metrics-overview/grayscale/shares-outstanding.md
+  intitution-metrics-overview/grayscale/total-assets: market-data/market-data-overview/institution-metrics-overview/grayscale/total-assets.md
+  intitution-metrics-overview/grayscale: market-data/market-data-overview/institution-metrics-overview/grayscale/README.md
   institution-metrics: market-data/market-data-overview/institution-metrics-overview/README.md
-  market-data-timeseries/futures-funding-rates: market-data/market-data-overview/funding-rates/futures-funding-rates.md
+  market-data-timeseries/futures-funding-rates: market-data/market-data-overview/funding-rates/funding-rates.md
   market-data-timeseries/futures-liquidations: market-data/market-data-overview/liquidations/futures-liquidations.md
-  market-data-timeseries/market-candles: market-data/market-data-overview/candles/candles.md
-  market-data-timeseries/market-contracts: market-data/market-data-overview/contract-prices/market-contract-prices.md
-  market-data-timeseries/market-greeks: market-data/market-data-overview/greeks/market-greeks.md
+  market-data-timeseries/market-candles: market-data/market-data-overview/candles.md
+  market-data-timeseries/market-contracts: market-data/market-data-overview/market-contract-prices.md
+  market-data-timeseries/market-greeks: market-data/market-data-overview/market-greeks.md
   market-data-timeseries/market-implied-volatility: market-data/market-data-overview/volatility/market-implied-volatility.md
   market-data-timeseries/market-metadata: market-data/market-data-overview/market-metadata/market-metadata.md
-  market-data-timeseries/market-orderbooks: market-data/market-data-overview/orderbooks/market-order-book.md
-  market-data-timeseries/market-quotes: market-data/market-data-overview/quotes/quotes.md#market
-  market-data-timeseries/trades: market-data/market-data-overview/trades/trades.md
-  market-data/faqs/market-data-faqs: market-data/faqs/market-data-faqs.md
+  market-data-timeseries/market-orderbooks: market-data/market-data-overview/market-order-book.md
+  market-data-timeseries/market-quotes: market-data/market-data-overview/quotes.md  # anchor #market removed: GitBook redirect targets do not resolve URL fragments
+  market-data-timeseries/trades: market-data/market-data-overview/market-trades.md
+  market-data/faqs/market-data-faqs: resources/faqs.md
   market-metrics/liquidations/liquidations_reported_future_buy_units_1d: market-data/market-data-overview/liquidations/liquidation-metrics.md
   market-metrics/liquidations/liquidations_reported_future_buy_units_1h: market-data/market-data-overview/liquidations/liquidation-metrics.md
   market-metrics/liquidations/liquidations_reported_future_buy_units_5m: market-data/market-data-overview/liquidations/liquidation-metrics.md
@@ -757,9 +757,9 @@ redirects:
   market-metrics/liquidity/liquidity_slippage_50k_bid_percent: market-data/market-data-overview/liquidity/slippage.md
   market-metrics/liquidity/liquidity_slippage_5k_ask_percent: market-data/market-data-overview/liquidity/slippage.md
   market-metrics/liquidity/liquidity_slippage_5k_bid_percent: market-data/market-data-overview/liquidity/slippage.md
-  on-chain-data/asset-metrics-faqs: network-data/network-data-faqs.md
-  on-chain-data/farum-overview: network-data/network-data-overview/kri/kri.md
-  pair-data-timeseries/pair-candles: market-data/market-data-overview/candles/candles.md
+  on-chain-data/asset-metrics-faqs: resources/faqs.md
+  on-chain-data/farum-overview: network-data/network-data-overview/kri/README.md
+  pair-data-timeseries/pair-candles: market-data/market-data-overview/candles.md
   pair-metrics/open-interest/open_interest_reported_future_coin_margined_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
   pair-metrics/open-interest/open_interest_reported_future_nonperpetual_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
   pair-metrics/open-interest/open_interest_reported_future_perpetual_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
@@ -780,8 +780,8 @@ redirects:
   readme-1: product-overview.md
   security-master/assets: reference-data/security-master-overview/assets.md
   security-master/markets: reference-data/security-master-overview/markets.md
-  tagging-data/tagging-meta-data: network-data/tagging-data/tagging-meta-data
+  tagging-data/tagging-meta-data: network-data/tagging-meta-data.md
   taxonomy/taxonomy-for-assets: reference-data/datonomy-overview/taxonomy-for-assets.md
   taxonomy/taxonomy-metadata-for-assets: reference-data/datonomy-overview/taxonomy-metadata-for-assets.md
-  timeseries-stream/asset-quotes: market-data/market-data-overview/quotes/quotes.md#asset
-  timeseries-stream/pair-quotes: market-data/market-data-overview/quotes/quotes.md#pair
+  timeseries-stream/asset-quotes: market-data/market-data-overview/quotes.md  # anchor #asset removed: GitBook redirect targets do not resolve URL fragments
+  timeseries-stream/pair-quotes: market-data/market-data-overview/quotes.md  # anchor #pair removed: GitBook redirect targets do not resolve URL fragments
