@@ -9,8 +9,11 @@ Parses outputs from all test tools and creates:
 
 # Standard library imports
 import json
+import os
 import re
 import sys
+import urllib.parse
+import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
@@ -109,35 +112,119 @@ def parse_lychee(report_path):
     """Parse lychee JSON output."""
     if not report_path.exists():
         return []
-    
+
+    # Domains tracked as INFO (suggestion) rather than errors.
+    # These are authenticated or bot-blocked pages that return non-200 responses
+    # when crawled by a link checker, but we still want visibility in the docs.
+    INFO_DOMAINS = {
+        'atlas.coinmetrics.io',  # Requires login — 403 expected from crawler
+    }
+
+    # For api.coinmetrics.io URLs, lychee sees 401s because the example links
+    # use placeholder api_key values. If CM_API_KEY is set, we re-verify by
+    # substituting the real key and making a fresh request:
+    #   - 2xx response  → drop the issue entirely (link is valid)
+    #   - non-2xx       → keep as a genuine error
+    # If CM_API_KEY is not set, fall back to suggestion level (auth issue, not
+    # a broken link).
+    API_DOMAIN = 'api.coinmetrics.io'
+    cm_api_key = os.environ.get('CM_API_KEY', '').strip()
+
+    def reverify_api_url(url):
+        """
+        Replace the api_key query parameter with CM_API_KEY and check the URL.
+        Returns the HTTP status code, or None if the request failed entirely.
+        """
+        parsed = urllib.parse.urlparse(url)
+        params = urllib.parse.parse_qs(parsed.query, keep_blank_values=True)
+        # Replace whatever value api_key has (empty, placeholder, etc.)
+        params['api_key'] = [cm_api_key]
+        new_query = urllib.parse.urlencode(params, doseq=True)
+        new_url = parsed._replace(query=new_query).geturl()
+        try:
+            req = urllib.request.Request(new_url, method='GET')
+            req.add_header('User-Agent', 'Mozilla/5.0 (docs-link-checker)')
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                return resp.status
+        except urllib.error.HTTPError as e:
+            return e.code
+        except Exception:
+            return None
+
     try:
         with open(report_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        
+
         issues = []
         error_map = data.get('error_map', data.get('fail_map', {}))
-        
+
         for file_path, failures in error_map.items():
             for failure in failures:
                 url = failure.get('url', 'unknown')
                 status = failure.get('status', {})
                 status_text = status.get('text', 'Unknown error')
                 status_code = status.get('code', '')
-                
-                if status_code:
-                    message = f"Broken link [{status_code}]: {url} - {status_text}"
+
+                domain = urllib.parse.urlparse(url).netloc
+
+                # --- api.coinmetrics.io: re-verify with real API key ---
+                if domain == API_DOMAIN:
+                    if cm_api_key:
+                        verified_code = reverify_api_url(url)
+                        if verified_code is not None and 200 <= verified_code < 300:
+                            # Link is valid once authenticated — skip it
+                            continue
+                        # Still failing with a real key — report as a genuine error
+                        message = (
+                            f"Broken link [{verified_code}] (re-verified with CM_API_KEY): "
+                            f"{url} - {status_text}"
+                        )
+                        issues.append({
+                            'file': file_path,
+                            'line': '1',
+                            'column': '1',
+                            'rule': 'broken-link',
+                            'message': message,
+                            'severity': 'error'
+                        })
+                    else:
+                        # No API key available — downgrade to suggestion
+                        message = (
+                            f"Unverified link (set CM_API_KEY to validate) "
+                            f"[{status_code}]: {url} - {status_text}"
+                        )
+                        issues.append({
+                            'file': file_path,
+                            'line': '1',
+                            'column': '1',
+                            'rule': 'broken-link',
+                            'message': message,
+                            'severity': 'suggestion'
+                        })
+                    continue
+
+                # --- All other domains ---
+                if domain in INFO_DOMAINS:
+                    message = (
+                        f"Link requires browser authentication [{status_code}]: {url} - {status_text}"
+                    )
+                    severity = 'suggestion'
                 else:
-                    message = f"Broken link: {url} - {status_text}"
-                
+                    if status_code:
+                        message = f"Broken link [{status_code}]: {url} - {status_text}"
+                    else:
+                        message = f"Broken link: {url} - {status_text}"
+                    severity = 'error'
+
                 issues.append({
                     'file': file_path,
                     'line': '1',
                     'column': '1',
                     'rule': 'broken-link',
                     'message': message,
-                    'severity': 'error'
+                    'severity': severity
                 })
-        
+
         return issues
     except Exception as e:
         print(f"Error parsing lychee report: {e}")
