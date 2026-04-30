@@ -204,12 +204,17 @@ def parse_lychee(report_path):
                     continue
 
                 # --- All other domains ---
-                if status_code:
-                    message = f"Broken link [{status_code}]: {url} - {status_text}"
+                if domain in INFO_DOMAINS:
+                    message = (
+                        f"Link requires browser authentication [{status_code}]: {url} - {status_text}"
+                    )
+                    severity = 'suggestion'
                 else:
-                    message = f"Broken link: {url} - {status_text}"
-
-                severity = 'suggestion' if domain in INFO_DOMAINS else 'error'
+                    if status_code:
+                        message = f"Broken link [{status_code}]: {url} - {status_text}"
+                    else:
+                        message = f"Broken link: {url} - {status_text}"
+                    severity = 'error'
 
                 issues.append({
                     'file': file_path,
