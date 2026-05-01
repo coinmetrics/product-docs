@@ -24,6 +24,7 @@ Network Data Pro metrics are available at the asset level through the [`/timeser
 
 Details on the specific metrics are described in the pages linked in this section.
 
+
 ## Change Log
 
 {% updates format="full" %}
