@@ -28,12 +28,6 @@ Details on the specific metrics are described in the pages linked in this sectio
 
 {% updates format="full" %}
 {% update date="2026-05-01" %}
-## Added Render to CapMrktEstUSD
-
-Added estimated market cap (`CapMrktEstUSD`) support for **render**. For full metric coverage details refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/CapMrktEstUSD).
-{% endupdate %}
-
-{% update date="2026-05-01" %}
 ## Added Network Data Metrics for Stellar Tokens
 
 Added Network Data metrics at the 1d frequency for 10 Stellar-based tokens, including stablecoins and tokenized real-world assets. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
