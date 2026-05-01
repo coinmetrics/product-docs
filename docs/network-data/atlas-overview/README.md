@@ -207,16 +207,16 @@ Added Atlas support for 10 Stellar-based tokens, including major stablecoins and
 
 <summary>Tokens Added</summary>
 
-* BENJI\_XLM - [REVIEW: not in currency.json]
-* CETES\_XLM - [REVIEW: not in currency.json]
-* CRDYX\_XLM - [REVIEW: not in currency.json]
-* EURC\_XLM - [REVIEW: not in currency.json]
-* PYUSD\_XLM - [REVIEW: not in currency.json]
-* SPXUX\_XLM - [REVIEW: not in currency.json]
-* TESOURO\_XLM - [REVIEW: not in currency.json]
-* USDC\_XLM - [REVIEW: not in currency.json]
-* USTRY\_XLM - [REVIEW: not in currency.json]
-* WTGXX\_XLM - [REVIEW: not in currency.json]
+* BENJI\_XLM - Benjamin Templeton BENJI on Stellar
+* CETES\_XLM - CETES Etherfuse on Stellar
+* CRDYX\_XLM - WisdomTree Private Credit and Alternative Income Digital Fund on Stellar
+* EURC\_XLM - EURO Coin on Stellar
+* PYUSD\_XLM - Paypal USD on Stellar
+* SPXUX\_XLM - WisdomTree 500 Digital Fund on Stellar
+* TESOURO\_XLM - TESOURO Etherfuse on Stellar
+* USDC\_XLM - USDC on Stellar
+* USTRY\_XLM - USTRY Etherfuse on Stellar
+* WTGXX\_XLM - WisdomTree Treasury Money Market Digital Fund on Stellar
 
 </details>
 {% endupdate %}
