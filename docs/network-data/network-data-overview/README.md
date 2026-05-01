@@ -36,16 +36,16 @@ Added Network Data metrics at the 1d frequency for 10 Stellar-based tokens, incl
 
 <summary>Assets Added:</summary>
 
-* BENJI\_XLM - Franklin OnChain U.S. Government Money Fund On Stellar
-* CETES\_XLM - [REVIEW: not yet in currency.json]
-* CRDYX\_XLM - [REVIEW: not yet in currency.json]
-* EURC\_XLM - EURC on Stellar
-* PYUSD\_XLM - PayPal USD on Stellar
-* SPXUX\_XLM - [REVIEW: not yet in currency.json]
-* TESOURO\_XLM - [REVIEW: not yet in currency.json]
+* BENJI\_XLM - Benjamin Templeton BENJI on Stellar
+* CETES\_XLM - CETES Etherfuse on Stellar
+* CRDYX\_XLM - WisdomTree Private Credit and Alternative Income Digital Fund on Stellar
+* EURC\_XLM - EURO Coin on Stellar
+* PYUSD\_XLM - Paypal USD on Stellar
+* SPXUX\_XLM - WisdomTree 500 Digital Fund on Stellar
+* TESOURO\_XLM - TESOURO Etherfuse on Stellar
 * USDC\_XLM - USDC on Stellar
-* USTRY\_XLM - [REVIEW: not yet in currency.json]
-* WTGXX\_XLM - WisdomTree Government Money Market Digital Fund On Stellar
+* USTRY\_XLM - USTRY Etherfuse on Stellar
+* WTGXX\_XLM - WisdomTree Treasury Money Market Digital Fund on Stellar
 
 </details>
 {% endupdate %}
