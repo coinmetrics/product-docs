@@ -27,6 +27,41 @@ Details on the specific metrics are described in the pages linked in this sectio
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-05-01" %}
+## Added Render to CapMrktEstUSD
+
+Added estimated market cap (`CapMrktEstUSD`) support for **render**. For full metric coverage details refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/CapMrktEstUSD).
+{% endupdate %}
+
+{% update date="2026-05-01" %}
+## Added Network Data Metrics for Stellar Tokens
+
+Added Network Data metrics at the 1d frequency for 10 Stellar-based tokens, including stablecoins and tokenized real-world assets. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
+
+<details>
+
+<summary>Assets Added:</summary>
+
+* BENJI\_XLM - Franklin OnChain U.S. Government Money Fund On Stellar
+* CETES\_XLM - [REVIEW: not yet in currency.json]
+* CRDYX\_XLM - [REVIEW: not yet in currency.json]
+* EURC\_XLM - EURC on Stellar
+* PYUSD\_XLM - PayPal USD on Stellar
+* SPXUX\_XLM - [REVIEW: not yet in currency.json]
+* TESOURO\_XLM - [REVIEW: not yet in currency.json]
+* USDC\_XLM - USDC on Stellar
+* USTRY\_XLM - [REVIEW: not yet in currency.json]
+* WTGXX\_XLM - WisdomTree Government Money Market Digital Fund On Stellar
+
+</details>
+{% endupdate %}
+
+{% update date="2026-05-01" %}
+## Expanded Exchange Flows to 1h for USDC on Base and USD1
+
+Expanded exchange flow metrics for **usdc\_base.eth** and **usd1\_eth** to the 1h frequency. For details on Exchange Flow metric coverage please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInExNtv).
+{% endupdate %}
+
 {% update date="2026-04-23" %}
 ## Expanded Exchange Flows to new Stablecoins
 
