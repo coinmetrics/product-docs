@@ -198,6 +198,35 @@ If you need to download large amounts of data, i.e. more than 100k rows, we reco
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-05-01" %}
+## Added Stellar Token Support
+
+Added Atlas support for 10 Stellar-based tokens, including major stablecoins and tokenized real-world assets. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/atlas-v2).
+
+<details>
+
+<summary>Tokens Added</summary>
+
+* BENJI\_XLM - [REVIEW: not in currency.json]
+* CETES\_XLM - [REVIEW: not in currency.json]
+* CRDYX\_XLM - [REVIEW: not in currency.json]
+* EURC\_XLM - [REVIEW: not in currency.json]
+* PYUSD\_XLM - [REVIEW: not in currency.json]
+* SPXUX\_XLM - [REVIEW: not in currency.json]
+* TESOURO\_XLM - [REVIEW: not in currency.json]
+* USDC\_XLM - [REVIEW: not in currency.json]
+* USTRY\_XLM - [REVIEW: not in currency.json]
+* WTGXX\_XLM - [REVIEW: not in currency.json]
+
+</details>
+{% endupdate %}
+
+{% update date="2026-05-01" %}
+## Added Canton Coin
+
+Added Atlas support for Canton Coin (`cc`). For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/atlas-v2).
+{% endupdate %}
+
 {% update date="2026-03-23" %}
 ## Added US Treasury Tokens
 
