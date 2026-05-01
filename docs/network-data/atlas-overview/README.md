@@ -221,12 +221,6 @@ Added Atlas support for 10 Stellar-based tokens, including major stablecoins and
 </details>
 {% endupdate %}
 
-{% update date="2026-05-01" %}
-## Added Canton Coin
-
-Added Atlas support for Canton Coin (`cc`). For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/atlas-v2).
-{% endupdate %}
-
 {% update date="2026-03-23" %}
 ## Added US Treasury Tokens
 
