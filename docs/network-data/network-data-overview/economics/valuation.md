@@ -99,7 +99,7 @@ The ratio of the Realized Cap over Thermo Cap at the end of that interval. [Real
 
 ### Chart
 
-![](<../../../.gitbook/assets/coin_metrics_network_chart(2) (1).png>)
+![](../../../.gitbook/assets/coin_metrics_network_chart-2-.png)
 
 ### Interpretation
 

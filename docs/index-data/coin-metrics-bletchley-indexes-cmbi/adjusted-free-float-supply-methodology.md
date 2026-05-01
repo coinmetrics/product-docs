@@ -5,5 +5,4 @@ Free Float Supply can overcome the imbalance between supply and demand by reduci
 \
 To the maximum extent possible, Coin Metrics has created a free float adjustment methodology that can be applied consistently, uniformly and objectively across all of our indexes.
 
-{% file src="../../.gitbook/assets/CMBI Adjusted Free Float Methodology v1.3 (1).pdf" %}
-
+{% file src="../../.gitbook/assets/CMBI Adjusted Free Float Methodology v1.3.pdf" %}

@@ -8,7 +8,7 @@
 
 ## CMBI Multi Asset Series
 
-{% file src="../../.gitbook/assets/CMBI Multi Asset Series Methodology v1.4.pdf" %}
+{% file src="../../.gitbook/assets/CMBI Multi Asset Series Methodology v1.4 (3).pdf" %}
 
 ## CMBI Mining Series
 
@@ -20,10 +20,10 @@
 
 ## CMBI Total Market Series
 
-{% file src="../../.gitbook/assets/CMBI Total Market Series Methodology v1.4.pdf" %}
+{% file src="../../.gitbook/assets/CMBI Total Market Series Methodology v1.4 (1).pdf" %}
 
 ## CMBI Ethereum Staking Index
 
 The CMBI Ethereum Staking Index (CMBIETHS) reflects the performance an investor would expect from purchasing and staking Ether. The total return consists of the hourly price return of Ether and the rewards earned from the Ethereum blockchain.
 
-{% file src="../../.gitbook/assets/_CMBI Ethereum Staking Methodology.pdf" %}
+{% file src="../../.gitbook/assets/_CMBI Ethereum Staking Methodology (1).pdf" %}

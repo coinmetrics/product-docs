@@ -20,9 +20,9 @@ To understand the data that Coin Metrics offers, feel free to peruse the resourc
 
 Download the entire notebook as either a jupyter notebook to run yourself or as a pdf from the two links below
 
-{% file src="../../.gitbook/assets/DEFI - Dex Data (1).ipynb" %}
+{% file src="../../.gitbook/assets/DEFI - Dex Data.ipynb" %}
 
-{% file src="../../.gitbook/assets/DEFI_dex_data (1) (1).pdf" %}
+{% file src="../../.gitbook/assets/DEFI_dex_data (1).pdf" %}
 
 ### Setup
 
