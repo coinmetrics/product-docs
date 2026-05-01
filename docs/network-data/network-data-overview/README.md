@@ -36,7 +36,7 @@ Added Network Data metrics at the 1d frequency for 10 Stellar-based tokens, incl
 
 <summary>Assets Added:</summary>
 
-* BENJI\_XLM - Benjamin Templeton BENJI on Stellar
+* BENJI\_XLM - Franklin OnChain U.S. Government Money Fund On Stellar
 * CETES\_XLM - CETES Etherfuse on Stellar
 * CRDYX\_XLM - WisdomTree Private Credit and Alternative Income Digital Fund on Stellar
 * EURC\_XLM - EURO Coin on Stellar
