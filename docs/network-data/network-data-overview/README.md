@@ -24,7 +24,6 @@ Network Data Pro metrics are available at the asset level through the [`/timeser
 
 Details on the specific metrics are described in the pages linked in this section.
 
-
 ## Change Log
 
 {% updates format="full" %}
@@ -32,6 +31,8 @@ Details on the specific metrics are described in the pages linked in this sectio
 ## Added Network Data Metrics for Stellar Tokens
 
 Added Network Data metrics at the 1d frequency for 10 Stellar-based tokens, including stablecoins and tokenized real-world assets. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
+
+Additionally, added support for aggregated tickers benji & wtgxx. benji aggregates benji\_eth + benji\_xlm. wtgxx aggregates wtgxx\_eth & wtgxx\_xlm.
 
 <details>
 
