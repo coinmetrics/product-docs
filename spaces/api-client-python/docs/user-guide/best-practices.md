@@ -34,6 +34,10 @@ cat = cat.loc[
 
 **Step 3.** Pass the filtered list to a historical-data method (and, for large pulls, layer `parallel()` on top — see the next section). The same pattern applies to asset metrics: instead of calling `get_asset_metrics` directly with `*`, derive the asset and metric lists from `reference_data_assets` and `catalog_asset_metrics_v2` and pass them in explicitly.
 
+{% hint style="info" %}
+Driving `CoinMetricsClient` methods from a pre-filtered list of assets / markets / metrics is consistently more performant than relying on wildcards, and it pairs naturally with `.parallel()` because each parallel worker gets a single, well-scoped query.
+{% endhint %}
+
 ## Parallel Execution
 
 For large historical exports the most effective lever is to split your request into many smaller requests and run them in parallel. The client supports this directly via `.parallel()`:
@@ -56,7 +60,7 @@ if __name__ == '__main__':
     ).parallel().export_to_json_files()
 ```
 
-`.parallel()` either writes one file per worker (`export_to_csv_files()`, `export_to_json_files()`, `export_to_parquet_files()`) or merges every worker’s output into a single result (`to_list()`, `to_dataframe()`, `export_to_csv()`, `export_to_json()`). Internally it uses Python’s [`concurrent.futures`](https://docs.python.org/3/library/concurrent.futures.md), so it consumes more resources than a single-threaded request and may approach the [Coin Metrics rate limits](https://docs.coinmetrics.io/api/v4/#tag/Rate-limits).
+`.parallel()` either writes one file per worker (`export_to_csv_files()`, `export_to_json_files()`, `export_to_parquet_files()`) or merges every worker's output into a single result (`to_list()`, `to_dataframe()`, `export_to_csv()`, `export_to_json()`). Internally it uses Python's [`concurrent.futures`](https://docs.python.org/3/library/concurrent.futures.html), so it consumes more resources than a single-threaded request and may approach the [Coin Metrics rate limits](https://docs.coinmetrics.io/api/v4/#tag/Rate-limits).
 
 In rough order of resource usage and speed (most performant first):
 
@@ -118,7 +122,7 @@ Use `datetime.timedelta` for sub-month windows and `dateutil.relativedelta.relat
 
 ### Guidelines
 
-* `.parallel()` is best when you can split a request across many list-type parameters (`assets`, `markets`, `metrics`, …) or along the time axis. Single-market or single-asset requests will not see a meaningful speedup.
+* `.parallel()` is best when you can split a request across many list-type parameters (`assets`, `markets`, `metrics`, ...) or along the time axis. Single-market or single-asset requests will not see a meaningful speedup.
 * The `*_files()` exports are the safest and most performant choice — every worker writes its own file, so the client never needs to merge results in memory. The merging variants (`to_dataframe()`, `to_list()`, `export_to_csv()`) can use a lot of memory for high-volume endpoints like `market-trades` or `market-orderbooks` and may fail outright on very large windows.
 * By default `*_files()` writes to `/{endpoint}/{parallelize_on}/...`. For example, `client.get_market_trades("coinbase-eth-btc-spot,coinbase-eth-usdc-spot").parallel("markets").export_to_json_files()` produces `./market-trades/coinbase-eth-btc-spot.json` and `./market-trades/coinbase-eth-usdc-spot.json`. Adding `time_increment=timedelta(days=1)` further nests the output under `start_time=...` directories.
 * `.parallel()` is highly configurable — `max_workers`, a custom `executor` (e.g. `ProcessPoolExecutor`), and `progress_bar` are all available. Multithreaded code is harder to debug than single-threaded code, so this tool is best suited for historical exports rather than for real-time production systems.
@@ -127,7 +131,7 @@ Use `datetime.timedelta` for sub-month windows and `dateutil.relativedelta.relat
 
 ## Lazy Execution
 
-[Lazy execution](https://docs.pola.rs/user-guide/concepts/lazy-api/) lets you describe transformations on a `DataCollection` without materializing the result, which is useful when you want to filter on a column the API does not expose as a parameter. Convert a `DataCollection` into a polars [`LazyFrame`](https://docs.pola.rs/api/python/stable/reference/lazyframe/README.md) with `to_lazyframe()` and chain transformations onto it. See the [polars guide](https://docs.pola.rs/user-guide/lazy/using/) for the full lazy API.
+[Lazy execution](https://docs.pola.rs/user-guide/concepts/lazy-api/) lets you describe transformations on a `DataCollection` without materializing the result, which is useful when you want to filter on a column the API does not expose as a parameter. Convert a `DataCollection` into a polars [`LazyFrame`](https://docs.pola.rs/api/python/stable/reference/lazyframe/index.html) with `to_lazyframe()` and chain transformations onto it. See the [polars guide](https://docs.pola.rs/user-guide/lazy/using/) for the full lazy API.
 
 ```python
 from datetime import datetime, timedelta
@@ -196,4 +200,4 @@ market_candles_spot = client.get_market_candles(
 )
 ```
 
-Wildcards are convenient, but for historical exports prefer the catalog-driven flow described in [Use Catalog and Reference Data First](): resolving the concrete list of assets / markets first and feeding it to `.parallel()` is consistently faster, gives you a stable input you can reproduce, and lets you drop obsolete entries before they cost you a request.
+Wildcards are convenient, but for historical exports prefer the catalog-driven flow described in Use Catalog and Reference Data First: resolving the concrete list of assets / markets first and feeding it to `.parallel()` is consistently faster, gives you a stable input you can reproduce, and lets you drop obsolete entries before they cost you a request.

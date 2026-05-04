@@ -21,7 +21,7 @@
 
 ### Fixed
 
-- Fixed a bug where nullable columns from `timeseries/*-metrics endpoints` are sometimes not returned when calling `.to_dataframe()`. This happened when the first row’s columns are not the same as any of the subsequent rows.
+- Fixed a bug where nullable columns from `timeseries/*-metrics endpoints` are sometimes not returned when calling `.to_dataframe()`. This happened when the first row's columns are not the same as any of the subsequent rows.
 
 ## 2025.8.8.16
 
@@ -118,7 +118,7 @@
 ### Added
 
 - Allowed pandas Timestamp data type to be passed in `client` API calls
-- Added “deprecated” flag to catalog v1 endpoints
+- Added "deprecated" flag to catalog v1 endpoints
 
 ## 2024.12.11.19
 
@@ -149,7 +149,7 @@
 
 ### Fixed
 
-- Bug where requests have double ‘/’ in URL
+- Bug where requests have double '/' in URL
 
 ## 2024.10.15.19
 
@@ -187,7 +187,7 @@
 
 ### Fixed
 
-- Bug on parallelization where `end_time` uses user’s timezone instead of UTC
+- Bug on parallelization where `end_time` uses user's timezone instead of UTC
 
 ### Added
 

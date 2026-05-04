@@ -23,17 +23,17 @@ stream.run(on_message=on_message)
 
 ### *class* coinmetrics.api_client.CmStream(ws_url)
 
-Bases: [`object`](https://docs.python.org/3/library/functions.md#object)
+Bases: [`object`](https://docs.python.org/3/library/functions.html#object)
 
 * **Parameters:**
-  **ws_url** ([*str*](https://docs.python.org/3/library/stdtypes.md#str))
+  **ws_url** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
 
 #### run(on_message=None, on_error=None, on_close=None, reconnect=True)
 
 * **Parameters:**
-  * **on_message** ([*Callable*](https://docs.python.org/3/library/typing.md#typing.Callable) *[* *[**WebSocket* *,* [*Any*](https://docs.python.org/3/library/typing.md#typing.Any) *]* *,* *None* *]*  *|* *None*)
-  * **on_error** ([*Callable*](https://docs.python.org/3/library/typing.md#typing.Callable) *[* *[**WebSocket* *,* [*Any*](https://docs.python.org/3/library/typing.md#typing.Any) *]* *,* *None* *]*  *|* *None*)
-  * **on_close** ([*Callable*](https://docs.python.org/3/library/typing.md#typing.Callable) *[* *[**WebSocket* *,* [*Any*](https://docs.python.org/3/library/typing.md#typing.Any) *,* [*Any*](https://docs.python.org/3/library/typing.md#typing.Any) *]* *,* *None* *]*  *|* *None*)
-  * **reconnect** ([*bool*](https://docs.python.org/3/library/functions.md#bool))
+  * **on_message** ([*Callable*](https://docs.python.org/3/library/typing.html#typing.Callable) *[* *[**WebSocket* *,* [*Any*](https://docs.python.org/3/library/typing.html#typing.Any) *]* *,* *None* *]*  *|* *None*)
+  * **on_error** ([*Callable*](https://docs.python.org/3/library/typing.html#typing.Callable) *[* *[**WebSocket* *,* [*Any*](https://docs.python.org/3/library/typing.html#typing.Any) *]* *,* *None* *]*  *|* *None*)
+  * **on_close** ([*Callable*](https://docs.python.org/3/library/typing.html#typing.Callable) *[* *[**WebSocket* *,* [*Any*](https://docs.python.org/3/library/typing.html#typing.Any) *,* [*Any*](https://docs.python.org/3/library/typing.html#typing.Any) *]* *,* *None* *]*  *|* *None*)
+  * **reconnect** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
 * **Return type:**
   None

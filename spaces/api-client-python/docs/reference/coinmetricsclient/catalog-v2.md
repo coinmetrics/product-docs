@@ -70,11 +70,11 @@ Returns a list of available assets for the asset-chains endpoint along with time
 data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of asset chains assets
 * **Return type:**
@@ -86,11 +86,11 @@ Returns a list of all supported assets for the asset-chains endpoint along with 
 available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of asset chains assets
 * **Return type:**
@@ -101,13 +101,13 @@ available data.
 Returns a list of available asset metrics along with the time ranges of available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of metrics. By default all metrics are returned.
-  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Limit to human-reviewable metrics. By default all metrics are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of metrics. By default all metrics are returned.
+  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Limit to human-reviewable metrics. By default all metrics are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of asset metrics.
 * **Return type:**
@@ -118,13 +118,13 @@ Returns a list of available asset metrics along with the time ranges of availabl
 Returns a list of all supported asset metrics along with the time ranges of available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of metrics. By default all metrics are returned.
-  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Limit to human-reviewable metrics. By default all metrics are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of metrics. By default all metrics are returned.
+  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Limit to human-reviewable metrics. By default all metrics are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of asset metrics.
 * **Return type:**
@@ -136,11 +136,11 @@ Returns a list of available assets for the blockchain accounts endpoint along wi
 available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of blockchain-v2/accounts assets using catalog-v2
 * **Return type:**
@@ -152,11 +152,11 @@ Returns a list of all supported assets for the blockchain accounts endpoint alon
 available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   Full list of blockchain-v2/accounts assets using catalog-v2
 * **Return type:**
@@ -168,11 +168,11 @@ Returns a list of available assets for the blockchain balance updates endpoint a
 of available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of blockchain-v2/balance-updates assets using catalog-v2
 * **Return type:**
@@ -184,11 +184,11 @@ Returns a list of all supported assets for the blockchain balance updates endpoi
 ranges of available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   Full list of blockchain-v2/balance-updates assets using catalog-v2
 * **Return type:**
@@ -200,11 +200,11 @@ Returns a list of available assets for the blockchain blocks endpoint along with
 available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of blockchain-v2/blocks assets using catalog-v2
 * **Return type:**
@@ -216,11 +216,11 @@ Returns a list of all supported assets for the blockchain blocks endpoint along 
 available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   Full list of blockchain-v2/blocks assets using catalog-v2
 * **Return type:**
@@ -231,11 +231,11 @@ available data.
 Returns a list of available assets for the blockchain rebasing changes endpoint along with time ranges of available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of blockchain-v2/rebasing-changes assets using catalog-v2
 * **Return type:**
@@ -246,11 +246,11 @@ Returns a list of available assets for the blockchain rebasing changes endpoint 
 Returns a list of all supported assets for the blockchain rebasing changes endpoint along with time ranges of available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   Full list of blockchain-v2/rebasing-changes assets using catalog-v2
 * **Return type:**
@@ -262,11 +262,11 @@ Returns a list of available assets for the blockchain transactions endpoint alon
 available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of blockchain-v2/transactions assets using catalog-v2
 * **Return type:**
@@ -278,11 +278,11 @@ Returns a list of all supported assets for the blockchain transactions endpoint 
 of available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   Full list of blockchain-v2/transactions assets using catalog-v2
 * **Return type:**
@@ -294,22 +294,22 @@ Returns a list of contract prices for option markets that have data available wi
 window.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of contract prices statistics.
 * **Return type:**
@@ -320,22 +320,22 @@ window.
 Returns a list of all market contract prices for option market.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of contract prices statistics.
 * **Return type:**
@@ -346,13 +346,13 @@ Returns a list of all market contract prices for option market.
 Returns a list of available exchange-asset metrics along with the time ranges of available data.
 
 * **Parameters:**
-  * **exchange_assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of exchange-assets. By default, all exchange-assets are returned.
-  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of metrics. By default all metrics are returned.
-  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Limit to human-reviewable metrics. By default all metrics are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **exchange_assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of exchange-assets. By default, all exchange-assets are returned.
+  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of metrics. By default all metrics are returned.
+  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Limit to human-reviewable metrics. By default all metrics are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of exchange-asset metrics.
 * **Return type:**
@@ -363,13 +363,13 @@ Returns a list of available exchange-asset metrics along with the time ranges of
 Returns a list of all supported exchange-asset metrics along with the time ranges of available data.
 
 * **Parameters:**
-  * **exchange_assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of exchange-assets. By default, all exchange-assets are returned.
-  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of metrics. By default all metrics are returned.
-  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Limit to human-reviewable metrics. By default all metrics are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Default: “json_stream” (catalog-v2 and reference-data, market-orderbooks and other heavy endpoints), “json” (timeseries/`*-metrics` and other lighter endpoints). Format of the response. Supported values are json, json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **exchange_assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of exchange-assets. By default, all exchange-assets are returned.
+  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of metrics. By default all metrics are returned.
+  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Limit to human-reviewable metrics. By default all metrics are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Default: "json_stream" (catalog-v2 and reference-data, market-orderbooks and other heavy endpoints), "json" (timeseries/`*-metrics` and other lighter endpoints). Format of the response. Supported values are json, json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of exchange-asset metrics.
 * **Return type:**
@@ -380,13 +380,13 @@ Returns a list of all supported exchange-asset metrics along with the time range
 Returns a list of available exchange metrics along with the time ranges of available data.
 
 * **Parameters:**
-  * **exchanges** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of exchanges. By default all exchanges are returned.
-  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of metrics. By default all metrics are returned.
-  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Limit to human-reviewable metrics. By default all metrics are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **exchanges** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of exchanges. By default all exchanges are returned.
+  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of metrics. By default all metrics are returned.
+  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Limit to human-reviewable metrics. By default all metrics are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of exchange metrics.
 * **Return type:**
@@ -397,13 +397,13 @@ Returns a list of available exchange metrics along with the time ranges of avail
 Returns a list of all supported exchange metrics along with the time ranges of available data.
 
 * **Parameters:**
-  * **exchanges** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of exchanges. By default all exchanges are returned.
-  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of metrics. By default all metrics are returned.
-  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Limit to human-reviewable metrics. By default all metrics are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **exchanges** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of exchanges. By default all exchanges are returned.
+  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of metrics. By default all metrics are returned.
+  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Limit to human-reviewable metrics. By default all metrics are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of exchange metrics.
 * **Return type:**
@@ -414,13 +414,13 @@ Returns a list of all supported exchange metrics along with the time ranges of a
 Returns a list of available exchange-pair metrics along with the time ranges of available data.
 
 * **Parameters:**
-  * **exchange_pairs** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of exchange-pairs. By default, all exchange-pairs are returned.
-  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of metrics. By default all metrics are returned.
-  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Limit to human-reviewable metrics. By default all metrics are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **exchange_pairs** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of exchange-pairs. By default, all exchange-pairs are returned.
+  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of metrics. By default all metrics are returned.
+  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Limit to human-reviewable metrics. By default all metrics are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of exchange-pair metrics.
 * **Return type:**
@@ -431,13 +431,13 @@ Returns a list of available exchange-pair metrics along with the time ranges of 
 Returns a list of all supported exchange-pair metrics along with the time ranges of available data.
 
 * **Parameters:**
-  * **exchange_pairs** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of exchange-pairs. By default, all exchange-pairs are returned.
-  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of metrics. By default all metrics are returned.
-  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Limit to human-reviewable metrics. By default all metrics are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Default: “json_stream” (catalog-v2 and reference-data, market-orderbooks and other heavy endpoints), “json” (timeseries/`*-metrics` and other lighter endpoints). Format of the response. Supported values are json, json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **exchange_pairs** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of exchange-pairs. By default, all exchange-pairs are returned.
+  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of metrics. By default all metrics are returned.
+  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Limit to human-reviewable metrics. By default all metrics are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Default: "json_stream" (catalog-v2 and reference-data, market-orderbooks and other heavy endpoints), "json" (timeseries/`*-metrics` and other lighter endpoints). Format of the response. Supported values are json, json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of exchange-pair metrics.
 * **Return type:**
@@ -449,11 +449,11 @@ Returns a list of available index candles along with the time ranges of availabl
 duration.
 
 * **Parameters:**
-  * **indexes** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of indexes. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **indexes** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of indexes. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of index candles statistics.
 * **Return type:**
@@ -465,11 +465,11 @@ Returns a list of all supported index candles along with the time ranges of avai
 duration.
 
 * **Parameters:**
-  * **indexes** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of indexes. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **indexes** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of indexes. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of index candles statistics.
 * **Return type:**
@@ -480,11 +480,11 @@ duration.
 Returns a list of available index levels along with time ranges of available data.
 
 * **Parameters:**
-  * **indexes** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of indexes. By default all indexes are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **indexes** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of indexes. By default all indexes are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of index levels.
 * **Return type:**
@@ -495,11 +495,11 @@ Returns a list of available index levels along with time ranges of available dat
 Returns a list of all supported index levels along with time ranges of available data.
 
 * **Parameters:**
-  * **indexes** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of indexes. By default all indexes are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **indexes** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of indexes. By default all indexes are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of index levels.
 * **Return type:**
@@ -510,13 +510,13 @@ Returns a list of all supported index levels along with time ranges of available
 Returns a list of available institution metrics along with the time ranges of available data.
 
 * **Parameters:**
-  * **institutions** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of institutions. By default, all institutions are returned.
-  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of metrics. By default all metrics are returned.
-  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Limit to human-reviewable metrics. By default all metrics are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **institutions** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of institutions. By default, all institutions are returned.
+  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of metrics. By default all metrics are returned.
+  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Limit to human-reviewable metrics. By default all metrics are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of institution metrics.
 * **Return type:**
@@ -527,13 +527,13 @@ Returns a list of available institution metrics along with the time ranges of av
 Returns a list of all supported institution metrics along with the time ranges of available data.
 
 * **Parameters:**
-  * **institutions** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of institutions. By default, all institutions are returned.
-  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of metrics. By default all metrics are returned.
-  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Limit to human-reviewable metrics. By default all metrics are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **institutions** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of institutions. By default, all institutions are returned.
+  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of metrics. By default all metrics are returned.
+  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Limit to human-reviewable metrics. By default all metrics are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of institution metrics.
 * **Return type:**
@@ -545,22 +545,22 @@ Returns a list of markets with candles support along with the time ranges of ava
 duration.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market candles statistics.
 * **Return type:**
@@ -572,22 +572,22 @@ Returns a list of all markets with candles support along with time ranges of ava
 duration.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market candles statistics.
 * **Return type:**
@@ -598,22 +598,22 @@ duration.
 Returns a list of contract prices for option market.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of contract prices statistics.
 * **Return type:**
@@ -624,22 +624,22 @@ Returns a list of contract prices for option market.
 Returns a list of all market contract prices for option market.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of contract prices statistics.
 * **Return type:**
@@ -651,22 +651,22 @@ Returns a list of markets with predicted funding rates support along with the ti
 data.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market funding rates statistics.
 * **Return type:**
@@ -678,22 +678,22 @@ Returns a list of all markets with predicted funding rates support along with th
 available data.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market funding rates statistics.
 * **Return type:**
@@ -704,22 +704,22 @@ available data.
 Returns a list of markets with funding rates support along with the time ranges of available data.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market funding rates statistics.
 * **Return type:**
@@ -730,22 +730,22 @@ Returns a list of markets with funding rates support along with the time ranges 
 Returns a list of all markets with funding rates support along with the time ranges of available data.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market funding rates statistics.
 * **Return type:**
@@ -756,22 +756,22 @@ Returns a list of all markets with funding rates support along with the time ran
 Returns a list of greeks for option market.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of greeks statistics.
 * **Return type:**
@@ -782,22 +782,22 @@ Returns a list of greeks for option market.
 Returns a list of all market greeks for option market.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of greeks statistics.
 * **Return type:**
@@ -808,22 +808,22 @@ Returns a list of all market greeks for option market.
 Returns a list of implied volatility for option market.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of implied volatility statistics.
 * **Return type:**
@@ -834,22 +834,22 @@ Returns a list of implied volatility for option market.
 Returns a list of all market implied volatility for option market.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of implied volatility statistics.
 * **Return type:**
@@ -860,22 +860,22 @@ Returns a list of all market implied volatility for option market.
 Returns a list of markets with liquidations support along with the time ranges of available data.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market liquidations statistics.
 * **Return type:**
@@ -886,22 +886,22 @@ Returns a list of markets with liquidations support along with the time ranges o
 Returns a list of all markets with liquidations support along with the time ranges of available data.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market liquidations statistics.
 * **Return type:**
@@ -913,18 +913,18 @@ Returns a list of markets with metrics support along with the time ranges of ava
 metric.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of metrics. By default all metrics are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of metrics. By default all metrics are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market metrics statistics.
 * **Return type:**
@@ -936,18 +936,18 @@ Returns a list of all markets with market metrics support along with time ranges
 metric.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of metrics. By default all metrics are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of metrics. By default all metrics are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market metrics statistics.
 * **Return type:**
@@ -958,22 +958,22 @@ metric.
 Returns a list of markets with open interest support along with the time ranges of available data.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market open interest statistics.
 * **Return type:**
@@ -984,22 +984,22 @@ Returns a list of markets with open interest support along with the time ranges 
 Returns a list of all markets with open interest support along with the time ranges of available data.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market open interest statistics.
 * **Return type:**
@@ -1010,22 +1010,22 @@ Returns a list of all markets with open interest support along with the time ran
 Returns a list of markets with orderbooks support along with the time ranges of available data.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market orderbooks statistics.
 * **Return type:**
@@ -1036,22 +1036,22 @@ Returns a list of markets with orderbooks support along with the time ranges of 
 Returns a list of all markets with orderbooks support along with the time ranges of available data.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market orderbooks statistics.
 * **Return type:**
@@ -1062,22 +1062,22 @@ Returns a list of all markets with orderbooks support along with the time ranges
 Returns a list of markets with quotes support along with the time ranges of available data.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market quotes statistics.
 * **Return type:**
@@ -1088,22 +1088,22 @@ Returns a list of markets with quotes support along with the time ranges of avai
 Returns a list of all markets with quotes support along with the time ranges of available data.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market quotes statistics.
 * **Return type:**
@@ -1114,22 +1114,22 @@ Returns a list of all markets with quotes support along with the time ranges of 
 Returns a list of markets with trades support along with the time ranges of available data.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market trades statistics.
 * **Return type:**
@@ -1140,22 +1140,22 @@ Returns a list of markets with trades support along with the time ranges of avai
 Returns a list of all markets with trades support along with the time ranges of available data.
 
 * **Parameters:**
-  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of markets. By default all markets are returned.
-  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Unique name of an exchange.
-  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Type of markets.
-  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Base asset of markets.
-  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Quote asset of markets.
-  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Any asset of markets.
-  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Symbol of derivative markets, full instrument name.
-  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Start time of the interval.
-  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – End time of the interval.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the start time in the interval.
-  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to include the end time in the interval.
-  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Timezone of the interval.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **markets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of markets. By default all markets are returned.
+  * **exchange** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Unique name of an exchange.
+  * **market_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Type of markets.
+  * **base** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Base asset of markets.
+  * **quote** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Quote asset of markets.
+  * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
+  * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
+  * **start_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Start time of the interval.
+  * **end_time** (*Optional* *[**Union* *[**datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- End time of the interval.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **start_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the start time in the interval.
+  * **end_inclusive** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to include the end time in the interval.
+  * **timezone** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Timezone of the interval.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
 * **Returns:**
   List of market trades statistics.
 * **Return type:**
@@ -1167,11 +1167,11 @@ Returns a list of available assets for the mempool-feerates endpoint along with 
 available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of mempool feerates assets
 * **Return type:**
@@ -1183,11 +1183,11 @@ Returns a list of all supported assets for the mempool-feerates endpoint along w
 available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of mempool feerates assets
 * **Return type:**
@@ -1199,11 +1199,11 @@ Returns a list of available assets for the mining-pool-tips-summary endpoint alo
 available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of mining pool tips assets
 * **Return type:**
@@ -1215,11 +1215,11 @@ Returns a list of all supported assets for the mining-pool-tips-summary endpoint
 ranges of available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of mining pool tips assets
 * **Return type:**
@@ -1231,11 +1231,11 @@ Returns a list of available asset pair candles along with the time ranges of ava
 duration.
 
 * **Parameters:**
-  * **pairs** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of asset pairs. By default, all asset pairs are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **pairs** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of asset pairs. By default, all asset pairs are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of asset pair candles statistics.
 * **Return type:**
@@ -1247,11 +1247,11 @@ Returns a list of all supported asset pair candles along with the time ranges of
 candle duration.
 
 * **Parameters:**
-  * **pairs** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of asset pairs. By default, all asset pairs are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **pairs** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of asset pairs. By default, all asset pairs are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of asset pair candles statistics.
 * **Return type:**
@@ -1262,13 +1262,13 @@ candle duration.
 Returns a list of available pair metrics along with the time ranges of available data.
 
 * **Parameters:**
-  * **pairs** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of asset pairs. By default, all asset pairs are returned.
-  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of metrics. By default all metrics are returned.
-  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Limit to human-reviewable metrics. By default all metrics are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **pairs** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of asset pairs. By default, all asset pairs are returned.
+  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of metrics. By default all metrics are returned.
+  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Limit to human-reviewable metrics. By default all metrics are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of pair metrics.
 * **Return type:**
@@ -1279,13 +1279,13 @@ Returns a list of available pair metrics along with the time ranges of available
 Returns a list of all supported pair metrics along with the time ranges of available data.
 
 * **Parameters:**
-  * **pairs** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of asset pairs. By default, all asset pairs are returned.
-  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of metrics. By default all metrics are returned.
-  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Limit to human-reviewable metrics. By default all metrics are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **pairs** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of asset pairs. By default, all asset pairs are returned.
+  * **metrics** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of metrics. By default all metrics are returned.
+  * **reviewable** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Limit to human-reviewable metrics. By default all metrics are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of pair metrics.
 * **Return type:**
@@ -1297,11 +1297,11 @@ Returns a list of available assets for the transaction-tracker endpoint along wi
 available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of transaction tracker assets
 * **Return type:**
@@ -1313,11 +1313,11 @@ Returns a list of all supported assets for the transaction-tracker endpoint alon
 available data.
 
 * **Parameters:**
-  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of assets. By default all assets are returned.
-  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of items per single page of results.
-  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Where does the first page start, at the start of the interval or at the end.
-  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **assets** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of assets. By default all assets are returned.
+  * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
+  * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
+  * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
+  * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   List of transaction tracker assets
 * **Return type:**

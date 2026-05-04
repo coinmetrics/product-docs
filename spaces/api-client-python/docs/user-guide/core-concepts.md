@@ -1,10 +1,10 @@
 # Core Concepts
 
-This page covers the building blocks you’ll use most often: how the client lazily models requests as `DataCollection` objects, how to convert them into DataFrames, and how to export them to files.
+This page covers the building blocks you'll use most often: how the client lazily models requests as `DataCollection` objects, how to convert them into DataFrames, and how to export them to files.
 
 ## DataCollection
 
-Every method on `CoinMetricsClient` returns a `DataCollection`. A `DataCollection` is a lazy wrapper around the underlying request: it captures the endpoint and parameters, but it does **not** hit the API until you iterate over it or call a transformation method (`to_list()`, `to_dataframe()`, `export_to_csv()`, …).
+Every method on `CoinMetricsClient` returns a `DataCollection`. A `DataCollection` is a lazy wrapper around the underlying request: it captures the endpoint and parameters, but it does **not** hit the API until you iterate over it or call a transformation method (`to_list()`, `to_dataframe()`, `export_to_csv()`, ...).
 
 By default, time-series methods stream their response (`format='json_stream'`), so a single iteration over a `DataCollection` typically fetches everything in one continuous response. For example, to get market trades for the Coinbase BTC-USD pair:
 
@@ -97,7 +97,7 @@ trades_df = trades.to_dataframe()
 print(trades_df.head())
 ```
 
-Column types are derived from the endpoint’s schema. To override types for specific columns, pass a `dtype_mapper`:
+Column types are derived from the endpoint's schema. To override types for specific columns, pass a `dtype_mapper`:
 
 ```python
 mapper = {'SplyFF': 'Float64', 'AdrBalUSD1Cnt': 'Int64'}
@@ -121,7 +121,7 @@ df = client.get_asset_metrics(
 
 ### LazyFrames
 
-DataFrames eagerly load data into memory. *Lazy* execution defers materialization, which is useful when you want to apply intermediate transformations to large datasets before collecting. Convert a `DataCollection` into a polars [`LazyFrame`](https://docs.pola.rs/api/python/stable/reference/lazyframe/README.md) with `to_lazyframe()`. See the [Best Practices](best-practices.md) guide for an in-depth example.
+DataFrames eagerly load data into memory. *Lazy* execution defers materialization, which is useful when you want to apply intermediate transformations to large datasets before collecting. Convert a `DataCollection` into a polars [`LazyFrame`](https://docs.pola.rs/api/python/stable/reference/lazyframe/index.html) with `to_lazyframe()`. See the [Best Practices](best-practices.md) guide for an in-depth example.
 
 ## Data Exports
 

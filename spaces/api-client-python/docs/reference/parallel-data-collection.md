@@ -1,6 +1,6 @@
 # ParallelDataCollection
 
-Returned by [`DataCollection.parallel(...)`](data-collection.md). Splits a single REST request across worker threads (typically one per asset, market, or metric) so that historical exports complete in a fraction of the time. Every chainable helper available on `DataCollection` – `to_dataframe`, `to_list`, `export_to_csv_files`, `export_to_json_files`, … – is also available here, so `parallel()` can be dropped into an existing call chain without further changes.
+Returned by [`DataCollection.parallel(...)`](data-collection.md). Splits a single REST request across worker threads (typically one per asset, market, or metric) so that historical exports complete in a fraction of the time. Every chainable helper available on `DataCollection` -- `to_dataframe`, `to_list`, `export_to_csv_files`, `export_to_json_files`, ... -- is also available here, so `parallel()` can be dropped into an existing call chain without further changes.
 
 A typical usage looks like:
 
@@ -27,25 +27,25 @@ client = CoinMetricsClient("<your-api-key>")
 Bases: [`DataCollection`](data-collection.md#coinmetrics._data_collection.DataCollection)
 
 This class will be used as an extension of the normal data collection, but all functions will run in parallel,
-utilizing Python’s concurrent.futures features. The main purpose of this class is for historical export of
+utilizing Python's concurrent.futures features. The main purpose of this class is for historical export of
 data.
 
 * **Parameters:**
   * **parent_data_collection** ([*DataCollection*](data-collection.md#coinmetrics._data_collection.DataCollection))
-  * **parallelize_on** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*)
+  * **parallelize_on** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*)
   * **executor** (*Optional* *[**Callable* *[* *...* *,* *Executor* *]* *]*)
-  * **max_workers** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*)
-  * **progress_bar** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*)
+  * **max_workers** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*)
+  * **progress_bar** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*)
   * **time_increment** (*Optional* *[**Union* *[**relativedelta* *,* *timedelta* *,* *DateOffset* *]* *]*)
-  * **height_increment** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*)
+  * **height_increment** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*)
 
 #### export_to_csv(path_or_bufstr=None, columns_to_store=None, compress=False, dataframe_type='pandas')
 
 * **Parameters:**
-  * **path_or_bufstr** ([*str*](https://docs.python.org/3/library/stdtypes.md#str) *|* *Path* *|* [*IO*](https://docs.python.org/3/library/typing.md#typing.IO) *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*  *|* [*IO*](https://docs.python.org/3/library/typing.md#typing.IO) *[*[*bytes*](https://docs.python.org/3/library/stdtypes.md#bytes) *]*  *|* *None*)
-  * **columns_to_store** ([*List*](https://docs.python.org/3/library/typing.md#typing.List) *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*  *|* *None*)
-  * **compress** ([*bool*](https://docs.python.org/3/library/functions.md#bool))
-  * **dataframe_type** ([*str*](https://docs.python.org/3/library/stdtypes.md#str))
+  * **path_or_bufstr** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *Path* *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*bytes*](https://docs.python.org/3/library/stdtypes.html#bytes) *]*  *|* *None*)
+  * **columns_to_store** ([*List*](https://docs.python.org/3/library/typing.html#typing.List) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* *None*)
+  * **compress** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
+  * **dataframe_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
 * **Return type:**
   None
 
@@ -90,21 +90,21 @@ produces:
 ```
 
 * **Parameters:**
-  * **data_directory** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Path to the directory where files should be
+  * **data_directory** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Path to the directory where files should be
     written. Defaults to the current working directory.
-  * **columns_to_store** (*Optional* *[**List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Columns to include in each CSV. Defaults to
+  * **columns_to_store** (*Optional* *[**List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Columns to include in each CSV. Defaults to
     every column returned by the endpoint.
-  * **compress** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Whether to gzip the resulting files.
+  * **compress** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Whether to gzip the resulting files.
 * **Return type:**
   None
 
 #### export_to_json(path_or_bufstr=None, compress=False)
 
 * **Parameters:**
-  * **path_or_bufstr** ([*str*](https://docs.python.org/3/library/stdtypes.md#str) *|* *Path* *|* [*IO*](https://docs.python.org/3/library/typing.md#typing.IO) *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*  *|* [*IO*](https://docs.python.org/3/library/typing.md#typing.IO) *[*[*bytes*](https://docs.python.org/3/library/stdtypes.md#bytes) *]*  *|* *None*)
-  * **compress** ([*bool*](https://docs.python.org/3/library/functions.md#bool))
+  * **path_or_bufstr** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *Path* *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*bytes*](https://docs.python.org/3/library/stdtypes.html#bytes) *]*  *|* *None*)
+  * **compress** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
 * **Return type:**
-  [str](https://docs.python.org/3/library/stdtypes.md#str) | None
+  [str](https://docs.python.org/3/library/stdtypes.html#str) | None
 
 #### export_to_json_files(data_directory=None, compress=False)
 
@@ -147,31 +147,31 @@ produces:
 ```
 
 * **Parameters:**
-  * **data_directory** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – Path to the directory where files should be
+  * **data_directory** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Path to the directory where files should be
     written. Defaults to the current working directory.
-  * **compress** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Whether to gzip the resulting files.
+  * **compress** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Whether to gzip the resulting files.
 * **Return type:**
   None
 
 #### export_to_parquet(path_or_bufstr=None)
 
 * **Parameters:**
-  **path_or_bufstr** ([*str*](https://docs.python.org/3/library/stdtypes.md#str) *|* *Path* *|* [*IO*](https://docs.python.org/3/library/typing.md#typing.IO) *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*  *|* [*IO*](https://docs.python.org/3/library/typing.md#typing.IO) *[*[*bytes*](https://docs.python.org/3/library/stdtypes.md#bytes) *]*  *|* *None*)
+  **path_or_bufstr** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *Path* *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*bytes*](https://docs.python.org/3/library/stdtypes.html#bytes) *]*  *|* *None*)
 * **Return type:**
   None
 
 #### export_to_parquet_files(data_directory=None, \*\*kwargs)
 
 * **Parameters:**
-  * **data_directory** ([*str*](https://docs.python.org/3/library/stdtypes.md#str) *|* *None*)
-  * **kwargs** ([*Any*](https://docs.python.org/3/library/typing.md#typing.Any))
+  * **data_directory** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *None*)
+  * **kwargs** ([*Any*](https://docs.python.org/3/library/typing.html#typing.Any))
 * **Return type:**
   None
 
 #### first_page()
 
 * **Return type:**
-  [*List*](https://docs.python.org/3/library/typing.md#typing.List)[[*Dict*](https://docs.python.org/3/library/typing.md#typing.Dict)[[str](https://docs.python.org/3/library/stdtypes.md#str), [*Any*](https://docs.python.org/3/library/typing.md#typing.Any)]]
+  [*List*](https://docs.python.org/3/library/typing.html#typing.List)[[*Dict*](https://docs.python.org/3/library/typing.html#typing.Dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [*Any*](https://docs.python.org/3/library/typing.html#typing.Any)]]
 
 #### get_parallel_datacollections()
 
@@ -224,12 +224,12 @@ two-week windows.
 #### get_schema_field_names()
 
 Get all field names defined in the schema for this endpoint.
-This returns ALL possible fields, even if they’re not present in the actual data.
+This returns ALL possible fields, even if they're not present in the actual data.
 
 * **Returns:**
   List of field names from the schema
 * **Return type:**
-  List[[str](https://docs.python.org/3/library/stdtypes.md#str)]
+  List[[str](https://docs.python.org/3/library/stdtypes.html#str)]
 
 #### parallel(parallelize_on=None, executor=None, max_workers=None, progress_bar=None, time_increment=None, height_increment=None)
 
@@ -241,22 +241,22 @@ By default the request is split on the primary query parameter (for example,
 `get_asset_metrics(assets=...)` is split into one request per asset).
 
 * **Parameters:**
-  * **parallelize_on** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Parameter(s) to parallelize on. Must be one of the
+  * **parallelize_on** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Parameter(s) to parallelize on. Must be one of the
     list-type parameters of the underlying endpoint
-    (`assets`, `markets`, `metrics`, …).
-  * **executor** (*Optional* *[**Callable* *[* *[**Any* *]* *,* [*concurrent.futures.Executor*](https://docs.python.org/3/library/concurrent.futures.md#concurrent.futures.Executor) *]* *]*) – Executor class used for concurrency. Defaults to
-    [`concurrent.futures.ThreadPoolExecutor`](https://docs.python.org/3/library/concurrent.futures.md#concurrent.futures.ThreadPoolExecutor); pass a
-    [`ProcessPoolExecutor`](https://docs.python.org/3/library/concurrent.futures.md#concurrent.futures.ProcessPoolExecutor) (or any other
+    (`assets`, `markets`, `metrics`, ...).
+  * **executor** (*Optional* *[**Callable* *[* *[**Any* *]* *,* [*concurrent.futures.Executor*](https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Executor) *]* *]*) -- Executor class used for concurrency. Defaults to
+    [`concurrent.futures.ThreadPoolExecutor`](https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.ThreadPoolExecutor); pass a
+    [`ProcessPoolExecutor`](https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.ProcessPoolExecutor) (or any other
     `Executor` subclass) to swap it out.
-  * **max_workers** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Number of parallel workers. Defaults to `10` and is
+  * **max_workers** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of parallel workers. Defaults to `10` and is
     capped at `10` to respect API rate limits.
-  * **progress_bar** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.md#bool) *]*) – Whether to display a `tqdm` progress bar while the
+  * **progress_bar** (*Optional* *[*[*bool*](https://docs.python.org/3/library/functions.html#bool) *]*) -- Whether to display a `tqdm` progress bar while the
     workers run. Defaults to `True`.
-  * **time_increment** (*Optional* *[**Union* *[**relativedelta* *,* *timedelta* *,* *DateOffset* *]* *]*) – Optionally split the request along the time axis as
-    well. Use [`datetime.timedelta`](https://docs.python.org/3/library/datetime.md#datetime.timedelta) for sub-month windows and
+  * **time_increment** (*Optional* *[**Union* *[**relativedelta* *,* *timedelta* *,* *DateOffset* *]* *]*) -- Optionally split the request along the time axis as
+    well. Use [`datetime.timedelta`](https://docs.python.org/3/library/datetime.html#datetime.timedelta) for sub-month windows and
     `dateutil.relativedelta.relativedelta` for month / year windows.
     Requires `start_time` to be set on the original request.
-  * **height_increment** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.md#int) *]*) – Optionally split the request along the block-height
+  * **height_increment** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Optionally split the request along the block-height
     axis. Requires `start_height` to be set on the original request.
 * **Returns:**
   A [`ParallelDataCollection`](#coinmetrics._data_collection.ParallelDataCollection) that mirrors the original
@@ -272,9 +272,9 @@ ISO 8601 format. Timezone aware objects are converted to UTC
 :return: datetime
 
 * **Parameters:**
-  **date_input** ([*datetime*](https://docs.python.org/3/library/datetime.md#datetime.datetime) *|* [*date*](https://docs.python.org/3/library/datetime.md#datetime.date) *|* [*str*](https://docs.python.org/3/library/stdtypes.md#str) *|* *Timestamp*)
+  **date_input** ([*datetime*](https://docs.python.org/3/library/datetime.html#datetime.datetime) *|* [*date*](https://docs.python.org/3/library/datetime.html#datetime.date) *|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *Timestamp*)
 * **Return type:**
-  [*datetime*](https://docs.python.org/3/library/datetime.md#datetime.datetime)
+  [*datetime*](https://docs.python.org/3/library/datetime.html#datetime.datetime)
 
 #### to_dataframe(dtype_mapper=None, dataframe_type='pandas', decimal_as_string=False)
 
@@ -284,10 +284,10 @@ Uses PyArrow as the intermediate representation for type-safe,
 near-zero-copy conversion to both pandas and polars.
 
 * **Parameters:**
-  * **dtype_mapper** ([*dict*](https://docs.python.org/3/library/stdtypes.md#dict)) – Optional dictionary mapping column names to pandas
+  * **dtype_mapper** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)) -- Optional dictionary mapping column names to pandas
     dtypes.  Overrides schema-derived types for the specified columns.
-  * **dataframe_type** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Type of dataframe outputted, either “pandas” (default) or “polars”.
-  * **decimal_as_string** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – If True, decimal columns are returned as strings
+  * **dataframe_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Type of dataframe outputted, either "pandas" (default) or "polars".
+  * **decimal_as_string** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- If True, decimal columns are returned as strings
     to preserve full precision. If False (default), decimals are cast to
     float64 which may lose precision for values with more than ~15
     significant digits.
@@ -299,12 +299,12 @@ near-zero-copy conversion to both pandas and polars.
 #### to_lazyframe(decimal_as_string=False, \*\*kwargs)
 
 * **Parameters:**
-  * **decimal_as_string** ([*bool*](https://docs.python.org/3/library/functions.md#bool))
-  * **kwargs** ([*Any*](https://docs.python.org/3/library/typing.md#typing.Any))
+  * **decimal_as_string** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
+  * **kwargs** ([*Any*](https://docs.python.org/3/library/typing.html#typing.Any))
 * **Return type:**
   *LazyFrame*
 
 #### to_list()
 
 * **Return type:**
-  [*List*](https://docs.python.org/3/library/typing.md#typing.List)[[*Dict*](https://docs.python.org/3/library/typing.md#typing.Dict)[[str](https://docs.python.org/3/library/stdtypes.md#str), [*Any*](https://docs.python.org/3/library/typing.md#typing.Any)]]
+  [*List*](https://docs.python.org/3/library/typing.html#typing.List)[[*Dict*](https://docs.python.org/3/library/typing.html#typing.Dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [*Any*](https://docs.python.org/3/library/typing.html#typing.Any)]]

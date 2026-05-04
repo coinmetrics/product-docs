@@ -39,7 +39,7 @@ This makes it easier to understand what network calls the client is making and w
 
 ### Proxy Error
 
-Some organizations require all third-party requests to flow through a proxy. For proxies that don’t require auth:
+Some organizations require all third-party requests to flow through a proxy. For proxies that don't require auth:
 
 ```python
 client = CoinMetricsClient(proxy_url='http://<hostname>:<port>')
@@ -80,7 +80,7 @@ A quick way to find the certs on your machine:
 python3 -c "import requests; print(requests.certs.where())"
 ```
 
-Note this can change depending on whether you’re [using a Python virtual environment](https://realpython.com/python-virtual-environments-a-primer/).
+Note this can change depending on whether you're [using a Python virtual environment](https://realpython.com/python-virtual-environments-a-primer/).
 
 ```python
 from coinmetrics.api_client import CoinMetricsClient

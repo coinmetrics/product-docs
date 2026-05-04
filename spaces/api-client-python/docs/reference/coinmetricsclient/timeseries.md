@@ -45,17 +45,17 @@
 Returns asset alerts for the specified assets.
 
 * **Parameters:**
-  * **assets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of asset names, e.g. ‘btc’
-  * **alerts** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of asset alert names
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **include_heartbeats** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – If set to true, includes information about most recent time asset was successfully evaluated.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, csv. Default is json.
+  * **assets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of asset names, e.g. 'btc'
+  * **alerts** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of asset alert names
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **include_heartbeats** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- If set to true, includes information about most recent time asset was successfully evaluated.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
 * **Returns:**
   Asset alerts timeseries.
 * **Return type:**
@@ -66,15 +66,15 @@ Returns asset alerts for the specified assets.
 Returns the chains of blocks for the specified assets.
 
 * **Parameters:**
-  * **assets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of asset names, e.g. ‘btc’
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, csv. Default is json.
+  * **assets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of asset names, e.g. 'btc'
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
 * **Returns:**
   Asset chains timeseries.
 * **Return type:**
@@ -85,35 +85,35 @@ Returns the chains of blocks for the specified assets.
 Returns requested metrics for specified assets.
 
 * **Parameters:**
-  * **assets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of asset names, e.g. ‘btc’ Use the client.catalog_asset_metrics_v2() method for the full list of supported assets or specify asterisk (`*`) in order to get metrics for all supported assets.
-  * **metrics** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of asset-specific metric names, e.g. ‘AdrActCnt’, ‘BlkHgt’. Example: metrics=’AdrActCnt,BlkHgt’
+  * **assets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of asset names, e.g. 'btc' Use the client.catalog_asset_metrics_v2() method for the full list of supported assets or specify asterisk (`*`) in order to get metrics for all supported assets.
+  * **metrics** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of asset-specific metric names, e.g. 'AdrActCnt', 'BlkHgt'. Example: metrics='AdrActCnt,BlkHgt'
     Comma separated metrics to request time series data for.
     Information on all available metrics can be found on page [https://coverage.coinmetrics.io/asset-metrics-v2](https://coverage.coinmetrics.io/asset-metrics-v2).
     Use the client.catalog_full_asset_metrics_v2() method for the full list of supported metrics per asset.
-  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – frequency of the returned timeseries, e.g 15s, 1d, etc.
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_height** ([*int*](https://docs.python.org/3/library/functions.md#int)) – Start block of the timeseries (only applicable when querying with frequency 1b).
-  * **end_height** ([*int*](https://docs.python.org/3/library/functions.md#int)) – End block of the timeseries (only applicable when querying with frequency 1b).
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **sort** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – How results will be sorted, e.g. “asset”, “height”, or “time”. Default is “asset”. Metrics with 1b frequency are sorted by (asset, height, block_hash) tuples by default. Metrics with other frequencies are sorted by (asset, time) by default. If you want to sort 1d metrics by (time, asset) you should choose time as value for the sort parameter. Sorting by time is useful if you request metrics for a set of assets.
-  * **limit_per_asset** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per asset* the result should contain.
-  * **status** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Which metric values do you want to see. Applicable only for “reviewable” metrics.
-    You can find them in the /catalog/metrics endpoint. Default: “all”. Supported: “all” “flash” “reviewed” “revised”
-  * **start_hash** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – The start hash indicates the beginning block height for the set of data that are returned.
+  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- frequency of the returned timeseries, e.g 15s, 1d, etc.
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_height** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- Start block of the timeseries (only applicable when querying with frequency 1b).
+  * **end_height** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- End block of the timeseries (only applicable when querying with frequency 1b).
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **sort** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- How results will be sorted, e.g. "asset", "height", or "time". Default is "asset". Metrics with 1b frequency are sorted by (asset, height, block_hash) tuples by default. Metrics with other frequencies are sorted by (asset, time) by default. If you want to sort 1d metrics by (time, asset) you should choose time as value for the sort parameter. Sorting by time is useful if you request metrics for a set of assets.
+  * **limit_per_asset** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per asset* the result should contain.
+  * **status** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Which metric values do you want to see. Applicable only for "reviewable" metrics.
+    You can find them in the /catalog/metrics endpoint. Default: "all". Supported: "all" "flash" "reviewed" "revised"
+  * **start_hash** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- The start hash indicates the beginning block height for the set of data that are returned.
     Inclusive by default. Mutually exclusive with start_time and start_height.
-  * **end_hash** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – The end hash indicates the ending block height for the set of data that are returned.
+  * **end_hash** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- The end hash indicates the ending block height for the set of data that are returned.
     Inclusive by default. Mutually exclusive with end_time and end_height.
-  * **min_confirmations** ([*int*](https://docs.python.org/3/library/functions.md#int)) – Specifies how many blocks behind the chain tip block by block metrics
+  * **min_confirmations** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- Specifies how many blocks behind the chain tip block by block metrics
     (1b frequency) are based on. Default for btc is 2 and 99 for eth.
-  * **null_as_zero** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Default: false. Nulls are represented as zeros in the response.
-  * **ignore_forbidden_errors** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Default: false. Ignore HTTP 403 Forbidden errors
-  * **ignore_unsupported_errors** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Default: false. Ignore errors for unsupported assets, metrics or frequencies.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **null_as_zero** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Nulls are represented as zeros in the response.
+  * **ignore_forbidden_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Ignore HTTP 403 Forbidden errors
+  * **ignore_unsupported_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Ignore errors for unsupported assets, metrics or frequencies.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   Asset Metrics timeseries.
 * **Return type:**
@@ -124,17 +124,17 @@ Returns requested metrics for specified assets.
 Returns Defi Balance Sheet records for specified DeFi protocols.
 
 * **Parameters:**
-  * **defi_protocols** ([*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – list of DeFi protocols like aave_v2_eth or protocol patterns like `aave_v2_*` or `aave_*_eth` or `*_eth`.
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_height** ([*int*](https://docs.python.org/3/library/functions.md#int)) – The start height indicates the beginning block height for the set of data that are returned. Mutually exclusive with start_time
-  * **end_height** ([*int*](https://docs.python.org/3/library/functions.md#int)) – The end height indicates the beginning block height for the set of data that are returned. Mutually exclusive with end_time
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, csv. Default is json.
+  * **defi_protocols** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- list of DeFi protocols like aave_v2_eth or protocol patterns like `aave_v2_*` or `aave_*_eth` or `*_eth`.
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_height** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- The start height indicates the beginning block height for the set of data that are returned. Mutually exclusive with start_time
+  * **end_height** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- The end height indicates the beginning block height for the set of data that are returned. Mutually exclusive with end_time
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
 * **Returns:**
   list of blockchain blocks metadata
 * **Return type:**
@@ -145,24 +145,24 @@ Returns Defi Balance Sheet records for specified DeFi protocols.
 Returns metrics for specified exchange-asset.
 
 * **Parameters:**
-  * **exchange_assets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – A list of exchange-asset pairs (e.g. “binance-btc”) or patterns like `exchange-*` or `*-asset`.
-  * **metrics** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Example: metrics=open_interest_reported_future_usd,volume_reported_spot_usd_1d
+  * **exchange_assets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- A list of exchange-asset pairs (e.g. "binance-btc") or patterns like `exchange-*` or `*-asset`.
+  * **metrics** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Example: metrics=open_interest_reported_future_usd,volume_reported_spot_usd_1d
     Comma separated metrics to request time series data for.
     Information on all available metrics can be found on page [https://coverage.coinmetrics.io/exchange-asset-metrics-v2](https://coverage.coinmetrics.io/exchange-asset-metrics-v2).
     Use the client.catalog_full_exchange_asset_metrics_v2() method for the full list of supported metrics per exchange-asset combination.
-  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – frequency of the returned timeseries, e.g 15s, 1d, etc.
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_height** ([*int*](https://docs.python.org/3/library/functions.md#int)) – Start block of the timeseries (only applicable when querying with frequency 1b).
-  * **end_height** ([*int*](https://docs.python.org/3/library/functions.md#int)) – End block of the timeseries (only applicable when querying with frequency 1b).
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **sort** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – How results will be sorted, e.g. “exchange_asset”, “time”. Default is “exchange_asset”.
-  * **limit_per_exchange_asset** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per exchange-asset* the result should contain.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- frequency of the returned timeseries, e.g 15s, 1d, etc.
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_height** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- Start block of the timeseries (only applicable when querying with frequency 1b).
+  * **end_height** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- End block of the timeseries (only applicable when querying with frequency 1b).
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **sort** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- How results will be sorted, e.g. "exchange_asset", "time". Default is "exchange_asset".
+  * **limit_per_exchange_asset** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per exchange-asset* the result should contain.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   Exchange-Asset Metrics timeseries.
 * **Return type:**
@@ -173,27 +173,27 @@ Returns metrics for specified exchange-asset.
 Returns metrics for specified exchanges.
 
 * **Parameters:**
-  * **exchanges** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Examples:
-    - exchanges=’coinbase,binance,etc’ - the list of exchanges
+  * **exchanges** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Examples:
+    - exchanges='coinbase,binance,etc' - the list of exchanges
     - exchanges=\* - all supported exchanges
     Comma separated list of exchange names or asterisk (`*`) for all supported exchanges.
-  * **metrics** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Example: metrics=open_interest_reported_future_usd,volume_reported_spot_usd_1d
+  * **metrics** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Example: metrics=open_interest_reported_future_usd,volume_reported_spot_usd_1d
     Comma separated metrics to request time series data for.
     Information on all available metrics can be found on page [https://coverage.coinmetrics.io/exchange-metrics-v2](https://coverage.coinmetrics.io/exchange-metrics-v2).
     Use the client.catalog_full_exchange_metrics_v2() method for the full list of supported metrics per exchange.
-  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – frequency of the returned timeseries, e.g 15s, 1d, etc.
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_height** ([*int*](https://docs.python.org/3/library/functions.md#int)) – Start block of the timeseries (only applicable when querying with frequency 1b).
-  * **end_height** ([*int*](https://docs.python.org/3/library/functions.md#int)) – End block of the timeseries (only applicable when querying with frequency 1b).
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **sort** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – How results will be sorted, e.g. ‘exchange’, ‘time’. Metrics are sorted by ‘exchange’ by default.
-  * **limit_per_exchange** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per exchange* the result should contain.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, csv. Default is json.
+  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- frequency of the returned timeseries, e.g 15s, 1d, etc.
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_height** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- Start block of the timeseries (only applicable when querying with frequency 1b).
+  * **end_height** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- End block of the timeseries (only applicable when querying with frequency 1b).
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **sort** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- How results will be sorted, e.g. 'exchange', 'time'. Metrics are sorted by 'exchange' by default.
+  * **limit_per_exchange** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per exchange* the result should contain.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
 * **Returns:**
   Exchange Metrics timeseries.
 * **Return type:**
@@ -204,23 +204,23 @@ Returns metrics for specified exchanges.
 Returns metrics for specified exchange-pair.
 
 * **Parameters:**
-  * **exchange_pairs** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – A list of exchange-pairs or patterns like `exchange-*` or `*-pair`.
-  * **metrics** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Example: metrics=volatility_implied_put_delta_50_1y_expiration,volatility_implied_skew_delta_05_1d_expiration
+  * **exchange_pairs** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- A list of exchange-pairs or patterns like `exchange-*` or `*-pair`.
+  * **metrics** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Example: metrics=volatility_implied_put_delta_50_1y_expiration,volatility_implied_skew_delta_05_1d_expiration
     Comma separated metrics to request time series data for.
     Information on all available metrics can be found on page [https://coverage.coinmetrics.io/exchange-pair-metrics](https://coverage.coinmetrics.io/exchange-pair-metrics).
     Use the catalog_full_exchange_pair_metrics_v2() method for the full list of supported metrics per exchange-pair combination.
-  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – frequency of the returned timeseries, e.g 15s, 1d, etc.
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_height** ([*int*](https://docs.python.org/3/library/functions.md#int)) – Start block of the timeseries (only applicable when querying with frequency 1b).
-  * **end_height** ([*int*](https://docs.python.org/3/library/functions.md#int)) – End block of the timeseries (only applicable when querying with frequency 1b).
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Default: “json”. Enum: “json” “json_stream” “csv”. Format of the response. Supported values are json, json_stream, csv.
-  * **limit_per_exchange_pair** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per exchange* the result should contain.
+  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- frequency of the returned timeseries, e.g 15s, 1d, etc.
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_height** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- Start block of the timeseries (only applicable when querying with frequency 1b).
+  * **end_height** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- End block of the timeseries (only applicable when querying with frequency 1b).
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Default: "json". Enum: "json" "json_stream" "csv". Format of the response. Supported values are json, json_stream, csv.
+  * **limit_per_exchange_pair** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per exchange* the result should contain.
 * **Returns:**
   Exchange-Pair Metrics timeseries.
 * **Return type:**
@@ -231,17 +231,17 @@ Returns metrics for specified exchange-pair.
 Returns index candles for specified indexes and date range.
 
 * **Parameters:**
-  * **indexes** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of index names, e.g. ‘CMBI10’
-  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – frequency of the returned timeseries, e.g 15s, 1d, etc.
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **limit_per_index** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per index* the result should contain.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, csv. Default is json.
+  * **indexes** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of index names, e.g. 'CMBI10'
+  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- frequency of the returned timeseries, e.g 15s, 1d, etc.
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **limit_per_index** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per index* the result should contain.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
 * **Returns:**
   Index Candles timeseries.
 * **Return type:**
@@ -252,16 +252,16 @@ Returns index candles for specified indexes and date range.
 Returns index constituents for specified indexes and date range.
 
 * **Parameters:**
-  * **indexes** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of index names, e.g. ‘CMBI10’
-  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – frequency of the returned timeseries, e.g 15s, 1d, etc.
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, csv. Default is json.
+  * **indexes** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of index names, e.g. 'CMBI10'
+  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- frequency of the returned timeseries, e.g 15s, 1d, etc.
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
 * **Returns:**
   Index Constituents timeseries.
 * **Return type:**
@@ -272,21 +272,21 @@ Returns index constituents for specified indexes and date range.
 Returns index levels for specified indexes and date range.
 
 * **Parameters:**
-  * **indexes** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of index names, e.g. ‘CMBI10’
-  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – frequency of the returned timeseries, e.g 15s, 1d, etc.
-  * **granularity** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Default: “1s” granularity of the returned timeseries, e.g 1s, 1m, etc.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **limit_per_index** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per index* the result should contain.
-  * **include_verification** ([*bool*](https://docs.python.org/3/library/functions.md#bool) *|* *None*) – Default: False set to true, includes information about verification.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **indexes** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of index names, e.g. 'CMBI10'
+  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- frequency of the returned timeseries, e.g 15s, 1d, etc.
+  * **granularity** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Default: "1s" granularity of the returned timeseries, e.g 1s, 1m, etc.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **limit_per_index** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per index* the result should contain.
+  * **include_verification** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *|* *None*) -- Default: False set to true, includes information about verification.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Type:**
-  [bool](https://docs.python.org/3/library/functions.md#bool)
+  [bool](https://docs.python.org/3/library/functions.html#bool)
 * **Returns:**
   Index Levels timeseries.
 * **Return type:**
@@ -297,21 +297,21 @@ Returns index levels for specified indexes and date range.
 Returns metrics for specified institutions.
 
 * **Parameters:**
-  * **institutions** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – A single institution name or a list of institutions to return info for.
-  * **metrics** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of *institution-specific* metric names, e.g. ‘gbtc_total_assets’
-  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – frequency of the returned timeseries, e.g 15s, 1d, etc.
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_height** ([*int*](https://docs.python.org/3/library/functions.md#int)) – Start block of the timeseries (only applicable when querying with frequency 1b).
-  * **end_height** ([*int*](https://docs.python.org/3/library/functions.md#int)) – End block of the timeseries (only applicable when querying with frequency 1b).
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **sort** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – How results will be sorted, e.g. “institution”, or “time”. Default is “institution”.
-  * **limit_per_institution** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per institution* the result should contain.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, csv. Default is json.
+  * **institutions** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- A single institution name or a list of institutions to return info for.
+  * **metrics** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of *institution-specific* metric names, e.g. 'gbtc_total_assets'
+  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- frequency of the returned timeseries, e.g 15s, 1d, etc.
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_height** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- Start block of the timeseries (only applicable when querying with frequency 1b).
+  * **end_height** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- End block of the timeseries (only applicable when querying with frequency 1b).
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **sort** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- How results will be sorted, e.g. "institution", or "time". Default is "institution".
+  * **limit_per_institution** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per institution* the result should contain.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
 * **Returns:**
   Asset Metrics timeseries.
 * **Return type:**
@@ -323,19 +323,19 @@ Returns market candles for specified markets, frequency and date range.
 For more information on market candles, see: [https://docs.coinmetrics.io/info/markets/candles](https://docs.coinmetrics.io/info/markets/candles)
 
 * **Parameters:**
-  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., ‘coinbase-btc-usd-spot’, ‘bitmex-XBTUSD-future’
-  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – frequency of the returned timeseries, e.g 15s, 1d, etc.
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per market* the result should contain.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
-  * **ignore_unsupported_errors** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Whether to ignore 401 Unauthorized errors. Default is False.
-  * **ignore_forbidden_errors** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Whether to ignore 403 Forbidden errors. Default is False.
+  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., 'coinbase-btc-usd-spot', 'bitmex-XBTUSD-future'
+  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- frequency of the returned timeseries, e.g 15s, 1d, etc.
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **ignore_unsupported_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Whether to ignore 401 Unauthorized errors. Default is False.
+  * **ignore_forbidden_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Whether to ignore 403 Forbidden errors. Default is False.
 * **Returns:**
   Market Candles timeseries.
 * **Return type:**
@@ -346,18 +346,18 @@ For more information on market candles, see: [https://docs.coinmetrics.io/info/m
 Returns contract prices for specified markets. This includes index price and mark price that are used by the exchange for settlement and risk management purposes.
 
 * **Parameters:**
-  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., ‘coinbase-btc-usd-spot’, ‘bitmex-XBTUSD-future’, ‘deribit-ETH-25MAR22-1200-P-option’
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **granularity** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Downsampling granularity of market contract prices. Supported values are raw, 1m, 1h, and 1d.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per market* the result should contain.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, json_stream, csv. Default is json.
-  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.md#str) *|* *None*)
+  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., 'coinbase-btc-usd-spot', 'bitmex-XBTUSD-future', 'deribit-ETH-25MAR22-1200-P-option'
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **granularity** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Downsampling granularity of market contract prices. Supported values are raw, 1m, 1h, and 1d.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json.
+  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *None*)
 * **Returns:**
   Market Contract Prices timeseries.
 * **Return type:**
@@ -369,16 +369,16 @@ Returns market funding rates for specified markets and date range.
 For more information on funding rates, see: [https://docs.coinmetrics.io/info/markets/fundingrates](https://docs.coinmetrics.io/info/markets/fundingrates)
 
 * **Parameters:**
-  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., ‘coinbase-btc-usd-spot’, ‘bitmex-XBTUSD-future’
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per market* the result should contain.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, json_stream, csv. Default is json.
+  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., 'coinbase-btc-usd-spot', 'bitmex-XBTUSD-future'
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json.
 * **Returns:**
   Market Funding Rates timeseries.
 * **Return type:**
@@ -389,17 +389,17 @@ For more information on funding rates, see: [https://docs.coinmetrics.io/info/ma
 Returns greeks for option markets.
 
 * **Parameters:**
-  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., ‘coinbase-btc-usd-spot’, ‘bitmex-XBTUSD-future’, ‘deribit-ETH-25MAR22-1200-P-option’
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **granularity** (*str - one* *of* *raw* *,* *1m* *,* *1h* *,* *and 1d*) – Downsampling granularity of market greeks. Supported values are raw, 1m, 1h, and 1d
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per market* the result should contain.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, json_stream, csv. Default is json.
+  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., 'coinbase-btc-usd-spot', 'bitmex-XBTUSD-future', 'deribit-ETH-25MAR22-1200-P-option'
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **granularity** (*str - one* *of* *raw* *,* *1m* *,* *1h* *,* *and 1d*) -- Downsampling granularity of market greeks. Supported values are raw, 1m, 1h, and 1d
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json.
 * **Returns:**
   Market Greeks timeseries.
 * **Return type:**
@@ -410,17 +410,17 @@ Returns greeks for option markets.
 Returns implied volatility for specified markets.
 
 * **Parameters:**
-  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., ‘coinbase-btc-usd-spot’, ‘bitmex-XBTUSD-future’, ‘deribit-ETH-25MAR22-1200-P-option’
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **granularity** (*str - one* *of* *raw* *,* *1m* *,* *1h* *,* *and 1d*) – Downsampling granularity of market implied volatility. Supported values are raw, 1m, 1h, and 1d.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per market* the result should contain.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, json_stream, csv. Default is json.
+  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., 'coinbase-btc-usd-spot', 'bitmex-XBTUSD-future', 'deribit-ETH-25MAR22-1200-P-option'
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **granularity** (*str - one* *of* *raw* *,* *1m* *,* *1h* *,* *and 1d*) -- Downsampling granularity of market implied volatility. Supported values are raw, 1m, 1h, and 1d.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json.
 * **Returns:**
   Market Volatility timeseries.
 * **Return type:**
@@ -432,16 +432,16 @@ Returns market liquidations for specified markets and date range.
 For more information on liquidations, see: [https://docs.coinmetrics.io/info/markets/liquidations](https://docs.coinmetrics.io/info/markets/liquidations)
 
 * **Parameters:**
-  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., ‘coinbase-btc-usd-spot’, ‘bitmex-XBTUSD-future’
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per market* the result should contain.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, json_stream, csv. Default is json.
+  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., 'coinbase-btc-usd-spot', 'bitmex-XBTUSD-future'
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json.
 * **Returns:**
   Market Liquidations timeseries.
 * **Return type:**
@@ -453,23 +453,23 @@ Returns market metrics for specified markets, frequency and date range.
 For more information on market metrics, see: [https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketMetrics](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketMetrics)
 
 * **Parameters:**
-  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., ‘coinbase-btc-usd-spot’, ‘bitmex-XBTUSD-future’
-  * **metrics** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of metrics, i.e. ‘liquidations_reported_future_buy_units_1d’. See market metrics catalog for a list of supported metrics: [https://docs.coinmetrics.io/api/v4#operation/getCatalogMarketMetrics](https://docs.coinmetrics.io/api/v4#operation/getCatalogMarketMetrics)
-  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – frequency of the returned timeseries, e.g 15s, 1d, etc.
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per market* the result should contain.
-  * **sort** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – How results will be sorted. Metrics are sorted by (market, time) by default. If you want to sort
+  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., 'coinbase-btc-usd-spot', 'bitmex-XBTUSD-future'
+  * **metrics** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of metrics, i.e. 'liquidations_reported_future_buy_units_1d'. See market metrics catalog for a list of supported metrics: [https://docs.coinmetrics.io/api/v4#operation/getCatalogMarketMetrics](https://docs.coinmetrics.io/api/v4#operation/getCatalogMarketMetrics)
+  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- frequency of the returned timeseries, e.g 15s, 1d, etc.
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
+  * **sort** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- How results will be sorted. Metrics are sorted by (market, time) by default. If you want to sort
     1d metrics by (time, market) you should choose time as value for the sort parameter. Sorting by time is useful
     if you request metrics for a set of markets.
-  * **ignore_forbidden_errors** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Default: false. Ignore HTTP 403 Forbidden errors
-  * **ignore_unsupported_errors** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Default: false. Ignore errors for unsupported assets, metrics or frequencies.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **ignore_forbidden_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Ignore HTTP 403 Forbidden errors
+  * **ignore_unsupported_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Ignore errors for unsupported assets, metrics or frequencies.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   Market metrics timeseries.
 * **Return type:**
@@ -481,17 +481,17 @@ Returns market open interest for specified markets and date range.
 For more information on open interest, see: [https://docs.coinmetrics.io/info/markets/openinterest](https://docs.coinmetrics.io/info/markets/openinterest)
 
 * **Parameters:**
-  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., ‘coinbase-btc-usd-spot’, ‘bitmex-XBTUSD-future’
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **granularity** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Downsampling granularity of market open interest. Supported values are raw, 1m, 1h, and 1d.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per market* the result should contain.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., 'coinbase-btc-usd-spot', 'bitmex-XBTUSD-future'
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **granularity** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Downsampling granularity of market open interest. Supported values are raw, 1m, 1h, and 1d.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   Market Open Interest timeseries.
 * **Return type:**
@@ -503,18 +503,18 @@ Returns market order books for specified markets and date range.
 For more information on order books, see: [https://docs.coinmetrics.io/info/markets/orderbook](https://docs.coinmetrics.io/info/markets/orderbook)
 
 * **Parameters:**
-  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., ‘coinbase-btc-usd-spot’, ‘bitmex-XBTUSD-future’
-  * **granularity** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Downsampling granularity of market order books and quotes. Supported values are raw, 1m, 1h, and 1d.
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **depth_limit** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – book depth limit, 100 levels max or full book that is not limited and provided as is from the exchange. Full book snapshots are collected once per hour
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per market* the result should contain.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., 'coinbase-btc-usd-spot', 'bitmex-XBTUSD-future'
+  * **granularity** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Downsampling granularity of market order books and quotes. Supported values are raw, 1m, 1h, and 1d.
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **depth_limit** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- book depth limit, 100 levels max or full book that is not limited and provided as is from the exchange. Full book snapshots are collected once per hour
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   Market Order Books timeseries.
 * **Return type:**
@@ -526,18 +526,18 @@ Returns market quotes for specified markets and date range.
 For more information on quotes, see: [https://docs.coinmetrics.io/info/markets/quotes](https://docs.coinmetrics.io/info/markets/quotes)
 
 * **Parameters:**
-  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., ‘coinbase-btc-usd-spot’, ‘bitmex-XBTUSD-future’
-  * **granularity** – Downsampling granularity of market order books and quotes. Supported values are raw, 1m, 1h, and 1d.
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per market* the result should contain.
-  * **include_one_sided** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Default: false Include one-side and empty books in quotes response.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format=’json_stream’ is generally more performant. page_size and paging_from is ignored when format=’json_stream’.
+  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., 'coinbase-btc-usd-spot', 'bitmex-XBTUSD-future'
+  * **granularity** -- Downsampling granularity of market order books and quotes. Supported values are raw, 1m, 1h, and 1d.
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
+  * **include_one_sided** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false Include one-side and empty books in quotes response.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Returns:**
   Market Quotes timeseries.
 * **Return type:**
@@ -549,17 +549,17 @@ Returns market trades for specified markets and date range.
 For more information on market trades, see: [https://docs.coinmetrics.io/info/markets/trades](https://docs.coinmetrics.io/info/markets/trades)
 
 * **Parameters:**
-  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., ‘coinbase-btc-usd-spot’, ‘bitmex-XBTUSD-future’
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per market* the result should contain.
-  * **min_confirmations** ([*int*](https://docs.python.org/3/library/functions.md#int)) – Specifies how many blocks behind the chain tip trades are based on. Default is 2.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Default: “json_stream”. Format of the response. Supported values are json, json_stream.
+  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., 'coinbase-btc-usd-spot', 'bitmex-XBTUSD-future'
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
+  * **min_confirmations** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- Specifies how many blocks behind the chain tip trades are based on. Default is 2.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Default: "json_stream". Format of the response. Supported values are json, json_stream.
 * **Returns:**
   Market Trades timeseries.
 * **Return type:**
@@ -570,15 +570,15 @@ For more information on market trades, see: [https://docs.coinmetrics.io/info/ma
 Returns mempool feerates for the specified assets. Note: for this method, page_size must be <= 200.
 
 * **Parameters:**
-  * **assets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of asset names, e.g. ‘btc’
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, csv. Default is json.
+  * **assets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of asset names, e.g. 'btc'
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
 * **Returns:**
   Mempool Fee Rates timeseries.
 * **Return type:**
@@ -589,15 +589,15 @@ Returns mempool feerates for the specified assets. Note: for this method, page_s
 Returns mining pool tips summaries for specified assets.
 
 * **Parameters:**
-  * **assets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of asset names, e.g. ‘btc’
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, csv. Default is json.
+  * **assets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of asset names, e.g. 'btc'
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
 * **Returns:**
   Mining Pool Tips timeseries.
 * **Return type:**
@@ -609,19 +609,19 @@ Returns candles for specified asset pairs.
 Results are ordered by tuple (pair, time).
 
 * **Parameters:**
-  * **pairs** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – A single asset-asset pairs (e.g. “btc-usd”) or a list of asset-asset-pairs to return info for.
-  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – frequency of the returned timeseries, e.g 15s, 1d, etc.
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_height** ([*int*](https://docs.python.org/3/library/functions.md#int)) – Start block of the timeseries (only applicable when querying with frequency 1b).
-  * **end_height** ([*int*](https://docs.python.org/3/library/functions.md#int)) – End block of the timeseries (only applicable when querying with frequency 1b).
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **limit_per_pair** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per asset pair* the result should contain.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, csv. Default is json.
+  * **pairs** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- A single asset-asset pairs (e.g. "btc-usd") or a list of asset-asset-pairs to return info for.
+  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- frequency of the returned timeseries, e.g 15s, 1d, etc.
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_height** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- Start block of the timeseries (only applicable when querying with frequency 1b).
+  * **end_height** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- End block of the timeseries (only applicable when querying with frequency 1b).
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **limit_per_pair** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per asset pair* the result should contain.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
 * **Returns:**
   Asset pair candles timeseries.
 * **Return type:**
@@ -632,25 +632,25 @@ Results are ordered by tuple (pair, time).
 Returns metrics books for specified asset-asset pairs.
 
 * **Parameters:**
-  * **pairs** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – List of asset pairs or patterns like `btc-*`, or `*-btc`.
+  * **pairs** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- List of asset pairs or patterns like `btc-*`, or `*-btc`.
     Use a corresponding client.catalog_pair_metrics_v2() method for the full list of supported pairs for a given data type.
-  * **metrics** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Example: metrics=volume_trusted_spot_usd_1h,volume_trusted_spot_usd_1d
+  * **metrics** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Example: metrics=volume_trusted_spot_usd_1h,volume_trusted_spot_usd_1d
     Comma separated metrics to request time series data for.
     Information on all available metrics can be found on page [https://coverage.coinmetrics.io/pair-metrics-v2](https://coverage.coinmetrics.io/pair-metrics-v2).
     Use the client.catalog_full_pair_metrics_v2() method for the full list of supported metrics per pair.
-  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – frequency of the returned timeseries, e.g 15s, 1d, etc.
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_height** ([*int*](https://docs.python.org/3/library/functions.md#int)) – Start block of the timeseries (only applicable when querying with frequency 1b).
-  * **end_height** ([*int*](https://docs.python.org/3/library/functions.md#int)) – End block of the timeseries (only applicable when querying with frequency 1b).
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **sort** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – How results will be sorted, e.g.”pair”, “time”. “pair” by default
-  * **limit_per_pair** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per asset pair* the result should contain.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str) *|* *None*)
+  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- frequency of the returned timeseries, e.g 15s, 1d, etc.
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_height** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- Start block of the timeseries (only applicable when querying with frequency 1b).
+  * **end_height** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- End block of the timeseries (only applicable when querying with frequency 1b).
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **sort** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- How results will be sorted, e.g."pair", "time". "pair" by default
+  * **limit_per_pair** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per asset pair* the result should contain.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *None*)
 * **Returns:**
   Pair Metrics timeseries.
 * **Return type:**
@@ -662,16 +662,16 @@ Returns predicted funding rates for specified futures markets. Results are order
 For more information on funding rates, see: [https://docs.coinmetrics.io/info/markets/fundingrates](https://docs.coinmetrics.io/info/markets/fundingrates)
 
 * **Parameters:**
-  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., ‘coinbase-btc-usd-spot’, ‘bitmex-XBTUSD-future’
-  * **page_size** ([*int*](https://docs.python.org/3/library/functions.md#int)) – number of items returned per page when calling the API. If the request times out, try using a smaller number.
-  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Defines where you want to start receiving items from, ‘start’ or ‘end’ of the timeseries.
-  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
-  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if start timestamp must be included in the timeseries if present. True by default.
-  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Flag to define if end timestamp must be included in the timeseries if present. True by default.
-  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – timezone of the start/end times in db format for example: “America/Chicago”. Default value is “UTC”. For more details check out API documentation page.
-  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.md#int)) – How many entries *per market* the result should contain.
-  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Format of the response. Supported values are json, json_stream, csv. Default is json.
+  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of market ids. Market ids use the following naming convention: exchangeName-baseAsset-quoteAsset-spot for spot markets, exchangeName-futuresSymbol-future for futures markets, and exchangeName-optionsSymbol-option for options markets. e.g., 'coinbase-btc-usd-spot', 'bitmex-XBTUSD-future'
+  * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- number of items returned per page when calling the API. If the request times out, try using a smaller number.
+  * **paging_from** (*PagingFrom* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Defines where you want to start receiving items from, 'start' or 'end' of the timeseries.
+  * **start_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Start time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **end_time** (*datetime* *,* *date* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- End time of the timeseries (string or datetime). Datetime object may be timezone naive or aware. Multiple formats of ISO 8601 are supported: 2006-01-20T00:00:00Z, 2006-01-20T00:00:00.000Z, 2006-01-20T00:00:00.123456Z, 2006-01-20T00:00:00.123456789, 2006-01-20, 20060120
+  * **start_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if start timestamp must be included in the timeseries if present. True by default.
+  * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
+  * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
+  * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
+  * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json.
 * **Returns:**
   Market Funding Rates timeseries.
 * **Return type:**
@@ -682,12 +682,12 @@ For more information on funding rates, see: [https://docs.coinmetrics.io/info/ma
 Returns timeseries stream of metrics for specified assets.
 
 * **Parameters:**
-  * **assets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of asset names, e.g. ‘btc’
-  * **metrics** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of *asset-specific* metric names, e.g. ‘PriceUSD’
-  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – frequency of the returned timeseries, e.g 15s, 1d, etc.
-  * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – What data should be sent upon a connection (“latest” or “none”). By default the latest values are sent just before real-time data.
-  * **ignore_forbidden_errors** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Default: false. Ignore HTTP 403 Forbidden errors
-  * **ignore_unsupported_errors** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Default: false. Ignore errors for unsupported assets, metrics or frequencies.
+  * **assets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of asset names, e.g. 'btc'
+  * **metrics** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of *asset-specific* metric names, e.g. 'PriceUSD'
+  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- frequency of the returned timeseries, e.g 15s, 1d, etc.
+  * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- What data should be sent upon a connection ("latest" or "none"). By default the latest values are sent just before real-time data.
+  * **ignore_forbidden_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Ignore HTTP 403 Forbidden errors
+  * **ignore_unsupported_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Ignore errors for unsupported assets, metrics or frequencies.
 * **Returns:**
   Asset Metrics timeseries stream.
 * **Return type:**
@@ -698,9 +698,9 @@ Returns timeseries stream of metrics for specified assets.
 Returns a websocket stream of asset quotes for the requested assets.
 
 * **Parameters:**
-  * **assets** (*Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Comma separated list of assets. Use the /catalog-all/assets endpoint for the full list of supported assets.
-  * **aggregation_method** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – The method to use for aggregation.
-  * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – What data should be sent upon a connection. By default the latest values are sent just before real-time data.
+  * **assets** (*Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Comma separated list of assets. Use the /catalog-all/assets endpoint for the full list of supported assets.
+  * **aggregation_method** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- The method to use for aggregation.
+  * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- What data should be sent upon a connection. By default the latest values are sent just before real-time data.
 * **Returns:**
 * **Return type:**
   [CmStream](../cm-stream.md#coinmetrics.api_client.CmStream)
@@ -710,9 +710,9 @@ Returns a websocket stream of asset quotes for the requested assets.
 Returns timeseries stream of index levels.
 
 * **Parameters:**
-  * **indexes** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of indxes or market patterns such as CMBIBTC
-  * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – What data should be sent upon a connection (“latest” or “none”). By default the latest values are sent just before real-time data.
-  * **include_verification** ([*bool*](https://docs.python.org/3/library/functions.md#bool) *|* *None*) – Default: False If set to true, includes information about verification.
+  * **indexes** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of indxes or market patterns such as CMBIBTC
+  * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- What data should be sent upon a connection ("latest" or "none"). By default the latest values are sent just before real-time data.
+  * **include_verification** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *|* *None*) -- Default: False If set to true, includes information about verification.
 * **Returns:**
   Index levels data timeseries stream.
 * **Return type:**
@@ -723,9 +723,9 @@ Returns timeseries stream of index levels.
 Returns timeseries stream of market candles.
 
 * **Parameters:**
-  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of markets or market patterns like `exchange-*` or `exchange-*-spot` or `*USDT-future`.
-  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Candle duration. Supported values are 1m, 5m, 10m, 15m, 30m, 1h, 4h, 1d.
-  * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – What data should be sent upon a connection (“latest” or “none”). By default the latest values are sent just before real-time data.
+  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of markets or market patterns like `exchange-*` or `exchange-*-spot` or `*USDT-future`.
+  * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Candle duration. Supported values are 1m, 5m, 10m, 15m, 30m, 1h, 4h, 1d.
+  * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- What data should be sent upon a connection ("latest" or "none"). By default the latest values are sent just before real-time data.
 * **Returns:**
   Market Candles timeseries stream.
 * **Return type:**
@@ -739,8 +739,8 @@ This includes index price and mark price that are used by the exchange
 for settlement and risk management purposes.
 
 * **Parameters:**
-  * **markets** (*Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Comma separated list of markets or market patterns like exchange-\* or exchange-\*-spot or \*USDT-future. Use the /catalog-all-v2/markets endpoint for the full list of supported markets.
-  * **backfill** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – What data should be sent upon a connection. By default the latest values are sent just before real-time data.
+  * **markets** (*Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Comma separated list of markets or market patterns like exchange-\* or exchange-\*-spot or \*USDT-future. Use the /catalog-all-v2/markets endpoint for the full list of supported markets.
+  * **backfill** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- What data should be sent upon a connection. By default the latest values are sent just before real-time data.
 * **Returns:**
   Market Contract Prices timeseries stream.
 * **Return type:**
@@ -751,8 +751,8 @@ for settlement and risk management purposes.
 Returns timeseries stream for market liquidations
 
 * **Parameters:**
-  * **markets** (*Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Comma separated list of markets or market patterns like exchange-\* or exchange-\*-spot or \*USDT-future. Use the /catalog-all/markets endpoint for the full list of supported markets.
-  * **backfill** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – What data should be sent upon a connection. By default the latest values are sent just before real-time data.
+  * **markets** (*Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Comma separated list of markets or market patterns like exchange-\* or exchange-\*-spot or \*USDT-future. Use the /catalog-all/markets endpoint for the full list of supported markets.
+  * **backfill** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- What data should be sent upon a connection. By default the latest values are sent just before real-time data.
 * **Returns:**
   Market liquidations timeseries stream
 * **Return type:**
@@ -763,8 +763,8 @@ Returns timeseries stream for market liquidations
 Returns a websocket stream of market open interest for the requested markets.
 
 * **Parameters:**
-  * **markets** (*Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]*) – Comma separated list of markets or market patterns like exchange-\* or exchange-\*-spot or \*USDT-future. Use the /catalog-all/markets endpoint for the full list of supported markets.
-  * **backfill** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]*) – What data should be sent upon a connection. By default the latest values are sent just before real-time data.
+  * **markets** (*Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Comma separated list of markets or market patterns like exchange-\* or exchange-\*-spot or \*USDT-future. Use the /catalog-all/markets endpoint for the full list of supported markets.
+  * **backfill** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- What data should be sent upon a connection. By default the latest values are sent just before real-time data.
 * **Returns:**
 * **Return type:**
   [CmStream](../cm-stream.md#coinmetrics.api_client.CmStream)
@@ -774,9 +774,9 @@ Returns a websocket stream of market open interest for the requested markets.
 Returns timeseries stream of market orderbooks.
 
 * **Parameters:**
-  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of markets or market patterns like `exchange-*` or `exchange-*-spot` or `*USDT-future`.
-  * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – What data should be sent upon a connection (“latest” or “none”). By default the latest values are sent just before real-time data.
-  * **depth_limit** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – Default: 100. Supported Values: 100 “full_book”. Book depth limit.
+  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of markets or market patterns like `exchange-*` or `exchange-*-spot` or `*USDT-future`.
+  * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- What data should be sent upon a connection ("latest" or "none"). By default the latest values are sent just before real-time data.
+  * **depth_limit** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Default: 100. Supported Values: 100 "full_book". Book depth limit.
 * **Returns:**
   Market Orderbooks timeseries stream.
 * **Return type:**
@@ -787,9 +787,9 @@ Returns timeseries stream of market orderbooks.
 Returns timeseries stream of market quotes.
 
 * **Parameters:**
-  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of markets or market patterns like `exchange-*` or `exchange-*-spot` or `*USDT-future`.
-  * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – What data should be sent upon a connection (“latest” or “none”). By default the latest values are sent just before real-time data.
-  * **include_one_sided** ([*bool*](https://docs.python.org/3/library/functions.md#bool)) – Default: false. Include one-side and empty books in quotes response.
+  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of markets or market patterns like `exchange-*` or `exchange-*-spot` or `*USDT-future`.
+  * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- What data should be sent upon a connection ("latest" or "none"). By default the latest values are sent just before real-time data.
+  * **include_one_sided** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Include one-side and empty books in quotes response.
 * **Returns:**
   Market Quotes timeseries stream.
 * **Return type:**
@@ -800,8 +800,8 @@ Returns timeseries stream of market quotes.
 Returns timeseries stream of market trades.
 
 * **Parameters:**
-  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.md#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.md#str)) – list of markets or market patterns like `exchange-*` or `exchange-*-spot` or `*USDT-future`.
-  * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – What data should be sent upon a connection (“latest” or “none”). By default the latest values are sent just before real-time data.
+  * **markets** ([*list*](https://docs.python.org/3/library/stdtypes.html#list) *(*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *)* *,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- list of markets or market patterns like `exchange-*` or `exchange-*-spot` or `*USDT-future`.
+  * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- What data should be sent upon a connection ("latest" or "none"). By default the latest values are sent just before real-time data.
 * **Returns:**
   Market Trades timeseries stream.
 * **Return type:**
@@ -812,9 +812,9 @@ Returns timeseries stream of market trades.
 Returns a websocket stream of pair quotes for the requested asset pairs.
 
 * **Parameters:**
-  * **pairs** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.md#str) *]* *]* *]*) – Comma separated list of asset pairs. Use the /catalog-all/pairs endpoint for the full list of supported asset pairs.
-  * **aggregation_method** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – The method to use for aggregation.
-  * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.md#str)) – What data should be sent upon a connection. By default the latest values are sent just before real-time data.
+  * **pairs** (*Optional* *[**Union* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *,* *List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]* *]*) -- Comma separated list of asset pairs. Use the /catalog-all/pairs endpoint for the full list of supported asset pairs.
+  * **aggregation_method** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- The method to use for aggregation.
+  * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- What data should be sent upon a connection. By default the latest values are sent just before real-time data.
 * **Returns:**
 * **Return type:**
   [CmStream](../cm-stream.md#coinmetrics.api_client.CmStream)

@@ -23,7 +23,7 @@ Install the client from PyPI:
 pip install coinmetrics-api-client
 ```
 
-The client is updated regularly to reflect changes in [API v4](https://docs.coinmetrics.io/api/v4). Ensure that your version matches what’s published on [PyPI](https://pypi.org/project/coinmetrics-api-client/). To upgrade:
+The client is updated regularly to reflect changes in [API v4](https://docs.coinmetrics.io/api/v4). Ensure that your version matches what's published on [PyPI](https://pypi.org/project/coinmetrics-api-client/). To upgrade:
 
 ```bash
 pip install coinmetrics-api-client -U
@@ -76,7 +76,7 @@ Once you have a client, head over to the [Core Concepts](user-guide/core-concept
 
 ## Explore the Docs
 
-- [**API Client Reference**](reference/README.md) – Auto-generated reference covering every public method on `CoinMetricsClient`.
-- [**User Guide**](user-guide/README.md) – Core concepts, best practices, runnable examples, and troubleshooting tips.
-- [**Changelog**](releases/changelog.md) – Release history and migration notes.
-- [**GitHub**](https://github.com/coinmetrics/api-client-python) – Source code, issues, and releases on GitHub.
+- [**API Client Reference**](reference/README.md) -- Auto-generated reference covering every public method on `CoinMetricsClient`.
+- [**User Guide**](user-guide/README.md) -- Core concepts, best practices, runnable examples, and troubleshooting tips.
+- [**Changelog**](releases/changelog.md) -- Release history and migration notes.
+- [**GitHub**](https://github.com/coinmetrics/api-client-python) -- Source code, issues, and releases on GitHub.
