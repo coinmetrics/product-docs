@@ -75,7 +75,7 @@ curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metric
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=block_base_fee&assets=btc&pretty=true&api_key=<your_key>').json()
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=block_base_fee&assets=eth&frequency=1b&pretty=true&api_key=<your_key>').json()
 print(response)
 ```
 {% endtab %}

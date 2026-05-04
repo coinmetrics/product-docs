@@ -230,14 +230,14 @@ and by passing in the metric ID's above (`Attest*`, `Epoch*` , etc) in the `metr
 {% tabs %}
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=AttestCnt&assets=eth&pretty=true&api_key=<your_key>"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=AttestCnt&assets=eth_cl&frequency=1m&pretty=true&api_key=<your_key>"
 ```
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=AttestCnt&assets=eth&pretty=true&api_key=<your_key>').json()
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=AttestCnt&assets=eth_cl&frequency=1m&pretty=true&api_key=<your_key>').json()
 print(response)
 ```
 {% endtab %}
@@ -252,7 +252,7 @@ client = CoinMetricsClient(api_key)
 print(
     client.get_asset_metrics(
         metrics="AttestCnt", 
-        assets="eth",
+        assets="eth_cl",
     ).to_dataframe()
 )
 ```
