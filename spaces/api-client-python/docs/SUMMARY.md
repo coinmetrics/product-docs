@@ -1,17 +1,17 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Introduction](../../)
 
 ## User Guide
 
-* [Overview](user-guide/README.md)
+* [Overview](user-guide/)
 * [Core Concepts](user-guide/core-concepts.md)
 * [Best Practices](user-guide/best-practices.md)
 * [Troubleshooting](user-guide/troubleshooting.md)
 
 ## Reference
 
-* [Overview](reference/README.md)
+* [Overview](reference/)
 * [CoinMetricsClient](reference/coinmetricsclient.md)
   * [Catalog v2](reference/coinmetricsclient/catalog-v2.md)
   * [Time Series](reference/coinmetricsclient/timeseries.md)

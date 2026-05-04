@@ -1,21 +1,18 @@
-<p align="center">
-  <img src="/.gitbook/assets/cm-dark-combination.png" alt="Coin Metrics" width="360" class="cm-hero-logo only-light">
-  <img src="/.gitbook/assets/cm-light-combination.png" alt="Coin Metrics" width="360" class="cm-hero-logo only-dark">
-</p>
-
 # Coin Metrics Python API Client
+
+## Coin Metrics Python API Client
 
 The **Coin Metrics Python API Client** is the official Python wrapper for the [Coin Metrics API](https://docs.coinmetrics.io/api/v4), allowing you to access [Coin Metrics data](https://docs.coinmetrics.io/) using Python. In just a few lines of code, anyone can access clean cryptocurrency data in a familiar form, such as a `pandas` DataFrame.
 
 This tool offers the following convenient features over simply using `requests` to query the Coin Metrics API:
 
-- **Automatic Pagination** — the Coin Metrics API limits most endpoints to no more than 10,000 entries; the client handles pagination transparently.
-- **DataFrames** — access Coin Metrics data using `pandas` or `polars` DataFrames.
-- **Data Exports** — export API outputs to CSV and JSON files.
-- **Typing** — DataFrame columns are automatically converted to the appropriate data types.
-- **Parallelization** — submit many requests concurrently to extract data quickly.
+* **Automatic Pagination** — the Coin Metrics API limits most endpoints to no more than 10,000 entries; the client handles pagination transparently.
+* **DataFrames** — access Coin Metrics data using `pandas` or `polars` DataFrames.
+* **Data Exports** — export API outputs to CSV and JSON files.
+* **Typing** — DataFrame columns are automatically converted to the appropriate data types.
+* **Parallelization** — submit many requests concurrently to extract data quickly.
 
-## Installation
+### Installation
 
 Install the client from PyPI:
 
@@ -29,11 +26,11 @@ The client is updated regularly to reflect changes in [API v4](https://docs.coin
 pip install coinmetrics-api-client -U
 ```
 
-### Installing Behind a Private Network
+#### Installing Behind a Private Network
 
 Related to SSL certificate verification, you may have trouble installing and updating PyPI packages on a corporate network. Choose the option that fits your environment.
 
-#### Using package managers
+**Using package managers**
 
 Full instructions for setting up your environment to use `conda`, `pip`, `yarn`, `npm`, etc. can be [found here](https://medium.com/@iffi33/dealing-with-ssl-authentication-on-a-secure-corporate-network-pip-conda-git-npm-yarn-bower-73e5b93fd4b2). A workaround to disable SSL verification when installing a trusted Python package is:
 
@@ -43,14 +40,14 @@ pip install --trusted-host pypi.python.org coinmetrics-api-client
 
 Make sure you understand the risks of disabling SSL verification and that doing so complies with company policy.
 
-#### Installing locally
+**Installing locally**
 
 It may be easier to download and install the package locally:
 
 1. Download the files for the [Coin Metrics API Client from PyPI](https://pypi.org/project/coinmetrics-api-client/#files).
 2. [Install it locally](https://packaging.python.org/en/latest/tutorials/installing-packages/#installing-from-local-archives).
 
-## Initialization
+### Initialization
 
 To initialize the client you should use your API key, and the `CoinMetricsClient` class:
 
@@ -72,5 +69,4 @@ If you are curious to see how the API calls are being made, instantiating the cl
 client = CoinMetricsClient(api_key=api_key, verbose=True)
 ```
 
-Once you have a client, head over to the [Core Concepts](user-guide/core-concepts.md) page to learn how `DataCollection` objects, DataFrames, and file exports work.
-
+Once you have a client, head over to the [Core Concepts](api-client-python/docs/user-guide/core-concepts.md) page to learn how `DataCollection` objects, DataFrames, and file exports work.
