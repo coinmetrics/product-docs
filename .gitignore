@@ -46,6 +46,9 @@ test-reports/
 .vale-cache/
 .lycheecache
 
+# api-client-python docs build staging (scripts/build_api_client_python_docs.py)
+.docs-build/
+
 # Vale: Ignore downloaded style packages but keep custom config
 .vale/styles/*
 !.vale/styles/config/
