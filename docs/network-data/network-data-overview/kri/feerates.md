@@ -76,7 +76,7 @@ Bitcoin (BTC)
 
 **Sample Assets**
 
-{% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_next_block_approx_feerate_men&pretty=true" %}
+{% embed url="https://api.coinmetrics.io/v4/timeseries/asset-metrics?api_key=%3Cyour_key%3E&assets=btc&frequency=1m&limit_per_asset=1&metrics=mempool_next_block_approx_feerate_mean&pretty=true" %}
 
 ## Next Block Maximum Feerate <a href="#mempool_next_block_approx_feerate_max" id="mempool_next_block_approx_feerate_max"></a>
 
@@ -213,14 +213,14 @@ and by passing in the metric ID's `mempool_feerate*` and `mempool_next_block_app
 {% tabs %}
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=mempool_feerate_median&assets=btc&pretty=true&api_key=<your_key>"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=mempool_feerate_median&assets=btc&frequency=1m&pretty=true&api_key=<your_key>"
 ```
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=mempool_feerate_median&assets=btc&pretty=true&api_key=<your_key>').json()
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=mempool_feerate_median&assets=btc&frequency=1m&pretty=true&api_key=<your_key>').json()
 print(response)
 ```
 {% endtab %}
