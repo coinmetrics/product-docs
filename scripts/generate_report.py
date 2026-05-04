@@ -167,6 +167,19 @@ def parse_lychee(report_path):
 
                 domain = urllib.parse.urlparse(url).netloc
 
+                def http_rule(code):
+                    """Convert a status code to a descriptive rule label."""
+                    if not code:
+                        return 'Connection Error'
+                    labels = {
+                        401: 'HTTP 401 Unauthorized',
+                        403: 'HTTP 403 Forbidden',
+                        404: 'HTTP 404 Not Found',
+                        429: 'HTTP 429 Too Many Requests',
+                        522: 'HTTP 522 Timeout',
+                    }
+                    return labels.get(int(code), f'HTTP {code}')
+
                 # --- api.coinmetrics.io: re-verify with real API key ---
                 if domain == API_DOMAIN:
                     if cm_api_key:
@@ -183,7 +196,7 @@ def parse_lychee(report_path):
                             'file': file_path,
                             'line': '1',
                             'column': '1',
-                            'rule': 'broken-link',
+                            'rule': http_rule(verified_code),
                             'message': message,
                             'severity': 'error'
                         })
@@ -197,7 +210,7 @@ def parse_lychee(report_path):
                             'file': file_path,
                             'line': '1',
                             'column': '1',
-                            'rule': 'broken-link',
+                            'rule': 'Unverified (no CM_API_KEY)',
                             'message': message,
                             'severity': 'suggestion'
                         })
@@ -220,7 +233,7 @@ def parse_lychee(report_path):
                     'file': file_path,
                     'line': '1',
                     'column': '1',
-                    'rule': 'broken-link',
+                    'rule': http_rule(status_code),
                     'message': message,
                     'severity': severity
                 })
@@ -974,6 +987,55 @@ def generate_html_header(timestamp):
         .section {{
             position: relative;
         }}
+
+        /* Rule breakdown table inside each section */
+        .rule-breakdown {{
+            padding: 12px 20px 8px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-body);
+        }}
+        .collapsed .rule-breakdown {{ display: none; }}
+        .rule-breakdown-title {{
+            font-size: var(--font-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }}
+        .rule-row {{
+            display: grid;
+            grid-template-columns: 220px 1fr 52px;
+            align-items: center;
+            gap: 10px;
+            padding: 4px 0;
+            font-size: var(--font-sm);
+        }}
+        .rule-name {{
+            font-family: monospace;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }}
+        .rule-bar-wrap {{
+            height: 6px;
+            background: var(--border);
+            border-radius: 99px;
+            overflow: hidden;
+        }}
+        .rule-bar {{
+            height: 100%;
+            background: var(--primary);
+            border-radius: 99px;
+            transition: width 0.3s ease;
+        }}
+        .rule-count {{
+            font-weight: 600;
+            color: var(--text-muted);
+            text-align: right;
+            font-size: var(--font-xs);
+        }}
     </style>
 </head>
 <body>
@@ -1201,13 +1263,37 @@ def generate_details_sections(by_source):
                 legend_badges.append(f'<span class="breakdown-badge bd-warning">🟡 {section_counts["warning"]} warnings</span>')
             if section_counts['suggestion'] > 0:
                 legend_badges.append(f'<span class="breakdown-badge bd-suggestion">🔵 {section_counts["suggestion"]} suggestions</span>')
-            
+
             if legend_badges:
                 legend_html = f"""
                 <div class="section-legend">
                     {' '.join(legend_badges)}
                 </div>
                 """
+
+        # Generate rule breakdown table (only when 2+ distinct rules exist)
+        rule_breakdown_html = ""
+        if len(issues) > 0:
+            from collections import Counter
+            rule_counts = Counter(issue.get('rule', 'unknown') for issue in issues)
+            if len(rule_counts) >= 2:
+                max_count = max(rule_counts.values())
+                rows_html = ""
+                for rule, count in rule_counts.most_common():
+                    bar_pct = int((count / max_count) * 100)
+                    rows_html += f"""
+                        <div class="rule-row">
+                            <span class="rule-name" title="{rule}">{rule}</span>
+                            <div class="rule-bar-wrap">
+                                <div class="rule-bar" style="width:{bar_pct}%"></div>
+                            </div>
+                            <span class="rule-count">{count:,}</span>
+                        </div>"""
+                rule_breakdown_html = f"""
+                <div class="rule-breakdown">
+                    <div class="rule-breakdown-title">Rule breakdown</div>
+                    {rows_html}
+                </div>"""
         
         # Generate skeleton loader HTML
         skeleton_html = """
@@ -1240,6 +1326,7 @@ def generate_details_sections(by_source):
                     <span class="tool-count {'has-issues' if len(issues) > 0 else 'pass'}">{len(issues)}</span>
                 </div>
                 {legend_html}
+                {rule_breakdown_html}
                 {skeleton_html}
                 <div class="issue-grid">
             """
