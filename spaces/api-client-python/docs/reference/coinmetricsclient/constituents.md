@@ -1,11 +1,6 @@
 # Constituents
 
-| [`CoinMetricsClient.get_snapshots_of_asset_metric_constituents`](#coinmetrics.api_client.CoinMetricsClient.get_snapshots_of_asset_metric_constituents)   | Returns snapshots of asset metric constituents.   |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
-| [`CoinMetricsClient.get_timeframes_of_asset_metric_constituents`](#coinmetrics.api_client.CoinMetricsClient.get_timeframes_of_asset_metric_constituents) | Returns timeframes of asset metric constituents.  |
-
-#### CoinMetricsClient.get_snapshots_of_asset_metric_constituents(metric, at_time=None, end_time=None, start_time=None, next_page_token=None, page_size=None, paging_from=None, format=None)
-
+#### `CoinMetricsClient.get_snapshots_of_asset_metric_constituents(metric, at_time=None, end_time=None, start_time=None, next_page_token=None, page_size=None, paging_from=None, format=None)`
 Returns snapshots of asset metric constituents. Results are sorted by tuple (time,
 constituent_name), where constituent_name depends on a target metric. E.g., the
 volume_trusted_spot_usd_1d metric constituents are exchanges, i.e. the output will be sorted by
@@ -31,8 +26,7 @@ volume_trusted_spot_usd_1d metric constituents are exchanges, i.e. the output wi
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### CoinMetricsClient.get_timeframes_of_asset_metric_constituents(metric, constituents=None, end_time=None, start_time=None, next_page_token=None, page_size=None, paging_from=None, format=None)
-
+#### `CoinMetricsClient.get_timeframes_of_asset_metric_constituents(metric, constituents=None, end_time=None, start_time=None, next_page_token=None, page_size=None, paging_from=None, format=None)`
 Returns timeframes of asset metric constituents. Results are sorted by tuple (start_time,
 constituent_name), where constituent depends on a target metric. E.g., the
 volume_trusted_spot_usd_1d metric constituents are exchanges, i.e. the output will be sorted by

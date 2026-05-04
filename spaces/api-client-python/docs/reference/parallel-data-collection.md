@@ -22,8 +22,7 @@ client = CoinMetricsClient("<your-api-key>")
 )
 ```
 
-### *class* coinmetrics._data_collection.ParallelDataCollection(parent_data_collection, parallelize_on=None, executor=None, max_workers=None, progress_bar=None, time_increment=None, height_increment=None)
-
+### *class* `coinmetrics._data_collection.ParallelDataCollection(parent_data_collection, parallelize_on=None, executor=None, max_workers=None, progress_bar=None, time_increment=None, height_increment=None)`
 Bases: [`DataCollection`](data-collection.md#coinmetrics._data_collection.DataCollection)
 
 This class will be used as an extension of the normal data collection, but all functions will run in parallel,
@@ -39,8 +38,7 @@ data.
   * **time_increment** (*Optional* *[**Union* *[**relativedelta* *,* *timedelta* *,* *DateOffset* *]* *]*)
   * **height_increment** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*)
 
-#### export_to_csv(path_or_bufstr=None, columns_to_store=None, compress=False, dataframe_type='pandas')
-
+#### `export_to_csv(path_or_bufstr=None, columns_to_store=None, compress=False, dataframe_type='pandas')`
 * **Parameters:**
   * **path_or_bufstr** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *Path* *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*bytes*](https://docs.python.org/3/library/stdtypes.html#bytes) *]*  *|* *None*)
   * **columns_to_store** ([*List*](https://docs.python.org/3/library/typing.html#typing.List) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* *None*)
@@ -49,8 +47,7 @@ data.
 * **Return type:**
   None
 
-#### export_to_csv_files(data_directory=None, columns_to_store=None, compress=False)
-
+#### `export_to_csv_files(data_directory=None, columns_to_store=None, compress=False)`
 Export the parallelized request to a directory of CSV files, one file
 per combination of the `parallelize_on` attribute of the parent
 [`ParallelDataCollection`](#coinmetrics._data_collection.ParallelDataCollection).
@@ -98,16 +95,14 @@ produces:
 * **Return type:**
   None
 
-#### export_to_json(path_or_bufstr=None, compress=False)
-
+#### `export_to_json(path_or_bufstr=None, compress=False)`
 * **Parameters:**
   * **path_or_bufstr** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *Path* *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*bytes*](https://docs.python.org/3/library/stdtypes.html#bytes) *]*  *|* *None*)
   * **compress** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
 * **Return type:**
   [str](https://docs.python.org/3/library/stdtypes.html#str) | None
 
-#### export_to_json_files(data_directory=None, compress=False)
-
+#### `export_to_json_files(data_directory=None, compress=False)`
 Export the parallelized request to a directory of JSON files, one file
 per combination of the `parallelize_on` attribute of the parent
 [`ParallelDataCollection`](#coinmetrics._data_collection.ParallelDataCollection).
@@ -153,28 +148,24 @@ produces:
 * **Return type:**
   None
 
-#### export_to_parquet(path_or_bufstr=None)
-
+#### `export_to_parquet(path_or_bufstr=None)`
 * **Parameters:**
   **path_or_bufstr** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *Path* *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*bytes*](https://docs.python.org/3/library/stdtypes.html#bytes) *]*  *|* *None*)
 * **Return type:**
   None
 
-#### export_to_parquet_files(data_directory=None, \*\*kwargs)
-
+#### `export_to_parquet_files(data_directory=None, **kwargs)`
 * **Parameters:**
   * **data_directory** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *None*)
   * **kwargs** ([*Any*](https://docs.python.org/3/library/typing.html#typing.Any))
 * **Return type:**
   None
 
-#### first_page()
-
+#### `first_page()`
 * **Return type:**
   [*List*](https://docs.python.org/3/library/typing.html#typing.List)[[*Dict*](https://docs.python.org/3/library/typing.html#typing.Dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [*Any*](https://docs.python.org/3/library/typing.html#typing.Any)]]
 
-#### get_parallel_datacollections()
-
+#### `get_parallel_datacollections()`
 Materialize the cartesian product of every parallelized URL parameter
 (and, optionally, every time / height increment) into one
 [`DataCollection`](data-collection.md#coinmetrics._data_collection.DataCollection) per combination.
@@ -221,8 +212,7 @@ two-week windows.
 * **Return type:**
   List[[DataCollection](data-collection.md#coinmetrics._data_collection.DataCollection)]
 
-#### get_schema_field_names()
-
+#### `get_schema_field_names()`
 Get all field names defined in the schema for this endpoint.
 This returns ALL possible fields, even if they're not present in the actual data.
 
@@ -231,8 +221,7 @@ This returns ALL possible fields, even if they're not present in the actual data
 * **Return type:**
   List[[str](https://docs.python.org/3/library/stdtypes.html#str)]
 
-#### parallel(parallelize_on=None, executor=None, max_workers=None, progress_bar=None, time_increment=None, height_increment=None)
-
+#### `parallel(parallelize_on=None, executor=None, max_workers=None, progress_bar=None, time_increment=None, height_increment=None)`
 Convert this [`DataCollection`](data-collection.md#coinmetrics._data_collection.DataCollection) into a [`ParallelDataCollection`](#coinmetrics._data_collection.ParallelDataCollection),
 splitting a single HTTP request into many parallel requests for faster
 data export.
@@ -276,8 +265,7 @@ ISO 8601 format. Timezone aware objects are converted to UTC
 * **Return type:**
   [*datetime*](https://docs.python.org/3/library/datetime.html#datetime.datetime)
 
-#### to_dataframe(dtype_mapper=None, dataframe_type='pandas', decimal_as_string=False)
-
+#### `to_dataframe(dtype_mapper=None, dataframe_type='pandas', decimal_as_string=False)`
 Outputs a pandas or polars dataframe with schema-derived types.
 
 Uses PyArrow as the intermediate representation for type-safe,
@@ -296,15 +284,13 @@ near-zero-copy conversion to both pandas and polars.
 * **Return type:**
   DataFrameType
 
-#### to_lazyframe(decimal_as_string=False, \*\*kwargs)
-
+#### `to_lazyframe(decimal_as_string=False, **kwargs)`
 * **Parameters:**
   * **decimal_as_string** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
   * **kwargs** ([*Any*](https://docs.python.org/3/library/typing.html#typing.Any))
 * **Return type:**
   *LazyFrame*
 
-#### to_list()
-
+#### `to_list()`
 * **Return type:**
   [*List*](https://docs.python.org/3/library/typing.html#typing.List)[[*Dict*](https://docs.python.org/3/library/typing.html#typing.Dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [*Any*](https://docs.python.org/3/library/typing.html#typing.Any)]]

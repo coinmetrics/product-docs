@@ -28,8 +28,7 @@ except CoinMetricsClientRateLimitError as exc:
 
 Each of these wraps a specific HTTP status code returned by the API. They subclass `requests.HTTPError`, so existing code that catches `HTTPError` keeps working.
 
-### *exception* coinmetrics._exceptions.CoinMetricsClientBadParameterError(response, \*args, \*\*kwargs)
-
+### *exception* `coinmetrics._exceptions.CoinMetricsClientBadParameterError(response, *args, **kwargs)`
 Bases: `HTTPError`
 
 Raised when a request is made with bad parameters (HTTP 400).
@@ -39,8 +38,7 @@ Raised when a request is made with bad parameters (HTTP 400).
   * **args** ([*Any*](https://docs.python.org/3/library/typing.html#typing.Any))
   * **kwargs** ([*Any*](https://docs.python.org/3/library/typing.html#typing.Any))
 
-### *exception* coinmetrics._exceptions.CoinMetricsClientUnauthorizedError(response, \*args, \*\*kwargs)
-
+### *exception* `coinmetrics._exceptions.CoinMetricsClientUnauthorizedError(response, *args, **kwargs)`
 Bases: `HTTPError`
 
 Raised when a request is unauthorized due to invalid or missing API key (HTTP 401).
@@ -50,8 +48,7 @@ Raised when a request is unauthorized due to invalid or missing API key (HTTP 40
   * **args** ([*Any*](https://docs.python.org/3/library/typing.html#typing.Any))
   * **kwargs** ([*Any*](https://docs.python.org/3/library/typing.html#typing.Any))
 
-### *exception* coinmetrics._exceptions.CoinMetricsClientForbiddenError(response, \*args, \*\*kwargs)
-
+### *exception* `coinmetrics._exceptions.CoinMetricsClientForbiddenError(response, *args, **kwargs)`
 Bases: `HTTPError`
 
 Raised when a request is forbidden due to insufficient permissions (HTTP 403).
@@ -61,8 +58,7 @@ Raised when a request is forbidden due to insufficient permissions (HTTP 403).
   * **args** ([*Any*](https://docs.python.org/3/library/typing.html#typing.Any))
   * **kwargs** ([*Any*](https://docs.python.org/3/library/typing.html#typing.Any))
 
-### *exception* coinmetrics._exceptions.CoinMetricsClientQueryParamsException(response, \*args, \*\*kwargs)
-
+### *exception* `coinmetrics._exceptions.CoinMetricsClientQueryParamsException(response, *args, **kwargs)`
 Bases: `HTTPError`
 
 Raised when a request is too long.
@@ -72,8 +68,7 @@ Raised when a request is too long.
   * **args** ([*Any*](https://docs.python.org/3/library/typing.html#typing.Any))
   * **kwargs** ([*Any*](https://docs.python.org/3/library/typing.html#typing.Any))
 
-### *exception* coinmetrics._exceptions.CoinMetricsClientRateLimitError(response, \*args, \*\*kwargs)
-
+### *exception* `coinmetrics._exceptions.CoinMetricsClientRateLimitError(response, *args, **kwargs)`
 Bases: `HTTPError`
 
 Raised when the rate limit is exceeded (HTTP 429).
@@ -85,8 +80,7 @@ Raised when the rate limit is exceeded (HTTP 429).
 
 ## Transport and client errors
 
-### *exception* coinmetrics._exceptions.CoinMetricsClientConnectionError(original_error, \*args, \*\*kwargs)
-
+### *exception* `coinmetrics._exceptions.CoinMetricsClientConnectionError(original_error, *args, **kwargs)`
 Bases: [`Exception`](https://docs.python.org/3/library/exceptions.html#Exception)
 
 Raised when a connection error occurs (ConnectionResetError, ChunkedEncodingError).
@@ -96,8 +90,7 @@ Raised when a connection error occurs (ConnectionResetError, ChunkedEncodingErro
   * **args** ([*Any*](https://docs.python.org/3/library/typing.html#typing.Any))
   * **kwargs** ([*Any*](https://docs.python.org/3/library/typing.html#typing.Any))
 
-### *exception* coinmetrics._exceptions.CoinMetricsClientNotFoundError(message='CoinMetricsClient not found')
-
+### *exception* `coinmetrics._exceptions.CoinMetricsClientNotFoundError(message='CoinMetricsClient not found')`
 Bases: [`Exception`](https://docs.python.org/3/library/exceptions.html#Exception)
 
 Raised when a CoinMetricsClient instance is not found.
@@ -106,15 +99,13 @@ Raised when a CoinMetricsClient instance is not found.
 
 These are raised by [`DataCollection`](data-collection.md) and its subclasses while iterating, exporting, or paging through a response.
 
-### *exception* coinmetrics._data_collection.DataFetchError
-
+### *exception* `coinmetrics._data_collection.DataFetchError`
 Bases: [`Exception`](https://docs.python.org/3/library/exceptions.html#Exception)
 
 Raised when [`DataCollection`](data-collection.md#coinmetrics._data_collection.DataCollection) exhausts its retry budget while
 pulling a page of data from the Coin Metrics API.
 
-### *exception* coinmetrics._data_collection.CsvExportError
-
+### *exception* `coinmetrics._data_collection.CsvExportError`
 Bases: [`Exception`](https://docs.python.org/3/library/exceptions.html#Exception)
 
 Raised when [`DataCollection.export_to_csv()`](data-collection.md#coinmetrics._data_collection.DataCollection.export_to_csv) is called on an

@@ -120,7 +120,8 @@ def stage_source() -> None:
         shutil.copy2(SUBMODULE_CHANGELOG, releases_dir / "changelog.md")
 
     _patch_index_toctree(STAGED_SOURCE / "index.md")
-    _convert_grids_in_tree(STAGED_SOURCE)
+    _strip_grids_in_tree(STAGED_SOURCE)
+    _strip_toctrees_in_tree(STAGED_SOURCE)
     _convert_admonitions_in_tree(STAGED_SOURCE)
     _write_overlay_conf(STAGED_SOURCE / "conf.py")
 
@@ -132,70 +133,92 @@ def _patch_index_toctree(index_path: Path) -> None:
     index_path.write_text(text)
 
 
-# Matches a sphinx-design ``::::{grid}`` block (4 colons) wrapping one or more
-# ``:::{grid-item-card}`` (3 colons) entries. ``sphinx_markdown_builder``
-# does not know how to render either directive, so we lower them to plain
-# Markdown bullet lists *before* Sphinx parses them. Doing the conversion at
-# the source-text level (rather than post-processing the rendered output)
-# preserves the card titles and ``:link:`` targets, which the markdown
-# builder otherwise drops on the floor.
+# Matches a sphinx-design ``::::{grid}`` block (4 colons) wrapping one or
+# more ``:::{grid-item-card}`` (3 colons) entries. The grid is rendered by
+# pydata-sphinx-theme as visual landing cards, but in GitBook it would just
+# duplicate the navigation already shown in the left sidebar (see
+# SUMMARY.md), so we drop the entire block at the source-text level before
+# Sphinx parses it.
 _GRID_BLOCK_RE = re.compile(
-    r"^::::\{grid\}[^\n]*\n(?P<body>.*?)^::::\s*$",
+    r"\n?^::::\{grid\}[^\n]*\n.*?^::::\s*$",
     re.DOTALL | re.MULTILINE,
 )
-_GRID_ITEM_DIRECTIVE_RE = re.compile(
-    r":::\{grid-item-card\}\s+(?P<title>[^\n]+)\n(?P<body>.*?):::",
-    re.DOTALL,
+
+
+def _strip_grids_in_tree(root: Path) -> None:
+    """Remove every ``{grid}`` block from Markdown files under ``root``."""
+    for md in root.rglob("*.md"):
+        text = md.read_text()
+        new_text = _GRID_BLOCK_RE.sub("", text)
+        if new_text != text:
+            md.write_text(new_text)
+
+
+# Matches a MyST ``{toctree}`` directive. ``sphinx_markdown_builder`` lowers
+# these to bullet lists in the rendered output, which duplicates the GitBook
+# left sidebar driven by SUMMARY.md. Strip them at the source so the
+# rendered pages stay focused on prose + autodoc reference content.
+_TOCTREE_BLOCK_RE = re.compile(
+    r"\n?^```\{toctree\}.*?^```\s*$",
+    re.DOTALL | re.MULTILINE,
 )
 
 
-def _convert_grid_block(match: re.Match[str]) -> str:
-    """Lower a ``{grid}`` directive to a plain Markdown bullet list."""
-    items: List[str] = []
-    for item in _GRID_ITEM_DIRECTIVE_RE.finditer(match.group(0)):
-        title = item.group("title").strip()
-        body_text = item.group("body")
-        link = ""
-        body_lines: List[str] = []
-        in_options = True
-        for line in body_text.splitlines():
-            stripped = line.strip()
-            if in_options and stripped.startswith(":link:"):
-                link = stripped.split(":", 2)[-1].strip()
-                continue
-            if in_options and stripped.startswith(":link-type:"):
-                continue
-            if in_options and stripped.startswith(":") and stripped.endswith(":"):
-                # Other sphinx-design options like ``:gutter: 3`` -- skip.
-                continue
-            if stripped:
-                in_options = False
-            body_lines.append(line)
-        description = " ".join(
-            line.strip() for line in body_lines if line.strip()
-        )
-        if link and "://" not in link and not link.endswith(".md"):
-            # ``:link-type: doc`` references are extension-less; add ``.md`` so
-            # the markdown builder leaves them alone (it would otherwise try
-            # to resolve them as RST cross-references).
-            link = f"{link}.md"
-        title_md = f"[**{title}**]({link})" if link else f"**{title}**"
-        if description:
-            items.append(f"- {title_md} -- {description}")
-        else:
-            items.append(f"- {title_md}")
-    if not items:
-        return ""
-    return "\n".join(items) + "\n"
-
-
-def _convert_grids_in_tree(root: Path) -> None:
-    """Apply ``_convert_grid_block`` to every Markdown file under ``root``."""
+def _strip_toctrees_in_tree(root: Path) -> None:
+    """Remove every ``{toctree}`` block from Markdown files under ``root``."""
     for md in root.rglob("*.md"):
         text = md.read_text()
-        new_text = _GRID_BLOCK_RE.sub(_convert_grid_block, text)
+        new_text = _TOCTREE_BLOCK_RE.sub("", text)
         if new_text != text:
             md.write_text(new_text)
+
+
+# After stripping grid and toctree blocks, some pages are left with section
+# headings (``## Explore the Docs``) that no longer have any body. Remove
+# such empty sections so they do not show up as blank entries in the
+# rendered output.
+#
+# The match is intentionally restrictive: we only strip a heading whose body
+# is empty *and* whose next heading is at the same or shallower level. That
+# preserves the common pattern of an H2 that introduces a group of H3s
+# without any prose of its own (e.g. the ``## Transport and client errors``
+# header in reference/exceptions.md).
+_HEADING_RE = re.compile(r"^(?P<hashes>#{1,6})\s+([^\n]+)$", re.MULTILINE)
+
+
+def _strip_empty_sections(text: str) -> str:
+    while True:
+        headings = list(_HEADING_RE.finditer(text))
+        if not headings:
+            return text
+        removed = False
+        for idx, match in enumerate(headings):
+            level = len(match.group("hashes"))
+            if level < 2:
+                continue
+            body_start = match.end() + 1  # skip newline after heading
+            if idx + 1 < len(headings):
+                next_match = headings[idx + 1]
+                next_level = len(next_match.group("hashes"))
+                body = text[body_start:next_match.start()]
+            else:
+                next_level = 0  # treat EOF as "shallower" so trailing
+                                # empty sections are also stripped
+                body = text[body_start:]
+            if next_level > level:
+                # The next heading is a child of this one, so this heading
+                # is acting as a section label even if it has no prose.
+                continue
+            if body.strip():
+                continue
+            # Strip the heading line and the blank lines that follow.
+            text = text[: match.start()] + text[
+                next_match.start() if idx + 1 < len(headings) else len(text):
+            ]
+            removed = True
+            break
+        if not removed:
+            return text
 
 
 # MyST admonition directives -> GitBook hint blocks. ``sphinx_markdown_builder``
@@ -284,7 +307,7 @@ html_theme = globals().get("html_theme", "alabaster")
 # Suppress noisy "toctree contains reference to nonexisting document"
 # warnings for upstream pages we have not staged (e.g. examples.md).
 suppress_warnings = list(globals().get("suppress_warnings", []))
-for code in ("toc.not_included", "myst.xref_missing", "ref.doc"):
+for code in ("toc.not_included", "myst.xref_missing", "ref.doc", "toc.excluded"):
     if code not in suppress_warnings:
         suppress_warnings.append(code)
 
@@ -333,6 +356,27 @@ def regenerate_group_pages() -> None:
     module.REPO_ROOT = SUBMODULE_ROOT
     module.API_CLIENT_PATH = SUBMODULE_ROOT / "coinmetrics" / "api_client.py"
     module.OUTPUT_DIR = STAGED_SOURCE / "reference" / "groups"
+
+    # Replace the upstream group renderer with one that skips the
+    # ``.. autosummary::`` table at the top. The autosummary table is a
+    # condensed TOC of every method on the page and duplicates both the
+    # GitBook right-hand anchor list and the per-method headings emitted
+    # below it by ``.. automethod::``. Dropping it keeps the page focused on
+    # the actual reference content.
+    class_name = module.CLASS_NAME
+
+    def _render_group_no_autosummary(group) -> str:  # type: ignore[no-untyped-def]
+        underline = "=" * len(group.label)
+        header = (
+            f"{group.label}\n{underline}\n\n"
+            f".. currentmodule:: coinmetrics.api_client\n\n"
+        )
+        auto_methods = "\n".join(
+            f".. automethod:: {class_name}.{name}" for name in group.methods
+        )
+        return header + auto_methods + "\n"
+
+    module._render_group = _render_group_no_autosummary
     module.main()
 
 
@@ -437,6 +481,53 @@ _INTERSPHINX_RE = re.compile(
     r"(\]\(https?://(?:" + "|".join(re.escape(h) for h in _INTERSPHINX_HOSTS) + r")[^)\s]*?)\.md(?=[)#])"
 )
 
+# Autodoc emits headings like ``### *class* coinmetrics._x.Foo(arg1, arg2)``
+# or ``#### Foo.bar(arg=1)``. To match the pydata-sphinx-theme look, where the
+# fully-qualified signature is rendered in a monospace box, we wrap the
+# signature portion in backticks. The kind keywords ``*class*`` /
+# ``*exception*`` / ``*property*`` are kept as italics outside the backticks
+# so they still read as labels rather than code.
+_AUTODOC_KIND_HEADING_RE = re.compile(
+    r"^(?P<hashes>#{2,5})\s+"
+    r"(?P<kind>\*(?:class|exception|function|method|staticmethod|classmethod|"
+    r"abstractmethod|property|attribute|data)\*)\s+"
+    r"(?P<sig>[\w\.][^\n]*?)\s*$",
+    re.MULTILINE,
+)
+_AUTODOC_PLAIN_HEADING_RE = re.compile(
+    # Headings whose entire payload is a Python identifier path optionally
+    # followed by a parenthesised signature -- these are also autodoc method
+    # rows (``#### Foo.bar(arg=1)`` or ``#### Foo.bar``). We require either a
+    # dotted name or a parenthesised argument list so we do not mangle plain
+    # prose section headers like ``## Endpoints``.
+    r"^(?P<hashes>#{2,5})\s+"
+    r"(?P<sig>[A-Za-z_]\w*(?:\.\w+)+(?:\([^\n]*\))?|[A-Za-z_]\w*\([^\n]*\))\s*$",
+    re.MULTILINE,
+)
+
+
+def _unescape_sig(sig: str) -> str:
+    """Drop the ``\\*`` / ``\\_`` escapes the markdown builder injects.
+
+    These escapes are needed in plain Markdown so ``**kwargs`` does not
+    render as bold, but inside a code span they would render literally.
+    """
+    return sig.replace("\\*", "*").replace("\\_", "_")
+
+
+def _wrap_kind_heading(match: re.Match[str]) -> str:
+    sig = _unescape_sig(match.group("sig"))
+    return f"{match.group('hashes')} {match.group('kind')} `{sig}`"
+
+
+def _wrap_plain_heading(match: re.Match[str]) -> str:
+    sig = match.group("sig")
+    # Leave headings that already use code spans (``#### `Foo.bar```) alone.
+    if sig.startswith("`"):
+        return match.group(0)
+    sig = _unescape_sig(sig)
+    return f"{match.group('hashes')} `{sig}`"
+
 
 def post_process_file(path: Path) -> None:
     text = path.read_text()
@@ -469,6 +560,25 @@ def post_process_file(path: Path) -> None:
     # path that GitBook understands. A leading slash makes the reference
     # absolute relative to the space root, which works from any depth.
     text = _STATIC_IMAGE_RE.sub("/.gitbook/assets/", text)
+
+    # Drop section headings whose body was removed by earlier processing
+    # (e.g. ``## Explore the Docs`` after the grid block beneath it was
+    # stripped from the source). Done before the autodoc-heading rewrites
+    # below so we do not match against a heading that is about to be
+    # wrapped in backticks.
+    text = _strip_empty_sections(text)
+
+    # Wrap autodoc signature headings in backticks so the fully-qualified
+    # class / function / method name renders in a monospace face, matching
+    # the pydata-sphinx-theme look. Only apply to the reference tree -- the
+    # narrative pages have ordinary headings we should not touch.
+    try:
+        rel_to_root = path.relative_to(OUTPUT_ROOT).as_posix()
+    except ValueError:
+        rel_to_root = ""
+    if rel_to_root.startswith("reference/"):
+        text = _AUTODOC_KIND_HEADING_RE.sub(_wrap_kind_heading, text)
+        text = _AUTODOC_PLAIN_HEADING_RE.sub(_wrap_plain_heading, text)
 
     # Rewrite intra-doc links that refer to the legacy (underscore or
     # ``index.md``) names of files we have renamed via PAGE_RENAMES.

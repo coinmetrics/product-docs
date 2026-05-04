@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Coin Metrics Python API Client](README.md)
+* [Introduction](README.md)
 
 ## User Guide
 
@@ -27,6 +27,6 @@
 * [CmStream](reference/cm-stream.md)
 * [Exceptions](reference/exceptions.md)
 
-## Releases
+## RELEASES
 
 * [Changelog](releases/changelog.md)

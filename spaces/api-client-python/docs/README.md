@@ -74,9 +74,3 @@ client = CoinMetricsClient(api_key=api_key, verbose=True)
 
 Once you have a client, head over to the [Core Concepts](user-guide/core-concepts.md) page to learn how `DataCollection` objects, DataFrames, and file exports work.
 
-## Explore the Docs
-
-- [**API Client Reference**](reference/README.md) -- Auto-generated reference covering every public method on `CoinMetricsClient`.
-- [**User Guide**](user-guide/README.md) -- Core concepts, best practices, runnable examples, and troubleshooting tips.
-- [**Changelog**](releases/changelog.md) -- Release history and migration notes.
-- [**GitHub**](https://github.com/coinmetrics/api-client-python) -- Source code, issues, and releases on GitHub.

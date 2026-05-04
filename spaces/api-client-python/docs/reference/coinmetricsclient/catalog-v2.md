@@ -1,71 +1,6 @@
 # Catalog v2
 
-| [`CoinMetricsClient.catalog_asset_chains_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_asset_chains_v2)                                               | Returns a list of available assets for the asset-chains endpoint along with time ranges of available data.                    |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| [`CoinMetricsClient.catalog_full_asset_chains_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_asset_chains_v2)                                     | Returns a list of all supported assets for the asset-chains endpoint along with time ranges of available data.                |
-| [`CoinMetricsClient.catalog_asset_metrics_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_asset_metrics_v2)                                             | Returns a list of available asset metrics along with the time ranges of available data.                                       |
-| [`CoinMetricsClient.catalog_full_asset_metrics_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_asset_metrics_v2)                                   | Returns a list of all supported asset metrics along with the time ranges of available data.                                   |
-| [`CoinMetricsClient.catalog_blockchain_accounts_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_accounts_v2)                                 | Returns a list of available assets for the blockchain accounts endpoint along with time ranges of available data.             |
-| [`CoinMetricsClient.catalog_full_blockchain_accounts_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_accounts_v2)                       | Returns a list of all supported assets for the blockchain accounts endpoint along with time ranges of available data.         |
-| [`CoinMetricsClient.catalog_blockchain_balance_updates_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_balance_updates_v2)                   | Returns a list of available assets for the blockchain balance updates endpoint along with time ranges of available data.      |
-| [`CoinMetricsClient.catalog_full_blockchain_balance_updates_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_balance_updates_v2)         | Returns a list of all supported assets for the blockchain balance updates endpoint along with time ranges of available data.  |
-| [`CoinMetricsClient.catalog_blockchain_blocks_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_blocks_v2)                                     | Returns a list of available assets for the blockchain blocks endpoint along with time ranges of available data.               |
-| [`CoinMetricsClient.catalog_full_blockchain_blocks_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_blocks_v2)                           | Returns a list of all supported assets for the blockchain blocks endpoint along with time ranges of available data.           |
-| [`CoinMetricsClient.catalog_blockchain_rebasing_changes_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_rebasing_changes_v2)                 | Returns a list of available assets for the blockchain rebasing changes endpoint along with time ranges of available data.     |
-| [`CoinMetricsClient.catalog_full_blockchain_rebasing_changes_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_rebasing_changes_v2)       | Returns a list of all supported assets for the blockchain rebasing changes endpoint along with time ranges of available data. |
-| [`CoinMetricsClient.catalog_blockchain_transactions_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_transactions_v2)                         | Returns a list of available assets for the blockchain transactions endpoint along with time ranges of available data.         |
-| [`CoinMetricsClient.catalog_full_blockchain_transactions_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_transactions_v2)               | Returns a list of all supported assets for the blockchain transactions endpoint along with time ranges of available data.     |
-| [`CoinMetricsClient.catalog_contract_prices_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_contract_prices_v2)                                         | Returns a list of contract prices for option markets that have data available within the requested window.                    |
-| [`CoinMetricsClient.catalog_full_contract_prices_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_contract_prices_v2)                               | Returns a list of all market contract prices for option market.                                                               |
-| [`CoinMetricsClient.catalog_exchange_asset_metrics_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_exchange_asset_metrics_v2)                           | Returns a list of available exchange-asset metrics along with the time ranges of available data.                              |
-| [`CoinMetricsClient.catalog_full_exchange_asset_metrics_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_exchange_asset_metrics_v2)                 | Returns a list of all supported exchange-asset metrics along with the time ranges of available data.                          |
-| [`CoinMetricsClient.catalog_exchange_metrics_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_exchange_metrics_v2)                                       | Returns a list of available exchange metrics along with the time ranges of available data.                                    |
-| [`CoinMetricsClient.catalog_full_exchange_metrics_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_exchange_metrics_v2)                             | Returns a list of all supported exchange metrics along with the time ranges of available data.                                |
-| [`CoinMetricsClient.catalog_exchange_pair_metrics_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_exchange_pair_metrics_v2)                             | Returns a list of available exchange-pair metrics along with the time ranges of available data.                               |
-| [`CoinMetricsClient.catalog_full_exchange_pair_metrics_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_exchange_pair_metrics_v2)                   | Returns a list of all supported exchange-pair metrics along with the time ranges of available data.                           |
-| [`CoinMetricsClient.catalog_index_candles_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_index_candles_v2)                                             | Returns a list of available index candles along with the time ranges of available data per candle duration.                   |
-| [`CoinMetricsClient.catalog_full_index_candles_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_index_candles_v2)                                   | Returns a list of all supported index candles along with the time ranges of available data per candle duration.               |
-| [`CoinMetricsClient.catalog_index_levels_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_index_levels_v2)                                               | Returns a list of available index levels along with time ranges of available data.                                            |
-| [`CoinMetricsClient.catalog_full_index_levels_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_index_levels_v2)                                     | Returns a list of all supported index levels along with time ranges of available data.                                        |
-| [`CoinMetricsClient.catalog_institution_metrics_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_institution_metrics_v2)                                 | Returns a list of available institution metrics along with the time ranges of available data.                                 |
-| [`CoinMetricsClient.catalog_full_institution_metrics_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_institution_metrics_v2)                       | Returns a list of all supported institution metrics along with the time ranges of available data.                             |
-| [`CoinMetricsClient.catalog_market_candles_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_market_candles_v2)                                           | Returns a list of markets with candles support along with the time ranges of available data per candle duration.              |
-| [`CoinMetricsClient.catalog_full_market_candles_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_market_candles_v2)                                 | Returns a list of all markets with candles support along with time ranges of available data per candle duration.              |
-| [`CoinMetricsClient.catalog_market_contract_prices_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_market_contract_prices_v2)                           | Returns a list of contract prices for option market.                                                                          |
-| [`CoinMetricsClient.catalog_full_market_contract_prices_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_market_contract_prices_v2)                 | Returns a list of all market contract prices for option market.                                                               |
-| [`CoinMetricsClient.catalog_market_funding_rates_predicted_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_market_funding_rates_predicted_v2)           | Returns a list of markets with predicted funding rates support along with the time ranges of available data.                  |
-| [`CoinMetricsClient.catalog_full_market_funding_rates_predicted_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_market_funding_rates_predicted_v2) | Returns a list of all markets with predicted funding rates support along with the time ranges of available data.              |
-| [`CoinMetricsClient.catalog_market_funding_rates_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_market_funding_rates_v2)                               | Returns a list of markets with funding rates support along with the time ranges of available data.                            |
-| [`CoinMetricsClient.catalog_full_market_funding_rates_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_market_funding_rates_v2)                     | Returns a list of all markets with funding rates support along with the time ranges of available data.                        |
-| [`CoinMetricsClient.catalog_market_greeks_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_market_greeks_v2)                                             | Returns a list of greeks for option market.                                                                                   |
-| [`CoinMetricsClient.catalog_full_market_greeks_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_market_greeks_v2)                                   | Returns a list of all market greeks for option market.                                                                        |
-| [`CoinMetricsClient.catalog_market_implied_volatility_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_market_implied_volatility_v2)                     | Returns a list of implied volatility for option market.                                                                       |
-| [`CoinMetricsClient.catalog_full_market_implied_volatility_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_market_implied_volatility_v2)           | Returns a list of all market implied volatility for option market.                                                            |
-| [`CoinMetricsClient.catalog_market_liquidations_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_market_liquidations_v2)                                 | Returns a list of markets with liquidations support along with the time ranges of available data.                             |
-| [`CoinMetricsClient.catalog_full_market_liquidations_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_market_liquidations_v2)                       | Returns a list of all markets with liquidations support along with the time ranges of available data.                         |
-| [`CoinMetricsClient.catalog_market_metrics_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_market_metrics_v2)                                           | Returns a list of markets with metrics support along with the time ranges of available data per metric.                       |
-| [`CoinMetricsClient.catalog_full_market_metrics_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_market_metrics_v2)                                 | Returns a list of all markets with market metrics support along with time ranges of available data per metric.                |
-| [`CoinMetricsClient.catalog_market_open_interest_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_market_open_interest_v2)                               | Returns a list of markets with open interest support along with the time ranges of available data.                            |
-| [`CoinMetricsClient.catalog_full_market_open_interest_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_market_open_interest_v2)                     | Returns a list of all markets with open interest support along with the time ranges of available data.                        |
-| [`CoinMetricsClient.catalog_market_orderbooks_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_market_orderbooks_v2)                                     | Returns a list of markets with orderbooks support along with the time ranges of available data.                               |
-| [`CoinMetricsClient.catalog_full_market_orderbooks_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_market_orderbooks_v2)                           | Returns a list of all markets with orderbooks support along with the time ranges of available data.                           |
-| [`CoinMetricsClient.catalog_market_quotes_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_market_quotes_v2)                                             | Returns a list of markets with quotes support along with the time ranges of available data.                                   |
-| [`CoinMetricsClient.catalog_full_market_quotes_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_market_quotes_v2)                                   | Returns a list of all markets with quotes support along with the time ranges of available data.                               |
-| [`CoinMetricsClient.catalog_market_trades_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_market_trades_v2)                                             | Returns a list of markets with trades support along with the time ranges of available data.                                   |
-| [`CoinMetricsClient.catalog_full_market_trades_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_market_trades_v2)                                   | Returns a list of all markets with trades support along with the time ranges of available data.                               |
-| [`CoinMetricsClient.catalog_mempool_feerates_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_mempool_feerates_v2)                                       | Returns a list of available assets for the mempool-feerates endpoint along with time ranges of available data.                |
-| [`CoinMetricsClient.catalog_full_mempool_feerates_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_mempool_feerates_v2)                             | Returns a list of all supported assets for the mempool-feerates endpoint along with time ranges of available data.            |
-| [`CoinMetricsClient.catalog_mining_pool_tips_summaries_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_mining_pool_tips_summaries_v2)                   | Returns a list of available assets for the mining-pool-tips-summary endpoint along with time ranges of available data.        |
-| [`CoinMetricsClient.catalog_full_mining_pool_tips_summaries_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_mining_pool_tips_summaries_v2)         | Returns a list of all supported assets for the mining-pool-tips-summary endpoint along with time ranges of available data.    |
-| [`CoinMetricsClient.catalog_pair_candles_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_pair_candles_v2)                                               | Returns a list of available asset pair candles along with the time ranges of available data per candle duration.              |
-| [`CoinMetricsClient.catalog_full_pair_candles_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_pair_candles_v2)                                     | Returns a list of all supported asset pair candles along with the time ranges of available data per candle duration.          |
-| [`CoinMetricsClient.catalog_pair_metrics_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_pair_metrics_v2)                                               | Returns a list of available pair metrics along with the time ranges of available data.                                        |
-| [`CoinMetricsClient.catalog_full_pair_metrics_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_pair_metrics_v2)                                     | Returns a list of all supported pair metrics along with the time ranges of available data.                                    |
-| [`CoinMetricsClient.catalog_transaction_tracker_assets_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_transaction_tracker_assets_v2)                   | Returns a list of available assets for the transaction-tracker endpoint along with time ranges of available data.             |
-| [`CoinMetricsClient.catalog_full_transaction_tracker_assets_v2`](#coinmetrics.api_client.CoinMetricsClient.catalog_full_transaction_tracker_assets_v2)         | Returns a list of all supported assets for the transaction-tracker endpoint along with time ranges of available data.         |
-
-#### CoinMetricsClient.catalog_asset_chains_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_asset_chains_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available assets for the asset-chains endpoint along with time ranges of available
 data.
 
@@ -80,8 +15,7 @@ data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_asset_chains_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_asset_chains_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported assets for the asset-chains endpoint along with time ranges of
 available data.
 
@@ -96,8 +30,7 @@ available data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_asset_metrics_v2(assets=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_asset_metrics_v2(assets=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available asset metrics along with the time ranges of available data.
 
 * **Parameters:**
@@ -113,8 +46,7 @@ Returns a list of available asset metrics along with the time ranges of availabl
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_asset_metrics_v2(assets=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_asset_metrics_v2(assets=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported asset metrics along with the time ranges of available data.
 
 * **Parameters:**
@@ -130,8 +62,7 @@ Returns a list of all supported asset metrics along with the time ranges of avai
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_blockchain_accounts_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_blockchain_accounts_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available assets for the blockchain accounts endpoint along with time ranges of
 available data.
 
@@ -146,8 +77,7 @@ available data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_blockchain_accounts_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_blockchain_accounts_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported assets for the blockchain accounts endpoint along with time ranges of
 available data.
 
@@ -162,8 +92,7 @@ available data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_blockchain_balance_updates_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_blockchain_balance_updates_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available assets for the blockchain balance updates endpoint along with time ranges
 of available data.
 
@@ -178,8 +107,7 @@ of available data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_blockchain_balance_updates_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_blockchain_balance_updates_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported assets for the blockchain balance updates endpoint along with time
 ranges of available data.
 
@@ -194,8 +122,7 @@ ranges of available data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_blockchain_blocks_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_blockchain_blocks_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available assets for the blockchain blocks endpoint along with time ranges of
 available data.
 
@@ -210,8 +137,7 @@ available data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_blockchain_blocks_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_blockchain_blocks_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported assets for the blockchain blocks endpoint along with time ranges of
 available data.
 
@@ -226,8 +152,7 @@ available data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_blockchain_rebasing_changes_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_blockchain_rebasing_changes_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available assets for the blockchain rebasing changes endpoint along with time ranges of available data.
 
 * **Parameters:**
@@ -241,8 +166,7 @@ Returns a list of available assets for the blockchain rebasing changes endpoint 
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_blockchain_rebasing_changes_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_blockchain_rebasing_changes_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported assets for the blockchain rebasing changes endpoint along with time ranges of available data.
 
 * **Parameters:**
@@ -256,8 +180,7 @@ Returns a list of all supported assets for the blockchain rebasing changes endpo
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_blockchain_transactions_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_blockchain_transactions_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available assets for the blockchain transactions endpoint along with time ranges of
 available data.
 
@@ -272,8 +195,7 @@ available data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_blockchain_transactions_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_blockchain_transactions_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported assets for the blockchain transactions endpoint along with time ranges
 of available data.
 
@@ -288,8 +210,7 @@ of available data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_contract_prices_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_contract_prices_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of contract prices for option markets that have data available within the requested
 window.
 
@@ -315,8 +236,7 @@ window.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_contract_prices_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_full_contract_prices_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of all market contract prices for option market.
 
 * **Parameters:**
@@ -341,8 +261,7 @@ Returns a list of all market contract prices for option market.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_exchange_asset_metrics_v2(exchange_assets=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_exchange_asset_metrics_v2(exchange_assets=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available exchange-asset metrics along with the time ranges of available data.
 
 * **Parameters:**
@@ -358,8 +277,7 @@ Returns a list of available exchange-asset metrics along with the time ranges of
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_exchange_asset_metrics_v2(exchange_assets=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_exchange_asset_metrics_v2(exchange_assets=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported exchange-asset metrics along with the time ranges of available data.
 
 * **Parameters:**
@@ -375,8 +293,7 @@ Returns a list of all supported exchange-asset metrics along with the time range
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_exchange_metrics_v2(exchanges=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_exchange_metrics_v2(exchanges=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available exchange metrics along with the time ranges of available data.
 
 * **Parameters:**
@@ -392,8 +309,7 @@ Returns a list of available exchange metrics along with the time ranges of avail
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_exchange_metrics_v2(exchanges=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_exchange_metrics_v2(exchanges=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported exchange metrics along with the time ranges of available data.
 
 * **Parameters:**
@@ -409,8 +325,7 @@ Returns a list of all supported exchange metrics along with the time ranges of a
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_exchange_pair_metrics_v2(exchange_pairs=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_exchange_pair_metrics_v2(exchange_pairs=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available exchange-pair metrics along with the time ranges of available data.
 
 * **Parameters:**
@@ -426,8 +341,7 @@ Returns a list of available exchange-pair metrics along with the time ranges of 
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_exchange_pair_metrics_v2(exchange_pairs=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_exchange_pair_metrics_v2(exchange_pairs=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported exchange-pair metrics along with the time ranges of available data.
 
 * **Parameters:**
@@ -443,8 +357,7 @@ Returns a list of all supported exchange-pair metrics along with the time ranges
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_index_candles_v2(indexes=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_index_candles_v2(indexes=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available index candles along with the time ranges of available data per candle
 duration.
 
@@ -459,8 +372,7 @@ duration.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_index_candles_v2(indexes=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_index_candles_v2(indexes=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported index candles along with the time ranges of available data per candle
 duration.
 
@@ -475,8 +387,7 @@ duration.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_index_levels_v2(indexes=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_index_levels_v2(indexes=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available index levels along with time ranges of available data.
 
 * **Parameters:**
@@ -490,8 +401,7 @@ Returns a list of available index levels along with time ranges of available dat
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_index_levels_v2(indexes=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_index_levels_v2(indexes=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported index levels along with time ranges of available data.
 
 * **Parameters:**
@@ -505,8 +415,7 @@ Returns a list of all supported index levels along with time ranges of available
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_institution_metrics_v2(institutions=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_institution_metrics_v2(institutions=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available institution metrics along with the time ranges of available data.
 
 * **Parameters:**
@@ -522,8 +431,7 @@ Returns a list of available institution metrics along with the time ranges of av
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_institution_metrics_v2(institutions=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_institution_metrics_v2(institutions=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported institution metrics along with the time ranges of available data.
 
 * **Parameters:**
@@ -539,8 +447,7 @@ Returns a list of all supported institution metrics along with the time ranges o
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_market_candles_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_market_candles_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of markets with candles support along with the time ranges of available data per candle
 duration.
 
@@ -566,8 +473,7 @@ duration.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_market_candles_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_full_market_candles_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of all markets with candles support along with time ranges of available data per candle
 duration.
 
@@ -593,8 +499,7 @@ duration.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_market_contract_prices_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, format='json_stream', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_market_contract_prices_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, format='json_stream', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of contract prices for option market.
 
 * **Parameters:**
@@ -619,8 +524,7 @@ Returns a list of contract prices for option market.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_market_contract_prices_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_full_market_contract_prices_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of all market contract prices for option market.
 
 * **Parameters:**
@@ -645,8 +549,7 @@ Returns a list of all market contract prices for option market.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_market_funding_rates_predicted_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_market_funding_rates_predicted_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of markets with predicted funding rates support along with the time ranges of available
 data.
 
@@ -672,8 +575,7 @@ data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_market_funding_rates_predicted_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, format='json_stream', start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_full_market_funding_rates_predicted_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, format='json_stream', start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of all markets with predicted funding rates support along with the time ranges of
 available data.
 
@@ -699,8 +601,7 @@ available data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_market_funding_rates_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_market_funding_rates_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of markets with funding rates support along with the time ranges of available data.
 
 * **Parameters:**
@@ -725,8 +626,7 @@ Returns a list of markets with funding rates support along with the time ranges 
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_market_funding_rates_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_full_market_funding_rates_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of all markets with funding rates support along with the time ranges of available data.
 
 * **Parameters:**
@@ -751,8 +651,7 @@ Returns a list of all markets with funding rates support along with the time ran
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_market_greeks_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_market_greeks_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of greeks for option market.
 
 * **Parameters:**
@@ -777,8 +676,7 @@ Returns a list of greeks for option market.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_market_greeks_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_full_market_greeks_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of all market greeks for option market.
 
 * **Parameters:**
@@ -803,8 +701,7 @@ Returns a list of all market greeks for option market.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_market_implied_volatility_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, format='json_stream', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_market_implied_volatility_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, format='json_stream', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of implied volatility for option market.
 
 * **Parameters:**
@@ -829,8 +726,7 @@ Returns a list of implied volatility for option market.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_market_implied_volatility_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_full_market_implied_volatility_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of all market implied volatility for option market.
 
 * **Parameters:**
@@ -855,8 +751,7 @@ Returns a list of all market implied volatility for option market.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_market_liquidations_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_market_liquidations_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of markets with liquidations support along with the time ranges of available data.
 
 * **Parameters:**
@@ -881,8 +776,7 @@ Returns a list of markets with liquidations support along with the time ranges o
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_market_liquidations_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_full_market_liquidations_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of all markets with liquidations support along with the time ranges of available data.
 
 * **Parameters:**
@@ -907,8 +801,7 @@ Returns a list of all markets with liquidations support along with the time rang
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_market_metrics_v2(markets=None, metrics=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_market_metrics_v2(markets=None, metrics=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of markets with metrics support along with the time ranges of available data per
 metric.
 
@@ -930,8 +823,7 @@ metric.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_market_metrics_v2(markets=None, metrics=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_full_market_metrics_v2(markets=None, metrics=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of all markets with market metrics support along with time ranges of available data per
 metric.
 
@@ -953,8 +845,7 @@ metric.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_market_open_interest_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, format='json_stream', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_market_open_interest_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, format='json_stream', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of markets with open interest support along with the time ranges of available data.
 
 * **Parameters:**
@@ -979,8 +870,7 @@ Returns a list of markets with open interest support along with the time ranges 
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_market_open_interest_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_full_market_open_interest_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of all markets with open interest support along with the time ranges of available data.
 
 * **Parameters:**
@@ -1005,8 +895,7 @@ Returns a list of all markets with open interest support along with the time ran
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_market_orderbooks_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_market_orderbooks_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of markets with orderbooks support along with the time ranges of available data.
 
 * **Parameters:**
@@ -1031,8 +920,7 @@ Returns a list of markets with orderbooks support along with the time ranges of 
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_market_orderbooks_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_full_market_orderbooks_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of all markets with orderbooks support along with the time ranges of available data.
 
 * **Parameters:**
@@ -1057,8 +945,7 @@ Returns a list of all markets with orderbooks support along with the time ranges
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_market_quotes_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_market_quotes_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of markets with quotes support along with the time ranges of available data.
 
 * **Parameters:**
@@ -1083,8 +970,7 @@ Returns a list of markets with quotes support along with the time ranges of avai
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_market_quotes_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_full_market_quotes_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of all markets with quotes support along with the time ranges of available data.
 
 * **Parameters:**
@@ -1109,8 +995,7 @@ Returns a list of all markets with quotes support along with the time ranges of 
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_market_trades_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_market_trades_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of markets with trades support along with the time ranges of available data.
 
 * **Parameters:**
@@ -1135,8 +1020,7 @@ Returns a list of markets with trades support along with the time ranges of avai
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_market_trades_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)
-
+#### `CoinMetricsClient.catalog_full_market_trades_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 Returns a list of all markets with trades support along with the time ranges of available data.
 
 * **Parameters:**
@@ -1161,8 +1045,7 @@ Returns a list of all markets with trades support along with the time ranges of 
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_mempool_feerates_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_mempool_feerates_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available assets for the mempool-feerates endpoint along with time ranges of
 available data.
 
@@ -1177,8 +1060,7 @@ available data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_mempool_feerates_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_mempool_feerates_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported assets for the mempool-feerates endpoint along with time ranges of
 available data.
 
@@ -1193,8 +1075,7 @@ available data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_mining_pool_tips_summaries_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_mining_pool_tips_summaries_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available assets for the mining-pool-tips-summary endpoint along with time ranges of
 available data.
 
@@ -1209,8 +1090,7 @@ available data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_mining_pool_tips_summaries_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_mining_pool_tips_summaries_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported assets for the mining-pool-tips-summary endpoint along with time
 ranges of available data.
 
@@ -1225,8 +1105,7 @@ ranges of available data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_pair_candles_v2(pairs=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_pair_candles_v2(pairs=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available asset pair candles along with the time ranges of available data per candle
 duration.
 
@@ -1241,8 +1120,7 @@ duration.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_pair_candles_v2(pairs=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_pair_candles_v2(pairs=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported asset pair candles along with the time ranges of available data per
 candle duration.
 
@@ -1257,8 +1135,7 @@ candle duration.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_pair_metrics_v2(pairs=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_pair_metrics_v2(pairs=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available pair metrics along with the time ranges of available data.
 
 * **Parameters:**
@@ -1274,8 +1151,7 @@ Returns a list of available pair metrics along with the time ranges of available
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_pair_metrics_v2(pairs=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_pair_metrics_v2(pairs=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported pair metrics along with the time ranges of available data.
 
 * **Parameters:**
@@ -1291,8 +1167,7 @@ Returns a list of all supported pair metrics along with the time ranges of avail
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_transaction_tracker_assets_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_transaction_tracker_assets_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of available assets for the transaction-tracker endpoint along with time ranges of
 available data.
 
@@ -1307,8 +1182,7 @@ available data.
 * **Return type:**
   [CatalogV2DataCollection](../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
 
-#### CoinMetricsClient.catalog_full_transaction_tracker_assets_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')
-
+#### `CoinMetricsClient.catalog_full_transaction_tracker_assets_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 Returns a list of all supported assets for the transaction-tracker endpoint along with time ranges of
 available data.
 
