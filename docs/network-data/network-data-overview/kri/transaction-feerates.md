@@ -2,10 +2,10 @@
 
 ## Contents
 
-* [Block Maximum Feerate](transaction-feerates.md#block\_feerate\_max)
-* [Block Mean Feerate](transaction-feerates.md#block\_feerate\_mean)
-* [Block Median Feerate](transaction-feerates.md#block\_feerate\_median)
-* [Block Minimum Feerate](transaction-feerates.md#block\_feerate\_min)
+* [Block Maximum Feerate (block_feerate_max)](transaction-feerates.md#block\_feerate\_max)
+* [Block Mean Feerate (block_feerate_mean)](transaction-feerates.md#block\_feerate\_mean)
+* [Block Median Feerate (block_feerate_median)](transaction-feerates.md#block\_feerate\_median)
+* [Block Minimum Feerate (block_feerate_min)](transaction-feerates.md#block\_feerate\_min)
 
 ## Block Maximum Feerate <a href="#block_feerate_max" id="block_feerate_max"></a>
 

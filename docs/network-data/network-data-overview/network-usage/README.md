@@ -28,12 +28,12 @@ Metrics that measure blockchain network activity.
 * ContERC20Cnt
 * ContERC721Cnt
 
-[**Profitability**](broken-reference)
+[**Profitability**](profitability.md)
 
 * UTXOLossCnt
 * UTXOProfCnt
 
-[**UTXOs**](broken-reference)
+[**UTXOs**](utxos.md)
 
 * UTXOAgeMean
 * UTXOAgeMed

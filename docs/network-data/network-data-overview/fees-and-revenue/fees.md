@@ -2,27 +2,23 @@
 
 ### Contents
 
-* [Fees, byte, mean, native units](fees.md#mean-tx-fee-per-byte-native-units)
-* [Fees, transaction, mean](fees.md#feemean)
-* [Fees, transaction, median](fees.md#feemed)
-* [Fees, transaction, priority, mean](fees.md#feepriomean)
-* [Fees, transaction, priority, median](fees.md#e)
-* [Fees, priority, total](fees.md#feepriotot)
-* [Fees, revenue, percent](fees.md#feerevpct)
-* [Fees, total](fees.md#feetot)
-* [Fees, weight, mean, native units](fees.md#feewghtmean)
-* [Gas, base fee, block, mean](fees.md#gasbaseblkmean)
-* [Gas, limit, block](fees.md#gaslmtblk)
-* [Gas, limit, block, mean](fees.md#gasbaseblkmean)
-* [Gas, limit, transaction](fees.md#gaslmttx)
-* [Gas, limit, transaction, mean](fees.md#gaslmttxmean)
-* [Gas, used, transaction](fees.md#gasusedtx)
-* [Gas, used, transaction, mean](fees.md#gaslmttxmean)
-* [Total blob fees](fees.md#total-blob-fees)
-* [Mean blob fees](fees.md#mean-blob-fees)
-* [Median blob fees](fees.md#median-blob-fees)
-* [Mean fee per blob byte](fees.md#mean-fee-per-blob-byte)
-* [Mean fee per blob carrying transaction](fees.md#mean-fee-per-blob-carrying-transaction)
+* [Mean Tx Fee per Byte (native units) (FeeByteMeanNtv)](fees.md#mean-tx-fee-per-byte-native-units)
+* [Mean Tx Fee (native units, USD) (FeeMeanNtv, FeeMeanUSD)](fees.md#feemean)
+* [Median Tx Fee (native units, USD) (FeeMedNtv, FeeMedUSD)](fees.md#feemed)
+* [Mean Miner Tip (native units, USD) (FeePrioMeanNtv, FeePrioMeanUSD)](fees.md#feepriomean)
+* [Median Miner Tip (native units, USD) (FeePrioMedNtv, FeePrioMedUSD)](fees.md#e)
+* [Total Miner Tips (native units, USD) (FeePrioTotNtv, FeePrioTotUSD)](fees.md#feepriotot)
+* [Miner Revenue from Fees (%) (FeeRevPct)](fees.md#feerevpct)
+* [Total Fees (native units, USD) (FeeTotNtv, FeeTotUSD)](fees.md#feetot)
+* [Mean Tx Fee per Block Weight (native units) (FeeWghtMeanNtv)](fees.md#feewghtmean)
+* [Mean Base Fee (Wei) (GasBaseBlkMean)](fees.md#gasbaseblkmean)
+* [Block Gas Limit (GasLmtBlk)](fees.md#gaslmtblk)
+* [Mean Block Gas Limit (GasLmtBlkMean)](fees.md#gasbaseblkmean)
+* [Tx Gas Limit (GasLmtTx)](fees.md#gaslmttx)
+* [Mean Gas Limit per Tx (GasLmtTxMean)](fees.md#gaslmttxmean)
+* [Tx Gas Used (GasUsedTx)](fees.md#gasusedtx)
+* [Mean Gas Used per Tx (GasUsedTxMean)](fees.md#gaslmttxmean-1)
+* [Network State Storage Fees](fees.md#network-state-storage-fees)
 
 ## Mean Tx Fee per Byte (native units)
 
@@ -65,7 +61,7 @@ During the BTC mining ban in China in 2021, we saw an influx of miners turn off 
 
 ### Definition
 
-The mean transaction fee per byte of all blocks that interval in native units.
+The mean fee per transaction in native units in that interval.
 
 | Name                       | MetricID   | Unit         | Interval      |
 | -------------------------- | ---------- | ------------ | ------------- |
@@ -76,7 +72,6 @@ The mean transaction fee per byte of all blocks that interval in native units.
 
 * 0-fee transactions are included
 * If there were no transactions that interval, this metric isn’t computed
-* FeeByteMeanNtv is Computed as FeeTotNtv / BlkSizeByte
 * FeeMeanUSD is Computed as FeeMeanNtv \* PriceUSD
 * The price used is the daily close price
 
@@ -84,10 +79,6 @@ The mean transaction fee per byte of all blocks that interval in native units.
 
 * Any blockchain where users are paying for block space rather than computation.
 * For SOL, this metric does not include vote transactions. Includes successful and unsuccessful transactions.
-
-### Examples
-
-During the BTC mining ban in China in 2021, we saw an influx of miners turn off their operations so the block interval time increased significantly due to less hash power on the network. In effect, because less miners were online, we saw a spike in the mean transaction fee per byte since less miners were available to include transactions in the blocks, therefore transactions costs higher before the next difficulty adjustment.
 
 ### Release History
 
@@ -265,15 +256,15 @@ Ethereum post-1559 requires users to pay for a Base Fee as a prerequisite to inc
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/FeePrioTotNtv" %}
 
-## Miner Revenue from Fees (%) <a href="#feerevpct" id="feerevpct"></a>
+## Revenue from Fees (%) <a href="#feerevpct" id="feerevpct"></a>
 
 ### Definition
 
-The percentage of miner revenue derived from fees that interval. This is equal to the fees divided by the miner revenue.
+The percentage of revenue derived from fees that interval. This is equal to the fees divided by the  revenue.
 
-| Name                        | MetricID  | Unit          | Interval |
-| --------------------------- | --------- | ------------- | -------- |
-| Miner Revenue from Fees (%) | FeeRevPct | Dimensionless | 1 day    |
+| Name                  | MetricID  | Unit          | Interval |
+| --------------------- | --------- | ------------- | -------- |
+| Revenue from Fees (%) | FeeRevPct | Dimensionless | 1 day    |
 
 ### Details
 
@@ -291,7 +282,7 @@ For blockchains aiming to retain a limited supply by weaning themselves off an i
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/FeeRevPct" %}
 
-## Total Fees (native units) <a href="#feetot" id="feetot"></a>
+## Total Fees <a href="#feetot" id="feetot"></a>
 
 ### Definition
 
@@ -309,7 +300,8 @@ The sum of all fees paid to miners, transaction validators, stakers and/or block
 
 ### Asset Specific Details
 
-* For Solana transactions, priority fees are fees paid on top of the 5000 lamport base fee per signature. This includes both setting a higher price per compute unit and setting a higher total compute budget
+* For Solana transactions, priority fees are fees paid on top of the 5000 lamport base fee per signature. This includes both setting a higher price per compute unit and setting a higher total compute budget.
+* For Ethereum this fee includes fees for transaction execution as well as blob fees. It is made up of base fees, priority fees and blob fees. Fees paid for the execution of transactions only can be calculated by subtracting [total blob fees](fees.md#total-blob-fees) from total fees.
 
 ### Release History
 
@@ -335,7 +327,7 @@ The mean transaction fee per weight unit in that interval in native units. Weigh
 
 ### Details
 
-* For more details on SegWit, check the [Bitcoin Wiki Entry](https://en.bitcoin.it/wiki/Segregated\_Witness)
+* For more details on SegWit, check the [Bitcoin Wiki Entry](https://en.bitcoin.it/wiki/Segregated_Witness)
 
 ### Asset-Specific Details
 
@@ -428,42 +420,6 @@ The sum gas limit of all blocks that day.
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/GasLmtBlk" %}
-
-## Mean Base Fee (Wei) <a href="#gasbaseblkmean" id="gasbaseblkmean"></a>
-
-### Definition
-
-The average (mean) Base Fee paid for transactions during a time interval (e.g. 1 day), shown in the smallest denomination of Ether, [Wei units](https://ethdocs.org/en/latest/ether.html#denominations).
-
-The concept of a Base Fee was introduced as part of [EIP-1559](https://notes.ethereum.org/@vbuterin/eip-1559-faq) and it represents the portion of the total transaction fees that is destroyed and taken out of circulation (i.e. _burnt)_. Ethereum post-1559 requires users to pay for a Base Fee as a prerequisite to include transactions in a block. The Base Fee can go up or down on the basis of the size (in gas units) of the previous block. In times of congestion, where blocks are sequentially increasing in size, paying a Base Fee does not guarantee that a transaction will be included in a block. In such events, users can optionally pay an additional Miner Tip to nudge miners to include their transactions in their block.
-
-| Name                | MetricID       | Unit | Interval |
-| ------------------- | -------------- | ---- | -------- |
-| Mean Base Fee (Wei) | GasBaseBlkMean | Wei  | 1 day    |
-
-### Details
-
-* EIP1559 was a highly anticipated proposal that changes how transaction fees are priced in Ethereum, as well as the dynamics of block sizes.
-* The proposal activated on the Ethereum Network in August of 2021 and marks one of the biggest changes in monetary policy in the history of cryptoassets.
-* Instead of the legacy _gas price_, 1559 splits transaction fees into two distinct fields: a Base Fee and an optional Tip (also known as a _Priority Fee_).
-* This metric calculates the average Base Fee in transactions that have occurred in the network over the measuring period (e.g. 1 day).
-* For a thorough review of EIP1559 and the design of its pricing mechanism, please refer to [this paper](https://arxiv.org/pdf/2012.00854.pdf).
-
-### Interpretation
-
-* Base Fees fluctuate on the basis of network utilization. If there is high demand for transaction settlement, Base Fees go up, and as demand fades, Base Fees go down.
-* The pricing of Base Fees is inextricably connected to size of blocks in the blockchain. Upon the the activation fo EIP-1559, the maximum size of blocks in Ethereum (measured in units of gas) was more than doubled to 30M.
-* Although blocks are larger, this pricing mechanism attempts to target an average of 15M gas units per block, and an exponential function is used to increase or decrease Base Fees so that this target is hit.
-* If, for example, the previous block was above 15M units of gas, the base fee is increased. If there are several sequential blocks above the 15M target, Base Fees increase exponentially which disincentivizes users from transacting.
-* Changes in Base Fees over time can depict changes in demand for block space. When miner tips have to be used due to Base Fees not being enough, this is a sign of network congestion.
-
-### Release History
-
-* Released in the 5.0 release of NDP (August, 2021)
-
-### Availability for Assets
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/GasBaseBlkMean" %}
 
 ## Mean Block Gas Limit <a href="#gaslmtblkmean" id="gaslmtblkmean"></a>
 
@@ -598,20 +554,20 @@ The sum gas used (i.e., paid) across all transactions that day.
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/GasUsedTx" %}
 
-## Mean Gas Limit per Tx <a href="#gaslmttxmean" id="gaslmttxmean"></a>
+## Mean Gas Used per Tx <a href="#gaslmttxmean" id="gaslmttxmean"></a>
 
 ### Definition
 
-The mean gas limit per transaction that day.
+The mean gas used (i.e., paid) per transaction that day.
 
-| Name                  | MetricID     | Unit | Interval       |
-| --------------------- | ------------ | ---- | -------------- |
-| Mean Gas Limit per Tx | GasLmtTxMean | Gas  | 1 block, 1 day |
+| Name                 | MetricID      | Unit | Interval       |
+| -------------------- | ------------- | ---- | -------------- |
+| Mean Gas Used per Tx | GasUsedTxMean | Gas  | 1 block, 1 day |
 
 ### Details
 
-* Computed as GasLmtTx / TxCnt
-* Gas is a dimensionless unit measuring the computational cost of operations for ETH-based assets. Each transaction uses gas when being processed. As it’s impossible to know how much gas every transaction will use before executing it, each transaction specifies a gas limit it’s willing to use.
+* Computed as GasUsedTx / TxCnt
+* Gas is a dimensionless unit measuring the computational cost of operations for ETH-based assets. Each transaction uses gas when being processed.
 
 ### Asset-Specific Details
 
@@ -623,74 +579,27 @@ The mean gas limit per transaction that day.
 
 ### Availability for Assets
 
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/GasLmtTxMean" %}
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/GasUsedTxMean" %}
 
-## Total blob fees
-
-### Definition
-
-Total amount of Fees paid for blob space (available in native units and USD)
-
-<table><thead><tr><th width="222">Name</th><th>MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Total blob fees (native units)</td><td>FeeBlobTotNtv</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Total blob fees (USD)</td><td>FeeBlobTotUSD</td><td>USD</td><td>1 block, 1 day</td></tr></tbody></table>
-
-### Availability for Assets
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/FeeBlobTotNtv" %}
-
-## Mean blob fees
+## Network State Storage Fees
 
 ### Definition
 
-Mean fees paid per blob, shown (available in native units and USD)
+Total fees paid for storing state on the network within an interval in native units.
 
-<table><thead><tr><th width="249">Name</th><th width="174">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Mean blob fees (native units)</td><td>FeeBlobMeanNtv</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Mean blob fees (USD)</td><td>FeeBlobMeanUSD</td><td>USD</td><td>1 block, 1 day</td></tr></tbody></table>
+<table><thead><tr><th>Name</th><th width="216">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Network state storage fees (native units)</td><td>FeeStorTotNtv</td><td>Native units</td><td>1 day</td></tr><tr><td>Network state storage fees (USD)</td><td>FeeStorTotUSD</td><td>USD</td><td>1 day</td></tr></tbody></table>
 
-### Availability for Assets
+#### Details
 
-{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/FeeBlobMeanNtv" %}
-
-## Median blob fees
-
-### Definition
-
-Median fees paid per blob, shown (available in native units and USD)
-
-<table><thead><tr><th width="219">Name</th><th>MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Median blob fees (native units)</td><td>FeeBlobMedNtv</td><td>Native Units</td><td>1 block, 1 day</td></tr><tr><td>Median blob fees (USD)</td><td>FeeBlobMedUSD</td><td>USD</td><td>1 block, 1 day</td></tr></tbody></table>
+* Solana removed network state storage fees in November of 2023 as of which time they are 0
 
 ### Availability for Assets
 
-{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/FeeBlobMedNtv" %}
-
-## Mean Fee per blob Byte
-
-### Definition
-
-Mean fee paid per byte of used blob space (available in native units and USD)
-
-<table><thead><tr><th>Name</th><th width="205">MetricID</th><th width="200">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Mean Fee per blob Byte (native units)</td><td>FeeBlobByteMeanNtv</td><td>Native units</td><td>1 block, 1 day</td></tr><tr><td>Mean Fee per blob Byte (USD)</td><td>FeeBlobByteMeanUSD</td><td>USD</td><td>1 block, 1 day</td></tr></tbody></table>
-
-### Availability for Assets
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/FeeBlobByteMeanNtv" %}
-
-## Mean fee per blob carrying transaction
-
-### Definition
-
-Mean fee paid in blob fees per blob carrying transaction (available in native units and USD)
-
-| Name                                                  | MetricID         | Unit         | Interval       |
-| ----------------------------------------------------- | ---------------- | ------------ | -------------- |
-| Mean fee per blob carrying transaction (native units) | FeeBlobTxMeanNtv | Native units | 1 block, 1 day |
-| Mean fee per blob carrying transaction (USD)          | FeeBlobTxMeanUSD | USD          | 1 block, 1 day |
-
-### Availability for Assets
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/FeeBlobTxMeanNtv" %}
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/FeeStorTotNtv" %}
 
 ### API Endpoints
 
-Exchange Deposits metrics can be accessed using these endpoints:
+Fee metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 

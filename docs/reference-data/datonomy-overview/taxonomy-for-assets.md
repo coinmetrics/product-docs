@@ -6,7 +6,7 @@ description: /taxonomy/assets
 
 ## **Definition**
 
-The asset taxonomy classifies assets by primary use.
+The asset taxonomy classifies assets by primary use.&#x20;
 
 ## Details
 
@@ -14,7 +14,7 @@ For more information on the asset taxonomy see the [datonomy overview](./) and [
 
 ## Endpoint Response
 
-The **Taxonomy Assets** endpoint returns taxonomy data for each asset, version, class, sector or subsector requested. The response is formatted as follows:
+The **Taxonomy Assets** endpoint returns taxonomy data for each asset, version, class, sector or subsector requested.  The response is formatted as follows:
 
 | Field                 | Description                                                                             |
 | --------------------- | --------------------------------------------------------------------------------------- |
@@ -32,7 +32,7 @@ The **Taxonomy Assets** endpoint returns taxonomy data for each asset, version, 
 
 ## Example
 
-A sample of the taxonomy response for `axs` is shown below.
+A sample of the taxonomy response for  `axs` is  shown below.&#x20;
 
 <pre><code>"data": [
 {
@@ -52,4 +52,4 @@ A sample of the taxonomy response for `axs` is shown below.
 
 ## Release History
 
-* **Version 1.0 on November 4, 2022**: Methodology launch and release of initial version of the taxonomy\\
+* **Version 1.0 on November 4, 2022**: Methodology launch and release of initial version of the taxonomy\

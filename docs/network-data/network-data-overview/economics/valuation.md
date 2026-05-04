@@ -2,11 +2,13 @@
 
 ### Contents
 
-* [Network Value to Transactions](valuation.md#nvt)
-* [Network Value to Transactions Free Float](valuation.md#nvtff)
-* [Realized Cap to Thermo Cap](valuation.md#rctc)
-* [RVT Ratio](valuation.md#rvt)
-* [Spent Output Price Ratio](valuation.md#sopr)
+* [Network Value to Transactions (NVTAdj)](valuation.md#nvt)
+* [Network Value to Transactions Free Float (NVTAdjFF)](valuation.md#nvtff)
+* [Realized Cap to Thermo Cap (RCTC)](valuation.md#rctc)
+* [RVT Ratio (RVT)](valuation.md#rvt)
+* [Spent Output Price Ratio (SOPR)](valuation.md#sopr)
+* [Net Unrealized Profit/Loss (NUPL)](valuation.md#nupl)
+* Long-Term and Short-Term Holder SOPR (SOPRLthX)
 
 ## Network Value to Transactions <a href="#nvt" id="nvt"></a>
 
@@ -76,15 +78,14 @@ NVT has been much discussed; in short, it compares market capitalization to on-c
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/NVTAdjFF" %}
-[\
-](https://docs.coinmetrics.io/asset-metrics/economics/nvtadjff)
+[<br>](https://docs.coinmetrics.io/asset-metrics/economics/nvtadjff)
 {% endembed %}
 
 ## Realized Cap to Thermo Cap (RCTC) <a href="#rctc" id="rctc"></a>
 
 ### Definition
 
-The ratio of the Realized Cap over Thermo Cap at the end of that interval. [Realized Cap](broken-reference) (CapRealUSD) is defined as the sum USD value based on the USD closing price on the day that a native unit last moved (i.e., last transacted) for all native units. Thermo Cap is calculated as RevAllTimeUSD and it represents the USD value of all funds disbursed to miners at the time of issuance.
+The ratio of the Realized Cap over Thermo Cap at the end of that interval. [Realized Cap](broken-reference/) (CapRealUSD) is defined as the sum USD value based on the USD closing price on the day that a native unit last moved (i.e., last transacted) for all native units. Thermo Cap is calculated as RevAllTimeUSD and it represents the USD value of all funds disbursed to miners at the time of issuance.
 
 | Name                              | IMetricD                                                          | Unit          | Interval |
 | --------------------------------- | ----------------------------------------------------------------- | ------------- | -------- |
@@ -92,13 +93,13 @@ The ratio of the Realized Cap over Thermo Cap at the end of that interval. [Real
 
 ### Details
 
-* Like [MVRV](broken-reference), RCTC can be used to better understand the market cycle as it identifies the ralationship between the network's overall cost basis (CapRealUSD) relative to the USD amount issued to miners by the protocol (RevAllTimeUSD).
+* Like [MVRV](broken-reference/), RCTC can be used to better understand the market cycle as it identifies the ralationship between the network's overall cost basis (CapRealUSD) relative to the USD amount issued to miners by the protocol (RevAllTimeUSD).
 * When evaluating market tops, RCTC provides a view on the realization of profits relative to the liquidity that is being issued to miners.
 * Miners are speculators as they are naturally exposed to the price of the currency they are mining. As such, they collectively make buy or sell decisions that ultimately impact the market.
 
 ### Chart
 
-![](../../../.gitbook/assets/coin\_metrics\_network\_chart-2-.png)
+![](<../../../.gitbook/assets/coin_metrics_network_chart(2) (1).png>)
 
 ### Interpretation
 
@@ -117,7 +118,7 @@ Only applicable to assets for which we have RevAllTimeUSD and CapRealUSD.
 ### See Also:
 
 * [MCRC (Market Cap / Realized Cap)](../../economics/miner-cap-to-realized-cap-mcrc.md)
-* [MVRV (Market Cap / Realized Market Cap)](broken-reference)
+* [MVRV (Market Cap / Realized Market Cap)](broken-reference/)
 
 ### Availability for Assets
 
@@ -137,7 +138,7 @@ The ratio of the network's realized value to its adjusted transfer value. Also r
 ### Details
 
 * Computed as realized value (aka realized market cap) over adjusted transfer value.
-* [Checkmate (2019)](https://medium.com/@\_Checkmatey\_/the-bitcoin-rvt-ratio-a-high-conviction-macro-indicator-615b68715b77) formulates the realized capitalization to transaction value (RVT) ratio which uses the same fundamental principles behind the NVT ratio but uses realized capitalization instead of market capitalization in the numerator of the ratio.
+* [Checkmate (2019)](https://medium.com/@_Checkmatey_/the-bitcoin-rvt-ratio-a-high-conviction-macro-indicator-615b68715b77) formulates the realized capitalization to transaction value (RVT) ratio which uses the same fundamental principles behind the NVT ratio but uses realized capitalization instead of market capitalization in the numerator of the ratio.
 * RVTAdj90 is computed as the network's realized value (aka realized market cap) over the 90-day moving average of USD adjusted transfer volume.
 
 ### Release History
@@ -152,7 +153,7 @@ RVT can be a slower moving, higher conviction signal tuned to the macro sentimen
 
 ### See Also
 
-* [Realized Market Cap (USD)](broken-reference)
+* [Realized Market Cap (USD)](broken-reference/)
 * [RVT 90-day Moving Avg](../../economics/rvtadj90.md)
 
 ### Availability for Assets
@@ -221,6 +222,127 @@ Historically, a high SOPR has signaled that bitcoin price is reaching a local ma
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/SOPR" %}
 
+## Net Unrealized Profit/Loss (NUPL) <a href="#nupl" id="nupl"></a>
+
+### Definition
+
+NUPL measures the proportion of an asset's market cap that represents unrealized profit or loss among all coins in circulation.
+
+| Name | MetricID | Unit          | Interval |
+| ---- | -------- | ------------- | -------- |
+| NUPL | NUPL     | Dimensionless | 1 day    |
+
+### Details
+
+* Calculated as: (CapMrktCurUSD - CapRealUSD)/CapMrktCurUSD
+
+### Interpretation
+
+It indicates whether the market, on average, is in a state of unrealized gain (positive) or loss (negative), reflecting investor sentiment and potential market phases.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/NUPL" %}
+
+## Long-Term and Short-Term Holder SOPR
+
+### Definition
+
+Long-Term and Short-Term Holder SOPR metrics segment the traditional SOPR calculation based on the age of the UTXOs being spent. These metrics separate profit/loss realization behavior between holders who have held their positions for different time periods, providing deeper insights into market dynamics by distinguishing between committed long-term investors and more active short-term traders.
+
+There are two versions of this metric, one weighted by the value of each output and the other unweighted.
+
+| Name                                                                                         | MetricID                                  | Unit          | Interval |
+| -------------------------------------------------------------------------------------------- | ----------------------------------------- | ------------- | -------- |
+| Spent Output Profit Ratio (SOPR) 30 day Long-Term Holder / Short-Term Holder                 | SOPRLth30d / SOPRSth30d                   | Dimensionless | 1 day    |
+| Spent Output Profit Ratio (SOPR) 90 day Long-Term Holder / Short-Term Holder                 | <p>SOPRLth90d /<br>SOPRSth90d</p>         | Dimensionless | 1 day    |
+| Spent Output Profit Ratio (SOPR) 155 day Long-Term Holder / Short-Term Holder                | <p>SOPRLth155d /<br>SOPRSth155d</p>       | Dimensionless | 1 day    |
+| Spent Output Profit Ratio (SOPR) 1 year Long-Term Holder / Short-Term Holder                 | <p>SOPRLth1y /<br>SOPRSth1y</p>           | Dimensionless | 1 day    |
+| Spent Output Profit Ratio (SOPR) 5 years Long-Term Holder / Short-Term Holder                | <p>SOPRLth5y /<br>SOPRSth5y</p>           | Dimensionless | 1 day    |
+| Spent Output Profit Ratio Unweighted (SOPR Out) 30 day Long-Term Holder / Short-Term Holder  | <p>SOPRLthOut30d /<br>SOPRSthOut30d</p>   | Dimensionless | 1 day    |
+| Spent Output Profit Ratio Unweighted (SOPR Out) 90 day Long-Term Holder / Short-Term Holder  | <p>SOPRLthOut90d /<br>SOPRSthOut90d</p>   | Dimensionless | 1 day    |
+| Spent Output Profit Ratio Unweighted (SOPR Out) 155 day Long-Term Holder / Short-Term Holder | <p>SOPRLthOut155d /<br>SOPRSthOut155d</p> | Dimensionless | 1 day    |
+| Spent Output Profit Ratio Unweighted (SOPR Out) 1 year Long-Term Holder / Short-Term Holder  | <p>SOPRLthOut1y /<br>SOPRSthOut1y</p>     | Dimensionless | 1 day    |
+| Spent Output Profit Ratio Unweighted (SOPR Out) 5 years Long-Term Holder / Short-Term Holder | <p>SOPRLthOut5y /<br>SOPRSthOut5y</p>     | Dimensionless | 1 day    |
+
+### Details
+
+The Long-Term and Short-Term Holder SOPR metrics use the same fundamental calculation as the traditional SOPR but apply filters based on the age of UTXOs:
+
+**For SOPRLth (Long-Term Holders):**
+
+* Only includes UTXOs that were created more than X days/years ago
+* Calculation: (Sum of spent value of old UTXOs) / (Sum of creation value of old UTXOs)
+
+**For SOPRSth (Short-Term Holders):**
+
+* Only includes UTXOs that were created X days/years ago or less
+* Calculation: (Sum of spent value of recent UTXOs) / (Sum of creation value of recent UTXOs)
+
+**Weighted vs Unweighted Versions:**
+
+Like the traditional SOPR, these metrics come in two variants:
+
+1. **Weighted (SOPR):** Value-weighted by the size of each output
+2. **Unweighted (SOPROut):** Each output is treated equally regardless of size
+
+The unweighted versions are denoted with "Out" suffix (e.g., SOPRLthOut155d, SOPRSthOut155d).
+
+Both versions oscillate around 1:
+
+* Values > 1 indicate holders are realizing gains on average
+* Values < 1 indicate holders are realizing losses on average
+* Values = 1 indicate break-even realization
+
+### Example
+
+Using data from October 15, 2023, with a 155-day threshold:
+
+* **SOPR (All):** 1.0019 - Overall market slightly profitable
+* **SOPR Long-Term Holders (155d):** 1.0953 - Long-term holders realizing \~9.5% profits
+* **SOPR Short-Term Holders (155d):** 1.0084 - Short-term holders barely profitable at \~0.8%
+* **SOPR Out (All):** 0.9732 - Unweighted average shows slight losses
+* **SOPR Out Long-Term Holders (155d):** 0.9133 - Most long-term holder transactions at loss
+* **SOPR Out Short-Term Holders (155d):** 1.0064 - Most short-term holder transactions slightly profitable
+
+This example demonstrates how the weighted vs unweighted versions can tell different stories. While large long-term holders were realizing substantial profits (SOPRLth155d = 1.0953), the majority of long-term holder transactions by count were actually at a loss (SOPRLthOut155d = 0.9133), suggesting that smaller holders were selling at losses while larger holders captured gains.
+
+### Interpretation
+
+Long-Term and Short-Term Holder SOPR metrics provide nuanced insights into market behavior:
+
+**Long-Term Holder SOPR Patterns:**
+
+* High values often coincide with market tops, as committed holders finally take profits
+* Sharp increases can signal capitulation events where even long-term holders sell
+* Sustained values above 1.5-2.0 historically indicate overheated market conditions
+* Values consistently below 1 may suggest strong conviction among long-term holders to hold despite losses
+
+**Short-Term Holder SOPR Patterns:**
+
+* Generally more range-bound and closer to 1 due to frequent trading
+* Quick oscillations around 1 reflect active trading and price discovery
+* Extreme values (very high or low) are less common but can signal intense short-term sentiment
+* Divergences with long-term holder SOPR can indicate shifts in market regime
+
+**Time Threshold Selection:**
+
+* **30d/90d:** Captures very short-term vs medium-term holder behavior
+* **155d:** Approximately one market cycle, widely used benchmark
+* **1y:** Separates annual traders from multi-year investors
+* **5y:** Distinguishes true long-term hodlers from shorter-term positions
+
+**Analytical Applications:**
+
+* **Market Timing:** Extreme divergences between LTH and STH SOPR can signal regime changes
+* **Sentiment Analysis:** LTH SOPR spikes may indicate distribution phases
+* **Risk Management:** High STH SOPR with low LTH SOPR suggests short-term speculation
+* **Cycle Analysis:** Compare across different time thresholds to understand holder behavior evolution
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/SOPRLth30d" %}
+
 ## API Endpoints
 
 Address Balances can be accessed using these endpoints:
@@ -229,9 +351,9 @@ Address Balances can be accessed using these endpoints:
 
 and by passing in the metric ID's `NVT*` , `RVT*` and `SOPR*` in the `metrics` parameter.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}

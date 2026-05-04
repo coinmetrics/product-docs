@@ -5,6 +5,9 @@
 * [Blob Carrying Transaction Count](blobs.md#s)
 * [Mean Blob Carrying Transactions Per Block Count](blobs.md#mean-blob-carrying-transactions-per-block-count)
 * [Median Blob Carrying Transactions Per Block Count](blobs.md#median-blob-carrying-transactions-per-block-count)
+* [Count of Transactions including blob inscriptions](blobs.md#count-of-transactions-including-blob-inscriptions)
+* [Blob Transaction Count sent to contracts](blobs.md#blob-transaction-count-sent-to-contracts)
+* [Blob Transaction Count Layer 2s](blobs.md#blob-transaction-count-layer-2s)
 
 ## Blob Count <a href="#s" id="s"></a>
 
@@ -47,6 +50,46 @@ Median number of transactions per block carrying a blob in the interval
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/TxBlobMedCnt" %}
+
+## Count of Transactions Including Blob Inscriptions
+
+### Definition
+
+The sum count of data inscription transactions using blobs created that interval that were included in the main chain. Data inscription transactions are transactions following ESIP-8.
+
+<table><thead><tr><th width="257">Name</th><th>MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Blob Inscription Tx Cnt</td><td>TxBlobInscrCnt</td><td>Transactions</td><td>1 day</td></tr></tbody></table>
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/TxBlobInscrCnt" %}
+
+## Blob Transaction Count Sent to Contracts
+
+### Definition
+
+The sum count of blob transactions sent to contracts or burn addresses in that interval. Burn addresses are address which contain more than 10 consecutive empty bytes in their binary representation.
+
+<table><thead><tr><th width="257">Name</th><th>MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Blob Contract Tx Cnt</td><td>TxBlobContCnt</td><td>Transactions</td><td>1 day</td></tr></tbody></table>
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/TxBlobContCnt" %}
+
+## Blob Transaction Count Layer 2s
+
+### Definition
+
+Number of blob carrying transactions originating from L2 sequencers, included in the interval.
+
+<table><thead><tr><th width="257">Name</th><th>MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Blob Transactions (layer 2)</td><td>TxBlobL2Cnt</td><td>Transactions</td><td>1 day</td></tr><tr><td>Blob Transactions (Arbitrum)</td><td>TxBlobARBCnt</td><td>Transactions</td><td>1 day</td></tr><tr><td>Blob Transactions (Optimism)</td><td>TxBlobOPCnt</td><td>Transactions</td><td>1 day</td></tr><tr><td>Blob Transactions (Base)</td><td>TxBlobBASECnt</td><td>Transactions</td><td>1 day</td></tr></tbody></table>
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/TxBlobL2Cnt" %}
+
+#### Details
+
+* The aggregate L2 metric (TxBlobL2Cnt) includes all tagged L2 sequencers. This list includes additional L2s that do not have dedicated metrics.
 
 ### API Endpoints
 

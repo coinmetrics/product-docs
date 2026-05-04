@@ -1,8 +1,0 @@
-- label: Shell
-  source: |
-    curl --compressed "https://api.coinmetrics.io/v4/catalog-all-v2/market-quotes?pretty=true&api_key=<your_key>"
-- label: Python
-  source: |
-    import requests
-    response = requests.get('https://api.coinmetrics.io/v4/catalog-all-v2/market-quotes?pretty=true&api_key=<your_key>').json()
-    print(response)

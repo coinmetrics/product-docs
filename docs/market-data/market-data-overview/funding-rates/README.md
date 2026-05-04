@@ -1,8 +1,21 @@
 # Funding Rates
 
-Coin Metrics tracks funding rates at the market level and calculates several aggregated funding rates metrics for the assets in our coverage universe.
+Coin Metrics tracks realized and predicted funding rates for individual markets and calculates several aggregated funding rates metrics in our coverage universe.
 
-## Sub-categories
-* [Market Level Funding Rates](/futures-funding-rates.md)
-* [Aggregated Funding Rates](/aggregated-futures-funding-rates.md)
-* [Cumulative Funding Rates](/cumulative-futures-funding-rates.md)
+## Metrics
+
+{% content-ref url="funding-rates.md" %}
+[funding-rates.md](funding-rates.md)
+{% endcontent-ref %}
+
+{% content-ref url="predicted-funding-rates.md" %}
+[predicted-funding-rates.md](predicted-funding-rates.md)
+{% endcontent-ref %}
+
+{% content-ref url="aggregated-futures-funding-rate.md" %}
+[aggregated-futures-funding-rate.md](aggregated-futures-funding-rate.md)
+{% endcontent-ref %}
+
+{% content-ref url="cumulative-futures-funding-rate.md" %}
+[cumulative-futures-funding-rate.md](cumulative-futures-funding-rate.md)
+{% endcontent-ref %}

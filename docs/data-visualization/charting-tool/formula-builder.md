@@ -8,25 +8,27 @@ description: https://charts.coinmetrics.io/formulas/
 
 The formula builder allows you to transform the available Coin Metrics' data series. For example, you can create your own ratios, add together USDT metrics, slice or splice time series, even customize the line colors and many more things.
 
-The formula builder editor and information can be found via the right toolbar by clicking on the "formula button".
+The formula builder editor and information can be found via the menu in the top left by clicking on the CM logo and selecting the "Formulas" button.
 
-![](<../../.gitbook/assets/Screen Shot 2021-03-09 at 9.15.50 PM.png>)
+<figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.46.19 PM.png" alt="" width="132"><figcaption></figcaption></figure>
 
-If you are unfamiliar with the formula builder and syntax, the "Information" tab is a good place to start.
+If you are unfamiliar with the formula builder and syntax, the "Help" tab is a good place to start.
 
-![](<../../.gitbook/assets/Screen Shot 2021-03-09 at 9.19.27 PM.png>)
+<figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.47.27 PM.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Formula Editor
 
-The formula editor is under the "Formula" tab. An example of a very simple formula is shown below.
+The formula editor is under the "Formulas" tab. An example of a very simple formula is shown below.
 
-![](<../../.gitbook/assets/Screen Shot 2021-03-09 at 9.27.09 PM.png>)
+<figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.48.40 PM.png" alt=""><figcaption></figcaption></figure>
 
 ### Syntax
 
-Specific **syntax** and **syntax** **examples** can be found on the "Syntax" tab. You can search for the specific "formula" in the "Search..." window or scroll through the list of available formulas. Once a formula is selected, further information on that formula (including the "syntax" and often an example) will be available in the lower window.
+Specific **syntax** and **syntax** **examples** can be found on the "Syntax" tab. You can search for the specific "formula" in the "Search..." window or scroll through the list of available formulas. Once a formula is selected, further information on that formula (including the "syntax" and often an example) show up in the window.
 
-![](<../../.gitbook/assets/Screen Shot 2021-03-09 at 9.20.56 PM.png>)
+<figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.49.41 PM.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.49.20 PM.png" alt=""><figcaption></figcaption></figure>
 
 ### Chart/Formula Example
 

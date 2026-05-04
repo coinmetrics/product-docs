@@ -1,0 +1,68 @@
+stages:
+  - build
+  - test
+  - update_docs
+
+build-docs-test:
+  image: docker:27.0.3
+  stage: build
+  services:
+    - docker:27.0.3-dind
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    # Pull previous image for cache (speeds up builds)
+    - docker pull $CI_REGISTRY_IMAGE/docs-test:latest || true
+    # Build with layer caching
+    - docker build --cache-from $CI_REGISTRY_IMAGE/docs-test:latest -t $CI_REGISTRY_IMAGE/docs-test:$CI_COMMIT_SHA -t $CI_REGISTRY_IMAGE/docs-test:$CI_COMMIT_REF_SLUG -t $CI_REGISTRY_IMAGE/docs-test:latest .
+    # Push all tags to registry
+    - docker push $CI_REGISTRY_IMAGE/docs-test:$CI_COMMIT_SHA
+    - docker push $CI_REGISTRY_IMAGE/docs-test:$CI_COMMIT_REF_SLUG
+    - docker push $CI_REGISTRY_IMAGE/docs-test:latest
+  tags:
+    - svc-docker
+
+test_documentation:
+  stage: test
+  image: $CI_REGISTRY_IMAGE/docs-test:$CI_COMMIT_SHA
+  script:
+    - make test
+  artifacts:
+    when: always
+    reports:
+      junit: test-reports/junit.xml
+    paths:
+      - test-reports/
+    expire_in: 30 days
+  allow_failure: true
+  tags:
+    - svc-docker
+
+update_tutorials:
+  stage: update_docs
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache git
+    - git config user.name $AMS_DATA_USER
+    - git config --global user.email "noreply@coinmetrics.io"
+  script:
+    - git clone https://$AMS_DATA_USER:$AMS_DATA_TOKEN@gitlab.com/coinmetrics/front-end/knowledge-base.git
+    - git clone https://$AMS_DATA_USER:$AMS_DATA_TOKEN@gitlab.com/coinmetrics/research/cm_demo_assets.git
+    - cp -r cm_demo_assets/markdowns/*.md knowledge-base/docs/tutorials/
+    - find cm_demo_assets/notebooks -name "*.pdf" -exec cp -r --parents {} knowledge-base/docs/.gitbooks/assets/ \;
+    - find cm_demo_assets/notebooks -name "*.ipynb" -exec cp -r --parents {} knowledge-base/docs/.gitbooks/assets/ \;
+    - cd knowledge-base
+    - BRANCH_NAME="update-demo-docs-$(date +%Y%m%d-%H%M%S)"
+    - git checkout -b $BRANCH_NAME
+    - git add docs/tutorials/*.md
+    - |
+      if git diff --staged --quiet; then
+        echo "No changes detected. Skipping merge request creation."
+      else
+        echo "Changes detected. Creating merge request."
+        git commit -m "Update tutorial docs from cm_demo_assets"
+        git push -o merge_request.create -o merge_request.target=master -o merge_request.title="Update tutorial docs from cm_demo_assets" origin $BRANCH_NAME
+      fi
+  when: manual
+  tags:
+    - svc-docker

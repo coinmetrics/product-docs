@@ -115,7 +115,7 @@ The sum count of unique wallets with a balance greater than 0 that can be observ
 
 | Name                         | **MetricID** | **Unit** | **Interval** |
 | ---------------------------- | ------------ | -------- | ------------ |
-| Wallets, with balance, count | WalBal       | Wallets  | 1 day        |
+| Wallets, with balance, count | WalBalCnt    | Wallets  | 1 day        |
 
 ### **Details**
 
@@ -131,7 +131,7 @@ This metric is not available for assets that have full privacy, like Monero and 
 
 ### Availability for Assets
 
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/WalBal" %}
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/WalBalCnt" %}
 
 ## API Endpoints
 

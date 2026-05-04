@@ -10,6 +10,7 @@
 * [Fully Shielded Tx Cnt](transactions.md#txshldfullcnt)
 * [Transactions, count, vote](transactions.md#transactions-count-vote)
 * [Transactions, count, nonvote](transactions.md#transactions-count-nonvote)
+* [MEV Transactions, count](transactions.md#mev-transaction-count)
 
 ## Tx Cnt <a href="#txcnt" id="txcnt"></a>
 
@@ -267,6 +268,24 @@ The sum count of non-voting transactions that interval on Solana. A subset of Tx
 
 {% embed url="https://coverage.coinmetrics.io/search-results?query=TxCntNonvote" %}
 
+## MEV Transaction Count
+
+<table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>MEV Tx Cnt</td><td>MevTxCnt</td><td>Transactions</td><td>1 day</td></tr></tbody></table>
+
+### Definition
+
+The sum count of MEV-enabled transactions that interval. An MEV-enabled transaction is one that paid an MEV tip to miners/validators in exchange for specific block ordering.
+
+### **Asset-Specific Details**
+
+* For Solana, slots proposed by validators running the Jito-Solana client are considered as MEV slots. Further, in Solana it is possible to identify which transactions paid MEV tip in addition to simply identifying the slot. For this metric each individual transaction is evaluated to determine which are MEV-enabled and which aren't.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/MevTxCnt" %}
+
+
+
 ## API Endpoints
 
 Token Transaction metrics can be accessed using these endpoints:
@@ -275,9 +294,9 @@ Token Transaction metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `TxCnt`, `TxCntSec` etc. in the `metrics` parameter.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}

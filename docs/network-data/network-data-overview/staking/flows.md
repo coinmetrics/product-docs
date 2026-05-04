@@ -3,6 +3,8 @@
 ## Contents
 
 * [Flows](flows.md#flowtoclcont)
+* [Deposits to Consensus Layer](flows.md#flowtoclcont-1)
+* [Withdrawals from Consensus Layer](flows.md#flowtoclcont-2)
 
 ## Flows to CL Contract <a href="#flowtoclcont" id="flowtoclcont"></a>
 
@@ -25,6 +27,38 @@ Deposits sent to the Consensus Layer (CL) Contract.
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/FlowToCLCont" %}
+
+## Deposits to Consensus Layer <a href="#flowtoclcont" id="flowtoclcont"></a>
+
+### Definition
+
+Total deposits sent to the Consensus Layer (CL)
+
+| Name                        | MetricID         | Unit         | Interval      |
+| --------------------------- | ---------------- | ------------ | ------------- |
+| Deposits to Consensus Layer | StkDepositTotNtv | Native Units | 1 day, 1 hour |
+
+### Details
+
+* ETH deposited to the consensus layer in the given time interval. This number will differ from the amount sent to the CL Contract due to the delay between the contract receiving funds and funds being deposited on the consensus layer. For details, refer to [Coin Metrics' State of the Network #244 ](https://coinmetrics.substack.com/p/state-of-the-network-issue-244#new\_tab)
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/StkDepositTotNtv" %}
+
+## Withdrawals from Consensus Layer <a href="#flowtoclcont" id="flowtoclcont"></a>
+
+### Definition
+
+Total deposits sent to the Consensus Layer (CL)
+
+| Name                             | MetricID          | Unit         | Interval      |
+| -------------------------------- | ----------------- | ------------ | ------------- |
+| Withdrawals from Consensus Layer | StkWithdrawTotNtv | Native Units | 1 day, 1 hour |
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/StkWithdrawTotNtv" %}
 
 ## API Endpoints
 

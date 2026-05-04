@@ -1,4 +1,4 @@
-# Validators
+# Stakers
 
 ## Contents
 
@@ -7,13 +7,14 @@
 * [Active Exiting Validators](validators.md#validatoractextcnt)
 * [Active Validators](validators.md#validatoractongcnt)
 * [Slashed Validators](validators.md#validatoractslhcnt)
-* [Validator Count](validators.md#validatorcnt)
-* [Daily Added Validators](validators.md#validatoraddcnt1d)
-* [Daily Removed Validators](validators.md#validatorremcnt1d)
+* [Stakers Count](validators.md#validatorcnt)
+* [Daily Added Stakers ](validators.md#validatoraddcnt1d)
+* [Daily Removed Stakers](validators.md#validatorremcnt1d)
 * [Inactive Ineligible Validators](validators.md#validatorextslhcnt)
 * [Inactive Eligible Validators](validators.md#validatorextunslhcnt)
 * [Validators Pending Eligibility](validators.md#validatorpndinitcnt)
 * [Validator in Activation Queue](validators.md#validatorpndqedcnt)
+* [Full Participation Issuance](validators.md#validatorpndqedcnt-1)
 
 ## Count of Senders to CL Contract <a href="#sendercntclcont" id="sendercntclcont"></a>
 
@@ -64,9 +65,9 @@ Unique count of all senders to the Consensus Layer (CL) contract.
 
 Validators who have filed a voluntary request to exit.
 
-| Name                      | MetricID           | Unit       | Interval |
-| ------------------------- | ------------------ | ---------- | -------- |
-| Active Exiting Validators | ValidatorActExtCnt | Validators | 1 day    |
+| Name                      | MetricID           | Unit       | Interval      |
+| ------------------------- | ------------------ | ---------- | ------------- |
+| Active Exiting Validators | ValidatorActExtCnt | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -86,9 +87,9 @@ Validators who have filed a voluntary request to exit.
 
 Validators that are actively participating.
 
-| Name              | MetricID           | Unit       | Interval |
-| ----------------- | ------------------ | ---------- | -------- |
-| Active Validators | ValidatorActOngCnt | Validators | 1 day    |
+| Name              | MetricID           | Unit       | Interval      |
+| ----------------- | ------------------ | ---------- | ------------- |
+| Active Validators | ValidatorActOngCnt | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -108,9 +109,9 @@ Validators that are actively participating.
 
 Slashed validators scheduled to exit.
 
-| Name               | MetricID           | Unit       | Interval |
-| ------------------ | ------------------ | ---------- | -------- |
-| Slashed Validators | ValidatorActSlhCnt | Validators | 1 day    |
+| Name               | MetricID           | Unit       | Interval      |
+| ------------------ | ------------------ | ---------- | ------------- |
+| Slashed Validators | ValidatorActSlhCnt | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -124,19 +125,24 @@ Slashed validators scheduled to exit.
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorActSlhCnt" %}
 
-## Validator Count <a href="#validatorcnt" id="validatorcnt"></a>
+## Stakers Count <a href="#validatorcnt" id="validatorcnt"></a>
 
 ### Definition
 
 Count of all validators.
 
-| Name            | MetricID     | Unit       | Interval |
-| --------------- | ------------ | ---------- | -------- |
-| Validator Count | ValidatorCnt | Validators | 1 day    |
+| Name            | MetricID     | Unit       | Interval      |
+| --------------- | ------------ | ---------- | ------------- |
+| Validator Count | ValidatorCnt | Validators | 1 day, 1 hour |
+| Delegator Count | DelegatorCnt | Delegators | 1 day         |
+| Staker Count    | StakerCnt    | Stakers    | 1 day         |
 
 ### Details
 
 * Number of validators on the Ethereum Consensus Layer (CL).
+* Delegator count available for networks that support delegated PoS (e.g.: Solana)
+* A validator who has directly staked native assets to participate in network consensus. A delegator has delegated their native asset to a validator in order to participate in network consensus.
+* A staker is an account that has staked native assets to participate in network consensus. Stakers include both Delegators as well as Validators.
 
 ### Release History
 
@@ -145,42 +151,35 @@ Count of all validators.
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorCnt" %}
+ValidatorCnt
+{% endembed %}
 
-### Definition
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/DelegatorCnt" %}
+DelegatorCnt
+{% endembed %}
 
-Count of validators removed daily.
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/StakerCnt" %}
+StakerCnt
+{% endembed %}
 
-| Name                     | MetricID          | Unit       | Interval |
-| ------------------------ | ----------------- | ---------- | -------- |
-| Daily Removed Validators | ValidatorRemCnt1d | Validators | 1 day    |
-
-### Details
-
-* Number of validators removed from the Ethereum Consensus Layer (CL) on a daily interval.
-* This figure will remain low until withdrawals are enabled, capturing mostly slashing.
-* Captures number of validators with 'exited' status and 'exited slashed' status.
-
-### Release History
-
-* Released September 2022.
-
-### Availability for Assets
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorRemCnt1d" %}
-
-## Daily Added Validators <a href="#validatoraddcnt1d" id="validatoraddcnt1d"></a>
+## Daily Added Stakers <a href="#validatoraddcnt1d" id="validatoraddcnt1d"></a>
 
 ### Definition
 
 Count of validators added daily.
 
-| Name                   | MetricID          | Unit       | Interval |
-| ---------------------- | ----------------- | ---------- | -------- |
-| Daily Added Validators | ValidatorAddCnt1d | Validators | 1 day    |
+| Name                   | MetricID          | Unit       | Interval      |
+| ---------------------- | ----------------- | ---------- | ------------- |
+| Daily Added Validators | ValidatorAddCnt1d | Validators | 1 day, 1 hour |
+| Daily Added Delegators | DelegatorAddCnt1d | Delegators | 1 day         |
+| Daily Added Stakers    | StakerAddCnt1d    | Stakers    | 1 day         |
 
 ### Details
 
 * Number of validators added to the Ethereum Consensus Layer (CL) on a daily interval.
+* Delegator metrics available for networks that support delegated PoS (e.g.: Solana)
+* A validator who has directly staked native assets to participate in network consensus. A delegator has delegated their native asset to a validator in order to participate in network consensus.
+* A staker is an account that has staked native assets to participate in network consensus. Stakers include both Delegators as well as Validators.
 
 ### Release History
 
@@ -189,22 +188,38 @@ Count of validators added daily.
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorAddCnt1d" %}
+ValidatorAddCnt1d
+{% endembed %}
 
-## Daily Removed Validators <a href="#validatorremcnt1d" id="validatorremcnt1d"></a>
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/DelegatorAddCnt1d" %}
+DelegatorAddCnt1d
+{% endembed %}
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/StakerAddCnt1d" %}
+StakerAddCnt1d
+{% endembed %}
+
+## Daily Removed Stakers <a href="#validatorremcnt1d" id="validatorremcnt1d"></a>
 
 ### Definition
 
 Count of validators removed daily.
 
-| Name                     | MetricID          | Unit       | Interval |
-| ------------------------ | ----------------- | ---------- | -------- |
-| Daily Removed Validators | ValidatorRemCnt1d | Validators | 1 day    |
+| Name                     | MetricID          | Unit       | Interval      |
+| ------------------------ | ----------------- | ---------- | ------------- |
+| Daily Removed Validators | ValidatorRemCnt1d | Validators | 1 day, 1 hour |
+| Daily Removed Delegators | DelegatorRemCnt1d | Delegators | 1 day         |
+| Daily Removed Stakers    | StakerRemCnt1d    | Stakers    | 1 day         |
 
 ### Details
 
-* Number of validators removed from the Ethereum Consensus Layer (CL) on a daily interval.
-* This figure will remain low until withdrawals are enabled, capturing mostly slashing.
-* Captures number of validators with 'exited' status and 'exited slashed' status.
+* For Ethereum:
+  * Number of validators removed from the Ethereum Consensus Layer (CL) on a daily interval.
+  * This figure will remain low until withdrawals are enabled, capturing mostly slashing.
+  * Captures number of validators with 'exited' status and 'exited slashed' status.
+* Delegator metrics available for networks that support delegated PoS (e.g.: Solana)
+* A validator who has directly staked native assets to participate in network consensus. A delegator has delegated their native asset to a validator in order to participate in network consensus.
+* A staker is an account that has staked native assets to participate in network consensus. Stakers include both Delegators as well as Validators.
 
 ### Release History
 
@@ -213,6 +228,16 @@ Count of validators removed daily.
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorRemCnt1d" %}
+ValidatorRemCnt1d
+{% endembed %}
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/DelegatorRemCnt1d" %}
+DelegatorRemCnt1d
+{% endembed %}
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/StakerRemCnt1d" %}
+StakerRemCnt1d
+{% endembed %}
 
 ## Inactive Ineligible Validators <a href="#validatorextslhcnt" id="validatorextslhcnt"></a>
 
@@ -220,9 +245,9 @@ Count of validators removed daily.
 
 Validators that have been slashed and are no longer active.
 
-| Name                           | MetricID           | Unit       | Interval |
-| ------------------------------ | ------------------ | ---------- | -------- |
-| Inactive Ineligible Validators | ValidatorExtSlhCnt | Validators | 1 day    |
+| Name                           | MetricID           | Unit       | Interval      |
+| ------------------------------ | ------------------ | ---------- | ------------- |
+| Inactive Ineligible Validators | ValidatorExtSlhCnt | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -242,9 +267,9 @@ Validators that have been slashed and are no longer active.
 
 Validators that have not been slashed but are no longer active.
 
-| Name                         | MetricID             | Unit       | Interval |
-| ---------------------------- | -------------------- | ---------- | -------- |
-| Inactive Eligible Validators | ValidatorExtUnslhCnt | Validators | 1 day    |
+| Name                         | MetricID             | Unit       | Interval      |
+| ---------------------------- | -------------------- | ---------- | ------------- |
+| Inactive Eligible Validators | ValidatorExtUnslhCnt | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -258,35 +283,15 @@ Validators that have not been slashed but are no longer active.
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorExtUnslhCnt" %}
 
-### Definition
-
-Validators that have been slashed and are no longer active.
-
-| Name                           | MetricID           | Unit       | Interval |
-| ------------------------------ | ------------------ | ---------- | -------- |
-| Inactive Ineligible Validators | ValidatorExtSlhCnt | Validators | 1 day    |
-
-### Details
-
-* Count of ETH Consensus Layer (CL) validators that have been slashed and are no longer active.
-
-### Release History
-
-* Released September 2022.
-
-### Availability for Assets
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorExtSlhCnt" %}
-
 ## Validators Pending Eligibility <a href="#validatorpndinitcnt" id="validatorpndinitcnt"></a>
 
 ### Definition
 
 Validators pending eligibility.
 
-| Name                           | MetricID            | Unit       | Interval |
-| ------------------------------ | ------------------- | ---------- | -------- |
-| Validators Pending Eligibility | ValidatorPndInitCnt | Validators | 1 day    |
+| Name                           | MetricID            | Unit       | Interval      |
+| ------------------------------ | ------------------- | ---------- | ------------- |
+| Validators Pending Eligibility | ValidatorPndInitCnt | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -306,9 +311,9 @@ Validators pending eligibility.
 
 Validators waiting in the activation queue
 
-| Name                           | MetricID           | Unit       | Interval |
-| ------------------------------ | ------------------ | ---------- | -------- |
-| Validators in Activation Queue | ValidatorPndQedCnt | Validators | 1 day    |
+| Name                           | MetricID           | Unit       | Interval      |
+| ------------------------------ | ------------------ | ---------- | ------------- |
+| Validators in Activation Queue | ValidatorPndQedCnt | Validators | 1 day, 1 hour |
 
 ### Details
 
@@ -321,6 +326,24 @@ Validators waiting in the activation queue
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorPndQedCnt" %}
+
+## Full Participation Issuance <a href="#validatorpndqedcnt" id="validatorpndqedcnt"></a>
+
+### Definition
+
+Maximum daily protocol issuance on the Ethereum consensus layer (beacon chain) as a function of the number of active validators.
+
+| Name                        | MetricID             | Unit         | Interval      |
+| --------------------------- | -------------------- | ------------ | ------------- |
+| Full Participation Issuance | IssFullParticipation | Native Units | 1 day, 1 hour |
+
+### Release History
+
+* Initially released November 2023.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/IssFullParticipation" %}
 
 ## API Endpoints
 

@@ -7,6 +7,7 @@
 * [Active Wallets Count](active-wallets.md#active)
 * [Active Wallets Count (Received)](active-wallets.md#received)
 * [Active Wallets Count (Sent)](active-wallets.md#sent)
+* [MEV Active Wallets Count](active-wallets.md#adractcont)
 
 ## Active Wallets Count <a href="#active" id="active"></a>
 
@@ -93,6 +94,29 @@ This metric is not available for assets that have full privacy, like Monero and 
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/WalActSentCnt" %}
 
+## MEV Active Wallets Count <a href="#adractcont" id="adractcont"></a>
+
+<table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>MEV Active Wallets Count</td><td>MevWalActCnt</td><td>Addresses</td><td>1 day</td></tr></tbody></table>
+
+### Definition
+
+The sum count of unique wallets that were active in a MEV-enabled transaction in the network. An MEV-enabled transaction is one that paid an MEV tip to miners/validators in exchange for specific block ordering. Individual wallets are not double-counted if previously active. Wallets are groups of addresses supposed to be owned by a single entity.
+
+### Details
+
+* Ledger changes can include activities such as Decentralized Finance (DeFi) trades, DAO votes, token transfers, as well as any other activity facilitated by a smart contract.
+* All participants of a ledger change activity are included.
+* If an address was active multiple times during the aggregation interval (e.g., 1 day), it is counted only once.
+
+### **Asset-Specific Details**
+
+* Only available for Solana.
+* For Solana, slots proposed by validators running the Jito-Solana client are considered as MEV slots. Further, in Solana it is possible to identify which transactions paid MEV tip in addition to simply identifying the slot. For this metric each individual transaction is evaluated to determine which are MEV-enabled and which aren't.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/MevWalActCnt" %}
+
 ## API Endpoints
 
 Address Balances can be accessed using these endpoints:
@@ -101,9 +125,9 @@ Address Balances can be accessed using these endpoints:
 
 and by passing in the metric IDs `WalActCnt`, `WalActSentCnt`, etc. in the `metrics` parameter.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}

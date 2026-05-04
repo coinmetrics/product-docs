@@ -2,13 +2,13 @@
 
 ## Contents
 
-* [Mean Feerate Mempool](feerates.md#mempool\_feerate\_mean)
-* [Median Feerate Mempool](feerates.md#mempool\_feerate\_median)
-* [Next Block Average Feerate](feerates.md#mempool\_next\_block\_approx\_feerate\_mean)
-* [Next Block Maximum Feerate](feerates.md#mempool\_next\_block\_approx\_feerate\_max)
-* [Next Block Median Feerate](feerates.md#mempool\_next\_block\_approx\_feerate\_median)
-* [Next Block Minimum Feerate](feerates.md#mempool\_next\_block\_approx\_feerate\_min)
-* [Next Block Minimum Recommended Fee](feerates.md#mempool\_next\_block\_inclusion\_feerate\_min)
+* [Mean Feerate Mempool (mempool_feerate_mean)](feerates.md#mempool\_feerate\_mean)
+* [Median Feerate Mempool (mempool\_feerate\_median)](feerates.md#mempool\_feerate\_median)
+* [Next Block Average Feerate (mempool_next_block_approx_feerate_mean)](feerates.md#mempool\_next\_block\_approx\_feerate\_mean)
+* [Next Block Maximum Feerate (mempool\_next\_block\_approx\_feerate\_max)](feerates.md#mempool\_next\_block\_approx\_feerate\_max)
+* [Next Block Median Feerate (mempool\_next\_block\_approx\_feerate\_median)](feerates.md#mempool\_next\_block\_approx\_feerate\_median)
+* [Next Block Minimum Feerate (mempool\_next\_block\_approx\_feerate\_min)](feerates.md#mempool\_next\_block\_approx\_feerate\_min)
+* [Next Block Minimum Recommended Fee (mempool\_next\_block\_inclusion\_approx\_feerate\_min)](feerates.md#mempool\_next\_block\_inclusion\_feerate\_min)
 
 ## Mean Feerate Mempool <a href="#mempool_feerate_mean" id="mempool_feerate_mean"></a>
 

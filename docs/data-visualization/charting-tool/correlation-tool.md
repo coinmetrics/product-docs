@@ -69,11 +69,11 @@ On occasion, you may want to compare a continuous data series with one with gaps
 
 The tool will default to "excluding" data where gaps are identified. You can adjust this setting from the settings menu on the right toolbar.
 
-![Click on the "gear" to find the settings for Data Gaps](<../../.gitbook/assets/Screen Shot 2020-12-19 at 4.48.10 PM.png>)
+<figure><img src="../../.gitbook/assets/Screenshot 2024-07-02 at 7.41.07 PM.png" alt=""><figcaption></figcaption></figure>
 
 ## Interpretation
 
-Let’s say you a Pearson correlation of the logarithmic returns for the previous 180 days. This number means “in the 180 days leading up to the point on the chart you’re looking at, the two assets that you have selected had co-movement in their daily returns of a magnitude corresponding to x.” If x is 1, their daily returns were perfectly positively correlated in the 180-day period leading up to the date where you observe the coefficient of 1. If x is 0.3, their returns moved together more often than not, but they weren’t particularly closely linked.
+Let’s say you select a Pearson correlation of the logarithmic returns for the previous 180 days. This number means “in the 180 days leading up to the point on the chart you’re looking at, the two assets that you have selected had co-movement in their daily returns of a magnitude corresponding to x.” If x is 1, their daily returns were perfectly positively correlated in the 180-day period leading up to the date where you observe the coefficient of 1. If x is 0.3, their returns moved together more often than not, but they weren’t particularly closely linked.
 
 ## Constraints
 

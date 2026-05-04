@@ -8,17 +8,17 @@ description: https://atlas.coinmetrics.io/
 
 Click on the button to the left of the search field and select an asset from the drop down menu.
 
-![](../network-data/.gitbook/assets/Atlas%20Search.png)
+![](../.gitbook/assets/Atlas%20Search.png)
 
 Please note an orange "beaker" symbol to the right side of certain cryptoassets indicates that the particular cryptoasset is experimental and should be used with caution.
 
-![](../network-data/.gitbook/assets/Atlas%20Asset%20Selector.png)
+![](../.gitbook/assets/Atlas%20Asset%20Selector.png)
 
 ## Searching Blocks
 
 To search for a block, enter the block hash or block height after selecting the appropriate asset chain. Click the Search button to return results.
 
-![](../network-data/.gitbook/assets/Block%20Search.png)
+![](../.gitbook/assets/Block%20Search.png)
 
 The Search Results page will return the block and transactions applicable to that Block.
 
@@ -26,7 +26,7 @@ You can filter your Search Results by "Type" to see just the Block or just the T
 
 The Search Results can also be downloaded for review by clicking the Download button to the right side of the screen from Search Results.
 
-![](../network-data/.gitbook/assets/Block%20Search%20Results.png)
+![](../.gitbook/assets/Block%20Search%20Results.png)
 
 Clicking on the Block will bring you to the Block Detail page. Clicking on a transaction will bring you to the Transaction Detail page.
 
@@ -45,27 +45,27 @@ The top portion of the page has summary metrics for the block.
 * Reported Time: Timestamp put in the block header by the miner/validator.
 * Normalized Time: Timestamp that provides accurate ordering - i.e., it is always greater than or equal to the parent timestamp.
 
-![](../network-data/.gitbook/assets/Block%20Summary%20Info%20\(1\).png)
+![](../.gitbook/assets/Block%20Summary%20Info%20\(1\).png)
 
 The bottom portion of the page will display the Transactions for the given Block. Included here is high-level information for each transaction, like the amount of cryptoasset transferred for the given transaction (in native value and current USD value) and the fee for the transaction (in native value and current USD value). To download all the transactions for the block into a csv file, click the Download button. To sort transactions by one of the column headings, click the heading name.
 
 For detailed transaction information, click the Transaction Hash hyperlink. This will bring you to the Transactions Details page.
 
-![](../network-data/.gitbook/assets/Block%20Transactions.png)
+![](../.gitbook/assets/Block%20Transactions.png)
 
 The block height details on the right side of the screen show the applicable block height number as well as the Reported Time (Miner/Validator timestamp). The Parent Block can be navigated to by clicking the down arrow icon (or clicking on the Parent Hash hyperlink). The Child Block can be navigated to by clicking the up arrow icon. The Chain Tip can be navigated to by clicking the endpoint icon.
 
-![](../network-data/.gitbook/assets/Block%20Height%20Details.png)
+![](../.gitbook/assets/Block%20Height%20Details.png)
 
 ## **Searching Addresses/Accounts**
 
 To search for an address/account, enter the address after selecting the appropriate asset chain. Click the Search button to return results.
 
-![](../network-data/.gitbook/assets/Address%20Search.png)
+![](../.gitbook/assets/Address%20Search.png)
 
 The search will bring back the Address if it exists. High level information such as the current balance will be displayed amongst other data points. To get further details on the Address, click on the result to go to the Address Details page.
 
-![](../network-data/.gitbook/assets/Address%20Search%20Results.png)
+![](../.gitbook/assets/Address%20Search%20Results.png)
 
 The Address Details page will display summary metrics for the address, balance updates, and a balance overtime graph.
 
@@ -83,7 +83,7 @@ The summary metrics for the address includes the following:
 * Last Received: Time of last credit.
 * Last Sent: Time of last debit.
 
-![](../network-data/.gitbook/assets/Address%20Summary.png)
+![](../.gitbook/assets/Address%20Summary.png)
 
 The lower half of the Address Details shows the Balance Updates. The Balance Updates are each debit and credit to the account/address (note: a transaction may have more than one balance update, so you may see the same transaction hash for more than one balance update). This section is essentially the book of record for the address/account, displaying information attributed to each transaction in a double-entry bookkeeping format.
 
@@ -91,11 +91,11 @@ All the Balance Updates for the Address can also be downloaded into a csv file b
 
 For further information on the Transaction containing the balance update, click on the Transaction Hash hyperlink, which will bring you to the Transaction Details page.
 
-![](../network-data/.gitbook/assets/Balance%20Update%20Detail.png)
+![](../.gitbook/assets/Balance%20Update%20Detail.png)
 
 The Balance Over Time on the right hand side is a graph depicting the amount of the native cryptoasset (blue line) in the address/account at the point in time on the horizontal axis. The account/address amount is also shown in USD price (the orange line) at the given time.
 
-![](../network-data/.gitbook/assets/Screen%20Shot%202022-07-20%20at%208.51.17%20PM%20\(1\).png)
+![](../.gitbook/assets/Screen%20Shot%202022-07-20%20at%208.51.17%20PM%20\(1\).png)
 
 For navigation within the graph you can do the below with the icons in the top right of the chart\*\*.\*\*
 
@@ -109,11 +109,11 @@ For navigation within the graph you can do the below with the icons in the top r
 
 To search for a transaction, enter the transaction hash after selecting the appropriate asset chain. Click the Search button to return results.
 
-![](../network-data/.gitbook/assets/Transaction%20Search.png)
+![](../.gitbook/assets/Transaction%20Search.png)
 
 The search will bring back the Transaction if it exists. Clicking on the Transaction will bring you to the Transactions Detail page. The results can also be downloaded by clicking the Download button.
 
-![](../network-data/.gitbook/assets/Screen%20Shot%202022-07-20%20at%208.59.40%20PM.png)
+![](../.gitbook/assets/Screen%20Shot%202022-07-20%20at%208.59.40%20PM.png)
 
 The Transaction Details page is going to display summary metrics, balance updates, and block height details.
 
@@ -127,25 +127,25 @@ The summary metrics for the transaction includes:
 
 For further details on the transaction Block or its Parent, click on the Block Hash hyperlink which will bring you to the Block Details page.
 
-![](../network-data/.gitbook/assets/Transaction%20Summary.png)
+![](../.gitbook/assets/Transaction%20Summary.png)
 
 The Balance Updates section shows all the debits/credits to/from addresses/accounts for the given Transaction. Fees are All the debits/credits can be downloaded into a csv file by clicking the Download button.
 
 For further information on the Addresses click on the Address Hash hyperlink which will bring you to the Address Details page.
 
-![](../network-data/.gitbook/assets/Transaction%20Balance%20Updates.png)
+![](../.gitbook/assets/Transaction%20Balance%20Updates.png)
 
 The Block Height detail shows the details (fees, confor the block containing the transaction. The Parent Block can be navigated to by clicking the down arrow icon. The Child Block can be navigated to by clicking the up arrow icon. The Chain Tip can be navigated to by clicking the endpoint icon.
 
-![](../network-data/.gitbook/assets/Transaction%20Block%20Details.png)
+![](../.gitbook/assets/Transaction%20Block%20Details.png)
 
 ## Icon Glossary
 
 | Item                      | Applicable Icon                                                                     |
 | ------------------------- | ----------------------------------------------------------------------------------- |
-| Block                     | <img src="../network-data/.gitbook/assets/Block.png" alt="" data-size="line">       |
-| Address                   | <img src="../network-data/.gitbook/assets/Address1.png" alt="" data-size="line">    |
-| Transaction               | <img src="../network-data/.gitbook/assets/Transaction.png" alt="" data-size="line"> |
-| Info/Tool Tip             | <img src="../network-data/.gitbook/assets/Info.png" alt="" data-size="line">        |
-| Experimental Crypto Asset | <img src="../network-data/.gitbook/assets/Labs.png" alt="" data-size="line">        |
-| Download                  | <img src="../network-data/.gitbook/assets/Download.png" alt="" data-size="line">    |
+| Block                     | <img src="../.gitbook/assets/Block.png" alt="" data-size="line">       |
+| Address                   | <img src="../.gitbook/assets/Address1.png" alt="" data-size="line">    |
+| Transaction               | <img src="../.gitbook/assets/Transaction.png" alt="" data-size="line"> |
+| Info/Tool Tip             | <img src="../.gitbook/assets/Info.png" alt="" data-size="line">        |
+| Experimental Crypto Asset | <img src="../.gitbook/assets/Labs.png" alt="" data-size="line">        |
+| Download                  | <img src="../.gitbook/assets/Download.png" alt="" data-size="line">    |

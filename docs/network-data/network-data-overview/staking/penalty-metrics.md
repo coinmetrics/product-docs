@@ -8,11 +8,15 @@
 
 ### Definition
 
-Total amout of penalties enforced by the protocol in native units.
+Amount of tokens taken as penalty from Validators in native units.&#x20;
 
-### Details
+| Name            | MetricID   | Unit         | Interval      |
+| --------------- | ---------- | ------------ | ------------- |
+| Penalty Amounts | PenaltyNtv | Native Units | 1 day, 1 hour |
 
-* Due to the nature of how penalties are enforced, this metric operates on a 1 day frequency to accurately represent penalties.
+### Asset Specific Details
+
+* This metric is available for Ethereum only under the ETH\_CL ticker. The definition of penalties follows that of Ethereum as outlined here: [https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/rewards-and-penalties/#penalties](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/rewards-and-penalties/#penalties)
 
 ### Release History
 

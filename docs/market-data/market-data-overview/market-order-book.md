@@ -8,6 +8,10 @@ description: /timeseries/market-orderbooks
 
 An order book represents the list of buy orders and the list of sell orders for a given market organized by price level. In this context, a buy order or sell order indicates the amount of the base asset that a buyer or seller wishes to trade for a spot market or the amount of contracts for a derivatives market.
 
+{% embed url="https://youtu.be/9F0a46Ztsec?feature=shared" %}
+Orderbooks Demo
+{% endembed %}
+
 ## Details
 
 The price and amount that a trader is willing to buy is referred to as the bid. The price and amount that a trader is willing to sell is referred to as the ask. When a trade is executed between a buyer and a seller, an order is removed from the order book. While an order book is constantly updated in real-time as traders post new orders and as orders are matched, this data type represents a snapshot of the order book at a given moment in time.
@@ -20,13 +24,42 @@ Coin Metrics also serves order book snapshots and updates for the top 100 bids a
 
 Market trades can be accessed using the `timeseries/market-orderbooks` endpoint.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-orderbooks" method="get" %}
+{% openapi src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-orderbooks" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-## **Chart**
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-orderbooks?markets=coinbase-btc-usd-spot&limit_per_market=1&api_key=<your_key>"
+```
+{% endtab %}
 
-<figure><img src="../.gitbook/assets/Binance-Orderbook-Depth.png" alt=""><figcaption><p>Source: CM <a href="https://coinmetrics.io/insights/state-of-the-market/">State of the Market</a></p></figcaption></figure>
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-orderbooks?markets=coinbase-btc-usd-spot&limit_per_market=1&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_market_orderbooks(
+        markets=["coinbase-btc-usd-spot"], limit_per_market=5
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
+
+\## \*\*Chart\*\*
 
 ## **Example**
 
@@ -122,6 +155,7 @@ While we collect full order book depth for all exchanges that make it available,
 | CEX.io     | Full book       |
 | CME        | Full book       |
 | Coinbase   | Full book       |
+| Crypto.com | Top 50 levels   |
 | Deribit    | Full book       |
 | FTX        | Top 100 levels  |
 | FTX.US     | Top 100 levels  |

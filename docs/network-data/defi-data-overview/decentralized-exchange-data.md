@@ -6,13 +6,13 @@ Decentralized Finance (DeFi) is a rapidly emerging ecosystem of applications and
 
 Our decentralized exchange (DEX) market data is collected directly from the blockchain and harmonized to match the format of our centralized exchange market data. Each liquidity pool contract is represented as a distinct market, with many pairs being traded across multiple liquidity pools with alternative fee structures.
 
-Market coverage can be found by querying our [`/catalog/markets`](https://docs.coinmetrics.io/api/v4#operation/getCatalogMarkets) or [`/catalog-all/markets`](https://docs.coinmetrics.io/api/v4#operation/getCatalogAllMarkets) API endpoints. Decentralized exchanges can be identified as any market where the `experimental` parameter is set to `True`.
+Market coverage can be found by querying our [/catalog-v2/market-trades](https://docs.coinmetrics.io/api/v4/#tag/Catalog-v2/operation/getCatalogV2MarketTrades), [/catalog-all-v2/market-trades](https://docs.coinmetrics.io/api/v4/#tag/Full-catalog-v2/operation/getCatalogAllV2MarketTrades), or [/reference-data/markets](https://docs.coinmetrics.io/api/v4/#tag/Reference-Data/operation/getReferenceDataMarkets)  API endpoints. Using the market-trades endpoints, decentralized exchanges can be identified as any market where the `market` parameter in the response contains the exchange value. Alternatively, the catalog results can be queried with the `exchange` parameter set to any of the exchange values in the table below. Using the reference-data endpoint, decentralized exchanges can be identified as any market where the `exchange` parameter contains the exchange value from the table below.
 
-Currently we offer coverage of 3 DEX protocols:
+Currently we offer coverage of 5 DEX protocols:
 
-<table><thead><tr><th width="181.33333333333331">Exchange</th><th width="217" align="center">Spot Market Count</th><th align="center">Start Date</th></tr></thead><tbody><tr><td>Sushiswap</td><td align="center">134</td><td align="center">2020-09-04</td></tr><tr><td>Uniswap v2</td><td align="center">407</td><td align="center">2020-07-04</td></tr><tr><td>Uniswap v3</td><td align="center">345</td><td align="center">2020-07-04</td></tr></tbody></table>
+<table><thead><tr><th width="181.33333333333331">Exchange Name</th><th>Exchange</th><th width="217" align="center">Spot Market Count</th><th align="center">Start Date</th></tr></thead><tbody><tr><td>Curve</td><td>curve_eth</td><td align="center">200</td><td align="center">2020-02-10</td></tr><tr><td>Sushiswap</td><td>sushiswap_v1_eth</td><td align="center">216</td><td align="center">2020-09-04</td></tr><tr><td>Uniswap v1</td><td>uniswap_v1_eth</td><td align="center">39</td><td align="center">2018-11-02</td></tr><tr><td>Uniswap v2</td><td>uniswap_v2_eth</td><td align="center">660</td><td align="center">2020-05-05</td></tr><tr><td>Uniswap v3</td><td>uniswap_v3_eth</td><td align="center">989</td><td align="center">2021-05-04</td></tr></tbody></table>
 
-In addition to returning standard metadata such as the market's base and quote asset, DEX market entries in the catalog also contain several DeFi-specific fields:
+In addition to returning standard metadata such as the market's base and quote asset, DEX market entries in the reference-data endpoint also contain several DeFi-specific fields:
 
 * `contract_address`: The smart contract address of the liquidity pool contract.
 * `fee`: The fee percentage charged for each swap. Fees are distributed pro-rata to the pool's liquidity providers.

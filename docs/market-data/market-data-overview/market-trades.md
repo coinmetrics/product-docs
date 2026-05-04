@@ -16,11 +16,42 @@ Coin Metrics collects trades data from **spot**, **future**, and **option** mark
 
 ## **API Endpoints**
 
+{% openapi-operation spec="coin-metrics-api-v4" path="/timeseries/market-trades" method="get" %}
+[OpenAPI coin-metrics-api-v4](https://docs.coinmetrics.io/api/static/openapi.yaml)
+{% endopenapi-operation %}
+
 Market trades can be accessed using the `timeseries/market-trades` endpoint.
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-trades" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% tabs %}
+{% tab title="Shell" %}
+```sh
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-trades?markets=coinbase-btc-usd-spot&limit_per_market=1&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-trades?markets=coinbase-btc-usd-spot&limit_per_market=1&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_market_trades(
+        markets=["coinbase-btc-usd-spot"], limit_per_market=5
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}
 
 ## **Example**
 
@@ -117,9 +148,7 @@ We are currently supporting all major liquidity pools on Uniswap v2, Uniswap v3,
 
 Please take a look at this question in the Market Data FAQs page linked below.
 
-{% content-ref url="../market-data/market-data-faqs.md" %}
-[market-data-faqs.md](../market-data/market-data-faqs.md)
-{% endcontent-ref %}
+[broken-reference](broken-reference/ "mention")
 
 ## **Release History**
 

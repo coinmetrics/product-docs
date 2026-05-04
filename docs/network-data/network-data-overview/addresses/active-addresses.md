@@ -4,10 +4,15 @@
 
 ### Contents
 
-* [Active Monthly, Weekly, Daily Addresses](active-addresses.md#adract)
-* [Active Addresses (Sent)](active-addresses.md#adractsent)
-* [Active Addresses (Received)](active-addresses.md#adractrec)
-* [Active Smart Contract Addresses](active-addresses.md#adractcont)
+* [Active Monthly, Weekly, Daily Addresses (AdrActXdCnt)](active-addresses.md#adract)
+* [Active Addresses (Sent) (AdrActSentCnt)](active-addresses.md#adractsent)
+* [Active Addresses (Received) (AdrActRecCnt)](active-addresses.md#adractrec)
+* [Active Smart Contract Addresses (AdrActContCnt)](active-addresses.md#adractcont)
+* [Active Blob Addresses (AdrActBlobCnt)](active-addresses.md#adractcont-1)
+* [Active Blob Addresses (Sent) (AdrActBlobSendCnt)](active-addresses.md#adractcont-2)
+* [Active Blob Addresses (Received) (AdrActBlobRecCnt)](active-addresses.md#adractcont-3)
+* [MEV Active Address Count (MevAdrActCnt)](active-addresses.md#adractcont-4)
+* [Economically Active Addresses (AdrActUSDXCnt)](active-addresses.md#economically-active-addresses)
 
 ### **Interpretation**
 
@@ -29,6 +34,7 @@ The sum count of unique addresses that were active in the network (either as a r
 * If an address was active multiple times during the aggregation interval (e.g., 30 days), it is counted only once.
 * For ETH, miners receiving fees from the original sender of a failed transaction are counted as active (receiving) addresses.
 * Any address that's active (even if sending 0 ETH, or sending ETH to itself, or involved in failed transactions) is counted towards active addresses.
+* The null address (issuance address) is excluded from this metric.
 
 ### **Asset-Specific Details**
 
@@ -40,6 +46,30 @@ The sum count of unique addresses that were active in the network (either as a r
 * [AdrAct30dCnt](https://coverage.coinmetrics.io/search-results?query=AdrAct30dCnt)
 * [AdrAct7dCnt](https://coverage.coinmetrics.io/search-results?query=AdrAct7dCnt)
 * [AdrActCnt](https://coverage.coinmetrics.io/search-results?query=AdrActCnt)
+
+## Economically Active Addresses <a href="#economically-active-addresses" id="economically-active-addresses"></a>
+
+<table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td><a href="https://coverage.coinmetrics.io/asset-metrics-v2/AdrActUSD1Cnt">Economically Active Addr Cnt >1 USD</a></td><td><a href="https://coverage.coinmetrics.io/asset-metrics-v2/AdrActUSD1Cnt">AdrActUSD1Cnt</a></td><td>Addresses</td><td>1 day</td></tr></tbody></table>
+
+### Definition
+
+The sum count of unique addresses that were active in the network (either as a recipient or originator of a ledger change) that interval for any transfer worth more than the USD threshold for that metric in native units. All parties in a ledger change action (recipients and originators) are counted. Individual addresses are not double-counted if previously active.
+
+### Details
+
+* The same [details](active-addresses.md#details) as for AdrActCnt apply to this metric with the exception of the USD threshold being added to this metric.
+* To be counted, an address needs to have at least one ledger change that is larger than the threshold for the metric. The USD equivalent price is calculated based on the `PriceUSD` metric for the given day.
+
+### Examples
+
+* Address A has participated in 10 ledger changes for BTC, each for 1 BTC on a given day. The PriceUSD value on that day for BTC is $70,000.
+  * Address A is counted as 1 address for the AdrActUSD1Cnt for BTC
+* Address B has 1 ledger change for BTC for 0.000001 at a PriceUSD of $70,000. This ledger change is worth $0.07. For this metric this address will not be counted.
+* Address C has 10 ledger changes in the given interval that are each for the equivalent of $0.11. While the sum of these ledger changes adds up to $1.10 the address is not counted since none of the individual transfers is worth more than the threshold of 1 USD.
+
+### Coverage
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/AdrActUSD1Cnt" %}
 
 ## Active Addresses (Sent) <a href="#adractsent" id="adractsent"></a>
 
@@ -55,6 +85,7 @@ The sum count of unique addresses that were active in the network (as a recipien
 * For this unadjusted version of the metric, all ledger change scenarios are considered.
 * Such ledger changes can include mining, staking, transacting, account creation, etc..
 * If an address was active multiple times as sender during that interval, it is counted only once.
+* The null address (issuance address) is excluded from this metric.
 
 ### **Asset-Specific Details**
 
@@ -98,6 +129,7 @@ The sum count of unique addresses that were active in the network (as a recipien
 * Such ledger changes can include mining, staking, transacting, account creation, etc..
 * If an address was active multiple times as recipient during that interval, it is counted only once.
 * For ETH, miners receiving fees from the original sender of a failed transaction are counted as active receiving addresses.
+* The null address (issuance address) is excluded from this metric.
 
 ### **Asset-Specific Details**
 
@@ -150,6 +182,64 @@ The sum count of unique smart contract addresses that were active in the network
 
 * [AdrActContCnt](https://coverage.coinmetrics.io/search-results?query=AdrActContCnt)
 
+## Active Blob Addresses <a href="#adractcont" id="adractcont"></a>
+
+<table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Active Blob Addresses</td><td>AdrActBlobCnt</td><td>Blobs</td><td>1 day</td></tr></tbody></table>
+
+### Definition
+
+The sum count of unique addresses that were active either initiating or receiving blob transactions in the network that interval. Individual addresses are not double-counted if previously active.
+
+### Coverage
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/AdrActBlobCnt" %}
+
+## Active Blob Addresses (Sent) <a href="#adractcont" id="adractcont"></a>
+
+<table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Active Blob Addresses (Sent)</td><td>AdrActBlobSendCnt</td><td>Blobs</td><td>1 day</td></tr></tbody></table>
+
+### Definition
+
+The sum count of unique addresses that were active initiating blob transactions in the network that interval. Individual addresses are not double-counted if previously active.
+
+### Coverage
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/AdrActBlobSendCnt" %}
+
+## Active Blob Addresses (Received) <a href="#adractcont" id="adractcont"></a>
+
+<table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Active Blob Addresses (Received)</td><td>AdrActBlobRecCnt</td><td>Blobs</td><td>1 day</td></tr></tbody></table>
+
+### Definition
+
+The sum count of unique addresses that were active receiving blob transactions in the network that interval. Individual addresses are not double-counted if previously active.
+
+### Coverage
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/AdrActBlobRecCnt" %}
+
+## MEV Active Address Count <a href="#adractcont" id="adractcont"></a>
+
+<table><thead><tr><th width="177">Name</th><th width="157">MetricID</th><th width="124">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>MEV Active Address Count</td><td>MevAdrActCnt</td><td>Addresses</td><td>1 day</td></tr></tbody></table>
+
+### Definition
+
+The sum count of unique addresses that were active in a MEV-enabled transaction in the network. An MEV-enabled transaction is one that paid an MEV tip to miners/validators in exchange for specific block ordering. Individual addresses are not double-counted if previously active.
+
+### Details
+
+* Ledger changes can include activities such as Decentralized Finance (DeFi) trades, DAO votes, token transfers, as well as any other activity facilitated by a smart contract.
+* All participants of a ledger change activity are included.
+* If an address was active multiple times during the aggregation interval (e.g., 1 day), it is counted only once.
+
+### **Asset-Specific Details**
+
+* For Solana, slots proposed by validators running the Jito-Solana client are considered as MEV slots. Further, in Solana it is possible to identify which transactions paid MEV tip in addition to simply identifying the slot. For this metric each individual transaction is evaluated to determine which are MEV-enabled and which aren't.
+
+### Coverage
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/MevAdrActCnt" %}
+
 ## API Endpoints
 
 Active Addresses can be accessed using these endpoints:
@@ -158,9 +248,9 @@ Active Addresses can be accessed using these endpoints:
 
 and by passing in the metric ID's `AdrAct30dCnt`, `AdrAct7dCnt`, etc. in the `metrics` parameter.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}

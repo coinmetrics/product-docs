@@ -1,55 +1,29 @@
 # Methodologies
 
-**Coin Metrics Bletchley Indexes** (CMBI) are a comprehensive suite of single-asset, multi-asset and unique crypto asset benchmarks used by leading crypto and traditional financial institutions.&#x20;
+**Coin Metrics Bletchley Indexes** (CMBI) are a comprehensive suite of single-asset, multi-asset and unique crypto asset benchmarks used by leading crypto and traditional financial institutions.
 
 ## CMBI Single Asset Series
 
-<details>
-
-<summary>CMBI Single Asset Series</summary>
-
-[https://coinmetrics.io/cmbi-single-asset-methodology/](https://coinmetrics.io/cmbi-single-asset-methodology/)
-
-</details>
+{% file src="../../.gitbook/assets/CMBI Single Asset Series Methodology v1.11.pdf" %}
 
 ## CMBI Multi Asset Series
 
-<details>
-
-<summary>CMBI Multi Asset Series</summary>
-
-[https://coinmetrics.io/cmbi-multi-asset-series-methodology/](https://coinmetrics.io/cmbi-multi-asset-series-methodology/)
-
-</details>
+{% file src="../../.gitbook/assets/CMBI Multi Asset Series Methodology v1.4.pdf" %}
 
 ## CMBI Mining Series
 
-<details>
-
-<summary>CMBI Mining Series</summary>
-
-[https://coinmetrics.io/cmbi-mining-index-series-methodology/](https://coinmetrics.io/cmbi-mining-index-series-methodology/)
-
-</details>
+{% file src="../../.gitbook/assets/CMBI Mining Index Methodology v1.3.pdf" %}
 
 ## CMBI Momentum Series
 
-<details>
-
-<summary>CMBI Momentum Series</summary>
-
-[https://coinmetrics.io/cmbi-momentum-series-methodology/](https://coinmetrics.io/cmbi-momentum-series-methodology/)
-
-</details>
+{% file src="../../.gitbook/assets/CMBI Momentum Series Methodology v1.3.pdf" %}
 
 ## CMBI Total Market Series
 
-<details>
+{% file src="../../.gitbook/assets/CMBI Total Market Series Methodology v1.4.pdf" %}
 
-<summary>CMBI Total Market Series</summary>
+## CMBI Ethereum Staking Index
 
-[https://coinmetrics.io/cmbi-total-market-series-methodology/](https://coinmetrics.io/cmbi-total-market-series-methodology/)
+The CMBI Ethereum Staking Index (CMBIETHS) reflects the performance an investor would expect from purchasing and staking Ether. The total return consists of the hourly price return of Ether and the rewards earned from the Ethereum blockchain.
 
-</details>
-
-{% embed url="https://coinmetrics.io/wp-content/uploads/2022/12/CMBI-Total-Market-Series-Methodology.pdf" %}
+{% file src="../../.gitbook/assets/_CMBI Ethereum Staking Methodology.pdf" %}

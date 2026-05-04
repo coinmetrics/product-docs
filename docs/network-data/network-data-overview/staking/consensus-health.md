@@ -10,6 +10,7 @@
 * [Current Epoch](consensus-health.md#epochcurr)
 * [Latest Finalized Epoch](consensus-health.md#epochfinal)
 * [Latest Justified Epoch](consensus-health.md#epochjust)
+* [Participation Rate](consensus-health.md#epochjust-1)
 
 ## Attestation Count <a href="#attestcnt" id="attestcnt"></a>
 
@@ -189,6 +190,30 @@ Number of the latest justified Epoch
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/EpochJust" %}
+
+## Participation Rate <a href="#epochjust" id="epochjust"></a>
+
+### Definition
+
+Rate of Validators participating in each Epoch
+
+| Name               | MetricID        | Unit          | Interval |
+| ------------------ | --------------- | ------------- | -------- |
+| Participation Rate | StkPartRateMean | Dimensionless | 1 day    |
+
+### Details
+
+* Returns the percent of validation stake that participated in the time interval out of the total eligible validation stake that could have participated
+* Calculated for each epoch in the time period and aggregated across the time period.
+* Formula for each Epoch: `target attesting gwei / active gwei`&#x20;
+
+### Release History
+
+* Released May 2024.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/StkPartRateMean" %}
 
 ## API Endpoints
 

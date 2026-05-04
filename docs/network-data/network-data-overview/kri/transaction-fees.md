@@ -2,11 +2,11 @@
 
 ## Contents
 
-* [Block Maximum Fees](transaction-fees.md#block\_fee\_max)
-* [Block Mean Fees](transaction-fees.md#block\_fee\_mean)
-* [Block Median Fees](transaction-fees.md#block\_fee\_median)
-* [Block Minimum Fees](transaction-fees.md#block\_fee\_min)
-* [Miner Fees per Block](transaction-fees.md#block\_fees)
+* [Block Maximum Fees (block_fee_max)](transaction-fees.md#block\_fee\_max)
+* [Block Mean Fees (block_fee_mean)](transaction-fees.md#block\_fee\_mean)
+* [Block Median Fees (block_fee_median)](transaction-fees.md#block\_fee\_median)
+* [Block Minimum Fees (block_fee_min)](transaction-fees.md#block\_fee\_min)
+* [Miner Fees per Block (block\_fees)](transaction-fees.md#block\_fees)
 
 ## Block Maximum Fees <a href="#block_fee_max" id="block_fee_max"></a>
 

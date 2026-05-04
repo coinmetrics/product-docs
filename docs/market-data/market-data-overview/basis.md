@@ -4,7 +4,7 @@ The basis is the annualized percent difference between the price of a theoretica
 
 ## Definition
 
-The annualized basis metrics measure the difference between the spot price and a futures price for a contract with given time to expiration. This difference is calculated as a percentage of the underlying spot price which we use our reference rates to define, and annualized by the time to expiration.
+The annualized basis metrics measure the difference between the spot price and a futures price for a contract with given time to expiration. This difference is calculated as a percentage of the underlying spot price which we use our reference rates (using the calculation algorithm for frequencies 200ms, 1s, and 1m) to define, and annualized by the time to expiration.
 
 ![](https://lh6.googleusercontent.com/2Fesg0p\_Vl2StetkInrhLY3Wh5DWV9PuYXvsqa0qW78Y2kPsYaig5iY2qNY3Y4KsbGREGkqYelqOX91uhbGSzBcZYT0Ou1D1KCr7mjNgxcXxtl3z\_V1w3yzYeFk5wZXR1sAuLnAc)
 
@@ -35,3 +35,35 @@ Basis data can be accessed using the following endpoints:
 {% swagger src="../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-asset-metrics" method="get" %}
 [openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
+
+{% tabs %}
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?metrics=basis_annualized_30d_exp&exchange_assets=binance-btc&pretty=true&api_key=<your_key>"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import requests
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?metrics=basis_annualized_30d_exp&exchange_assets=binance-btc&pretty=true&api_key=<your_key>').json()
+print(response)
+```
+{% endtab %}
+
+{% tab title="Python Client" %}
+```python
+from coinmetrics.api_client import CoinMetricsClient
+
+api_key = "<API_KEY>"
+client = CoinMetricsClient(api_key)
+
+print(
+    client.get_asset_metrics(
+        metrics="basis_annualized_30d_exp", 
+        exchange_assets="binance-btc",
+    ).to_dataframe()
+)
+```
+{% endtab %}
+{% endtabs %}

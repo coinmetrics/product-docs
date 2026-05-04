@@ -11,7 +11,7 @@ The Principal Market Price is the price of an asset quoted in U.S. dollars deriv
 * The CM Principal Market Prices are published once a day, once an hour, once a minute, and once a second and adhere to the guidelines regarding fair value measurement issued by the International Financial Reporting Standards and the Association of International Certified Professional Accountants, specifically standards IFRS 13 and FASB ASC 820.\\
 * The Principal Market Prices identify a principal market for each asset and utilize the most recent price from this market. Common use cases are for fair value measurement, preparing financial statements, and calculating closing prices for indexes or financial benchmarks.\\
 * We also serve the identity of the principal market from which the principal market price is calculated. Please see the Principal Market (USD) page for more details.\\
-* Please see our [CM Prices Overview](../reference-rates-overview.md) for more information on methodology and policies.
+* Please see our [CM Prices Overview](./) for more information on methodology and policies.
 
 ## **Example**
 

@@ -6,7 +6,7 @@ description: /taxonomy-metadata/assets
 
 ## Definition
 
-The asset taxonomy metadata provides the entire structure of the taxonomy via api.
+The asset taxonomy metadata provides the entire structure of the taxonomy via api. &#x20;
 
 ## Details
 
@@ -14,7 +14,7 @@ For more information on the asset taxonomy see the [datonomy product description
 
 ## Endpoint Response
 
-The **Asset Taxonomy Metadata** endpoint returns a list of subsectors for the taxonomy version (or start/end time) requested. Each subsector has the following fields:
+The **Asset Taxonomy Metadata** endpoint returns a list of subsectors for the taxonomy version (or start/end time) requested.  Each subsector has the following fields:
 
 | Field          | Description                                                                             |
 | -------------- | --------------------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ The **Asset Taxonomy Metadata** endpoint returns a list of subsectors for the ta
 | `subsector_id` | Six digit code for the subsector with the first four digits representing the sector\_id |
 | `subsector`    | Third level of taxonomy describing the asset's specific product, service or function    |
 
-A sample of the taxonomy metadata response for the is shown below.
+A sample of the taxonomy metadata response for the is shown below.&#x20;
 
 <pre><code>"data": [
 <strong>{
