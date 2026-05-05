@@ -120,6 +120,13 @@ def parse_lychee(report_path):
         'atlas.coinmetrics.io',  # Requires login — 403 expected from crawler
     }
 
+    # Files where all link errors are downgraded to suggestions, with a
+    # per-file explanatory comment appended to the issue message.
+    SUGGESTION_FILES = {
+        'docs/access-our-data/downloading-our-data/google-sheets-integration.md':
+            'Google Sheets integration page uses template URLs which cannot be verified',
+    }
+
     # For api.coinmetrics.io URLs, lychee sees 401s because the example links
     # use placeholder api_key values. If CM_API_KEY is set, we re-verify by
     # substituting the real key and making a fresh request:
@@ -158,6 +165,19 @@ def parse_lychee(report_path):
         issues = []
         error_map = data.get('error_map', data.get('fail_map', {}))
 
+        def http_rule(code):
+            """Convert a status code to a descriptive rule label."""
+            if not code:
+                return 'Connection Error'
+            labels = {
+                401: 'HTTP 401 Unauthorized',
+                403: 'HTTP 403 Forbidden',
+                404: 'HTTP 404 Not Found',
+                429: 'HTTP 429 Too Many Requests',
+                522: 'HTTP 522 Timeout',
+            }
+            return labels.get(int(code), f'HTTP {code}')
+
         for file_path, failures in error_map.items():
             for failure in failures:
                 url = failure.get('url', 'unknown')
@@ -167,18 +187,23 @@ def parse_lychee(report_path):
 
                 domain = urllib.parse.urlparse(url).netloc
 
-                def http_rule(code):
-                    """Convert a status code to a descriptive rule label."""
-                    if not code:
-                        return 'Connection Error'
-                    labels = {
-                        401: 'HTTP 401 Unauthorized',
-                        403: 'HTTP 403 Forbidden',
-                        404: 'HTTP 404 Not Found',
-                        429: 'HTTP 429 Too Many Requests',
-                        522: 'HTTP 522 Timeout',
-                    }
-                    return labels.get(int(code), f'HTTP {code}')
+                # --- Per-file suggestion overrides ---
+                if file_path in SUGGESTION_FILES:
+                    note = SUGGESTION_FILES[file_path]
+                    rule = http_rule(status_code) if status_code else 'Connection Error'
+                    message = (
+                        f"Broken link [{status_code}]: {url} - {status_text} "
+                        f"(Note: {note})"
+                    )
+                    issues.append({
+                        'file': file_path,
+                        'line': '1',
+                        'column': '1',
+                        'rule': rule,
+                        'message': message,
+                        'severity': 'suggestion',
+                    })
+                    continue
 
                 # --- api.coinmetrics.io: re-verify with real API key ---
                 if domain == API_DOMAIN:
@@ -1272,10 +1297,12 @@ def generate_details_sections(by_source):
                 """
 
         # Generate rule breakdown table (only when 2+ distinct rules exist)
+        # Only count error-severity issues so suggestions don't inflate the breakdown
         rule_breakdown_html = ""
         if len(issues) > 0:
             from collections import Counter
-            rule_counts = Counter(issue.get('rule', 'unknown') for issue in issues)
+            error_issues = [i for i in issues if i.get('severity', 'error').lower() == 'error']
+            rule_counts = Counter(issue.get('rule', 'unknown') for issue in error_issues)
             if len(rule_counts) >= 2:
                 max_count = max(rule_counts.values())
                 rows_html = ""

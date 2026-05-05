@@ -8,13 +8,17 @@ On a web browser, you can append any valid API request URL with `&format=csv` or
 
 For example:
 
-https://api.coinmetrics.io/v4/timeseries/asset-metrics?api\_key=\<YOUR\_API\_KEY>>\&assets=eth\&metrics=PriceUSD\&frequency=1d\&end\_time=2015-08-01\&start\_inclusive=false\&format=csv
+```
+https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=eth&metrics=PriceUSD&frequency=1d&end_time=2015-08-01&start_inclusive=false&format=csv&api_key=<your_key>
+```
 
 ## Google Sheets
 
 On the formula tab, you can use the `IMPORTDATA` function on the HTTP call on a cell:
 
-`=IMPORTDATA("`[`https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=CapMrktEstUSD,SplyCur,PriceUSD,CapMrktCurUSD&api_key=`](https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=CapMrktEstUSD,SplyCur,PriceUSD,CapMrktCurUSD\&api_key=)`<API_KEY>&assets=usdc&frequency=1d&limit_per_asset=1&format=csv")`
+```
+=IMPORTDATA("https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=CapMrktEstUSD,SplyCur,PriceUSD,CapMrktCurUSD&assets=usdc&frequency=1d&limit_per_asset=1&format=csv&api_key=<your_key>")
+```
 
 ## Python API Client
 

@@ -29,14 +29,14 @@ Market Greeks can be accessed using the `timeseries/market-greeks` endpoint.
 {% tabs %}
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-greeks?markets=binance-BTCUSDT-future&limit_per_market=1&api_key=<your_key>"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-greeks?markets=deribit-ETH-25MAR22-1200-P-option&limit_per_market=1&api_key=<your_key>"
 ```
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-greeks?markets=binance-BTCUSDT-future&limit_per_market=1&api_key=<your_key>').json()
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/market-greeks?markets=deribit-ETH-25MAR22-1200-P-option&limit_per_market=1&api_key=<your_key>').json()
 print(response)
 ```
 {% endtab %}
@@ -50,7 +50,7 @@ client = CoinMetricsClient(api_key)
 
 print(
     client.get_market_greeks(
-        markets=["binance-BTCUSDT-future"], limit_per_market=5
+        markets=["deribit-ETH-25MAR22-1200-P-option"], limit_per_market=5
     ).to_dataframe()
 )
 ```

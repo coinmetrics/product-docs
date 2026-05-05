@@ -68,7 +68,7 @@ and by passing in the metric ID's `block_*_fee` in the `metrics` parameter.
 {% tabs %}
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=block_base_fee&assets=eth&pretty=true&api_key=<your_key>"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=block_base_fee&assets=eth&frequency=1b&pretty=true&api_key=<your_key>"
 ```
 {% endtab %}
 
