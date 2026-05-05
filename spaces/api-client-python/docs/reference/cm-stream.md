@@ -1,6 +1,6 @@
 # CmStream
 
-`CmStream` is the WebSocket wrapper returned by every `get_stream_*` method on [`CoinMetricsClient`](../../../reference/coinmetricsclient/). It manages the connection lifecycle (connect, reconnect, signal handling) and dispatches incoming messages to the handlers you provide.
+`CmStream` is the WebSocket wrapper returned by every `get_stream_*` method on [`CoinMetricsClient`](coinmetricsclient.md). It manages the connection lifecycle (connect, reconnect, signal handling) and dispatches incoming messages to the handlers you provide.
 
 A typical usage looks like:
 
@@ -21,17 +21,17 @@ def on_message(ws, message):
 stream.run(on_message=on_message)
 ```
 
-### _class_ `coinmetrics.api_client.CmStream(ws_url)`
-
+### *class* `coinmetrics.api_client.CmStream(ws_url)`
 Bases: [`object`](https://docs.python.org/3/library/functions.html#object)
 
-* **Parameters:** **ws\_url** ([_str_](https://docs.python.org/3/library/stdtypes.html#str))
+* **Parameters:**
+  **ws_url** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
 
 #### `run(on_message=None, on_error=None, on_close=None, reconnect=True)`
-
 * **Parameters:**
-  * **on\_message** ([_Callable_](https://docs.python.org/3/library/typing.html#typing.Callable) _\[_ \*\[\*_WebSocket_ _,_ [_Any_](https://docs.python.org/3/library/typing.html#typing.Any) _]_ _,_ _None_ _]_ _|_ _None_)
-  * **on\_error** ([_Callable_](https://docs.python.org/3/library/typing.html#typing.Callable) _\[_ \*\[\*_WebSocket_ _,_ [_Any_](https://docs.python.org/3/library/typing.html#typing.Any) _]_ _,_ _None_ _]_ _|_ _None_)
-  * **on\_close** ([_Callable_](https://docs.python.org/3/library/typing.html#typing.Callable) _\[_ \*\[\*_WebSocket_ _,_ [_Any_](https://docs.python.org/3/library/typing.html#typing.Any) _,_ [_Any_](https://docs.python.org/3/library/typing.html#typing.Any) _]_ _,_ _None_ _]_ _|_ _None_)
-  * **reconnect** ([_bool_](https://docs.python.org/3/library/functions.html#bool))
-* **Return type:** None
+  * **on_message** ([*Callable*](https://docs.python.org/3/library/typing.html#typing.Callable) *[* *[**WebSocket* *,* [*Any*](https://docs.python.org/3/library/typing.html#typing.Any) *]* *,* *None* *]*  *|* *None*)
+  * **on_error** ([*Callable*](https://docs.python.org/3/library/typing.html#typing.Callable) *[* *[**WebSocket* *,* [*Any*](https://docs.python.org/3/library/typing.html#typing.Any) *]* *,* *None* *]*  *|* *None*)
+  * **on_close** ([*Callable*](https://docs.python.org/3/library/typing.html#typing.Callable) *[* *[**WebSocket* *,* [*Any*](https://docs.python.org/3/library/typing.html#typing.Any) *,* [*Any*](https://docs.python.org/3/library/typing.html#typing.Any) *]* *,* *None* *]*  *|* *None*)
+  * **reconnect** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
+* **Return type:**
+  None

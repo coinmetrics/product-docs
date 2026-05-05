@@ -4,7 +4,9 @@ This page describes recommended patterns for getting the most out of the Python 
 
 ## Use Catalog and Reference Data First
 
-Most workflows are faster, cheaper, and more reliable when you discover the universe of valid assets, markets, or metrics with `reference_data_*` and `catalog_*_v2` _before_ hitting the historical-data endpoints. The catalog also tells you which markets actually have recent data, which lets you drop obsolete entries before paying for a full timeseries pull.
+Most workflows are faster, cheaper, and more reliable when you discover the universe of valid assets, markets, or metrics with `reference_data_*` and `catalog_*_v2` *before* hitting the historical-data endpoints. The catalog also tells you which markets actually have recent data, which lets you drop obsolete entries before paying for a full timeseries pull.
+
+![API_Flow_Illustration](/.gitbook/assets/api_flow.png)
 
 For example, follow the flow indicated in light blue.
 
@@ -28,7 +30,7 @@ cat = cat.loc[
 ].reset_index(drop=True)
 ```
 
-[Demo Video](https://youtu.be/YSC_pwd1B5k?si=DAEQaSthsE4uumkK\&t=71)
+[Demo Video](https://youtu.be/YSC_pwd1B5k?si=DAEQaSthsE4uumkK&amp;t=71)
 
 **Step 3.** Pass the filtered list to a historical-data method (and, for large pulls, layer `parallel()` on top — see the next section). The same pattern applies to asset metrics: instead of calling `get_asset_metrics` directly with `*`, derive the asset and metric lists from `reference_data_assets` and `catalog_asset_metrics_v2` and pass them in explicitly.
 
@@ -110,7 +112,7 @@ if __name__ == '__main__':
 
 `time_increment=relativedelta(months=1)` runs 36 workers in total — 12 monthly windows for each of the 3 assets. The wall-clock difference is dramatic:
 
-```
+```text
 Exporting to dataframe type: 100%|██████████| 36/36 [00:00<00:00, 54.62it/s]
 Time taken parallel: 0:00:36.654147
 Time taken normal:   0:05:20.073826

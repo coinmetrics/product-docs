@@ -1,4 +1,4 @@
-.PHONY: help test test-quick lint spell check-links check-links-external check-code check-structure check-secrets report clean format docker-build docker-test docker-test-quick docker-format docs-python-client docs-python-client-clean
+.PHONY: help test test-quick lint spell check-links check-links-external check-code check-structure check-secrets report clean format docker-build docker-test docker-test-quick docker-format docs-python-client docs-python-client-check docs-python-client-clean
 
 # Docker image name
 DOCKER_IMAGE ?= docs-test
@@ -134,9 +134,9 @@ docker-format:
 	@echo "✓ Formatting complete. Run 'make docker-test' to verify."
 
 # Build the api-client-python GitBook space from the Sphinx + MyST sources
-# in submodules/api-client-python/docs/source. Output is written to
-# spaces/api-client-python/docs (preserving SUMMARY.md, .gitbook.yaml,
-# and .gitbook/assets).
+# in submodules/api-client-python/docs/source. Every file under
+# spaces/api-client-python/docs is regenerated except .gitbook.yaml so the
+# rendered space is fully reproducible from the submodule SHA.
 docs-python-client:
 	@echo "Building api-client-python GitBook docs..."
 	@echo ""
@@ -147,13 +147,21 @@ docs-python-client:
 	@echo ""
 	@echo "✓ Docs generated at spaces/api-client-python/docs"
 
+# Verify that the committed GitBook space matches what the build pipeline
+# would produce against the currently checked-out submodule SHA. Used by
+# CI (verify_python_api_client_docs) to block MRs that hand-edit generated
+# files or forget to re-run the build.
+docs-python-client-check:
+	@echo "Verifying api-client-python GitBook docs are in sync with the build..."
+	@echo ""
+	python3 scripts/build_api_client_python_docs.py --check
+
 # Remove the generated content while keeping the committed GitBook shell
-# (SUMMARY.md, .gitbook.yaml, .gitbook/assets/). Also wipes the build
-# staging directory.
+# (.gitbook.yaml). Also wipes the build staging directory.
 docs-python-client-clean:
 	@echo "Cleaning generated api-client-python docs..."
 	@find spaces/api-client-python/docs -mindepth 1 -maxdepth 1 \
-		! -name SUMMARY.md ! -name .gitbook.yaml ! -name .gitbook \
+		! -name .gitbook.yaml \
 		-exec rm -rf {} +
 	@rm -rf .docs-build
-	@echo "✓ Generated docs cleared (SUMMARY.md, .gitbook.yaml, .gitbook/ preserved)"
+	@echo "✓ Generated docs cleared (.gitbook.yaml preserved)"

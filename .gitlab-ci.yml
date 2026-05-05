@@ -1,6 +1,7 @@
 stages:
   - build
   - test
+  - verify
   - update_docs
 
 build-docs-test:
@@ -64,6 +65,35 @@ update_tutorials:
         git push -o merge_request.create -o merge_request.target=master -o merge_request.title="Update tutorial docs from cm_demo_assets" origin $BRANCH_NAME
       fi
   when: manual
+  tags:
+    - svc-docker
+
+# Reproducibility gate: re-runs the api-client-python docs pipeline against
+# the submodule SHA pinned in this commit and fails the job if the rendered
+# output differs from what is committed under spaces/api-client-python/docs.
+#
+# This guarantees that every iteration of the GitBook space can be replicated
+# from the build job alone -- manual edits to generated files (or a stale
+# rebuild) would block the MR.
+verify_python_api_client_docs:
+  stage: verify
+  image: python:3.11-slim
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  before_script:
+    - apt-get update && apt-get install -y --no-install-recommends git diffutils
+    - pip install --no-cache-dir -r scripts/requirements-docs.txt
+    # Editable install so autodoc can import the coinmetrics package while
+    # rendering the reference pages.
+    - pip install --no-cache-dir -e submodules/api-client-python
+  script:
+    - python3 scripts/build_api_client_python_docs.py --check
+  rules:
+    # Run on every MR and on master pushes. Skip on the docs-rebuild branches
+    # produced by `rebuild_python_api_client_docs` because those legitimately
+    # carry generated changes that have not yet been re-checked.
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH == "master"'
   tags:
     - svc-docker
 
