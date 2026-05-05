@@ -1,4 +1,4 @@
-# Data Collection
+# DataCollection
 
 <a id="coinmetrics._data_collection.DataCollection"></a>
 

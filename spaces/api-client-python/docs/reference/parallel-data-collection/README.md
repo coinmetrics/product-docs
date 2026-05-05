@@ -1,4 +1,4 @@
-# Parallel Data Collection
+# ParallelDataCollection
 
 <a id="coinmetrics._data_collection.ParallelDataCollection"></a>
 
