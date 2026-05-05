@@ -1,4 +1,4 @@
-.PHONY: help test test-quick lint spell check-links check-links-external check-code check-structure check-secrets report clean format docker-build docker-test docker-test-quick docker-format docs-python-client docs-python-client-clean
+.PHONY: help test test-quick lint spell check-links check-links-external check-code check-structure check-secrets report clean format docker-build docker-test docker-test-quick docker-format
 
 # Docker image name
 DOCKER_IMAGE ?= docs-test
@@ -133,27 +133,3 @@ docker-format:
 	@echo ""
 	@echo "✓ Formatting complete. Run 'make docker-test' to verify."
 
-# Build the api-client-python GitBook space from the Sphinx + MyST sources
-# in submodules/api-client-python/docs/source. Output is written to
-# spaces/api-client-python/docs (preserving SUMMARY.md, .gitbook.yaml,
-# and .gitbook/assets).
-docs-python-client:
-	@echo "Building api-client-python GitBook docs..."
-	@echo ""
-	@echo "First time? Install build dependencies with:"
-	@echo "  pip3 install -r scripts/requirements-docs.txt"
-	@echo ""
-	python3 scripts/build_api_client_python_docs.py
-	@echo ""
-	@echo "✓ Docs generated at spaces/api-client-python/docs"
-
-# Remove the generated content while keeping the committed GitBook shell
-# (SUMMARY.md, .gitbook.yaml, .gitbook/assets/). Also wipes the build
-# staging directory.
-docs-python-client-clean:
-	@echo "Cleaning generated api-client-python docs..."
-	@find spaces/api-client-python/docs -mindepth 1 -maxdepth 1 \
-		! -name SUMMARY.md ! -name .gitbook.yaml ! -name .gitbook \
-		-exec rm -rf {} +
-	@rm -rf .docs-build
-	@echo "✓ Generated docs cleared (SUMMARY.md, .gitbook.yaml, .gitbook/ preserved)"
