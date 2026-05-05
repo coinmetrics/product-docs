@@ -1,3 +1,9 @@
+# CoinMetricsClient.get_taxonomy_assets_metadata
+
+<a id="coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets_metadata"></a>
+
+## `method CoinMetricsClient.get_taxonomy_assets_metadata`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets_metadata(
     start_time=None,

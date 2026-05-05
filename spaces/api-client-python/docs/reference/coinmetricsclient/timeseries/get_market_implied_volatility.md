@@ -1,3 +1,9 @@
+# CoinMetricsClient.get_market_implied_volatility
+
+<a id="coinmetrics.api_client.CoinMetricsClient.get_market_implied_volatility"></a>
+
+## `method CoinMetricsClient.get_market_implied_volatility`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_implied_volatility(
     markets,

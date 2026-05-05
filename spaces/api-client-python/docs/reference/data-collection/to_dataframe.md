@@ -1,3 +1,9 @@
+# DataCollection.to_dataframe
+
+<a id="coinmetrics._data_collection.DataCollection.to_dataframe"></a>
+
+## `method DataCollection.to_dataframe`
+
 ```python
 coinmetrics._data_collection.DataCollection.to_dataframe(
     dtype_mapper=None,

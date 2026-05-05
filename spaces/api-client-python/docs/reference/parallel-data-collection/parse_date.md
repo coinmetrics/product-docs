@@ -1,3 +1,9 @@
+# ParallelDataCollection.parse_date
+
+<a id="coinmetrics._data_collection.ParallelDataCollection.parse_date"></a>
+
+## `static ParallelDataCollection.parse_date`
+
 ```python
 coinmetrics._data_collection.ParallelDataCollection.parse_date(date_input)
 ```

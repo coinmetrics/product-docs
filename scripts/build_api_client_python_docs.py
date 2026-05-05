@@ -160,8 +160,8 @@ GROUP_METHODS: dict[str, List[str]] = {}
 # environment where the api-client-python package is importable (the build
 # venv installs it via ``pip install -e submodules/api-client-python``).
 EXTRA_CLASS_PAGES: List[Tuple[str, str, str, str]] = [
-    ("data-collection", "Data Collection", "coinmetrics._data_collection", "DataCollection"),
-    ("parallel-data-collection", "Parallel Data Collection", "coinmetrics._data_collection", "ParallelDataCollection"),
+    ("data-collection", "DataCollection", "coinmetrics._data_collection", "DataCollection"),
+    ("parallel-data-collection", "ParallelDataCollection", "coinmetrics._data_collection", "ParallelDataCollection"),
     ("cm-stream", "CmStream", "coinmetrics.api_client", "CmStream"),
 ]
 
@@ -1194,6 +1194,8 @@ def _emit_autodoc_heading(
     anchor: str,
     full_dotted: str,
     args: Optional[str],
+    *,
+    level_override: Optional[str] = None,
 ) -> List[str]:
     """Build the multi-line replacement for a single autodoc heading.
 
@@ -1215,31 +1217,27 @@ def _emit_autodoc_heading(
       ``###`` (visually nested under their parent class on class pages, or
       top-level on group pages where there is no class heading).
     """
-    if kind in {"class", "exception"}:
+    if level_override is not None:
+        level = level_override
+    elif kind in {"class", "exception"}:
         level = "##"
-        # Wrap the entire heading payload (kind keyword + symbol name) in
-        # a single code span so the whole thing renders in monospace, not
-        # just the symbol.
-        label = f"{level} `{kind} {display_name}`"
     else:
         level = "###"
-        if kind:
-            label = f"{level} `{kind} {display_name}`"
-        else:
-            label = f"{level} `{display_name}`"
+    # Wrap the entire heading payload (kind keyword + symbol name) in a
+    # single code span so the whole thing renders in monospace, not just
+    # the symbol -- matches the pydata-sphinx-theme convention for API
+    # signatures.
+    if kind:
+        label = f"{level} `{kind} {display_name}`"
+    else:
+        label = f"{level} `{display_name}`"
+    # Match the pydata-sphinx-theme convention: ``class`` / ``exception``
+    # use the keyword as the signature prefix (so the block reads like a
+    # real Python ``class Foo(...)`` definition); methods, properties and
+    # functions are rendered with no prefix because the kind annotation in
+    # the H2 above already conveys that information.
     if kind in {"class", "exception"}:
         prefix = kind
-    elif kind == "function":
-        prefix = "def"
-    elif kind in {
-        "method",
-        "static",
-        "staticmethod",
-        "classmethod",
-        "abstractmethod",
-        "abstract",
-    }:
-        prefix = "def"
     else:
         prefix = ""
     return [
@@ -1346,21 +1344,14 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
     # block + anchor (no heading line).
     suppress_method_heading = _is_per_method_page(page_rel)
 
-    # On per-method / per-exception pages, drop the leading H1 entirely.
-    # GitBook's heading style renders an H1 in a serif/sans display face
-    # regardless of inline formatting, which clashes with the
-    # pydata-sphinx-theme look the rest of the page mimics. With no H1,
-    # GitBook falls back to the SUMMARY.md entry (already wrapped in
-    # backticks) for the page title, and the signature code block becomes
-    # the visual page header -- matching how the upstream Sphinx pages
-    # present each method.
-    if suppress_method_heading:
-        text = re.sub(
-            r"\A#\s+\S[^\n]*?\s*\n+",
-            "",
-            text,
-            count=1,
-        )
+    # On per-method / per-exception pages, mirror the layout of the
+    # class definition pages (e.g. ``reference/data-collection/README.md``):
+    # a plain-text H1 from the RST title, an HTML anchor for cross-links,
+    # then a single ``## `<kind> <Class.symbol>``` H2 followed by the
+    # python signature block. The transformations below promote the
+    # ``automethod`` / ``autoexception`` heading to H2 instead of letting
+    # it default to H3, so the in-page outline matches the class pages.
+    promote_heading_to_h2 = suppress_method_heading
 
     out: List[str] = []
 
@@ -1395,17 +1386,6 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
                 module_qualifier = dotted.rsplit(".", 1)[0]
                 display = dotted.rsplit(".", 1)[-1]
                 anchor, full = dotted, dotted
-                if suppress_method_heading:
-                    # Per-class pages (e.g. the Exceptions section) drop
-                    # both the H1 and the italic kind annotation so the
-                    # signature block becomes the visual page header,
-                    # mirroring the upstream Sphinx layout. The ``class``
-                    # / ``exception`` keyword stays inside the signature
-                    # block itself.
-                    _append_block(
-                        _format_pydata_signature_block(None, kind, full, args)
-                    )
-                    continue
             elif kind == "function":
                 # Module-level functions have no enclosing class to qualify
                 # with; render them with their short name.
@@ -1416,15 +1396,6 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
                     dotted, kind, class_qualifier, module_qualifier
                 )
                 display = _qualified_method_name(dotted)
-                if suppress_method_heading and kind not in {"class", "exception"}:
-                    # Per-method pages drop the H1 and the italic kind
-                    # annotation so the bare signature line is the visual
-                    # header, exactly like the screenshot of the
-                    # pydata-sphinx-theme layout we are matching.
-                    _append_block(
-                        _format_pydata_signature_block(None, "", full, args)
-                    )
-                    continue
             _append_block(
                 _emit_autodoc_heading(
                     kind,
@@ -1432,6 +1403,7 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
                     anchor=anchor,
                     full_dotted=full,
                     args=args,
+                    level_override="##" if promote_heading_to_h2 else None,
                 )
             )
             continue
@@ -1443,25 +1415,21 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
             anchor, full = _resolve_anchor(
                 dotted, None, class_qualifier, module_qualifier
             )
-            if suppress_method_heading:
-                # Replace the heading with just the bare signature block
-                # (no kind annotation, no inline anchor); the page URL is
-                # the anchor on per-method pages and the SUMMARY entry
-                # already shows the method name in monospace in the
-                # sidebar.
-                _append_block(
-                    _format_pydata_signature_block(None, "", full, args)
+            # Plain headings (no explicit kind label in the source) are
+            # emitted by ``automethod`` for ordinary methods, so render
+            # them with the ``method`` annotation to match the class
+            # pages, where every member has a kind keyword in its
+            # heading.
+            _append_block(
+                _emit_autodoc_heading(
+                    kind="method" if promote_heading_to_h2 else None,
+                    display_name=_qualified_method_name(dotted),
+                    anchor=anchor,
+                    full_dotted=full,
+                    args=args,
+                    level_override="##" if promote_heading_to_h2 else None,
                 )
-            else:
-                _append_block(
-                    _emit_autodoc_heading(
-                        kind=None,
-                        display_name=_qualified_method_name(dotted),
-                        anchor=anchor,
-                        full_dotted=full,
-                        args=args,
-                    )
-                )
+            )
             continue
 
         out.append(line)

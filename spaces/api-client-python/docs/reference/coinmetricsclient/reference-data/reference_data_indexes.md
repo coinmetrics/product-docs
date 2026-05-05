@@ -1,3 +1,9 @@
+# CoinMetricsClient.reference_data_indexes
+
+<a id="coinmetrics.api_client.CoinMetricsClient.reference_data_indexes"></a>
+
+## `method CoinMetricsClient.reference_data_indexes`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_indexes(
     indexes=None,

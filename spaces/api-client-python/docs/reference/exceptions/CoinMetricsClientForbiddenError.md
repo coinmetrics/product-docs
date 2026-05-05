@@ -1,3 +1,9 @@
+# CoinMetricsClientForbiddenError
+
+<a id="coinmetrics._exceptions.CoinMetricsClientForbiddenError"></a>
+
+## `exception CoinMetricsClientForbiddenError`
+
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientForbiddenError(
     response,

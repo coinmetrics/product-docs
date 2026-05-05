@@ -1,3 +1,9 @@
+# CoinMetricsClient.reference_data_exchange_pair_metrics
+
+<a id="coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_pair_metrics"></a>
+
+## `method CoinMetricsClient.reference_data_exchange_pair_metrics`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_pair_metrics(
     metrics=None,

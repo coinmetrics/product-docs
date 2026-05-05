@@ -1,3 +1,9 @@
+# CoinMetricsClient.get_institution_metrics
+
+<a id="coinmetrics.api_client.CoinMetricsClient.get_institution_metrics"></a>
+
+## `method CoinMetricsClient.get_institution_metrics`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_institution_metrics(
     institutions,

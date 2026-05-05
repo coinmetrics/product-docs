@@ -1,3 +1,9 @@
+# CoinMetricsClient.get_exchange_pair_metrics
+
+<a id="coinmetrics.api_client.CoinMetricsClient.get_exchange_pair_metrics"></a>
+
+## `method CoinMetricsClient.get_exchange_pair_metrics`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_exchange_pair_metrics(
     exchange_pairs,

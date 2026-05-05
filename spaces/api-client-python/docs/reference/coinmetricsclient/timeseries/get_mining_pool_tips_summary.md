@@ -1,3 +1,9 @@
+# CoinMetricsClient.get_mining_pool_tips_summary
+
+<a id="coinmetrics.api_client.CoinMetricsClient.get_mining_pool_tips_summary"></a>
+
+## `method CoinMetricsClient.get_mining_pool_tips_summary`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_mining_pool_tips_summary(
     assets,

@@ -1,3 +1,9 @@
+# ParallelDataCollection.export_to_csv
+
+<a id="coinmetrics._data_collection.ParallelDataCollection.export_to_csv"></a>
+
+## `method ParallelDataCollection.export_to_csv`
+
 ```python
 coinmetrics._data_collection.ParallelDataCollection.export_to_csv(
     path_or_bufstr=None,

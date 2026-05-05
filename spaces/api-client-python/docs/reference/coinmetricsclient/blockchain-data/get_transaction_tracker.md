@@ -1,3 +1,9 @@
+# CoinMetricsClient.get_transaction_tracker
+
+<a id="coinmetrics.api_client.CoinMetricsClient.get_transaction_tracker"></a>
+
+## `method CoinMetricsClient.get_transaction_tracker`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_transaction_tracker(
     asset,

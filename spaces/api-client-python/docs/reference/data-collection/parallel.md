@@ -1,3 +1,9 @@
+# DataCollection.parallel
+
+<a id="coinmetrics._data_collection.DataCollection.parallel"></a>
+
+## `method DataCollection.parallel`
+
 ```python
 coinmetrics._data_collection.DataCollection.parallel(
     parallelize_on=None,

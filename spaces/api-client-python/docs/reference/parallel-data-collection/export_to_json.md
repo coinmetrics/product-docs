@@ -1,3 +1,9 @@
+# ParallelDataCollection.export_to_json
+
+<a id="coinmetrics._data_collection.ParallelDataCollection.export_to_json"></a>
+
+## `method ParallelDataCollection.export_to_json`
+
 ```python
 coinmetrics._data_collection.ParallelDataCollection.export_to_json(
     path_or_bufstr=None,

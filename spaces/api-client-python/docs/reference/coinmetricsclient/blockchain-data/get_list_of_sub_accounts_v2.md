@@ -1,3 +1,9 @@
+# CoinMetricsClient.get_list_of_sub_accounts_v2
+
+<a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_sub_accounts_v2"></a>
+
+## `method CoinMetricsClient.get_list_of_sub_accounts_v2`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_list_of_sub_accounts_v2(
     asset,

@@ -1,3 +1,9 @@
+# DataCollection.export_to_json
+
+<a id="coinmetrics._data_collection.DataCollection.export_to_json"></a>
+
+## `method DataCollection.export_to_json`
+
 ```python
 coinmetrics._data_collection.DataCollection.export_to_json(
     path_or_bufstr=None,

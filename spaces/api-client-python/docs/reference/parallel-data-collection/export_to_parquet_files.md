@@ -1,3 +1,9 @@
+# ParallelDataCollection.export_to_parquet_files
+
+<a id="coinmetrics._data_collection.ParallelDataCollection.export_to_parquet_files"></a>
+
+## `method ParallelDataCollection.export_to_parquet_files`
+
 ```python
 coinmetrics._data_collection.ParallelDataCollection.export_to_parquet_files(
     data_directory=None,

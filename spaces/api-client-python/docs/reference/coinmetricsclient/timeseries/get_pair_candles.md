@@ -1,3 +1,9 @@
+# CoinMetricsClient.get_pair_candles
+
+<a id="coinmetrics.api_client.CoinMetricsClient.get_pair_candles"></a>
+
+## `method CoinMetricsClient.get_pair_candles`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_pair_candles(
     pairs,

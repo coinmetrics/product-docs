@@ -1,3 +1,9 @@
+# CoinMetricsClient.get_stream_asset_metrics
+
+<a id="coinmetrics.api_client.CoinMetricsClient.get_stream_asset_metrics"></a>
+
+## `method CoinMetricsClient.get_stream_asset_metrics`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_asset_metrics(
     assets,

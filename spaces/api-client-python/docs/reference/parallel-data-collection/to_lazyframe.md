@@ -1,3 +1,9 @@
+# ParallelDataCollection.to_lazyframe
+
+<a id="coinmetrics._data_collection.ParallelDataCollection.to_lazyframe"></a>
+
+## `method ParallelDataCollection.to_lazyframe`
+
 ```python
 coinmetrics._data_collection.ParallelDataCollection.to_lazyframe(
     decimal_as_string=False,

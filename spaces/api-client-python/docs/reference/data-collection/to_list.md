@@ -1,3 +1,9 @@
+# DataCollection.to_list
+
+<a id="coinmetrics._data_collection.DataCollection.to_list"></a>
+
+## `method DataCollection.to_list`
+
 ```python
 coinmetrics._data_collection.DataCollection.to_list()
 ```

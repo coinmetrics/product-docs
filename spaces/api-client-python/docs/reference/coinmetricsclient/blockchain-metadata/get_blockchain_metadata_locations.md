@@ -1,3 +1,9 @@
+# CoinMetricsClient.get_blockchain_metadata_locations
+
+<a id="coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_locations"></a>
+
+## `method CoinMetricsClient.get_blockchain_metadata_locations`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_locations(
     page_size=None,

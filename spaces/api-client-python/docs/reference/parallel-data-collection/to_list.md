@@ -1,3 +1,9 @@
+# ParallelDataCollection.to_list
+
+<a id="coinmetrics._data_collection.ParallelDataCollection.to_list"></a>
+
+## `method ParallelDataCollection.to_list`
+
 ```python
 coinmetrics._data_collection.ParallelDataCollection.to_list()
 ```

@@ -1,3 +1,9 @@
+# CoinMetricsClient.get_full_transaction_v2
+
+<a id="coinmetrics.api_client.CoinMetricsClient.get_full_transaction_v2"></a>
+
+## `method CoinMetricsClient.get_full_transaction_v2`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_full_transaction_v2(
     asset,

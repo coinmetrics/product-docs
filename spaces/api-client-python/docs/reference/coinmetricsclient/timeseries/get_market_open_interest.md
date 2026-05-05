@@ -1,3 +1,9 @@
+# CoinMetricsClient.get_market_open_interest
+
+<a id="coinmetrics.api_client.CoinMetricsClient.get_market_open_interest"></a>
+
+## `method CoinMetricsClient.get_market_open_interest`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_open_interest(
     markets,

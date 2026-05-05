@@ -1,3 +1,9 @@
+# CoinMetricsClient.get_blockchain_metadata_owners
+
+<a id="coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_owners"></a>
+
+## `method CoinMetricsClient.get_blockchain_metadata_owners`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_owners(
     page_size=None,

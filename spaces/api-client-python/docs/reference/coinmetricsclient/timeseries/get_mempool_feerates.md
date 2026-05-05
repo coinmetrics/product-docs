@@ -1,3 +1,9 @@
+# CoinMetricsClient.get_mempool_feerates
+
+<a id="coinmetrics.api_client.CoinMetricsClient.get_mempool_feerates"></a>
+
+## `method CoinMetricsClient.get_mempool_feerates`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_mempool_feerates(
     assets,

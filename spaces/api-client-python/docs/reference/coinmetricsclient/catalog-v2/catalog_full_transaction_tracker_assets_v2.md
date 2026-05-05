@@ -1,3 +1,9 @@
+# CoinMetricsClient.catalog_full_transaction_tracker_assets_v2
+
+<a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_transaction_tracker_assets_v2"></a>
+
+## `method CoinMetricsClient.catalog_full_transaction_tracker_assets_v2`
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_transaction_tracker_assets_v2(
     assets=None,
