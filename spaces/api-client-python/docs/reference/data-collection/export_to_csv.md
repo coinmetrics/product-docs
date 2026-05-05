@@ -1,7 +1,3 @@
-# <code>DataCollection.export_to_csv</code>
-
-*method*
-
 ```python
 coinmetrics._data_collection.DataCollection.export_to_csv(
     path_or_bufstr=None,

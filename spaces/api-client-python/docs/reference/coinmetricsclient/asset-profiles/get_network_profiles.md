@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.get_network_profiles</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_network_profiles(
     networks=None,

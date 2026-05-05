@@ -1,7 +1,3 @@
-# <code>CmStream.run</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CmStream.run(
     on_message=None,

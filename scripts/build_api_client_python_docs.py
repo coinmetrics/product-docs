@@ -1346,19 +1346,20 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
     # block + anchor (no heading line).
     suppress_method_heading = _is_per_method_page(page_rel)
 
-    # On per-method / per-exception pages, force the H1 title into a
-    # monospace ("code") face so the page header matches the
-    # pydata-sphinx-theme look. GitBook's H1 renderer strips Markdown
-    # backtick spans (the heading style takes precedence), so we emit an
-    # explicit ``<code>`` HTML element which GitBook does honour inside
-    # headings.
+    # On per-method / per-exception pages, drop the leading H1 entirely.
+    # GitBook's heading style renders an H1 in a serif/sans display face
+    # regardless of inline formatting, which clashes with the
+    # pydata-sphinx-theme look the rest of the page mimics. With no H1,
+    # GitBook falls back to the SUMMARY.md entry (already wrapped in
+    # backticks) for the page title, and the signature code block becomes
+    # the visual page header -- matching how the upstream Sphinx pages
+    # present each method.
     if suppress_method_heading:
         text = re.sub(
-            r"\A#\s+(?P<title>\S[^\n]*?)\s*$",
-            lambda m: f"# <code>{m.group('title')}</code>",
+            r"\A#\s+\S[^\n]*?\s*\n+",
+            "",
             text,
             count=1,
-            flags=re.MULTILINE,
         )
 
     out: List[str] = []
@@ -1395,12 +1396,14 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
                 display = dotted.rsplit(".", 1)[-1]
                 anchor, full = dotted, dotted
                 if suppress_method_heading:
-                    # Per-class pages (e.g. the Exceptions section) have an
-                    # H1 that already names the class, so render just the
-                    # signature block to avoid a duplicate heading.
-                    prefix = kind
+                    # Per-class pages (e.g. the Exceptions section) drop
+                    # both the H1 and the italic kind annotation so the
+                    # signature block becomes the visual page header,
+                    # mirroring the upstream Sphinx layout. The ``class``
+                    # / ``exception`` keyword stays inside the signature
+                    # block itself.
                     _append_block(
-                        _format_pydata_signature_block(kind, prefix, full, args)
+                        _format_pydata_signature_block(None, kind, full, args)
                     )
                     continue
             elif kind == "function":
@@ -1414,14 +1417,12 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
                 )
                 display = _qualified_method_name(dotted)
                 if suppress_method_heading and kind not in {"class", "exception"}:
-                    # Per-method pages already carry the method/property
-                    # name in the H1, so emit just the kind annotation +
-                    # signature block to mirror the pydata-sphinx-theme
-                    # layout. pydata never prefixes method/property
-                    # signatures with ``def``: the kind annotation above
-                    # the block already conveys that information.
+                    # Per-method pages drop the H1 and the italic kind
+                    # annotation so the bare signature line is the visual
+                    # header, exactly like the screenshot of the
+                    # pydata-sphinx-theme layout we are matching.
                     _append_block(
-                        _format_pydata_signature_block(kind, "", full, args)
+                        _format_pydata_signature_block(None, "", full, args)
                     )
                     continue
             _append_block(
@@ -1443,14 +1444,13 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
                 dotted, None, class_qualifier, module_qualifier
             )
             if suppress_method_heading:
-                # Replace the heading with the pydata-style kind label +
-                # signature block; the page URL itself is the anchor on
-                # per-method pages so we drop the inline HTML anchor.
-                # Plain headings (no kind label in the source) are emitted
-                # by ``automethod`` for ordinary methods, so default to
-                # the ``method`` annotation.
+                # Replace the heading with just the bare signature block
+                # (no kind annotation, no inline anchor); the page URL is
+                # the anchor on per-method pages and the SUMMARY entry
+                # already shows the method name in monospace in the
+                # sidebar.
                 _append_block(
-                    _format_pydata_signature_block("method", "", full, args)
+                    _format_pydata_signature_block(None, "", full, args)
                 )
             else:
                 _append_block(

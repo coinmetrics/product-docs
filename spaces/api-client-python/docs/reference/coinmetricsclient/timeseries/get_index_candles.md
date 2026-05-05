@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.get_index_candles</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_index_candles(
     indexes,

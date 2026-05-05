@@ -1,7 +1,3 @@
-# <code>ParallelDataCollection.get_parallel_datacollections</code>
-
-*method*
-
 ```python
 coinmetrics._data_collection.ParallelDataCollection.get_parallel_datacollections()
 ```

@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.get_pair_metrics</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_pair_metrics(
     pairs,

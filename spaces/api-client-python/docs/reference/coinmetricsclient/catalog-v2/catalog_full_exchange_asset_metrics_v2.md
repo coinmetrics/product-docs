@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.catalog_full_exchange_asset_metrics_v2</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_exchange_asset_metrics_v2(
     exchange_assets=None,

@@ -1,7 +1,3 @@
-# <code>ParallelDataCollection.parse_date</code>
-
-*static method*
-
 ```python
 coinmetrics._data_collection.ParallelDataCollection.parse_date(date_input)
 ```

@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.security_master_assets</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.security_master_assets(
     assets=None,

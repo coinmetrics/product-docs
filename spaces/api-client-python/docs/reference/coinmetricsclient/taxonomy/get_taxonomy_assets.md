@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.get_taxonomy_assets</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets(
     assets=None,

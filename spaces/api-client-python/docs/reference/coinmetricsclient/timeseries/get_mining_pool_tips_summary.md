@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.get_mining_pool_tips_summary</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_mining_pool_tips_summary(
     assets,

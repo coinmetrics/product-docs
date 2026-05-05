@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.get_stream_market_open_interest</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_open_interest(
     markets,

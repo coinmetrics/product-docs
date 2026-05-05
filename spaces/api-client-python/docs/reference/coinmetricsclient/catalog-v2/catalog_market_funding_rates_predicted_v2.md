@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.catalog_market_funding_rates_predicted_v2</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_funding_rates_predicted_v2(
     markets=None,

@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.get_asset_chains</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_asset_chains(
     assets,

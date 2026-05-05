@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.catalog_full_market_orderbooks_v2</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_orderbooks_v2(
     markets=None,

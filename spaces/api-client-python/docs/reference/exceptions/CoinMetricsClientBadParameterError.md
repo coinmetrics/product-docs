@@ -1,7 +1,3 @@
-# <code>CoinMetricsClientBadParameterError</code>
-
-*exception*
-
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientBadParameterError(
     response,

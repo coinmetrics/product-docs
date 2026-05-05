@@ -1,7 +1,3 @@
-# <code>ParallelDataCollection.export_to_json_files</code>
-
-*method*
-
 ```python
 coinmetrics._data_collection.ParallelDataCollection.export_to_json_files(
     data_directory=None,

@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.get_market_implied_volatility</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_implied_volatility(
     markets,

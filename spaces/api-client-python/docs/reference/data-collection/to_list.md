@@ -1,7 +1,3 @@
-# <code>DataCollection.to_list</code>
-
-*method*
-
 ```python
 coinmetrics._data_collection.DataCollection.to_list()
 ```

@@ -1,7 +1,3 @@
-# <code>CoinMetricsClientForbiddenError</code>
-
-*exception*
-
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientForbiddenError(
     response,

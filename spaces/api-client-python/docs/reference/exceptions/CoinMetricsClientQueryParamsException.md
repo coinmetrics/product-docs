@@ -1,7 +1,3 @@
-# <code>CoinMetricsClientQueryParamsException</code>
-
-*exception*
-
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientQueryParamsException(
     response,

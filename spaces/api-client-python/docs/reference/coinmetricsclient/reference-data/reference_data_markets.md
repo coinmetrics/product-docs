@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.reference_data_markets</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_markets(
     markets=None,

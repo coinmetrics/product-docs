@@ -1,7 +1,3 @@
-# <code>ParallelDataCollection.to_list</code>
-
-*method*
-
 ```python
 coinmetrics._data_collection.ParallelDataCollection.to_list()
 ```

@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.get_pair_candles</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_pair_candles(
     pairs,

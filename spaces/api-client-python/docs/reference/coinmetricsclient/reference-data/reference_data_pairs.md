@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.reference_data_pairs</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_pairs(
     pairs=None,

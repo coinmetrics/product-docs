@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.get_transaction_tracker</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_transaction_tracker(
     asset,

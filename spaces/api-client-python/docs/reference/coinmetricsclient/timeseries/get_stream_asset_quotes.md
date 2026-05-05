@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.get_stream_asset_quotes</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_asset_quotes(
     assets,

@@ -1,7 +1,3 @@
-# <code>DataCollection.to_lazyframe</code>
-
-*method*
-
 ```python
 coinmetrics._data_collection.DataCollection.to_lazyframe(
     decimal_as_string=False,

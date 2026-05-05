@@ -1,7 +1,3 @@
-# <code>DataCollection.first_page</code>
-
-*method*
-
 ```python
 coinmetrics._data_collection.DataCollection.first_page()
 ```

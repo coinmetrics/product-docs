@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.get_taxonomy_assets_metadata</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets_metadata(
     start_time=None,

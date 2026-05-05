@@ -1,7 +1,3 @@
-# <code>CoinMetricsClientNotFoundError</code>
-
-*exception*
-
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientNotFoundError(message='CoinMetricsClient not found')
 ```

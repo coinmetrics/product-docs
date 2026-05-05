@@ -1,7 +1,3 @@
-# <code>DataCollection.to_dataframe</code>
-
-*method*
-
 ```python
 coinmetrics._data_collection.DataCollection.to_dataframe(
     dtype_mapper=None,

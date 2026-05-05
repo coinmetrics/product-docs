@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.get_list_of_balance_updates_for_account_v2</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_for_account_v2(
     asset,

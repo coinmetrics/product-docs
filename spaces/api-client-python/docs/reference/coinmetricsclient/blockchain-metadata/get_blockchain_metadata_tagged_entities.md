@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.get_blockchain_metadata_tagged_entities</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tagged_entities(
     tags=None,

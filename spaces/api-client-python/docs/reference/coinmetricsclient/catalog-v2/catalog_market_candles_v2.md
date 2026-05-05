@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.catalog_market_candles_v2</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_candles_v2(
     markets=None,

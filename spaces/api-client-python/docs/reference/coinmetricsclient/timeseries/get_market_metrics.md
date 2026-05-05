@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.get_market_metrics</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_metrics(
     markets,

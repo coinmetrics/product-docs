@@ -1,7 +1,3 @@
-# <code>CoinMetricsClient.get_index_constituents</code>
-
-*method*
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_index_constituents(
     indexes,
