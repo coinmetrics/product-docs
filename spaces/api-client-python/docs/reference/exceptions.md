@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._exceptions.CoinMetricsClientBadParameterError"></a>
 
-## *exception* `CoinMetricsClientBadParameterError`
+## `exception CoinMetricsClientBadParameterError`
 
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientBadParameterError(
@@ -23,7 +23,7 @@ Raised when a request is made with bad parameters (HTTP 400).
 
 <a id="coinmetrics._exceptions.CoinMetricsClientConnectionError"></a>
 
-## *exception* `CoinMetricsClientConnectionError`
+## `exception CoinMetricsClientConnectionError`
 
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientConnectionError(
@@ -44,7 +44,7 @@ Raised when a connection error occurs (ConnectionResetError, ChunkedEncodingErro
 
 <a id="coinmetrics._exceptions.CoinMetricsClientForbiddenError"></a>
 
-## *exception* `CoinMetricsClientForbiddenError`
+## `exception CoinMetricsClientForbiddenError`
 
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientForbiddenError(
@@ -65,7 +65,7 @@ Raised when a request is forbidden due to insufficient permissions (HTTP 403).
 
 <a id="coinmetrics._exceptions.CoinMetricsClientNotFoundError"></a>
 
-## *exception* `CoinMetricsClientNotFoundError`
+## `exception CoinMetricsClientNotFoundError`
 
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientNotFoundError(message='CoinMetricsClient not found')
@@ -77,7 +77,7 @@ Raised when a CoinMetricsClient instance is not found.
 
 <a id="coinmetrics._exceptions.CoinMetricsClientQueryParamsException"></a>
 
-## *exception* `CoinMetricsClientQueryParamsException`
+## `exception CoinMetricsClientQueryParamsException`
 
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientQueryParamsException(
@@ -98,7 +98,7 @@ Raised when a request is too long.
 
 <a id="coinmetrics._exceptions.CoinMetricsClientRateLimitError"></a>
 
-## *exception* `CoinMetricsClientRateLimitError`
+## `exception CoinMetricsClientRateLimitError`
 
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientRateLimitError(
@@ -119,7 +119,7 @@ Raised when the rate limit is exceeded (HTTP 429).
 
 <a id="coinmetrics._exceptions.CoinMetricsClientUnauthorizedError"></a>
 
-## *exception* `CoinMetricsClientUnauthorizedError`
+## `exception CoinMetricsClientUnauthorizedError`
 
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientUnauthorizedError(

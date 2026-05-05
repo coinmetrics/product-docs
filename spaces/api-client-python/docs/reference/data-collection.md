@@ -4,7 +4,7 @@ Every REST method on [`CoinMetricsClient`](coinmetricsclient.md) returns a `Data
 
 <a id="coinmetrics._data_collection.DataCollection"></a>
 
-## *class* `DataCollection`
+## `class DataCollection`
 
 ```python
 class coinmetrics._data_collection.DataCollection(
@@ -233,7 +233,7 @@ Returned by every `catalog_*_v2` method on `CoinMetricsClient`. Adds `to_datafra
 
 <a id="coinmetrics._data_collection.CatalogV2DataCollection"></a>
 
-## *class* `CatalogV2DataCollection`
+## `class CatalogV2DataCollection`
 
 ```python
 class coinmetrics._data_collection.CatalogV2DataCollection(

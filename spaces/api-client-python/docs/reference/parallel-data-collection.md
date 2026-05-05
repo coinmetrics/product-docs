@@ -24,7 +24,7 @@ client = CoinMetricsClient("<your-api-key>")
 
 <a id="coinmetrics._data_collection.ParallelDataCollection"></a>
 
-## *class* `ParallelDataCollection`
+## `class ParallelDataCollection`
 
 ```python
 class coinmetrics._data_collection.ParallelDataCollection(

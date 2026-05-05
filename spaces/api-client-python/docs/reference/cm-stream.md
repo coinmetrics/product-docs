@@ -23,7 +23,7 @@ stream.run(on_message=on_message)
 
 <a id="coinmetrics.api_client.CmStream"></a>
 
-## *class* `CmStream`
+## `class CmStream`
 
 ```python
 class coinmetrics.api_client.CmStream(ws_url)

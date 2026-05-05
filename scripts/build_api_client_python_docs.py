@@ -877,13 +877,18 @@ def _emit_autodoc_heading(
       ``###`` (visually nested under their parent class on class pages, or
       top-level on group pages where there is no class heading).
     """
-    code_name = f"`{display_name}`"
     if kind in {"class", "exception"}:
         level = "##"
-        label = f"{level} *{kind}* {code_name}"
+        # Wrap the entire heading payload (kind keyword + symbol name) in
+        # a single code span so the whole thing renders in monospace, not
+        # just the symbol.
+        label = f"{level} `{kind} {display_name}`"
     else:
         level = "###"
-        label = f"{level} *{kind}* {code_name}" if kind else f"{level} {code_name}"
+        if kind:
+            label = f"{level} `{kind} {display_name}`"
+        else:
+            label = f"{level} `{display_name}`"
     if kind in {"class", "exception"}:
         prefix = kind
     elif kind == "function":
