@@ -185,7 +185,6 @@ EXCEPTION_CLASSES: List[str] = []
 # at the same relative location (with name normalisation underscore->dash).
 PAGE_RENAMES = {
     "index.md": "README.md",
-    "user-guide/index.md": "user-guide/README.md",
     "reference/api_client.md": "reference/README.md",
     "reference/coinmetricsclient.md": "reference/coinmetricsclient.md",
     "releases/changelog.md": "releases/changelog.md",
@@ -293,10 +292,11 @@ def _render_summary() -> str:
     lines.append(f"* [{intro_title}]({intro_target})")
     lines.append("")
 
-    # User Guide
+    # User Guide -- the upstream ``user-guide/index.md`` (rendered as
+    # README.md) is just a card-grid landing page that duplicates the
+    # sidebar, so it is intentionally omitted from the navigation.
     lines.append("## User Guide")
     lines.append("")
-    lines.append("* [Overview](user-guide/README.md)")
     lines.append("* [Core Concepts](user-guide/core-concepts.md)")
     lines.append("* [Best Practices](user-guide/best-practices.md)")
     lines.append("* [Troubleshooting](user-guide/troubleshooting.md)")
@@ -380,6 +380,12 @@ def stage_source() -> None:
     _patch_index_toctree(STAGED_SOURCE / "index.md")
     _patch_reference_overview(STAGED_SOURCE / "reference" / "api_client.md")
     _drop_curated_reference_pages(STAGED_SOURCE / "reference")
+    # Drop the User Guide landing page; the sidebar links straight to
+    # the section's individual pages instead of the upstream card-grid
+    # overview.
+    user_guide_index = STAGED_SOURCE / "user-guide" / "index.md"
+    if user_guide_index.exists():
+        user_guide_index.unlink()
     _strip_grids_in_tree(STAGED_SOURCE)
     _strip_toctrees_in_tree(STAGED_SOURCE)
     _convert_admonitions_in_tree(STAGED_SOURCE)

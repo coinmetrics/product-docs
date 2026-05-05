@@ -4,7 +4,6 @@
 
 ## User Guide
 
-* [Overview](user-guide/README.md)
 * [Core Concepts](user-guide/core-concepts.md)
 * [Best Practices](user-guide/best-practices.md)
 * [Troubleshooting](user-guide/troubleshooting.md)
