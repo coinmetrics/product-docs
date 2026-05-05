@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_mempool_feerates_v2"></a>
 
-## `method CoinMetricsClient.catalog_full_mempool_feerates_v2`
+## *method* `CoinMetricsClient.catalog_full_mempool_feerates_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_mempool_feerates_v2(

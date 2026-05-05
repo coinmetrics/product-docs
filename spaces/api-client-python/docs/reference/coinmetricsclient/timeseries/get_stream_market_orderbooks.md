@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_orderbooks"></a>
 
-## `method CoinMetricsClient.get_stream_market_orderbooks`
+## *method* `CoinMetricsClient.get_stream_market_orderbooks`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_orderbooks(

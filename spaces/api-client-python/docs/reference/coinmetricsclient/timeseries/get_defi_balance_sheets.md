@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_defi_balance_sheets"></a>
 
-## `method CoinMetricsClient.get_defi_balance_sheets`
+## *method* `CoinMetricsClient.get_defi_balance_sheets`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_defi_balance_sheets(

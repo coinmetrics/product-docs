@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_index_constituents"></a>
 
-## `method CoinMetricsClient.get_index_constituents`
+## *method* `CoinMetricsClient.get_index_constituents`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_index_constituents(

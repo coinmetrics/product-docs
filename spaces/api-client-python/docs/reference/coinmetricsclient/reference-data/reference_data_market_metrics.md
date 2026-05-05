@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_market_metrics"></a>
 
-## `method CoinMetricsClient.reference_data_market_metrics`
+## *method* `CoinMetricsClient.reference_data_market_metrics`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_market_metrics(

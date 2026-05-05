@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.export_to_json_files"></a>
 
-## `method ParallelDataCollection.export_to_json_files`
+## *method* `ParallelDataCollection.export_to_json_files`
 
 ```python
 coinmetrics._data_collection.ParallelDataCollection.export_to_json_files(

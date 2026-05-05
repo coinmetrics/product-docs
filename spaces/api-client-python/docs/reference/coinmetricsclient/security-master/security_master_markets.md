@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.security_master_markets"></a>
 
-## `method CoinMetricsClient.security_master_markets`
+## *method* `CoinMetricsClient.security_master_markets`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.security_master_markets(

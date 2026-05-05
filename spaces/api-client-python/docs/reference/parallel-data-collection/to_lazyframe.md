@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.to_lazyframe"></a>
 
-## `method ParallelDataCollection.to_lazyframe`
+## *method* `ParallelDataCollection.to_lazyframe`
 
 ```python
 coinmetrics._data_collection.ParallelDataCollection.to_lazyframe(

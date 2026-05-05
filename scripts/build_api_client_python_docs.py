@@ -1223,12 +1223,14 @@ def _emit_autodoc_heading(
         level = "##"
     else:
         level = "###"
-    # Wrap the entire heading payload (kind keyword + symbol name) in a
-    # single code span so the whole thing renders in monospace, not just
-    # the symbol -- matches the pydata-sphinx-theme convention for API
-    # signatures.
-    if kind:
-        label = f"{level} `{kind} {display_name}`"
+    # pydata-sphinx-theme renders an autodoc heading as an italic kind
+    # keyword (the ``em.property`` span: ``class``, ``method``,
+    # ``property``, ...) followed by the symbol name in monospace. We use
+    # the same pattern in Markdown: ``*kind* `Name``` so GitBook surfaces
+    # the same visual hierarchy.
+    label_kind = _KIND_LABELS.get(kind) if kind else None
+    if label_kind:
+        label = f"{level} *{label_kind}* `{display_name}`"
     else:
         label = f"{level} `{display_name}`"
     # Match the pydata-sphinx-theme convention: ``class`` / ``exception``

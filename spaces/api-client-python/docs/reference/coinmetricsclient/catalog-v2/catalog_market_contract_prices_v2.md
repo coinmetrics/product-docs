@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_market_contract_prices_v2"></a>
 
-## `method CoinMetricsClient.catalog_market_contract_prices_v2`
+## *method* `CoinMetricsClient.catalog_market_contract_prices_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_contract_prices_v2(

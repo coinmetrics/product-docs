@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_timeframes_of_asset_metric_constituents"></a>
 
-## `method CoinMetricsClient.get_timeframes_of_asset_metric_constituents`
+## *method* `CoinMetricsClient.get_timeframes_of_asset_metric_constituents`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_timeframes_of_asset_metric_constituents(

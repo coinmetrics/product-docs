@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._exceptions.CoinMetricsClientQueryParamsException"></a>
 
-## `exception CoinMetricsClientQueryParamsException`
+## *exception* `CoinMetricsClientQueryParamsException`
 
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientQueryParamsException(

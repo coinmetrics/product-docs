@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_quotes"></a>
 
-## `method CoinMetricsClient.get_stream_market_quotes`
+## *method* `CoinMetricsClient.get_stream_market_quotes`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_quotes(

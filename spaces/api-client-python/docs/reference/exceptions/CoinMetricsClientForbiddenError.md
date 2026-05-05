@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._exceptions.CoinMetricsClientForbiddenError"></a>
 
-## `exception CoinMetricsClientForbiddenError`
+## *exception* `CoinMetricsClientForbiddenError`
 
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientForbiddenError(

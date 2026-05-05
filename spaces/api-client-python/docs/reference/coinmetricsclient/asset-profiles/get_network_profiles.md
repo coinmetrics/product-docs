@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_network_profiles"></a>
 
-## `method CoinMetricsClient.get_network_profiles`
+## *method* `CoinMetricsClient.get_network_profiles`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_network_profiles(

@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_trades"></a>
 
-## `method CoinMetricsClient.get_stream_market_trades`
+## *method* `CoinMetricsClient.get_stream_market_trades`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_trades(

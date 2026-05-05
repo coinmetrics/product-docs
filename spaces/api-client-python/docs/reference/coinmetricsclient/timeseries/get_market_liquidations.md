@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_liquidations"></a>
 
-## `method CoinMetricsClient.get_market_liquidations`
+## *method* `CoinMetricsClient.get_market_liquidations`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_liquidations(

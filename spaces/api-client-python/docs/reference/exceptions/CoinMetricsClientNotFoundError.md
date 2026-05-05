@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._exceptions.CoinMetricsClientNotFoundError"></a>
 
-## `exception CoinMetricsClientNotFoundError`
+## *exception* `CoinMetricsClientNotFoundError`
 
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientNotFoundError(message='CoinMetricsClient not found')

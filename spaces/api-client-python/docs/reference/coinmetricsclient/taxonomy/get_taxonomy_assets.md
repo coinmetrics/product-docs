@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets"></a>
 
-## `method CoinMetricsClient.get_taxonomy_assets`
+## *method* `CoinMetricsClient.get_taxonomy_assets`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets(

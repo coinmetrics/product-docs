@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_open_interest"></a>
 
-## `method CoinMetricsClient.get_stream_market_open_interest`
+## *method* `CoinMetricsClient.get_stream_market_open_interest`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_open_interest(

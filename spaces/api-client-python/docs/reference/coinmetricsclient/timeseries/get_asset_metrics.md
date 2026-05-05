@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_asset_metrics"></a>
 
-## `method CoinMetricsClient.get_asset_metrics`
+## *method* `CoinMetricsClient.get_asset_metrics`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_asset_metrics(

@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_contract_prices"></a>
 
-## `method CoinMetricsClient.get_market_contract_prices`
+## *method* `CoinMetricsClient.get_market_contract_prices`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_contract_prices(

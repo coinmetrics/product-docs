@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._data_collection.DataCollection.export_to_parquet"></a>
 
-## `method DataCollection.export_to_parquet`
+## *method* `DataCollection.export_to_parquet`
 
 ```python
 coinmetrics._data_collection.DataCollection.export_to_parquet(path_or_bufstr=None)

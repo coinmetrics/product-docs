@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CmStream.run"></a>
 
-## `method CmStream.run`
+## *method* `CmStream.run`
 
 ```python
 coinmetrics.api_client.CmStream.run(

@@ -4,7 +4,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient"></a>
 
-## `class CoinMetricsClient`
+## *class* `CoinMetricsClient`
 
 ```python
 class coinmetrics.api_client.CoinMetricsClient(

@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._data_collection.DataCollection"></a>
 
-## `class DataCollection`
+## *class* `DataCollection`
 
 ```python
 class coinmetrics._data_collection.DataCollection(
