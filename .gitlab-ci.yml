@@ -66,3 +66,45 @@ update_tutorials:
   when: manual
   tags:
     - svc-docker
+
+# Rebuilds the api-client-python GitBook space at spaces/api-client-python/docs
+# from the latest master of the submodule, then opens an MR with any diff.
+# Triggered manually from the master branch only.
+rebuild_python_api_client_docs:
+  stage: update_docs
+  image: python:3.11-slim
+  variables:
+    # Ensure GitLab clones the submodule alongside the parent repo so the
+    # build script can read submodules/api-client-python/docs/source.
+    GIT_SUBMODULE_STRATEGY: recursive
+  before_script:
+    - apt-get update && apt-get install -y --no-install-recommends git
+    - git config --global user.name "$AMS_DATA_USER"
+    - git config --global user.email "noreply@coinmetrics.io"
+    - pip install --no-cache-dir -r scripts/requirements-docs.txt
+    # Editable install so autodoc can import the coinmetrics package while
+    # rendering the reference pages.
+    - pip install --no-cache-dir -e submodules/api-client-python
+  script:
+    # Fast-forward the submodule to the tip of its default branch so the
+    # rebuild always reflects the latest released client.
+    - git -C submodules/api-client-python fetch --depth=1 origin HEAD
+    - git -C submodules/api-client-python checkout FETCH_HEAD
+    - python3 scripts/build_api_client_python_docs.py
+    - BRANCH_NAME="rebuild-python-api-client-docs-$(date +%Y%m%d-%H%M%S)"
+    - git checkout -b "$BRANCH_NAME"
+    - git add submodules/api-client-python spaces/api-client-python/docs
+    - |
+      if git diff --staged --quiet; then
+        echo "No changes detected. Skipping merge request creation."
+      else
+        echo "Changes detected. Creating merge request."
+        git commit -m "Rebuild api-client-python docs from submodule"
+        git remote set-url origin "https://$AMS_DATA_USER:$AMS_DATA_TOKEN@gitlab.com/coinmetrics/front-end/knowledge-base.git"
+        git push -o merge_request.create -o merge_request.target=master -o merge_request.title="Rebuild api-client-python docs" origin "$BRANCH_NAME"
+      fi
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: manual
+  tags:
+    - svc-docker
