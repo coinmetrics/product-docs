@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_snapshots_of_asset_metric_constituents"></a>
 
-### CoinMetricsClient.get_snapshots_of_asset_metric_constituents
+### `CoinMetricsClient.get_snapshots_of_asset_metric_constituents`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_snapshots_of_asset_metric_constituents(
@@ -44,7 +44,7 @@ volume_trusted_spot_usd_1d metric constituents are exchanges, i.e. the output wi
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_timeframes_of_asset_metric_constituents"></a>
 
-### CoinMetricsClient.get_timeframes_of_asset_metric_constituents
+### `CoinMetricsClient.get_timeframes_of_asset_metric_constituents`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_timeframes_of_asset_metric_constituents(

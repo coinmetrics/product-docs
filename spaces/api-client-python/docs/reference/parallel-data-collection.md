@@ -24,7 +24,7 @@ client = CoinMetricsClient("<your-api-key>")
 
 <a id="coinmetrics._data_collection.ParallelDataCollection"></a>
 
-### *class* ParallelDataCollection
+## *class* `ParallelDataCollection`
 
 ```python
 class coinmetrics._data_collection.ParallelDataCollection(
@@ -55,7 +55,7 @@ data.
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.export_to_csv"></a>
 
-#### ParallelDataCollection.export_to_csv
+### `ParallelDataCollection.export_to_csv`
 
 ```python
 coinmetrics._data_collection.ParallelDataCollection.export_to_csv(
@@ -76,7 +76,7 @@ coinmetrics._data_collection.ParallelDataCollection.export_to_csv(
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.export_to_csv_files"></a>
 
-#### ParallelDataCollection.export_to_csv_files
+### `ParallelDataCollection.export_to_csv_files`
 
 ```python
 coinmetrics._data_collection.ParallelDataCollection.export_to_csv_files(
@@ -135,7 +135,7 @@ produces:
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.export_to_json"></a>
 
-#### ParallelDataCollection.export_to_json
+### `ParallelDataCollection.export_to_json`
 
 ```python
 coinmetrics._data_collection.ParallelDataCollection.export_to_json(
@@ -152,7 +152,7 @@ coinmetrics._data_collection.ParallelDataCollection.export_to_json(
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.export_to_json_files"></a>
 
-#### ParallelDataCollection.export_to_json_files
+### `ParallelDataCollection.export_to_json_files`
 
 ```python
 coinmetrics._data_collection.ParallelDataCollection.export_to_json_files(
@@ -208,7 +208,7 @@ produces:
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.export_to_parquet"></a>
 
-#### ParallelDataCollection.export_to_parquet
+### `ParallelDataCollection.export_to_parquet`
 
 ```python
 coinmetrics._data_collection.ParallelDataCollection.export_to_parquet(path_or_bufstr=None)
@@ -221,7 +221,7 @@ coinmetrics._data_collection.ParallelDataCollection.export_to_parquet(path_or_bu
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.export_to_parquet_files"></a>
 
-#### ParallelDataCollection.export_to_parquet_files
+### `ParallelDataCollection.export_to_parquet_files`
 
 ```python
 coinmetrics._data_collection.ParallelDataCollection.export_to_parquet_files(
@@ -238,7 +238,7 @@ coinmetrics._data_collection.ParallelDataCollection.export_to_parquet_files(
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.first_page"></a>
 
-#### ParallelDataCollection.first_page
+### `ParallelDataCollection.first_page`
 
 ```python
 coinmetrics._data_collection.ParallelDataCollection.first_page()
@@ -249,7 +249,7 @@ coinmetrics._data_collection.ParallelDataCollection.first_page()
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.get_parallel_datacollections"></a>
 
-#### ParallelDataCollection.get_parallel_datacollections
+### `ParallelDataCollection.get_parallel_datacollections`
 
 ```python
 coinmetrics._data_collection.ParallelDataCollection.get_parallel_datacollections()
@@ -303,7 +303,7 @@ two-week windows.
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.get_schema_field_names"></a>
 
-#### ParallelDataCollection.get_schema_field_names
+### `ParallelDataCollection.get_schema_field_names`
 
 ```python
 coinmetrics._data_collection.ParallelDataCollection.get_schema_field_names()
@@ -319,7 +319,7 @@ This returns ALL possible fields, even if they're not present in the actual data
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.parallel"></a>
 
-#### ParallelDataCollection.parallel
+### `ParallelDataCollection.parallel`
 
 ```python
 coinmetrics._data_collection.ParallelDataCollection.parallel(
@@ -377,7 +377,7 @@ ISO 8601 format. Timezone aware objects are converted to UTC
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.to_dataframe"></a>
 
-#### ParallelDataCollection.to_dataframe
+### `ParallelDataCollection.to_dataframe`
 
 ```python
 coinmetrics._data_collection.ParallelDataCollection.to_dataframe(
@@ -407,7 +407,7 @@ near-zero-copy conversion to both pandas and polars.
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.to_lazyframe"></a>
 
-#### ParallelDataCollection.to_lazyframe
+### `ParallelDataCollection.to_lazyframe`
 
 ```python
 coinmetrics._data_collection.ParallelDataCollection.to_lazyframe(
@@ -424,7 +424,7 @@ coinmetrics._data_collection.ParallelDataCollection.to_lazyframe(
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.to_list"></a>
 
-#### ParallelDataCollection.to_list
+### `ParallelDataCollection.to_list`
 
 ```python
 coinmetrics._data_collection.ParallelDataCollection.to_list()

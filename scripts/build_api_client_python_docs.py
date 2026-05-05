@@ -851,25 +851,39 @@ def _format_signature_block(prefix: str, full_dotted: str, args: Optional[str]) 
 
 
 def _emit_autodoc_heading(
-    hashes: str,
     kind: Optional[str],
     display_name: str,
     anchor: str,
     full_dotted: str,
     args: Optional[str],
-    promote_to_h3: bool,
 ) -> List[str]:
     """Build the multi-line replacement for a single autodoc heading.
 
-    ``display_name`` is the human-readable text rendered inside the heading
-    itself. For class / exception / function it is the short symbol name
+    ``display_name`` is the human-readable text rendered inside the heading.
+    For class / exception / function it is the short symbol name
     (``CoinMetricsClient``). For method / property / attribute headings it
     is the qualified ``ClassName.symbol`` form -- this matches Sphinx's
     native pydata rendering and, more importantly for GitBook, makes every
     method heading globally unique so it ranks well in the search bar.
+
+    The display name is wrapped in backticks so it renders in a monospace
+    "code" face, mirroring the pydata-sphinx-theme look.
+
+    Heading levels are normalised so GitBook's "On this page" right-hand
+    panel surfaces them consistently:
+
+    * ``class`` / ``exception`` -> ``##`` (top-level section on the page).
+    * Everything else (methods, properties, attributes, functions, data) ->
+      ``###`` (visually nested under their parent class on class pages, or
+      top-level on group pages where there is no class heading).
     """
-    level = "###" if promote_to_h3 and len(hashes) > 3 else hashes
-    label = f"{level} *{kind}* {display_name}" if kind else f"{level} {display_name}"
+    code_name = f"`{display_name}`"
+    if kind in {"class", "exception"}:
+        level = "##"
+        label = f"{level} *{kind}* {code_name}"
+    else:
+        level = "###"
+        label = f"{level} *{kind}* {code_name}" if kind else f"{level} {code_name}"
     if kind in {"class", "exception"}:
         prefix = kind
     elif kind == "function":
@@ -947,16 +961,6 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
             module_qualifier = qualifier.rsplit(".", 1)[0]
             break
 
-    # Whether a ``*class*`` / ``*exception*`` heading has appeared on this
-    # page. When true, method/property headings stay one Markdown level
-    # below the class heading (e.g. class at H3 -> methods at H4) so the
-    # rendered TOC visually nests methods under their parent class -- this
-    # matches Sphinx's native pydata layout. When false (group pages, which
-    # are flat lists of methods under a synthetic ``currentmodule``), method
-    # headings are promoted to H3 so they remain top-level on the page and
-    # show up in GitBook's right-hand "On this page" panel.
-    seen_class_on_page = False
-
     out: List[str] = []
 
     def _append_block(block: List[str]) -> None:
@@ -981,7 +985,6 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
     for line in text.split("\n"):
         m = _AUTODOC_KIND_RE.match(line)
         if m:
-            hashes = m.group("hashes")
             kind = m.group("kind")
             payload = _unescape_sig(m.group("rest"))
             dotted, args = _split_signature(payload)
@@ -989,38 +992,31 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
                 # Reset the class context for subsequent method headings.
                 class_qualifier = dotted
                 module_qualifier = dotted.rsplit(".", 1)[0]
-                seen_class_on_page = True
                 display = dotted.rsplit(".", 1)[-1]
                 anchor, full = dotted, dotted
-                promote = False
             elif kind == "function":
-                # Module-level functions stay as their short name; they have
-                # no enclosing class to qualify with.
+                # Module-level functions have no enclosing class to qualify
+                # with; render them with their short name.
                 display = dotted.rsplit(".", 1)[-1]
                 anchor, full = dotted, dotted
-                promote = not seen_class_on_page
             else:
                 anchor, full = _resolve_anchor(
                     dotted, kind, class_qualifier, module_qualifier
                 )
                 display = _qualified_method_name(dotted)
-                promote = not seen_class_on_page
             _append_block(
                 _emit_autodoc_heading(
-                    hashes,
                     kind,
                     display_name=display,
                     anchor=anchor,
                     full_dotted=full,
                     args=args,
-                    promote_to_h3=promote,
                 )
             )
             continue
 
         m = _AUTODOC_PLAIN_RE.match(line)
         if m:
-            hashes = m.group("hashes")
             payload = _unescape_sig(m.group("rest"))
             dotted, args = _split_signature(payload)
             anchor, full = _resolve_anchor(
@@ -1028,13 +1024,11 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
             )
             _append_block(
                 _emit_autodoc_heading(
-                    hashes,
                     kind=None,
                     display_name=_qualified_method_name(dotted),
                     anchor=anchor,
                     full_dotted=full,
                     args=args,
-                    promote_to_h3=not seen_class_on_page,
                 )
             )
             continue

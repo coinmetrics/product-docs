@@ -4,7 +4,7 @@ Every REST method on [`CoinMetricsClient`](coinmetricsclient.md) returns a `Data
 
 <a id="coinmetrics._data_collection.DataCollection"></a>
 
-### *class* DataCollection
+## *class* `DataCollection`
 
 ```python
 class coinmetrics._data_collection.DataCollection(
@@ -49,7 +49,7 @@ common Python data structures:
 
 <a id="coinmetrics._data_collection.DataCollection.export_to_csv"></a>
 
-#### DataCollection.export_to_csv
+### `DataCollection.export_to_csv`
 
 ```python
 coinmetrics._data_collection.DataCollection.export_to_csv(
@@ -68,7 +68,7 @@ coinmetrics._data_collection.DataCollection.export_to_csv(
 
 <a id="coinmetrics._data_collection.DataCollection.export_to_json"></a>
 
-#### DataCollection.export_to_json
+### `DataCollection.export_to_json`
 
 ```python
 coinmetrics._data_collection.DataCollection.export_to_json(
@@ -85,7 +85,7 @@ coinmetrics._data_collection.DataCollection.export_to_json(
 
 <a id="coinmetrics._data_collection.DataCollection.export_to_parquet"></a>
 
-#### DataCollection.export_to_parquet
+### `DataCollection.export_to_parquet`
 
 ```python
 coinmetrics._data_collection.DataCollection.export_to_parquet(path_or_bufstr=None)
@@ -98,7 +98,7 @@ coinmetrics._data_collection.DataCollection.export_to_parquet(path_or_bufstr=Non
 
 <a id="coinmetrics._data_collection.DataCollection.first_page"></a>
 
-#### DataCollection.first_page
+### `DataCollection.first_page`
 
 ```python
 coinmetrics._data_collection.DataCollection.first_page()
@@ -109,7 +109,7 @@ coinmetrics._data_collection.DataCollection.first_page()
 
 <a id="coinmetrics._data_collection.DataCollection.get_schema_field_names"></a>
 
-#### DataCollection.get_schema_field_names
+### `DataCollection.get_schema_field_names`
 
 ```python
 coinmetrics._data_collection.DataCollection.get_schema_field_names()
@@ -125,7 +125,7 @@ This returns ALL possible fields, even if they're not present in the actual data
 
 <a id="coinmetrics._data_collection.DataCollection.parallel"></a>
 
-#### DataCollection.parallel
+### `DataCollection.parallel`
 
 ```python
 coinmetrics._data_collection.DataCollection.parallel(
@@ -171,7 +171,7 @@ By default the request is split on the primary query parameter (for example,
 
 <a id="coinmetrics._data_collection.DataCollection.to_dataframe"></a>
 
-#### DataCollection.to_dataframe
+### `DataCollection.to_dataframe`
 
 ```python
 coinmetrics._data_collection.DataCollection.to_dataframe(
@@ -201,7 +201,7 @@ near-zero-copy conversion to both pandas and polars.
 
 <a id="coinmetrics._data_collection.DataCollection.to_lazyframe"></a>
 
-#### DataCollection.to_lazyframe
+### `DataCollection.to_lazyframe`
 
 ```python
 coinmetrics._data_collection.DataCollection.to_lazyframe(
@@ -218,7 +218,7 @@ coinmetrics._data_collection.DataCollection.to_lazyframe(
 
 <a id="coinmetrics._data_collection.DataCollection.to_list"></a>
 
-#### DataCollection.to_list
+### `DataCollection.to_list`
 
 ```python
 coinmetrics._data_collection.DataCollection.to_list()
@@ -233,7 +233,7 @@ Returned by every `catalog_*_v2` method on `CoinMetricsClient`. Adds `to_datafra
 
 <a id="coinmetrics._data_collection.CatalogV2DataCollection"></a>
 
-### *class* CatalogV2DataCollection
+## *class* `CatalogV2DataCollection`
 
 ```python
 class coinmetrics._data_collection.CatalogV2DataCollection(
@@ -274,7 +274,7 @@ This class is used to implement functionality specific to catalog-v2 endpoints.
 
 <a id="coinmetrics._data_collection.CatalogV2DataCollection.export_to_csv"></a>
 
-#### CatalogV2DataCollection.export_to_csv
+### `CatalogV2DataCollection.export_to_csv`
 
 ```python
 coinmetrics._data_collection.CatalogV2DataCollection.export_to_csv(
@@ -293,7 +293,7 @@ coinmetrics._data_collection.CatalogV2DataCollection.export_to_csv(
 
 <a id="coinmetrics._data_collection.CatalogV2DataCollection.export_to_json"></a>
 
-#### CatalogV2DataCollection.export_to_json
+### `CatalogV2DataCollection.export_to_json`
 
 ```python
 coinmetrics._data_collection.CatalogV2DataCollection.export_to_json(
@@ -310,7 +310,7 @@ coinmetrics._data_collection.CatalogV2DataCollection.export_to_json(
 
 <a id="coinmetrics._data_collection.CatalogV2DataCollection.export_to_parquet"></a>
 
-#### CatalogV2DataCollection.export_to_parquet
+### `CatalogV2DataCollection.export_to_parquet`
 
 ```python
 coinmetrics._data_collection.CatalogV2DataCollection.export_to_parquet(path_or_bufstr=None)
@@ -323,7 +323,7 @@ coinmetrics._data_collection.CatalogV2DataCollection.export_to_parquet(path_or_b
 
 <a id="coinmetrics._data_collection.CatalogV2DataCollection.first_page"></a>
 
-#### CatalogV2DataCollection.first_page
+### `CatalogV2DataCollection.first_page`
 
 ```python
 coinmetrics._data_collection.CatalogV2DataCollection.first_page()
@@ -334,7 +334,7 @@ coinmetrics._data_collection.CatalogV2DataCollection.first_page()
 
 <a id="coinmetrics._data_collection.CatalogV2DataCollection.get_schema_field_names"></a>
 
-#### CatalogV2DataCollection.get_schema_field_names
+### `CatalogV2DataCollection.get_schema_field_names`
 
 ```python
 coinmetrics._data_collection.CatalogV2DataCollection.get_schema_field_names()
@@ -350,7 +350,7 @@ This returns ALL possible fields, even if they're not present in the actual data
 
 <a id="coinmetrics._data_collection.CatalogV2DataCollection.parallel"></a>
 
-#### CatalogV2DataCollection.parallel
+### `CatalogV2DataCollection.parallel`
 
 ```python
 coinmetrics._data_collection.CatalogV2DataCollection.parallel(
@@ -396,7 +396,7 @@ By default the request is split on the primary query parameter (for example,
 
 <a id="coinmetrics._data_collection.CatalogV2DataCollection.to_dataframe"></a>
 
-#### CatalogV2DataCollection.to_dataframe
+### `CatalogV2DataCollection.to_dataframe`
 
 ```python
 coinmetrics._data_collection.CatalogV2DataCollection.to_dataframe(
@@ -428,7 +428,7 @@ or frequency.
 
 <a id="coinmetrics._data_collection.CatalogV2DataCollection.to_lazyframe"></a>
 
-#### CatalogV2DataCollection.to_lazyframe
+### `CatalogV2DataCollection.to_lazyframe`
 
 ```python
 coinmetrics._data_collection.CatalogV2DataCollection.to_lazyframe(
@@ -445,7 +445,7 @@ coinmetrics._data_collection.CatalogV2DataCollection.to_lazyframe(
 
 <a id="coinmetrics._data_collection.CatalogV2DataCollection.to_list"></a>
 
-#### CatalogV2DataCollection.to_list
+### `CatalogV2DataCollection.to_list`
 
 ```python
 coinmetrics._data_collection.CatalogV2DataCollection.to_list()

@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_asset_chains_v2"></a>
 
-### CoinMetricsClient.catalog_asset_chains_v2
+### `CoinMetricsClient.catalog_asset_chains_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_asset_chains_v2(
@@ -30,7 +30,7 @@ data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_asset_chains_v2"></a>
 
-### CoinMetricsClient.catalog_full_asset_chains_v2
+### `CoinMetricsClient.catalog_full_asset_chains_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_asset_chains_v2(
@@ -58,7 +58,7 @@ available data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_asset_metrics_v2"></a>
 
-### CoinMetricsClient.catalog_asset_metrics_v2
+### `CoinMetricsClient.catalog_asset_metrics_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_asset_metrics_v2(
@@ -89,7 +89,7 @@ Returns a list of available asset metrics along with the time ranges of availabl
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_asset_metrics_v2"></a>
 
-### CoinMetricsClient.catalog_full_asset_metrics_v2
+### `CoinMetricsClient.catalog_full_asset_metrics_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_asset_metrics_v2(
@@ -120,7 +120,7 @@ Returns a list of all supported asset metrics along with the time ranges of avai
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_accounts_v2"></a>
 
-### CoinMetricsClient.catalog_blockchain_accounts_v2
+### `CoinMetricsClient.catalog_blockchain_accounts_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_accounts_v2(
@@ -148,7 +148,7 @@ available data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_accounts_v2"></a>
 
-### CoinMetricsClient.catalog_full_blockchain_accounts_v2
+### `CoinMetricsClient.catalog_full_blockchain_accounts_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_accounts_v2(
@@ -176,7 +176,7 @@ available data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_balance_updates_v2"></a>
 
-### CoinMetricsClient.catalog_blockchain_balance_updates_v2
+### `CoinMetricsClient.catalog_blockchain_balance_updates_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_balance_updates_v2(
@@ -204,7 +204,7 @@ of available data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_balance_updates_v2"></a>
 
-### CoinMetricsClient.catalog_full_blockchain_balance_updates_v2
+### `CoinMetricsClient.catalog_full_blockchain_balance_updates_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_balance_updates_v2(
@@ -232,7 +232,7 @@ ranges of available data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_blocks_v2"></a>
 
-### CoinMetricsClient.catalog_blockchain_blocks_v2
+### `CoinMetricsClient.catalog_blockchain_blocks_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_blocks_v2(
@@ -260,7 +260,7 @@ available data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_blocks_v2"></a>
 
-### CoinMetricsClient.catalog_full_blockchain_blocks_v2
+### `CoinMetricsClient.catalog_full_blockchain_blocks_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_blocks_v2(
@@ -288,7 +288,7 @@ available data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_rebasing_changes_v2"></a>
 
-### CoinMetricsClient.catalog_blockchain_rebasing_changes_v2
+### `CoinMetricsClient.catalog_blockchain_rebasing_changes_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_rebasing_changes_v2(
@@ -315,7 +315,7 @@ Returns a list of available assets for the blockchain rebasing changes endpoint 
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_rebasing_changes_v2"></a>
 
-### CoinMetricsClient.catalog_full_blockchain_rebasing_changes_v2
+### `CoinMetricsClient.catalog_full_blockchain_rebasing_changes_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_rebasing_changes_v2(
@@ -342,7 +342,7 @@ Returns a list of all supported assets for the blockchain rebasing changes endpo
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_transactions_v2"></a>
 
-### CoinMetricsClient.catalog_blockchain_transactions_v2
+### `CoinMetricsClient.catalog_blockchain_transactions_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_transactions_v2(
@@ -370,7 +370,7 @@ available data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_transactions_v2"></a>
 
-### CoinMetricsClient.catalog_full_blockchain_transactions_v2
+### `CoinMetricsClient.catalog_full_blockchain_transactions_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_transactions_v2(
@@ -398,7 +398,7 @@ of available data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_contract_prices_v2"></a>
 
-### CoinMetricsClient.catalog_contract_prices_v2
+### `CoinMetricsClient.catalog_contract_prices_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_contract_prices_v2(
@@ -448,7 +448,7 @@ window.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_contract_prices_v2"></a>
 
-### CoinMetricsClient.catalog_full_contract_prices_v2
+### `CoinMetricsClient.catalog_full_contract_prices_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_contract_prices_v2(
@@ -497,7 +497,7 @@ Returns a list of all market contract prices for option market.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_exchange_asset_metrics_v2"></a>
 
-### CoinMetricsClient.catalog_exchange_asset_metrics_v2
+### `CoinMetricsClient.catalog_exchange_asset_metrics_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_exchange_asset_metrics_v2(
@@ -528,7 +528,7 @@ Returns a list of available exchange-asset metrics along with the time ranges of
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_exchange_asset_metrics_v2"></a>
 
-### CoinMetricsClient.catalog_full_exchange_asset_metrics_v2
+### `CoinMetricsClient.catalog_full_exchange_asset_metrics_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_exchange_asset_metrics_v2(
@@ -559,7 +559,7 @@ Returns a list of all supported exchange-asset metrics along with the time range
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_exchange_metrics_v2"></a>
 
-### CoinMetricsClient.catalog_exchange_metrics_v2
+### `CoinMetricsClient.catalog_exchange_metrics_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_exchange_metrics_v2(
@@ -590,7 +590,7 @@ Returns a list of available exchange metrics along with the time ranges of avail
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_exchange_metrics_v2"></a>
 
-### CoinMetricsClient.catalog_full_exchange_metrics_v2
+### `CoinMetricsClient.catalog_full_exchange_metrics_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_exchange_metrics_v2(
@@ -621,7 +621,7 @@ Returns a list of all supported exchange metrics along with the time ranges of a
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_exchange_pair_metrics_v2"></a>
 
-### CoinMetricsClient.catalog_exchange_pair_metrics_v2
+### `CoinMetricsClient.catalog_exchange_pair_metrics_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_exchange_pair_metrics_v2(
@@ -652,7 +652,7 @@ Returns a list of available exchange-pair metrics along with the time ranges of 
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_exchange_pair_metrics_v2"></a>
 
-### CoinMetricsClient.catalog_full_exchange_pair_metrics_v2
+### `CoinMetricsClient.catalog_full_exchange_pair_metrics_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_exchange_pair_metrics_v2(
@@ -683,7 +683,7 @@ Returns a list of all supported exchange-pair metrics along with the time ranges
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_index_candles_v2"></a>
 
-### CoinMetricsClient.catalog_index_candles_v2
+### `CoinMetricsClient.catalog_index_candles_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_index_candles_v2(
@@ -711,7 +711,7 @@ duration.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_index_candles_v2"></a>
 
-### CoinMetricsClient.catalog_full_index_candles_v2
+### `CoinMetricsClient.catalog_full_index_candles_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_index_candles_v2(
@@ -739,7 +739,7 @@ duration.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_index_levels_v2"></a>
 
-### CoinMetricsClient.catalog_index_levels_v2
+### `CoinMetricsClient.catalog_index_levels_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_index_levels_v2(
@@ -766,7 +766,7 @@ Returns a list of available index levels along with time ranges of available dat
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_index_levels_v2"></a>
 
-### CoinMetricsClient.catalog_full_index_levels_v2
+### `CoinMetricsClient.catalog_full_index_levels_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_index_levels_v2(
@@ -793,7 +793,7 @@ Returns a list of all supported index levels along with time ranges of available
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_institution_metrics_v2"></a>
 
-### CoinMetricsClient.catalog_institution_metrics_v2
+### `CoinMetricsClient.catalog_institution_metrics_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_institution_metrics_v2(
@@ -824,7 +824,7 @@ Returns a list of available institution metrics along with the time ranges of av
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_institution_metrics_v2"></a>
 
-### CoinMetricsClient.catalog_full_institution_metrics_v2
+### `CoinMetricsClient.catalog_full_institution_metrics_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_institution_metrics_v2(
@@ -855,7 +855,7 @@ Returns a list of all supported institution metrics along with the time ranges o
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_market_candles_v2"></a>
 
-### CoinMetricsClient.catalog_market_candles_v2
+### `CoinMetricsClient.catalog_market_candles_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_candles_v2(
@@ -905,7 +905,7 @@ duration.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_market_candles_v2"></a>
 
-### CoinMetricsClient.catalog_full_market_candles_v2
+### `CoinMetricsClient.catalog_full_market_candles_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_candles_v2(
@@ -955,7 +955,7 @@ duration.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_market_contract_prices_v2"></a>
 
-### CoinMetricsClient.catalog_market_contract_prices_v2
+### `CoinMetricsClient.catalog_market_contract_prices_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_contract_prices_v2(
@@ -1004,7 +1004,7 @@ Returns a list of contract prices for option market.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_market_contract_prices_v2"></a>
 
-### CoinMetricsClient.catalog_full_market_contract_prices_v2
+### `CoinMetricsClient.catalog_full_market_contract_prices_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_contract_prices_v2(
@@ -1053,7 +1053,7 @@ Returns a list of all market contract prices for option market.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_market_funding_rates_predicted_v2"></a>
 
-### CoinMetricsClient.catalog_market_funding_rates_predicted_v2
+### `CoinMetricsClient.catalog_market_funding_rates_predicted_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_funding_rates_predicted_v2(
@@ -1103,7 +1103,7 @@ data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_market_funding_rates_predicted_v2"></a>
 
-### CoinMetricsClient.catalog_full_market_funding_rates_predicted_v2
+### `CoinMetricsClient.catalog_full_market_funding_rates_predicted_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_funding_rates_predicted_v2(
@@ -1153,7 +1153,7 @@ available data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_market_funding_rates_v2"></a>
 
-### CoinMetricsClient.catalog_market_funding_rates_v2
+### `CoinMetricsClient.catalog_market_funding_rates_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_funding_rates_v2(
@@ -1202,7 +1202,7 @@ Returns a list of markets with funding rates support along with the time ranges 
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_market_funding_rates_v2"></a>
 
-### CoinMetricsClient.catalog_full_market_funding_rates_v2
+### `CoinMetricsClient.catalog_full_market_funding_rates_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_funding_rates_v2(
@@ -1251,7 +1251,7 @@ Returns a list of all markets with funding rates support along with the time ran
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_market_greeks_v2"></a>
 
-### CoinMetricsClient.catalog_market_greeks_v2
+### `CoinMetricsClient.catalog_market_greeks_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_greeks_v2(
@@ -1300,7 +1300,7 @@ Returns a list of greeks for option market.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_market_greeks_v2"></a>
 
-### CoinMetricsClient.catalog_full_market_greeks_v2
+### `CoinMetricsClient.catalog_full_market_greeks_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_greeks_v2(
@@ -1349,7 +1349,7 @@ Returns a list of all market greeks for option market.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_market_implied_volatility_v2"></a>
 
-### CoinMetricsClient.catalog_market_implied_volatility_v2
+### `CoinMetricsClient.catalog_market_implied_volatility_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_implied_volatility_v2(
@@ -1398,7 +1398,7 @@ Returns a list of implied volatility for option market.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_market_implied_volatility_v2"></a>
 
-### CoinMetricsClient.catalog_full_market_implied_volatility_v2
+### `CoinMetricsClient.catalog_full_market_implied_volatility_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_implied_volatility_v2(
@@ -1447,7 +1447,7 @@ Returns a list of all market implied volatility for option market.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_market_liquidations_v2"></a>
 
-### CoinMetricsClient.catalog_market_liquidations_v2
+### `CoinMetricsClient.catalog_market_liquidations_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_liquidations_v2(
@@ -1496,7 +1496,7 @@ Returns a list of markets with liquidations support along with the time ranges o
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_market_liquidations_v2"></a>
 
-### CoinMetricsClient.catalog_full_market_liquidations_v2
+### `CoinMetricsClient.catalog_full_market_liquidations_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_liquidations_v2(
@@ -1545,7 +1545,7 @@ Returns a list of all markets with liquidations support along with the time rang
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_market_metrics_v2"></a>
 
-### CoinMetricsClient.catalog_market_metrics_v2
+### `CoinMetricsClient.catalog_market_metrics_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_metrics_v2(
@@ -1587,7 +1587,7 @@ metric.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_market_metrics_v2"></a>
 
-### CoinMetricsClient.catalog_full_market_metrics_v2
+### `CoinMetricsClient.catalog_full_market_metrics_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_metrics_v2(
@@ -1629,7 +1629,7 @@ metric.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_market_open_interest_v2"></a>
 
-### CoinMetricsClient.catalog_market_open_interest_v2
+### `CoinMetricsClient.catalog_market_open_interest_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_open_interest_v2(
@@ -1678,7 +1678,7 @@ Returns a list of markets with open interest support along with the time ranges 
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_market_open_interest_v2"></a>
 
-### CoinMetricsClient.catalog_full_market_open_interest_v2
+### `CoinMetricsClient.catalog_full_market_open_interest_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_open_interest_v2(
@@ -1727,7 +1727,7 @@ Returns a list of all markets with open interest support along with the time ran
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_market_orderbooks_v2"></a>
 
-### CoinMetricsClient.catalog_market_orderbooks_v2
+### `CoinMetricsClient.catalog_market_orderbooks_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_orderbooks_v2(
@@ -1776,7 +1776,7 @@ Returns a list of markets with orderbooks support along with the time ranges of 
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_market_orderbooks_v2"></a>
 
-### CoinMetricsClient.catalog_full_market_orderbooks_v2
+### `CoinMetricsClient.catalog_full_market_orderbooks_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_orderbooks_v2(
@@ -1825,7 +1825,7 @@ Returns a list of all markets with orderbooks support along with the time ranges
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_market_quotes_v2"></a>
 
-### CoinMetricsClient.catalog_market_quotes_v2
+### `CoinMetricsClient.catalog_market_quotes_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_quotes_v2(
@@ -1874,7 +1874,7 @@ Returns a list of markets with quotes support along with the time ranges of avai
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_market_quotes_v2"></a>
 
-### CoinMetricsClient.catalog_full_market_quotes_v2
+### `CoinMetricsClient.catalog_full_market_quotes_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_quotes_v2(
@@ -1923,7 +1923,7 @@ Returns a list of all markets with quotes support along with the time ranges of 
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_market_trades_v2"></a>
 
-### CoinMetricsClient.catalog_market_trades_v2
+### `CoinMetricsClient.catalog_market_trades_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_trades_v2(
@@ -1972,7 +1972,7 @@ Returns a list of markets with trades support along with the time ranges of avai
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_market_trades_v2"></a>
 
-### CoinMetricsClient.catalog_full_market_trades_v2
+### `CoinMetricsClient.catalog_full_market_trades_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_trades_v2(
@@ -2021,7 +2021,7 @@ Returns a list of all markets with trades support along with the time ranges of 
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_mempool_feerates_v2"></a>
 
-### CoinMetricsClient.catalog_mempool_feerates_v2
+### `CoinMetricsClient.catalog_mempool_feerates_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_mempool_feerates_v2(
@@ -2049,7 +2049,7 @@ available data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_mempool_feerates_v2"></a>
 
-### CoinMetricsClient.catalog_full_mempool_feerates_v2
+### `CoinMetricsClient.catalog_full_mempool_feerates_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_mempool_feerates_v2(
@@ -2077,7 +2077,7 @@ available data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_mining_pool_tips_summaries_v2"></a>
 
-### CoinMetricsClient.catalog_mining_pool_tips_summaries_v2
+### `CoinMetricsClient.catalog_mining_pool_tips_summaries_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_mining_pool_tips_summaries_v2(
@@ -2105,7 +2105,7 @@ available data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_mining_pool_tips_summaries_v2"></a>
 
-### CoinMetricsClient.catalog_full_mining_pool_tips_summaries_v2
+### `CoinMetricsClient.catalog_full_mining_pool_tips_summaries_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_mining_pool_tips_summaries_v2(
@@ -2133,7 +2133,7 @@ ranges of available data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_pair_candles_v2"></a>
 
-### CoinMetricsClient.catalog_pair_candles_v2
+### `CoinMetricsClient.catalog_pair_candles_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_pair_candles_v2(
@@ -2161,7 +2161,7 @@ duration.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_pair_candles_v2"></a>
 
-### CoinMetricsClient.catalog_full_pair_candles_v2
+### `CoinMetricsClient.catalog_full_pair_candles_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_pair_candles_v2(
@@ -2189,7 +2189,7 @@ candle duration.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_pair_metrics_v2"></a>
 
-### CoinMetricsClient.catalog_pair_metrics_v2
+### `CoinMetricsClient.catalog_pair_metrics_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_pair_metrics_v2(
@@ -2220,7 +2220,7 @@ Returns a list of available pair metrics along with the time ranges of available
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_pair_metrics_v2"></a>
 
-### CoinMetricsClient.catalog_full_pair_metrics_v2
+### `CoinMetricsClient.catalog_full_pair_metrics_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_pair_metrics_v2(
@@ -2251,7 +2251,7 @@ Returns a list of all supported pair metrics along with the time ranges of avail
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_transaction_tracker_assets_v2"></a>
 
-### CoinMetricsClient.catalog_transaction_tracker_assets_v2
+### `CoinMetricsClient.catalog_transaction_tracker_assets_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_transaction_tracker_assets_v2(
@@ -2279,7 +2279,7 @@ available data.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_transaction_tracker_assets_v2"></a>
 
-### CoinMetricsClient.catalog_full_transaction_tracker_assets_v2
+### `CoinMetricsClient.catalog_full_transaction_tracker_assets_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_transaction_tracker_assets_v2(

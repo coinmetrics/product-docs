@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_full_block_v2"></a>
 
-### CoinMetricsClient.get_full_block_v2
+### `CoinMetricsClient.get_full_block_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_full_block_v2(
@@ -27,7 +27,7 @@ Returns a full blockchain block with all transactions and balance updates.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_full_transaction_for_block_v2"></a>
 
-### CoinMetricsClient.get_full_transaction_for_block_v2
+### `CoinMetricsClient.get_full_transaction_for_block_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_full_transaction_for_block_v2(
@@ -54,7 +54,7 @@ Returns a full blockchain transaction with all balance updates for a specific bl
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_full_transaction_v2"></a>
 
-### CoinMetricsClient.get_full_transaction_v2
+### `CoinMetricsClient.get_full_transaction_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_full_transaction_v2(
@@ -79,7 +79,7 @@ Returns a full blockchain transaction with all balance updates.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_accounts_v2"></a>
 
-### CoinMetricsClient.get_list_of_accounts_v2
+### `CoinMetricsClient.get_list_of_accounts_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_list_of_accounts_v2(
@@ -124,7 +124,7 @@ Returns a list of blockchain accounts with their balances.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_for_account_v2"></a>
 
-### CoinMetricsClient.get_list_of_balance_updates_for_account_v2
+### `CoinMetricsClient.get_list_of_balance_updates_for_account_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_for_account_v2(
@@ -182,7 +182,7 @@ Returns balance update history for a single blockchain account on the specified 
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_v2"></a>
 
-### CoinMetricsClient.get_list_of_balance_updates_v2
+### `CoinMetricsClient.get_list_of_balance_updates_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_v2(
@@ -241,7 +241,7 @@ Returns a list of blockchain accounts balance updates.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_blocks_v2"></a>
 
-### CoinMetricsClient.get_list_of_blocks_v2
+### `CoinMetricsClient.get_list_of_blocks_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_list_of_blocks_v2(
@@ -286,7 +286,7 @@ Returns a list of blockchain blocks metadata.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_rebasing_changes_v2"></a>
 
-### CoinMetricsClient.get_list_of_rebasing_changes_v2
+### `CoinMetricsClient.get_list_of_rebasing_changes_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_list_of_rebasing_changes_v2(
@@ -335,7 +335,7 @@ Returns a list of blockchain rebasing changes.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_sub_accounts_v2"></a>
 
-### CoinMetricsClient.get_list_of_sub_accounts_v2
+### `CoinMetricsClient.get_list_of_sub_accounts_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_list_of_sub_accounts_v2(
@@ -380,7 +380,7 @@ Returns a list of blockchain sub-accounts with their balances.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_transactions_v2"></a>
 
-### CoinMetricsClient.get_list_of_transactions_v2
+### `CoinMetricsClient.get_list_of_transactions_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_list_of_transactions_v2(
@@ -425,7 +425,7 @@ Returns a list of blockchain transactions metadata.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_transaction_tracker"></a>
 
-### CoinMetricsClient.get_transaction_tracker
+### `CoinMetricsClient.get_transaction_tracker`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_transaction_tracker(

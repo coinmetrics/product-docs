@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets"></a>
 
-### CoinMetricsClient.get_taxonomy_assets
+### `CoinMetricsClient.get_taxonomy_assets`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets(
@@ -42,7 +42,7 @@ covered assets
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets_metadata"></a>
 
-### CoinMetricsClient.get_taxonomy_assets_metadata
+### `CoinMetricsClient.get_taxonomy_assets_metadata`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets_metadata(

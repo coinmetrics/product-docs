@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.security_master_assets"></a>
 
-### CoinMetricsClient.security_master_assets
+### `CoinMetricsClient.security_master_assets`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.security_master_assets(
@@ -29,7 +29,7 @@ Returns all the assets and their metadata in security master.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.security_master_markets"></a>
 
-### CoinMetricsClient.security_master_markets
+### `CoinMetricsClient.security_master_markets`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.security_master_markets(

@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_locations"></a>
 
-### CoinMetricsClient.get_blockchain_metadata_locations
+### `CoinMetricsClient.get_blockchain_metadata_locations`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_locations(
@@ -23,7 +23,7 @@ Returns a list of all supported locations ordered lexicographically.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_owners"></a>
 
-### CoinMetricsClient.get_blockchain_metadata_owners
+### `CoinMetricsClient.get_blockchain_metadata_owners`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_owners(
@@ -44,7 +44,7 @@ Returns a list of all supported owners lexicographically ordered by the owner_na
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tagged_entities"></a>
 
-### CoinMetricsClient.get_blockchain_metadata_tagged_entities
+### `CoinMetricsClient.get_blockchain_metadata_tagged_entities`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tagged_entities(
@@ -73,7 +73,7 @@ Returns a list of all entities associated with provided tags. Ordered by tuple (
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tags"></a>
 
-### CoinMetricsClient.get_blockchain_metadata_tags
+### `CoinMetricsClient.get_blockchain_metadata_tags`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tags(
