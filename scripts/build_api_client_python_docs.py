@@ -308,12 +308,15 @@ def _render_summary() -> str:
     lines.append("* [Overview](reference/README.md)")
 
     # CoinMetricsClient: nested by openapi-yaml group and per-method.
-    lines.append("* [CoinMetricsClient](reference/coinmetricsclient.md)")
+    # API symbol names (class.method, exception classes) are wrapped in
+    # backticks so GitBook renders them in monospace in the sidebar,
+    # matching the in-page H1 styling and the pydata-sphinx-theme look.
+    lines.append("* [`CoinMetricsClient`](reference/coinmetricsclient.md)")
     for slug, label in GROUP_PAGES:
         base = f"reference/coinmetricsclient/{slug}"
         lines.append(f"  * [{label}]({base}/README.md)")
         for method_name in GROUP_METHODS.get(slug, []):
-            method_title = f"CoinMetricsClient.{method_name}"
+            method_title = f"`CoinMetricsClient.{method_name}`"
             lines.append(f"    * [{method_title}]({base}/{method_name}.md)")
 
     # DataCollection / ParallelDataCollection / CmStream: each is a class
@@ -322,14 +325,14 @@ def _render_summary() -> str:
         base = f"reference/{slug}"
         lines.append(f"* [{label}]({base}/README.md)")
         for method_name in EXTRA_CLASS_METHODS.get(slug, []):
-            method_title = f"{class_name}.{method_name}"
+            method_title = f"`{class_name}.{method_name}`"
             lines.append(f"  * [{method_title}]({base}/{method_name}.md)")
 
     # Exceptions: one page per exception class.
     base = f"reference/{EXCEPTIONS_SLUG}"
     lines.append(f"* [{EXCEPTIONS_LABEL}]({base}/README.md)")
     for cls_name in EXCEPTION_CLASSES:
-        lines.append(f"  * [{cls_name}]({base}/{cls_name}.md)")
+        lines.append(f"  * [`{cls_name}`]({base}/{cls_name}.md)")
     lines.append("")
 
     # Releases
