@@ -2,8 +2,6 @@
 
 <a id="coinmetrics._exceptions.CoinMetricsClientRateLimitError"></a>
 
-## *exception* `CoinMetricsClientRateLimitError`
-
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientRateLimitError(
     response,

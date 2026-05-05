@@ -2,8 +2,6 @@
 
 <a id="coinmetrics._data_collection.DataCollection.get_schema_field_names"></a>
 
-## *method* `DataCollection.get_schema_field_names`
-
 ```python
 coinmetrics._data_collection.DataCollection.get_schema_field_names()
 ```

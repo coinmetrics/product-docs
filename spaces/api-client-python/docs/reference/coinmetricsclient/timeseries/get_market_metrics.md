@@ -2,8 +2,6 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_metrics"></a>
 
-## *method* `CoinMetricsClient.get_market_metrics`
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_metrics(
     markets,

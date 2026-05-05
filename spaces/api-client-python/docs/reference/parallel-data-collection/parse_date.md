@@ -2,10 +2,8 @@
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.parse_date"></a>
 
-## *static method* `ParallelDataCollection.parse_date`
-
 ```python
-coinmetrics._data_collection.ParallelDataCollection.parse_date(date_input)
+static coinmetrics._data_collection.ParallelDataCollection.parse_date(date_input)
 ```
 
 Parses a datetime object or datetime string into a datetime object. Datetime string must be a valid

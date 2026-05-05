@@ -2,8 +2,6 @@
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.to_dataframe"></a>
 
-## *method* `ParallelDataCollection.to_dataframe`
-
 ```python
 coinmetrics._data_collection.ParallelDataCollection.to_dataframe(
     dtype_mapper=None,

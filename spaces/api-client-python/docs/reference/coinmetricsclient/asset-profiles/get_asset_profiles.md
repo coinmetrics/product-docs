@@ -2,8 +2,6 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_asset_profiles"></a>
 
-## *method* `CoinMetricsClient.get_asset_profiles`
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_asset_profiles(
     assets=None,

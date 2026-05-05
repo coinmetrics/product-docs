@@ -2,8 +2,6 @@
 
 <a id="coinmetrics._data_collection.DataCollection"></a>
 
-## *class* `DataCollection`
-
 ```python
 class coinmetrics._data_collection.DataCollection(
     data_retrieval_function,

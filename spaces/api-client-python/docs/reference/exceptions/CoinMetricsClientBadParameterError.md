@@ -2,8 +2,6 @@
 
 <a id="coinmetrics._exceptions.CoinMetricsClientBadParameterError"></a>
 
-## *exception* `CoinMetricsClientBadParameterError`
-
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientBadParameterError(
     response,

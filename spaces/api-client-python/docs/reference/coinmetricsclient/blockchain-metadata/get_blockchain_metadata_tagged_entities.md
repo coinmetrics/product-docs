@@ -2,8 +2,6 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tagged_entities"></a>
 
-## *method* `CoinMetricsClient.get_blockchain_metadata_tagged_entities`
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tagged_entities(
     tags=None,

@@ -2,8 +2,6 @@
 
 <a id="coinmetrics.api_client.CmStream.run"></a>
 
-## *method* `CmStream.run`
-
 ```python
 coinmetrics.api_client.CmStream.run(
     on_message=None,

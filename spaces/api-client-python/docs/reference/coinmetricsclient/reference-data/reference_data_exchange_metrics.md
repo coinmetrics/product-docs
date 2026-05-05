@@ -2,8 +2,6 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_metrics"></a>
 
-## *method* `CoinMetricsClient.reference_data_exchange_metrics`
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_metrics(
     metrics=None,

@@ -2,8 +2,6 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_candles"></a>
 
-## *method* `CoinMetricsClient.get_stream_market_candles`
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_candles(
     markets,

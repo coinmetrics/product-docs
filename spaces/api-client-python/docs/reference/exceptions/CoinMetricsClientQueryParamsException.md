@@ -2,8 +2,6 @@
 
 <a id="coinmetrics._exceptions.CoinMetricsClientQueryParamsException"></a>
 
-## *exception* `CoinMetricsClientQueryParamsException`
-
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientQueryParamsException(
     response,

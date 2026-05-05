@@ -2,8 +2,6 @@
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.get_parallel_datacollections"></a>
 
-## *method* `ParallelDataCollection.get_parallel_datacollections`
-
 ```python
 coinmetrics._data_collection.ParallelDataCollection.get_parallel_datacollections()
 ```

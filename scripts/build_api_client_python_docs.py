@@ -1217,35 +1217,35 @@ def _emit_autodoc_heading(
       ``###`` (visually nested under their parent class on class pages, or
       top-level on group pages where there is no class heading).
     """
-    if level_override is not None:
-        level = level_override
-    elif kind in {"class", "exception"}:
-        level = "##"
-    else:
-        level = "###"
-    # pydata-sphinx-theme renders an autodoc heading as an italic kind
-    # keyword (the ``em.property`` span: ``class``, ``method``,
-    # ``property``, ...) followed by the symbol name in monospace. We use
-    # the same pattern in Markdown: ``*kind* `Name``` so GitBook surfaces
-    # the same visual hierarchy.
-    label_kind = _KIND_LABELS.get(kind) if kind else None
-    if label_kind:
-        label = f"{level} *{label_kind}* `{display_name}`"
-    else:
-        label = f"{level} `{display_name}`"
-    # Match the pydata-sphinx-theme convention: ``class`` / ``exception``
-    # use the keyword as the signature prefix (so the block reads like a
-    # real Python ``class Foo(...)`` definition); methods, properties and
-    # functions are rendered with no prefix because the kind annotation in
-    # the H2 above already conveys that information.
+    # pydata-sphinx-theme renders the entire autodoc signature as a
+    # single inline block: ``class pandas.DataFrame(data=None, ...)`` for
+    # classes, ``exception coinmetrics._exceptions.Foo(...)`` for
+    # exceptions, ``classmethod ClassName.alternate(...)`` for class
+    # methods, etc. The kind keyword sits *inside* the code-formatted
+    # signature instead of in a separate heading. We mirror that here:
+    # no H2, just an HTML anchor (so cross-references resolve) followed
+    # by a python-fenced block whose first token is the kind keyword for
+    # every non-method kind.
     if kind in {"class", "exception"}:
         prefix = kind
+    elif kind in {
+        "static",
+        "staticmethod",
+    }:
+        prefix = "static"
+    elif kind == "classmethod":
+        prefix = "classmethod"
+    elif kind in {"abstract", "abstractmethod"}:
+        prefix = "abstract"
+    elif kind == "property":
+        prefix = "property"
     else:
+        # Plain methods, functions, attributes, data: no kind keyword
+        # inside the signature, matching how pydata renders ordinary
+        # methods (``DataFrame.head(n=5)``).
         prefix = ""
     return [
         f'<a id="{anchor}"></a>',
-        "",
-        label,
         "",
         _format_signature_block(prefix, full_dotted, args),
     ]

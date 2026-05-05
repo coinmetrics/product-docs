@@ -2,8 +2,6 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_mining_pool_tips_summaries_v2"></a>
 
-## *method* `CoinMetricsClient.catalog_mining_pool_tips_summaries_v2`
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_mining_pool_tips_summaries_v2(
     assets=None,

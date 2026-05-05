@@ -2,8 +2,6 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_trades"></a>
 
-## *method* `CoinMetricsClient.get_market_trades`
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_trades(
     markets,

@@ -2,8 +2,6 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.security_master_assets"></a>
 
-## *method* `CoinMetricsClient.security_master_assets`
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.security_master_assets(
     assets=None,

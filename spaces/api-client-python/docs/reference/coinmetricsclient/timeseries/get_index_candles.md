@@ -2,8 +2,6 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_index_candles"></a>
 
-## *method* `CoinMetricsClient.get_index_candles`
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_index_candles(
     indexes,

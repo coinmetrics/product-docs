@@ -2,8 +2,6 @@
 
 <a id="coinmetrics._data_collection.DataCollection.export_to_csv"></a>
 
-## *method* `DataCollection.export_to_csv`
-
 ```python
 coinmetrics._data_collection.DataCollection.export_to_csv(
     path_or_bufstr=None,

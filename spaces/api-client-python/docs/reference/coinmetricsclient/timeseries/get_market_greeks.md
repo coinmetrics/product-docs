@@ -2,8 +2,6 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_greeks"></a>
 
-## *method* `CoinMetricsClient.get_market_greeks`
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_greeks(
     markets,

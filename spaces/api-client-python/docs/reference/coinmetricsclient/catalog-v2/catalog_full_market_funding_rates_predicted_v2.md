@@ -2,8 +2,6 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_market_funding_rates_predicted_v2"></a>
 
-## *method* `CoinMetricsClient.catalog_full_market_funding_rates_predicted_v2`
-
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_funding_rates_predicted_v2(
     markets=None,
