@@ -1,6 +1,6 @@
 # API Client Reference
 
-The Python client surface is split across three classes:
+The Python client surface is split across the following classes:
 
 - **`CoinMetricsClient`** -- the entry point. One Python method per Coin Metrics REST endpoint, grouped by endpoint root (Catalog v2, Time Series, ...).
 - **`DataCollection`** -- the lazy iterator returned by every REST method. Provides paging, conversion to pandas/Polars data frames, and CSV/JSON export.

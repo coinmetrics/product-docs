@@ -378,6 +378,7 @@ def stage_source() -> None:
         shutil.copy2(SUBMODULE_CHANGELOG, releases_dir / "changelog.md")
 
     _patch_index_toctree(STAGED_SOURCE / "index.md")
+    _patch_reference_overview(STAGED_SOURCE / "reference" / "api_client.md")
     _drop_curated_reference_pages(STAGED_SOURCE / "reference")
     _strip_grids_in_tree(STAGED_SOURCE)
     _strip_toctrees_in_tree(STAGED_SOURCE)
@@ -459,6 +460,25 @@ def _patch_index_toctree(index_path: Path) -> None:
     text = index_path.read_text()
     text = text.replace("releases/CHANGELOG", "releases/changelog")
     index_path.write_text(text)
+
+
+def _patch_reference_overview(overview_path: Path) -> None:
+    """Fix the upstream ``Reference > Overview`` intro.
+
+    The submodule's ``api_client.md`` says the client surface is "split
+    across three classes" but then enumerates five entries
+    (``CoinMetricsClient``, ``DataCollection``, ``ParallelDataCollection``,
+    ``CmStream`` and the exception hierarchy). Replace the misleading
+    count with vague phrasing so the prose matches the bullet list.
+    """
+    if not overview_path.is_file():
+        return
+    text = overview_path.read_text()
+    text = text.replace(
+        "The Python client surface is split across three classes:",
+        "The Python client surface is split across the following classes:",
+    )
+    overview_path.write_text(text)
 
 
 # Matches a sphinx-design ``::::{grid}`` block (4 colons) wrapping one or
