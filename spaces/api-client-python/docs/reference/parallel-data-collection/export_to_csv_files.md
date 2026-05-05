@@ -2,7 +2,13 @@
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.export_to_csv_files"></a>
 
-`coinmetrics._data_collection.ParallelDataCollection.export_to_csv_files(data_directory=None, columns_to_store=None, compress=False)`
+```python
+coinmetrics._data_collection.ParallelDataCollection.export_to_csv_files(
+    data_directory=None,
+    columns_to_store=None,
+    compress=False,
+)
+```
 
 Export the parallelized request to a directory of CSV files, one file
 per combination of the `parallelize_on` attribute of the parent

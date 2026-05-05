@@ -2,7 +2,26 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_rebasing_changes_v2"></a>
 
-`coinmetrics.api_client.CoinMetricsClient.get_list_of_rebasing_changes_v2(asset, txids=None, block_hashes=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_chain_sequence_number=None, end_chain_sequence_number=None, chain=None, start_inclusive=None, end_inclusive=None, timezone=None, ignore_unsupported_errors=False)`
+```python
+coinmetrics.api_client.CoinMetricsClient.get_list_of_rebasing_changes_v2(
+    asset,
+    txids=None,
+    block_hashes=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    start_chain_sequence_number=None,
+    end_chain_sequence_number=None,
+    chain=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    ignore_unsupported_errors=False,
+)
+```
 
 Returns a list of blockchain rebasing changes.
 

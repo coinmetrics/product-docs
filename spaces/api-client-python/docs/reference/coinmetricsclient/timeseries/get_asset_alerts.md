@@ -2,7 +2,21 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_asset_alerts"></a>
 
-`coinmetrics.api_client.CoinMetricsClient.get_asset_alerts(assets, alerts, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, include_heartbeats=None, format=None)`
+```python
+coinmetrics.api_client.CoinMetricsClient.get_asset_alerts(
+    assets,
+    alerts,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    include_heartbeats=None,
+    format=None,
+)
+```
 
 Returns asset alerts for the specified assets.
 

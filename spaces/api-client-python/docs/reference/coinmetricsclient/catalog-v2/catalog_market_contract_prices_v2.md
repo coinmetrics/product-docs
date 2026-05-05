@@ -2,7 +2,26 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_market_contract_prices_v2"></a>
 
-`coinmetrics.api_client.CoinMetricsClient.catalog_market_contract_prices_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, format='json_stream', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from=None, next_page_token=None)`
+```python
+coinmetrics.api_client.CoinMetricsClient.catalog_market_contract_prices_v2(
+    markets=None,
+    exchange=None,
+    market_type=None,
+    base=None,
+    quote=None,
+    asset=None,
+    symbol=None,
+    format='json_stream',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    page_size=None,
+    paging_from=None,
+    next_page_token=None,
+)
+```
 
 Returns a list of contract prices for option market.
 

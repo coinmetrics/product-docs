@@ -2,7 +2,15 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_asset_metrics"></a>
 
-`coinmetrics.api_client.CoinMetricsClient.reference_data_asset_metrics(metrics=None, reviewable=None, page_size=None, paging_from=None, format='json_stream')`
+```python
+coinmetrics.api_client.CoinMetricsClient.reference_data_asset_metrics(
+    metrics=None,
+    reviewable=None,
+    page_size=None,
+    paging_from=None,
+    format='json_stream',
+)
+```
 
 Returns a list of asset metrics metadata.
 

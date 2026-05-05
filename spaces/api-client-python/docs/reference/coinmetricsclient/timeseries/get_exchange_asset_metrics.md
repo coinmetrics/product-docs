@@ -2,7 +2,25 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_exchange_asset_metrics"></a>
 
-`coinmetrics.api_client.CoinMetricsClient.get_exchange_asset_metrics(exchange_assets, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_exchange_asset=None, format='json_stream')`
+```python
+coinmetrics.api_client.CoinMetricsClient.get_exchange_asset_metrics(
+    exchange_assets,
+    metrics,
+    frequency=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    sort=None,
+    limit_per_exchange_asset=None,
+    format='json_stream',
+)
+```
 
 Returns metrics for specified exchange-asset.
 

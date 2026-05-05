@@ -1272,21 +1272,15 @@ def _emit_autodoc_heading(
         # (``DataFrame.head(n=5)``).
         prefix = ""
 
-    head = f"{prefix} {full_dotted}".strip()
-    if args is None:
-        signature = head
-    else:
-        signature = f"{head}({args.strip()})"
-
-    # Render the signature as a normal paragraph in monospace code, not
-    # as a heading. The H1 page title (and the SUMMARY.md sidebar entry,
-    # also wrapped in backticks) already give GitBook everything it
-    # needs for navigation, so a heading here would be redundant. Keeping
-    # the inline code span preserves the pydata-sphinx-theme look.
+    # Render the signature as a python-fenced code block. This gives the
+    # signature syntax highlighting (matching the pydata-sphinx-theme
+    # look where the kind keyword and arguments are colorised) and
+    # cleanly wraps long parameter lists across multiple lines via
+    # ``_format_signature_block``.
     return [
         f'<a id="{anchor}"></a>',
         "",
-        f"`{signature}`",
+        _format_signature_block(prefix, full_dotted, args),
     ]
 
 

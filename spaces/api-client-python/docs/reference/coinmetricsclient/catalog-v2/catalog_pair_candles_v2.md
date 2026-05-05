@@ -2,7 +2,15 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_pair_candles_v2"></a>
 
-`coinmetrics.api_client.CoinMetricsClient.catalog_pair_candles_v2(pairs=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
+```python
+coinmetrics.api_client.CoinMetricsClient.catalog_pair_candles_v2(
+    pairs=None,
+    page_size=None,
+    paging_from=None,
+    next_page_token=None,
+    format='json_stream',
+)
+```
 
 Returns a list of available asset pair candles along with the time ranges of available data per candle
 duration.

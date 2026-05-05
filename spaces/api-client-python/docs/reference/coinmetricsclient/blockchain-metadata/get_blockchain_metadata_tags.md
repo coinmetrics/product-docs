@@ -2,7 +2,13 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tags"></a>
 
-`coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tags(type=None, page_size=None, next_page_token=None)`
+```python
+coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tags(
+    type=None,
+    page_size=None,
+    next_page_token=None,
+)
+```
 
 Returns a list of all available tags along with their descriptions, lexicographically ordered by the tag field.
 

@@ -2,7 +2,19 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_asset_chains"></a>
 
-`coinmetrics.api_client.CoinMetricsClient.get_asset_chains(assets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format=None)`
+```python
+coinmetrics.api_client.CoinMetricsClient.get_asset_chains(
+    assets,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    format=None,
+)
+```
 
 Returns the chains of blocks for the specified assets.
 

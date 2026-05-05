@@ -2,7 +2,22 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_contract_prices"></a>
 
-`coinmetrics.api_client.CoinMetricsClient.get_market_contract_prices(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, granularity=None, timezone=None, limit_per_market=None, frequency=None, format='json_stream')`
+```python
+coinmetrics.api_client.CoinMetricsClient.get_market_contract_prices(
+    markets,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    granularity=None,
+    timezone=None,
+    limit_per_market=None,
+    frequency=None,
+    format='json_stream',
+)
+```
 
 Returns contract prices for specified markets. This includes index price and mark price that are used by the exchange for settlement and risk management purposes.
 

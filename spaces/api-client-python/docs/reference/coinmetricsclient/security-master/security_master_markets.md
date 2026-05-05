@@ -2,7 +2,19 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.security_master_markets"></a>
 
-`coinmetrics.api_client.CoinMetricsClient.security_master_markets(type=None, markets=None, symbol=None, exchange=None, base=None, quote=None, page_size=None, paging_from=None, next_page_token=None)`
+```python
+coinmetrics.api_client.CoinMetricsClient.security_master_markets(
+    type=None,
+    markets=None,
+    symbol=None,
+    exchange=None,
+    base=None,
+    quote=None,
+    page_size=None,
+    paging_from=None,
+    next_page_token=None,
+)
+```
 
 Returns metadata on all the markets offered (spot, options, futures), sorted alphabetically by market.
 

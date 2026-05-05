@@ -2,7 +2,13 @@
 
 <a id="coinmetrics._exceptions.CoinMetricsClientRateLimitError"></a>
 
-`exception coinmetrics._exceptions.CoinMetricsClientRateLimitError(response, *args, **kwargs)`
+```python
+exception coinmetrics._exceptions.CoinMetricsClientRateLimitError(
+    response,
+    *args,
+    **kwargs,
+)
+```
 
 Bases: `HTTPError`
 

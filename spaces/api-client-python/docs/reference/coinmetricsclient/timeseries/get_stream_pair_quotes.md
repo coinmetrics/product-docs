@@ -2,7 +2,13 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_pair_quotes"></a>
 
-`coinmetrics.api_client.CoinMetricsClient.get_stream_pair_quotes(pairs, aggregation_method=None, backfill=None)`
+```python
+coinmetrics.api_client.CoinMetricsClient.get_stream_pair_quotes(
+    pairs,
+    aggregation_method=None,
+    backfill=None,
+)
+```
 
 Returns a websocket stream of pair quotes for the requested asset pairs.
 

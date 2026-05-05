@@ -2,7 +2,9 @@
 
 <a id="coinmetrics._data_collection.DataCollection.to_list"></a>
 
-`coinmetrics._data_collection.DataCollection.to_list()`
+```python
+coinmetrics._data_collection.DataCollection.to_list()
+```
 
 
 **Returns:**

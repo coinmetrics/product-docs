@@ -2,7 +2,13 @@
 
 <a id="coinmetrics._exceptions.CoinMetricsClientConnectionError"></a>
 
-`exception coinmetrics._exceptions.CoinMetricsClientConnectionError(original_error, *args, **kwargs)`
+```python
+exception coinmetrics._exceptions.CoinMetricsClientConnectionError(
+    original_error,
+    *args,
+    **kwargs,
+)
+```
 
 Bases: [`Exception`](https://docs.python.org/3/library/exceptions.html#Exception)
 

@@ -2,7 +2,21 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_defi_balance_sheets"></a>
 
-`coinmetrics.api_client.CoinMetricsClient.get_defi_balance_sheets(defi_protocols, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, format=None)`
+```python
+coinmetrics.api_client.CoinMetricsClient.get_defi_balance_sheets(
+    defi_protocols,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    format=None,
+)
+```
 
 Returns Defi Balance Sheet records for specified DeFi protocols.
 

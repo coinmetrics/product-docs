@@ -2,7 +2,22 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_quotes"></a>
 
-`coinmetrics.api_client.CoinMetricsClient.get_market_quotes(markets, granularity=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, include_one_sided=None, format='json_stream')`
+```python
+coinmetrics.api_client.CoinMetricsClient.get_market_quotes(
+    markets,
+    granularity=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    limit_per_market=None,
+    include_one_sided=None,
+    format='json_stream',
+)
+```
 
 Returns market quotes for specified markets and date range.
 For more information on quotes, see: [https://docs.coinmetrics.io/info/markets/quotes](https://docs.coinmetrics.io/info/markets/quotes)

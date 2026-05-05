@@ -2,7 +2,21 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_index_candles"></a>
 
-`coinmetrics.api_client.CoinMetricsClient.get_index_candles(indexes, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_index=None, format='json_stream')`
+```python
+coinmetrics.api_client.CoinMetricsClient.get_index_candles(
+    indexes,
+    frequency=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    limit_per_index=None,
+    format='json_stream',
+)
+```
 
 Returns index candles for specified indexes and date range.
 

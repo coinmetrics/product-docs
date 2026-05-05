@@ -2,7 +2,9 @@
 
 <a id="coinmetrics._data_collection.DataCollection.first_page"></a>
 
-`coinmetrics._data_collection.DataCollection.first_page()`
+```python
+coinmetrics._data_collection.DataCollection.first_page()
+```
 
 
 **Returns:**

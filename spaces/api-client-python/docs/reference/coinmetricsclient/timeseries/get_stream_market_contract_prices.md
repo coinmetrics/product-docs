@@ -2,7 +2,12 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_contract_prices"></a>
 
-`coinmetrics.api_client.CoinMetricsClient.get_stream_market_contract_prices(markets, backfill=None)`
+```python
+coinmetrics.api_client.CoinMetricsClient.get_stream_market_contract_prices(
+    markets,
+    backfill=None,
+)
+```
 
 Returns timeseries stream of market contract prices.
 

@@ -2,7 +2,15 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_transaction_tracker_assets_v2"></a>
 
-`coinmetrics.api_client.CoinMetricsClient.catalog_full_transaction_tracker_assets_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
+```python
+coinmetrics.api_client.CoinMetricsClient.catalog_full_transaction_tracker_assets_v2(
+    assets=None,
+    page_size=None,
+    paging_from=None,
+    next_page_token=None,
+    format='json_stream',
+)
+```
 
 Returns a list of all supported assets for the transaction-tracker endpoint along with time ranges of
 available data.

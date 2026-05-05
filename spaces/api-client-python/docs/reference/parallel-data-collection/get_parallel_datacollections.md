@@ -2,7 +2,9 @@
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.get_parallel_datacollections"></a>
 
-`coinmetrics._data_collection.ParallelDataCollection.get_parallel_datacollections()`
+```python
+coinmetrics._data_collection.ParallelDataCollection.get_parallel_datacollections()
+```
 
 Materialize the cartesian product of every parallelized URL parameter
 (and, optionally, every time / height increment) into one
