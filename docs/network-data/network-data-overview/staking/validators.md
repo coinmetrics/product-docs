@@ -360,14 +360,14 @@ and by passing in the metric ID's `Validator*` in the `metrics` parameter.
 {% tabs %}
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=ValidatorActExtCnt&assets=eth&pretty=true&api_key=<your_key>"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=ValidatorActExtCnt&assets=eth_cl&frequency=1h&pretty=true&api_key=<your_key>"
 ```
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=ValidatorActExtCnt&assets=eth&pretty=true&api_key=<your_key>').json()
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=ValidatorActExtCnt&assets=eth_cl&frequency=1h&pretty=true&api_key=<your_key>').json()
 print(response)
 ```
 {% endtab %}
@@ -382,7 +382,7 @@ client = CoinMetricsClient(api_key)
 print(
     client.get_asset_metrics(
         metrics="ValidatorActExtCnt", 
-        assets="eth",
+        assets="eth_cl",
     ).to_dataframe()
 )
 ```

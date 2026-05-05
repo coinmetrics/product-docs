@@ -9,8 +9,11 @@ Parses outputs from all test tools and creates:
 
 # Standard library imports
 import json
+import os
 import re
 import sys
+import urllib.parse
+import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
@@ -109,35 +112,132 @@ def parse_lychee(report_path):
     """Parse lychee JSON output."""
     if not report_path.exists():
         return []
-    
+
+    # Domains tracked as INFO (suggestion) rather than errors.
+    # These are authenticated or bot-blocked pages that return non-200 responses
+    # when crawled by a link checker, but we still want visibility in the docs.
+    INFO_DOMAINS = {
+        'atlas.coinmetrics.io',  # Requires login — 403 expected from crawler
+    }
+
+    # For api.coinmetrics.io URLs, lychee sees 401s because the example links
+    # use placeholder api_key values. If CM_API_KEY is set, we re-verify by
+    # substituting the real key and making a fresh request:
+    #   - 2xx response  → drop the issue entirely (link is valid)
+    #   - non-2xx       → keep as a genuine error
+    # If CM_API_KEY is not set, fall back to suggestion level (auth issue, not
+    # a broken link).
+    API_DOMAIN = 'api.coinmetrics.io'
+    cm_api_key = os.environ.get('CM_API_KEY', '').strip()
+
+    def reverify_api_url(url):
+        """
+        Replace the api_key query parameter with CM_API_KEY and check the URL.
+        Returns the HTTP status code, or None if the request failed entirely.
+        """
+        parsed = urllib.parse.urlparse(url)
+        params = urllib.parse.parse_qs(parsed.query, keep_blank_values=True)
+        # Replace whatever value api_key has (empty, placeholder, etc.)
+        params['api_key'] = [cm_api_key]
+        new_query = urllib.parse.urlencode(params, doseq=True)
+        new_url = parsed._replace(query=new_query).geturl()
+        try:
+            req = urllib.request.Request(new_url, method='GET')
+            req.add_header('User-Agent', 'Mozilla/5.0 (docs-link-checker)')
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                return resp.status
+        except urllib.error.HTTPError as e:
+            return e.code
+        except Exception:
+            return None
+
     try:
         with open(report_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        
+
         issues = []
         error_map = data.get('error_map', data.get('fail_map', {}))
-        
+
         for file_path, failures in error_map.items():
             for failure in failures:
                 url = failure.get('url', 'unknown')
                 status = failure.get('status', {})
                 status_text = status.get('text', 'Unknown error')
                 status_code = status.get('code', '')
-                
-                if status_code:
-                    message = f"Broken link [{status_code}]: {url} - {status_text}"
+
+                domain = urllib.parse.urlparse(url).netloc
+
+                def http_rule(code):
+                    """Convert a status code to a descriptive rule label."""
+                    if not code:
+                        return 'Connection Error'
+                    labels = {
+                        401: 'HTTP 401 Unauthorized',
+                        403: 'HTTP 403 Forbidden',
+                        404: 'HTTP 404 Not Found',
+                        429: 'HTTP 429 Too Many Requests',
+                        522: 'HTTP 522 Timeout',
+                    }
+                    return labels.get(int(code), f'HTTP {code}')
+
+                # --- api.coinmetrics.io: re-verify with real API key ---
+                if domain == API_DOMAIN:
+                    if cm_api_key:
+                        verified_code = reverify_api_url(url)
+                        if verified_code is not None and 200 <= verified_code < 300:
+                            # Link is valid once authenticated — skip it
+                            continue
+                        # Still failing with a real key — report as a genuine error
+                        message = (
+                            f"Broken link [{verified_code}] (re-verified with CM_API_KEY): "
+                            f"{url} - {status_text}"
+                        )
+                        issues.append({
+                            'file': file_path,
+                            'line': '1',
+                            'column': '1',
+                            'rule': http_rule(verified_code),
+                            'message': message,
+                            'severity': 'error'
+                        })
+                    else:
+                        # No API key available — downgrade to suggestion
+                        message = (
+                            f"Unverified link (set CM_API_KEY to validate) "
+                            f"[{status_code}]: {url} - {status_text}"
+                        )
+                        issues.append({
+                            'file': file_path,
+                            'line': '1',
+                            'column': '1',
+                            'rule': 'Unverified (no CM_API_KEY)',
+                            'message': message,
+                            'severity': 'suggestion'
+                        })
+                    continue
+
+                # --- All other domains ---
+                if domain in INFO_DOMAINS:
+                    message = (
+                        f"Link requires browser authentication [{status_code}]: {url} - {status_text}"
+                    )
+                    severity = 'suggestion'
                 else:
-                    message = f"Broken link: {url} - {status_text}"
-                
+                    if status_code:
+                        message = f"Broken link [{status_code}]: {url} - {status_text}"
+                    else:
+                        message = f"Broken link: {url} - {status_text}"
+                    severity = 'error'
+
                 issues.append({
                     'file': file_path,
                     'line': '1',
                     'column': '1',
-                    'rule': 'broken-link',
+                    'rule': http_rule(status_code),
                     'message': message,
-                    'severity': 'error'
+                    'severity': severity
                 })
-        
+
         return issues
     except Exception as e:
         print(f"Error parsing lychee report: {e}")
@@ -887,6 +987,55 @@ def generate_html_header(timestamp):
         .section {{
             position: relative;
         }}
+
+        /* Rule breakdown table inside each section */
+        .rule-breakdown {{
+            padding: 12px 20px 8px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-body);
+        }}
+        .collapsed .rule-breakdown {{ display: none; }}
+        .rule-breakdown-title {{
+            font-size: var(--font-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }}
+        .rule-row {{
+            display: grid;
+            grid-template-columns: 220px 1fr 52px;
+            align-items: center;
+            gap: 10px;
+            padding: 4px 0;
+            font-size: var(--font-sm);
+        }}
+        .rule-name {{
+            font-family: monospace;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }}
+        .rule-bar-wrap {{
+            height: 6px;
+            background: var(--border);
+            border-radius: 99px;
+            overflow: hidden;
+        }}
+        .rule-bar {{
+            height: 100%;
+            background: var(--primary);
+            border-radius: 99px;
+            transition: width 0.3s ease;
+        }}
+        .rule-count {{
+            font-weight: 600;
+            color: var(--text-muted);
+            text-align: right;
+            font-size: var(--font-xs);
+        }}
     </style>
 </head>
 <body>
@@ -1114,13 +1263,37 @@ def generate_details_sections(by_source):
                 legend_badges.append(f'<span class="breakdown-badge bd-warning">🟡 {section_counts["warning"]} warnings</span>')
             if section_counts['suggestion'] > 0:
                 legend_badges.append(f'<span class="breakdown-badge bd-suggestion">🔵 {section_counts["suggestion"]} suggestions</span>')
-            
+
             if legend_badges:
                 legend_html = f"""
                 <div class="section-legend">
                     {' '.join(legend_badges)}
                 </div>
                 """
+
+        # Generate rule breakdown table (only when 2+ distinct rules exist)
+        rule_breakdown_html = ""
+        if len(issues) > 0:
+            from collections import Counter
+            rule_counts = Counter(issue.get('rule', 'unknown') for issue in issues)
+            if len(rule_counts) >= 2:
+                max_count = max(rule_counts.values())
+                rows_html = ""
+                for rule, count in rule_counts.most_common():
+                    bar_pct = int((count / max_count) * 100)
+                    rows_html += f"""
+                        <div class="rule-row">
+                            <span class="rule-name" title="{rule}">{rule}</span>
+                            <div class="rule-bar-wrap">
+                                <div class="rule-bar" style="width:{bar_pct}%"></div>
+                            </div>
+                            <span class="rule-count">{count:,}</span>
+                        </div>"""
+                rule_breakdown_html = f"""
+                <div class="rule-breakdown">
+                    <div class="rule-breakdown-title">Rule breakdown</div>
+                    {rows_html}
+                </div>"""
         
         # Generate skeleton loader HTML
         skeleton_html = """
@@ -1153,6 +1326,7 @@ def generate_details_sections(by_source):
                     <span class="tool-count {'has-issues' if len(issues) > 0 else 'pass'}">{len(issues)}</span>
                 </div>
                 {legend_html}
+                {rule_breakdown_html}
                 {skeleton_html}
                 <div class="issue-grid">
             """

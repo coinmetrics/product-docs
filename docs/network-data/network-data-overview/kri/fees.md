@@ -141,14 +141,14 @@ Fees metrics can be accessed using these endpoints:`timeseries/asset-metrics`and
 {% tabs %}
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=mempool_fee&assets=btc&pretty=true&api_key=<your_key>"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=mempool_fee&assets=btc&frequency=1m&pretty=true&api_key=<your_key>"
 ```
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=mempool_fee&assets=btc&pretty=true&api_key=<your_key>').json()
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=mempool_fee&assets=btc&frequency=1m&pretty=true&api_key=<your_key>').json()
 print(response)
 ```
 {% endtab %}

@@ -46,7 +46,7 @@ redirects:
   asset-metrics/addresses/walactsentcnt: network-data/network-data-overview/wallets/active-wallets.md
   asset-metrics/availability/assetcompletiontime: network-data/network-data-overview/availability/README.md
   asset-metrics/availability/asseteodcompletiontime: network-data/network-data-overview/availability/README.md
-  asset-metrics/economics/mcrc: network-data/network-data-overview/economics/mining.md  # anchor #mcrc removed: GitBook redirect targets do not resolve URL fragments
+  asset-metrics/economics/mcrc: network-data/network-data-overview/economics/mining.md  # anchor #mcrc removed
   asset-metrics/economics/mctc: network-data/network-data-overview/economics/mining.md  # anchor #mctc removed: GitBook redirect targets do not resolve URL fragments
   asset-metrics/economics/momr: network-data/network-data-overview/economics/mining.md  # anchor #momr removed: GitBook redirect targets do not resolve URL fragments
   asset-metrics/economics/nvtadj90: network-data/network-data-overview/economics/valuation.md
