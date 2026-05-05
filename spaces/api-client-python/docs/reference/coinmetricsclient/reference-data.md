@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_asset_metrics"></a>
 
-### reference_data_asset_metrics
+### CoinMetricsClient.reference_data_asset_metrics
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_asset_metrics(
@@ -29,7 +29,7 @@ Returns a list of asset metrics metadata.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_assets"></a>
 
-### reference_data_assets
+### CoinMetricsClient.reference_data_assets
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_assets(
@@ -58,7 +58,7 @@ Returns a list of assets metadata.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_asset_metrics"></a>
 
-### reference_data_exchange_asset_metrics
+### CoinMetricsClient.reference_data_exchange_asset_metrics
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_asset_metrics(
@@ -83,7 +83,7 @@ Returns a list of exchange asset metrics metadata.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_metrics"></a>
 
-### reference_data_exchange_metrics
+### CoinMetricsClient.reference_data_exchange_metrics
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_metrics(
@@ -108,7 +108,7 @@ Returns a list of exchange metrics metadata.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_pair_metrics"></a>
 
-### reference_data_exchange_pair_metrics
+### CoinMetricsClient.reference_data_exchange_pair_metrics
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_pair_metrics(
@@ -133,7 +133,7 @@ Returns a list of exchange pair metrics metadata.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_exchanges"></a>
 
-### reference_data_exchanges
+### CoinMetricsClient.reference_data_exchanges
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_exchanges(
@@ -162,7 +162,7 @@ Returns a list of exchanges metadata.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_indexes"></a>
 
-### reference_data_indexes
+### CoinMetricsClient.reference_data_indexes
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_indexes(
@@ -189,7 +189,7 @@ Returns a list of indexes metadata.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_institution_metrics"></a>
 
-### reference_data_institution_metrics
+### CoinMetricsClient.reference_data_institution_metrics
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_institution_metrics(
@@ -214,7 +214,7 @@ Returns a list of institution metrics metadata.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_market_metrics"></a>
 
-### reference_data_market_metrics
+### CoinMetricsClient.reference_data_market_metrics
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_market_metrics(
@@ -241,7 +241,7 @@ Returns a list of market metrics metadata.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_markets"></a>
 
-### reference_data_markets
+### CoinMetricsClient.reference_data_markets
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_markets(
@@ -282,7 +282,7 @@ Returns a list of markets metadata.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_pair_metrics"></a>
 
-### reference_data_pair_metrics
+### CoinMetricsClient.reference_data_pair_metrics
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_pair_metrics(
@@ -307,7 +307,7 @@ Returns a list of pair metrics metadata.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_pairs"></a>
 
-### reference_data_pairs
+### CoinMetricsClient.reference_data_pairs
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_pairs(

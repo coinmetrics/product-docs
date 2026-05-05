@@ -51,7 +51,7 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Tuple
+from typing import Iterable, List, Optional, Tuple
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -168,12 +168,6 @@ APIDOC_EXCLUDE_FILES = (
 # ---------------------------------------------------------------------------
 
 
-# Mapping of group slug -> ordered list of method names, captured from
-# ``_generate_groups.py`` after it runs. Used by ``_render_summary`` to
-# emit one nested SUMMARY.md entry per method so each endpoint method is
-# accessible directly from the GitBook left sidebar.
-GROUP_METHODS: Dict[str, List[str]] = {}
-
 # Declarative GitBook navigation. Each section is a (heading_or_None, entries)
 # pair, where ``entries`` is an ordered list of ``(title, target, children)``
 # triples. ``target`` is the link target relative to the GitBook space root.
@@ -221,7 +215,14 @@ SUMMARY_CONFIG: List[Tuple[str | None, List[Tuple[str, str, List[Tuple[str, str]
 
 
 def _render_summary() -> str:
-    """Compose ``SUMMARY.md`` from ``SUMMARY_CONFIG``, ``GROUP_PAGES`` and ``GROUP_METHODS``."""
+    """Compose ``SUMMARY.md`` from ``SUMMARY_CONFIG`` and ``GROUP_PAGES``.
+
+    Per-method entries are intentionally NOT emitted: GitBook collapses
+    deeply nested SUMMARY entries by default (so they would not be visible
+    anyway) and inflates the sidebar for every page. Method-level
+    discoverability is handled by GitBook's full-text search, which indexes
+    the qualified ``ClassName.method`` headings rendered on each page.
+    """
     lines: List[str] = ["# Table of contents", ""]
     intro_title, intro_target = SUMMARY_INTRO
     lines.append(f"* [{intro_title}]({intro_target})")
@@ -232,21 +233,12 @@ def _render_summary() -> str:
             lines.append("")
         for title, target, children in entries:
             lines.append(f"* [{title}]({target})")
-            # Inject the auto-discovered group pages beneath CoinMetricsClient,
-            # and one nested entry per method so each endpoint is reachable
-            # directly from the GitBook left sidebar.
+            # Inject the auto-discovered per-endpoint group pages beneath
+            # CoinMetricsClient.
             if target == "reference/coinmetricsclient.md":
                 for slug, label in GROUP_PAGES:
                     page = f"reference/coinmetricsclient/{slug}.md"
                     lines.append(f"  * [{label}]({page})")
-                    for method_name in GROUP_METHODS.get(slug, []):
-                        anchor = (
-                            "coinmetrics.api_client.CoinMetricsClient."
-                            + method_name
-                        )
-                        lines.append(
-                            f"    * [{method_name}]({page}#{anchor})"
-                        )
             for child_title, child_target in children:
                 lines.append(f"  * [{child_title}]({child_target})")
         lines.append("")
@@ -619,15 +611,6 @@ def regenerate_group_pages() -> None:
     module._render_group = _render_group_no_autosummary
     module.main()
 
-    # Capture the resolved group -> methods mapping so SUMMARY.md can list
-    # each endpoint method directly under its parent group entry. We re-call
-    # ``_collect_methods`` (cheap: a single AST parse) instead of caching
-    # state inside ``main`` so we keep the upstream entrypoint untouched.
-    GROUP_METHODS.clear()
-    for slug, group in module._collect_methods().items():
-        if group.methods:
-            GROUP_METHODS[slug] = list(group.methods)
-
 
 # ---------------------------------------------------------------------------
 # Sphinx build
@@ -870,15 +853,23 @@ def _format_signature_block(prefix: str, full_dotted: str, args: Optional[str]) 
 def _emit_autodoc_heading(
     hashes: str,
     kind: Optional[str],
-    short_name: str,
+    display_name: str,
     anchor: str,
     full_dotted: str,
     args: Optional[str],
     promote_to_h3: bool,
 ) -> List[str]:
-    """Build the multi-line replacement for a single autodoc heading."""
+    """Build the multi-line replacement for a single autodoc heading.
+
+    ``display_name`` is the human-readable text rendered inside the heading
+    itself. For class / exception / function it is the short symbol name
+    (``CoinMetricsClient``). For method / property / attribute headings it
+    is the qualified ``ClassName.symbol`` form -- this matches Sphinx's
+    native pydata rendering and, more importantly for GitBook, makes every
+    method heading globally unique so it ranks well in the search bar.
+    """
     level = "###" if promote_to_h3 and len(hashes) > 3 else hashes
-    label = f"{level} *{kind}* {short_name}" if kind else f"{level} {short_name}"
+    label = f"{level} *{kind}* {display_name}" if kind else f"{level} {display_name}"
     if kind in {"class", "exception"}:
         prefix = kind
     elif kind == "function":
@@ -956,6 +947,16 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
             module_qualifier = qualifier.rsplit(".", 1)[0]
             break
 
+    # Whether a ``*class*`` / ``*exception*`` heading has appeared on this
+    # page. When true, method/property headings stay one Markdown level
+    # below the class heading (e.g. class at H3 -> methods at H4) so the
+    # rendered TOC visually nests methods under their parent class -- this
+    # matches Sphinx's native pydata layout. When false (group pages, which
+    # are flat lists of methods under a synthetic ``currentmodule``), method
+    # headings are promoted to H3 so they remain top-level on the page and
+    # show up in GitBook's right-hand "On this page" panel.
+    seen_class_on_page = False
+
     out: List[str] = []
 
     def _append_block(block: List[str]) -> None:
@@ -965,6 +966,17 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
         if out and out[-1].strip():
             out.append("")
         out.extend(block)
+
+    def _qualified_method_name(dotted: str) -> str:
+        """``Class.method`` form for use as the displayed heading text."""
+        short = dotted.rsplit(".", 1)[-1]
+        if class_qualifier:
+            class_short = class_qualifier.rsplit(".", 1)[-1]
+            # Avoid double-prefixing if Sphinx already emitted ``Class.method``.
+            if dotted.startswith(class_short + "."):
+                return dotted
+            return f"{class_short}.{short}"
+        return short
 
     for line in text.split("\n"):
         m = _AUTODOC_KIND_RE.match(line)
@@ -977,23 +989,31 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
                 # Reset the class context for subsequent method headings.
                 class_qualifier = dotted
                 module_qualifier = dotted.rsplit(".", 1)[0]
+                seen_class_on_page = True
+                display = dotted.rsplit(".", 1)[-1]
                 anchor, full = dotted, dotted
+                promote = False
+            elif kind == "function":
+                # Module-level functions stay as their short name; they have
+                # no enclosing class to qualify with.
+                display = dotted.rsplit(".", 1)[-1]
+                anchor, full = dotted, dotted
+                promote = not seen_class_on_page
             else:
                 anchor, full = _resolve_anchor(
                     dotted, kind, class_qualifier, module_qualifier
                 )
+                display = _qualified_method_name(dotted)
+                promote = not seen_class_on_page
             _append_block(
                 _emit_autodoc_heading(
                     hashes,
                     kind,
-                    short_name=dotted.rsplit(".", 1)[-1],
+                    display_name=display,
                     anchor=anchor,
                     full_dotted=full,
                     args=args,
-                    # Class / exception headings stay where Sphinx put them
-                    # (they're top-level on their page); methods/properties
-                    # / etc. get promoted to H3.
-                    promote_to_h3=kind not in {"class", "exception"},
+                    promote_to_h3=promote,
                 )
             )
             continue
@@ -1010,11 +1030,11 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
                 _emit_autodoc_heading(
                     hashes,
                     kind=None,
-                    short_name=dotted.rsplit(".", 1)[-1],
+                    display_name=_qualified_method_name(dotted),
                     anchor=anchor,
                     full_dotted=full,
                     args=args,
-                    promote_to_h3=True,
+                    promote_to_h3=not seen_class_on_page,
                 )
             )
             continue

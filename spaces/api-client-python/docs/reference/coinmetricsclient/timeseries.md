@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_asset_alerts"></a>
 
-### get_asset_alerts
+### CoinMetricsClient.get_asset_alerts
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_asset_alerts(
@@ -41,7 +41,7 @@ Returns asset alerts for the specified assets.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_asset_chains"></a>
 
-### get_asset_chains
+### CoinMetricsClient.get_asset_chains
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_asset_chains(
@@ -76,7 +76,7 @@ Returns the chains of blocks for the specified assets.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_asset_metrics"></a>
 
-### get_asset_metrics
+### CoinMetricsClient.get_asset_metrics
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_asset_metrics(
@@ -144,7 +144,7 @@ Returns requested metrics for specified assets.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_defi_balance_sheets"></a>
 
-### get_defi_balance_sheets
+### CoinMetricsClient.get_defi_balance_sheets
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_defi_balance_sheets(
@@ -183,7 +183,7 @@ Returns Defi Balance Sheet records for specified DeFi protocols.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_exchange_asset_metrics"></a>
 
-### get_exchange_asset_metrics
+### CoinMetricsClient.get_exchange_asset_metrics
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_exchange_asset_metrics(
@@ -233,7 +233,7 @@ Returns metrics for specified exchange-asset.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_exchange_metrics"></a>
 
-### get_exchange_metrics
+### CoinMetricsClient.get_exchange_metrics
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_exchange_metrics(
@@ -286,7 +286,7 @@ Returns metrics for specified exchanges.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_exchange_pair_metrics"></a>
 
-### get_exchange_pair_metrics
+### CoinMetricsClient.get_exchange_pair_metrics
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_exchange_pair_metrics(
@@ -334,7 +334,7 @@ Returns metrics for specified exchange-pair.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_index_candles"></a>
 
-### get_index_candles
+### CoinMetricsClient.get_index_candles
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_index_candles(
@@ -373,7 +373,7 @@ Returns index candles for specified indexes and date range.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_index_constituents"></a>
 
-### get_index_constituents
+### CoinMetricsClient.get_index_constituents
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_index_constituents(
@@ -410,7 +410,7 @@ Returns index constituents for specified indexes and date range.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_index_levels"></a>
 
-### get_index_levels
+### CoinMetricsClient.get_index_levels
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_index_levels(
@@ -455,7 +455,7 @@ Returns index levels for specified indexes and date range.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_institution_metrics"></a>
 
-### get_institution_metrics
+### CoinMetricsClient.get_institution_metrics
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_institution_metrics(
@@ -502,7 +502,7 @@ Returns metrics for specified institutions.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_candles"></a>
 
-### get_market_candles
+### CoinMetricsClient.get_market_candles
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_candles(
@@ -546,7 +546,7 @@ For more information on market candles, see: [https://docs.coinmetrics.io/info/m
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_contract_prices"></a>
 
-### get_market_contract_prices
+### CoinMetricsClient.get_market_contract_prices
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_contract_prices(
@@ -587,7 +587,7 @@ Returns contract prices for specified markets. This includes index price and mar
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_funding_rates"></a>
 
-### get_market_funding_rates
+### CoinMetricsClient.get_market_funding_rates
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_funding_rates(
@@ -625,7 +625,7 @@ For more information on funding rates, see: [https://docs.coinmetrics.io/info/ma
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_greeks"></a>
 
-### get_market_greeks
+### CoinMetricsClient.get_market_greeks
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_greeks(
@@ -664,7 +664,7 @@ Returns greeks for option markets.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_implied_volatility"></a>
 
-### get_market_implied_volatility
+### CoinMetricsClient.get_market_implied_volatility
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_implied_volatility(
@@ -703,7 +703,7 @@ Returns implied volatility for specified markets.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_liquidations"></a>
 
-### get_market_liquidations
+### CoinMetricsClient.get_market_liquidations
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_liquidations(
@@ -741,7 +741,7 @@ For more information on liquidations, see: [https://docs.coinmetrics.io/info/mar
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_metrics"></a>
 
-### get_market_metrics
+### CoinMetricsClient.get_market_metrics
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_metrics(
@@ -791,7 +791,7 @@ For more information on market metrics, see: [https://docs.coinmetrics.io/api/v4
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_open_interest"></a>
 
-### get_market_open_interest
+### CoinMetricsClient.get_market_open_interest
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_open_interest(
@@ -831,7 +831,7 @@ For more information on open interest, see: [https://docs.coinmetrics.io/info/ma
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_orderbooks"></a>
 
-### get_market_orderbooks
+### CoinMetricsClient.get_market_orderbooks
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_orderbooks(
@@ -873,7 +873,7 @@ For more information on order books, see: [https://docs.coinmetrics.io/info/mark
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_quotes"></a>
 
-### get_market_quotes
+### CoinMetricsClient.get_market_quotes
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_quotes(
@@ -915,7 +915,7 @@ For more information on quotes, see: [https://docs.coinmetrics.io/info/markets/q
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_trades"></a>
 
-### get_market_trades
+### CoinMetricsClient.get_market_trades
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_trades(
@@ -955,7 +955,7 @@ For more information on market trades, see: [https://docs.coinmetrics.io/info/ma
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_mempool_feerates"></a>
 
-### get_mempool_feerates
+### CoinMetricsClient.get_mempool_feerates
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_mempool_feerates(
@@ -990,7 +990,7 @@ Returns mempool feerates for the specified assets. Note: for this method, page_s
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_mining_pool_tips_summary"></a>
 
-### get_mining_pool_tips_summary
+### CoinMetricsClient.get_mining_pool_tips_summary
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_mining_pool_tips_summary(
@@ -1025,7 +1025,7 @@ Returns mining pool tips summaries for specified assets.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_pair_candles"></a>
 
-### get_pair_candles
+### CoinMetricsClient.get_pair_candles
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_pair_candles(
@@ -1069,7 +1069,7 @@ Results are ordered by tuple (pair, time).
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_pair_metrics"></a>
 
-### get_pair_metrics
+### CoinMetricsClient.get_pair_metrics
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_pair_metrics(
@@ -1120,7 +1120,7 @@ Returns metrics books for specified asset-asset pairs.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_predicted_market_funding_rates"></a>
 
-### get_predicted_market_funding_rates
+### CoinMetricsClient.get_predicted_market_funding_rates
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_predicted_market_funding_rates(
@@ -1158,7 +1158,7 @@ For more information on funding rates, see: [https://docs.coinmetrics.io/info/ma
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_asset_metrics"></a>
 
-### get_stream_asset_metrics
+### CoinMetricsClient.get_stream_asset_metrics
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_asset_metrics(
@@ -1187,7 +1187,7 @@ Returns timeseries stream of metrics for specified assets.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_asset_quotes"></a>
 
-### get_stream_asset_quotes
+### CoinMetricsClient.get_stream_asset_quotes
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_asset_quotes(
@@ -1209,7 +1209,7 @@ Returns a websocket stream of asset quotes for the requested assets.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_index_levels"></a>
 
-### get_stream_index_levels
+### CoinMetricsClient.get_stream_index_levels
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_index_levels(
@@ -1232,7 +1232,7 @@ Returns timeseries stream of index levels.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_candles"></a>
 
-### get_stream_market_candles
+### CoinMetricsClient.get_stream_market_candles
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_candles(
@@ -1255,7 +1255,7 @@ Returns timeseries stream of market candles.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_contract_prices"></a>
 
-### get_stream_market_contract_prices
+### CoinMetricsClient.get_stream_market_contract_prices
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_contract_prices(
@@ -1279,7 +1279,7 @@ for settlement and risk management purposes.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_liquidations"></a>
 
-### get_stream_market_liquidations
+### CoinMetricsClient.get_stream_market_liquidations
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_liquidations(
@@ -1300,7 +1300,7 @@ Returns timeseries stream for market liquidations
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_open_interest"></a>
 
-### get_stream_market_open_interest
+### CoinMetricsClient.get_stream_market_open_interest
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_open_interest(
@@ -1320,7 +1320,7 @@ Returns a websocket stream of market open interest for the requested markets.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_orderbooks"></a>
 
-### get_stream_market_orderbooks
+### CoinMetricsClient.get_stream_market_orderbooks
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_orderbooks(
@@ -1343,7 +1343,7 @@ Returns timeseries stream of market orderbooks.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_quotes"></a>
 
-### get_stream_market_quotes
+### CoinMetricsClient.get_stream_market_quotes
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_quotes(
@@ -1366,7 +1366,7 @@ Returns timeseries stream of market quotes.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_trades"></a>
 
-### get_stream_market_trades
+### CoinMetricsClient.get_stream_market_trades
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_trades(
@@ -1387,7 +1387,7 @@ Returns timeseries stream of market trades.
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_pair_quotes"></a>
 
-### get_stream_pair_quotes
+### CoinMetricsClient.get_stream_pair_quotes
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_pair_quotes(

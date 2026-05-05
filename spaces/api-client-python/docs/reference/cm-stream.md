@@ -36,7 +36,7 @@ Bases: [`object`](https://docs.python.org/3/library/functions.html#object)
 
 <a id="coinmetrics.api_client.CmStream.run"></a>
 
-### run
+#### CmStream.run
 
 ```python
 coinmetrics.api_client.CmStream.run(

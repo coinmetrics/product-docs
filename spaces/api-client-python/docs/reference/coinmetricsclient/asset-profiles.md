@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_asset_profiles"></a>
 
-### get_asset_profiles
+### CoinMetricsClient.get_asset_profiles
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_asset_profiles(
@@ -25,7 +25,7 @@ Returns profile data for assets, ordered by asset
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_network_profiles"></a>
 
-### get_network_profiles
+### CoinMetricsClient.get_network_profiles
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_network_profiles(
