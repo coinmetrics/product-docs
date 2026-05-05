@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_taxonomy_assets_metadata
+# `CoinMetricsClient.get_taxonomy_assets_metadata`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets_metadata(

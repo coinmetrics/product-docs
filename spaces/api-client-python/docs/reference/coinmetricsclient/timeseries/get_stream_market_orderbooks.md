@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_stream_market_orderbooks
+# `CoinMetricsClient.get_stream_market_orderbooks`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_orderbooks(
@@ -17,4 +17,4 @@ Returns timeseries stream of market orderbooks.
 * **Returns:**
   Market Orderbooks timeseries stream.
 * **Return type:**
-  [CmStream](../../cm-stream.md#coinmetrics.api_client.CmStream)
+  [CmStream](../../cm-stream/README.md#coinmetrics.api_client.CmStream)

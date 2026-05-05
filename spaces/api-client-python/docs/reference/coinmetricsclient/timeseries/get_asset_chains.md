@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_asset_chains
+# `CoinMetricsClient.get_asset_chains`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_asset_chains(
@@ -29,4 +29,4 @@ Returns the chains of blocks for the specified assets.
 * **Returns:**
   Asset chains timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

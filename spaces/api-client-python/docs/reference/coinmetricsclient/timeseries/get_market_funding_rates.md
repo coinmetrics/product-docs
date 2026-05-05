@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_market_funding_rates
+# `CoinMetricsClient.get_market_funding_rates`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_funding_rates(
@@ -32,4 +32,4 @@ For more information on funding rates, see: [https://docs.coinmetrics.io/info/ma
 * **Returns:**
   Market Funding Rates timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

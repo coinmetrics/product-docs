@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_stream_pair_quotes
+# `CoinMetricsClient.get_stream_pair_quotes`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_pair_quotes(
@@ -16,4 +16,4 @@ Returns a websocket stream of pair quotes for the requested asset pairs.
   * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- What data should be sent upon a connection. By default the latest values are sent just before real-time data.
 * **Returns:**
 * **Return type:**
-  [CmStream](../../cm-stream.md#coinmetrics.api_client.CmStream)
+  [CmStream](../../cm-stream/README.md#coinmetrics.api_client.CmStream)

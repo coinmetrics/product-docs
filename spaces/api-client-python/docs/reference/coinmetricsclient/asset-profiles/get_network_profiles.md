@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_network_profiles
+# `CoinMetricsClient.get_network_profiles`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_network_profiles(
@@ -17,4 +17,4 @@ Returns profile data for assets, ordered by asset
   * **page_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- Number of items per single page of results.
   * **paging_from** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- Where does the first page start, at the "start" of the interval or at the "end"
 * **Return type:**
-  [*DataCollection*](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [*DataCollection*](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

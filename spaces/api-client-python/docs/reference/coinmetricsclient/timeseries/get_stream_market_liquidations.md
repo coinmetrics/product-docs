@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_stream_market_liquidations
+# `CoinMetricsClient.get_stream_market_liquidations`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_liquidations(
@@ -15,4 +15,4 @@ Returns timeseries stream for market liquidations
 * **Returns:**
   Market liquidations timeseries stream
 * **Return type:**
-  [CmStream](../../cm-stream.md#coinmetrics.api_client.CmStream)
+  [CmStream](../../cm-stream/README.md#coinmetrics.api_client.CmStream)

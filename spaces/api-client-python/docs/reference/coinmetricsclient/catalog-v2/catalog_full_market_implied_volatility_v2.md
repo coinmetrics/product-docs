@@ -1,4 +1,4 @@
-# CoinMetricsClient.catalog_full_market_implied_volatility_v2
+# `CoinMetricsClient.catalog_full_market_implied_volatility_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_implied_volatility_v2(
@@ -43,4 +43,4 @@ Returns a list of all market implied volatility for option market.
 * **Returns:**
   List of implied volatility statistics.
 * **Return type:**
-  [CatalogV2DataCollection](../../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
+  CatalogV2DataCollection

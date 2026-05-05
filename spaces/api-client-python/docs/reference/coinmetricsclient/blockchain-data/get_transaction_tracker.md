@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_transaction_tracker
+# `CoinMetricsClient.get_transaction_tracker`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_transaction_tracker(
@@ -39,4 +39,4 @@ Returns status updates for the specified or all transactions.
 * **Returns:**
   status updates for the specified or all transactions.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_blockchain_metadata_tags
+# `CoinMetricsClient.get_blockchain_metadata_tags`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tags(
@@ -17,4 +17,4 @@ Returns a list of all available tags along with their descriptions, lexicographi
 * **Returns:**
   List of tags.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

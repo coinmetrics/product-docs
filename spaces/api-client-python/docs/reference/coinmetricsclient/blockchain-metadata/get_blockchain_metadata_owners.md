@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_blockchain_metadata_owners
+# `CoinMetricsClient.get_blockchain_metadata_owners`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_owners(
@@ -15,4 +15,4 @@ Returns a list of all supported owners lexicographically ordered by the owner_na
 * **Returns:**
   List of tagged entities. Ordered by tuple (entity, tag, location, start_time) if requested by providing entities parameter. Ordered by tuple (tag, location, entity, started_time) if requested by providing tags parameter.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

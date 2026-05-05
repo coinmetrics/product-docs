@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_stream_market_quotes
+# `CoinMetricsClient.get_stream_market_quotes`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_quotes(
@@ -17,4 +17,4 @@ Returns timeseries stream of market quotes.
 * **Returns:**
   Market Quotes timeseries stream.
 * **Return type:**
-  [CmStream](../../cm-stream.md#coinmetrics.api_client.CmStream)
+  [CmStream](../../cm-stream/README.md#coinmetrics.api_client.CmStream)

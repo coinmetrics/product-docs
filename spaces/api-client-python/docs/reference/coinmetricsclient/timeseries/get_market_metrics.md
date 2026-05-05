@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_market_metrics
+# `CoinMetricsClient.get_market_metrics`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_metrics(
@@ -44,4 +44,4 @@ For more information on market metrics, see: [https://docs.coinmetrics.io/api/v4
 * **Returns:**
   Market metrics timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

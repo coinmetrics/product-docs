@@ -1,4 +1,4 @@
-# CoinMetricsClient.catalog_market_funding_rates_v2
+# `CoinMetricsClient.catalog_market_funding_rates_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_funding_rates_v2(
@@ -43,4 +43,4 @@ Returns a list of markets with funding rates support along with the time ranges 
 * **Returns:**
   List of market funding rates statistics.
 * **Return type:**
-  [CatalogV2DataCollection](../../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
+  CatalogV2DataCollection

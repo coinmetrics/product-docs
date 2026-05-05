@@ -1,4 +1,4 @@
-# CoinMetricsClient.catalog_market_candles_v2
+# `CoinMetricsClient.catalog_market_candles_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_candles_v2(
@@ -44,4 +44,4 @@ duration.
 * **Returns:**
   List of market candles statistics.
 * **Return type:**
-  [CatalogV2DataCollection](../../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
+  CatalogV2DataCollection

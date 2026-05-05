@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_mining_pool_tips_summary
+# `CoinMetricsClient.get_mining_pool_tips_summary`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_mining_pool_tips_summary(
@@ -29,4 +29,4 @@ Returns mining pool tips summaries for specified assets.
 * **Returns:**
   Mining Pool Tips timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

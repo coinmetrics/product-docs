@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_full_block_v2
+# `CoinMetricsClient.get_full_block_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_full_block_v2(

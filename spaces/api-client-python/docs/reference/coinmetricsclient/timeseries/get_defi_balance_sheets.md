@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_defi_balance_sheets
+# `CoinMetricsClient.get_defi_balance_sheets`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_defi_balance_sheets(
@@ -33,4 +33,4 @@ Returns Defi Balance Sheet records for specified DeFi protocols.
 * **Returns:**
   list of blockchain blocks metadata
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

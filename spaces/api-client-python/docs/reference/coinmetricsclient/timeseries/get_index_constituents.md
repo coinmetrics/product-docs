@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_index_constituents
+# `CoinMetricsClient.get_index_constituents`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_index_constituents(
@@ -31,4 +31,4 @@ Returns index constituents for specified indexes and date range.
 * **Returns:**
   Index Constituents timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

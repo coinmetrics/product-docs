@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_institution_metrics
+# `CoinMetricsClient.get_institution_metrics`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_institution_metrics(
@@ -41,4 +41,4 @@ Returns metrics for specified institutions.
 * **Returns:**
   Asset Metrics timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

@@ -1,6 +1,6 @@
 # CoinMetricsClient
 
-`CoinMetricsClient` is the main entry point for the Python client. Instantiate it once with your API key and call the method that matches the Coin Metrics REST endpoint you want to hit; every method returns either a [`DataCollection`](data-collection.md) (REST endpoints) or a [`CmStream`](cm-stream.md) (WebSocket endpoints).
+`CoinMetricsClient` is the main entry point for the Python client. Instantiate it once with your API key and call the method that matches the Coin Metrics REST endpoint you want to hit; every method returns either a `DataCollection` (REST endpoints) or a `CmStream` (WebSocket endpoints).
 
 <a id="coinmetrics.api_client.CoinMetricsClient"></a>
 

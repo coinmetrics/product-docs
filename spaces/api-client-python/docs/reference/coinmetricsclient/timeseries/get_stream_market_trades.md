@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_stream_market_trades
+# `CoinMetricsClient.get_stream_market_trades`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_trades(
@@ -15,4 +15,4 @@ Returns timeseries stream of market trades.
 * **Returns:**
   Market Trades timeseries stream.
 * **Return type:**
-  [CmStream](../../cm-stream.md#coinmetrics.api_client.CmStream)
+  [CmStream](../../cm-stream/README.md#coinmetrics.api_client.CmStream)

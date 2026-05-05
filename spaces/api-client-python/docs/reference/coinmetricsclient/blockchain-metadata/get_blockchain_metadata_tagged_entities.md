@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_blockchain_metadata_tagged_entities
+# `CoinMetricsClient.get_blockchain_metadata_tagged_entities`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tagged_entities(
@@ -23,4 +23,4 @@ Returns a list of all entities associated with provided tags. Ordered by tuple (
 * **Returns:**
   List of tagged entities. Ordered by tuple (entity, tag, location, start_time) if requested by providing entities parameter. Ordered by tuple (tag, location, entity, started_time) if requested by providing tags parameter.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

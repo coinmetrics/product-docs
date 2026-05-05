@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_mempool_feerates
+# `CoinMetricsClient.get_mempool_feerates`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_mempool_feerates(
@@ -29,4 +29,4 @@ Returns mempool feerates for the specified assets. Note: for this method, page_s
 * **Returns:**
   Mempool Fee Rates timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

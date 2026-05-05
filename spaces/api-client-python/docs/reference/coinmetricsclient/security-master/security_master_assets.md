@@ -1,4 +1,4 @@
-# CoinMetricsClient.security_master_assets
+# `CoinMetricsClient.security_master_assets`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.security_master_assets(
@@ -21,4 +21,4 @@ Returns all the assets and their metadata in security master.
 * **Returns:**
   List of assets and their metadata in security master
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

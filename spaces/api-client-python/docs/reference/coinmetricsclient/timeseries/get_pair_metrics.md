@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_pair_metrics
+# `CoinMetricsClient.get_pair_metrics`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_pair_metrics(
@@ -45,4 +45,4 @@ Returns metrics books for specified asset-asset pairs.
 * **Returns:**
   Pair Metrics timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

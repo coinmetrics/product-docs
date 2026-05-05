@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_pair_candles
+# `CoinMetricsClient.get_pair_candles`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_pair_candles(
@@ -38,4 +38,4 @@ Results are ordered by tuple (pair, time).
 * **Returns:**
   Asset pair candles timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

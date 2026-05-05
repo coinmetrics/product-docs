@@ -1,4 +1,4 @@
-# Time Series
+# Timeseries
 
 Endpoint methods on [`CoinMetricsClient`](../../coinmetricsclient.md) that hit the `timeseries` endpoint root.
 

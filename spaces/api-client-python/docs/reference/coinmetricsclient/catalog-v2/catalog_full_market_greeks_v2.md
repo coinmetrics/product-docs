@@ -1,4 +1,4 @@
-# CoinMetricsClient.catalog_full_market_greeks_v2
+# `CoinMetricsClient.catalog_full_market_greeks_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_greeks_v2(
@@ -43,4 +43,4 @@ Returns a list of all market greeks for option market.
 * **Returns:**
   List of greeks statistics.
 * **Return type:**
-  [CatalogV2DataCollection](../../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
+  CatalogV2DataCollection

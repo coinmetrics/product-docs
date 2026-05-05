@@ -1,4 +1,4 @@
-# CoinMetricsClient.reference_data_indexes
+# `CoinMetricsClient.reference_data_indexes`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_indexes(
@@ -21,4 +21,4 @@ Returns a list of indexes metadata.
 * **Returns:**
   List of indexes metadata.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

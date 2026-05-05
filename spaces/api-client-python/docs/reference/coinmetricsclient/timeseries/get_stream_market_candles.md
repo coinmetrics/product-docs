@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_stream_market_candles
+# `CoinMetricsClient.get_stream_market_candles`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_candles(
@@ -17,4 +17,4 @@ Returns timeseries stream of market candles.
 * **Returns:**
   Market Candles timeseries stream.
 * **Return type:**
-  [CmStream](../../cm-stream.md#coinmetrics.api_client.CmStream)
+  [CmStream](../../cm-stream/README.md#coinmetrics.api_client.CmStream)

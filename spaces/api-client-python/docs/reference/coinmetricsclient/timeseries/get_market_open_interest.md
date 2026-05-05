@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_market_open_interest
+# `CoinMetricsClient.get_market_open_interest`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_open_interest(
@@ -34,4 +34,4 @@ For more information on open interest, see: [https://docs.coinmetrics.io/info/ma
 * **Returns:**
   Market Open Interest timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

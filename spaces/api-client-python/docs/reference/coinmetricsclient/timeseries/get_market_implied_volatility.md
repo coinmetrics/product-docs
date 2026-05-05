@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_market_implied_volatility
+# `CoinMetricsClient.get_market_implied_volatility`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_implied_volatility(
@@ -33,4 +33,4 @@ Returns implied volatility for specified markets.
 * **Returns:**
   Market Volatility timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

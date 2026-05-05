@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_market_orderbooks
+# `CoinMetricsClient.get_market_orderbooks`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_orderbooks(
@@ -36,4 +36,4 @@ For more information on order books, see: [https://docs.coinmetrics.io/info/mark
 * **Returns:**
   Market Order Books timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

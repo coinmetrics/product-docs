@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_stream_index_levels
+# `CoinMetricsClient.get_stream_index_levels`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_index_levels(
@@ -17,4 +17,4 @@ Returns timeseries stream of index levels.
 * **Returns:**
   Index levels data timeseries stream.
 * **Return type:**
-  [CmStream](../../cm-stream.md#coinmetrics.api_client.CmStream)
+  [CmStream](../../cm-stream/README.md#coinmetrics.api_client.CmStream)

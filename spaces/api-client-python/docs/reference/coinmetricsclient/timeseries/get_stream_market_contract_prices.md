@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_stream_market_contract_prices
+# `CoinMetricsClient.get_stream_market_contract_prices`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_contract_prices(
@@ -18,4 +18,4 @@ for settlement and risk management purposes.
 * **Returns:**
   Market Contract Prices timeseries stream.
 * **Return type:**
-  [CmStream](../../cm-stream.md#coinmetrics.api_client.CmStream)
+  [CmStream](../../cm-stream/README.md#coinmetrics.api_client.CmStream)

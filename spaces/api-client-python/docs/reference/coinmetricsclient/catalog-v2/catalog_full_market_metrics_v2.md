@@ -1,4 +1,4 @@
-# CoinMetricsClient.catalog_full_market_metrics_v2
+# `CoinMetricsClient.catalog_full_market_metrics_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_metrics_v2(
@@ -36,4 +36,4 @@ metric.
 * **Returns:**
   List of market metrics statistics.
 * **Return type:**
-  [CatalogV2DataCollection](../../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
+  CatalogV2DataCollection

@@ -1,4 +1,4 @@
-# CoinMetricsClient.catalog_market_trades_v2
+# `CoinMetricsClient.catalog_market_trades_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_trades_v2(
@@ -43,4 +43,4 @@ Returns a list of markets with trades support along with the time ranges of avai
 * **Returns:**
   List of market trades statistics.
 * **Return type:**
-  [CatalogV2DataCollection](../../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
+  CatalogV2DataCollection

@@ -1,4 +1,4 @@
-# CoinMetricsClient.catalog_full_index_levels_v2
+# `CoinMetricsClient.catalog_full_index_levels_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_index_levels_v2(
@@ -21,4 +21,4 @@ Returns a list of all supported index levels along with time ranges of available
 * **Returns:**
   List of index levels.
 * **Return type:**
-  [CatalogV2DataCollection](../../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
+  CatalogV2DataCollection

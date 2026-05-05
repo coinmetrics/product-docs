@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_list_of_accounts_v2
+# `CoinMetricsClient.get_list_of_accounts_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_list_of_accounts_v2(
@@ -39,4 +39,4 @@ Returns a list of blockchain accounts with their balances.
 * **Returns:**
   list of blockchain accounts metadata
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

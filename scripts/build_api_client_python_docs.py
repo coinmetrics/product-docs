@@ -81,10 +81,10 @@ PRESERVED_PATHS = {
 # together with their "full catalog" / "stream" siblings).
 _OPENAPI_TAG_TO_SLUG = {
     "Reference Data": ("reference-data", "Reference Data"),
-    "Catalog v2": ("catalog-v2", "Catalog v2"),
-    "Full catalog v2": ("catalog-v2", "Catalog v2"),
-    "Timeseries": ("timeseries", "Time Series"),
-    "Timeseries stream": ("timeseries", "Time Series"),
+    "Catalog v2": ("catalog-v2", "Catalog V2"),
+    "Full catalog v2": ("catalog-v2", "Catalog V2"),
+    "Timeseries": ("timeseries", "Timeseries"),
+    "Timeseries stream": ("timeseries", "Timeseries"),
     "Taxonomy": ("taxonomy", "Taxonomy"),
     "Taxonomy Metadata": ("taxonomy", "Taxonomy"),
     "Profile": ("asset-profiles", "Asset Profiles"),
@@ -100,8 +100,8 @@ _OPENAPI_TAG_TO_SLUG = {
 # the openapi tag order at the time of writing.
 _FALLBACK_GROUP_PAGES: List[Tuple[str, str]] = [
     ("reference-data", "Reference Data"),
-    ("catalog-v2", "Catalog v2"),
-    ("timeseries", "Time Series"),
+    ("catalog-v2", "Catalog V2"),
+    ("timeseries", "Timeseries"),
     ("taxonomy", "Taxonomy"),
     ("asset-profiles", "Asset Profiles"),
     ("blockchain-data", "Blockchain Data"),
@@ -149,6 +149,38 @@ GROUP_PAGES: List[Tuple[str, str]] = _compute_group_pages()
 # README.md landing pages.
 GROUP_METHODS: dict[str, List[str]] = {}
 
+# Per-class slugs that follow the same per-method-page model as the
+# CoinMetricsClient endpoint groups: each method gets its own
+# ``reference/<slug>/<method>.md`` page, and ``reference/<slug>/README.md``
+# is a curated landing page that lists the methods. See
+# ``regenerate_class_pages``.
+#
+# Each entry is ``(slug, label, module_path, class_name)``. The module is
+# imported with ``importlib`` so the script must be run inside an
+# environment where the api-client-python package is importable (the build
+# venv installs it via ``pip install -e submodules/api-client-python``).
+EXTRA_CLASS_PAGES: List[Tuple[str, str, str, str]] = [
+    ("data-collection", "Data Collection", "coinmetrics._data_collection", "DataCollection"),
+    ("parallel-data-collection", "Parallel Data Collection", "coinmetrics._data_collection", "ParallelDataCollection"),
+    ("cm-stream", "CmStream", "coinmetrics.api_client", "CmStream"),
+]
+
+# Populated by ``regenerate_class_pages`` -- ``slug -> [method, ...]``.
+EXTRA_CLASS_METHODS: dict[str, List[str]] = {}
+
+# Per-class metadata so post-processing can look up the fully-qualified
+# class path for anchor generation. Mirrors EXTRA_CLASS_PAGES at runtime.
+EXTRA_CLASS_QUALIFIERS: dict[str, str] = {}
+
+# Slug + label for the auto-generated Exceptions section. Each exception
+# class in ``coinmetrics._exceptions`` becomes its own page.
+EXCEPTIONS_SLUG = "exceptions"
+EXCEPTIONS_LABEL = "Exceptions"
+EXCEPTIONS_MODULE = "coinmetrics._exceptions"
+
+# Populated by ``regenerate_exception_pages`` -- ordered list of class names.
+EXCEPTION_CLASSES: List[str] = []
+
 # Source-relative path -> output-relative path. Pages not listed are emitted
 # at the same relative location (with name normalisation underscore->dash).
 PAGE_RENAMES = {
@@ -156,17 +188,6 @@ PAGE_RENAMES = {
     "user-guide/index.md": "user-guide/README.md",
     "reference/api_client.md": "reference/README.md",
     "reference/coinmetricsclient.md": "reference/coinmetricsclient.md",
-    "reference/cm_stream.md": "reference/cm-stream.md",
-    # The curated upstream pages are kept for DataCollection and
-    # ParallelDataCollection because each class deserves a dedicated page in
-    # the GitBook sidebar (sphinx-apidoc would otherwise dump both into a
-    # single ``coinmetrics._data_collection`` module page).
-    "reference/data_collection.md": "reference/data-collection.md",
-    "reference/parallel_data_collection.md": "reference/parallel-data-collection.md",
-    # The exceptions page is produced by sphinx-apidoc against the actual
-    # Python package (see _run_apidoc) so every exception class is picked
-    # up automatically.
-    "reference/coinmetrics._exceptions.md": "reference/exceptions.md",
     "releases/changelog.md": "releases/changelog.md",
 }
 
@@ -179,6 +200,20 @@ for slug, _label in GROUP_PAGES:
     PAGE_RENAMES[f"reference/groups/{slug}/index.md"] = (
         f"reference/coinmetricsclient/{slug}/README.md"
     )
+
+# Per-class index pages (DataCollection, ParallelDataCollection, CmStream)
+# are produced by ``regenerate_class_pages`` as ``<slug>/index.md``; route
+# them to ``<slug>/README.md`` so GitBook treats them as the section
+# landing page.
+for _slug, _label, _module, _class_name in EXTRA_CLASS_PAGES:
+    PAGE_RENAMES[f"reference/{_slug}/index.md"] = (
+        f"reference/{_slug}/README.md"
+    )
+
+# Same routing for the auto-generated Exceptions index.
+PAGE_RENAMES[f"reference/{EXCEPTIONS_SLUG}/index.md"] = (
+    f"reference/{EXCEPTIONS_SLUG}/README.md"
+)
 
 # Output-relative path -> H1 title. Used by post-processing to replace the
 # default ``coinmetrics.<module> module`` heading sphinx-apidoc emits with a
@@ -199,37 +234,32 @@ PAGE_DEFAULT_CLASS_QUALIFIER = {
     # Per-method pages live under reference/coinmetricsclient/<slug>/ and
     # contain a single ``CoinMetricsClient.<method>`` automethod block.
     "reference/coinmetricsclient/": "coinmetrics.api_client.CoinMetricsClient",
-    # The CmStream page renders ``run`` etc. without the class prefix.
-    "reference/cm-stream.md": "coinmetrics.api_client.CmStream",
 }
 
-# Curated upstream reference pages we discard during staging because their
-# content is now produced from the actual Python package by sphinx-apidoc.
-# DataCollection / ParallelDataCollection stay curated so each class keeps
-# its own dedicated GitBook sidebar entry.
+# Populate qualifiers for the additional per-class sections so per-method
+# pages under reference/<slug>/ can resolve their anchor IDs without an
+# explicit ``*class*`` heading.
+for _slug, _label, _module, _class_name in EXTRA_CLASS_PAGES:
+    PAGE_DEFAULT_CLASS_QUALIFIER[f"reference/{_slug}/"] = (
+        f"{_module}.{_class_name}"
+    )
+
+# Curated upstream reference pages we discard during staging because the
+# scaffolded per-method pages produced by ``regenerate_class_pages`` /
+# ``regenerate_exception_pages`` replace them entirely.
 DROP_FROM_STAGED_REFERENCE = (
     "exceptions.md",
+    "data_collection.md",
+    "parallel_data_collection.md",
+    "cm_stream.md",
 )
 
-# Modules under coinmetrics/ that sphinx-apidoc should NOT document. We
-# keep ``api_client.py`` curated (because the per-endpoint groupings under
-# reference/coinmetricsclient/ are far easier to navigate than a single
-# automodule dump), keep ``_data_collection.py`` curated (so DataCollection
-# and ParallelDataCollection get their own pages), drop ``constants.py``
-# because the constants are referenced inline in the relevant prose pages,
-# and ignore implementation-detail modules that have no user-facing surface.
-APIDOC_EXCLUDE_FILES = (
-    "api_client.py",
-    "constants.py",
-    "_catalogs.py",
-    "_data_collection.py",
-    "_models.py",
-    "_schema.py",
-    "_schema_base.py",
-    "_schema_gen.py",
-    "_typing.py",
-    "_utils.py",
-)
+# sphinx-apidoc is no longer required: every class we want to document
+# (CoinMetricsClient, DataCollection, ParallelDataCollection, CmStream and
+# the exception hierarchy) is scaffolded explicitly so each method / class
+# gets its own page. Keeping the constant for backwards-compatibility but
+# leaving the apidoc step disabled in ``stage_source``.
+APIDOC_EXCLUDE_FILES: Tuple[str, ...] = ()
 
 
 # ---------------------------------------------------------------------------
@@ -246,74 +276,66 @@ APIDOC_EXCLUDE_FILES = (
 # The CoinMetricsClient entry's children are filled in from ``GROUP_PAGES``
 # at render time so the sidebar always lists every group page the build
 # emits under ``reference/coinmetricsclient/``.
-SUMMARY_INTRO = ("Introduction", "../../")
-
-SUMMARY_CONFIG: List[Tuple[str | None, List[Tuple[str, str, List[Tuple[str, str]]]]]] = [
-    (
-        "User Guide",
-        [
-            ("Overview", "user-guide/", []),
-            ("Core Concepts", "user-guide/core-concepts.md", []),
-            ("Best Practices", "user-guide/best-practices.md", []),
-            ("Troubleshooting", "user-guide/troubleshooting.md", []),
-        ],
-    ),
-    (
-        "Reference",
-        [
-            ("Overview", "reference/", []),
-            (
-                "CoinMetricsClient",
-                "reference/coinmetricsclient.md",
-                # Filled in at render time from GROUP_PAGES.
-                [],
-            ),
-            ("Data Collection", "reference/data-collection.md", []),
-            ("Parallel Data Collection", "reference/parallel-data-collection.md", []),
-            ("CmStream", "reference/cm-stream.md", []),
-            ("Exceptions", "reference/exceptions.md", []),
-        ],
-    ),
-    (
-        "RELEASES",
-        [
-            ("Changelog", "releases/changelog.md", []),
-        ],
-    ),
-]
+SUMMARY_INTRO = ("Getting Started", "README.md")
 
 
 def _render_summary() -> str:
-    """Compose ``SUMMARY.md`` from ``SUMMARY_CONFIG``, ``GROUP_PAGES`` and
-    ``GROUP_METHODS``.
+    """Compose ``SUMMARY.md`` from the per-section state populated by the
+    build (``GROUP_PAGES``, ``GROUP_METHODS``, ``EXTRA_CLASS_METHODS``,
+    ``EXCEPTION_CLASSES``).
 
-    The ``CoinMetricsClient`` entry expands into one nested entry per
-    endpoint group (in openapi.yaml order) and one further-nested entry per
-    method on that group. Each method has its own page under
-    ``reference/coinmetricsclient/<slug>/<method>.md``.
+    The Reference section nests every class under its landing page and
+    every method under its parent class, mirroring the on-page heading
+    hierarchy so GitBook search / sidebar surface every documented symbol.
     """
     lines: List[str] = ["# Table of contents", ""]
     intro_title, intro_target = SUMMARY_INTRO
     lines.append(f"* [{intro_title}]({intro_target})")
     lines.append("")
-    for heading, entries in SUMMARY_CONFIG:
-        if heading is not None:
-            lines.append(f"## {heading}")
-            lines.append("")
-        for title, target, children in entries:
-            lines.append(f"* [{title}]({target})")
-            if target == "reference/coinmetricsclient.md":
-                for slug, label in GROUP_PAGES:
-                    base = f"reference/coinmetricsclient/{slug}"
-                    lines.append(f"  * [{label}]({base}/README.md)")
-                    for method_name in GROUP_METHODS.get(slug, []):
-                        method_title = f"CoinMetricsClient.{method_name}"
-                        lines.append(
-                            f"    * [{method_title}]({base}/{method_name}.md)"
-                        )
-            for child_title, child_target in children:
-                lines.append(f"  * [{child_title}]({child_target})")
-        lines.append("")
+
+    # User Guide
+    lines.append("## User Guide")
+    lines.append("")
+    lines.append("* [Overview](user-guide/README.md)")
+    lines.append("* [Core Concepts](user-guide/core-concepts.md)")
+    lines.append("* [Best Practices](user-guide/best-practices.md)")
+    lines.append("* [Troubleshooting](user-guide/troubleshooting.md)")
+    lines.append("")
+
+    # Reference
+    lines.append("## Reference")
+    lines.append("")
+    lines.append("* [Overview](reference/README.md)")
+
+    # CoinMetricsClient: nested by openapi-yaml group and per-method.
+    lines.append("* [CoinMetricsClient](reference/coinmetricsclient.md)")
+    for slug, label in GROUP_PAGES:
+        base = f"reference/coinmetricsclient/{slug}"
+        lines.append(f"  * [{label}]({base}/README.md)")
+        for method_name in GROUP_METHODS.get(slug, []):
+            method_title = f"CoinMetricsClient.{method_name}"
+            lines.append(f"    * [{method_title}]({base}/{method_name}.md)")
+
+    # DataCollection / ParallelDataCollection / CmStream: each is a class
+    # with one page per method nested underneath.
+    for slug, label, _module, class_name in EXTRA_CLASS_PAGES:
+        base = f"reference/{slug}"
+        lines.append(f"* [{label}]({base}/README.md)")
+        for method_name in EXTRA_CLASS_METHODS.get(slug, []):
+            method_title = f"{class_name}.{method_name}"
+            lines.append(f"  * [{method_title}]({base}/{method_name}.md)")
+
+    # Exceptions: one page per exception class.
+    base = f"reference/{EXCEPTIONS_SLUG}"
+    lines.append(f"* [{EXCEPTIONS_LABEL}]({base}/README.md)")
+    for cls_name in EXCEPTION_CLASSES:
+        lines.append(f"  * [{cls_name}]({base}/{cls_name}.md)")
+    lines.append("")
+
+    # Releases
+    lines.append("## RELEASES")
+    lines.append("")
+    lines.append("* [Changelog](releases/changelog.md)")
     return "\n".join(lines).rstrip() + "\n"
 
 
@@ -354,7 +376,6 @@ def stage_source() -> None:
 
     _patch_index_toctree(STAGED_SOURCE / "index.md")
     _drop_curated_reference_pages(STAGED_SOURCE / "reference")
-    _run_apidoc(SUBMODULE_ROOT / "coinmetrics", STAGED_SOURCE / "reference")
     _strip_grids_in_tree(STAGED_SOURCE)
     _strip_toctrees_in_tree(STAGED_SOURCE)
     _convert_admonitions_in_tree(STAGED_SOURCE)
@@ -722,6 +743,160 @@ def regenerate_group_pages() -> None:
         GROUP_METHODS[slug] = list(group.methods)
 
 
+def _ensure_submodule_importable() -> None:
+    """Insert the submodule root onto ``sys.path`` so ``coinmetrics`` resolves.
+
+    The build venv installs the submodule with ``pip install -e ...`` for
+    autodoc, but when this script is run outside that venv (e.g. from a
+    plain ``python3`` invocation) we still need to be able to introspect
+    the package to scaffold the per-class pages.
+    """
+    submodule_path = str(SUBMODULE_ROOT)
+    if submodule_path not in sys.path:
+        sys.path.insert(0, submodule_path)
+
+
+def _public_methods(cls: type) -> List[str]:
+    """Return the names of public methods / properties declared on ``cls``.
+
+    Walks ``vars(cls)`` so we only pick up symbols defined directly on the
+    class (not inherited from ``object``), and preserves the source order
+    by using ``dict.__iter__`` (which is insertion order in CPython 3.7+).
+    Inherited ``BaseException`` machinery from ``Exception`` subclasses is
+    therefore filtered out automatically.
+    """
+    import inspect
+
+    methods: List[str] = []
+    for name, value in vars(cls).items():
+        if name.startswith("_"):
+            continue
+        if inspect.isfunction(value) or isinstance(
+            value, (property, staticmethod, classmethod)
+        ):
+            methods.append(name)
+    return methods
+
+
+def regenerate_class_pages() -> None:
+    """Scaffold per-method pages for every class in ``EXTRA_CLASS_PAGES``.
+
+    For each class we write:
+
+    * ``reference/<slug>/<method>.rst`` -- a Sphinx page whose title is
+      ``ClassName.method`` and whose body is a single ``automethod``.
+    * ``reference/<slug>/index.rst`` -- a class landing page with the
+      ``autoclass`` signature (``:no-members:`` so the per-method pages are
+      not duplicated inline) and a hidden toctree wiring the method pages
+      into the document graph.
+    """
+    _ensure_submodule_importable()
+    import importlib
+
+    EXTRA_CLASS_METHODS.clear()
+    EXTRA_CLASS_QUALIFIERS.clear()
+    reference_dir = STAGED_SOURCE / "reference"
+
+    for slug, label, module_path, class_name in EXTRA_CLASS_PAGES:
+        module = importlib.import_module(module_path)
+        cls = getattr(module, class_name)
+        methods = _public_methods(cls)
+        EXTRA_CLASS_QUALIFIERS[slug] = f"{module_path}.{class_name}"
+
+        slug_dir = reference_dir / slug
+        if slug_dir.exists():
+            shutil.rmtree(slug_dir)
+        slug_dir.mkdir(parents=True)
+
+        for method_name in methods:
+            title = f"{class_name}.{method_name}"
+            page_rst = (
+                f"{title}\n{'=' * len(title)}\n\n"
+                f".. currentmodule:: {module_path}\n\n"
+                f".. automethod:: {class_name}.{method_name}\n"
+            )
+            (slug_dir / f"{method_name}.rst").write_text(page_rst)
+
+        index_lines = [
+            label,
+            "=" * len(label),
+            "",
+            f".. currentmodule:: {module_path}",
+            "",
+            f".. autoclass:: {class_name}",
+            "   :no-members:",
+            "",
+            ".. toctree::",
+            "   :hidden:",
+            "   :maxdepth: 1",
+            "",
+        ]
+        for method_name in methods:
+            index_lines.append(f"   {method_name}")
+        index_lines.append("")
+        (slug_dir / "index.rst").write_text("\n".join(index_lines))
+
+        EXTRA_CLASS_METHODS[slug] = methods
+
+
+def regenerate_exception_pages() -> None:
+    """Scaffold one page per exception class in ``coinmetrics._exceptions``.
+
+    The exception hierarchy is small (currently ~7 classes) and shares no
+    common landing prose, so each class gets a dedicated
+    ``reference/exceptions/<ClassName>.rst`` page that renders the
+    ``autoexception`` directive, plus an ``index.rst`` listing them.
+    """
+    _ensure_submodule_importable()
+    import importlib
+
+    module = importlib.import_module(EXCEPTIONS_MODULE)
+    classes = sorted(
+        name
+        for name, value in vars(module).items()
+        if isinstance(value, type)
+        and issubclass(value, BaseException)
+        and value.__module__ == EXCEPTIONS_MODULE
+        and not name.startswith("_")
+    )
+    EXCEPTION_CLASSES.clear()
+    EXCEPTION_CLASSES.extend(classes)
+
+    slug_dir = STAGED_SOURCE / "reference" / EXCEPTIONS_SLUG
+    if slug_dir.exists():
+        shutil.rmtree(slug_dir)
+    slug_dir.mkdir(parents=True)
+
+    for cls_name in classes:
+        page_rst = (
+            f"{cls_name}\n{'=' * len(cls_name)}\n\n"
+            f".. currentmodule:: {EXCEPTIONS_MODULE}\n\n"
+            f".. autoexception:: {cls_name}\n"
+            "   :members:\n"
+            "   :show-inheritance:\n"
+        )
+        (slug_dir / f"{cls_name}.rst").write_text(page_rst)
+
+    index_lines = [
+        EXCEPTIONS_LABEL,
+        "=" * len(EXCEPTIONS_LABEL),
+        "",
+        "The Coin Metrics Python client raises a small hierarchy of typed "
+        "exceptions for HTTP errors, rate limiting, transport failures and "
+        "data-collection errors. All exception classes are exported from "
+        "the top-level ``coinmetrics`` package.",
+        "",
+        ".. toctree::",
+        "   :hidden:",
+        "   :maxdepth: 1",
+        "",
+    ]
+    for cls_name in classes:
+        index_lines.append(f"   {cls_name}")
+    index_lines.append("")
+    (slug_dir / "index.rst").write_text("\n".join(index_lines))
+
+
 # ---------------------------------------------------------------------------
 # Sphinx build
 # ---------------------------------------------------------------------------
@@ -776,18 +951,24 @@ def collect_outputs(output_root: Path) -> None:
     if not STAGED_BUILD.is_dir():
         raise SystemExit(f"Sphinx build directory missing: {STAGED_BUILD}")
 
+    # Slug prefixes whose per-method/per-class child pages should keep
+    # underscores in their filenames (Python identifiers map 1:1 to the
+    # method names in the URL).
+    underscore_preserving_prefixes = (
+        "reference/groups/",
+        f"reference/{EXCEPTIONS_SLUG}/",
+    ) + tuple(f"reference/{slug}/" for slug, *_ in EXTRA_CLASS_PAGES)
+
     for src in STAGED_BUILD.rglob("*.md"):
         rel = src.relative_to(STAGED_BUILD).as_posix()
         target_rel = PAGE_RENAMES.get(rel)
         if target_rel is None:
             if rel.startswith("reference/groups/"):
-                # Per-method pages live at ``reference/groups/<slug>/<method>.md``.
-                # Preserve the method name verbatim (it matches the Python
-                # method, which keeps underscores) and only rewrite the
-                # parent prefix.
                 target_rel = rel.replace(
                     "reference/groups/", "reference/coinmetricsclient/", 1
                 )
+            elif any(rel.startswith(p) for p in underscore_preserving_prefixes):
+                target_rel = rel
             else:
                 target_rel = rel.replace("_", "-")
         target = output_root / target_rel
@@ -882,8 +1063,8 @@ _INTERSPHINX_RE = re.compile(
 _QUALIFIED_KINDS = frozenset({"class", "exception", "function", "data"})
 _AUTODOC_KIND_RE = re.compile(
     r"^(?P<hashes>#{2,5})\s+"
-    r"\*(?P<kind>class|exception|function|method|staticmethod|classmethod|"
-    r"abstractmethod|property|attribute|data)\*\s+"
+    r"\*(?P<kind>class|exception|function|method|static|staticmethod|"
+    r"classmethod|abstractmethod|abstract|property|attribute|data)\*\s+"
     r"(?P<rest>\S.*?)\s*$"
 )
 # Plain method/function headings without an explicit kind label, e.g.
@@ -1007,7 +1188,14 @@ def _emit_autodoc_heading(
         prefix = kind
     elif kind == "function":
         prefix = "def"
-    elif kind in {"method", "staticmethod", "classmethod", "abstractmethod"}:
+    elif kind in {
+        "method",
+        "static",
+        "staticmethod",
+        "classmethod",
+        "abstractmethod",
+        "abstract",
+    }:
         prefix = "def"
     else:
         prefix = ""
@@ -1063,15 +1251,30 @@ def _resolve_anchor(
 
 
 def _is_per_method_page(page_rel: str) -> bool:
-    """Per-method pages live under ``reference/coinmetricsclient/<slug>/<method>.md``."""
+    """Identify pages whose H1 already names the symbol they document.
+
+    On these pages ``automethod`` / ``autoexception`` would emit a redundant
+    inline heading just below the H1 -- ``_transform_autodoc_headings``
+    drops it so only the page title and the signature block remain. Covers:
+
+    * ``reference/coinmetricsclient/<group>/<method>.md`` (CoinMetricsClient
+      endpoint methods)
+    * ``reference/<class-slug>/<method>.md`` for each entry in
+      ``EXTRA_CLASS_PAGES``
+    * ``reference/exceptions/<ExceptionClass>.md``
+    """
     parts = page_rel.split("/")
-    return (
-        len(parts) == 4
-        and parts[0] == "reference"
-        and parts[1] == "coinmetricsclient"
-        and parts[3].endswith(".md")
-        and parts[3] != "README.md"
-    )
+    if not (parts and parts[0] == "reference" and parts[-1].endswith(".md")):
+        return False
+    if parts[-1] == "README.md":
+        return False
+    if len(parts) == 4 and parts[1] == "coinmetricsclient":
+        return True
+    if len(parts) == 3:
+        slugs = {slug for slug, *_ in EXTRA_CLASS_PAGES}
+        slugs.add(EXCEPTIONS_SLUG)
+        return parts[1] in slugs
+    return False
 
 
 def _transform_autodoc_headings(text: str, page_rel: str) -> str:
@@ -1099,6 +1302,18 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
     # ``automethod`` would duplicate it. Strip it down to the signature
     # block + anchor (no heading line).
     suppress_method_heading = _is_per_method_page(page_rel)
+
+    # On per-method / per-exception pages, wrap the H1 title in backticks
+    # so the symbol renders in monospace, matching the pydata-sphinx-theme
+    # convention of showing API headings in a "code" face.
+    if suppress_method_heading:
+        text = re.sub(
+            r"\A#\s+(?P<title>\S[^\n]*?)\s*$",
+            lambda m: f"# `{m.group('title')}`",
+            text,
+            count=1,
+            flags=re.MULTILINE,
+        )
 
     out: List[str] = []
 
@@ -1133,6 +1348,13 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
                 module_qualifier = dotted.rsplit(".", 1)[0]
                 display = dotted.rsplit(".", 1)[-1]
                 anchor, full = dotted, dotted
+                if suppress_method_heading:
+                    # Per-class pages (e.g. the Exceptions section) have an
+                    # H1 that already names the class, so render just the
+                    # signature block to avoid a duplicate heading.
+                    prefix = kind
+                    _append_block([_format_signature_block(prefix, full, args)])
+                    continue
             elif kind == "function":
                 # Module-level functions have no enclosing class to qualify
                 # with; render them with their short name.
@@ -1143,6 +1365,25 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
                     dotted, kind, class_qualifier, module_qualifier
                 )
                 display = _qualified_method_name(dotted)
+            if suppress_method_heading and kind not in {"class", "exception"}:
+                # Per-method pages already carry the method/property name
+                # in the H1, so emit just the signature block to keep the
+                # page focused.
+                if kind == "function":
+                    prefix = "def"
+                elif kind in {
+                    "method",
+                    "static",
+                    "staticmethod",
+                    "classmethod",
+                    "abstractmethod",
+                    "abstract",
+                }:
+                    prefix = "def"
+                else:
+                    prefix = ""
+                _append_block([_format_signature_block(prefix, full, args)])
+                continue
             _append_block(
                 _emit_autodoc_heading(
                     kind,
@@ -1291,14 +1532,23 @@ def post_process_outputs(output_root: Path) -> None:
 
 
 def write_group_index_pages(output_root: Path) -> None:
-    """Replace each per-group ``README.md`` with a curated landing page.
+    """Generate the README landing page for every per-method section.
 
-    Sphinx + ``sphinx_markdown_builder`` renders the staged ``index.rst``
-    into a near-empty page (the hidden toctree is consumed during the
-    build, leaving just the H1). We swap that out for a richer landing
-    page that lists every method in the group as a link, so the GitBook
-    index is useful even before the user expands the sidebar tree.
+    Three flavours of section are produced:
+
+    * Endpoint groups under ``reference/coinmetricsclient/<slug>/`` --
+      the README is fully rewritten because Sphinx renders the staged
+      ``index.rst`` into a near-empty page (just the H1 from the title).
+      We replace it with a short description plus a bullet list linking
+      every method in the group.
+    * Per-class sections (``reference/<slug>/`` for DataCollection,
+      ParallelDataCollection, CmStream) -- the README produced by Sphinx
+      already contains the ``autoclass`` signature block, so we *append*
+      a "Methods" list to the existing file rather than overwriting it.
+    * Exceptions (``reference/exceptions/``) -- README is rewritten
+      with a short intro and a bullet list of exception classes.
     """
+    # CoinMetricsClient endpoint groups -- full rewrite.
     for slug, label in GROUP_PAGES:
         methods = GROUP_METHODS.get(slug)
         if not methods:
@@ -1316,6 +1566,42 @@ def write_group_index_pages(output_root: Path) -> None:
             lines.append(
                 f"* [`CoinMetricsClient.{method_name}`]({method_name}.md)"
             )
+        lines.append("")
+        readme.write_text("\n".join(lines))
+
+    # Per-class sections -- append a "Methods" list under the autoclass
+    # signature so both the class definition and the navigable method
+    # list are visible on the landing page.
+    for slug, _label, _module, class_name in EXTRA_CLASS_PAGES:
+        methods = EXTRA_CLASS_METHODS.get(slug)
+        if not methods:
+            continue
+        readme = output_root / "reference" / slug / "README.md"
+        if not readme.is_file():
+            continue
+        existing = readme.read_text().rstrip()
+        appendix: List[str] = ["", "", "## Methods", ""]
+        for method_name in methods:
+            appendix.append(
+                f"* [`{class_name}.{method_name}`]({method_name}.md)"
+            )
+        appendix.append("")
+        readme.write_text(existing + "\n".join(appendix))
+
+    # Exceptions section -- full rewrite.
+    if EXCEPTION_CLASSES:
+        readme = output_root / "reference" / EXCEPTIONS_SLUG / "README.md"
+        readme.parent.mkdir(parents=True, exist_ok=True)
+        lines = [f"# {EXCEPTIONS_LABEL}", ""]
+        lines.append(
+            "The Coin Metrics Python client raises a typed exception "
+            "hierarchy for HTTP errors, rate limiting, transport failures "
+            "and data-collection errors. All exception classes are "
+            "exported from the top-level `coinmetrics` package."
+        )
+        lines.append("")
+        for cls_name in EXCEPTION_CLASSES:
+            lines.append(f"* [`{cls_name}`]({cls_name}.md)")
         lines.append("")
         readme.write_text("\n".join(lines))
 
@@ -1360,6 +1646,10 @@ def build(output_root: Path) -> None:
     stage_source()
     print("Regenerating per-endpoint group pages")
     regenerate_group_pages()
+    print("Regenerating per-method pages for DataCollection / CmStream")
+    regenerate_class_pages()
+    print("Regenerating per-class pages for the exceptions module")
+    regenerate_exception_pages()
     print(f"Running sphinx-build (markdown) -> {STAGED_BUILD}")
     run_sphinx()
     print(f"Resetting {output_root} (preserving {sorted(PRESERVED_PATHS)})")

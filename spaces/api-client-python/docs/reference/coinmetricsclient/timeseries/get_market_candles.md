@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_market_candles
+# `CoinMetricsClient.get_market_candles`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_candles(
@@ -38,4 +38,4 @@ For more information on market candles, see: [https://docs.coinmetrics.io/info/m
 * **Returns:**
   Market Candles timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

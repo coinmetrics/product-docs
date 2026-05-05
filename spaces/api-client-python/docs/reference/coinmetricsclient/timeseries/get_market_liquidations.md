@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_market_liquidations
+# `CoinMetricsClient.get_market_liquidations`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_liquidations(
@@ -32,4 +32,4 @@ For more information on liquidations, see: [https://docs.coinmetrics.io/info/mar
 * **Returns:**
   Market Liquidations timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

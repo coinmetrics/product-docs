@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_market_trades
+# `CoinMetricsClient.get_market_trades`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_trades(
@@ -34,4 +34,4 @@ For more information on market trades, see: [https://docs.coinmetrics.io/info/ma
 * **Returns:**
   Market Trades timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

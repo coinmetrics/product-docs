@@ -1,4 +1,4 @@
-# CoinMetricsClient.catalog_full_market_liquidations_v2
+# `CoinMetricsClient.catalog_full_market_liquidations_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_liquidations_v2(
@@ -43,4 +43,4 @@ Returns a list of all markets with liquidations support along with the time rang
 * **Returns:**
   List of market liquidations statistics.
 * **Return type:**
-  [CatalogV2DataCollection](../../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
+  CatalogV2DataCollection

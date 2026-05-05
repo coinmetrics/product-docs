@@ -1,4 +1,4 @@
-# CoinMetricsClient.catalog_full_exchange_metrics_v2
+# `CoinMetricsClient.catalog_full_exchange_metrics_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_exchange_metrics_v2(
@@ -25,4 +25,4 @@ Returns a list of all supported exchange metrics along with the time ranges of a
 * **Returns:**
   List of exchange metrics.
 * **Return type:**
-  [CatalogV2DataCollection](../../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
+  CatalogV2DataCollection

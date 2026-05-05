@@ -1,4 +1,4 @@
-# CoinMetricsClient.catalog_full_mining_pool_tips_summaries_v2
+# `CoinMetricsClient.catalog_full_mining_pool_tips_summaries_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_mining_pool_tips_summaries_v2(
@@ -22,4 +22,4 @@ ranges of available data.
 * **Returns:**
   List of mining pool tips assets
 * **Return type:**
-  [CatalogV2DataCollection](../../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
+  CatalogV2DataCollection

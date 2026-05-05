@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_market_contract_prices
+# `CoinMetricsClient.get_market_contract_prices`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_contract_prices(
@@ -35,4 +35,4 @@ Returns contract prices for specified markets. This includes index price and mar
 * **Returns:**
   Market Contract Prices timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

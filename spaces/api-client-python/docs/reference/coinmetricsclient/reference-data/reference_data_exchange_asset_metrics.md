@@ -1,4 +1,4 @@
-# CoinMetricsClient.reference_data_exchange_asset_metrics
+# `CoinMetricsClient.reference_data_exchange_asset_metrics`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_asset_metrics(
@@ -19,4 +19,4 @@ Returns a list of exchange asset metrics metadata.
 * **Returns:**
   List of exchange asset metrics metadata.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

@@ -1,4 +1,4 @@
-# CoinMetricsClient.reference_data_assets
+# `CoinMetricsClient.reference_data_assets`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_assets(
@@ -23,4 +23,4 @@ Returns a list of assets metadata.
 * **Returns:**
   List of assets metadata.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

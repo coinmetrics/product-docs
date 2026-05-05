@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_stream_asset_metrics
+# `CoinMetricsClient.get_stream_asset_metrics`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_asset_metrics(
@@ -23,4 +23,4 @@ Returns timeseries stream of metrics for specified assets.
 * **Returns:**
   Asset Metrics timeseries stream.
 * **Return type:**
-  [CmStream](../../cm-stream.md#coinmetrics.api_client.CmStream)
+  [CmStream](../../cm-stream/README.md#coinmetrics.api_client.CmStream)

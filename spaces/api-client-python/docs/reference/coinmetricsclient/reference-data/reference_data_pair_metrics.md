@@ -1,4 +1,4 @@
-# CoinMetricsClient.reference_data_pair_metrics
+# `CoinMetricsClient.reference_data_pair_metrics`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_pair_metrics(
@@ -19,4 +19,4 @@ Returns a list of pair metrics metadata.
 * **Returns:**
   List of pair metrics metadata.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

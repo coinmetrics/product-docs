@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_asset_alerts
+# `CoinMetricsClient.get_asset_alerts`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_asset_alerts(
@@ -33,4 +33,4 @@ Returns asset alerts for the specified assets.
 * **Returns:**
   Asset alerts timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

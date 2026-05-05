@@ -1,4 +1,4 @@
-# CoinMetricsClient.catalog_blockchain_balance_updates_v2
+# `CoinMetricsClient.catalog_blockchain_balance_updates_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_balance_updates_v2(
@@ -22,4 +22,4 @@ of available data.
 * **Returns:**
   List of blockchain-v2/balance-updates assets using catalog-v2
 * **Return type:**
-  [CatalogV2DataCollection](../../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
+  CatalogV2DataCollection

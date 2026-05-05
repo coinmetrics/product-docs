@@ -1,4 +1,4 @@
-# CoinMetricsClient.catalog_blockchain_rebasing_changes_v2
+# `CoinMetricsClient.catalog_blockchain_rebasing_changes_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_rebasing_changes_v2(
@@ -21,4 +21,4 @@ Returns a list of available assets for the blockchain rebasing changes endpoint 
 * **Returns:**
   List of blockchain-v2/rebasing-changes assets using catalog-v2
 * **Return type:**
-  [CatalogV2DataCollection](../../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
+  CatalogV2DataCollection

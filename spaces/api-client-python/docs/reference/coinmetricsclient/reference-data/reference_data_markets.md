@@ -1,4 +1,4 @@
-# CoinMetricsClient.reference_data_markets
+# `CoinMetricsClient.reference_data_markets`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_markets(
@@ -35,4 +35,4 @@ Returns a list of markets metadata.
 * **Returns:**
   List of markets metadata.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

@@ -1,4 +1,4 @@
-# CoinMetricsClient.security_master_markets
+# `CoinMetricsClient.security_master_markets`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.security_master_markets(
@@ -29,4 +29,4 @@ Returns metadata on all the markets offered (spot, options, futures), sorted alp
 * **Returns:**
   List of security master entries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

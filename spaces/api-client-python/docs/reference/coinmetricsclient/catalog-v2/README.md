@@ -1,4 +1,4 @@
-# Catalog v2
+# Catalog V2
 
 Endpoint methods on [`CoinMetricsClient`](../../coinmetricsclient.md) that hit the `catalog-v2` endpoint root.
 

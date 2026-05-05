@@ -1,4 +1,4 @@
-# CoinMetricsClient.catalog_full_transaction_tracker_assets_v2
+# `CoinMetricsClient.catalog_full_transaction_tracker_assets_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_transaction_tracker_assets_v2(
@@ -22,4 +22,4 @@ available data.
 * **Returns:**
   List of transaction tracker assets
 * **Return type:**
-  [CatalogV2DataCollection](../../data-collection.md#coinmetrics._data_collection.CatalogV2DataCollection)
+  CatalogV2DataCollection

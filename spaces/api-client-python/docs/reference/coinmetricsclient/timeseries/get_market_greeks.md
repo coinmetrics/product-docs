@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_market_greeks
+# `CoinMetricsClient.get_market_greeks`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_greeks(
@@ -33,4 +33,4 @@ Returns greeks for option markets.
 * **Returns:**
   Market Greeks timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

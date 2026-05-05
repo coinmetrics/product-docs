@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_snapshots_of_asset_metric_constituents
+# `CoinMetricsClient.get_snapshots_of_asset_metric_constituents`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_snapshots_of_asset_metric_constituents(
@@ -36,4 +36,4 @@ volume_trusted_spot_usd_1d metric constituents are exchanges, i.e. the output wi
 * **Returns:**
   Snapshots of asset metric constituents.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

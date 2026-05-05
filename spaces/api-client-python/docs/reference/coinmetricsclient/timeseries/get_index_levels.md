@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_index_levels
+# `CoinMetricsClient.get_index_levels`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_index_levels(
@@ -39,4 +39,4 @@ Returns index levels for specified indexes and date range.
 * **Returns:**
   Index Levels timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

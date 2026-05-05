@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_list_of_balance_updates_v2
+# `CoinMetricsClient.get_list_of_balance_updates_v2`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_v2(
@@ -53,4 +53,4 @@ Returns a list of blockchain accounts balance updates.
 * **Returns:**
   list of balance updates
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

@@ -1,4 +1,4 @@
-# CoinMetricsClient.reference_data_exchanges
+# `CoinMetricsClient.reference_data_exchanges`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_exchanges(
@@ -23,4 +23,4 @@ Returns a list of exchanges metadata.
 * **Returns:**
   List of exchanges metadata.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

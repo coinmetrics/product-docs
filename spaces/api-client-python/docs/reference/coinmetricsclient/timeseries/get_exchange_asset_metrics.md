@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_exchange_asset_metrics
+# `CoinMetricsClient.get_exchange_asset_metrics`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_exchange_asset_metrics(
@@ -44,4 +44,4 @@ Returns metrics for specified exchange-asset.
 * **Returns:**
   Exchange-Asset Metrics timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

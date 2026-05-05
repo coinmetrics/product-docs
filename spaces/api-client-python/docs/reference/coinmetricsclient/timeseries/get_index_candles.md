@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_index_candles
+# `CoinMetricsClient.get_index_candles`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_index_candles(
@@ -33,4 +33,4 @@ Returns index candles for specified indexes and date range.
 * **Returns:**
   Index Candles timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

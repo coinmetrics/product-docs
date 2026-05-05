@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_market_quotes
+# `CoinMetricsClient.get_market_quotes`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_quotes(
@@ -36,4 +36,4 @@ For more information on quotes, see: [https://docs.coinmetrics.io/info/markets/q
 * **Returns:**
   Market Quotes timeseries.
 * **Return type:**
-  [DataCollection](../../data-collection.md#coinmetrics._data_collection.DataCollection)
+  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)

@@ -1,4 +1,4 @@
-# CoinMetricsClient.get_stream_market_open_interest
+# `CoinMetricsClient.get_stream_market_open_interest`
 
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_open_interest(
@@ -14,4 +14,4 @@ Returns a websocket stream of market open interest for the requested markets.
   * **backfill** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- What data should be sent upon a connection. By default the latest values are sent just before real-time data.
 * **Returns:**
 * **Return type:**
-  [CmStream](../../cm-stream.md#coinmetrics.api_client.CmStream)
+  [CmStream](../../cm-stream/README.md#coinmetrics.api_client.CmStream)
