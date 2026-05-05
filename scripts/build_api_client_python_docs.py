@@ -1218,20 +1218,17 @@ def _emit_autodoc_heading(
       top-level on group pages where there is no class heading).
     """
     # pydata-sphinx-theme renders the entire autodoc signature as a
-    # single inline block: ``class pandas.DataFrame(data=None, ...)`` for
-    # classes, ``exception coinmetrics._exceptions.Foo(...)`` for
-    # exceptions, ``classmethod ClassName.alternate(...)`` for class
-    # methods, etc. The kind keyword sits *inside* the code-formatted
-    # signature instead of in a separate heading. We mirror that here:
-    # no H2, just an HTML anchor (so cross-references resolve) followed
-    # by a python-fenced block whose first token is the kind keyword for
-    # every non-method kind.
+    # single inline code-formatted line, e.g.
+    # ``class pandas.DataFrame(data=None, index=None, ...)``. The kind
+    # keyword sits inside the code span; there is no separate heading,
+    # multi-line code block or italic prefix above the signature. We
+    # mirror that here as a single ``## `<kind?> <dotted>(<args>)``` H2
+    # so the entire signature is the heading, GitBook lists it in the
+    # "On this page" panel, and the page contains no redundant
+    # multi-line code block beneath it.
     if kind in {"class", "exception"}:
         prefix = kind
-    elif kind in {
-        "static",
-        "staticmethod",
-    }:
+    elif kind in {"static", "staticmethod"}:
         prefix = "static"
     elif kind == "classmethod":
         prefix = "classmethod"
@@ -1240,14 +1237,21 @@ def _emit_autodoc_heading(
     elif kind == "property":
         prefix = "property"
     else:
-        # Plain methods, functions, attributes, data: no kind keyword
-        # inside the signature, matching how pydata renders ordinary
-        # methods (``DataFrame.head(n=5)``).
+        # Plain methods / functions / attributes / data: no kind keyword
+        # in the signature, matching how pydata renders ordinary methods
+        # (``DataFrame.head(n=5)``).
         prefix = ""
+
+    head = f"{prefix} {full_dotted}".strip()
+    if args is None:
+        signature = head
+    else:
+        signature = f"{head}({args.strip()})"
+
     return [
         f'<a id="{anchor}"></a>',
         "",
-        _format_signature_block(prefix, full_dotted, args),
+        f"## `{signature}`",
     ]
 
 

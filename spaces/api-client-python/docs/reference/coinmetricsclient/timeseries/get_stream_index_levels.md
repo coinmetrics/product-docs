@@ -2,13 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_index_levels"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_stream_index_levels(
-    indexes,
-    include_verification=None,
-    backfill=Backfill.LATEST,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_stream_index_levels(indexes, include_verification=None, backfill=Backfill.LATEST)`
 
 Returns timeseries stream of index levels.
 

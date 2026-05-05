@@ -2,16 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_asset_metrics"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_stream_asset_metrics(
-    assets,
-    metrics,
-    frequency=None,
-    backfill=Backfill.LATEST,
-    ignore_forbidden_errors=None,
-    ignore_unsupported_errors=None,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_stream_asset_metrics(assets, metrics, frequency=None, backfill=Backfill.LATEST, ignore_forbidden_errors=None, ignore_unsupported_errors=None)`
 
 Returns timeseries stream of metrics for specified assets.
 

@@ -2,15 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_accounts_v2"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_accounts_v2(
-    assets=None,
-    page_size=None,
-    paging_from=None,
-    next_page_token=None,
-    format='json_stream',
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.catalog_full_blockchain_accounts_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 
 Returns a list of all supported assets for the blockchain accounts endpoint along with time ranges of
 available data.

@@ -2,32 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_asset_metrics"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_asset_metrics(
-    assets,
-    metrics,
-    frequency=None,
-    page_size=None,
-    paging_from='start',
-    start_time=None,
-    end_time=None,
-    start_height=None,
-    end_height=None,
-    start_inclusive=None,
-    end_inclusive=None,
-    timezone=None,
-    sort=None,
-    limit_per_asset=None,
-    status=None,
-    start_hash=None,
-    end_hash=None,
-    min_confirmations=None,
-    null_as_zero=None,
-    ignore_forbidden_errors=None,
-    ignore_unsupported_errors=None,
-    format='json_stream',
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_asset_metrics(assets, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_asset=None, status=None, start_hash=None, end_hash=None, min_confirmations=None, null_as_zero=None, ignore_forbidden_errors=None, ignore_unsupported_errors=None, format='json_stream')`
 
 Returns requested metrics for specified assets.
 

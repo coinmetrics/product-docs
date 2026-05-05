@@ -2,20 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_predicted_market_funding_rates"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_predicted_market_funding_rates(
-    markets,
-    start_time=None,
-    end_time=None,
-    start_inclusive=None,
-    end_inclusive=None,
-    timezone=None,
-    page_size=None,
-    paging_from='start',
-    limit_per_market=None,
-    format='json_stream',
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_predicted_market_funding_rates(markets, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from='start', limit_per_market=None, format='json_stream')`
 
 Returns predicted funding rates for specified futures markets. Results are ordered by tuple (market, time).
 For more information on funding rates, see: [https://docs.coinmetrics.io/info/markets/fundingrates](https://docs.coinmetrics.io/info/markets/fundingrates)

@@ -2,15 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_indexes"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.reference_data_indexes(
-    indexes=None,
-    page_size=None,
-    paging_from=None,
-    next_page_token=None,
-    format='json_stream',
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.reference_data_indexes(indexes=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 
 Returns a list of indexes metadata.
 

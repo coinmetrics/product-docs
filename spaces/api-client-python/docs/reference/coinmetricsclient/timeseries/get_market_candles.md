@@ -2,23 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_candles"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_market_candles(
-    markets,
-    frequency=None,
-    page_size=None,
-    paging_from='start',
-    start_time=None,
-    end_time=None,
-    start_inclusive=None,
-    end_inclusive=None,
-    timezone=None,
-    limit_per_market=None,
-    format='json_stream',
-    ignore_unsupported_errors=None,
-    ignore_forbidden_errors=None,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_market_candles(markets, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, format='json_stream', ignore_unsupported_errors=None, ignore_forbidden_errors=None)`
 
 Returns market candles for specified markets, frequency and date range.
 For more information on market candles, see: [https://docs.coinmetrics.io/info/markets/candles](https://docs.coinmetrics.io/info/markets/candles)

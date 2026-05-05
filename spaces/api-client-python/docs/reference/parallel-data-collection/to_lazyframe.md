@@ -2,12 +2,7 @@
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.to_lazyframe"></a>
 
-```python
-coinmetrics._data_collection.ParallelDataCollection.to_lazyframe(
-    decimal_as_string=False,
-    **kwargs,
-)
-```
+## `coinmetrics._data_collection.ParallelDataCollection.to_lazyframe(decimal_as_string=False, **kwargs)`
 
 * **Parameters:**
   * **decimal_as_string** ([*bool*](https://docs.python.org/3/library/functions.html#bool))

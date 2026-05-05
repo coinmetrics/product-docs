@@ -2,21 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_open_interest"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_market_open_interest(
-    markets,
-    page_size=None,
-    paging_from='start',
-    start_time=None,
-    end_time=None,
-    start_inclusive=None,
-    end_inclusive=None,
-    granularity=None,
-    timezone=None,
-    limit_per_market=None,
-    format='json_stream',
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_market_open_interest(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, granularity=None, timezone=None, limit_per_market=None, format='json_stream')`
 
 Returns market open interest for specified markets and date range.
 For more information on open interest, see: [https://docs.coinmetrics.io/info/markets/openinterest](https://docs.coinmetrics.io/info/markets/openinterest)

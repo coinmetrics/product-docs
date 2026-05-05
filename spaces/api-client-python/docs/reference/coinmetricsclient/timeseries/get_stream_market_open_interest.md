@@ -2,12 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_open_interest"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_stream_market_open_interest(
-    markets,
-    backfill=None,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_stream_market_open_interest(markets, backfill=None)`
 
 Returns a websocket stream of market open interest for the requested markets.
 

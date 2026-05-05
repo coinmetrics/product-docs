@@ -2,17 +2,7 @@
 
 <a id="coinmetrics._data_collection.DataCollection"></a>
 
-```python
-class coinmetrics._data_collection.DataCollection(
-    data_retrieval_function,
-    endpoint,
-    url_params,
-    csv_export_supported=True,
-    client=None,
-    paginated=True,
-    **kwargs,
-)
-```
+## `class coinmetrics._data_collection.DataCollection(data_retrieval_function, endpoint, url_params, csv_export_supported=True, client=None, paginated=True, **kwargs)`
 
 Bases: [`object`](https://docs.python.org/3/library/functions.html#object)
 

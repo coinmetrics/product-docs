@@ -2,9 +2,7 @@
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.parse_date"></a>
 
-```python
-static coinmetrics._data_collection.ParallelDataCollection.parse_date(date_input)
-```
+## `static coinmetrics._data_collection.ParallelDataCollection.parse_date(date_input)`
 
 Parses a datetime object or datetime string into a datetime object. Datetime string must be a valid
 ISO 8601 format. Timezone aware objects are converted to UTC

@@ -2,17 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_exchange_metrics_v2"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.catalog_exchange_metrics_v2(
-    exchanges=None,
-    metrics=None,
-    reviewable=None,
-    page_size=None,
-    paging_from=None,
-    next_page_token=None,
-    format='json_stream',
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.catalog_exchange_metrics_v2(exchanges=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 
 Returns a list of available exchange metrics along with the time ranges of available data.
 

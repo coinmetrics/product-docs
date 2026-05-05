@@ -2,20 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_index_constituents"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_index_constituents(
-    indexes,
-    frequency=None,
-    page_size=None,
-    paging_from='start',
-    start_time=None,
-    end_time=None,
-    start_inclusive=None,
-    end_inclusive=None,
-    timezone=None,
-    format=None,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_index_constituents(indexes, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format=None)`
 
 Returns index constituents for specified indexes and date range.
 

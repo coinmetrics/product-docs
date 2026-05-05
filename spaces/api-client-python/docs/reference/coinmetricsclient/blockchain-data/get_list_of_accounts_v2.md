@@ -2,24 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_accounts_v2"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_list_of_accounts_v2(
-    asset,
-    accounts=None,
-    page_size=None,
-    paging_from='start',
-    start_time=None,
-    end_time=None,
-    start_height=None,
-    end_height=None,
-    start_chain_sequence_number=None,
-    end_chain_sequence_number=None,
-    start_inclusive=None,
-    end_inclusive=None,
-    timezone=None,
-    ignore_unsupported_errors=False,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_list_of_accounts_v2(asset, accounts=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_chain_sequence_number=None, end_chain_sequence_number=None, start_inclusive=None, end_inclusive=None, timezone=None, ignore_unsupported_errors=False)`
 
 Returns a list of blockchain accounts with their balances.
 

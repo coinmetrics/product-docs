@@ -2,16 +2,7 @@
 
 <a id="coinmetrics._data_collection.DataCollection.parallel"></a>
 
-```python
-coinmetrics._data_collection.DataCollection.parallel(
-    parallelize_on=None,
-    executor=None,
-    max_workers=None,
-    progress_bar=None,
-    time_increment=None,
-    height_increment=None,
-)
-```
+## `coinmetrics._data_collection.DataCollection.parallel(parallelize_on=None, executor=None, max_workers=None, progress_bar=None, time_increment=None, height_increment=None)`
 
 Convert this [`DataCollection`](README.md#coinmetrics._data_collection.DataCollection) into a [`ParallelDataCollection`](../parallel-data-collection/README.md#coinmetrics._data_collection.ParallelDataCollection),
 splitting a single HTTP request into many parallel requests for faster

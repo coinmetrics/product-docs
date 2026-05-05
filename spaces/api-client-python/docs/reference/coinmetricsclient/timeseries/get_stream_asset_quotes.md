@@ -2,13 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_asset_quotes"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_stream_asset_quotes(
-    assets,
-    aggregation_method=None,
-    backfill=None,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_stream_asset_quotes(assets, aggregation_method=None, backfill=None)`
 
 Returns a websocket stream of asset quotes for the requested assets.
 

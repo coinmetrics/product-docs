@@ -2,13 +2,7 @@
 
 <a id="coinmetrics._exceptions.CoinMetricsClientQueryParamsException"></a>
 
-```python
-exception coinmetrics._exceptions.CoinMetricsClientQueryParamsException(
-    response,
-    *args,
-    **kwargs,
-)
-```
+## `exception coinmetrics._exceptions.CoinMetricsClientQueryParamsException(response, *args, **kwargs)`
 
 Bases: `HTTPError`
 

@@ -2,12 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_liquidations"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_stream_market_liquidations(
-    markets,
-    backfill=None,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_stream_market_liquidations(markets, backfill=None)`
 
 Returns timeseries stream for market liquidations
 

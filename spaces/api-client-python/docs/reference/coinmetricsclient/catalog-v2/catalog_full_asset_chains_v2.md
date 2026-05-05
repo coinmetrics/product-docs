@@ -2,15 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_asset_chains_v2"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.catalog_full_asset_chains_v2(
-    assets=None,
-    page_size=None,
-    paging_from=None,
-    next_page_token=None,
-    format='json_stream',
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.catalog_full_asset_chains_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 
 Returns a list of all supported assets for the asset-chains endpoint along with time ranges of
 available data.

@@ -2,22 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_markets"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.reference_data_markets(
-    markets=None,
-    exchange=None,
-    type=None,
-    base=None,
-    quote=None,
-    asset=None,
-    symbol=None,
-    include=None,
-    page_size=None,
-    paging_from=None,
-    next_page_token=None,
-    format='json_stream',
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.reference_data_markets(markets=None, exchange=None, type=None, base=None, quote=None, asset=None, symbol=None, include=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 
 Returns a list of markets metadata.
 

@@ -2,17 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets_metadata"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets_metadata(
-    start_time=None,
-    end_time=None,
-    start_inclusive=None,
-    end_inclusive=None,
-    page_size=None,
-    paging_from=None,
-    version=None,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets_metadata(start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, page_size=None, paging_from=None, version=None)`
 
 Returns metadata about the assets, sectors, and industries included in the CM taxonomy
 

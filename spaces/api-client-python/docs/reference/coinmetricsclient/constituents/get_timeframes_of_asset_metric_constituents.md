@@ -2,18 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_timeframes_of_asset_metric_constituents"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_timeframes_of_asset_metric_constituents(
-    metric,
-    constituents=None,
-    end_time=None,
-    start_time=None,
-    next_page_token=None,
-    page_size=None,
-    paging_from=None,
-    format=None,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_timeframes_of_asset_metric_constituents(metric, constituents=None, end_time=None, start_time=None, next_page_token=None, page_size=None, paging_from=None, format=None)`
 
 Returns timeframes of asset metric constituents. Results are sorted by tuple (start_time,
 constituent_name), where constituent depends on a target metric. E.g., the

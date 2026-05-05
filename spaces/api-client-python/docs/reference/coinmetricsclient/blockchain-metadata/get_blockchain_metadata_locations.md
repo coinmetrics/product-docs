@@ -2,12 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_locations"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_locations(
-    page_size=None,
-    next_page_token=None,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_locations(page_size=None, next_page_token=None)`
 
 Returns a list of all supported locations ordered lexicographically.
 

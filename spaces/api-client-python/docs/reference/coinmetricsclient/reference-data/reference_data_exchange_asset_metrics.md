@@ -2,14 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_asset_metrics"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_asset_metrics(
-    metrics=None,
-    page_size=None,
-    paging_from=None,
-    format='json_stream',
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_asset_metrics(metrics=None, page_size=None, paging_from=None, format='json_stream')`
 
 Returns a list of exchange asset metrics metadata.
 

@@ -2,13 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_candles"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_stream_market_candles(
-    markets,
-    frequency=None,
-    backfill=Backfill.LATEST,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_stream_market_candles(markets, frequency=None, backfill=Backfill.LATEST)`
 
 Returns timeseries stream of market candles.
 

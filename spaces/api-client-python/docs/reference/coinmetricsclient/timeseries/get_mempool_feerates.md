@@ -2,19 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_mempool_feerates"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_mempool_feerates(
-    assets,
-    page_size=200,
-    paging_from='start',
-    start_time=None,
-    end_time=None,
-    start_inclusive=None,
-    end_inclusive=None,
-    timezone=None,
-    format=None,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_mempool_feerates(assets, page_size=200, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format=None)`
 
 Returns mempool feerates for the specified assets. Note: for this method, page_size must be <= 200.
 

@@ -2,30 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_for_account_v2"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_for_account_v2(
-    asset,
-    account,
-    txids=None,
-    block_hashes=None,
-    include_counterparties=None,
-    start_time=None,
-    end_time=None,
-    start_height=None,
-    end_height=None,
-    start_chain_sequence_number=None,
-    end_chain_sequence_number=None,
-    include_sub_accounts=None,
-    chain=None,
-    start_inclusive=None,
-    end_inclusive=None,
-    timezone=None,
-    page_size=None,
-    paging_from=None,
-    next_page_token=None,
-    ignore_unsupported_errors=False,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_for_account_v2(asset, account, txids=None, block_hashes=None, include_counterparties=None, start_time=None, end_time=None, start_height=None, end_height=None, start_chain_sequence_number=None, end_chain_sequence_number=None, include_sub_accounts=None, chain=None, start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from=None, next_page_token=None, ignore_unsupported_errors=False)`
 
 Returns balance update history for a single blockchain account on the specified asset, ordered by
 `(asset, account, block_height, transaction_hash, internal_tx_id)`.

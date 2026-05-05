@@ -2,13 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_quotes"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_stream_market_quotes(
-    markets,
-    backfill=Backfill.LATEST,
-    include_one_sided=None,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_stream_market_quotes(markets, backfill=Backfill.LATEST, include_one_sided=None)`
 
 Returns timeseries stream of market quotes.
 

@@ -2,26 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_market_greeks_v2"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.catalog_market_greeks_v2(
-    markets=None,
-    exchange=None,
-    market_type=None,
-    base=None,
-    quote=None,
-    asset=None,
-    symbol=None,
-    start_time=None,
-    end_time=None,
-    start_inclusive=None,
-    end_inclusive=None,
-    timezone=None,
-    format='json_stream',
-    page_size=None,
-    paging_from=None,
-    next_page_token=None,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.catalog_market_greeks_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 
 Returns a list of greeks for option market.
 

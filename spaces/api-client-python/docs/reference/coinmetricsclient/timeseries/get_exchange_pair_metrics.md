@@ -2,24 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_exchange_pair_metrics"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_exchange_pair_metrics(
-    exchange_pairs,
-    metrics,
-    frequency=None,
-    page_size=None,
-    paging_from='start',
-    start_time=None,
-    end_time=None,
-    start_height=None,
-    end_height=None,
-    start_inclusive=None,
-    end_inclusive=None,
-    timezone=None,
-    format='json_stream',
-    limit_per_exchange_pair=None,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_exchange_pair_metrics(exchange_pairs, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', limit_per_exchange_pair=None)`
 
 Returns metrics for specified exchange-pair.
 

@@ -2,25 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_institution_metrics"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.get_institution_metrics(
-    institutions,
-    metrics,
-    frequency=None,
-    page_size=None,
-    paging_from='start',
-    start_time=None,
-    end_time=None,
-    start_height=None,
-    end_height=None,
-    start_inclusive=None,
-    end_inclusive=None,
-    timezone=None,
-    sort=None,
-    limit_per_institution=None,
-    format=None,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.get_institution_metrics(institutions, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_institution=None, format=None)`
 
 Returns metrics for specified institutions.
 

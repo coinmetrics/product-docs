@@ -2,15 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.security_master_assets"></a>
 
-```python
-coinmetrics.api_client.CoinMetricsClient.security_master_assets(
-    assets=None,
-    codes=None,
-    page_size=None,
-    paging_from=None,
-    next_page_token=None,
-)
-```
+## `coinmetrics.api_client.CoinMetricsClient.security_master_assets(assets=None, codes=None, page_size=None, paging_from=None, next_page_token=None)`
 
 Returns all the assets and their metadata in security master.
 
