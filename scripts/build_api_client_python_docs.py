@@ -58,6 +58,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 SUBMODULE_ROOT = REPO_ROOT / "submodules" / "api-client-python"
 SUBMODULE_DOCS_SOURCE = SUBMODULE_ROOT / "docs" / "source"
 SUBMODULE_CHANGELOG = SUBMODULE_ROOT / "CHANGELOG.md"
+SUBMODULE_OPENAPI = SUBMODULE_ROOT / "openapi.yaml"
 
 STAGING_ROOT = REPO_ROOT / ".docs-build" / "api-client-python"
 STAGED_SOURCE = STAGING_ROOT / "source"
@@ -74,17 +75,79 @@ PRESERVED_PATHS = {
     ".gitbook.yaml",
 }
 
-GROUP_PAGES = [
+# Maps an openapi.yaml ``tags[].name`` value to the slug we use for the
+# corresponding GitBook section. Multiple openapi tags can collapse onto a
+# single slug (the Python client lumps the deprecation-free v2 endpoints
+# together with their "full catalog" / "stream" siblings).
+_OPENAPI_TAG_TO_SLUG = {
+    "Reference Data": ("reference-data", "Reference Data"),
+    "Catalog v2": ("catalog-v2", "Catalog v2"),
+    "Full catalog v2": ("catalog-v2", "Catalog v2"),
+    "Timeseries": ("timeseries", "Time Series"),
+    "Timeseries stream": ("timeseries", "Time Series"),
+    "Taxonomy": ("taxonomy", "Taxonomy"),
+    "Taxonomy Metadata": ("taxonomy", "Taxonomy"),
+    "Profile": ("asset-profiles", "Asset Profiles"),
+    "List of blockchain entities v2": ("blockchain-data", "Blockchain Data"),
+    "Full blockchain entities v2": ("blockchain-data", "Blockchain Data"),
+    "Security Master": ("security-master", "Security Master"),
+    "Constituent Snapshots": ("constituents", "Constituents"),
+    "Constituent Timeframes": ("constituents", "Constituents"),
+    "Blockchain Metadata": ("blockchain-metadata", "Blockchain Metadata"),
+}
+
+# Fallback ordering used if openapi.yaml is missing or unreadable. Mirrors
+# the openapi tag order at the time of writing.
+_FALLBACK_GROUP_PAGES: List[Tuple[str, str]] = [
+    ("reference-data", "Reference Data"),
     ("catalog-v2", "Catalog v2"),
     ("timeseries", "Time Series"),
-    ("reference-data", "Reference Data"),
-    ("security-master", "Security Master"),
     ("taxonomy", "Taxonomy"),
     ("asset-profiles", "Asset Profiles"),
-    ("constituents", "Constituents"),
     ("blockchain-data", "Blockchain Data"),
+    ("security-master", "Security Master"),
+    ("constituents", "Constituents"),
     ("blockchain-metadata", "Blockchain Metadata"),
 ]
+
+
+def _compute_group_pages() -> List[Tuple[str, str]]:
+    """Return ``(slug, label)`` pairs in the order they appear in openapi.yaml.
+
+    The openapi spec ships in the submodule and is the canonical ordering
+    of endpoint tags for the public REST API. Aligning the GitBook sidebar
+    to it keeps the Python-client docs and the OpenAPI / Redoc reference
+    in lockstep.
+    """
+    if not SUBMODULE_OPENAPI.is_file():
+        return list(_FALLBACK_GROUP_PAGES)
+    try:
+        text = SUBMODULE_OPENAPI.read_text()
+    except OSError:
+        return list(_FALLBACK_GROUP_PAGES)
+
+    ordered: List[Tuple[str, str]] = []
+    seen: set[str] = set()
+    # Match top-level ``tags:`` entries -- two-space indent, ``- name: <Tag>``.
+    for match in re.finditer(r"^\s+-\s+name:\s+(.+?)\s*$", text, re.MULTILINE):
+        slug_label = _OPENAPI_TAG_TO_SLUG.get(match.group(1).strip())
+        if slug_label is None or slug_label[0] in seen:
+            continue
+        ordered.append(slug_label)
+        seen.add(slug_label[0])
+    return ordered or list(_FALLBACK_GROUP_PAGES)
+
+
+GROUP_PAGES: List[Tuple[str, str]] = _compute_group_pages()
+
+
+# Mapping ``slug -> ordered list of method names`` populated by
+# ``regenerate_group_pages`` after _generate_groups.py has classified
+# every public method on ``CoinMetricsClient``. Used by ``_render_summary``
+# to nest every endpoint method under its parent group in the GitBook
+# sidebar, and by ``_write_group_index_pages`` to render per-group
+# README.md landing pages.
+GROUP_METHODS: dict[str, List[str]] = {}
 
 # Source-relative path -> output-relative path. Pages not listed are emitted
 # at the same relative location (with name normalisation underscore->dash).
@@ -107,9 +170,15 @@ PAGE_RENAMES = {
     "releases/changelog.md": "releases/changelog.md",
 }
 
-# Generated group pages are nested under reference/coinmetricsclient/.
+# Generated per-group landing pages live under
+# ``reference/coinmetricsclient/<slug>/README.md``; the actual per-method
+# pages are mapped wholesale by ``collect_outputs`` (see the
+# ``reference/groups/`` -> ``reference/coinmetricsclient/`` substitution
+# there).
 for slug, _label in GROUP_PAGES:
-    PAGE_RENAMES[f"reference/groups/{slug}.md"] = f"reference/coinmetricsclient/{slug}.md"
+    PAGE_RENAMES[f"reference/groups/{slug}/index.md"] = (
+        f"reference/coinmetricsclient/{slug}/README.md"
+    )
 
 # Output-relative path -> H1 title. Used by post-processing to replace the
 # default ``coinmetrics.<module> module`` heading sphinx-apidoc emits with a
@@ -127,8 +196,8 @@ PAGE_TITLES = {
 # Pages without an entry rely on the most-recent ``*class*`` / ``*exception*``
 # heading on the page to set the qualifier dynamically.
 PAGE_DEFAULT_CLASS_QUALIFIER = {
-    # Group pages live under reference/coinmetricsclient/ and only contain
-    # methods of CoinMetricsClient (no class heading).
+    # Per-method pages live under reference/coinmetricsclient/<slug>/ and
+    # contain a single ``CoinMetricsClient.<method>`` automethod block.
     "reference/coinmetricsclient/": "coinmetrics.api_client.CoinMetricsClient",
     # The CmStream page renders ``run`` etc. without the class prefix.
     "reference/cm-stream.md": "coinmetrics.api_client.CmStream",
@@ -215,13 +284,13 @@ SUMMARY_CONFIG: List[Tuple[str | None, List[Tuple[str, str, List[Tuple[str, str]
 
 
 def _render_summary() -> str:
-    """Compose ``SUMMARY.md`` from ``SUMMARY_CONFIG`` and ``GROUP_PAGES``.
+    """Compose ``SUMMARY.md`` from ``SUMMARY_CONFIG``, ``GROUP_PAGES`` and
+    ``GROUP_METHODS``.
 
-    Per-method entries are intentionally NOT emitted: GitBook collapses
-    deeply nested SUMMARY entries by default (so they would not be visible
-    anyway) and inflates the sidebar for every page. Method-level
-    discoverability is handled by GitBook's full-text search, which indexes
-    the qualified ``ClassName.method`` headings rendered on each page.
+    The ``CoinMetricsClient`` entry expands into one nested entry per
+    endpoint group (in openapi.yaml order) and one further-nested entry per
+    method on that group. Each method has its own page under
+    ``reference/coinmetricsclient/<slug>/<method>.md``.
     """
     lines: List[str] = ["# Table of contents", ""]
     intro_title, intro_target = SUMMARY_INTRO
@@ -233,12 +302,15 @@ def _render_summary() -> str:
             lines.append("")
         for title, target, children in entries:
             lines.append(f"* [{title}]({target})")
-            # Inject the auto-discovered per-endpoint group pages beneath
-            # CoinMetricsClient.
             if target == "reference/coinmetricsclient.md":
                 for slug, label in GROUP_PAGES:
-                    page = f"reference/coinmetricsclient/{slug}.md"
-                    lines.append(f"  * [{label}]({page})")
+                    base = f"reference/coinmetricsclient/{slug}"
+                    lines.append(f"  * [{label}]({base}/README.md)")
+                    for method_name in GROUP_METHODS.get(slug, []):
+                        method_title = f"CoinMetricsClient.{method_name}"
+                        lines.append(
+                            f"    * [{method_title}]({base}/{method_name}.md)"
+                        )
             for child_title, child_target in children:
                 lines.append(f"  * [{child_title}]({child_target})")
         lines.append("")
@@ -562,12 +634,24 @@ smartquotes = False
 
 
 def regenerate_group_pages() -> None:
-    """Run the upstream ``_generate_groups.py`` against the staged tree.
+    """Use the upstream ``_generate_groups.py`` classifier to scaffold one
+    Sphinx page per ``CoinMetricsClient`` endpoint method.
 
-    The upstream script writes RST files to its own ``groups`` directory and
-    derives ``REPO_ROOT`` from ``__file__``. We import it as a module and
-    overwrite both module-level constants so it operates on the staged tree
-    without touching the submodule.
+    For each ``(slug, label)`` group returned by the classifier we write:
+
+    * ``groups/<slug>/<method>.rst`` -- a tiny page whose title is
+      ``CoinMetricsClient.<method>`` and whose body is a single
+      ``.. automethod::`` directive. Sphinx renders these as one Markdown
+      page each, which the output-assembly step relocates to
+      ``reference/coinmetricsclient/<slug>/<method>.md``.
+    * ``groups/<slug>/index.rst`` -- a per-group landing page whose title
+      is the human-readable group label. This becomes the GitBook
+      directory index (``coinmetricsclient/<slug>/README.md``).
+
+    The slug -> methods mapping is captured into the module-level
+    ``GROUP_METHODS`` so ``_render_summary`` and ``post_process_outputs``
+    can drive sidebar nesting and per-group index content from the same
+    source of truth.
     """
     src = STAGED_SOURCE / "reference" / "_generate_groups.py"
     if not src.is_file():
@@ -583,33 +667,59 @@ def regenerate_group_pages() -> None:
     sys.modules[spec.name] = module
     spec.loader.exec_module(module)
 
-    # Override the upstream constants so the script reads from the real
-    # submodule and writes into the staged source tree.
+    # Override the upstream constants so ``_collect_methods`` reads from
+    # the real submodule rather than the staged tree.
     module.REPO_ROOT = SUBMODULE_ROOT
     module.API_CLIENT_PATH = SUBMODULE_ROOT / "coinmetrics" / "api_client.py"
-    module.OUTPUT_DIR = STAGED_SOURCE / "reference" / "groups"
 
-    # Replace the upstream group renderer with one that skips the
-    # ``.. autosummary::`` table at the top. The autosummary table is a
-    # condensed TOC of every method on the page and duplicates both the
-    # GitBook right-hand anchor list and the per-method headings emitted
-    # below it by ``.. automethod::``. Dropping it keeps the page focused on
-    # the actual reference content.
     class_name = module.CLASS_NAME
+    groups = module._collect_methods()
 
-    def _render_group_no_autosummary(group) -> str:  # type: ignore[no-untyped-def]
-        underline = "=" * len(group.label)
-        header = (
-            f"{group.label}\n{underline}\n\n"
-            f".. currentmodule:: coinmetrics.api_client\n\n"
-        )
-        auto_methods = "\n".join(
-            f".. automethod:: {class_name}.{name}" for name in group.methods
-        )
-        return header + auto_methods + "\n"
+    output_dir = STAGED_SOURCE / "reference" / "groups"
+    if output_dir.exists():
+        shutil.rmtree(output_dir)
+    output_dir.mkdir(parents=True)
 
-    module._render_group = _render_group_no_autosummary
-    module.main()
+    GROUP_METHODS.clear()
+    for slug, label in GROUP_PAGES:
+        group = groups.get(slug)
+        if not group or not group.methods:
+            continue
+
+        slug_dir = output_dir / slug
+        slug_dir.mkdir()
+
+        for method_name in group.methods:
+            title = f"{class_name}.{method_name}"
+            page_rst = (
+                f"{title}\n{'=' * len(title)}\n\n"
+                ".. currentmodule:: coinmetrics.api_client\n\n"
+                f".. automethod:: {class_name}.{method_name}\n"
+            )
+            (slug_dir / f"{method_name}.rst").write_text(page_rst)
+
+        # Per-group landing page (``coinmetricsclient/<slug>/README.md``).
+        # Body is a hidden toctree so Sphinx wires the per-method pages
+        # into the document graph (otherwise we get "document isn't
+        # included in any toctree" warnings); the body content of the
+        # landing page is generated separately during post-processing
+        # from ``GROUP_METHODS`` because the markdown builder strips the
+        # rendered toctree anyway.
+        index_rst_lines = [
+            label,
+            "=" * len(label),
+            "",
+            ".. toctree::",
+            "   :hidden:",
+            "   :maxdepth: 1",
+            "",
+        ]
+        for method_name in group.methods:
+            index_rst_lines.append(f"   {method_name}")
+        index_rst_lines.append("")
+        (slug_dir / "index.rst").write_text("\n".join(index_rst_lines))
+
+        GROUP_METHODS[slug] = list(group.methods)
 
 
 # ---------------------------------------------------------------------------
@@ -670,12 +780,16 @@ def collect_outputs(output_root: Path) -> None:
         rel = src.relative_to(STAGED_BUILD).as_posix()
         target_rel = PAGE_RENAMES.get(rel)
         if target_rel is None:
-            target_rel = rel.replace("_", "-")
-            # Drop the staged "groups/" subdirectory if it leaks through.
-            if target_rel.startswith("reference/groups/"):
-                target_rel = target_rel.replace(
+            if rel.startswith("reference/groups/"):
+                # Per-method pages live at ``reference/groups/<slug>/<method>.md``.
+                # Preserve the method name verbatim (it matches the Python
+                # method, which keeps underscores) and only rewrite the
+                # parent prefix.
+                target_rel = rel.replace(
                     "reference/groups/", "reference/coinmetricsclient/", 1
                 )
+            else:
+                target_rel = rel.replace("_", "-")
         target = output_root / target_rel
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src, target)
@@ -948,13 +1062,27 @@ def _resolve_anchor(
     return dotted, dotted
 
 
+def _is_per_method_page(page_rel: str) -> bool:
+    """Per-method pages live under ``reference/coinmetricsclient/<slug>/<method>.md``."""
+    parts = page_rel.split("/")
+    return (
+        len(parts) == 4
+        and parts[0] == "reference"
+        and parts[1] == "coinmetricsclient"
+        and parts[3].endswith(".md")
+        and parts[3] != "README.md"
+    )
+
+
 def _transform_autodoc_headings(text: str, page_rel: str) -> str:
     """Rewrite every autodoc heading on the page (see module-level comment).
 
     ``page_rel`` is the output-relative path of the file (e.g.
-    ``reference/coinmetricsclient/timeseries.md``). It is used to seed the
-    class qualifier on pages where Sphinx does not emit a ``*class*``
-    heading (group pages and the cm-stream page).
+    ``reference/coinmetricsclient/timeseries/get_asset_metrics.md``). It is
+    used to (a) seed the class qualifier on pages where Sphinx does not
+    emit a ``*class*`` heading (per-method and cm-stream pages) and (b)
+    suppress the inline method heading on per-method pages -- those pages
+    already carry the method name in the H1 from the RST title.
     """
     # Resolve the per-page default class qualifier. Group pages match by
     # directory prefix; everything else by exact path.
@@ -965,6 +1093,12 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
             class_qualifier = qualifier
             module_qualifier = qualifier.rsplit(".", 1)[0]
             break
+
+    # On per-method pages, the page H1 already says
+    # ``CoinMetricsClient.<method>``, so the inline H3 produced by
+    # ``automethod`` would duplicate it. Strip it down to the signature
+    # block + anchor (no heading line).
+    suppress_method_heading = _is_per_method_page(page_rel)
 
     out: List[str] = []
 
@@ -1027,15 +1161,21 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
             anchor, full = _resolve_anchor(
                 dotted, None, class_qualifier, module_qualifier
             )
-            _append_block(
-                _emit_autodoc_heading(
-                    kind=None,
-                    display_name=_qualified_method_name(dotted),
-                    anchor=anchor,
-                    full_dotted=full,
-                    args=args,
+            if suppress_method_heading:
+                # Replace the heading with just the signature code block,
+                # omitting the anchor too (the page URL is the anchor on
+                # per-method pages).
+                _append_block([_format_signature_block("", full, args)])
+            else:
+                _append_block(
+                    _emit_autodoc_heading(
+                        kind=None,
+                        display_name=_qualified_method_name(dotted),
+                        anchor=anchor,
+                        full_dotted=full,
+                        args=args,
+                    )
                 )
-            )
             continue
 
         out.append(line)
@@ -1150,6 +1290,36 @@ def post_process_outputs(output_root: Path) -> None:
         post_process_file(md, output_root)
 
 
+def write_group_index_pages(output_root: Path) -> None:
+    """Replace each per-group ``README.md`` with a curated landing page.
+
+    Sphinx + ``sphinx_markdown_builder`` renders the staged ``index.rst``
+    into a near-empty page (the hidden toctree is consumed during the
+    build, leaving just the H1). We swap that out for a richer landing
+    page that lists every method in the group as a link, so the GitBook
+    index is useful even before the user expands the sidebar tree.
+    """
+    for slug, label in GROUP_PAGES:
+        methods = GROUP_METHODS.get(slug)
+        if not methods:
+            continue
+        readme = output_root / "reference" / "coinmetricsclient" / slug / "README.md"
+        readme.parent.mkdir(parents=True, exist_ok=True)
+        lines: List[str] = [f"# {label}", ""]
+        lines.append(
+            "Endpoint methods on "
+            "[`CoinMetricsClient`](../../coinmetricsclient.md) that hit "
+            f"the `{slug}` endpoint root."
+        )
+        lines.append("")
+        for method_name in methods:
+            lines.append(
+                f"* [`CoinMetricsClient.{method_name}`]({method_name}.md)"
+            )
+        lines.append("")
+        readme.write_text("\n".join(lines))
+
+
 # ---------------------------------------------------------------------------
 # Entrypoint
 # ---------------------------------------------------------------------------
@@ -1200,6 +1370,8 @@ def build(output_root: Path) -> None:
     copy_assets(output_root)
     print("Post-processing generated Markdown for GitBook")
     post_process_outputs(output_root)
+    print("Writing per-group landing pages")
+    write_group_index_pages(output_root)
     print("Writing SUMMARY.md")
     write_summary(output_root)
 
