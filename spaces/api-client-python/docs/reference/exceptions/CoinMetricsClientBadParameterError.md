@@ -1,5 +1,7 @@
 # `CoinMetricsClientBadParameterError`
 
+*exception*
+
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientBadParameterError(
     response,

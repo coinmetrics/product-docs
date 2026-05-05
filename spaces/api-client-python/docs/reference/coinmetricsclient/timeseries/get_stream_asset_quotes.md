@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_stream_asset_quotes`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_asset_quotes(
     assets,

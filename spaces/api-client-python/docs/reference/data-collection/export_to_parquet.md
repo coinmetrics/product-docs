@@ -1,5 +1,7 @@
 # `DataCollection.export_to_parquet`
 
+*method*
+
 ```python
 coinmetrics._data_collection.DataCollection.export_to_parquet(path_or_bufstr=None)
 ```

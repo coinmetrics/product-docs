@@ -1,5 +1,7 @@
 # `ParallelDataCollection.to_list`
 
+*method*
+
 ```python
 coinmetrics._data_collection.ParallelDataCollection.to_list()
 ```

@@ -1,5 +1,7 @@
 # `CoinMetricsClient.catalog_full_market_greeks_v2`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_market_greeks_v2(
     markets=None,

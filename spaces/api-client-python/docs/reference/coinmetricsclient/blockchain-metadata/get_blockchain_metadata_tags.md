@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_blockchain_metadata_tags`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tags(
     type=None,

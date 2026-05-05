@@ -1,5 +1,7 @@
 # `CoinMetricsClient.catalog_market_quotes_v2`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_market_quotes_v2(
     markets=None,

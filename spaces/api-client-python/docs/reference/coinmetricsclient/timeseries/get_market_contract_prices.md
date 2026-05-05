@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_market_contract_prices`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_contract_prices(
     markets,

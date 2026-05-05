@@ -1,5 +1,7 @@
 # `CoinMetricsClientRateLimitError`
 
+*exception*
+
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientRateLimitError(
     response,

@@ -1,5 +1,7 @@
 # `CoinMetricsClient.reference_data_exchange_metrics`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_metrics(
     metrics=None,

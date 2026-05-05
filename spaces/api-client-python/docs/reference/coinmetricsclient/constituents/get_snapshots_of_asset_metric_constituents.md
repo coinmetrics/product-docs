@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_snapshots_of_asset_metric_constituents`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_snapshots_of_asset_metric_constituents(
     metric,

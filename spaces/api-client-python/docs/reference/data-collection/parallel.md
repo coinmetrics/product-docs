@@ -1,5 +1,7 @@
 # `DataCollection.parallel`
 
+*method*
+
 ```python
 coinmetrics._data_collection.DataCollection.parallel(
     parallelize_on=None,

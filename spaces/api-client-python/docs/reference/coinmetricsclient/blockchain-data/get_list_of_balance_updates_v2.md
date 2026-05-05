@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_list_of_balance_updates_v2`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_v2(
     asset,

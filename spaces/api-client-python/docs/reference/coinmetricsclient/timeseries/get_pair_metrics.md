@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_pair_metrics`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_pair_metrics(
     pairs,

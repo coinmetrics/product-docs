@@ -1115,6 +1115,46 @@ def _split_signature(payload: str) -> Tuple[str, Optional[str]]:
     return payload[:open_idx], payload[open_idx + 1 :].rstrip(") ")
 
 
+# Human-readable label rendered as the italic kind annotation that
+# pydata-sphinx-theme prints to the left of every API signature ("method",
+# "property", "classmethod", ...). Maps the canonical autodoc kind
+# emitted by sphinx-markdown-builder to the label Sphinx itself uses.
+_KIND_LABELS = {
+    "class": "class",
+    "exception": "exception",
+    "function": "function",
+    "method": "method",
+    "static": "static method",
+    "staticmethod": "static method",
+    "classmethod": "classmethod",
+    "abstract": "abstract method",
+    "abstractmethod": "abstract method",
+    "property": "property",
+    "attribute": "attribute",
+    "data": "data",
+}
+
+
+def _format_pydata_signature_block(
+    kind: Optional[str],
+    prefix: str,
+    full_dotted: str,
+    args: Optional[str],
+) -> List[str]:
+    """Return the lines for an italic kind label + a signature code block.
+
+    Mirrors the way pydata-sphinx-theme renders an API signature: a small
+    italic annotation (``method``, ``property``, ``classmethod``, ...) sits
+    just above a monospace signature block. In Markdown we use an
+    italic-emphasis line followed by a python-fenced code block.
+    """
+    label = _KIND_LABELS.get(kind) if kind else None
+    block = _format_signature_block(prefix, full_dotted, args)
+    if label:
+        return [f"*{label}*", "", block]
+    return [block]
+
+
 def _format_signature_block(prefix: str, full_dotted: str, args: Optional[str]) -> str:
     """Render the ``python``-fenced signature block printed under each heading."""
     head = f"{prefix} {full_dotted}".strip()
@@ -1353,7 +1393,9 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
                     # H1 that already names the class, so render just the
                     # signature block to avoid a duplicate heading.
                     prefix = kind
-                    _append_block([_format_signature_block(prefix, full, args)])
+                    _append_block(
+                        _format_pydata_signature_block(kind, prefix, full, args)
+                    )
                     continue
             elif kind == "function":
                 # Module-level functions have no enclosing class to qualify
@@ -1365,25 +1407,17 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
                     dotted, kind, class_qualifier, module_qualifier
                 )
                 display = _qualified_method_name(dotted)
-            if suppress_method_heading and kind not in {"class", "exception"}:
-                # Per-method pages already carry the method/property name
-                # in the H1, so emit just the signature block to keep the
-                # page focused.
-                if kind == "function":
-                    prefix = "def"
-                elif kind in {
-                    "method",
-                    "static",
-                    "staticmethod",
-                    "classmethod",
-                    "abstractmethod",
-                    "abstract",
-                }:
-                    prefix = "def"
-                else:
-                    prefix = ""
-                _append_block([_format_signature_block(prefix, full, args)])
-                continue
+                if suppress_method_heading and kind not in {"class", "exception"}:
+                    # Per-method pages already carry the method/property
+                    # name in the H1, so emit just the kind annotation +
+                    # signature block to mirror the pydata-sphinx-theme
+                    # layout. pydata never prefixes method/property
+                    # signatures with ``def``: the kind annotation above
+                    # the block already conveys that information.
+                    _append_block(
+                        _format_pydata_signature_block(kind, "", full, args)
+                    )
+                    continue
             _append_block(
                 _emit_autodoc_heading(
                     kind,
@@ -1403,10 +1437,15 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
                 dotted, None, class_qualifier, module_qualifier
             )
             if suppress_method_heading:
-                # Replace the heading with just the signature code block,
-                # omitting the anchor too (the page URL is the anchor on
-                # per-method pages).
-                _append_block([_format_signature_block("", full, args)])
+                # Replace the heading with the pydata-style kind label +
+                # signature block; the page URL itself is the anchor on
+                # per-method pages so we drop the inline HTML anchor.
+                # Plain headings (no kind label in the source) are emitted
+                # by ``automethod`` for ordinary methods, so default to
+                # the ``method`` annotation.
+                _append_block(
+                    _format_pydata_signature_block("method", "", full, args)
+                )
             else:
                 _append_block(
                     _emit_autodoc_heading(

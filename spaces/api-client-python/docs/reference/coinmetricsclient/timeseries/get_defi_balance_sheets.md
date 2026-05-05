@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_defi_balance_sheets`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_defi_balance_sheets(
     defi_protocols,

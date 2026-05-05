@@ -1,5 +1,7 @@
 # `ParallelDataCollection.export_to_parquet_files`
 
+*method*
+
 ```python
 coinmetrics._data_collection.ParallelDataCollection.export_to_parquet_files(
     data_directory=None,

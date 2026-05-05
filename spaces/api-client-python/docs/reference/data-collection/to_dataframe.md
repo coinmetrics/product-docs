@@ -1,5 +1,7 @@
 # `DataCollection.to_dataframe`
 
+*method*
+
 ```python
 coinmetrics._data_collection.DataCollection.to_dataframe(
     dtype_mapper=None,

@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_list_of_sub_accounts_v2`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_list_of_sub_accounts_v2(
     asset,

@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_market_open_interest`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_market_open_interest(
     markets,

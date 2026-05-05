@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_stream_market_trades`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_trades(
     markets,

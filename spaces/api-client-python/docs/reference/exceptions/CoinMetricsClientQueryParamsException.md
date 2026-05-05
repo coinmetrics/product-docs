@@ -1,5 +1,7 @@
 # `CoinMetricsClientQueryParamsException`
 
+*exception*
+
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientQueryParamsException(
     response,

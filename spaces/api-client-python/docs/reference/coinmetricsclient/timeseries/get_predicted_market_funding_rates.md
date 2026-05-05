@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_predicted_market_funding_rates`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_predicted_market_funding_rates(
     markets,

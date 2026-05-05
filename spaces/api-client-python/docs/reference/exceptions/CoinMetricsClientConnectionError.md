@@ -1,5 +1,7 @@
 # `CoinMetricsClientConnectionError`
 
+*exception*
+
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientConnectionError(
     original_error,

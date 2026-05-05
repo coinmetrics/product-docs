@@ -1,5 +1,7 @@
 # `DataCollection.to_list`
 
+*method*
+
 ```python
 coinmetrics._data_collection.DataCollection.to_list()
 ```

@@ -1,5 +1,7 @@
 # `ParallelDataCollection.get_parallel_datacollections`
 
+*method*
+
 ```python
 coinmetrics._data_collection.ParallelDataCollection.get_parallel_datacollections()
 ```

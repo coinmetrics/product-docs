@@ -1,5 +1,7 @@
 # `DataCollection.first_page`
 
+*method*
+
 ```python
 coinmetrics._data_collection.DataCollection.first_page()
 ```

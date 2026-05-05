@@ -1,5 +1,7 @@
 # `DataCollection.get_schema_field_names`
 
+*method*
+
 ```python
 coinmetrics._data_collection.DataCollection.get_schema_field_names()
 ```

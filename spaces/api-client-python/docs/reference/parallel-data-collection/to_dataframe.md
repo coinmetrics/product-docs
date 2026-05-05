@@ -1,5 +1,7 @@
 # `ParallelDataCollection.to_dataframe`
 
+*method*
+
 ```python
 coinmetrics._data_collection.ParallelDataCollection.to_dataframe(
     dtype_mapper=None,

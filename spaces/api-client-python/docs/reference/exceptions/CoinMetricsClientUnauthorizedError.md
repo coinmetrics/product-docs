@@ -1,5 +1,7 @@
 # `CoinMetricsClientUnauthorizedError`
 
+*exception*
+
 ```python
 exception coinmetrics._exceptions.CoinMetricsClientUnauthorizedError(
     response,

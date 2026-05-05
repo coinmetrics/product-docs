@@ -1,5 +1,7 @@
 # `CmStream.run`
 
+*method*
+
 ```python
 coinmetrics.api_client.CmStream.run(
     on_message=None,

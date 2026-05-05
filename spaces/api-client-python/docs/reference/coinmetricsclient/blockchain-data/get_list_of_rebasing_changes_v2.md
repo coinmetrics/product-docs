@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_list_of_rebasing_changes_v2`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_list_of_rebasing_changes_v2(
     asset,

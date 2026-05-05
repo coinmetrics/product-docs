@@ -1,5 +1,7 @@
 # `CoinMetricsClient.reference_data_indexes`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.reference_data_indexes(
     indexes=None,

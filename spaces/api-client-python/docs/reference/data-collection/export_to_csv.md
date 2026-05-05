@@ -1,5 +1,7 @@
 # `DataCollection.export_to_csv`
 
+*method*
+
 ```python
 coinmetrics._data_collection.DataCollection.export_to_csv(
     path_or_bufstr=None,

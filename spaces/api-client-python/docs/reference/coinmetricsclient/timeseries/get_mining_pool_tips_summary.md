@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_mining_pool_tips_summary`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_mining_pool_tips_summary(
     assets,

@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_full_block_v2`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_full_block_v2(
     asset,

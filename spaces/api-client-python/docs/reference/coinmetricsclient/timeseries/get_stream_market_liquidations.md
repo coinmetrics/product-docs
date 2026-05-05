@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_stream_market_liquidations`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_market_liquidations(
     markets,

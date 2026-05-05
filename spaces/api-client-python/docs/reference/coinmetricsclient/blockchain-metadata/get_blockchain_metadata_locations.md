@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_blockchain_metadata_locations`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_locations(
     page_size=None,

@@ -1,5 +1,7 @@
 # `ParallelDataCollection.export_to_csv_files`
 
+*method*
+
 ```python
 coinmetrics._data_collection.ParallelDataCollection.export_to_csv_files(
     data_directory=None,

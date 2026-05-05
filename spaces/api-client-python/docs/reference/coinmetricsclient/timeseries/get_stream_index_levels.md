@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_stream_index_levels`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_index_levels(
     indexes,

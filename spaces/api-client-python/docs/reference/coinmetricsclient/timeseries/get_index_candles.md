@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_index_candles`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_index_candles(
     indexes,

@@ -1,5 +1,7 @@
 # `CoinMetricsClient.catalog_full_asset_metrics_v2`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_full_asset_metrics_v2(
     assets=None,

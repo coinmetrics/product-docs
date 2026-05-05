@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_stream_pair_quotes`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_stream_pair_quotes(
     pairs,

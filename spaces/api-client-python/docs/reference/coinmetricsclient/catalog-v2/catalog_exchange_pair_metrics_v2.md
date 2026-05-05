@@ -1,5 +1,7 @@
 # `CoinMetricsClient.catalog_exchange_pair_metrics_v2`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_exchange_pair_metrics_v2(
     exchange_pairs=None,

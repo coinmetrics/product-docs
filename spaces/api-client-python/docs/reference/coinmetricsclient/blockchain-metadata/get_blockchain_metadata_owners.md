@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_blockchain_metadata_owners`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_owners(
     page_size=None,

@@ -1,5 +1,7 @@
 # `CoinMetricsClient.catalog_mempool_feerates_v2`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_mempool_feerates_v2(
     assets=None,

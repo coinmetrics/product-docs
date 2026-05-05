@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_exchange_asset_metrics`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_exchange_asset_metrics(
     exchange_assets,

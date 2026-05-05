@@ -1,5 +1,7 @@
 # `CoinMetricsClient.security_master_markets`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.security_master_markets(
     type=None,

@@ -1,5 +1,7 @@
 # `CoinMetricsClient.get_transaction_tracker`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.get_transaction_tracker(
     asset,

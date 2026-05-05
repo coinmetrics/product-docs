@@ -1,5 +1,7 @@
 # `ParallelDataCollection.to_lazyframe`
 
+*method*
+
 ```python
 coinmetrics._data_collection.ParallelDataCollection.to_lazyframe(
     decimal_as_string=False,

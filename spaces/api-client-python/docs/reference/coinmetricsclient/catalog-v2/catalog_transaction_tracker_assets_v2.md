@@ -1,5 +1,7 @@
 # `CoinMetricsClient.catalog_transaction_tracker_assets_v2`
 
+*method*
+
 ```python
 coinmetrics.api_client.CoinMetricsClient.catalog_transaction_tracker_assets_v2(
     assets=None,
