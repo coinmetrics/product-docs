@@ -1,4 +1,4 @@
-# `CoinMetricsClient.reference_data_market_metrics`
+# <code>CoinMetricsClient.reference_data_market_metrics</code>
 
 *method*
 

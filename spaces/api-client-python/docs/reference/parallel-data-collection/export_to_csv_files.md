@@ -1,4 +1,4 @@
-# `ParallelDataCollection.export_to_csv_files`
+# <code>ParallelDataCollection.export_to_csv_files</code>
 
 *method*
 

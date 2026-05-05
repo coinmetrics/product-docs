@@ -1,4 +1,4 @@
-# `DataCollection.export_to_parquet`
+# <code>DataCollection.export_to_parquet</code>
 
 *method*
 

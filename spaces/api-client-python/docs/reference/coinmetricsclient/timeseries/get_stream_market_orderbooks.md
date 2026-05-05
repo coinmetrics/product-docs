@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_stream_market_orderbooks`
+# <code>CoinMetricsClient.get_stream_market_orderbooks</code>
 
 *method*
 

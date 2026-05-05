@@ -1,4 +1,4 @@
-# `CoinMetricsClient.catalog_index_levels_v2`
+# <code>CoinMetricsClient.catalog_index_levels_v2</code>
 
 *method*
 

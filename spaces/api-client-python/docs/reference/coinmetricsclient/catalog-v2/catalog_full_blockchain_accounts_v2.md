@@ -1,4 +1,4 @@
-# `CoinMetricsClient.catalog_full_blockchain_accounts_v2`
+# <code>CoinMetricsClient.catalog_full_blockchain_accounts_v2</code>
 
 *method*
 

@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_index_constituents`
+# <code>CoinMetricsClient.get_index_constituents</code>
 
 *method*
 

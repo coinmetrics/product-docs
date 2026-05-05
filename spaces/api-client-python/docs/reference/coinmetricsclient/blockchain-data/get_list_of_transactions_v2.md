@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_list_of_transactions_v2`
+# <code>CoinMetricsClient.get_list_of_transactions_v2</code>
 
 *method*
 

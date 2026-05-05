@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_market_funding_rates`
+# <code>CoinMetricsClient.get_market_funding_rates</code>
 
 *method*
 

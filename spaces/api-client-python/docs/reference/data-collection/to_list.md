@@ -1,4 +1,4 @@
-# `DataCollection.to_list`
+# <code>DataCollection.to_list</code>
 
 *method*
 

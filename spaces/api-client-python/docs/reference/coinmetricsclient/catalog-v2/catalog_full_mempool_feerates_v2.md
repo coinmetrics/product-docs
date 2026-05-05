@@ -1,4 +1,4 @@
-# `CoinMetricsClient.catalog_full_mempool_feerates_v2`
+# <code>CoinMetricsClient.catalog_full_mempool_feerates_v2</code>
 
 *method*
 

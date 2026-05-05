@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_stream_market_open_interest`
+# <code>CoinMetricsClient.get_stream_market_open_interest</code>
 
 *method*
 

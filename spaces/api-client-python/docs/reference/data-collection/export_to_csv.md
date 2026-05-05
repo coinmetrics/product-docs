@@ -1,4 +1,4 @@
-# `DataCollection.export_to_csv`
+# <code>DataCollection.export_to_csv</code>
 
 *method*
 

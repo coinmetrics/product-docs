@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_stream_asset_quotes`
+# <code>CoinMetricsClient.get_stream_asset_quotes</code>
 
 *method*
 

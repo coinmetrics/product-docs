@@ -1,4 +1,4 @@
-# `CoinMetricsClient.catalog_full_pair_candles_v2`
+# <code>CoinMetricsClient.catalog_full_pair_candles_v2</code>
 
 *method*
 

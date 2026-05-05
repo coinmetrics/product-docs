@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_market_greeks`
+# <code>CoinMetricsClient.get_market_greeks</code>
 
 *method*
 

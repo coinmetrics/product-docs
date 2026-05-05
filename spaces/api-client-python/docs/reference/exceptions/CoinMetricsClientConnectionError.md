@@ -1,4 +1,4 @@
-# `CoinMetricsClientConnectionError`
+# <code>CoinMetricsClientConnectionError</code>
 
 *exception*
 

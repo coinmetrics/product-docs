@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_timeframes_of_asset_metric_constituents`
+# <code>CoinMetricsClient.get_timeframes_of_asset_metric_constituents</code>
 
 *method*
 

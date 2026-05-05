@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_asset_profiles`
+# <code>CoinMetricsClient.get_asset_profiles</code>
 
 *method*
 

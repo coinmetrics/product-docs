@@ -1,4 +1,4 @@
-# `CoinMetricsClient.security_master_assets`
+# <code>CoinMetricsClient.security_master_assets</code>
 
 *method*
 

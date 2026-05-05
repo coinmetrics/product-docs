@@ -1,4 +1,4 @@
-# `CoinMetricsClient.security_master_markets`
+# <code>CoinMetricsClient.security_master_markets</code>
 
 *method*
 

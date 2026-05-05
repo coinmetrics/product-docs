@@ -1,4 +1,4 @@
-# `CoinMetricsClient.catalog_full_asset_chains_v2`
+# <code>CoinMetricsClient.catalog_full_asset_chains_v2</code>
 
 *method*
 

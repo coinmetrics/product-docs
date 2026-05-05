@@ -1,4 +1,4 @@
-# `CoinMetricsClientForbiddenError`
+# <code>CoinMetricsClientForbiddenError</code>
 
 *exception*
 

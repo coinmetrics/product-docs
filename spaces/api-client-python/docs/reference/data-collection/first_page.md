@@ -1,4 +1,4 @@
-# `DataCollection.first_page`
+# <code>DataCollection.first_page</code>
 
 *method*
 

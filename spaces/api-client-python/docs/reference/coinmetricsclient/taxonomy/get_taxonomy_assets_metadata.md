@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_taxonomy_assets_metadata`
+# <code>CoinMetricsClient.get_taxonomy_assets_metadata</code>
 
 *method*
 

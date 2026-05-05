@@ -1,4 +1,4 @@
-# `ParallelDataCollection.get_parallel_datacollections`
+# <code>ParallelDataCollection.get_parallel_datacollections</code>
 
 *method*
 

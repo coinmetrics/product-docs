@@ -1346,13 +1346,16 @@ def _transform_autodoc_headings(text: str, page_rel: str) -> str:
     # block + anchor (no heading line).
     suppress_method_heading = _is_per_method_page(page_rel)
 
-    # On per-method / per-exception pages, wrap the H1 title in backticks
-    # so the symbol renders in monospace, matching the pydata-sphinx-theme
-    # convention of showing API headings in a "code" face.
+    # On per-method / per-exception pages, force the H1 title into a
+    # monospace ("code") face so the page header matches the
+    # pydata-sphinx-theme look. GitBook's H1 renderer strips Markdown
+    # backtick spans (the heading style takes precedence), so we emit an
+    # explicit ``<code>`` HTML element which GitBook does honour inside
+    # headings.
     if suppress_method_heading:
         text = re.sub(
             r"\A#\s+(?P<title>\S[^\n]*?)\s*$",
-            lambda m: f"# `{m.group('title')}`",
+            lambda m: f"# <code>{m.group('title')}</code>",
             text,
             count=1,
             flags=re.MULTILINE,

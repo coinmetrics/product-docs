@@ -1,4 +1,4 @@
-# `CoinMetricsClientQueryParamsException`
+# <code>CoinMetricsClientQueryParamsException</code>
 
 *exception*
 

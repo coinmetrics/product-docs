@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_market_liquidations`
+# <code>CoinMetricsClient.get_market_liquidations</code>
 
 *method*
 

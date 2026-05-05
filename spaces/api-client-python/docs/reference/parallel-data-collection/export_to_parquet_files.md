@@ -1,4 +1,4 @@
-# `ParallelDataCollection.export_to_parquet_files`
+# <code>ParallelDataCollection.export_to_parquet_files</code>
 
 *method*
 

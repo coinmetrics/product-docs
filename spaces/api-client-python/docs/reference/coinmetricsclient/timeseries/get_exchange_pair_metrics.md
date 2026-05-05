@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_exchange_pair_metrics`
+# <code>CoinMetricsClient.get_exchange_pair_metrics</code>
 
 *method*
 

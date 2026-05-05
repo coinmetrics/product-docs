@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_stream_index_levels`
+# <code>CoinMetricsClient.get_stream_index_levels</code>
 
 *method*
 

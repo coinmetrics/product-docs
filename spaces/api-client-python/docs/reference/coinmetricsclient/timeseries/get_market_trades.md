@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_market_trades`
+# <code>CoinMetricsClient.get_market_trades</code>
 
 *method*
 

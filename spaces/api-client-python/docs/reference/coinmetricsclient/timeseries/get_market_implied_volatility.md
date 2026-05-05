@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_market_implied_volatility`
+# <code>CoinMetricsClient.get_market_implied_volatility</code>
 
 *method*
 

@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_stream_market_quotes`
+# <code>CoinMetricsClient.get_stream_market_quotes</code>
 
 *method*
 

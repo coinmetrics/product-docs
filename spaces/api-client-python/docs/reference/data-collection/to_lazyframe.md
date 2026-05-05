@@ -1,4 +1,4 @@
-# `DataCollection.to_lazyframe`
+# <code>DataCollection.to_lazyframe</code>
 
 *method*
 

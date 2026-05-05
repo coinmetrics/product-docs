@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_defi_balance_sheets`
+# <code>CoinMetricsClient.get_defi_balance_sheets</code>
 
 *method*
 

@@ -1,4 +1,4 @@
-# `CoinMetricsClient.catalog_full_mining_pool_tips_summaries_v2`
+# <code>CoinMetricsClient.catalog_full_mining_pool_tips_summaries_v2</code>
 
 *method*
 

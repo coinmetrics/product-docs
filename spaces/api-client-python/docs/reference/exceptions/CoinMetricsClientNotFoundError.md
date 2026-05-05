@@ -1,4 +1,4 @@
-# `CoinMetricsClientNotFoundError`
+# <code>CoinMetricsClientNotFoundError</code>
 
 *exception*
 

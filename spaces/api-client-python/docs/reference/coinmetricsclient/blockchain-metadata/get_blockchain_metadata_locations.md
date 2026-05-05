@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_blockchain_metadata_locations`
+# <code>CoinMetricsClient.get_blockchain_metadata_locations</code>
 
 *method*
 

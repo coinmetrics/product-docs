@@ -1,4 +1,4 @@
-# `DataCollection.export_to_json`
+# <code>DataCollection.export_to_json</code>
 
 *method*
 

@@ -1,4 +1,4 @@
-# `CoinMetricsClient.catalog_market_contract_prices_v2`
+# <code>CoinMetricsClient.catalog_market_contract_prices_v2</code>
 
 *method*
 

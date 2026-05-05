@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_institution_metrics`
+# <code>CoinMetricsClient.get_institution_metrics</code>
 
 *method*
 

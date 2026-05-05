@@ -1,4 +1,4 @@
-# `CoinMetricsClient.catalog_blockchain_rebasing_changes_v2`
+# <code>CoinMetricsClient.catalog_blockchain_rebasing_changes_v2</code>
 
 *method*
 

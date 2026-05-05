@@ -1,4 +1,4 @@
-# `DataCollection.to_dataframe`
+# <code>DataCollection.to_dataframe</code>
 
 *method*
 

@@ -1,4 +1,4 @@
-# `CoinMetricsClient.reference_data_exchanges`
+# <code>CoinMetricsClient.reference_data_exchanges</code>
 
 *method*
 

@@ -1,4 +1,4 @@
-# `CoinMetricsClient.catalog_transaction_tracker_assets_v2`
+# <code>CoinMetricsClient.catalog_transaction_tracker_assets_v2</code>
 
 *method*
 

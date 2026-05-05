@@ -1,4 +1,4 @@
-# `DataCollection.parallel`
+# <code>DataCollection.parallel</code>
 
 *method*
 

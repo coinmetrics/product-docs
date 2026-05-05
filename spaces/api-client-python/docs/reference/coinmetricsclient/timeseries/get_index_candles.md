@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_index_candles`
+# <code>CoinMetricsClient.get_index_candles</code>
 
 *method*
 

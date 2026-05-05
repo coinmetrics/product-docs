@@ -1,4 +1,4 @@
-# `CoinMetricsClientBadParameterError`
+# <code>CoinMetricsClientBadParameterError</code>
 
 *exception*
 

@@ -1,4 +1,4 @@
-# `CoinMetricsClientRateLimitError`
+# <code>CoinMetricsClientRateLimitError</code>
 
 *exception*
 

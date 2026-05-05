@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_list_of_rebasing_changes_v2`
+# <code>CoinMetricsClient.get_list_of_rebasing_changes_v2</code>
 
 *method*
 

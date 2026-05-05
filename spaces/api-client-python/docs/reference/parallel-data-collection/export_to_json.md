@@ -1,4 +1,4 @@
-# `ParallelDataCollection.export_to_json`
+# <code>ParallelDataCollection.export_to_json</code>
 
 *method*
 

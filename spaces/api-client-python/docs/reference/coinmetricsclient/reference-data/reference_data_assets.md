@@ -1,4 +1,4 @@
-# `CoinMetricsClient.reference_data_assets`
+# <code>CoinMetricsClient.reference_data_assets</code>
 
 *method*
 

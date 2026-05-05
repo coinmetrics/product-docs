@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_stream_pair_quotes`
+# <code>CoinMetricsClient.get_stream_pair_quotes</code>
 
 *method*
 

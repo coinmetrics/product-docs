@@ -1,4 +1,4 @@
-# `ParallelDataCollection.to_dataframe`
+# <code>ParallelDataCollection.to_dataframe</code>
 
 *method*
 

@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_transaction_tracker`
+# <code>CoinMetricsClient.get_transaction_tracker</code>
 
 *method*
 

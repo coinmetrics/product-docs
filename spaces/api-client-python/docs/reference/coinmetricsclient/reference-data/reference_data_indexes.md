@@ -1,4 +1,4 @@
-# `CoinMetricsClient.reference_data_indexes`
+# <code>CoinMetricsClient.reference_data_indexes</code>
 
 *method*
 

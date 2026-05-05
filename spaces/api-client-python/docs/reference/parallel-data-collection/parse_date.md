@@ -1,4 +1,4 @@
-# `ParallelDataCollection.parse_date`
+# <code>ParallelDataCollection.parse_date</code>
 
 *static method*
 

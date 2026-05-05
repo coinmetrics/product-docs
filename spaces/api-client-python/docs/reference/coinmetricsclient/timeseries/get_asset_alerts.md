@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_asset_alerts`
+# <code>CoinMetricsClient.get_asset_alerts</code>
 
 *method*
 

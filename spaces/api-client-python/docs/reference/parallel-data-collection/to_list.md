@@ -1,4 +1,4 @@
-# `ParallelDataCollection.to_list`
+# <code>ParallelDataCollection.to_list</code>
 
 *method*
 

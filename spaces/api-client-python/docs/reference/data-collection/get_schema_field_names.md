@@ -1,4 +1,4 @@
-# `DataCollection.get_schema_field_names`
+# <code>DataCollection.get_schema_field_names</code>
 
 *method*
 

@@ -1,4 +1,4 @@
-# `CmStream.run`
+# <code>CmStream.run</code>
 
 *method*
 

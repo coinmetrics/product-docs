@@ -1,4 +1,4 @@
-# `CoinMetricsClient.get_mempool_feerates`
+# <code>CoinMetricsClient.get_mempool_feerates</code>
 
 *method*
 
