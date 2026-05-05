@@ -1,6 +1,18 @@
 # Blockchain Data
 
-#### `CoinMetricsClient.get_full_block_v2(asset, block_hash, include_sub_accounts, ignore_unsupported_errors=False)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_full_block_v2"></a>
+
+### get_full_block_v2
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_full_block_v2(
+    asset,
+    block_hash,
+    include_sub_accounts,
+    ignore_unsupported_errors=False,
+)
+```
+
 Returns a full blockchain block with all transactions and balance updates.
 
 * **Parameters:**
@@ -13,7 +25,20 @@ Returns a full blockchain block with all transactions and balance updates.
 * **Return type:**
   [list](https://docs.python.org/3/library/stdtypes.html#list)([dict](https://docs.python.org/3/library/stdtypes.html#dict)([str](https://docs.python.org/3/library/stdtypes.html#str)), any)
 
-#### `CoinMetricsClient.get_full_transaction_for_block_v2(asset, block_hash, txid, include_sub_accounts, ignore_unsupported_errors=False)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_full_transaction_for_block_v2"></a>
+
+### get_full_transaction_for_block_v2
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_full_transaction_for_block_v2(
+    asset,
+    block_hash,
+    txid,
+    include_sub_accounts,
+    ignore_unsupported_errors=False,
+)
+```
+
 Returns a full blockchain transaction with all balance updates for a specific block.
 
 * **Parameters:**
@@ -27,7 +52,19 @@ Returns a full blockchain transaction with all balance updates for a specific bl
 * **Return type:**
   [list](https://docs.python.org/3/library/stdtypes.html#list)([dict](https://docs.python.org/3/library/stdtypes.html#dict)([str](https://docs.python.org/3/library/stdtypes.html#str), Any))
 
-#### `CoinMetricsClient.get_full_transaction_v2(asset, txid, include_sub_accounts, ignore_unsupported_errors=False)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_full_transaction_v2"></a>
+
+### get_full_transaction_v2
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_full_transaction_v2(
+    asset,
+    txid,
+    include_sub_accounts,
+    ignore_unsupported_errors=False,
+)
+```
+
 Returns a full blockchain transaction with all balance updates.
 
 * **Parameters:**
@@ -40,7 +77,29 @@ Returns a full blockchain transaction with all balance updates.
 * **Return type:**
   [list](https://docs.python.org/3/library/stdtypes.html#list)([dict](https://docs.python.org/3/library/stdtypes.html#dict)([str](https://docs.python.org/3/library/stdtypes.html#str)), any)
 
-#### `CoinMetricsClient.get_list_of_accounts_v2(asset, accounts=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_chain_sequence_number=None, end_chain_sequence_number=None, start_inclusive=None, end_inclusive=None, timezone=None, ignore_unsupported_errors=False)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_accounts_v2"></a>
+
+### get_list_of_accounts_v2
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_list_of_accounts_v2(
+    asset,
+    accounts=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    start_chain_sequence_number=None,
+    end_chain_sequence_number=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    ignore_unsupported_errors=False,
+)
+```
+
 Returns a list of blockchain accounts with their balances.
 
 * **Parameters:**
@@ -63,7 +122,35 @@ Returns a list of blockchain accounts with their balances.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_list_of_balance_updates_for_account_v2(asset, account, txids=None, block_hashes=None, include_counterparties=None, start_time=None, end_time=None, start_height=None, end_height=None, start_chain_sequence_number=None, end_chain_sequence_number=None, include_sub_accounts=None, chain=None, start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from=None, next_page_token=None, ignore_unsupported_errors=False)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_for_account_v2"></a>
+
+### get_list_of_balance_updates_for_account_v2
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_for_account_v2(
+    asset,
+    account,
+    txids=None,
+    block_hashes=None,
+    include_counterparties=None,
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    start_chain_sequence_number=None,
+    end_chain_sequence_number=None,
+    include_sub_accounts=None,
+    chain=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    page_size=None,
+    paging_from=None,
+    next_page_token=None,
+    ignore_unsupported_errors=False,
+)
+```
+
 Returns balance update history for a single blockchain account on the specified asset, ordered by
 `(asset, account, block_height, transaction_hash, internal_tx_id)`.
 
@@ -93,7 +180,35 @@ Returns balance update history for a single blockchain account on the specified 
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_list_of_balance_updates_v2(asset, accounts=None, sub_accounts=None, limit_per_account=None, txids=None, block_hashes=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_chain_sequence_number=None, end_chain_sequence_number=None, include_sub_accounts=None, chain=None, start_inclusive=None, end_inclusive=None, timezone=None, ignore_unsupported_errors=False)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_v2"></a>
+
+### get_list_of_balance_updates_v2
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_v2(
+    asset,
+    accounts=None,
+    sub_accounts=None,
+    limit_per_account=None,
+    txids=None,
+    block_hashes=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    start_chain_sequence_number=None,
+    end_chain_sequence_number=None,
+    include_sub_accounts=None,
+    chain=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    ignore_unsupported_errors=False,
+)
+```
+
 Returns a list of blockchain accounts balance updates.
 
 * **Parameters:**
@@ -124,7 +239,29 @@ Returns a list of blockchain accounts balance updates.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_list_of_blocks_v2(asset, block_hashes=None, heights=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, chain=None, start_inclusive=None, end_inclusive=None, timezone=None, ignore_unsupported_errors=False)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_blocks_v2"></a>
+
+### get_list_of_blocks_v2
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_list_of_blocks_v2(
+    asset,
+    block_hashes=None,
+    heights=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    chain=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    ignore_unsupported_errors=False,
+)
+```
+
 Returns a list of blockchain blocks metadata.
 
 * **Parameters:**
@@ -147,7 +284,31 @@ Returns a list of blockchain blocks metadata.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_list_of_rebasing_changes_v2(asset, txids=None, block_hashes=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_chain_sequence_number=None, end_chain_sequence_number=None, chain=None, start_inclusive=None, end_inclusive=None, timezone=None, ignore_unsupported_errors=False)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_rebasing_changes_v2"></a>
+
+### get_list_of_rebasing_changes_v2
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_list_of_rebasing_changes_v2(
+    asset,
+    txids=None,
+    block_hashes=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    start_chain_sequence_number=None,
+    end_chain_sequence_number=None,
+    chain=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    ignore_unsupported_errors=False,
+)
+```
+
 Returns a list of blockchain rebasing changes.
 
 * **Parameters:**
@@ -172,7 +333,29 @@ Returns a list of blockchain rebasing changes.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_list_of_sub_accounts_v2(asset, accounts=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_chain_sequence_number=None, end_chain_sequence_number=None, start_inclusive=None, end_inclusive=None, timezone=None, ignore_unsupported_errors=False)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_sub_accounts_v2"></a>
+
+### get_list_of_sub_accounts_v2
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_list_of_sub_accounts_v2(
+    asset,
+    accounts=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    start_chain_sequence_number=None,
+    end_chain_sequence_number=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    ignore_unsupported_errors=False,
+)
+```
+
 Returns a list of blockchain sub-accounts with their balances.
 
 * **Parameters:**
@@ -195,7 +378,29 @@ Returns a list of blockchain sub-accounts with their balances.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_list_of_transactions_v2(asset, txids=None, block_hashes=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, chain=None, start_inclusive=None, end_inclusive=None, timezone=None, ignore_unsupported_errors=False)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_transactions_v2"></a>
+
+### get_list_of_transactions_v2
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_list_of_transactions_v2(
+    asset,
+    txids=None,
+    block_hashes=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    chain=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    ignore_unsupported_errors=False,
+)
+```
+
 Returns a list of blockchain transactions metadata.
 
 * **Parameters:**
@@ -218,7 +423,29 @@ Returns a list of blockchain transactions metadata.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_transaction_tracker(asset, addresses=None, txids=None, replacements_for_txids=None, replacements_only=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, unconfirmed_only=None, format=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_transaction_tracker"></a>
+
+### get_transaction_tracker
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_transaction_tracker(
+    asset,
+    addresses=None,
+    txids=None,
+    replacements_for_txids=None,
+    replacements_only=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    unconfirmed_only=None,
+    format=None,
+)
+```
+
 Returns status updates for the specified or all transactions.
 
 * **Parameters:**

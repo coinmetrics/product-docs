@@ -1,6 +1,18 @@
 # Asset Profiles
 
-#### `CoinMetricsClient.get_asset_profiles(assets=None, full_names=None, page_size=None, paging_from=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_asset_profiles"></a>
+
+### get_asset_profiles
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_asset_profiles(
+    assets=None,
+    full_names=None,
+    page_size=None,
+    paging_from=None,
+)
+```
+
 Returns profile data for assets, ordered by asset
 
 * **Parameters:**
@@ -11,7 +23,19 @@ Returns profile data for assets, ordered by asset
 * **Return type:**
   [*DataCollection*](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_network_profiles(networks=None, full_names=None, page_size=None, paging_from=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_network_profiles"></a>
+
+### get_network_profiles
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_network_profiles(
+    networks=None,
+    full_names=None,
+    page_size=None,
+    paging_from=None,
+)
+```
+
 Returns profile data for assets, ordered by asset
 
 * **Parameters:**

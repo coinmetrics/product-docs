@@ -1,6 +1,25 @@
 # Taxonomy
 
-#### `CoinMetricsClient.get_taxonomy_assets(assets=None, class_ids=None, sector_ids=None, subsector_ids=None, classification_start_time=None, classification_end_time=None, end_inclusive=None, start_inclusive=None, page_size=None, paging_from=None, version=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets"></a>
+
+### get_taxonomy_assets
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets(
+    assets=None,
+    class_ids=None,
+    sector_ids=None,
+    subsector_ids=None,
+    classification_start_time=None,
+    classification_end_time=None,
+    end_inclusive=None,
+    start_inclusive=None,
+    page_size=None,
+    paging_from=None,
+    version=None,
+)
+```
+
 Returns assets with information about their sector, industry, and industry group IDs. By default reutrns all
 covered assets
 
@@ -21,7 +40,22 @@ covered assets
 * **Return type:**
   Datacollection
 
-#### `CoinMetricsClient.get_taxonomy_assets_metadata(start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, page_size=None, paging_from=None, version=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets_metadata"></a>
+
+### get_taxonomy_assets_metadata
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_taxonomy_assets_metadata(
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    page_size=None,
+    paging_from=None,
+    version=None,
+)
+```
+
 Returns metadata about the assets, sectors, and industries included in the CM taxonomy
 
 * **Parameters:**

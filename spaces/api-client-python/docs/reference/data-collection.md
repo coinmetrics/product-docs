@@ -2,7 +2,22 @@
 
 Every REST method on [`CoinMetricsClient`](coinmetricsclient.md) returns a `DataCollection`. The class is a lazy iterator over the API response: rows are fetched on demand, with transparent paging. It also exposes helpers for converting the response into a pandas or Polars data frame, exporting to CSV / JSON, and running the request in parallel across asset, market, or metric.
 
-### *class* `coinmetrics._data_collection.DataCollection(data_retrieval_function, endpoint, url_params, csv_export_supported=True, client=None, paginated=True, **kwargs)`
+<a id="coinmetrics._data_collection.DataCollection"></a>
+
+### *class* DataCollection
+
+```python
+class coinmetrics._data_collection.DataCollection(
+    data_retrieval_function,
+    endpoint,
+    url_params,
+    csv_export_supported=True,
+    client=None,
+    paginated=True,
+    **kwargs,
+)
+```
+
 Bases: [`object`](https://docs.python.org/3/library/functions.html#object)
 
 Lazy wrapper around a Coin Metrics REST endpoint response.
@@ -32,7 +47,18 @@ common Python data structures:
   * **paginated** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
   * **kwargs** (*Any*)
 
-#### `export_to_csv(path_or_bufstr=None, columns_to_store=None, compress=False)`
+<a id="coinmetrics._data_collection.DataCollection.export_to_csv"></a>
+
+### export_to_csv
+
+```python
+coinmetrics._data_collection.DataCollection.export_to_csv(
+    path_or_bufstr=None,
+    columns_to_store=None,
+    compress=False,
+)
+```
+
 * **Parameters:**
   * **path_or_bufstr** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *Path* *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*bytes*](https://docs.python.org/3/library/stdtypes.html#bytes) *]*  *|* *None*)
   * **columns_to_store** ([*List*](https://docs.python.org/3/library/typing.html#typing.List) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* *None*)
@@ -40,24 +66,55 @@ common Python data structures:
 * **Return type:**
   [str](https://docs.python.org/3/library/stdtypes.html#str) | None
 
-#### `export_to_json(path_or_bufstr=None, compress=False)`
+<a id="coinmetrics._data_collection.DataCollection.export_to_json"></a>
+
+### export_to_json
+
+```python
+coinmetrics._data_collection.DataCollection.export_to_json(
+    path_or_bufstr=None,
+    compress=False,
+)
+```
+
 * **Parameters:**
   * **path_or_bufstr** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *Path* *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*bytes*](https://docs.python.org/3/library/stdtypes.html#bytes) *]*  *|* *None*)
   * **compress** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
 * **Return type:**
   [str](https://docs.python.org/3/library/stdtypes.html#str) | None
 
-#### `export_to_parquet(path_or_bufstr=None)`
+<a id="coinmetrics._data_collection.DataCollection.export_to_parquet"></a>
+
+### export_to_parquet
+
+```python
+coinmetrics._data_collection.DataCollection.export_to_parquet(path_or_bufstr=None)
+```
+
 * **Parameters:**
   **path_or_bufstr** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *Path* *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*bytes*](https://docs.python.org/3/library/stdtypes.html#bytes) *]*  *|* *None*)
 * **Return type:**
   None
 
-#### `first_page()`
+<a id="coinmetrics._data_collection.DataCollection.first_page"></a>
+
+### first_page
+
+```python
+coinmetrics._data_collection.DataCollection.first_page()
+```
+
 * **Return type:**
   [*List*](https://docs.python.org/3/library/typing.html#typing.List)[[*Dict*](https://docs.python.org/3/library/typing.html#typing.Dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [*Any*](https://docs.python.org/3/library/typing.html#typing.Any)]]
 
-#### `get_schema_field_names()`
+<a id="coinmetrics._data_collection.DataCollection.get_schema_field_names"></a>
+
+### get_schema_field_names
+
+```python
+coinmetrics._data_collection.DataCollection.get_schema_field_names()
+```
+
 Get all field names defined in the schema for this endpoint.
 This returns ALL possible fields, even if they're not present in the actual data.
 
@@ -66,7 +123,21 @@ This returns ALL possible fields, even if they're not present in the actual data
 * **Return type:**
   List[[str](https://docs.python.org/3/library/stdtypes.html#str)]
 
-#### `parallel(parallelize_on=None, executor=None, max_workers=None, progress_bar=None, time_increment=None, height_increment=None)`
+<a id="coinmetrics._data_collection.DataCollection.parallel"></a>
+
+### parallel
+
+```python
+coinmetrics._data_collection.DataCollection.parallel(
+    parallelize_on=None,
+    executor=None,
+    max_workers=None,
+    progress_bar=None,
+    time_increment=None,
+    height_increment=None,
+)
+```
+
 Convert this [`DataCollection`](#coinmetrics._data_collection.DataCollection) into a [`ParallelDataCollection`](parallel-data-collection.md#coinmetrics._data_collection.ParallelDataCollection),
 splitting a single HTTP request into many parallel requests for faster
 data export.
@@ -98,7 +169,18 @@ By default the request is split on the primary query parameter (for example,
 * **Return type:**
   [ParallelDataCollection](parallel-data-collection.md#coinmetrics._data_collection.ParallelDataCollection)
 
-#### `to_dataframe(dtype_mapper=None, dataframe_type='pandas', decimal_as_string=False)`
+<a id="coinmetrics._data_collection.DataCollection.to_dataframe"></a>
+
+### to_dataframe
+
+```python
+coinmetrics._data_collection.DataCollection.to_dataframe(
+    dtype_mapper=None,
+    dataframe_type='pandas',
+    decimal_as_string=False,
+)
+```
+
 Outputs a pandas or polars dataframe with schema-derived types.
 
 Uses PyArrow as the intermediate representation for type-safe,
@@ -117,14 +199,31 @@ near-zero-copy conversion to both pandas and polars.
 * **Return type:**
   DataFrameType
 
-#### `to_lazyframe(decimal_as_string=False, **kwargs)`
+<a id="coinmetrics._data_collection.DataCollection.to_lazyframe"></a>
+
+### to_lazyframe
+
+```python
+coinmetrics._data_collection.DataCollection.to_lazyframe(
+    decimal_as_string=False,
+    **kwargs,
+)
+```
+
 * **Parameters:**
   * **decimal_as_string** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
   * **kwargs** ([*Any*](https://docs.python.org/3/library/typing.html#typing.Any))
 * **Return type:**
   *LazyFrame*
 
-#### `to_list()`
+<a id="coinmetrics._data_collection.DataCollection.to_list"></a>
+
+### to_list
+
+```python
+coinmetrics._data_collection.DataCollection.to_list()
+```
+
 * **Return type:**
   [*List*](https://docs.python.org/3/library/typing.html#typing.List)[[*Dict*](https://docs.python.org/3/library/typing.html#typing.Dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [*Any*](https://docs.python.org/3/library/typing.html#typing.Any)]]
 
@@ -132,7 +231,28 @@ near-zero-copy conversion to both pandas and polars.
 
 Returned by every `catalog_*_v2` method on `CoinMetricsClient`. Adds `to_dataframe` flattening for the nested `catalog-v2` response shape (per-frequency `min_time`/`max_time` rows are exploded into one row per metric or frequency).
 
-### *class* `coinmetrics._data_collection.CatalogV2DataCollection(data_retrieval_function, endpoint, url_params, csv_export_supported=True, client=None, metric_type=None, iterable_col=None, iterable_key=None, explode_on=None, assign_to=None, nested_catalog_columns=['min_time', 'max_time'], dataframe_type='pandas', **kwargs)`
+<a id="coinmetrics._data_collection.CatalogV2DataCollection"></a>
+
+### *class* CatalogV2DataCollection
+
+```python
+class coinmetrics._data_collection.CatalogV2DataCollection(
+    data_retrieval_function,
+    endpoint,
+    url_params,
+    csv_export_supported=True,
+    client=None,
+    metric_type=None,
+    iterable_col=None,
+    iterable_key=None,
+    explode_on=None,
+    assign_to=None,
+    nested_catalog_columns=['min_time', 'max_time'],
+    dataframe_type='pandas',
+    **kwargs,
+)
+```
+
 Bases: [`DataCollection`](#coinmetrics._data_collection.DataCollection)
 
 This class is used to implement functionality specific to catalog-v2 endpoints.
@@ -152,7 +272,18 @@ This class is used to implement functionality specific to catalog-v2 endpoints.
   * **dataframe_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
   * **kwargs** (*Any*)
 
-#### `export_to_csv(path_or_bufstr=None, columns_to_store=None, compress=False)`
+<a id="coinmetrics._data_collection.CatalogV2DataCollection.export_to_csv"></a>
+
+### export_to_csv
+
+```python
+coinmetrics._data_collection.CatalogV2DataCollection.export_to_csv(
+    path_or_bufstr=None,
+    columns_to_store=None,
+    compress=False,
+)
+```
+
 * **Parameters:**
   * **path_or_bufstr** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *Path* *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*bytes*](https://docs.python.org/3/library/stdtypes.html#bytes) *]*  *|* *None*)
   * **columns_to_store** ([*List*](https://docs.python.org/3/library/typing.html#typing.List) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* *None*)
@@ -160,24 +291,55 @@ This class is used to implement functionality specific to catalog-v2 endpoints.
 * **Return type:**
   [str](https://docs.python.org/3/library/stdtypes.html#str) | None
 
-#### `export_to_json(path_or_bufstr=None, compress=False)`
+<a id="coinmetrics._data_collection.CatalogV2DataCollection.export_to_json"></a>
+
+### export_to_json
+
+```python
+coinmetrics._data_collection.CatalogV2DataCollection.export_to_json(
+    path_or_bufstr=None,
+    compress=False,
+)
+```
+
 * **Parameters:**
   * **path_or_bufstr** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *Path* *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*bytes*](https://docs.python.org/3/library/stdtypes.html#bytes) *]*  *|* *None*)
   * **compress** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
 * **Return type:**
   [str](https://docs.python.org/3/library/stdtypes.html#str) | None
 
-#### `export_to_parquet(path_or_bufstr=None)`
+<a id="coinmetrics._data_collection.CatalogV2DataCollection.export_to_parquet"></a>
+
+### export_to_parquet
+
+```python
+coinmetrics._data_collection.CatalogV2DataCollection.export_to_parquet(path_or_bufstr=None)
+```
+
 * **Parameters:**
   **path_or_bufstr** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *Path* *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*bytes*](https://docs.python.org/3/library/stdtypes.html#bytes) *]*  *|* *None*)
 * **Return type:**
   None
 
-#### `first_page()`
+<a id="coinmetrics._data_collection.CatalogV2DataCollection.first_page"></a>
+
+### first_page
+
+```python
+coinmetrics._data_collection.CatalogV2DataCollection.first_page()
+```
+
 * **Return type:**
   [*List*](https://docs.python.org/3/library/typing.html#typing.List)[[*Dict*](https://docs.python.org/3/library/typing.html#typing.Dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [*Any*](https://docs.python.org/3/library/typing.html#typing.Any)]]
 
-#### `get_schema_field_names()`
+<a id="coinmetrics._data_collection.CatalogV2DataCollection.get_schema_field_names"></a>
+
+### get_schema_field_names
+
+```python
+coinmetrics._data_collection.CatalogV2DataCollection.get_schema_field_names()
+```
+
 Get all field names defined in the schema for this endpoint.
 This returns ALL possible fields, even if they're not present in the actual data.
 
@@ -186,7 +348,21 @@ This returns ALL possible fields, even if they're not present in the actual data
 * **Return type:**
   List[[str](https://docs.python.org/3/library/stdtypes.html#str)]
 
-#### `parallel(parallelize_on=None, executor=None, max_workers=None, progress_bar=None, time_increment=None, height_increment=None)`
+<a id="coinmetrics._data_collection.CatalogV2DataCollection.parallel"></a>
+
+### parallel
+
+```python
+coinmetrics._data_collection.CatalogV2DataCollection.parallel(
+    parallelize_on=None,
+    executor=None,
+    max_workers=None,
+    progress_bar=None,
+    time_increment=None,
+    height_increment=None,
+)
+```
+
 Convert this [`DataCollection`](#coinmetrics._data_collection.DataCollection) into a [`ParallelDataCollection`](parallel-data-collection.md#coinmetrics._data_collection.ParallelDataCollection),
 splitting a single HTTP request into many parallel requests for faster
 data export.
@@ -218,7 +394,18 @@ By default the request is split on the primary query parameter (for example,
 * **Return type:**
   [ParallelDataCollection](parallel-data-collection.md#coinmetrics._data_collection.ParallelDataCollection)
 
-#### `to_dataframe(dtype_mapper=None, dataframe_type='pandas', decimal_as_string=False)`
+<a id="coinmetrics._data_collection.CatalogV2DataCollection.to_dataframe"></a>
+
+### to_dataframe
+
+```python
+coinmetrics._data_collection.CatalogV2DataCollection.to_dataframe(
+    dtype_mapper=None,
+    dataframe_type='pandas',
+    decimal_as_string=False,
+)
+```
+
 Transform a `catalog-v2` response into a flat dataframe.
 
 For `*-metrics` and `market-*` endpoints the per-frequency
@@ -239,13 +426,30 @@ or frequency.
 * **Return type:**
   DataFrameType
 
-#### `to_lazyframe(decimal_as_string=False, **kwargs)`
+<a id="coinmetrics._data_collection.CatalogV2DataCollection.to_lazyframe"></a>
+
+### to_lazyframe
+
+```python
+coinmetrics._data_collection.CatalogV2DataCollection.to_lazyframe(
+    decimal_as_string=False,
+    **kwargs,
+)
+```
+
 * **Parameters:**
   * **decimal_as_string** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
   * **kwargs** ([*Any*](https://docs.python.org/3/library/typing.html#typing.Any))
 * **Return type:**
   *LazyFrame*
 
-#### `to_list()`
+<a id="coinmetrics._data_collection.CatalogV2DataCollection.to_list"></a>
+
+### to_list
+
+```python
+coinmetrics._data_collection.CatalogV2DataCollection.to_list()
+```
+
 * **Return type:**
   [*List*](https://docs.python.org/3/library/typing.html#typing.List)[[*Dict*](https://docs.python.org/3/library/typing.html#typing.Dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [*Any*](https://docs.python.org/3/library/typing.html#typing.Any)]]

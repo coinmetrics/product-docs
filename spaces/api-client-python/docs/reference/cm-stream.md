@@ -21,13 +21,32 @@ def on_message(ws, message):
 stream.run(on_message=on_message)
 ```
 
-### *class* `coinmetrics.api_client.CmStream(ws_url)`
+<a id="coinmetrics.api_client.CmStream"></a>
+
+### *class* CmStream
+
+```python
+class coinmetrics.api_client.CmStream(ws_url)
+```
+
 Bases: [`object`](https://docs.python.org/3/library/functions.html#object)
 
 * **Parameters:**
   **ws_url** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
 
-#### `run(on_message=None, on_error=None, on_close=None, reconnect=True)`
+<a id="coinmetrics.api_client.CmStream.run"></a>
+
+### run
+
+```python
+coinmetrics.api_client.CmStream.run(
+    on_message=None,
+    on_error=None,
+    on_close=None,
+    reconnect=True,
+)
+```
+
 * **Parameters:**
   * **on_message** ([*Callable*](https://docs.python.org/3/library/typing.html#typing.Callable) *[* *[**WebSocket* *,* [*Any*](https://docs.python.org/3/library/typing.html#typing.Any) *]* *,* *None* *]*  *|* *None*)
   * **on_error** ([*Callable*](https://docs.python.org/3/library/typing.html#typing.Callable) *[* *[**WebSocket* *,* [*Any*](https://docs.python.org/3/library/typing.html#typing.Any) *]* *,* *None* *]*  *|* *None*)

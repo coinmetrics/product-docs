@@ -2,7 +2,27 @@
 
 `CoinMetricsClient` is the main entry point for the Python client. Instantiate it once with your API key and call the method that matches the Coin Metrics REST endpoint you want to hit; every method returns either a [`DataCollection`](data-collection.md) (REST endpoints) or a [`CmStream`](cm-stream.md) (WebSocket endpoints).
 
-### *class* `coinmetrics.api_client.CoinMetricsClient(api_key='', verify_ssl_certs=True, proxy_url=None, session=None, debug_mode=False, verbose=False, host=None, port=None, schema='https', ignore_unsupported_errors=False, ignore_forbidden_errors=False, max_retries=5)`
+<a id="coinmetrics.api_client.CoinMetricsClient"></a>
+
+### *class* CoinMetricsClient
+
+```python
+class coinmetrics.api_client.CoinMetricsClient(
+    api_key='',
+    verify_ssl_certs=True,
+    proxy_url=None,
+    session=None,
+    debug_mode=False,
+    verbose=False,
+    host=None,
+    port=None,
+    schema='https',
+    ignore_unsupported_errors=False,
+    ignore_forbidden_errors=False,
+    max_retries=5,
+)
+```
+
 Bases: [`object`](https://docs.python.org/3/library/functions.html#object)
 
 The CoinMetricsClient class is a Python wrapper for calling the Coin Metrics API.

@@ -1,6 +1,19 @@
 # Reference Data
 
-#### `CoinMetricsClient.reference_data_asset_metrics(metrics=None, reviewable=None, page_size=None, paging_from=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.reference_data_asset_metrics"></a>
+
+### reference_data_asset_metrics
+
+```python
+coinmetrics.api_client.CoinMetricsClient.reference_data_asset_metrics(
+    metrics=None,
+    reviewable=None,
+    page_size=None,
+    paging_from=None,
+    format='json_stream',
+)
+```
+
 Returns a list of asset metrics metadata.
 
 * **Parameters:**
@@ -14,7 +27,21 @@ Returns a list of asset metrics metadata.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.reference_data_assets(assets=None, include=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.reference_data_assets"></a>
+
+### reference_data_assets
+
+```python
+coinmetrics.api_client.CoinMetricsClient.reference_data_assets(
+    assets=None,
+    include=None,
+    page_size=None,
+    paging_from=None,
+    next_page_token=None,
+    format='json_stream',
+)
+```
+
 Returns a list of assets metadata.
 
 * **Parameters:**
@@ -29,7 +56,19 @@ Returns a list of assets metadata.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.reference_data_exchange_asset_metrics(metrics=None, page_size=None, paging_from=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_asset_metrics"></a>
+
+### reference_data_exchange_asset_metrics
+
+```python
+coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_asset_metrics(
+    metrics=None,
+    page_size=None,
+    paging_from=None,
+    format='json_stream',
+)
+```
+
 Returns a list of exchange asset metrics metadata.
 
 * **Parameters:**
@@ -42,7 +81,19 @@ Returns a list of exchange asset metrics metadata.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.reference_data_exchange_metrics(metrics=None, page_size=None, paging_from=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_metrics"></a>
+
+### reference_data_exchange_metrics
+
+```python
+coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_metrics(
+    metrics=None,
+    page_size=None,
+    paging_from=None,
+    format='json_stream',
+)
+```
+
 Returns a list of exchange metrics metadata.
 
 * **Parameters:**
@@ -55,7 +106,19 @@ Returns a list of exchange metrics metadata.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.reference_data_exchange_pair_metrics(metrics=None, page_size=None, paging_from=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_pair_metrics"></a>
+
+### reference_data_exchange_pair_metrics
+
+```python
+coinmetrics.api_client.CoinMetricsClient.reference_data_exchange_pair_metrics(
+    metrics=None,
+    page_size=None,
+    paging_from=None,
+    format='json_stream',
+)
+```
+
 Returns a list of exchange pair metrics metadata.
 
 * **Parameters:**
@@ -68,7 +131,21 @@ Returns a list of exchange pair metrics metadata.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.reference_data_exchanges(exchanges=None, include=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.reference_data_exchanges"></a>
+
+### reference_data_exchanges
+
+```python
+coinmetrics.api_client.CoinMetricsClient.reference_data_exchanges(
+    exchanges=None,
+    include=None,
+    page_size=None,
+    paging_from=None,
+    next_page_token=None,
+    format='json_stream',
+)
+```
+
 Returns a list of exchanges metadata.
 
 * **Parameters:**
@@ -83,7 +160,20 @@ Returns a list of exchanges metadata.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.reference_data_indexes(indexes=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.reference_data_indexes"></a>
+
+### reference_data_indexes
+
+```python
+coinmetrics.api_client.CoinMetricsClient.reference_data_indexes(
+    indexes=None,
+    page_size=None,
+    paging_from=None,
+    next_page_token=None,
+    format='json_stream',
+)
+```
+
 Returns a list of indexes metadata.
 
 * **Parameters:**
@@ -97,7 +187,19 @@ Returns a list of indexes metadata.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.reference_data_institution_metrics(metrics=None, page_size=None, paging_from=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.reference_data_institution_metrics"></a>
+
+### reference_data_institution_metrics
+
+```python
+coinmetrics.api_client.CoinMetricsClient.reference_data_institution_metrics(
+    metrics=None,
+    page_size=None,
+    paging_from=None,
+    format='json_stream',
+)
+```
+
 Returns a list of institution metrics metadata.
 
 * **Parameters:**
@@ -110,7 +212,20 @@ Returns a list of institution metrics metadata.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.reference_data_market_metrics(metrics=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.reference_data_market_metrics"></a>
+
+### reference_data_market_metrics
+
+```python
+coinmetrics.api_client.CoinMetricsClient.reference_data_market_metrics(
+    metrics=None,
+    page_size=None,
+    paging_from=None,
+    next_page_token=None,
+    format='json_stream',
+)
+```
+
 Returns a list of market metrics metadata.
 
 * **Parameters:**
@@ -124,7 +239,27 @@ Returns a list of market metrics metadata.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.reference_data_markets(markets=None, exchange=None, type=None, base=None, quote=None, asset=None, symbol=None, include=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.reference_data_markets"></a>
+
+### reference_data_markets
+
+```python
+coinmetrics.api_client.CoinMetricsClient.reference_data_markets(
+    markets=None,
+    exchange=None,
+    type=None,
+    base=None,
+    quote=None,
+    asset=None,
+    symbol=None,
+    include=None,
+    page_size=None,
+    paging_from=None,
+    next_page_token=None,
+    format='json_stream',
+)
+```
+
 Returns a list of markets metadata.
 
 * **Parameters:**
@@ -145,7 +280,19 @@ Returns a list of markets metadata.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.reference_data_pair_metrics(metrics=None, page_size=None, paging_from=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.reference_data_pair_metrics"></a>
+
+### reference_data_pair_metrics
+
+```python
+coinmetrics.api_client.CoinMetricsClient.reference_data_pair_metrics(
+    metrics=None,
+    page_size=None,
+    paging_from=None,
+    format='json_stream',
+)
+```
+
 Returns a list of pair metrics metadata.
 
 * **Parameters:**
@@ -158,7 +305,20 @@ Returns a list of pair metrics metadata.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.reference_data_pairs(pairs=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.reference_data_pairs"></a>
+
+### reference_data_pairs
+
+```python
+coinmetrics.api_client.CoinMetricsClient.reference_data_pairs(
+    pairs=None,
+    page_size=None,
+    paging_from=None,
+    next_page_token=None,
+    format='json_stream',
+)
+```
+
 Returns a list of pairs metadata.
 
 * **Parameters:**

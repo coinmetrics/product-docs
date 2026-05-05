@@ -1,6 +1,16 @@
 # Blockchain Metadata
 
-#### `CoinMetricsClient.get_blockchain_metadata_locations(page_size=None, next_page_token=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_locations"></a>
+
+### get_blockchain_metadata_locations
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_locations(
+    page_size=None,
+    next_page_token=None,
+)
+```
+
 Returns a list of all supported locations ordered lexicographically.
 
 * **Parameters:**
@@ -11,7 +21,17 @@ Returns a list of all supported locations ordered lexicographically.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_blockchain_metadata_owners(page_size=None, next_page_token=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_owners"></a>
+
+### get_blockchain_metadata_owners
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_owners(
+    page_size=None,
+    next_page_token=None,
+)
+```
+
 Returns a list of all supported owners lexicographically ordered by the owner_name field.
 
 * **Parameters:**
@@ -22,7 +42,21 @@ Returns a list of all supported owners lexicographically ordered by the owner_na
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_blockchain_metadata_tagged_entities(tags=None, entities=None, locations=None, owner_names=None, page_size=None, next_page_token=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tagged_entities"></a>
+
+### get_blockchain_metadata_tagged_entities
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tagged_entities(
+    tags=None,
+    entities=None,
+    locations=None,
+    owner_names=None,
+    page_size=None,
+    next_page_token=None,
+)
+```
+
 Returns a list of all entities associated with provided tags. Ordered by tuple (entity, tag, location, start_time) if requested by providing entities parameter. Ordered by tuple (tag, location, entity, started_time) if requested by providing tags parameter. Ordered by tuple (owner_name, location, entity, tag, timestamp_start) if requested by providing owner_name parameter.
 
 * **Parameters:**
@@ -37,7 +71,18 @@ Returns a list of all entities associated with provided tags. Ordered by tuple (
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_blockchain_metadata_tags(type=None, page_size=None, next_page_token=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tags"></a>
+
+### get_blockchain_metadata_tags
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tags(
+    type=None,
+    page_size=None,
+    next_page_token=None,
+)
+```
+
 Returns a list of all available tags along with their descriptions, lexicographically ordered by the tag field.
 
 * **Parameters:**

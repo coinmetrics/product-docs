@@ -1,6 +1,19 @@
 # Security Master
 
-#### `CoinMetricsClient.security_master_assets(assets=None, codes=None, page_size=None, paging_from=None, next_page_token=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.security_master_assets"></a>
+
+### security_master_assets
+
+```python
+coinmetrics.api_client.CoinMetricsClient.security_master_assets(
+    assets=None,
+    codes=None,
+    page_size=None,
+    paging_from=None,
+    next_page_token=None,
+)
+```
+
 Returns all the assets and their metadata in security master.
 
 * **Parameters:**
@@ -14,7 +27,24 @@ Returns all the assets and their metadata in security master.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.security_master_markets(type=None, markets=None, symbol=None, exchange=None, base=None, quote=None, page_size=None, paging_from=None, next_page_token=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.security_master_markets"></a>
+
+### security_master_markets
+
+```python
+coinmetrics.api_client.CoinMetricsClient.security_master_markets(
+    type=None,
+    markets=None,
+    symbol=None,
+    exchange=None,
+    base=None,
+    quote=None,
+    page_size=None,
+    paging_from=None,
+    next_page_token=None,
+)
+```
+
 Returns metadata on all the markets offered (spot, options, futures), sorted alphabetically by market.
 
 * **Parameters:**

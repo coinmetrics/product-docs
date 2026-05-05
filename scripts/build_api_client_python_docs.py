@@ -51,7 +51,7 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
-from typing import Iterable, List, Tuple
+from typing import Dict, Iterable, List, Optional, Tuple
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -118,6 +118,22 @@ PAGE_TITLES = {
     "reference/exceptions.md": "Exceptions",
 }
 
+# Default class qualifier used to resolve "plain" autodoc method headings
+# (the ones rendered as ``ClassName.method(...)`` without a module prefix,
+# typically emitted by ``.. automethod::`` under a ``.. currentmodule::``
+# directive). The qualifier is the fully-qualified class name; method
+# anchors are built as ``<qualifier>.<method>``.
+#
+# Pages without an entry rely on the most-recent ``*class*`` / ``*exception*``
+# heading on the page to set the qualifier dynamically.
+PAGE_DEFAULT_CLASS_QUALIFIER = {
+    # Group pages live under reference/coinmetricsclient/ and only contain
+    # methods of CoinMetricsClient (no class heading).
+    "reference/coinmetricsclient/": "coinmetrics.api_client.CoinMetricsClient",
+    # The CmStream page renders ``run`` etc. without the class prefix.
+    "reference/cm-stream.md": "coinmetrics.api_client.CmStream",
+}
+
 # Curated upstream reference pages we discard during staging because their
 # content is now produced from the actual Python package by sphinx-apidoc.
 # DataCollection / ParallelDataCollection stay curated so each class keeps
@@ -151,6 +167,12 @@ APIDOC_EXCLUDE_FILES = (
 # SUMMARY.md generation
 # ---------------------------------------------------------------------------
 
+
+# Mapping of group slug -> ordered list of method names, captured from
+# ``_generate_groups.py`` after it runs. Used by ``_render_summary`` to
+# emit one nested SUMMARY.md entry per method so each endpoint method is
+# accessible directly from the GitBook left sidebar.
+GROUP_METHODS: Dict[str, List[str]] = {}
 
 # Declarative GitBook navigation. Each section is a (heading_or_None, entries)
 # pair, where ``entries`` is an ordered list of ``(title, target, children)``
@@ -199,7 +221,7 @@ SUMMARY_CONFIG: List[Tuple[str | None, List[Tuple[str, str, List[Tuple[str, str]
 
 
 def _render_summary() -> str:
-    """Compose ``SUMMARY.md`` from ``SUMMARY_CONFIG`` and ``GROUP_PAGES``."""
+    """Compose ``SUMMARY.md`` from ``SUMMARY_CONFIG``, ``GROUP_PAGES`` and ``GROUP_METHODS``."""
     lines: List[str] = ["# Table of contents", ""]
     intro_title, intro_target = SUMMARY_INTRO
     lines.append(f"* [{intro_title}]({intro_target})")
@@ -210,12 +232,21 @@ def _render_summary() -> str:
             lines.append("")
         for title, target, children in entries:
             lines.append(f"* [{title}]({target})")
-            # Inject the auto-discovered group pages beneath CoinMetricsClient.
+            # Inject the auto-discovered group pages beneath CoinMetricsClient,
+            # and one nested entry per method so each endpoint is reachable
+            # directly from the GitBook left sidebar.
             if target == "reference/coinmetricsclient.md":
                 for slug, label in GROUP_PAGES:
-                    lines.append(
-                        f"  * [{label}](reference/coinmetricsclient/{slug}.md)"
-                    )
+                    page = f"reference/coinmetricsclient/{slug}.md"
+                    lines.append(f"  * [{label}]({page})")
+                    for method_name in GROUP_METHODS.get(slug, []):
+                        anchor = (
+                            "coinmetrics.api_client.CoinMetricsClient."
+                            + method_name
+                        )
+                        lines.append(
+                            f"    * [{method_name}]({page}#{anchor})"
+                        )
             for child_title, child_target in children:
                 lines.append(f"  * [{child_title}]({child_target})")
         lines.append("")
@@ -588,6 +619,15 @@ def regenerate_group_pages() -> None:
     module._render_group = _render_group_no_autosummary
     module.main()
 
+    # Capture the resolved group -> methods mapping so SUMMARY.md can list
+    # each endpoint method directly under its parent group entry. We re-call
+    # ``_collect_methods`` (cheap: a single AST parse) instead of caching
+    # state inside ``main`` so we keep the upstream entrypoint untouched.
+    GROUP_METHODS.clear()
+    for slug, group in module._collect_methods().items():
+        if group.methods:
+            GROUP_METHODS[slug] = list(group.methods)
+
 
 # ---------------------------------------------------------------------------
 # Sphinx build
@@ -703,28 +743,63 @@ _INTERSPHINX_RE = re.compile(
     r"(\]\(https?://(?:" + "|".join(re.escape(h) for h in _INTERSPHINX_HOSTS) + r")[^)\s]*?)\.md(?=[)#])"
 )
 
-# Autodoc emits headings like ``### *class* coinmetrics._x.Foo(arg1, arg2)``
-# or ``#### Foo.bar(arg=1)``. To match the pydata-sphinx-theme look, where the
-# fully-qualified signature is rendered in a monospace box, we wrap the
-# signature portion in backticks. The kind keywords ``*class*`` /
-# ``*exception*`` / ``*property*`` are kept as italics outside the backticks
-# so they still read as labels rather than code.
-_AUTODOC_KIND_HEADING_RE = re.compile(
+# Autodoc rendering. ``sphinx-markdown-builder`` emits headings like
+#
+#     ### *class* coinmetrics.api_client.CoinMetricsClient(api_key='', ...)
+#     #### CoinMetricsClient.get_asset_metrics(assets, ...)
+#     #### *property* CoinMetricsClient.foo
+#
+# These have two problems for GitBook:
+#
+# 1. The full signature ends up in the heading text. GitBook's right-hand
+#    "On this page" panel shows headings as anchor links, so a 200-character
+#    constructor signature is unusable as navigation.
+# 2. Sphinx's intra-doc cross-references resolve to anchors named after the
+#    fully-qualified Python path (``coinmetrics.api_client.CoinMetricsClient``),
+#    but GitBook slugifies headings into something completely different, so
+#    every ``[Foo](page.md#coinmetrics.x.Foo)`` link is silently broken.
+#
+# We rewrite each autodoc heading into:
+#
+#     <a id="coinmetrics.api_client.CoinMetricsClient"></a>
+#
+#     ### *class* CoinMetricsClient
+#
+#     ```python
+#     class coinmetrics.api_client.CoinMetricsClient(
+#         api_key='',
+#         verify_ssl_certs=True,
+#         ...
+#     )
+#     ```
+#
+# which gives GitBook a clean short heading, a stable anchor that matches
+# Sphinx's cross-link IDs, and the full pydata-style signature underneath.
+#
+# Method headings (``#### CoinMetricsClient.foo``) are also promoted to H3
+# so they appear in GitBook's "On this page" right-hand panel.
+
+# Kinds where the heading payload contains the FULLY-QUALIFIED dotted path
+# (sphinx-markdown-builder always emits class/exception/function with the
+# module prefix, regardless of ``.. currentmodule::``).
+_QUALIFIED_KINDS = frozenset({"class", "exception", "function", "data"})
+_AUTODOC_KIND_RE = re.compile(
     r"^(?P<hashes>#{2,5})\s+"
-    r"(?P<kind>\*(?:class|exception|function|method|staticmethod|classmethod|"
-    r"abstractmethod|property|attribute|data)\*)\s+"
-    r"(?P<sig>[\w\.][^\n]*?)\s*$",
-    re.MULTILINE,
+    r"\*(?P<kind>class|exception|function|method|staticmethod|classmethod|"
+    r"abstractmethod|property|attribute|data)\*\s+"
+    r"(?P<rest>\S.*?)\s*$"
 )
-_AUTODOC_PLAIN_HEADING_RE = re.compile(
-    # Headings whose entire payload is a Python identifier path optionally
-    # followed by a parenthesised signature -- these are also autodoc method
-    # rows (``#### Foo.bar(arg=1)`` or ``#### Foo.bar``). We require either a
-    # dotted name or a parenthesised argument list so we do not mangle plain
-    # prose section headers like ``## Endpoints``.
+# Plain method/function headings without an explicit kind label, e.g.
+# ``#### CoinMetricsClient.get_asset_metrics(...)`` or ``#### run(...)``.
+# Match identifiers (with optional dotted path) followed by an optional
+# parenthesised argument list, but NOT bare prose headings like
+# ``## Endpoints``.
+_AUTODOC_PLAIN_RE = re.compile(
     r"^(?P<hashes>#{2,5})\s+"
-    r"(?P<sig>[A-Za-z_]\w*(?:\.\w+)+(?:\([^\n]*\))?|[A-Za-z_]\w*\([^\n]*\))\s*$",
-    re.MULTILINE,
+    r"(?P<rest>"
+    r"[A-Za-z_]\w*(?:\\?\.[\w\\]+)+(?:\([^\n]*\))?"  # dotted name (+optional args)
+    r"|[A-Za-z_]\w*\([^\n]*\)"                        # bare name + args
+    r")\s*$"
 )
 
 
@@ -732,23 +807,221 @@ def _unescape_sig(sig: str) -> str:
     """Drop the ``\\*`` / ``\\_`` escapes the markdown builder injects.
 
     These escapes are needed in plain Markdown so ``**kwargs`` does not
-    render as bold, but inside a code span they would render literally.
+    render as bold, but inside a code block they would render literally.
     """
     return sig.replace("\\*", "*").replace("\\_", "_")
 
 
-def _wrap_kind_heading(match: re.Match[str]) -> str:
-    sig = _unescape_sig(match.group("sig"))
-    return f"{match.group('hashes')} {match.group('kind')} `{sig}`"
+def _split_signature(payload: str) -> Tuple[str, Optional[str]]:
+    """Split ``Foo.bar(arg=1, arg2)`` into ``("Foo.bar", "arg=1, arg2")``.
+
+    Returns ``(dotted_name, None)`` if the payload has no parenthesised
+    argument list (e.g. property / attribute signatures).
+    """
+    payload = payload.strip()
+    if "(" not in payload:
+        return payload, None
+    # Match the FIRST opening parenthesis and take everything to the matching
+    # closing one. The args may themselves contain balanced parens (default
+    # values like ``factory()``); walk the string to find the right close.
+    open_idx = payload.index("(")
+    depth = 0
+    for i, ch in enumerate(payload[open_idx:], start=open_idx):
+        if ch == "(":
+            depth += 1
+        elif ch == ")":
+            depth -= 1
+            if depth == 0:
+                return payload[:open_idx], payload[open_idx + 1 : i]
+    # Unbalanced -- fall back to a simple split.
+    return payload[:open_idx], payload[open_idx + 1 :].rstrip(") ")
 
 
-def _wrap_plain_heading(match: re.Match[str]) -> str:
-    sig = match.group("sig")
-    # Leave headings that already use code spans (``#### `Foo.bar```) alone.
-    if sig.startswith("`"):
-        return match.group(0)
-    sig = _unescape_sig(sig)
-    return f"{match.group('hashes')} `{sig}`"
+def _format_signature_block(prefix: str, full_dotted: str, args: Optional[str]) -> str:
+    """Render the ``python``-fenced signature block printed under each heading."""
+    head = f"{prefix} {full_dotted}".strip()
+    if args is None:
+        body = head
+    else:
+        # Split args on top-level commas (so ``Dict[str, int]`` stays intact)
+        # and put each on its own line for readability.
+        pieces: List[str] = []
+        depth = 0
+        current = ""
+        for ch in args:
+            if ch in "([{":
+                depth += 1
+            elif ch in ")]}":
+                depth -= 1
+            if ch == "," and depth == 0:
+                pieces.append(current.strip())
+                current = ""
+            else:
+                current += ch
+        if current.strip():
+            pieces.append(current.strip())
+        if len(pieces) <= 1 or sum(len(p) for p in pieces) + len(head) < 80:
+            body = f"{head}({args.strip()})"
+        else:
+            body = head + "(\n    " + ",\n    ".join(pieces) + ",\n)"
+    return "```python\n" + body + "\n```"
+
+
+def _emit_autodoc_heading(
+    hashes: str,
+    kind: Optional[str],
+    short_name: str,
+    anchor: str,
+    full_dotted: str,
+    args: Optional[str],
+    promote_to_h3: bool,
+) -> List[str]:
+    """Build the multi-line replacement for a single autodoc heading."""
+    level = "###" if promote_to_h3 and len(hashes) > 3 else hashes
+    label = f"{level} *{kind}* {short_name}" if kind else f"{level} {short_name}"
+    if kind in {"class", "exception"}:
+        prefix = kind
+    elif kind == "function":
+        prefix = "def"
+    elif kind in {"method", "staticmethod", "classmethod", "abstractmethod"}:
+        prefix = "def"
+    else:
+        prefix = ""
+    return [
+        f'<a id="{anchor}"></a>',
+        "",
+        label,
+        "",
+        _format_signature_block(prefix, full_dotted, args),
+    ]
+
+
+def _resolve_anchor(
+    dotted: str,
+    kind: Optional[str],
+    class_qualifier: Optional[str],
+    module_qualifier: Optional[str],
+) -> Tuple[str, str]:
+    """Figure out the anchor ID and full dotted path for a heading.
+
+    Returns ``(anchor, full_dotted)``.
+
+    * For class/exception/function/data kinds, the heading payload already
+      includes the fully-qualified module path; we use it as-is.
+    * For method/property/attribute headings on a documented class, the
+      payload may be ``Class.method`` (when emitted under a
+      ``currentmodule`` directive) or just ``method`` (when emitted by
+      ``automethod`` against a class set as the current context). We
+      prepend the module qualifier and the class name as needed.
+    """
+    if kind in _QUALIFIED_KINDS or "coinmetrics" in dotted:
+        return dotted, dotted
+
+    parts = dotted.split(".")
+    if class_qualifier:
+        # ``class_qualifier`` is itself fully qualified (e.g.
+        # ``coinmetrics.api_client.CoinMetricsClient``).
+        class_short = class_qualifier.rsplit(".", 1)[-1]
+        if parts[0] == class_short:
+            full = class_qualifier.rsplit(".", 1)[0] + "." + ".".join(parts)
+        else:
+            full = class_qualifier + "." + ".".join(parts)
+        return full, full
+
+    if module_qualifier:
+        full = module_qualifier + "." + ".".join(parts)
+        return full, full
+
+    # No context to qualify with -- use the dotted name verbatim. This will
+    # not match Sphinx's cross-link anchors but at least keeps the page
+    # rendering correctly.
+    return dotted, dotted
+
+
+def _transform_autodoc_headings(text: str, page_rel: str) -> str:
+    """Rewrite every autodoc heading on the page (see module-level comment).
+
+    ``page_rel`` is the output-relative path of the file (e.g.
+    ``reference/coinmetricsclient/timeseries.md``). It is used to seed the
+    class qualifier on pages where Sphinx does not emit a ``*class*``
+    heading (group pages and the cm-stream page).
+    """
+    # Resolve the per-page default class qualifier. Group pages match by
+    # directory prefix; everything else by exact path.
+    class_qualifier: Optional[str] = None
+    module_qualifier: Optional[str] = None
+    for prefix, qualifier in PAGE_DEFAULT_CLASS_QUALIFIER.items():
+        if page_rel.startswith(prefix) or page_rel == prefix:
+            class_qualifier = qualifier
+            module_qualifier = qualifier.rsplit(".", 1)[0]
+            break
+
+    out: List[str] = []
+
+    def _append_block(block: List[str]) -> None:
+        # Ensure a blank line precedes the inline HTML anchor; without it
+        # CommonMark may glue the anchor onto the previous heading or
+        # paragraph, suppressing the rewritten heading entirely.
+        if out and out[-1].strip():
+            out.append("")
+        out.extend(block)
+
+    for line in text.split("\n"):
+        m = _AUTODOC_KIND_RE.match(line)
+        if m:
+            hashes = m.group("hashes")
+            kind = m.group("kind")
+            payload = _unescape_sig(m.group("rest"))
+            dotted, args = _split_signature(payload)
+            if kind in {"class", "exception"}:
+                # Reset the class context for subsequent method headings.
+                class_qualifier = dotted
+                module_qualifier = dotted.rsplit(".", 1)[0]
+                anchor, full = dotted, dotted
+            else:
+                anchor, full = _resolve_anchor(
+                    dotted, kind, class_qualifier, module_qualifier
+                )
+            _append_block(
+                _emit_autodoc_heading(
+                    hashes,
+                    kind,
+                    short_name=dotted.rsplit(".", 1)[-1],
+                    anchor=anchor,
+                    full_dotted=full,
+                    args=args,
+                    # Class / exception headings stay where Sphinx put them
+                    # (they're top-level on their page); methods/properties
+                    # / etc. get promoted to H3.
+                    promote_to_h3=kind not in {"class", "exception"},
+                )
+            )
+            continue
+
+        m = _AUTODOC_PLAIN_RE.match(line)
+        if m:
+            hashes = m.group("hashes")
+            payload = _unescape_sig(m.group("rest"))
+            dotted, args = _split_signature(payload)
+            anchor, full = _resolve_anchor(
+                dotted, None, class_qualifier, module_qualifier
+            )
+            _append_block(
+                _emit_autodoc_heading(
+                    hashes,
+                    kind=None,
+                    short_name=dotted.rsplit(".", 1)[-1],
+                    anchor=anchor,
+                    full_dotted=full,
+                    args=args,
+                    promote_to_h3=True,
+                )
+            )
+            continue
+
+        out.append(line)
+
+    return "\n".join(out)
 
 
 def post_process_file(path: Path, output_root: Path) -> None:
@@ -807,13 +1080,13 @@ def post_process_file(path: Path, output_root: Path) -> None:
     # wrapped in backticks.
     text = _strip_empty_sections(text)
 
-    # Wrap autodoc signature headings in backticks so the fully-qualified
-    # class / function / method name renders in a monospace face, matching
-    # the pydata-sphinx-theme look. Only apply to the reference tree -- the
-    # narrative pages have ordinary headings we should not touch.
+    # Rewrite Sphinx autodoc headings into a GitBook-friendly form: short
+    # heading text (just the symbol name), an HTML anchor matching the
+    # Sphinx cross-reference ID, and the full signature in a code block.
+    # Only apply to the reference tree -- the narrative pages have ordinary
+    # headings we should not touch.
     if rel_to_root.startswith("reference/"):
-        text = _AUTODOC_KIND_HEADING_RE.sub(_wrap_kind_heading, text)
-        text = _AUTODOC_PLAIN_HEADING_RE.sub(_wrap_plain_heading, text)
+        text = _transform_autodoc_headings(text, rel_to_root)
 
     # Rewrite intra-doc links that refer to the legacy (underscore or
     # ``index.md``) names of files we have renamed via PAGE_RENAMES.

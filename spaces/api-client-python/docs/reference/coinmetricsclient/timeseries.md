@@ -1,6 +1,25 @@
 # Time Series
 
-#### `CoinMetricsClient.get_asset_alerts(assets, alerts, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, include_heartbeats=None, format=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_asset_alerts"></a>
+
+### get_asset_alerts
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_asset_alerts(
+    assets,
+    alerts,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    include_heartbeats=None,
+    format=None,
+)
+```
+
 Returns asset alerts for the specified assets.
 
 * **Parameters:**
@@ -20,7 +39,24 @@ Returns asset alerts for the specified assets.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_asset_chains(assets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_asset_chains"></a>
+
+### get_asset_chains
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_asset_chains(
+    assets,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    format=None,
+)
+```
+
 Returns the chains of blocks for the specified assets.
 
 * **Parameters:**
@@ -38,7 +74,37 @@ Returns the chains of blocks for the specified assets.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_asset_metrics(assets, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_asset=None, status=None, start_hash=None, end_hash=None, min_confirmations=None, null_as_zero=None, ignore_forbidden_errors=None, ignore_unsupported_errors=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_asset_metrics"></a>
+
+### get_asset_metrics
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_asset_metrics(
+    assets,
+    metrics,
+    frequency=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    sort=None,
+    limit_per_asset=None,
+    status=None,
+    start_hash=None,
+    end_hash=None,
+    min_confirmations=None,
+    null_as_zero=None,
+    ignore_forbidden_errors=None,
+    ignore_unsupported_errors=None,
+    format='json_stream',
+)
+```
+
 Returns requested metrics for specified assets.
 
 * **Parameters:**
@@ -76,7 +142,26 @@ Returns requested metrics for specified assets.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_defi_balance_sheets(defi_protocols, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, format=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_defi_balance_sheets"></a>
+
+### get_defi_balance_sheets
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_defi_balance_sheets(
+    defi_protocols,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    format=None,
+)
+```
+
 Returns Defi Balance Sheet records for specified DeFi protocols.
 
 * **Parameters:**
@@ -96,7 +181,30 @@ Returns Defi Balance Sheet records for specified DeFi protocols.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_exchange_asset_metrics(exchange_assets, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_exchange_asset=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_exchange_asset_metrics"></a>
+
+### get_exchange_asset_metrics
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_exchange_asset_metrics(
+    exchange_assets,
+    metrics,
+    frequency=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    sort=None,
+    limit_per_exchange_asset=None,
+    format='json_stream',
+)
+```
+
 Returns metrics for specified exchange-asset.
 
 * **Parameters:**
@@ -123,7 +231,30 @@ Returns metrics for specified exchange-asset.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_exchange_metrics(exchanges, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_exchange=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_exchange_metrics"></a>
+
+### get_exchange_metrics
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_exchange_metrics(
+    exchanges,
+    metrics,
+    frequency=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    sort=None,
+    limit_per_exchange=None,
+    format='json_stream',
+)
+```
+
 Returns metrics for specified exchanges.
 
 * **Parameters:**
@@ -153,7 +284,29 @@ Returns metrics for specified exchanges.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_exchange_pair_metrics(exchange_pairs, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', limit_per_exchange_pair=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_exchange_pair_metrics"></a>
+
+### get_exchange_pair_metrics
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_exchange_pair_metrics(
+    exchange_pairs,
+    metrics,
+    frequency=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    format='json_stream',
+    limit_per_exchange_pair=None,
+)
+```
+
 Returns metrics for specified exchange-pair.
 
 * **Parameters:**
@@ -179,7 +332,26 @@ Returns metrics for specified exchange-pair.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_index_candles(indexes, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_index=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_index_candles"></a>
+
+### get_index_candles
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_index_candles(
+    indexes,
+    frequency=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    limit_per_index=None,
+    format='json_stream',
+)
+```
+
 Returns index candles for specified indexes and date range.
 
 * **Parameters:**
@@ -199,7 +371,25 @@ Returns index candles for specified indexes and date range.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_index_constituents(indexes, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_index_constituents"></a>
+
+### get_index_constituents
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_index_constituents(
+    indexes,
+    frequency=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    format=None,
+)
+```
+
 Returns index constituents for specified indexes and date range.
 
 * **Parameters:**
@@ -218,7 +408,28 @@ Returns index constituents for specified indexes and date range.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_index_levels(indexes, frequency=None, granularity=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from='start', limit_per_index=None, include_verification=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_index_levels"></a>
+
+### get_index_levels
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_index_levels(
+    indexes,
+    frequency=None,
+    granularity=None,
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    page_size=None,
+    paging_from='start',
+    limit_per_index=None,
+    include_verification=None,
+    format='json_stream',
+)
+```
+
 Returns index levels for specified indexes and date range.
 
 * **Parameters:**
@@ -242,7 +453,30 @@ Returns index levels for specified indexes and date range.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_institution_metrics(institutions, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_institution=None, format=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_institution_metrics"></a>
+
+### get_institution_metrics
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_institution_metrics(
+    institutions,
+    metrics,
+    frequency=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    sort=None,
+    limit_per_institution=None,
+    format=None,
+)
+```
+
 Returns metrics for specified institutions.
 
 * **Parameters:**
@@ -266,7 +500,28 @@ Returns metrics for specified institutions.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_market_candles(markets, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, format='json_stream', ignore_unsupported_errors=None, ignore_forbidden_errors=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_market_candles"></a>
+
+### get_market_candles
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_market_candles(
+    markets,
+    frequency=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    limit_per_market=None,
+    format='json_stream',
+    ignore_unsupported_errors=None,
+    ignore_forbidden_errors=None,
+)
+```
+
 Returns market candles for specified markets, frequency and date range.
 For more information on market candles, see: [https://docs.coinmetrics.io/info/markets/candles](https://docs.coinmetrics.io/info/markets/candles)
 
@@ -289,7 +544,27 @@ For more information on market candles, see: [https://docs.coinmetrics.io/info/m
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_market_contract_prices(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, granularity=None, timezone=None, limit_per_market=None, frequency=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_market_contract_prices"></a>
+
+### get_market_contract_prices
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_market_contract_prices(
+    markets,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    granularity=None,
+    timezone=None,
+    limit_per_market=None,
+    frequency=None,
+    format='json_stream',
+)
+```
+
 Returns contract prices for specified markets. This includes index price and mark price that are used by the exchange for settlement and risk management purposes.
 
 * **Parameters:**
@@ -310,7 +585,25 @@ Returns contract prices for specified markets. This includes index price and mar
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_market_funding_rates(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_market_funding_rates"></a>
+
+### get_market_funding_rates
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_market_funding_rates(
+    markets,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    limit_per_market=None,
+    format='json_stream',
+)
+```
+
 Returns market funding rates for specified markets and date range.
 For more information on funding rates, see: [https://docs.coinmetrics.io/info/markets/fundingrates](https://docs.coinmetrics.io/info/markets/fundingrates)
 
@@ -330,7 +623,26 @@ For more information on funding rates, see: [https://docs.coinmetrics.io/info/ma
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_market_greeks(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, granularity=None, timezone=None, limit_per_market=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_market_greeks"></a>
+
+### get_market_greeks
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_market_greeks(
+    markets,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    granularity=None,
+    timezone=None,
+    limit_per_market=None,
+    format='json_stream',
+)
+```
+
 Returns greeks for option markets.
 
 * **Parameters:**
@@ -350,7 +662,26 @@ Returns greeks for option markets.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_market_implied_volatility(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, granularity=None, timezone=None, limit_per_market=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_market_implied_volatility"></a>
+
+### get_market_implied_volatility
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_market_implied_volatility(
+    markets,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    granularity=None,
+    timezone=None,
+    limit_per_market=None,
+    format='json_stream',
+)
+```
+
 Returns implied volatility for specified markets.
 
 * **Parameters:**
@@ -370,7 +701,25 @@ Returns implied volatility for specified markets.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_market_liquidations(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_market_liquidations"></a>
+
+### get_market_liquidations
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_market_liquidations(
+    markets,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    limit_per_market=None,
+    format='json_stream',
+)
+```
+
 Returns market liquidations for specified markets and date range.
 For more information on liquidations, see: [https://docs.coinmetrics.io/info/markets/liquidations](https://docs.coinmetrics.io/info/markets/liquidations)
 
@@ -390,7 +739,30 @@ For more information on liquidations, see: [https://docs.coinmetrics.io/info/mar
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_market_metrics(markets, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, sort=None, ignore_forbidden_errors=None, ignore_unsupported_errors=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_market_metrics"></a>
+
+### get_market_metrics
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_market_metrics(
+    markets,
+    metrics,
+    frequency=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    limit_per_market=None,
+    sort=None,
+    ignore_forbidden_errors=None,
+    ignore_unsupported_errors=None,
+    format='json_stream',
+)
+```
+
 Returns market metrics for specified markets, frequency and date range.
 For more information on market metrics, see: [https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketMetrics](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketMetrics)
 
@@ -417,7 +789,26 @@ For more information on market metrics, see: [https://docs.coinmetrics.io/api/v4
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_market_open_interest(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, granularity=None, timezone=None, limit_per_market=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_market_open_interest"></a>
+
+### get_market_open_interest
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_market_open_interest(
+    markets,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    granularity=None,
+    timezone=None,
+    limit_per_market=None,
+    format='json_stream',
+)
+```
+
 Returns market open interest for specified markets and date range.
 For more information on open interest, see: [https://docs.coinmetrics.io/info/markets/openinterest](https://docs.coinmetrics.io/info/markets/openinterest)
 
@@ -438,7 +829,27 @@ For more information on open interest, see: [https://docs.coinmetrics.io/info/ma
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_market_orderbooks(markets, granularity=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, depth_limit='100', timezone=None, limit_per_market=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_market_orderbooks"></a>
+
+### get_market_orderbooks
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_market_orderbooks(
+    markets,
+    granularity=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    depth_limit='100',
+    timezone=None,
+    limit_per_market=None,
+    format='json_stream',
+)
+```
+
 Returns market order books for specified markets and date range.
 For more information on order books, see: [https://docs.coinmetrics.io/info/markets/orderbook](https://docs.coinmetrics.io/info/markets/orderbook)
 
@@ -460,7 +871,27 @@ For more information on order books, see: [https://docs.coinmetrics.io/info/mark
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_market_quotes(markets, granularity=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, include_one_sided=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_market_quotes"></a>
+
+### get_market_quotes
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_market_quotes(
+    markets,
+    granularity=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    limit_per_market=None,
+    include_one_sided=None,
+    format='json_stream',
+)
+```
+
 Returns market quotes for specified markets and date range.
 For more information on quotes, see: [https://docs.coinmetrics.io/info/markets/quotes](https://docs.coinmetrics.io/info/markets/quotes)
 
@@ -482,7 +913,26 @@ For more information on quotes, see: [https://docs.coinmetrics.io/info/markets/q
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_market_trades(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, min_confirmations=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_market_trades"></a>
+
+### get_market_trades
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_market_trades(
+    markets,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    limit_per_market=None,
+    min_confirmations=None,
+    format='json_stream',
+)
+```
+
 Returns market trades for specified markets and date range.
 For more information on market trades, see: [https://docs.coinmetrics.io/info/markets/trades](https://docs.coinmetrics.io/info/markets/trades)
 
@@ -503,7 +953,24 @@ For more information on market trades, see: [https://docs.coinmetrics.io/info/ma
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_mempool_feerates(assets, page_size=200, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_mempool_feerates"></a>
+
+### get_mempool_feerates
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_mempool_feerates(
+    assets,
+    page_size=200,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    format=None,
+)
+```
+
 Returns mempool feerates for the specified assets. Note: for this method, page_size must be <= 200.
 
 * **Parameters:**
@@ -521,7 +988,24 @@ Returns mempool feerates for the specified assets. Note: for this method, page_s
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_mining_pool_tips_summary(assets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_mining_pool_tips_summary"></a>
+
+### get_mining_pool_tips_summary
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_mining_pool_tips_summary(
+    assets,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    format=None,
+)
+```
+
 Returns mining pool tips summaries for specified assets.
 
 * **Parameters:**
@@ -539,7 +1023,28 @@ Returns mining pool tips summaries for specified assets.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_pair_candles(pairs, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_pair=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_pair_candles"></a>
+
+### get_pair_candles
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_pair_candles(
+    pairs,
+    frequency=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    limit_per_pair=None,
+    format='json_stream',
+)
+```
+
 Returns candles for specified asset pairs.
 Results are ordered by tuple (pair, time).
 
@@ -562,7 +1067,30 @@ Results are ordered by tuple (pair, time).
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_pair_metrics(pairs, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_pair=None, format='json')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_pair_metrics"></a>
+
+### get_pair_metrics
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_pair_metrics(
+    pairs,
+    metrics,
+    frequency=None,
+    page_size=None,
+    paging_from='start',
+    start_time=None,
+    end_time=None,
+    start_height=None,
+    end_height=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    sort=None,
+    limit_per_pair=None,
+    format='json',
+)
+```
+
 Returns metrics books for specified asset-asset pairs.
 
 * **Parameters:**
@@ -590,7 +1118,25 @@ Returns metrics books for specified asset-asset pairs.
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_predicted_market_funding_rates(markets, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from='start', limit_per_market=None, format='json_stream')`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_predicted_market_funding_rates"></a>
+
+### get_predicted_market_funding_rates
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_predicted_market_funding_rates(
+    markets,
+    start_time=None,
+    end_time=None,
+    start_inclusive=None,
+    end_inclusive=None,
+    timezone=None,
+    page_size=None,
+    paging_from='start',
+    limit_per_market=None,
+    format='json_stream',
+)
+```
+
 Returns predicted funding rates for specified futures markets. Results are ordered by tuple (market, time).
 For more information on funding rates, see: [https://docs.coinmetrics.io/info/markets/fundingrates](https://docs.coinmetrics.io/info/markets/fundingrates)
 
@@ -610,7 +1156,21 @@ For more information on funding rates, see: [https://docs.coinmetrics.io/info/ma
 * **Return type:**
   [DataCollection](../data-collection.md#coinmetrics._data_collection.DataCollection)
 
-#### `CoinMetricsClient.get_stream_asset_metrics(assets, metrics, frequency=None, backfill=Backfill.LATEST, ignore_forbidden_errors=None, ignore_unsupported_errors=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_stream_asset_metrics"></a>
+
+### get_stream_asset_metrics
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_stream_asset_metrics(
+    assets,
+    metrics,
+    frequency=None,
+    backfill=Backfill.LATEST,
+    ignore_forbidden_errors=None,
+    ignore_unsupported_errors=None,
+)
+```
+
 Returns timeseries stream of metrics for specified assets.
 
 * **Parameters:**
@@ -625,7 +1185,18 @@ Returns timeseries stream of metrics for specified assets.
 * **Return type:**
   [CmStream](../cm-stream.md#coinmetrics.api_client.CmStream)
 
-#### `CoinMetricsClient.get_stream_asset_quotes(assets, aggregation_method=None, backfill=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_stream_asset_quotes"></a>
+
+### get_stream_asset_quotes
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_stream_asset_quotes(
+    assets,
+    aggregation_method=None,
+    backfill=None,
+)
+```
+
 Returns a websocket stream of asset quotes for the requested assets.
 
 * **Parameters:**
@@ -636,7 +1207,18 @@ Returns a websocket stream of asset quotes for the requested assets.
 * **Return type:**
   [CmStream](../cm-stream.md#coinmetrics.api_client.CmStream)
 
-#### `CoinMetricsClient.get_stream_index_levels(indexes, include_verification=None, backfill=Backfill.LATEST)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_stream_index_levels"></a>
+
+### get_stream_index_levels
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_stream_index_levels(
+    indexes,
+    include_verification=None,
+    backfill=Backfill.LATEST,
+)
+```
+
 Returns timeseries stream of index levels.
 
 * **Parameters:**
@@ -648,7 +1230,18 @@ Returns timeseries stream of index levels.
 * **Return type:**
   [CmStream](../cm-stream.md#coinmetrics.api_client.CmStream)
 
-#### `CoinMetricsClient.get_stream_market_candles(markets, frequency=None, backfill=Backfill.LATEST)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_candles"></a>
+
+### get_stream_market_candles
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_stream_market_candles(
+    markets,
+    frequency=None,
+    backfill=Backfill.LATEST,
+)
+```
+
 Returns timeseries stream of market candles.
 
 * **Parameters:**
@@ -660,7 +1253,17 @@ Returns timeseries stream of market candles.
 * **Return type:**
   [CmStream](../cm-stream.md#coinmetrics.api_client.CmStream)
 
-#### `CoinMetricsClient.get_stream_market_contract_prices(markets, backfill=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_contract_prices"></a>
+
+### get_stream_market_contract_prices
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_stream_market_contract_prices(
+    markets,
+    backfill=None,
+)
+```
+
 Returns timeseries stream of market contract prices.
 
 This includes index price and mark price that are used by the exchange
@@ -674,7 +1277,17 @@ for settlement and risk management purposes.
 * **Return type:**
   [CmStream](../cm-stream.md#coinmetrics.api_client.CmStream)
 
-#### `CoinMetricsClient.get_stream_market_liquidations(markets, backfill=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_liquidations"></a>
+
+### get_stream_market_liquidations
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_stream_market_liquidations(
+    markets,
+    backfill=None,
+)
+```
+
 Returns timeseries stream for market liquidations
 
 * **Parameters:**
@@ -685,7 +1298,17 @@ Returns timeseries stream for market liquidations
 * **Return type:**
   [CmStream](../cm-stream.md#coinmetrics.api_client.CmStream)
 
-#### `CoinMetricsClient.get_stream_market_open_interest(markets, backfill=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_open_interest"></a>
+
+### get_stream_market_open_interest
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_stream_market_open_interest(
+    markets,
+    backfill=None,
+)
+```
+
 Returns a websocket stream of market open interest for the requested markets.
 
 * **Parameters:**
@@ -695,7 +1318,18 @@ Returns a websocket stream of market open interest for the requested markets.
 * **Return type:**
   [CmStream](../cm-stream.md#coinmetrics.api_client.CmStream)
 
-#### `CoinMetricsClient.get_stream_market_orderbooks(markets, backfill=Backfill.LATEST, depth_limit=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_orderbooks"></a>
+
+### get_stream_market_orderbooks
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_stream_market_orderbooks(
+    markets,
+    backfill=Backfill.LATEST,
+    depth_limit=None,
+)
+```
+
 Returns timeseries stream of market orderbooks.
 
 * **Parameters:**
@@ -707,7 +1341,18 @@ Returns timeseries stream of market orderbooks.
 * **Return type:**
   [CmStream](../cm-stream.md#coinmetrics.api_client.CmStream)
 
-#### `CoinMetricsClient.get_stream_market_quotes(markets, backfill=Backfill.LATEST, include_one_sided=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_quotes"></a>
+
+### get_stream_market_quotes
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_stream_market_quotes(
+    markets,
+    backfill=Backfill.LATEST,
+    include_one_sided=None,
+)
+```
+
 Returns timeseries stream of market quotes.
 
 * **Parameters:**
@@ -719,7 +1364,17 @@ Returns timeseries stream of market quotes.
 * **Return type:**
   [CmStream](../cm-stream.md#coinmetrics.api_client.CmStream)
 
-#### `CoinMetricsClient.get_stream_market_trades(markets, backfill=Backfill.LATEST)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_trades"></a>
+
+### get_stream_market_trades
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_stream_market_trades(
+    markets,
+    backfill=Backfill.LATEST,
+)
+```
+
 Returns timeseries stream of market trades.
 
 * **Parameters:**
@@ -730,7 +1385,18 @@ Returns timeseries stream of market trades.
 * **Return type:**
   [CmStream](../cm-stream.md#coinmetrics.api_client.CmStream)
 
-#### `CoinMetricsClient.get_stream_pair_quotes(pairs, aggregation_method=None, backfill=None)`
+<a id="coinmetrics.api_client.CoinMetricsClient.get_stream_pair_quotes"></a>
+
+### get_stream_pair_quotes
+
+```python
+coinmetrics.api_client.CoinMetricsClient.get_stream_pair_quotes(
+    pairs,
+    aggregation_method=None,
+    backfill=None,
+)
+```
+
 Returns a websocket stream of pair quotes for the requested asset pairs.
 
 * **Parameters:**
