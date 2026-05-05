@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_exchange_pair_metrics"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_exchange_pair_metrics(exchange_pairs, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', limit_per_exchange_pair=None)`
+### `coinmetrics.api_client.CoinMetricsClient.get_exchange_pair_metrics(exchange_pairs, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', limit_per_exchange_pair=None)`
 
 Returns metrics for specified exchange-pair.
 
@@ -24,7 +24,8 @@ Returns metrics for specified exchange-pair.
   * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Default: "json". Enum: "json" "json_stream" "csv". Format of the response. Supported values are json, json_stream, csv.
   * **limit_per_exchange_pair** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per exchange* the result should contain.
-* **Returns:**
-  Exchange-Pair Metrics timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Exchange-Pair Metrics timeseries.

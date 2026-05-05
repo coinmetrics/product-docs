@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_mempool_feerates"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_mempool_feerates(assets, page_size=200, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format=None)`
+### `coinmetrics.api_client.CoinMetricsClient.get_mempool_feerates(assets, page_size=200, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format=None)`
 
 Returns mempool feerates for the specified assets. Note: for this method, page_size must be <= 200.
 
@@ -16,7 +16,8 @@ Returns mempool feerates for the specified assets. Note: for this method, page_s
   * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
   * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
-* **Returns:**
-  Mempool Fee Rates timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Mempool Fee Rates timeseries.

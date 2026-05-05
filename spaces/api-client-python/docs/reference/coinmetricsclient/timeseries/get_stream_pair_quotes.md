@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_pair_quotes"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_stream_pair_quotes(pairs, aggregation_method=None, backfill=None)`
+### `coinmetrics.api_client.CoinMetricsClient.get_stream_pair_quotes(pairs, aggregation_method=None, backfill=None)`
 
 Returns a websocket stream of pair quotes for the requested asset pairs.
 
@@ -11,5 +11,7 @@ Returns a websocket stream of pair quotes for the requested asset pairs.
   * **aggregation_method** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- The method to use for aggregation.
   * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- What data should be sent upon a connection. By default the latest values are sent just before real-time data.
 * **Returns:**
-* **Return type:**
-  [CmStream](../../cm-stream/README.md#coinmetrics.api_client.CmStream)
+
+**Returns:**
+
+* [CmStream](../../cm-stream/README.md#coinmetrics.api_client.CmStream)

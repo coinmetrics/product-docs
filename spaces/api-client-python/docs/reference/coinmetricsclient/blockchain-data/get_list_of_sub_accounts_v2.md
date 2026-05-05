@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_sub_accounts_v2"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_list_of_sub_accounts_v2(asset, accounts=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_chain_sequence_number=None, end_chain_sequence_number=None, start_inclusive=None, end_inclusive=None, timezone=None, ignore_unsupported_errors=False)`
+### `coinmetrics.api_client.CoinMetricsClient.get_list_of_sub_accounts_v2(asset, accounts=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_chain_sequence_number=None, end_chain_sequence_number=None, start_inclusive=None, end_inclusive=None, timezone=None, ignore_unsupported_errors=False)`
 
 Returns a list of blockchain sub-accounts with their balances.
 
@@ -21,7 +21,8 @@ Returns a list of blockchain sub-accounts with their balances.
   * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
   * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
   * **ignore_unsupported_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Ignore "unsupported" errors for not currently supported by Coin Metrics items.
-* **Returns:**
-  list of blockchain accounts metadata
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * list of blockchain accounts metadata

@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_trades"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_market_trades(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, min_confirmations=None, format='json_stream')`
+### `coinmetrics.api_client.CoinMetricsClient.get_market_trades(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, min_confirmations=None, format='json_stream')`
 
 Returns market trades for specified markets and date range.
 For more information on market trades, see: [https://docs.coinmetrics.io/info/markets/trades](https://docs.coinmetrics.io/info/markets/trades)
@@ -19,7 +19,8 @@ For more information on market trades, see: [https://docs.coinmetrics.io/info/ma
   * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
   * **min_confirmations** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- Specifies how many blocks behind the chain tip trades are based on. Default is 2.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Default: "json_stream". Format of the response. Supported values are json, json_stream.
-* **Returns:**
-  Market Trades timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Market Trades timeseries.

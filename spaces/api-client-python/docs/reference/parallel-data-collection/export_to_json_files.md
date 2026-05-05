@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.export_to_json_files"></a>
 
-## `coinmetrics._data_collection.ParallelDataCollection.export_to_json_files(data_directory=None, compress=False)`
+### `coinmetrics._data_collection.ParallelDataCollection.export_to_json_files(data_directory=None, compress=False)`
 
 Export the parallelized request to a directory of JSON files, one file
 per combination of the `parallelize_on` attribute of the parent
@@ -46,5 +46,7 @@ produces:
   * **data_directory** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Path to the directory where files should be
     written. Defaults to the current working directory.
   * **compress** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Whether to gzip the resulting files.
-* **Return type:**
-  None
+
+**Returns:**
+
+* None

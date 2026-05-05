@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_timeframes_of_asset_metric_constituents"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_timeframes_of_asset_metric_constituents(metric, constituents=None, end_time=None, start_time=None, next_page_token=None, page_size=None, paging_from=None, format=None)`
+### `coinmetrics.api_client.CoinMetricsClient.get_timeframes_of_asset_metric_constituents(metric, constituents=None, end_time=None, start_time=None, next_page_token=None, page_size=None, paging_from=None, format=None)`
 
 Returns timeframes of asset metric constituents. Results are sorted by tuple (start_time,
 constituent_name), where constituent depends on a target metric. E.g., the
@@ -22,7 +22,8 @@ volume_trusted_spot_usd_1d metric constituents are exchanges, i.e. the output wi
   * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
   * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
   * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, csv. Default is json.
-* **Returns:**
-  List of timeframes.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * List of timeframes.

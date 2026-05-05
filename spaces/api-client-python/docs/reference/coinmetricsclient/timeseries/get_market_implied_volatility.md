@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_implied_volatility"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_market_implied_volatility(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, granularity=None, timezone=None, limit_per_market=None, format='json_stream')`
+### `coinmetrics.api_client.CoinMetricsClient.get_market_implied_volatility(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, granularity=None, timezone=None, limit_per_market=None, format='json_stream')`
 
 Returns implied volatility for specified markets.
 
@@ -18,7 +18,8 @@ Returns implied volatility for specified markets.
   * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
   * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json.
-* **Returns:**
-  Market Volatility timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Market Volatility timeseries.

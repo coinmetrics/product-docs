@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_pair_candles"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_pair_candles(pairs, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_pair=None, format='json_stream')`
+### `coinmetrics.api_client.CoinMetricsClient.get_pair_candles(pairs, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_pair=None, format='json_stream')`
 
 Returns candles for specified asset pairs.
 Results are ordered by tuple (pair, time).
@@ -21,7 +21,8 @@ Results are ordered by tuple (pair, time).
   * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
   * **limit_per_pair** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per asset pair* the result should contain.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
-* **Returns:**
-  Asset pair candles timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Asset pair candles timeseries.

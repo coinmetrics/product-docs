@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_exchange_pair_metrics_v2"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.catalog_full_exchange_pair_metrics_v2(exchange_pairs=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
+### `coinmetrics.api_client.CoinMetricsClient.catalog_full_exchange_pair_metrics_v2(exchange_pairs=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 
 Returns a list of all supported exchange-pair metrics along with the time ranges of available data.
 
@@ -14,7 +14,8 @@ Returns a list of all supported exchange-pair metrics along with the time ranges
   * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
   * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
   * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Default: "json_stream" (catalog-v2 and reference-data, market-orderbooks and other heavy endpoints), "json" (timeseries/`*-metrics` and other lighter endpoints). Format of the response. Supported values are json, json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
-* **Returns:**
-  List of exchange-pair metrics.
-* **Return type:**
-  CatalogV2DataCollection
+
+**Returns:**
+
+* CatalogV2DataCollection
+  * List of exchange-pair metrics.

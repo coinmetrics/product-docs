@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.get_parallel_datacollections"></a>
 
-## `coinmetrics._data_collection.ParallelDataCollection.get_parallel_datacollections()`
+### `coinmetrics._data_collection.ParallelDataCollection.get_parallel_datacollections()`
 
 Materialize the cartesian product of every parallelized URL parameter
 (and, optionally, every time / height increment) into one
@@ -47,5 +47,7 @@ two-week windows.
 * **Returns:**
   One [`DataCollection`](../data-collection/README.md#coinmetrics._data_collection.DataCollection) per combination of parallelized
   parameters and time / height increment.
-* **Return type:**
-  List[[DataCollection](../data-collection/README.md#coinmetrics._data_collection.DataCollection)]
+
+**Returns:**
+
+* List[[DataCollection](../data-collection/README.md#coinmetrics._data_collection.DataCollection)]

@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_quotes"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_market_quotes(markets, granularity=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, include_one_sided=None, format='json_stream')`
+### `coinmetrics.api_client.CoinMetricsClient.get_market_quotes(markets, granularity=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, include_one_sided=None, format='json_stream')`
 
 Returns market quotes for specified markets and date range.
 For more information on quotes, see: [https://docs.coinmetrics.io/info/markets/quotes](https://docs.coinmetrics.io/info/markets/quotes)
@@ -20,7 +20,8 @@ For more information on quotes, see: [https://docs.coinmetrics.io/info/markets/q
   * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
   * **include_one_sided** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false Include one-side and empty books in quotes response.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
-* **Returns:**
-  Market Quotes timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Market Quotes timeseries.

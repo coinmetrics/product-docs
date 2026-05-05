@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_candles"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_market_candles(markets, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, format='json_stream', ignore_unsupported_errors=None, ignore_forbidden_errors=None)`
+### `coinmetrics.api_client.CoinMetricsClient.get_market_candles(markets, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, format='json_stream', ignore_unsupported_errors=None, ignore_forbidden_errors=None)`
 
 Returns market candles for specified markets, frequency and date range.
 For more information on market candles, see: [https://docs.coinmetrics.io/info/markets/candles](https://docs.coinmetrics.io/info/markets/candles)
@@ -21,7 +21,8 @@ For more information on market candles, see: [https://docs.coinmetrics.io/info/m
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
   * **ignore_unsupported_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Whether to ignore 401 Unauthorized errors. Default is False.
   * **ignore_forbidden_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Whether to ignore 403 Forbidden errors. Default is False.
-* **Returns:**
-  Market Candles timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Market Candles timeseries.

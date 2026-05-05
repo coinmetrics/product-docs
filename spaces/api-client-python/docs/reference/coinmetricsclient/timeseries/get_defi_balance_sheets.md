@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_defi_balance_sheets"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_defi_balance_sheets(defi_protocols, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, format=None)`
+### `coinmetrics.api_client.CoinMetricsClient.get_defi_balance_sheets(defi_protocols, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, format=None)`
 
 Returns Defi Balance Sheet records for specified DeFi protocols.
 
@@ -18,7 +18,8 @@ Returns Defi Balance Sheet records for specified DeFi protocols.
   * **end_inclusive** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Flag to define if end timestamp must be included in the timeseries if present. True by default.
   * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
-* **Returns:**
-  list of blockchain blocks metadata
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * list of blockchain blocks metadata

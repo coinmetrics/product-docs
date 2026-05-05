@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_transaction_tracker"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_transaction_tracker(asset, addresses=None, txids=None, replacements_for_txids=None, replacements_only=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, unconfirmed_only=None, format=None)`
+### `coinmetrics.api_client.CoinMetricsClient.get_transaction_tracker(asset, addresses=None, txids=None, replacements_for_txids=None, replacements_only=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, unconfirmed_only=None, format=None)`
 
 Returns status updates for the specified or all transactions.
 
@@ -21,7 +21,8 @@ Returns status updates for the specified or all transactions.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
   * **addresses** ([*List*](https://docs.python.org/3/library/typing.html#typing.List) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *None*)
   * **unconfirmed_only** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *|* *None*)
-* **Returns:**
-  status updates for the specified or all transactions.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * status updates for the specified or all transactions.

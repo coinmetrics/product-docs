@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_rebasing_changes_v2"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_rebasing_changes_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
+### `coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_rebasing_changes_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 
 Returns a list of available assets for the blockchain rebasing changes endpoint along with time ranges of available data.
 
@@ -12,7 +12,8 @@ Returns a list of available assets for the blockchain rebasing changes endpoint 
   * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
   * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
   * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
-* **Returns:**
-  List of blockchain-v2/rebasing-changes assets using catalog-v2
-* **Return type:**
-  CatalogV2DataCollection
+
+**Returns:**
+
+* CatalogV2DataCollection
+  * List of blockchain-v2/rebasing-changes assets using catalog-v2

@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_snapshots_of_asset_metric_constituents"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_snapshots_of_asset_metric_constituents(metric, at_time=None, end_time=None, start_time=None, next_page_token=None, page_size=None, paging_from=None, format=None)`
+### `coinmetrics.api_client.CoinMetricsClient.get_snapshots_of_asset_metric_constituents(metric, at_time=None, end_time=None, start_time=None, next_page_token=None, page_size=None, paging_from=None, format=None)`
 
 Returns snapshots of asset metric constituents. Results are sorted by tuple (time,
 constituent_name), where constituent_name depends on a target metric. E.g., the
@@ -24,7 +24,8 @@ volume_trusted_spot_usd_1d metric constituents are exchanges, i.e. the output wi
   * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
   * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
   * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, csv. Default is json.
-* **Returns:**
-  Snapshots of asset metric constituents.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Snapshots of asset metric constituents.

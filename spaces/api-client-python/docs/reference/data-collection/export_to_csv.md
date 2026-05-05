@@ -2,11 +2,13 @@
 
 <a id="coinmetrics._data_collection.DataCollection.export_to_csv"></a>
 
-## `coinmetrics._data_collection.DataCollection.export_to_csv(path_or_bufstr=None, columns_to_store=None, compress=False)`
+### `coinmetrics._data_collection.DataCollection.export_to_csv(path_or_bufstr=None, columns_to_store=None, compress=False)`
 
 * **Parameters:**
   * **path_or_bufstr** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *Path* *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* [*IO*](https://docs.python.org/3/library/typing.html#typing.IO) *[*[*bytes*](https://docs.python.org/3/library/stdtypes.html#bytes) *]*  *|* *None*)
   * **columns_to_store** ([*List*](https://docs.python.org/3/library/typing.html#typing.List) *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*  *|* *None*)
   * **compress** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
-* **Return type:**
-  [str](https://docs.python.org/3/library/stdtypes.html#str) | None
+
+**Returns:**
+
+* [str](https://docs.python.org/3/library/stdtypes.html#str) | None

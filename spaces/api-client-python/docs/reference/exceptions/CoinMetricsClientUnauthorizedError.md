@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._exceptions.CoinMetricsClientUnauthorizedError"></a>
 
-## `exception coinmetrics._exceptions.CoinMetricsClientUnauthorizedError(response, *args, **kwargs)`
+### `exception coinmetrics._exceptions.CoinMetricsClientUnauthorizedError(response, *args, **kwargs)`
 
 Bases: `HTTPError`
 

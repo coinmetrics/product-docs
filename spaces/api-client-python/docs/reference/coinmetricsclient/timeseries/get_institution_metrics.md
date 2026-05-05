@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_institution_metrics"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_institution_metrics(institutions, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_institution=None, format=None)`
+### `coinmetrics.api_client.CoinMetricsClient.get_institution_metrics(institutions, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_institution=None, format=None)`
 
 Returns metrics for specified institutions.
 
@@ -22,7 +22,8 @@ Returns metrics for specified institutions.
   * **sort** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- How results will be sorted, e.g. "institution", or "time". Default is "institution".
   * **limit_per_institution** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per institution* the result should contain.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
-* **Returns:**
-  Asset Metrics timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Asset Metrics timeseries.

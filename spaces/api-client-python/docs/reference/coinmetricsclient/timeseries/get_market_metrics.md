@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_metrics"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_market_metrics(markets, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, sort=None, ignore_forbidden_errors=None, ignore_unsupported_errors=None, format='json_stream')`
+### `coinmetrics.api_client.CoinMetricsClient.get_market_metrics(markets, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, sort=None, ignore_forbidden_errors=None, ignore_unsupported_errors=None, format='json_stream')`
 
 Returns market metrics for specified markets, frequency and date range.
 For more information on market metrics, see: [https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketMetrics](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketMetrics)
@@ -25,7 +25,8 @@ For more information on market metrics, see: [https://docs.coinmetrics.io/api/v4
   * **ignore_forbidden_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Ignore HTTP 403 Forbidden errors
   * **ignore_unsupported_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Ignore errors for unsupported assets, metrics or frequencies.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
-* **Returns:**
-  Market metrics timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Market metrics timeseries.

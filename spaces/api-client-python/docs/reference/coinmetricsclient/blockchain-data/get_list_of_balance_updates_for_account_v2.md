@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_for_account_v2"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_for_account_v2(asset, account, txids=None, block_hashes=None, include_counterparties=None, start_time=None, end_time=None, start_height=None, end_height=None, start_chain_sequence_number=None, end_chain_sequence_number=None, include_sub_accounts=None, chain=None, start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from=None, next_page_token=None, ignore_unsupported_errors=False)`
+### `coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_for_account_v2(asset, account, txids=None, block_hashes=None, include_counterparties=None, start_time=None, end_time=None, start_height=None, end_height=None, start_chain_sequence_number=None, end_chain_sequence_number=None, include_sub_accounts=None, chain=None, start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from=None, next_page_token=None, ignore_unsupported_errors=False)`
 
 Returns balance update history for a single blockchain account on the specified asset, ordered by
 `(asset, account, block_height, transaction_hash, internal_tx_id)`.
@@ -28,7 +28,8 @@ Returns balance update history for a single blockchain account on the specified 
   * **paging_from** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Where does the first page start, at the start of the interval or at the end.
   * **next_page_token** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
   * **ignore_unsupported_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Ignore "unsupported" errors for not currently supported by Coin Metrics items.
-* **Returns:**
-  Blockchain balance updates for account.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Blockchain balance updates for account.

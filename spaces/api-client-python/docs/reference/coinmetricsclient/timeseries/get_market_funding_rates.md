@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_funding_rates"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_market_funding_rates(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, format='json_stream')`
+### `coinmetrics.api_client.CoinMetricsClient.get_market_funding_rates(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, format='json_stream')`
 
 Returns market funding rates for specified markets and date range.
 For more information on funding rates, see: [https://docs.coinmetrics.io/info/markets/fundingrates](https://docs.coinmetrics.io/info/markets/fundingrates)
@@ -18,7 +18,8 @@ For more information on funding rates, see: [https://docs.coinmetrics.io/info/ma
   * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
   * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json.
-* **Returns:**
-  Market Funding Rates timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Market Funding Rates timeseries.

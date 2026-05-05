@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_institution_metrics_v2"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.catalog_institution_metrics_v2(institutions=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
+### `coinmetrics.api_client.CoinMetricsClient.catalog_institution_metrics_v2(institutions=None, metrics=None, reviewable=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 
 Returns a list of available institution metrics along with the time ranges of available data.
 
@@ -14,7 +14,8 @@ Returns a list of available institution metrics along with the time ranges of av
   * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
   * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
   * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
-* **Returns:**
-  List of institution metrics.
-* **Return type:**
-  CatalogV2DataCollection
+
+**Returns:**
+
+* CatalogV2DataCollection
+  * List of institution metrics.

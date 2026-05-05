@@ -1012,6 +1012,36 @@ _RESIDUAL_EVAL_RST_RE = re.compile(
 )
 _STATIC_IMAGE_RE = re.compile(r"_static/images/")
 
+# ``sphinx_markdown_builder`` emits the Sphinx ``:returns:`` and ``:rtype:``
+# field-list entries as two separate top-level bullets:
+#
+#     * **Returns:**
+#       <description>
+#     * **Return type:**
+#       <type>
+#
+# Both are part of the same logical "what does this method return?"
+# block, so combine them into a single ``Returns`` heading with the
+# return type as a top-level bullet and the description (if any) as a
+# nested bullet underneath. Also handles the (much more common) case
+# where only the ``Return type`` bullet is present.
+_RETURNS_BLOCK_RE = re.compile(
+    r"(?:^\* \*\*Returns:\*\*\n[ \t]+(?P<desc>[^\n]+)\n)?"
+    r"^\* \*\*Return type:\*\*\n[ \t]+(?P<type>[^\n]+)",
+    re.MULTILINE,
+)
+
+
+def _rewrite_returns_block(match: re.Match[str]) -> str:
+    desc = match.group("desc")
+    rtype = match.group("type")
+    # Leading blank line ensures the previous bullet list (Parameters)
+    # is closed before the ``**Returns:**`` paragraph starts.
+    lines = ["", "**Returns:**", "", f"* {rtype}"]
+    if desc:
+        lines.append(f"  * {desc}")
+    return "\n".join(lines)
+
 # ``sphinx_markdown_builder`` rewrites every cross-reference to use a ``.md``
 # extension, including the intersphinx links that resolve to external HTML
 # documentation. Detect and fix the external ones.
@@ -1251,7 +1281,7 @@ def _emit_autodoc_heading(
     return [
         f'<a id="{anchor}"></a>',
         "",
-        f"## `{signature}`",
+        f"### `{signature}`",
     ]
 
 
@@ -1506,6 +1536,10 @@ def post_process_file(path: Path, output_root: Path) -> None:
     # headings we should not touch.
     if rel_to_root.startswith("reference/"):
         text = _transform_autodoc_headings(text, rel_to_root)
+        # Combine the separate ``Returns:`` and ``Return type:`` bullets
+        # into a single ``Returns`` block with the type as a top-level
+        # bullet and the description (when present) nested below.
+        text = _RETURNS_BLOCK_RE.sub(_rewrite_returns_block, text)
 
     # Rewrite intra-doc links that refer to the legacy (underscore or
     # ``index.md``) names of files we have renamed via PAGE_RENAMES.
@@ -1599,7 +1633,7 @@ def write_group_index_pages(output_root: Path) -> None:
         if not readme.is_file():
             continue
         existing = readme.read_text().rstrip()
-        appendix: List[str] = ["", "", "## Methods", ""]
+        appendix: List[str] = ["", "", "### Methods", ""]
         for method_name in methods:
             appendix.append(
                 f"* [`{class_name}.{method_name}`]({method_name}.md)"

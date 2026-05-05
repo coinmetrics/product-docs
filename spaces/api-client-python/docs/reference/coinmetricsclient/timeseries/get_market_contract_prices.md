@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_contract_prices"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_market_contract_prices(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, granularity=None, timezone=None, limit_per_market=None, frequency=None, format='json_stream')`
+### `coinmetrics.api_client.CoinMetricsClient.get_market_contract_prices(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, granularity=None, timezone=None, limit_per_market=None, frequency=None, format='json_stream')`
 
 Returns contract prices for specified markets. This includes index price and mark price that are used by the exchange for settlement and risk management purposes.
 
@@ -19,7 +19,8 @@ Returns contract prices for specified markets. This includes index price and mar
   * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json.
   * **frequency** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *None*)
-* **Returns:**
-  Market Contract Prices timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Market Contract Prices timeseries.

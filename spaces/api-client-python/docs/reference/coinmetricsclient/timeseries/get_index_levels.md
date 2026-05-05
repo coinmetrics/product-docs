@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_index_levels"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_index_levels(indexes, frequency=None, granularity=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from='start', limit_per_index=None, include_verification=None, format='json_stream')`
+### `coinmetrics.api_client.CoinMetricsClient.get_index_levels(indexes, frequency=None, granularity=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, page_size=None, paging_from='start', limit_per_index=None, include_verification=None, format='json_stream')`
 
 Returns index levels for specified indexes and date range.
 
@@ -22,7 +22,8 @@ Returns index levels for specified indexes and date range.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
 * **Type:**
   [bool](https://docs.python.org/3/library/functions.html#bool)
-* **Returns:**
-  Index Levels timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Index Levels timeseries.

@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_asset_alerts"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_asset_alerts(assets, alerts, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, include_heartbeats=None, format=None)`
+### `coinmetrics.api_client.CoinMetricsClient.get_asset_alerts(assets, alerts, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, include_heartbeats=None, format=None)`
 
 Returns asset alerts for the specified assets.
 
@@ -18,7 +18,8 @@ Returns asset alerts for the specified assets.
   * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
   * **include_heartbeats** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- If set to true, includes information about most recent time asset was successfully evaluated.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
-* **Returns:**
-  Asset alerts timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Asset alerts timeseries.

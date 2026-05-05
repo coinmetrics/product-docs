@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_index_candles"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_index_candles(indexes, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_index=None, format='json_stream')`
+### `coinmetrics.api_client.CoinMetricsClient.get_index_candles(indexes, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_index=None, format='json_stream')`
 
 Returns index candles for specified indexes and date range.
 
@@ -18,7 +18,8 @@ Returns index candles for specified indexes and date range.
   * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
   * **limit_per_index** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per index* the result should contain.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
-* **Returns:**
-  Index Candles timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Index Candles timeseries.

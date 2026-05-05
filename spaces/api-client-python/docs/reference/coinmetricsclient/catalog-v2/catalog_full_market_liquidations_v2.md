@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_market_liquidations_v2"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.catalog_full_market_liquidations_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
+### `coinmetrics.api_client.CoinMetricsClient.catalog_full_market_liquidations_v2(markets=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 
 Returns a list of all markets with liquidations support along with the time ranges of available data.
 
@@ -23,7 +23,8 @@ Returns a list of all markets with liquidations support along with the time rang
   * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
   * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
   * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-* **Returns:**
-  List of market liquidations statistics.
-* **Return type:**
-  CatalogV2DataCollection
+
+**Returns:**
+
+* CatalogV2DataCollection
+  * List of market liquidations statistics.

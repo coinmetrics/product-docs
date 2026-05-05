@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_asset_metrics"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_stream_asset_metrics(assets, metrics, frequency=None, backfill=Backfill.LATEST, ignore_forbidden_errors=None, ignore_unsupported_errors=None)`
+### `coinmetrics.api_client.CoinMetricsClient.get_stream_asset_metrics(assets, metrics, frequency=None, backfill=Backfill.LATEST, ignore_forbidden_errors=None, ignore_unsupported_errors=None)`
 
 Returns timeseries stream of metrics for specified assets.
 
@@ -13,7 +13,8 @@ Returns timeseries stream of metrics for specified assets.
   * **backfill** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- What data should be sent upon a connection ("latest" or "none"). By default the latest values are sent just before real-time data.
   * **ignore_forbidden_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Ignore HTTP 403 Forbidden errors
   * **ignore_unsupported_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Ignore errors for unsupported assets, metrics or frequencies.
-* **Returns:**
-  Asset Metrics timeseries stream.
-* **Return type:**
-  [CmStream](../../cm-stream/README.md#coinmetrics.api_client.CmStream)
+
+**Returns:**
+
+* [CmStream](../../cm-stream/README.md#coinmetrics.api_client.CmStream)
+  * Asset Metrics timeseries stream.

@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._data_collection.DataCollection"></a>
 
-## `class coinmetrics._data_collection.DataCollection(data_retrieval_function, endpoint, url_params, csv_export_supported=True, client=None, paginated=True, **kwargs)`
+### `class coinmetrics._data_collection.DataCollection(data_retrieval_function, endpoint, url_params, csv_export_supported=True, client=None, paginated=True, **kwargs)`
 
 Bases: [`object`](https://docs.python.org/3/library/functions.html#object)
 
@@ -33,7 +33,7 @@ common Python data structures:
   * **paginated** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
   * **kwargs** (*Any*)
 
-## Methods
+### Methods
 
 * [`DataCollection.get_schema_field_names`](get_schema_field_names.md)
 * [`DataCollection.first_page`](first_page.md)

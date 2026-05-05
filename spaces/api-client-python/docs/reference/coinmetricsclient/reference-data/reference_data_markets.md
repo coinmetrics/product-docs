@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_markets"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.reference_data_markets(markets=None, exchange=None, type=None, base=None, quote=None, asset=None, symbol=None, include=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
+### `coinmetrics.api_client.CoinMetricsClient.reference_data_markets(markets=None, exchange=None, type=None, base=None, quote=None, asset=None, symbol=None, include=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 
 Returns a list of markets metadata.
 
@@ -19,7 +19,8 @@ Returns a list of markets metadata.
   * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
   * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
   * **format** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
-* **Returns:**
-  List of markets metadata.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * List of markets metadata.

@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_asset_metrics"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_asset_metrics(assets, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_asset=None, status=None, start_hash=None, end_hash=None, min_confirmations=None, null_as_zero=None, ignore_forbidden_errors=None, ignore_unsupported_errors=None, format='json_stream')`
+### `coinmetrics.api_client.CoinMetricsClient.get_asset_metrics(assets, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_asset=None, status=None, start_hash=None, end_hash=None, min_confirmations=None, null_as_zero=None, ignore_forbidden_errors=None, ignore_unsupported_errors=None, format='json_stream')`
 
 Returns requested metrics for specified assets.
 
@@ -36,7 +36,8 @@ Returns requested metrics for specified assets.
   * **ignore_forbidden_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Ignore HTTP 403 Forbidden errors
   * **ignore_unsupported_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Ignore errors for unsupported assets, metrics or frequencies.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
-* **Returns:**
-  Asset Metrics timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Asset Metrics timeseries.

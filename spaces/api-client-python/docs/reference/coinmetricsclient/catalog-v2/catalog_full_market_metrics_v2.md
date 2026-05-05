@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_market_metrics_v2"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.catalog_full_market_metrics_v2(markets=None, metrics=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
+### `coinmetrics.api_client.CoinMetricsClient.catalog_full_market_metrics_v2(markets=None, metrics=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 
 Returns a list of all markets with market metrics support along with time ranges of available data per
 metric.
@@ -20,7 +20,8 @@ metric.
   * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
   * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
   * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
-* **Returns:**
-  List of market metrics statistics.
-* **Return type:**
-  CatalogV2DataCollection
+
+**Returns:**
+
+* CatalogV2DataCollection
+  * List of market metrics statistics.

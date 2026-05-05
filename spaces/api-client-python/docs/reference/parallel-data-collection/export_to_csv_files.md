@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.export_to_csv_files"></a>
 
-## `coinmetrics._data_collection.ParallelDataCollection.export_to_csv_files(data_directory=None, columns_to_store=None, compress=False)`
+### `coinmetrics._data_collection.ParallelDataCollection.export_to_csv_files(data_directory=None, columns_to_store=None, compress=False)`
 
 Export the parallelized request to a directory of CSV files, one file
 per combination of the `parallelize_on` attribute of the parent
@@ -48,5 +48,7 @@ produces:
   * **columns_to_store** (*Optional* *[**List* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]* *]*) -- Columns to include in each CSV. Defaults to
     every column returned by the endpoint.
   * **compress** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Whether to gzip the resulting files.
-* **Return type:**
-  None
+
+**Returns:**
+
+* None

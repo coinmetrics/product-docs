@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_pair_metrics"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_pair_metrics(pairs, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_pair=None, format='json')`
+### `coinmetrics.api_client.CoinMetricsClient.get_pair_metrics(pairs, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_pair=None, format='json')`
 
 Returns metrics books for specified asset-asset pairs.
 
@@ -26,7 +26,8 @@ Returns metrics books for specified asset-asset pairs.
   * **sort** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- How results will be sorted, e.g."pair", "time". "pair" by default
   * **limit_per_pair** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per asset pair* the result should contain.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *|* *None*)
-* **Returns:**
-  Pair Metrics timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Pair Metrics timeseries.

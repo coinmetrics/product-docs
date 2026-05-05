@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_v2"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_v2(asset, accounts=None, sub_accounts=None, limit_per_account=None, txids=None, block_hashes=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_chain_sequence_number=None, end_chain_sequence_number=None, include_sub_accounts=None, chain=None, start_inclusive=None, end_inclusive=None, timezone=None, ignore_unsupported_errors=False)`
+### `coinmetrics.api_client.CoinMetricsClient.get_list_of_balance_updates_v2(asset, accounts=None, sub_accounts=None, limit_per_account=None, txids=None, block_hashes=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_chain_sequence_number=None, end_chain_sequence_number=None, include_sub_accounts=None, chain=None, start_inclusive=None, end_inclusive=None, timezone=None, ignore_unsupported_errors=False)`
 
 Returns a list of blockchain accounts balance updates.
 
@@ -29,7 +29,8 @@ Returns a list of blockchain accounts balance updates.
   * **ignore_unsupported_errors** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Default: false. Ignore "unsupported" errors for not currently supported by Coin Metrics items.
 * **Type:**
   [str](https://docs.python.org/3/library/stdtypes.html#str)
-* **Returns:**
-  list of balance updates
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * list of balance updates

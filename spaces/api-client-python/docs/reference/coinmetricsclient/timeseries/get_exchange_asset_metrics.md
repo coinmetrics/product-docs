@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_exchange_asset_metrics"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_exchange_asset_metrics(exchange_assets, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_exchange_asset=None, format='json_stream')`
+### `coinmetrics.api_client.CoinMetricsClient.get_exchange_asset_metrics(exchange_assets, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_exchange_asset=None, format='json_stream')`
 
 Returns metrics for specified exchange-asset.
 
@@ -25,7 +25,8 @@ Returns metrics for specified exchange-asset.
   * **sort** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- How results will be sorted, e.g. "exchange_asset", "time". Default is "exchange_asset".
   * **limit_per_exchange_asset** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per exchange-asset* the result should contain.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
-* **Returns:**
-  Exchange-Asset Metrics timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Exchange-Asset Metrics timeseries.

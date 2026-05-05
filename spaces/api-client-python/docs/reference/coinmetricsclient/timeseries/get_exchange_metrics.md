@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_exchange_metrics"></a>
 
-## `coinmetrics.api_client.CoinMetricsClient.get_exchange_metrics(exchanges, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_exchange=None, format='json_stream')`
+### `coinmetrics.api_client.CoinMetricsClient.get_exchange_metrics(exchanges, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, sort=None, limit_per_exchange=None, format='json_stream')`
 
 Returns metrics for specified exchanges.
 
@@ -28,7 +28,8 @@ Returns metrics for specified exchanges.
   * **sort** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- How results will be sorted, e.g. 'exchange', 'time'. Metrics are sorted by 'exchange' by default.
   * **limit_per_exchange** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per exchange* the result should contain.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, csv. Default is json.
-* **Returns:**
-  Exchange Metrics timeseries.
-* **Return type:**
-  [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+
+**Returns:**
+
+* [DataCollection](../../data-collection/README.md#coinmetrics._data_collection.DataCollection)
+  * Exchange Metrics timeseries.
