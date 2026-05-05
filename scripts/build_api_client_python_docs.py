@@ -1278,10 +1278,15 @@ def _emit_autodoc_heading(
     else:
         signature = f"{head}({args.strip()})"
 
+    # Render the signature as a normal paragraph in monospace code, not
+    # as a heading. The H1 page title (and the SUMMARY.md sidebar entry,
+    # also wrapped in backticks) already give GitBook everything it
+    # needs for navigation, so a heading here would be redundant. Keeping
+    # the inline code span preserves the pydata-sphinx-theme look.
     return [
         f'<a id="{anchor}"></a>',
         "",
-        f"### `{signature}`",
+        f"`{signature}`",
     ]
 
 

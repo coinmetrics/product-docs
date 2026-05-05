@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CmStream"></a>
 
-### `class coinmetrics.api_client.CmStream(ws_url)`
+`class coinmetrics.api_client.CmStream(ws_url)`
 
 Bases: [`object`](https://docs.python.org/3/library/functions.html#object)
 

@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_full_block_v2"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.get_full_block_v2(asset, block_hash, include_sub_accounts, ignore_unsupported_errors=False)`
+`coinmetrics.api_client.CoinMetricsClient.get_full_block_v2(asset, block_hash, include_sub_accounts, ignore_unsupported_errors=False)`
 
 Returns a full blockchain block with all transactions and balance updates.
 

@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_trades"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.get_market_trades(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, min_confirmations=None, format='json_stream')`
+`coinmetrics.api_client.CoinMetricsClient.get_market_trades(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, min_confirmations=None, format='json_stream')`
 
 Returns market trades for specified markets and date range.
 For more information on market trades, see: [https://docs.coinmetrics.io/info/markets/trades](https://docs.coinmetrics.io/info/markets/trades)

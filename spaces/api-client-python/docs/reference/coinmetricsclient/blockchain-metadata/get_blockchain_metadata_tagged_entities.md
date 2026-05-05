@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tagged_entities"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tagged_entities(tags=None, entities=None, locations=None, owner_names=None, page_size=None, next_page_token=None)`
+`coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_tagged_entities(tags=None, entities=None, locations=None, owner_names=None, page_size=None, next_page_token=None)`
 
 Returns a list of all entities associated with provided tags. Ordered by tuple (entity, tag, location, start_time) if requested by providing entities parameter. Ordered by tuple (tag, location, entity, started_time) if requested by providing tags parameter. Ordered by tuple (owner_name, location, entity, tag, timestamp_start) if requested by providing owner_name parameter.
 

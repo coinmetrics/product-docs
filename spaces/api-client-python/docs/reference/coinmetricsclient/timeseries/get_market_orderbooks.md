@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_orderbooks"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.get_market_orderbooks(markets, granularity=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, depth_limit='100', timezone=None, limit_per_market=None, format='json_stream')`
+`coinmetrics.api_client.CoinMetricsClient.get_market_orderbooks(markets, granularity=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, depth_limit='100', timezone=None, limit_per_market=None, format='json_stream')`
 
 Returns market order books for specified markets and date range.
 For more information on order books, see: [https://docs.coinmetrics.io/info/markets/orderbook](https://docs.coinmetrics.io/info/markets/orderbook)

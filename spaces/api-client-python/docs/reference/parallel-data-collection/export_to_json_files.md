@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.export_to_json_files"></a>
 
-### `coinmetrics._data_collection.ParallelDataCollection.export_to_json_files(data_directory=None, compress=False)`
+`coinmetrics._data_collection.ParallelDataCollection.export_to_json_files(data_directory=None, compress=False)`
 
 Export the parallelized request to a directory of JSON files, one file
 per combination of the `parallelize_on` attribute of the parent

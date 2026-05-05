@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_market_metrics"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.reference_data_market_metrics(metrics=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
+`coinmetrics.api_client.CoinMetricsClient.reference_data_market_metrics(metrics=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 
 Returns a list of market metrics metadata.
 

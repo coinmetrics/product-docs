@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_orderbooks"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.get_stream_market_orderbooks(markets, backfill=Backfill.LATEST, depth_limit=None)`
+`coinmetrics.api_client.CoinMetricsClient.get_stream_market_orderbooks(markets, backfill=Backfill.LATEST, depth_limit=None)`
 
 Returns timeseries stream of market orderbooks.
 

@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._data_collection.ParallelDataCollection"></a>
 
-### `class coinmetrics._data_collection.ParallelDataCollection(parent_data_collection, parallelize_on=None, executor=None, max_workers=None, progress_bar=None, time_increment=None, height_increment=None)`
+`class coinmetrics._data_collection.ParallelDataCollection(parent_data_collection, parallelize_on=None, executor=None, max_workers=None, progress_bar=None, time_increment=None, height_increment=None)`
 
 Bases: [`DataCollection`](../data-collection/README.md#coinmetrics._data_collection.DataCollection)
 

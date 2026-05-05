@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_full_transaction_v2"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.get_full_transaction_v2(asset, txid, include_sub_accounts, ignore_unsupported_errors=False)`
+`coinmetrics.api_client.CoinMetricsClient.get_full_transaction_v2(asset, txid, include_sub_accounts, ignore_unsupported_errors=False)`
 
 Returns a full blockchain transaction with all balance updates.
 

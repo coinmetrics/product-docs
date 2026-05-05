@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_balance_updates_v2"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_balance_updates_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
+`coinmetrics.api_client.CoinMetricsClient.catalog_blockchain_balance_updates_v2(assets=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 
 Returns a list of available assets for the blockchain balance updates endpoint along with time ranges
 of available data.

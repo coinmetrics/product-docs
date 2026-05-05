@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_liquidations"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.get_market_liquidations(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, format='json_stream')`
+`coinmetrics.api_client.CoinMetricsClient.get_market_liquidations(markets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, format='json_stream')`
 
 Returns market liquidations for specified markets and date range.
 For more information on liquidations, see: [https://docs.coinmetrics.io/info/markets/liquidations](https://docs.coinmetrics.io/info/markets/liquidations)

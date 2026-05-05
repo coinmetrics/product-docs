@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_owners"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_owners(page_size=None, next_page_token=None)`
+`coinmetrics.api_client.CoinMetricsClient.get_blockchain_metadata_owners(page_size=None, next_page_token=None)`
 
 Returns a list of all supported owners lexicographically ordered by the owner_name field.
 

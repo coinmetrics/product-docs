@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_stream_market_trades"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.get_stream_market_trades(markets, backfill=Backfill.LATEST)`
+`coinmetrics.api_client.CoinMetricsClient.get_stream_market_trades(markets, backfill=Backfill.LATEST)`
 
 Returns timeseries stream of market trades.
 

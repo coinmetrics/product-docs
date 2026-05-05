@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_transaction_tracker"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.get_transaction_tracker(asset, addresses=None, txids=None, replacements_for_txids=None, replacements_only=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, unconfirmed_only=None, format=None)`
+`coinmetrics.api_client.CoinMetricsClient.get_transaction_tracker(asset, addresses=None, txids=None, replacements_for_txids=None, replacements_only=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, unconfirmed_only=None, format=None)`
 
 Returns status updates for the specified or all transactions.
 

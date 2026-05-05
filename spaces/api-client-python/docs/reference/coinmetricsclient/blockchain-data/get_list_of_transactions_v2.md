@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_list_of_transactions_v2"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.get_list_of_transactions_v2(asset, txids=None, block_hashes=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, chain=None, start_inclusive=None, end_inclusive=None, timezone=None, ignore_unsupported_errors=False)`
+`coinmetrics.api_client.CoinMetricsClient.get_list_of_transactions_v2(asset, txids=None, block_hashes=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, chain=None, start_inclusive=None, end_inclusive=None, timezone=None, ignore_unsupported_errors=False)`
 
 Returns a list of blockchain transactions metadata.
 

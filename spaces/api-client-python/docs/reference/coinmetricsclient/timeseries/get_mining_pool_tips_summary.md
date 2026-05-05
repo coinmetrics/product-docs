@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_mining_pool_tips_summary"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.get_mining_pool_tips_summary(assets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format=None)`
+`coinmetrics.api_client.CoinMetricsClient.get_mining_pool_tips_summary(assets, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, format=None)`
 
 Returns mining pool tips summaries for specified assets.
 

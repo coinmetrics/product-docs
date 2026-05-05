@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_pair_candles"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.get_pair_candles(pairs, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_pair=None, format='json_stream')`
+`coinmetrics.api_client.CoinMetricsClient.get_pair_candles(pairs, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_height=None, end_height=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_pair=None, format='json_stream')`
 
 Returns candles for specified asset pairs.
 Results are ordered by tuple (pair, time).

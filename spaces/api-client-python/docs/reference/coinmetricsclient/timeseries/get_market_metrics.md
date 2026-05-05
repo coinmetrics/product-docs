@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_market_metrics"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.get_market_metrics(markets, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, sort=None, ignore_forbidden_errors=None, ignore_unsupported_errors=None, format='json_stream')`
+`coinmetrics.api_client.CoinMetricsClient.get_market_metrics(markets, metrics, frequency=None, page_size=None, paging_from='start', start_time=None, end_time=None, start_inclusive=None, end_inclusive=None, timezone=None, limit_per_market=None, sort=None, ignore_forbidden_errors=None, ignore_unsupported_errors=None, format='json_stream')`
 
 Returns market metrics for specified markets, frequency and date range.
 For more information on market metrics, see: [https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketMetrics](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketMetrics)

@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.catalog_full_market_metrics_v2"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.catalog_full_market_metrics_v2(markets=None, metrics=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
+`coinmetrics.api_client.CoinMetricsClient.catalog_full_market_metrics_v2(markets=None, metrics=None, exchange=None, market_type=None, base=None, quote=None, asset=None, symbol=None, format='json_stream', page_size=None, paging_from=None, next_page_token=None)`
 
 Returns a list of all markets with market metrics support along with time ranges of available data per
 metric.

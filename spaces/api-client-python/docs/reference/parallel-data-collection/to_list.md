@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._data_collection.ParallelDataCollection.to_list"></a>
 
-### `coinmetrics._data_collection.ParallelDataCollection.to_list()`
+`coinmetrics._data_collection.ParallelDataCollection.to_list()`
 
 
 **Returns:**

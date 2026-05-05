@@ -2,7 +2,7 @@
 
 <a id="coinmetrics._data_collection.DataCollection.to_dataframe"></a>
 
-### `coinmetrics._data_collection.DataCollection.to_dataframe(dtype_mapper=None, dataframe_type='pandas', decimal_as_string=False)`
+`coinmetrics._data_collection.DataCollection.to_dataframe(dtype_mapper=None, dataframe_type='pandas', decimal_as_string=False)`
 
 Outputs a pandas or polars dataframe with schema-derived types.
 

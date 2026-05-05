@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.reference_data_assets"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.reference_data_assets(assets=None, include=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
+`coinmetrics.api_client.CoinMetricsClient.reference_data_assets(assets=None, include=None, page_size=None, paging_from=None, next_page_token=None, format='json_stream')`
 
 Returns a list of assets metadata.
 

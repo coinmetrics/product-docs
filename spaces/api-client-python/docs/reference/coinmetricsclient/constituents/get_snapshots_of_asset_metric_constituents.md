@@ -2,7 +2,7 @@
 
 <a id="coinmetrics.api_client.CoinMetricsClient.get_snapshots_of_asset_metric_constituents"></a>
 
-### `coinmetrics.api_client.CoinMetricsClient.get_snapshots_of_asset_metric_constituents(metric, at_time=None, end_time=None, start_time=None, next_page_token=None, page_size=None, paging_from=None, format=None)`
+`coinmetrics.api_client.CoinMetricsClient.get_snapshots_of_asset_metric_constituents(metric, at_time=None, end_time=None, start_time=None, next_page_token=None, page_size=None, paging_from=None, format=None)`
 
 Returns snapshots of asset metric constituents. Results are sorted by tuple (time,
 constituent_name), where constituent_name depends on a target metric. E.g., the
