@@ -24,7 +24,9 @@ You can directly download files from your browser by adding a "format=csv" in yo
 
 On Google Sheets, you can use the `IMPORTDATA` function on the formula tab:
 
-`=IMPORTDATA("`[`https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=CapMrktEstUSD,SplyCur,PriceUSD,CapMrktCurUSD&api_key=`](https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=CapMrktEstUSD,SplyCur,PriceUSD,CapMrktCurUSD\&api_key=)`<API_KEY>&assets=usdc&frequency=1d&limit_per_asset=1&format=csv")`
+```
+=IMPORTDATA("https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=CapMrktEstUSD,SplyCur,PriceUSD,CapMrktCurUSD&assets=usdc&frequency=1d&limit_per_asset=1&format=csv&api_key=<your_key>")
+```
 
 For more information on exporting data, see the guide: [exporting-data.md](tutorials-and-examples/user-guides/exporting-data.md "mention")
 

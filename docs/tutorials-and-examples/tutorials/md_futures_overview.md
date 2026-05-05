@@ -841,8 +841,8 @@ for column in btc_cumulative_fr.columns:
 # Convert the 'time' column to datetime format if it's not already
 btc_cumulative_fr['time'] = pd.to_datetime(btc_cumulative_fr['time'], errors='coerce')
 
-# Ensure 'futures_cumulative_funding_rate_all_margin_7d' is numeric, replacing non-numeric values with numpy.nan
-btc_cumulative_fr['futures_cumulative_funding_rate_all_margin_7d'] = pd.to_numeric(btc_cumulative_fr['futures_cumulative_funding_rate_all_margin_rolling_7d'], errors='coerce')
+# Ensure 'futures_cumulative_funding_rate_all_margin_rolling_7d' is numeric, replacing non-numeric values with numpy.nan
+btc_cumulative_fr['futures_cumulative_funding_rate_all_margin_rolling_7d'] = pd.to_numeric(btc_cumulative_fr['futures_cumulative_funding_rate_all_margin_rolling_7d'], errors='coerce')
 
 # Plotting with safe checking
 valid_7d_indices = ~btc_cumulative_fr['futures_cumulative_funding_rate_all_margin_rolling_7d'].isna()
