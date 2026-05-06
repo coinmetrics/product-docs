@@ -66,3 +66,57 @@ update_tutorials:
   when: manual
   tags:
     - svc-docker
+
+# Rebuilds the api-client-python GitBook space at spaces/api-client-python/docs
+# from the latest master of the submodule, then opens an MR with any diff.
+# Triggered manually from the master branch only.
+rebuild_python_api_client_docs:
+  stage: update_docs
+  # See verify_python_api_client_docs for why this is pinned by digest.
+  image: python:3.11-slim@sha256:6d85378d88a19cd4d76079817532d62232be95757cb45945a99fec8e8084b9c2
+  variables:
+    # See verify_python_api_client_docs for why automatic submodule cloning
+    # is disabled here.
+    GIT_SUBMODULE_STRATEGY: none
+  before_script:
+    - apt-get update && apt-get install -y --no-install-recommends git
+    - git config --global user.name "$AMS_DATA_USER"
+    - git config --global user.email "noreply@coinmetrics.io"
+    - git -c "url.https://oauth2:${PYTHON_API_CLIENT_READ_TOKEN}@gitlab.com/.insteadOf=https://gitlab.com/" submodule update --init --recursive
+    - pip install --no-cache-dir -r scripts/requirements-docs.txt
+    # Editable install so autodoc can import the coinmetrics package while
+    # rendering the reference pages. See the verify job for the rationale
+    # behind --no-build-isolation.
+    - pip install --no-cache-dir poetry-core
+    - pip install --no-cache-dir --no-build-isolation -e submodules/api-client-python
+  script:
+    # Fast-forward the submodule to the tip of its default branch so the
+    # rebuild always reflects the latest released client. Use the same
+    # insteadOf rewrite as the submodule init so the fetch is authenticated.
+    - git -c "url.https://oauth2:${PYTHON_API_CLIENT_READ_TOKEN}@gitlab.com/.insteadOf=https://gitlab.com/" -C submodules/api-client-python fetch --depth=1 origin HEAD
+    - git -C submodules/api-client-python checkout FETCH_HEAD
+    - python3 scripts/build_api_client_python_docs.py
+    - BRANCH_NAME="rebuild-python-api-client-docs-$(date +%Y%m%d-%H%M%S)"
+    - git checkout -b "$BRANCH_NAME"
+    - git add submodules/api-client-python spaces/api-client-python/docs
+    - |
+      if git diff --staged --quiet; then
+        echo "No changes detected. Skipping merge request creation."
+      else
+        echo "Changes detected. Creating merge request."
+        git commit -m "Rebuild api-client-python docs from submodule"
+        git remote set-url origin "https://$AMS_DATA_USER:$AMS_DATA_TOKEN@gitlab.com/coinmetrics/front-end/knowledge-base.git"
+        git push -o merge_request.create -o merge_request.target=master -o merge_request.title="Rebuild api-client-python docs" origin "$BRANCH_NAME"
+      fi
+  rules:
+    # Scheduled pipeline (configured under CI/CD > Schedules in GitLab):
+    # auto-runs on a cadence to act as the submodule-freshness watchdog.
+    # If upstream has not moved, the build produces no diff and the job
+    # exits silently without opening an MR.
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    # Manual trigger from the master branch -- useful for forcing an
+    # off-cycle rebuild after a known upstream release.
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: manual
+  tags:
+    - svc-docker
