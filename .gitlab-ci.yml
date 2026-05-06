@@ -117,8 +117,10 @@ rebuild_python_api_client_docs:
     - git config --global user.email "noreply@coinmetrics.io"
     - pip install --no-cache-dir -r scripts/requirements-docs.txt
     # Editable install so autodoc can import the coinmetrics package while
-    # rendering the reference pages.
-    - pip install --no-cache-dir -e submodules/api-client-python
+    # rendering the reference pages. See the verify job for the rationale
+    # behind --no-build-isolation.
+    - pip install --no-cache-dir poetry-core
+    - pip install --no-cache-dir --no-build-isolation -e submodules/api-client-python
   script:
     # Fast-forward the submodule to the tip of its default branch so the
     # rebuild always reflects the latest released client.
