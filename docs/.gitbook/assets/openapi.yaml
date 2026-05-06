@@ -5,7 +5,7 @@ info:
   description: >-
     [Coin Metrics Homepage](https://coinmetrics.io/)<br/>
     [API Backward Compatibility Policy](https://docs.coinmetrics.io/access-our-data/api#backward-compatibility)<br/>
-    [Python API Client](https://coinmetrics.github.io/api-client-python/site/index.html)<br/><br/>
+    [Python API Client](https://docs.coinmetrics.io/python-api-client/)<br/><br/>
 
     HTTP API root endpoint URL is `https://api.coinmetrics.io/v4`. Coin Metrics&apos; paid product.<br/>
     WebSocket API root endpoint is `wss://api.coinmetrics.io/v4`. Coin Metrics&apos; paid product.<br/><br/>
