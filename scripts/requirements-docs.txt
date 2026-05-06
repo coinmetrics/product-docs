@@ -6,10 +6,17 @@
 #
 # Versions follow the Sphinx pipeline declared in
 # submodules/api-client-python/pyproject.toml.
+#
+# Versions are pinned exactly so the verify_python_api_client_docs CI gate
+# is deterministic: any change in autodoc / intersphinx output between
+# local rebuilds and CI would otherwise show up as a spurious diff. To
+# bump a dependency, change the pin here and rerun
+# `make docker-docs-python-client` so the regenerated output uses the
+# same toolchain CI does.
 
-sphinx>=7.4,<8
-myst-parser[linkify]>=3,<4
-sphinx-markdown-builder>=0.6
-sphinx-design>=0.6
-sphinx-copybutton>=0.5
-pydata-sphinx-theme>=0.16
+sphinx==7.4.7
+myst-parser[linkify]==3.0.1
+sphinx-markdown-builder==0.6.7
+sphinx-design==0.6.1
+sphinx-copybutton==0.5.2
+pydata-sphinx-theme==0.16.1

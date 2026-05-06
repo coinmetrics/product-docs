@@ -77,7 +77,13 @@ update_tutorials:
 # rebuild) would block the MR.
 verify_python_api_client_docs:
   stage: verify
-  image: python:3.11-slim
+  # Pinned by digest so the docs reproducibility gate is byte-stable: any
+  # rebase of python:3.11-slim that changed the OpenSSL / glibc / pip
+  # release would otherwise re-resolve our "==" pins to a different patch
+  # of a transitive dep and surface as a spurious diff against the
+  # committed output. Bump together with the Makefile DOCS_PYTHON_IMAGE
+  # so `make docker-docs-python-client` and CI stay in lockstep.
+  image: python:3.11-slim@sha256:6d85378d88a19cd4d76079817532d62232be95757cb45945a99fec8e8084b9c2
   variables:
     # Skip GitLab's built-in submodule fetcher: it uses $CI_JOB_TOKEN, which
     # is not authorised to pull the cross-project api-client-python repo.
@@ -110,7 +116,8 @@ verify_python_api_client_docs:
 # Triggered manually from the master branch only.
 rebuild_python_api_client_docs:
   stage: update_docs
-  image: python:3.11-slim
+  # See verify_python_api_client_docs for why this is pinned by digest.
+  image: python:3.11-slim@sha256:6d85378d88a19cd4d76079817532d62232be95757cb45945a99fec8e8084b9c2
   variables:
     # See verify_python_api_client_docs for why automatic submodule cloning
     # is disabled here.
