@@ -79,9 +79,13 @@ verify_python_api_client_docs:
   stage: verify
   image: python:3.11-slim
   variables:
-    GIT_SUBMODULE_STRATEGY: recursive
+    # Skip GitLab's built-in submodule fetcher: it uses $CI_JOB_TOKEN, which
+    # is not authorised to pull the cross-project api-client-python repo.
+    # We clone the submodule by hand in before_script with a dedicated PAT.
+    GIT_SUBMODULE_STRATEGY: none
   before_script:
     - apt-get update && apt-get install -y --no-install-recommends git diffutils
+    - git -c "url.https://oauth2:${PYTHON_API_CLIENT_READ_TOKEN}@gitlab.com/.insteadOf=https://gitlab.com/" submodule update --init --recursive
     - pip install --no-cache-dir -r scripts/requirements-docs.txt
     # Editable install so autodoc can import the coinmetrics package while
     # rendering the reference pages. poetry-core must be present before the
@@ -108,13 +112,14 @@ rebuild_python_api_client_docs:
   stage: update_docs
   image: python:3.11-slim
   variables:
-    # Ensure GitLab clones the submodule alongside the parent repo so the
-    # build script can read submodules/api-client-python/docs/source.
-    GIT_SUBMODULE_STRATEGY: recursive
+    # See verify_python_api_client_docs for why automatic submodule cloning
+    # is disabled here.
+    GIT_SUBMODULE_STRATEGY: none
   before_script:
     - apt-get update && apt-get install -y --no-install-recommends git
     - git config --global user.name "$AMS_DATA_USER"
     - git config --global user.email "noreply@coinmetrics.io"
+    - git -c "url.https://oauth2:${PYTHON_API_CLIENT_READ_TOKEN}@gitlab.com/.insteadOf=https://gitlab.com/" submodule update --init --recursive
     - pip install --no-cache-dir -r scripts/requirements-docs.txt
     # Editable install so autodoc can import the coinmetrics package while
     # rendering the reference pages. See the verify job for the rationale
@@ -123,8 +128,9 @@ rebuild_python_api_client_docs:
     - pip install --no-cache-dir --no-build-isolation -e submodules/api-client-python
   script:
     # Fast-forward the submodule to the tip of its default branch so the
-    # rebuild always reflects the latest released client.
-    - git -C submodules/api-client-python fetch --depth=1 origin HEAD
+    # rebuild always reflects the latest released client. Use the same
+    # insteadOf rewrite as the submodule init so the fetch is authenticated.
+    - git -c "url.https://oauth2:${PYTHON_API_CLIENT_READ_TOKEN}@gitlab.com/.insteadOf=https://gitlab.com/" -C submodules/api-client-python fetch --depth=1 origin HEAD
     - git -C submodules/api-client-python checkout FETCH_HEAD
     - python3 scripts/build_api_client_python_docs.py
     - BRANCH_NAME="rebuild-python-api-client-docs-$(date +%Y%m%d-%H%M%S)"
