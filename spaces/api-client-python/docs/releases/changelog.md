@@ -1,5 +1,187 @@
 # Changelog
 
+<!--
+Wording rules for changelog entries (apply when adding or refining entries,
+including stubs produced by scripts/update_api_client_python_changelog.py):
+
+1. Lead each bullet with the user-visible impact, then describe the change.
+   Good: "to_dataframe() is faster on large payloads. It now uses a PyArrow
+   schema instead of round-tripping through CSV."
+   Bad:  "Refactored to_dataframe() to use PyArrow."
+2. Exception: pure endpoint additions can simply name the new endpoints,
+   e.g. "Added get_stream_market_contract_prices() for the
+   /timeseries-stream/market-contract-prices WebSocket endpoint."
+3. Do not include internal ticket identifiers (PLAT-, MD-, CYBERSEC-, etc.).
+   Translate the ticket's intent into the user-impact framing instead.
+4. Use the ### Added, ### Changed, ### Fixed, ### Deprecated, ### Removed,
+   and (rarely) ### Documentation headings, in that priority order.
+5. Skip entries that are purely internal (CI, build, deploy housekeeping)
+   unless they affect users; if you must include them, say "No user-facing
+   API changes" so reviewers can recognize the housekeeping case quickly.
+-->
+
+## 2026.4.30.17
+
+### Fixed
+
+- `get_market_candles()` no longer raises overflow errors for high-precision decimal columns; the client now materializes those columns as `decimal256`, with a fallback for older Polars versions that lack `decimal256` support.
+
+### Changed
+
+- The upstream documentation is now rendered with Sphinx (replacing MkDocs). No change to the published GitBook space served from this repo.
+
+## 2026.4.16.18
+
+### Added
+
+- `to_dataframe(dataframe_type="polars")` and `to_lazyframe()` now run in parallel on `ParallelDataCollection`, giving end-to-end speedups of roughly 2-5x on representative endpoints. Internally the parallel path fans out via `ThreadPoolExecutor` and concatenates Arrow tables with `pl.concat(how="diagonal_relaxed")`.
+
+### Fixed
+
+- `to_dataframe()` no longer raises overflow errors when casting numeric columns to `decimal`.
+
+### Changed
+
+- PyArrow was upgraded to pick up upstream bug fixes. The Nix build target for Python 3.10 is dropped as a side effect; Python 3.10 itself remains supported via the standard install path until its EOL in October 2026.
+
+## 2026.4.9.19
+
+### Changed
+
+- `.to_list()` is now ~1.5-1.9x faster on large result sets because `format="json_stream"` is the default (single streaming HTTP connection instead of paginated round trips). When a `limit` is set the client falls back to `format="json"` so behavior is unchanged for paginated callers.
+
+## 2026.4.6.18
+
+### Added
+
+- Several `CoinMetricsClient` methods that were missing a `format` parameter now expose one, so callers can opt into `json_stream` / `csv` consistently across the API surface.
+
+## 2026.4.2.14
+
+### Fixed
+
+- `to_dataframe(dataframe_type="polars")` on an empty result now returns an empty Polars DataFrame instead of an empty pandas one.
+- `client.reference_data_markets(include="talos").to_dataframe()` no longer raises `ParserError`.
+- Polars exports no longer suffer from dtype mismatches on nested and decimal columns.
+
+### Changed
+
+- `to_dataframe()`, `to_lazyframe()`, and `export_to_parquet()` are faster on large payloads and free of CSV-parsing edge cases. They now build outputs via PyArrow `RecordBatch.from_pylist()` driven by the schema from `get_schema()` instead of round-tripping through CSV.
+
+### Added
+
+- `decimal_as_string` parameter on `to_dataframe()` for callers that need full decimal precision instead of the lossy `float64` conversion.
+
+### Deprecated
+
+- `optimize_dtypes`, `header`, and `columns_to_store` parameters on `to_dataframe()` now emit a `DeprecationWarning`. Calls keep working.
+
+### Removed
+
+- Unused `TransactionTrackerData`, `CoinMetricsAPIModel`, and `AssetChainsDataCollection` helpers, plus the dead `SchemaWrapper` methods (`get_field_types`, `get_pandas_dtypes`, `get_datetime_columns`, `has_nested_fields`). These were not part of the documented client surface.
+
+## 2026.3.31.13
+
+### Added
+
+- `include` query parameter on `reference_data_assets()`, `reference_data_exchanges()`, and `reference_data_markets()`.
+
+## 2026.2.19.20
+
+### Changed
+
+- Internal release-pipeline cleanup. No user-facing API changes.
+
+## 2026.2.19.19
+
+### Fixed
+
+- `to_dataframe()` and `export_to_parquet()` now produce correct dtypes for nested and decimal columns, end-to-end. The client now drives type inference from the precise schema generated off `openapi.yaml` (`coinmetrics/_schema_gen.py`, `_schema_base.py`, `_schema.py`) instead of inspecting columns heuristically.
+
+### Added
+
+- Several previously-missing endpoints and a routine schema regeneration.
+
+## 2026.2.9.18
+
+### Added
+
+- `get_stream_market_contract_prices()` for the `/timeseries-stream/market-contract-prices` WebSocket endpoint.
+
+## 2026.1.14.15
+
+### Fixed
+
+- Several parallelization-related parameters are now passed through correctly to the underlying data-collection layer; they were previously dropped before reaching `_data_collection.py`.
+
+## 2026.1.5.19
+
+### Added
+
+- Python 3.13 support.
+
+## 2025.12.16.20
+
+### Added
+
+- Exchange-pair endpoints: `reference_data_exchange_pair_metrics`, `catalog_exchange_pair_metrics_v2`, `catalog_full_exchange_pair_metrics_v2`, and `get_exchange_pair_metrics`.
+
+## 2025.12.12.16
+
+### Added
+
+- `start_time` / `end_time` (and related) filters on the `catalog-v2/market-*` endpoints so callers can scope catalog queries to a time window.
+
+## 2025.10.21.15
+
+### Added
+
+- Callers can now branch on the specific failure mode of a request: explicit exception classes for `401`, `403`, `414`, and `429` responses are now raised (`CoinMetricsClientUnauthorizedError`, `CoinMetricsClientForbiddenError`, `CoinMetricsClientBadParameterError`, `CoinMetricsClientRateLimitError`).
+
+### Fixed
+
+- Transient `ChunkedEncodingError` and `ConnectionError` failures are now retried more reliably.
+
+### Changed
+
+- The `examples/` tree was simplified: obsolete Flat Files and legacy patterns were removed and the troubleshooting docs were expanded. `docs.coinmetrics.io` is now the primary reference for example workflows.
+
+### Removed
+
+- The Data Exporter (`coinmetrics/data_exporter.py`) and its `typer_cli` entry point. Use the standard client methods plus `to_dataframe()` / `export_to_parquet()` instead.
+
+## 2025.9.30.16
+
+### Added
+
+- `blockchain-metadata/locations` and `blockchain-metadata/owners` endpoints. The `owner_names` query parameter is now exposed on `blockchain-metadata/tagged-entities`, and tagging methods that did not follow the standard naming convention are now also reachable under canonical aliases.
+
+### Fixed
+
+- Taxonomy endpoints no longer drop nullable columns when the result is materialized via `to_dataframe()`.
+
+## 2025.9.17.17
+
+### Changed
+
+- JSON-stream processing is now faster on heavier endpoints. Lighter endpoints continue to use `format="json"` so small queries stay fast.
+
+## 2025.9.9.13
+
+### Added
+
+- `api_path_prefix` argument on `CoinMetricsClient` so callers can point the client at non-default API hosts/paths.
+
+### Documentation
+
+- Docstrings for `CoinMetricsClient` and `DataCollection`.
+
+## 2025.9.3.18
+
+### Added
+
+- `ignore_unsupported_errors` and `ignore_forbidden_errors` parameters on `get_market_metrics()`, matching the existing pattern on other `get_market_*` methods.
+
 ## 2025.9.2.14
 
 ### Fixed

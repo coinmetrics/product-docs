@@ -66,6 +66,15 @@ STAGED_BUILD = STAGING_ROOT / "build"
 CHECK_OUTPUT = STAGING_ROOT / "check-output"
 
 DEFAULT_OUTPUT_ROOT = REPO_ROOT / "spaces" / "api-client-python" / "docs"
+
+# In-repo, hand-maintained changelog. The submodule's own CHANGELOG.md is no
+# longer the source of truth: upstream releases require approval before any
+# changelog entry can land there, so we maintain the rendered changelog
+# directly in this repo and ship a manual CI job (see
+# scripts/update_api_client_python_changelog.py and the
+# ``update_python_api_client_changelog`` job in .gitlab-ci.yml) that opens an
+# MR whenever upstream ships a release this file does not yet describe.
+REPO_CHANGELOG = DEFAULT_OUTPUT_ROOT / "releases" / "changelog.md"
 GITBOOK_ASSETS_REL = Path(".gitbook") / "assets"
 
 # Files in the output root that are committed by hand and must survive a
@@ -368,13 +377,21 @@ def stage_source() -> None:
     STAGING_ROOT.mkdir(parents=True)
     shutil.copytree(SUBMODULE_DOCS_SOURCE, STAGED_SOURCE)
 
-    # Bring in the CHANGELOG so the toctree entry "releases/CHANGELOG"
+    # Bring in the changelog so the toctree entry "releases/CHANGELOG"
     # resolves. The Sphinx myst-parser does not need a file extension on
     # toctree references, so we expose the changelog at releases/changelog.md
     # and patch the toctree below.
+    #
+    # The repo-owned ``REPO_CHANGELOG`` is the source of truth; we fall back
+    # to the submodule's own ``CHANGELOG.md`` only for first-time bootstrap
+    # (e.g., a fresh checkout where the in-repo file has not been committed
+    # yet). See the module docstring of
+    # ``scripts/update_api_client_python_changelog.py`` for the rationale.
     releases_dir = STAGED_SOURCE / "releases"
     releases_dir.mkdir(exist_ok=True)
-    if SUBMODULE_CHANGELOG.is_file():
+    if REPO_CHANGELOG.is_file():
+        shutil.copy2(REPO_CHANGELOG, releases_dir / "changelog.md")
+    elif SUBMODULE_CHANGELOG.is_file():
         shutil.copy2(SUBMODULE_CHANGELOG, releases_dir / "changelog.md")
 
     _patch_index_toctree(STAGED_SOURCE / "index.md")
