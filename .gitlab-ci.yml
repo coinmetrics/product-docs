@@ -84,8 +84,12 @@ verify_python_api_client_docs:
     - apt-get update && apt-get install -y --no-install-recommends git diffutils
     - pip install --no-cache-dir -r scripts/requirements-docs.txt
     # Editable install so autodoc can import the coinmetrics package while
-    # rendering the reference pages.
-    - pip install --no-cache-dir -e submodules/api-client-python
+    # rendering the reference pages. poetry-core must be present before the
+    # editable install so --no-build-isolation can use it directly, avoiding
+    # the isolated build environment that would otherwise need to install
+    # prance and openapi-spec-validator from [build-system].requires.
+    - pip install --no-cache-dir poetry-core
+    - pip install --no-cache-dir --no-build-isolation -e submodules/api-client-python
   script:
     - python3 scripts/build_api_client_python_docs.py --check
   rules:
