@@ -39,14 +39,14 @@ and by passing in the metric ID's `block_size*` in the `metrics` parameter.
 {% tabs %}
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=block_size&assets=btc&pretty=true&api_key=<your_key>"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=block_size&assets=btc&frequency=1b&pretty=true&api_key=<your_key>"
 ```
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=block_size&assets=btc&pretty=true&api_key=<your_key>').json()
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=block_size&assets=btc&frequency=1b&pretty=true&api_key=<your_key>').json()
 print(response)
 ```
 {% endtab %}

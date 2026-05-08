@@ -10,6 +10,35 @@ The market price per share in U.S. dollars.
 
 The metric names are prefixed by the ticker symbol of the investment product, such as `gbtc_shares_outstanding` for Grayscale's Bitcoin Investment Trust.
 
+### Specific Metric IDs by Product
+
+| Product                                          | MetricID                  | Unit | Frequency |
+| ------------------------------------------------ | ------------------------- | ---- | --------- |
+| Grayscale Basic Attention Token Trust            | bat_market_price        | USD  | 1d        |
+| Grayscale Bitcoin Cash Trust                     | bch_market_price        | USD  | 1d        |
+| Grayscale Bitcoin Covered Call ETF               | bcor_market_price       | USD  | 1d        |
+| Grayscale Bitcoin Trust                          | btc_market_price        | USD  | 1d        |
+| Grayscale DeFi Fund                              | defi_market_price       | USD  | 1d        |
+| Grayscale Digital Large Cap Fund                 | dlc_market_price        | USD  | 1d        |
+| Grayscale Ethereum Classic Trust                 | etc_market_price        | USD  | 1d        |
+| Grayscale Ethereum Trust                         | eth_market_price        | USD  | 1d        |
+| Grayscale Ethereum Trust (ETHE)                  | ethe_market_price       | USD  | 1d        |
+| Grayscale Ethereum Mini Trust                    | ethemini_market_price   | USD  | 1d        |
+| Grayscale Ethereum Premium Income ETF            | ethepq_market_price     | USD  | 1d        |
+| Grayscale Filecoin Trust                         | fil_market_price        | USD  | 1d        |
+| Grayscale Bitcoin Trust (GBTC)                   | gbtc_market_price       | USD  | 1d        |
+| Grayscale Bitcoin Mini Trust                     | gbtcmini_market_price   | USD  | 1d        |
+| Grayscale Bitcoin Premium Income ETF             | gbtcpq_market_price     | USD  | 1d        |
+| Grayscale Future of Finance ETF                  | gfof_market_price       | USD  | 1d        |
+| Grayscale Chainlink Trust                        | link_market_price       | USD  | 1d        |
+| Grayscale Livepeer Trust                         | lpt_market_price        | USD  | 1d        |
+| Grayscale Litecoin Trust                         | ltc_market_price        | USD  | 1d        |
+| Grayscale Decentraland Trust                     | mana_market_price       | USD  | 1d        |
+| Grayscale Solana Trust                           | sol_market_price        | USD  | 1d        |
+| Grayscale Stellar Lumens Trust                   | xlm_market_price        | USD  | 1d        |
+| Grayscale Zcash Trust                            | zec_market_price        | USD  | 1d        |
+| Grayscale Horizen Trust                          | zen_market_price        | USD  | 1d        |
+
 ## Details
 
 Market price per share reflects the closing price of the investment product's shares at 4PM ET on OTCQX®. To date, the Trust has not met its investment objective and the Shares quoted on OTCQX have not reflected the value of digital assets held by the Trust, less the Trust’s expenses and other liabilities, but instead have traded at both premiums and discounts to such value, with variations that have at times been substantial.

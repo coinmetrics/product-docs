@@ -231,7 +231,7 @@ The ratio of the free float market capitalization (CapMrktFFUSD) to the sum "rea
 
 ### Chart
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Asset-Specific Details
 
@@ -304,7 +304,7 @@ The sum USD value based on the USD closing price on the day that a native unit l
 
 ### Chart
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ### Asset-Specific Details
 

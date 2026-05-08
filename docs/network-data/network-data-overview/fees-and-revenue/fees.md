@@ -39,7 +39,7 @@ The mean transaction fee per byte of all blocks that interval in native units.
 
 ### Chart
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 ### Asset Specific Details
 
@@ -145,7 +145,7 @@ Ethereum post-1559 requires users to pay for a Base Fee as a prerequisite to inc
 
 ### Chart
 
-<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 ### Interpretation
 
@@ -260,7 +260,7 @@ Ethereum post-1559 requires users to pay for a Base Fee as a prerequisite to inc
 
 ### Definition
 
-The percentage of revenue derived from fees that interval. This is equal to the fees divided by the  revenue.
+The percentage of revenue derived from fees that interval. This is equal to the fees divided by the revenue.
 
 | Name                  | MetricID  | Unit          | Interval |
 | --------------------- | --------- | ------------- | -------- |
@@ -402,7 +402,7 @@ The sum gas limit of all blocks that day.
 
 ### Chart
 
-<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 ### Asset-Specific Details
 

@@ -1,5 +1,5 @@
 ---
-description: https://api.coinmetrics.io/v4/timeseries/asset-alerts
+description: Deprecated WatchTower network alerts endpoint (api.coinmetrics.io/v4/timeseries/asset-alerts)
 ---
 
 # WatchTower API Fields - DEPRECATED

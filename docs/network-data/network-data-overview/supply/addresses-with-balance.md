@@ -144,7 +144,7 @@ curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?metric
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=SplyAcSplyAdrBal1in100Kt1d&assets=btc&pretty=true&api_key=<your_key>').json()
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?metrics=SplyAdrBal1in100K&assets=btc&pretty=true&api_key=<your_key>').json()
 print(response)
 ```
 {% endtab %}

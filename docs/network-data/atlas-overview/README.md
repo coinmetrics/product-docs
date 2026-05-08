@@ -198,6 +198,29 @@ If you need to download large amounts of data, i.e. more than 100k rows, we reco
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-05-01" %}
+## Added Stellar Token Support
+
+Added Atlas support for 10 Stellar-based tokens, including major stablecoins and tokenized real-world assets. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/atlas-v2).
+
+<details>
+
+<summary>Tokens Added</summary>
+
+* BENJI\_XLM - Franklin OnChain U.S. Government Money Fund On Stellar
+* CETES\_XLM - CETES Etherfuse on Stellar
+* CRDYX\_XLM - WisdomTree Private Credit and Alternative Income Digital Fund on Stellar
+* EURC\_XLM - EURO Coin on Stellar
+* PYUSD\_XLM - Paypal USD on Stellar
+* SPXUX\_XLM - WisdomTree 500 Digital Fund on Stellar
+* TESOURO\_XLM - TESOURO Etherfuse on Stellar
+* USDC\_XLM - USDC on Stellar
+* USTRY\_XLM - USTRY Etherfuse on Stellar
+* WTGXX\_XLM - WisdomTree Treasury Money Market Digital Fund on Stellar
+
+</details>
+{% endupdate %}
+
 {% update date="2026-03-23" %}
 ## Added US Treasury Tokens
 

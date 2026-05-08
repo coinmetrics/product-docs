@@ -27,6 +27,37 @@ Details on the specific metrics are described in the pages linked in this sectio
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-05-01" %}
+## Added Network Data Metrics for Stellar Tokens
+
+Added Network Data metrics at the 1d frequency for 10 Stellar-based tokens, including stablecoins and tokenized real-world assets. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
+
+Additionally, added support for aggregated tickers benji & wtgxx. benji aggregates benji\_eth + benji\_xlm. wtgxx aggregates wtgxx\_eth & wtgxx\_xlm.
+
+<details>
+
+<summary>Assets Added:</summary>
+
+* BENJI\_XLM - Franklin OnChain U.S. Government Money Fund On Stellar
+* CETES\_XLM - CETES Etherfuse on Stellar
+* CRDYX\_XLM - WisdomTree Private Credit and Alternative Income Digital Fund on Stellar
+* EURC\_XLM - EURO Coin on Stellar
+* PYUSD\_XLM - Paypal USD on Stellar
+* SPXUX\_XLM - WisdomTree 500 Digital Fund on Stellar
+* TESOURO\_XLM - TESOURO Etherfuse on Stellar
+* USDC\_XLM - USDC on Stellar
+* USTRY\_XLM - USTRY Etherfuse on Stellar
+* WTGXX\_XLM - WisdomTree Treasury Money Market Digital Fund on Stellar
+
+</details>
+{% endupdate %}
+
+{% update date="2026-05-01" %}
+## Expanded Exchange Flows to 1h for USDC on Base and USD1
+
+Expanded exchange flow metrics for **usdc\_base.eth** and **usd1\_eth** to the 1h frequency. For details on Exchange Flow metric coverage please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInExNtv).
+{% endupdate %}
+
 {% update date="2026-04-23" %}
 ## Expanded Exchange Flows to new Stablecoins
 

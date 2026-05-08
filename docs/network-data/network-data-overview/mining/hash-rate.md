@@ -25,7 +25,7 @@ The mean rate at which miners are solving hashes that day. Hash rate is the spee
 
 ### Chart
 
-<figure><img src="../../../.gitbook/assets/Coin_Metrics_Network_Data_2022-09-15T15-37 (1).png" alt=""><figcaption><p>Source: CM Network Data Charts</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Coin_Metrics_Network_Data_2022-09-15T15-37.png" alt=""><figcaption><p>Source: CM Network Data Charts</p></figcaption></figure>
 
 | Asset          | Formula                                               | Hash Rate Unit |
 | -------------- | ----------------------------------------------------- | -------------- |
@@ -168,9 +168,9 @@ Hash Rate metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `HashRate*` in the `metrics` parameter.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}

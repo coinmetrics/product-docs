@@ -1,7 +1,12 @@
-.PHONY: help test test-quick lint spell check-links check-links-external check-code check-structure check-secrets report clean format docker-build docker-test docker-test-quick docker-format
+.PHONY: help test test-quick lint spell check-links check-links-external check-code check-structure check-secrets report clean format docker-build docker-test docker-test-quick docker-format docs-python-client docs-python-client-check docs-python-client-clean docker-docs-python-client docker-docs-python-client-check
 
 # Docker image name
 DOCKER_IMAGE ?= docs-test
+
+# Pinned base image for the api-client-python docs build. Must match the
+# `image:` field of the verify_python_api_client_docs / rebuild jobs in
+# .gitlab-ci.yml so local rebuilds and CI render byte-identical output.
+DOCS_PYTHON_IMAGE ?= python:3.11-slim@sha256:6d85378d88a19cd4d76079817532d62232be95757cb45945a99fec8e8084b9c2
 
 # Verbose mode: make test VERBOSE=1
 VERBOSE ?= 0
@@ -115,14 +120,14 @@ docker-build:
 docker-test:
 	@echo "Running tests in Docker container..."
 	@echo ""
-	docker run --rm -v $(CURDIR):/workspace -e GITLAB_TOKEN=${GITLAB_TOKEN} -e CI_JOB_TOKEN=${CI_JOB_TOKEN} $(DOCKER_IMAGE) make test VERBOSE=$(VERBOSE)
+	docker run --rm -v $(CURDIR):/workspace -e GITLAB_TOKEN=${GITLAB_TOKEN} -e CI_JOB_TOKEN=${CI_JOB_TOKEN} -e CM_API_KEY=${CM_API_KEY} $(DOCKER_IMAGE) make test VERBOSE=$(VERBOSE)
 	@echo ""
 	@echo "✓ Tests complete. View report at: test-reports/index.html"
 
 docker-test-quick:
 	@echo "Running quick tests in Docker container..."
 	@echo ""
-	docker run --rm -v $(CURDIR):/workspace -e GITLAB_TOKEN=${GITLAB_TOKEN} -e CI_JOB_TOKEN=${CI_JOB_TOKEN} $(DOCKER_IMAGE) make test-quick VERBOSE=$(VERBOSE)
+	docker run --rm -v $(CURDIR):/workspace -e GITLAB_TOKEN=${GITLAB_TOKEN} -e CI_JOB_TOKEN=${CI_JOB_TOKEN} -e CM_API_KEY=${CM_API_KEY} $(DOCKER_IMAGE) make test-quick VERBOSE=$(VERBOSE)
 	@echo ""
 	@echo "✓ Tests complete. View report at: test-reports/index.html"
 
@@ -133,3 +138,68 @@ docker-format:
 	@echo ""
 	@echo "✓ Formatting complete. Run 'make docker-test' to verify."
 
+# Build the api-client-python GitBook space from the Sphinx + MyST sources
+# in submodules/api-client-python/docs/source. Every file under
+# spaces/api-client-python/docs is regenerated except .gitbook.yaml so the
+# rendered space is fully reproducible from the submodule SHA.
+docs-python-client:
+	@echo "Building api-client-python GitBook docs..."
+	@echo ""
+	@echo "First time? Install build dependencies with:"
+	@echo "  pip3 install -r scripts/requirements-docs.txt"
+	@echo ""
+	python3 scripts/build_api_client_python_docs.py
+	@echo ""
+	@echo "✓ Docs generated at spaces/api-client-python/docs"
+
+# Verify that the committed GitBook space matches what the build pipeline
+# would produce against the currently checked-out submodule SHA. Used by
+# CI (verify_python_api_client_docs) to block MRs that hand-edit generated
+# files or forget to re-run the build.
+docs-python-client-check:
+	@echo "Verifying api-client-python GitBook docs are in sync with the build..."
+	@echo ""
+	python3 scripts/build_api_client_python_docs.py --check
+
+# Run the api-client-python docs build inside the exact CI image so the
+# rendered output is byte-identical to what verify_python_api_client_docs
+# produces. This is the recommended way for contributors to regenerate
+# the GitBook space -- using the host Python toolchain risks producing a
+# build that drifts from CI (different intersphinx coverage, different
+# autodoc rendering, ...) and trips the reproducibility gate on the MR.
+docker-docs-python-client:
+	@echo "Building api-client-python GitBook docs in $(DOCS_PYTHON_IMAGE)..."
+	@echo ""
+	docker run --rm -v $(CURDIR):/work -w /work $(DOCS_PYTHON_IMAGE) bash -lc '\
+		set -e; \
+		apt-get update && apt-get install -y --no-install-recommends git diffutils; \
+		pip install --no-cache-dir -r scripts/requirements-docs.txt; \
+		pip install --no-cache-dir poetry-core; \
+		pip install --no-cache-dir --no-build-isolation -e submodules/api-client-python; \
+		python3 scripts/build_api_client_python_docs.py'
+	@echo ""
+	@echo "✓ Docs generated at spaces/api-client-python/docs"
+
+# Same as docker-docs-python-client but runs the --check reproducibility
+# gate instead of writing to spaces/api-client-python/docs. Mirrors the
+# CI verify_python_api_client_docs job exactly.
+docker-docs-python-client-check:
+	@echo "Verifying api-client-python GitBook docs in $(DOCS_PYTHON_IMAGE)..."
+	@echo ""
+	docker run --rm -v $(CURDIR):/work -w /work $(DOCS_PYTHON_IMAGE) bash -lc '\
+		set -e; \
+		apt-get update && apt-get install -y --no-install-recommends git diffutils; \
+		pip install --no-cache-dir -r scripts/requirements-docs.txt; \
+		pip install --no-cache-dir poetry-core; \
+		pip install --no-cache-dir --no-build-isolation -e submodules/api-client-python; \
+		python3 scripts/build_api_client_python_docs.py --check'
+
+# Remove the generated content while keeping the committed GitBook shell
+# (.gitbook.yaml). Also wipes the build staging directory.
+docs-python-client-clean:
+	@echo "Cleaning generated api-client-python docs..."
+	@find spaces/api-client-python/docs -mindepth 1 -maxdepth 1 \
+		! -name .gitbook.yaml \
+		-exec rm -rf {} +
+	@rm -rf .docs-build
+	@echo "✓ Generated docs cleared (.gitbook.yaml preserved)"

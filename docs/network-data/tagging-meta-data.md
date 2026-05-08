@@ -7,17 +7,20 @@ Coin Metrics Tagging Data is a powerful tool that provides users with a unique l
 For accessing our Dictionary of tags you can leverage our Tag Catalog API Call. This returns a list of the tag options that can then be used ti query in the `tags` parameter of our `/tagged-entities` response. For detailed definitions or methodologies relating to specific tags. Please reach out to our team. \
 
 
-Example: `https://api.coinmetrics.io/v4/blockchain-metadata/tags?&api_key={api_key}`
+<!-- strip `https` so URL template is not falsely identified as broken link -->
+Example: `api.coinmetrics.io/v4/blockchain-metadata/tags?&api_key={api_key}`
 
 ## [Entity and Tag Search](https://docs.coinmetrics.io/api/v4/#tag/Blockchain-Metadata/operation/getBlockchainMetadataEntities)
 
 When utilizing the Tagging Data there are two query methods. The first is by searching for an Entity. Entities are addresses, accounts or contracts.&#x20;
 
-Example: `https://api.coinmetrics.io/v4/blockchain-metadata/tagged-entities?entities={entity_list}&pretty=true&api_key={api_key}`
+<!-- strip `https` so URL template is not falsely identified as broken link -->
+Example: `api.coinmetrics.io/v4/blockchain-metadata/tagged-entities?entities={entity_list}&pretty=true&api_key={api_key}`
 
 The second query method is for retrieving all entities defined under a defined tag. In the first release you are able to query for a single address.&#x20;
 
-Example: `https://api.coinmetrics.io/v4/blockchain-metadata/tagged-entities?tags={tag_list}&pretty=true&api_key={api_key}`
+<!-- strip `https` so URL template is not falsely identified as broken link -->
+Example: `api.coinmetrics.io/v4/blockchain-metadata/tagged-entities?tags={tag_list}&pretty=true&api_key={api_key}`
 
 
 

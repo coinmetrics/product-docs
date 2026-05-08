@@ -4,15 +4,15 @@
 
 The cumulative funding rate is the total funding rate that would be accumulated by contract holders over a specified time period.
 
-<table><thead><tr><th width="228">Name</th><th width="413">MetricID</th><th width="154">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Funding rate, cumulative, futures, USD-margined, 1 day</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_usd_margin_1d">futures_cumulative_funding_rate_usd_margin_1d</a></td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, USD-margined, 7 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_usd_margin_7d">futures_cumulative_funding_rate_usd_margin_7d</a></td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, USD-margined, 30 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_usd_margin_30d">futures_cumulative_funding_rate_usd_margin_30d</a></td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, coin-margined, 1 day</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_coin_margin_1d">futures_cumulative_funding_rate_coin_margin_1d</a></td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, coin-margined, 7 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_coin_margin_7d">futures_cumulative_funding_rate_coin_margin_7d</a></td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, coin-margined, 30 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_coin_margin_30d">futures_cumulative_funding_rate_coin_margin_30d</a></td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, all-margined, 1 day</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_all_margin_1d">futures_cumulative_funding_rate_all_margin_1d</a></td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, all-margined, 7 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_all_margin_7d">futures_cumulative_funding_rate_all_margin_7d</a></td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, all-margined, 30 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_all_margin_30d">futures_cumulative_funding_rate_all_margin_30d</a></td><td>Dimensionless</td><td>1 hour</td></tr></tbody></table>
+<table><thead><tr><th width="228">Name</th><th width="413">MetricID</th><th width="154">Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Funding rate, cumulative, futures, USD-margined, 1 day</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_usd_margin_rolling_1d">futures_cumulative_funding_rate_usd_margin_rolling_1d</a></td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, USD-margined, 7 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_usd_margin_rolling_7d">futures_cumulative_funding_rate_usd_margin_rolling_7d</a></td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, USD-margined, 30 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_usd_margin_rolling_30d">futures_cumulative_funding_rate_usd_margin_rolling_30d</a></td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, coin-margined, 1 day</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_coin_margin_rolling_1d">futures_cumulative_funding_rate_coin_margin_rolling_1d</a></td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, coin-margined, 7 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_coin_margin_rolling_7d">futures_cumulative_funding_rate_coin_margin_rolling_7d</a></td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, coin-margined, 30 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_coin_margin_rolling_30d">futures_cumulative_funding_rate_coin_margin_rolling_30d</a></td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, all-margined, 1 day</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_all_margin_rolling_1d">futures_cumulative_funding_rate_all_margin_rolling_1d</a></td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, all-margined, 7 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_all_margin_rolling_7d">futures_cumulative_funding_rate_all_margin_rolling_7d</a></td><td>Dimensionless</td><td>1 hour</td></tr><tr><td>Funding rate, cumulative, futures, all-margined, 30 days</td><td><a href="https://coverage.coinmetrics.io/search-results?query=futures_cumulative_funding_rate_all_margin_rolling_30d">futures_cumulative_funding_rate_all_margin_rolling_30d</a></td><td>Dimensionless</td><td>1 hour</td></tr></tbody></table>
 
 ## Details
 
-The `futures_cumulative_funding_rate_usd_margin_*` metrics represent the cumulative average funding rate weighted by open interest from futures markets where the margin asset is U.S. dollars or stablecoins over the previous specified time period.
+The `futures_cumulative_funding_rate_usd_margin_rolling_*` metrics represent the cumulative average funding rate weighted by open interest from futures markets where the margin asset is U.S. dollars or stablecoins over the previous specified time period.
 
-The `futures_cumulative_funding_rate_coin_margin_*` metrics represent the cumulative average funding rate weighted by open interest from futures markets where the margin asset is equivalent to the underlying base asset over the previous specified time period.
+The `futures_cumulative_funding_rate_coin_margin_rolling_*` metrics represent the cumulative average funding rate weighted by open interest from futures markets where the margin asset is equivalent to the underlying base asset over the previous specified time period.
 
-The `futures_cumulative_funding_rate_all_margin_*` metrics represent the cumulative average funding rate weighted by open interest from all futures markets, regardless of the margin asset, over the previous specified time period.
+The `futures_cumulative_funding_rate_all_margin_rolling_*` metrics represent the cumulative average funding rate weighted by open interest from all futures markets, regardless of the margin asset, over the previous specified time period.
 
 These metrics have a publication frequency of once per hour and represent the cumulative realized funding rate over the previous 1 day, 7 day, and 30 day time periods.
 
@@ -28,11 +28,11 @@ $$
 AFR_{1h,i} = \frac{AFR_{8h,i}}{8}
 $$
 
-where $$AFR_{i}$$ is the Aggregate Funding Rate at timestamp $$i$$. The increments $$i$$ are hourly, as $$AFR$$ is published hourly. Thus, `futures_cumulative_funding_rate_usd_margin_1d`is the accumulation of funding rates over the last 24 hours, `futures_cumulative_funding_rate_usd_margin_7d` is the accumulation of funding rates over the last 168 hours, etc.
+where $$AFR_{i}$$ is the Aggregate Funding Rate at timestamp $$i$$. The increments $$i$$ are hourly, as $$AFR$$ is published hourly. Thus, `futures_cumulative_funding_rate_usd_margin_rolling_1d`is the accumulation of funding rates over the last 24 hours, `futures_cumulative_funding_rate_usd_margin_rolling_7d` is the accumulation of funding rates over the last 168 hours, etc.
 
 ## **API Endpoints**
 
-Cumulative Futures Funding Rates can be accessed using the `timeseries/asset-metrics` and `timeseries/exchange-asset-metrics` endpoints by passing in `futures_cumulative_funding_rate_usd_margin_*` to the `metrics` parameter.
+Cumulative Futures Funding Rates can be accessed using the `timeseries/asset-metrics` and `timeseries/exchange-asset-metrics` endpoints by passing in `futures_cumulative_funding_rate_usd_margin_rolling_*` to the `metrics` parameter.
 
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
@@ -41,14 +41,14 @@ Cumulative Futures Funding Rates can be accessed using the `timeseries/asset-met
 {% tabs %}
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=futures_cumulative_funding_rate_usd_margin_1d&limit_per_asset=1&api_key=<your_key>"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=futures_cumulative_funding_rate_usd_margin_rolling_1d&frequency=1h&limit_per_asset=1&api_key=<your_key>"
 ```
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=futures_cumulative_funding_rate_usd_margin_1d&limit_per_asset=1&api_key=<your_key>')
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=futures_cumulative_funding_rate_usd_margin_rolling_1d&frequency=1h&limit_per_asset=1&api_key=<your_key>')
 print(response)
 ```
 {% endtab %}
@@ -62,7 +62,7 @@ client = CoinMetricsClient(api_key)
 
 print(
     client.get_asset_metrics(
-        assets=["btc"], metrics=['futures_cumulative_funding_rate_usd_margin_1d'], frequency='1d', limit_per_market=1
+        assets=["btc"], metrics=['futures_cumulative_funding_rate_usd_margin_rolling_1d'], frequency='1d', limit_per_market=1
     ).to_dataframe()
 )
 ```
@@ -76,14 +76,14 @@ print(
 {% tabs %}
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=binance-btc&metrics=futures_cumulative_funding_rate_usd_margin_1d&limit_per_exchange_asset=1&api_key=<your_key>"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=binance-btc&metrics=futures_cumulative_funding_rate_usd_margin_rolling_1d&frequency=1h&limit_per_exchange_asset=1&api_key=<your_key>"
 ```
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
 import requests
-response = requests.get('https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=binance-btc&metrics=futures_cumulative_funding_rate_usd_margin_1d&limit_per_exchange_asset=1&api_key=<your_key>')
+response = requests.get('https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?exchange_assets=binance-btc&metrics=futures_cumulative_funding_rate_usd_margin_rolling_1d&frequency=1h&limit_per_exchange_asset=1&api_key=<your_key>')
 print(response)
 ```
 {% endtab %}
@@ -97,7 +97,7 @@ client = CoinMetricsClient(api_key)
 
 print(
     client.get_exchange_asset_metrics(
-        exchanges=["binance-btc"], metrics=['futures_cumulative_funding_rate_usd_margin_1d'], frequency='1d', limit_per_market=1
+        exchanges=["binance-btc"], metrics=['futures_cumulative_funding_rate_usd_margin_rolling_1d'], frequency='1d', limit_per_market=1
     ).to_dataframe()
 )
 ```
@@ -112,30 +112,30 @@ print(
   "data" : [ {
     "asset" : "btc",
     "time" : "2023-09-18T19:00:00.000000000Z",
-    "futures_cumulative_funding_rate_coin_margin_1d" : "0.0000748325509789538"
+    "futures_cumulative_funding_rate_coin_margin_rolling_1d" : "0.0000748325509789538"
   }, {
     "asset" : "btc",
     "time" : "2023-09-18T20:00:00.000000000Z",
-    "futures_cumulative_funding_rate_coin_margin_1d" : "0.0000725858255383738"
+    "futures_cumulative_funding_rate_coin_margin_rolling_1d" : "0.0000725858255383738"
   }, {
     "asset" : "btc",
     "time" : "2023-09-18T21:00:00.000000000Z",
-    "futures_cumulative_funding_rate_coin_margin_1d" : "0.0000703397006305284"
+    "futures_cumulative_funding_rate_coin_margin_rolling_1d" : "0.0000703397006305284"
   }, {
     "asset" : "btc",
     "time" : "2023-09-18T22:00:00.000000000Z",
-    "futures_cumulative_funding_rate_coin_margin_1d" : "0.0000678449650222124"
+    "futures_cumulative_funding_rate_coin_margin_rolling_1d" : "0.0000678449650222124"
   }, {
     "asset" : "btc",
     "time" : "2023-09-18T23:00:00.000000000Z",
-    "futures_cumulative_funding_rate_coin_margin_1d" : "0.0000653489780522154"
+    "futures_cumulative_funding_rate_coin_margin_rolling_1d" : "0.0000653489780522154"
   } ]
 }
 ```
 
 * **`asset`**: The id of the asset.\\
 * **`time`**: The exchange-reported time in ISO 8601 date-time format. Always with nanoseconds precision.\\
-* **`futures_cumulative_funding_rate_coin_margin_1d`**: The cumulative funding rate.
+* **`futures_cumulative_funding_rate_coin_margin_rolling_1d`**: The cumulative funding rate.
 
 ## Release History
 
@@ -143,4 +143,4 @@ print(
 
 ## Availability for Assets
 
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/futures_cumulative_funding_rate_coin_margin_1d" %}
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/futures_cumulative_funding_rate_coin_margin_rolling_1d" %}

@@ -12,7 +12,7 @@ To understand the data that Coin Metrics offers, feel free to peruse the resourc
 
 * The [Coin Metrics API v4](https://docs.coinmetrics.io/api/v4) website contains the full set of endpoints and data offered by Coin Metrics.
 * The [Coin Metrics Product Documentation](https://docs.coinmetrics.io/info) gives detailed, conceptual explanations of the data that Coin Metrics offers.
-* The [API Spec](https://coinmetrics.github.io/api-client-python/site/api_client.html) contains a full list of functions.
+* The [API Spec](https://docs.coinmetrics.io/python-api-client/reference) contains a full list of functions.
 
 ### File Download
 
@@ -841,8 +841,8 @@ for column in btc_cumulative_fr.columns:
 # Convert the 'time' column to datetime format if it's not already
 btc_cumulative_fr['time'] = pd.to_datetime(btc_cumulative_fr['time'], errors='coerce')
 
-# Ensure 'futures_cumulative_funding_rate_all_margin_7d' is numeric, replacing non-numeric values with numpy.nan
-btc_cumulative_fr['futures_cumulative_funding_rate_all_margin_7d'] = pd.to_numeric(btc_cumulative_fr['futures_cumulative_funding_rate_all_margin_rolling_7d'], errors='coerce')
+# Ensure 'futures_cumulative_funding_rate_all_margin_rolling_7d' is numeric, replacing non-numeric values with numpy.nan
+btc_cumulative_fr['futures_cumulative_funding_rate_all_margin_rolling_7d'] = pd.to_numeric(btc_cumulative_fr['futures_cumulative_funding_rate_all_margin_rolling_7d'], errors='coerce')
 
 # Plotting with safe checking
 valid_7d_indices = ~btc_cumulative_fr['futures_cumulative_funding_rate_all_margin_rolling_7d'].isna()
