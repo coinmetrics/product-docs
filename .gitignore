@@ -46,6 +46,11 @@ test-reports/
 .vale-cache/
 .lycheecache
 
+# api-client-python docs build (scratch staging + local venv); the
+# committed output lives under spaces/api-client-python/docs/.
+.docs-build/
+.docs-venv/
+
 # Vale: Ignore downloaded style packages but keep custom config
 .vale/styles/*
 !.vale/styles/config/

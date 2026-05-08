@@ -16,7 +16,7 @@ To understand the data that Coin Metrics offers, feel free to peruse the resourc
 
 * The [Coin Metrics API v4](https://docs.coinmetrics.io/api/v4) website contains the full set of endpoints and data offered by Coin Metrics.
 * The [Coin Metrics Product Docs](https://docs.coinmetrics.io/) gives detailed, conceptual explanations of the data that Coin Metrics offers.
-* The [Python API Client Spec](https://coinmetrics.github.io/api-client-python/site/api\_client.html) contains a full list of functions..
+* The [Python API Client Spec](https://docs.coinmetrics.io/python-api-client/reference) contains a full list of functions..
 
 ### Setup
 
