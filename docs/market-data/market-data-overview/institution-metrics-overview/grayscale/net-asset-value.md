@@ -1,37 +1,27 @@
 # Net Asset Value
 
-## Definition
+## Overview
 
-The net asset value per share of an investment trust or fund.
+The net asset value (NAV) per share of an investment trust or fund in U.S. dollars. The metric name is prefixed by the ticker symbol of the investment product (e.g. `gbtc_net_asset_value` for Grayscale's Bitcoin Investment Trust). NAV per share represents the fair value of the underlying assets held by the product divided by the number of shares outstanding.
 
-| Name                      | MetricID              | Unit | Frequency |
-| ------------------------- | --------------------- | ---- | --------- |
-| Grayscale Net Asset Value | \*\_net\_asset\_value | USD  | 1d        |
+## Metrics
 
-The metric names are prefixed by the ticker symbol of the investment product, such as `gbtc_shares_outstanding` for Grayscale's Bitcoin Investment Trust.
+<table data-full-width="true"><thead><tr><th width="250">Metric</th><th>Description</th><th width="120">Unit</th><th width="100">Frequency</th></tr></thead><tbody><tr><td><code>bat_net_asset_value</code></td><td>The net asset value per share of Grayscale Basic Attention Token Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>bch_net_asset_value</code></td><td>The net asset value per share of Grayscale Bitcoin Cash Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>bcor_net_asset_value</code></td><td>The net asset value per share of Grayscale Bitcoin Covered Call ETF in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>btc_net_asset_value</code></td><td>The net asset value per share of Grayscale Bitcoin Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>defi_net_asset_value</code></td><td>The net asset value per share of Grayscale DeFi Fund in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>dlc_net_asset_value</code></td><td>The net asset value per share of Grayscale Digital Large Cap Fund in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>etc_net_asset_value</code></td><td>The net asset value per share of Grayscale Ethereum Classic Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>eth_net_asset_value</code></td><td>The net asset value per share of Grayscale Ethereum Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>ethe_net_asset_value</code></td><td>The net asset value per share of Grayscale Ethereum Trust (ETHE) in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>ethemini_net_asset_value</code></td><td>The net asset value per share of Grayscale Ethereum Mini Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>ethepq_net_asset_value</code></td><td>The net asset value per share of Grayscale Ethereum Premium Income ETF in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>fil_net_asset_value</code></td><td>The net asset value per share of Grayscale Filecoin Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>gai_net_asset_value</code></td><td>The net asset value per share of Grayscale AI Opportunities ETF in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>gbtc_net_asset_value</code></td><td>The net asset value per share of Grayscale Bitcoin Trust (GBTC) in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>gbtcmini_net_asset_value</code></td><td>The net asset value per share of Grayscale Bitcoin Mini Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>gbtcpq_net_asset_value</code></td><td>The net asset value per share of Grayscale Bitcoin Premium Income ETF in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>gfof_net_asset_value</code></td><td>The net asset value per share of Grayscale Future of Finance ETF in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>gscpxe_net_asset_value</code></td><td>The net asset value per share of Grayscale Smart Contract Platform ex-ETH ETF in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>link_net_asset_value</code></td><td>The net asset value per share of Grayscale Chainlink Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>lpt_net_asset_value</code></td><td>The net asset value per share of Grayscale Livepeer Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>ltc_net_asset_value</code></td><td>The net asset value per share of Grayscale Litecoin Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>mana_net_asset_value</code></td><td>The net asset value per share of Grayscale Decentraland Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>sol_net_asset_value</code></td><td>The net asset value per share of Grayscale Solana Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>sui_net_asset_value</code></td><td>The net asset value per share of Grayscale Sui Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>tao_net_asset_value</code></td><td>The net asset value per share of Grayscale Bittensor Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>xlm_net_asset_value</code></td><td>The net asset value per share of Grayscale Stellar Lumens Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>zec_net_asset_value</code></td><td>The net asset value per share of Grayscale Zcash Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr><tr><td><code>zen_net_asset_value</code></td><td>The net asset value per share of Grayscale Horizen Trust in U.S. dollars.</td><td>USD</td><td>1d</td></tr></tbody></table>
 
-## Details
+## Data Sources and Methodology
 
-The net asset value per share is calculated daily at 4pm ET, based on a CoinDesk price index. To date, the Trust has not met its investment objective and the Shares quoted on OTCQX have not reflected the value of digital assets held by the Trust, less the Trust’s expenses and other liabilities, but instead have traded at both premiums and discounts to such value, with variations that have at times been substantial.
+Net asset value per share is calculated daily at 4 PM ET, based on reference price data from CoinDesk or equivalent pricing sources as specified in each product's governing documents. For NAV per share and AUM calculated in accordance with US GAAP methodology, see [Grayscale's GAAP page](https://grayscale.com/gaap-page/).
+
+## Coverage
+
+Institution metrics are not currently displayed on coverage.coinmetrics.io.
+
+## API Endpoints
+
+The metrics are served through the following endpoints:
+
+* [/timeseries/institution-metrics](https://docs.coinmetrics.io/api/v4/#tag/Timeseries/operation/getTimeseriesInstitutionMetrics)
 
 ## Release History
 
 * Release Version. [Market Data Feed 2.4 (August 2021)](https://coinmetrics.io/cm-market-data-feed-v2-4-release-notes/)
-
-## See Also
-
-{% content-ref url="shares-outstanding.md" %}
-[shares-outstanding.md](shares-outstanding.md)
-{% endcontent-ref %}
-
-{% content-ref url="market-price.md" %}
-[market-price.md](market-price.md)
-{% endcontent-ref %}
-
-{% content-ref url="coin-per-share.md" %}
-[coin-per-share.md](coin-per-share.md)
-{% endcontent-ref %}
-
-{% content-ref url="total-assets.md" %}
-[total-assets.md](total-assets.md)
-{% endcontent-ref %}
