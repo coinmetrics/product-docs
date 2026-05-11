@@ -14,6 +14,7 @@ Checks:
 """
 
 import argparse
+import concurrent.futures
 import json
 import os
 import re
@@ -345,25 +346,146 @@ def fetch_metrics_from_gitlab():
         return None, f"Failed to parse metrics.json: {e}"
 
 
+def filter_to_active_metrics(missing_metrics, category_lookup):
+    """Filter undocumented metrics to only those confirmed active in the CM Catalog API.
+
+    metrics.json contains all metrics being worked on or planned, including those
+    not yet active or exposed. This function queries the Catalog API to distinguish
+    truly active metrics (which should be documented) from inactive/planned ones
+    (which are false positives for the documentation check).
+
+    Routing logic:
+    - category == 'Institutions' -> catalog-v2/institution-metrics
+      Active if: HTTP 200 AND non-empty 'data' array
+    - all others              -> catalog-v2/asset-metrics
+      Active if: HTTP 200 (HTTP 400 means metric is unknown/inactive)
+
+    Args:
+        missing_metrics: list of metric short_form strings not found in any doc
+        category_lookup: dict mapping short_form -> category from metrics.json
+
+    Returns:
+        tuple: (active_missing, inactive_missing, experimental_missing, skip_reason)
+        - active_missing: metrics undocumented AND confirmed active in catalog (real errors)
+        - inactive_missing: metrics undocumented AND not found in catalog (suggestions only)
+        - experimental_missing: metrics undocumented AND marked experimental in catalog (suggestions)
+        - skip_reason: human-readable string if catalog check was skipped, else None
+    """
+    cm_api_key = os.getenv('CM_API_KEY')
+    if not cm_api_key:
+        return missing_metrics, [], [], "CM_API_KEY not set, skipping catalog verification"
+
+    base_url = "https://api.coinmetrics.io/v4"
+
+    def _any_experimental(data):
+        """Return True if any frequency entry in the catalog response data is experimental."""
+        for entry in data:
+            for metric_entry in entry.get('metrics', []):
+                for freq in metric_entry.get('frequencies', []):
+                    if freq.get('experimental'):
+                        return True
+        return False
+
+    def classify_metric(metric_name):
+        """Return 'active', 'experimental', or 'inactive' based on the Catalog API."""
+        category = category_lookup.get(metric_name, '')
+
+        if category == 'Institutions':
+            url = f"{base_url}/catalog-v2/institution-metrics"
+        else:
+            url = f"{base_url}/catalog-v2/asset-metrics"
+
+        try:
+            response = requests.get(
+                url,
+                params={'metrics': metric_name, 'api_key': cm_api_key},
+                timeout=15,
+            )
+            if category == 'Institutions':
+                if response.status_code == 200:
+                    data = response.json().get('data', [])
+                    if not data:
+                        return 'inactive'
+                    if _any_experimental(data):
+                        return 'experimental'
+                    return 'active'
+                return 'inactive'
+            else:
+                if response.status_code != 200:
+                    return 'inactive'
+                data = response.json().get('data', [])
+                if _any_experimental(data):
+                    return 'experimental'
+                return 'active'
+        except Exception:
+            # On network error, conservatively treat as active so we don't
+            # silently suppress a potentially real documentation gap.
+            return 'active'
+
+    active_missing = []
+    inactive_missing = []
+    experimental_missing = []
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
+        future_to_metric = {
+            executor.submit(classify_metric, metric): metric
+            for metric in missing_metrics
+        }
+        for future in concurrent.futures.as_completed(future_to_metric):
+            metric = future_to_metric[future]
+            try:
+                result = future.result()
+                if result == 'experimental':
+                    experimental_missing.append(metric)
+                elif result == 'active':
+                    active_missing.append(metric)
+                else:
+                    inactive_missing.append(metric)
+            except Exception:
+                # On unexpected error, conservatively include the metric as active
+                active_missing.append(metric)
+
+    return active_missing, inactive_missing, experimental_missing, None
+
+
 def check_metrics_documented(docs_dir):
     """Check which metrics are documented in the knowledge base.
-    
+
+    Uses a two-pass approach:
+    1. Find metrics listed in metrics.json that are not mentioned in any doc file.
+    2. Query the CM Catalog API (requires CM_API_KEY) to split those candidates
+       into two buckets:
+         - active_missing: confirmed active in catalog → real documentation errors
+         - inactive_missing: not found in catalog → suggestions only (planned/inactive
+           metrics that don't need docs yet)
+
     Returns:
-        tuple: (found_count, missing_metrics, error_message)
+        tuple: (found_count, active_missing, inactive_missing, experimental_missing, error_message)
+        - found_count: number of metrics found in the docs
+        - active_missing: metrics undocumented AND active in catalog (errors)
+        - inactive_missing: metrics undocumented AND absent from catalog (suggestions)
+        - experimental_missing: metrics undocumented AND experimental in catalog (suggestions)
+        - error_message: set if fetching metrics.json failed, else None
     """
     metrics, error = fetch_metrics_from_gitlab()
     if error:
-        return 0, [], error
-    
-    # Extract short_form from each metric
+        return 0, [], [], [], error
+
+    # Build name list and category lookup (needed for catalog API routing).
+    # Skip internal metrics — they are not expected to appear in the documentation.
     metric_names = []
+    category_lookup = {}
     for metric in metrics:
         if isinstance(metric, dict) and 'short_form' in metric:
-            metric_names.append(metric['short_form'])
-    
+            if metric.get('internal') is True:
+                continue
+            name = metric['short_form']
+            metric_names.append(name)
+            category_lookup[name] = metric.get('category', '')
+
     if not metric_names:
-        return 0, [], "No metrics found in metrics.json"
-    
+        return 0, [], [], [], "No metrics found in metrics.json"
+
     # Read all markdown files and build a searchable content string
     all_content = ""
     for md_file in docs_dir.rglob('*.md'):
@@ -373,8 +495,8 @@ def check_metrics_documented(docs_dir):
         except Exception:
             # Skip files that can't be read
             pass
-    
-    # Check which metrics are mentioned
+
+    # Pass 1: find metrics not mentioned anywhere in the docs
     found = []
     missing = []
     for metric_name in metric_names:
@@ -382,8 +504,22 @@ def check_metrics_documented(docs_dir):
             found.append(metric_name)
         else:
             missing.append(metric_name)
-    
-    return len(found), missing, None
+
+    if not missing:
+        return len(found), [], [], [], None
+
+    # Pass 2: split missing metrics into active (errors), inactive (suggestions),
+    # and experimental (suggestions with a distinct message)
+    active_missing, inactive_missing, experimental_missing, skip_reason = \
+        filter_to_active_metrics(missing, category_lookup)
+
+    if skip_reason:
+        print(f"INFO: Catalog API check skipped - {skip_reason}")
+        # Without catalog data we can't distinguish categories;
+        # report all as potential errors and return no suggestions.
+        return len(found), missing, [], [], None
+
+    return len(found), active_missing, inactive_missing, experimental_missing, None
 
 
 def check_metrics_url_slugs(docs_dir):
@@ -540,26 +676,60 @@ def main():
     
     # Test 8: Check metrics documentation coverage
     tc = TestCase("All metrics documented", classname='GitBookValidation')
-    found_count, missing_metrics, error = check_metrics_documented(docs_dir)
+    found_count, active_missing, inactive_missing, experimental_missing, error = \
+        check_metrics_documented(docs_dir)
     if error:
         # If we can't fetch metrics, skip the test (don't fail)
         print(f"SKIPPED: Metrics check - {error}")
-    elif missing_metrics:
-        total_count = found_count + len(missing_metrics)
-        # Add output to test case for visibility in reports, but don't fail
-        tc.add_failure_info(
-            message=f"{found_count}/{total_count} metrics found in documentation",
-            output="\n".join(missing_metrics)
-        )
-        print(f"INFO: {found_count}/{total_count} metrics found in documentation")
-        print(f"INFO: {len(missing_metrics)} metric(s) not found in documentation")
-        for metric in missing_metrics[:10]:  # Show first 10
-            print(f"  - {metric}")
-        if len(missing_metrics) > 10:
-            print(f"  ... and {len(missing_metrics) - 10} more")
     else:
-        total_count = found_count
-        print(f"PASS: All {total_count} metrics found in documentation")
+        total_count = (found_count + len(active_missing)
+                       + len(inactive_missing) + len(experimental_missing))
+
+        # Suggestions: build system-out lines for both inactive and experimental metrics.
+        # Written to tc.stdout so they appear in the HTML report as suggestions
+        # without marking the test as failed.
+        suggestion_lines = []
+        if inactive_missing:
+            for m in sorted(inactive_missing):
+                suggestion_lines.append(
+                    f"[SUGGESTION] {m}: not present in CM Catalog API, "
+                    f"so not expected in docs"
+                )
+            print(f"INFO: {len(inactive_missing)} metric(s) absent from CM Catalog API "
+                  f"(no documentation required)")
+        if experimental_missing:
+            for m in sorted(experimental_missing):
+                suggestion_lines.append(
+                    f"[SUGGESTION] {m}: experimental metric in CM Catalog API, "
+                    f"may not be present in docs"
+                )
+            print(f"INFO: {len(experimental_missing)} metric(s) marked experimental "
+                  f"in CM Catalog API (documentation optional)")
+        if suggestion_lines:
+            tc.stdout = "\n".join(suggestion_lines)
+            for line in suggestion_lines[:10]:
+                print(f"  - {line[len('[SUGGESTION] '):]}")
+            if len(suggestion_lines) > 10:
+                print(f"  ... and {len(suggestion_lines) - 10} more")
+
+        # Errors: metrics confirmed active (and non-experimental) but missing from docs
+        if active_missing:
+            tc.add_failure_info(
+                message=f"{found_count}/{total_count} metrics found in documentation "
+                        f"({len(active_missing)} active metric(s) undocumented)",
+                output="\n".join(sorted(active_missing))
+            )
+            print(f"FAIL: {found_count}/{total_count} metrics found in documentation")
+            print(f"FAIL: {len(active_missing)} active metric(s) not found in documentation:")
+            for metric in sorted(active_missing)[:10]:
+                print(f"  - {metric}")
+            if len(active_missing) > 10:
+                print(f"  ... and {len(active_missing) - 10} more")
+        else:
+            print(f"PASS: All active metrics ({found_count}) found in documentation")
+            if inactive_missing or experimental_missing:
+                print(f"      ({len(inactive_missing)} inactive, "
+                      f"{len(experimental_missing)} experimental metrics skipped)")
     test_cases.append(tc)
     
     # Test 9: Check metrics URL slugs map to files

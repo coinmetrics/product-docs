@@ -54,8 +54,8 @@ The sum held by an exchange at the end of that interval.
 | OKX Supply (USD)                 | SplyOKXUSD | USD          | 1 day    |
 | Poloniex Supply (native units)   | SplyPOLNtv | Native units | 1 day    |
 | Poloniex Supply (USD)            | SplyPOLUSD | USD          | 1 day    |
-| Poloniex Supply (native units)   | SplySBGNtv | Native units | 1 day    |
-| Poloniex Supply (USD)            | SplySBGUSD | USD          | 1 day    |
+| SwissBorg Supply (native units)   | SplySBGNtv | Native units | 1 day    |
+| SwissBorg Supply (USD)            | SplySBGUSD | USD          | 1 day    |
 
 ### Details
 
