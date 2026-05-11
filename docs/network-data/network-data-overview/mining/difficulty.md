@@ -89,13 +89,34 @@ The mean difficulty of finding a hash that meets the protocol-designated require
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/DiffMean" %}
 
+## Block Difficulty
+
+### Definition
+
+The raw block difficulty value as reported by the protocol.
+
+| Name                    | MetricID                | Unit          | Interval |
+| ----------------------- | ----------------------- | ------------- | -------- |
+| Block Difficulty        | block_difficulty        | Dimensionless | 1 day    |
+| Block Difficulty Change | block_difficulty_change | Dimensionless | 1 day    |
+
+### Details
+
+* `block_difficulty` reports the raw difficulty value set by the protocol for the latest block in the interval.
+* `block_difficulty_change` measures the change in block difficulty between intervals, useful for tracking adjustment events.
+* These metrics are only available for PoW chains.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/block_difficulty" %}
+
 ## API Endpoints
 
 metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
-and by passing in the metric ID's `Diff*` in the `metrics` parameter.
+and by passing in the metric ID's `Diff*` or `block_difficulty*` in the `metrics` parameter.
 
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
