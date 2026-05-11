@@ -1,70 +1,27 @@
 # Total Assets
 
-## Definition
+## Overview
 
-The total assets under management of an investment trust or fund in U.S. dollars.
+The total assets under management (AUM) of an investment trust or fund in U.S. dollars. The metric name is prefixed by the ticker symbol of the investment product (e.g. `gbtc_total_assets` for Grayscale's Bitcoin Investment Trust). Total assets reflects the aggregate fair value of all digital assets held by the product.
 
-| Name                   | MetricID          | Unit | Frequency |
-| ---------------------- | ----------------- | ---- | --------- |
-| Grayscale Total Assets | \*\_total\_assets | USD  | 1d        |
+## Metrics
 
-The metric names are prefixed by the ticker symbol of the investment product, such as `gbtc_shares_outstanding` for Grayscale's Bitcoin Investment Trust.
+<table data-full-width="true"><thead><tr><th width="500">Metric</th><th>Description</th><th width="100">Frequency</th></tr></thead><tbody><tr><td><code>bat_total_assets</code></td><td>The total assets under management of Grayscale Basic Attention Token Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>bch_total_assets</code></td><td>The total assets under management of Grayscale Bitcoin Cash Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>bcor_total_assets</code></td><td>The total assets under management of Grayscale Bitcoin Covered Call ETF in U.S. dollars.</td><td>1d</td></tr><tr><td><code>btc_total_assets</code></td><td>The total assets under management of Grayscale Bitcoin Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>defi_total_assets</code></td><td>The total assets under management of Grayscale DeFi Fund in U.S. dollars.</td><td>1d</td></tr><tr><td><code>dlc_total_assets</code></td><td>The total assets under management of Grayscale Digital Large Cap Fund in U.S. dollars.</td><td>1d</td></tr><tr><td><code>etc_total_assets</code></td><td>The total assets under management of Grayscale Ethereum Classic Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>eth_total_assets</code></td><td>The total assets under management of Grayscale Ethereum Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>ethe_total_assets</code></td><td>The total assets under management of Grayscale Ethereum Trust (ETHE) in U.S. dollars.</td><td>1d</td></tr><tr><td><code>ethemini_total_assets</code></td><td>The total assets under management of Grayscale Ethereum Mini Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>ethepq_total_assets</code></td><td>The total assets under management of Grayscale Ethereum Premium Income ETF in U.S. dollars.</td><td>1d</td></tr><tr><td><code>fil_total_assets</code></td><td>The total assets under management of Grayscale Filecoin Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>gai_total_assets</code></td><td>The total assets under management of Grayscale AI Opportunities ETF in U.S. dollars.</td><td>1d</td></tr><tr><td><code>gbtc_total_assets</code></td><td>The total assets under management of Grayscale Bitcoin Trust (GBTC) in U.S. dollars.</td><td>1d</td></tr><tr><td><code>gbtcmini_total_assets</code></td><td>The total assets under management of Grayscale Bitcoin Mini Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>gbtcpq_total_assets</code></td><td>The total assets under management of Grayscale Bitcoin Premium Income ETF in U.S. dollars.</td><td>1d</td></tr><tr><td><code>gfof_total_assets</code></td><td>The total assets under management of Grayscale Future of Finance ETF in U.S. dollars.</td><td>1d</td></tr><tr><td><code>gscpxe_total_assets</code></td><td>The total assets under management of Grayscale Smart Contract Platform ex-ETH ETF in U.S. dollars.</td><td>1d</td></tr><tr><td><code>link_total_assets</code></td><td>The total assets under management of Grayscale Chainlink Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>lpt_total_assets</code></td><td>The total assets under management of Grayscale Livepeer Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>ltc_total_assets</code></td><td>The total assets under management of Grayscale Litecoin Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>mana_total_assets</code></td><td>The total assets under management of Grayscale Decentraland Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>sol_total_assets</code></td><td>The total assets under management of Grayscale Solana Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>sui_total_assets</code></td><td>The total assets under management of Grayscale Sui Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>tao_total_assets</code></td><td>The total assets under management of Grayscale Bittensor Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>xlm_total_assets</code></td><td>The total assets under management of Grayscale Stellar Lumens Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>zec_total_assets</code></td><td>The total assets under management of Grayscale Zcash Trust in U.S. dollars.</td><td>1d</td></tr><tr><td><code>zen_total_assets</code></td><td>The total assets under management of Grayscale Horizen Trust in U.S. dollars.</td><td>1d</td></tr></tbody></table>
 
-### Specific Metric IDs by Product
+## Data Sources and Methodology
 
-| Product                                          | MetricID                  | Unit | Frequency |
-| ------------------------------------------------ | ------------------------- | ---- | --------- |
-| Grayscale Basic Attention Token Trust            | bat_total_assets        | USD  | 1d        |
-| Grayscale Bitcoin Cash Trust                     | bch_total_assets        | USD  | 1d        |
-| Grayscale Bitcoin Covered Call ETF               | bcor_total_assets       | USD  | 1d        |
-| Grayscale Bitcoin Trust                          | btc_total_assets        | USD  | 1d        |
-| Grayscale DeFi Fund                              | defi_total_assets       | USD  | 1d        |
-| Grayscale Digital Large Cap Fund                 | dlc_total_assets        | USD  | 1d        |
-| Grayscale Ethereum Classic Trust                 | etc_total_assets        | USD  | 1d        |
-| Grayscale Ethereum Trust                         | eth_total_assets        | USD  | 1d        |
-| Grayscale Ethereum Trust (ETHE)                  | ethe_total_assets       | USD  | 1d        |
-| Grayscale Ethereum Mini Trust                    | ethemini_total_assets   | USD  | 1d        |
-| Grayscale Ethereum Premium Income ETF            | ethepq_total_assets     | USD  | 1d        |
-| Grayscale Filecoin Trust                         | fil_total_assets        | USD  | 1d        |
-| Grayscale AI Opportunities ETF                   | gai_total_assets        | USD  | 1d        |
-| Grayscale Bitcoin Trust (GBTC)                   | gbtc_total_assets       | USD  | 1d        |
-| Grayscale Bitcoin Mini Trust                     | gbtcmini_total_assets   | USD  | 1d        |
-| Grayscale Bitcoin Premium Income ETF             | gbtcpq_total_assets     | USD  | 1d        |
-| Grayscale Future of Finance ETF                  | gfof_total_assets       | USD  | 1d        |
-| Grayscale Smart Contract Platform ex-ETH ETF     | gscpxe_total_assets     | USD  | 1d        |
-| Grayscale Chainlink Trust                        | link_total_assets       | USD  | 1d        |
-| Grayscale Livepeer Trust                         | lpt_total_assets        | USD  | 1d        |
-| Grayscale Litecoin Trust                         | ltc_total_assets        | USD  | 1d        |
-| Grayscale Decentraland Trust                     | mana_total_assets       | USD  | 1d        |
-| Grayscale Solana Trust                           | sol_total_assets        | USD  | 1d        |
-| Grayscale Sui Trust                              | sui_total_assets        | USD  | 1d        |
-| Grayscale Bittensor Trust                        | tao_total_assets        | USD  | 1d        |
-| Grayscale Stellar Lumens Trust                   | xlm_total_assets        | USD  | 1d        |
-| Grayscale Zcash Trust                            | zec_total_assets        | USD  | 1d        |
-| Grayscale Horizen Trust                          | zen_total_assets        | USD  | 1d        |
+Total assets data is sourced directly from daily filings and disclosures published by Grayscale Investments. For AUM calculated in accordance with US GAAP methodology, see [Grayscale's GAAP page](https://grayscale.com/gaap-page/).
 
-## Details
+## Coverage
 
-For NAV Per Share and AUM calculated in accordance with US GAAP Methodology, [see here.](https://grayscale.com/gaap-page/)
+Institution metrics are not currently displayed on coverage.coinmetrics.io.
+
+## API Endpoints
+
+The metrics are served through the following endpoints:
+
+* [/timeseries/institution-metrics](https://docs.coinmetrics.io/api/v4/#tag/Timeseries/operation/getTimeseriesInstitutionMetrics)
 
 ## Release History
 
 * Release Version. [Market Data Feed 2.4 (August 2021)](https://coinmetrics.io/cm-market-data-feed-v2-4-release-notes/)
-
-## See Also
-
-{% content-ref url="shares-outstanding.md" %}
-[shares-outstanding.md](shares-outstanding.md)
-{% endcontent-ref %}
-
-{% content-ref url="market-price.md" %}
-[market-price.md](market-price.md)
-{% endcontent-ref %}
-
-{% content-ref url="net-asset-value.md" %}
-[net-asset-value.md](net-asset-value.md)
-{% endcontent-ref %}
-
-{% content-ref url="coin-per-share.md" %}
-[coin-per-share.md](coin-per-share.md)
-{% endcontent-ref %}

@@ -1,68 +1,27 @@
 # Coin Per Share
 
-## Definition
+## Overview
 
-The number of units of the asset that each share of an investment trust or fund is worth.
+The number of units of the underlying asset that each share of an investment trust or fund is worth. The metric name is prefixed by the ticker symbol of the investment product (e.g. `gbtc_coin_per_share` for Grayscale's Bitcoin Investment Trust).
 
-| Name                      | MetricID             | Unit         | Frequency |
-| ------------------------- | -------------------- | ------------ | --------- |
-| Grayscale Net Asset Value | \*\_coin\_per\_share | Native units | 1d        |
+## Metrics
 
-The metric names are prefixed by the ticker symbol of the investment product, such as `gbtc_shares_outstanding` for Grayscale's Bitcoin Investment Trust.
+<table data-full-width="true"><thead><tr><th width="500">Metric</th><th>Description</th><th width="100">Frequency</th></tr></thead><tbody><tr><td><code>bat_coin_per_share</code></td><td>The number of BAT units that each share of Grayscale Basic Attention Token Trust is worth.</td><td>1d</td></tr><tr><td><code>bch_coin_per_share</code></td><td>The number of BCH units that each share of Grayscale Bitcoin Cash Trust is worth.</td><td>1d</td></tr><tr><td><code>btc_coin_per_share</code></td><td>The number of BTC units that each share of Grayscale Bitcoin Trust is worth.</td><td>1d</td></tr><tr><td><code>defi_coin_per_share</code></td><td>The number of the underlying asset units that each share of Grayscale DeFi Fund is worth.</td><td>1d</td></tr><tr><td><code>dlc_coin_per_share</code></td><td>The number of the underlying asset units that each share of Grayscale Digital Large Cap Fund is worth.</td><td>1d</td></tr><tr><td><code>etc_coin_per_share</code></td><td>The number of ETC units that each share of Grayscale Ethereum Classic Trust is worth.</td><td>1d</td></tr><tr><td><code>eth_coin_per_share</code></td><td>The number of ETH units that each share of Grayscale Ethereum Trust is worth.</td><td>1d</td></tr><tr><td><code>ethe_coin_per_share</code></td><td>The number of ETH units that each share of Grayscale Ethereum Trust (ETHE) is worth.</td><td>1d</td></tr><tr><td><code>ethemini_coin_per_share</code></td><td>The number of ETH units that each share of Grayscale Ethereum Mini Trust is worth.</td><td>1d</td></tr><tr><td><code>ethepq_coin_per_share</code></td><td>The number of the underlying asset units that each share of Grayscale Ethereum Premium Income ETF is worth.</td><td>1d</td></tr><tr><td><code>fil_coin_per_share</code></td><td>The number of FIL units that each share of Grayscale Filecoin Trust is worth.</td><td>1d</td></tr><tr><td><code>gai_coin_per_share</code></td><td>The number of the underlying asset units that each share of Grayscale AI Opportunities ETF is worth.</td><td>1d</td></tr><tr><td><code>gbtc_coin_per_share</code></td><td>The number of BTC units that each share of Grayscale Bitcoin Trust (GBTC) is worth.</td><td>1d</td></tr><tr><td><code>gbtcmini_coin_per_share</code></td><td>The number of BTC units that each share of Grayscale Bitcoin Mini Trust is worth.</td><td>1d</td></tr><tr><td><code>gbtcpq_coin_per_share</code></td><td>The number of the underlying asset units that each share of Grayscale Bitcoin Premium Income ETF is worth.</td><td>1d</td></tr><tr><td><code>gscpxe_coin_per_share</code></td><td>The number of the underlying asset units that each share of Grayscale Smart Contract Platform ex-ETH ETF is worth.</td><td>1d</td></tr><tr><td><code>link_coin_per_share</code></td><td>The number of LINK units that each share of Grayscale Chainlink Trust is worth.</td><td>1d</td></tr><tr><td><code>lpt_coin_per_share</code></td><td>The number of LPT units that each share of Grayscale Livepeer Trust is worth.</td><td>1d</td></tr><tr><td><code>ltc_coin_per_share</code></td><td>The number of LTC units that each share of Grayscale Litecoin Trust is worth.</td><td>1d</td></tr><tr><td><code>mana_coin_per_share</code></td><td>The number of MANA units that each share of Grayscale Decentraland Trust is worth.</td><td>1d</td></tr><tr><td><code>sol_coin_per_share</code></td><td>The number of SOL units that each share of Grayscale Solana Trust is worth.</td><td>1d</td></tr><tr><td><code>sui_coin_per_share</code></td><td>The number of SUI units that each share of Grayscale Sui Trust is worth.</td><td>1d</td></tr><tr><td><code>tao_coin_per_share</code></td><td>The number of TAO units that each share of Grayscale Bittensor Trust is worth.</td><td>1d</td></tr><tr><td><code>xlm_coin_per_share</code></td><td>The number of XLM units that each share of Grayscale Stellar Lumens Trust is worth.</td><td>1d</td></tr><tr><td><code>zec_coin_per_share</code></td><td>The number of ZEC units that each share of Grayscale Zcash Trust is worth.</td><td>1d</td></tr><tr><td><code>zen_coin_per_share</code></td><td>The number of ZEN units that each share of Grayscale Horizen Trust is worth.</td><td>1d</td></tr></tbody></table>
 
-### Specific Metric IDs by Product
+## Data Sources and Methodology
 
-| Product                                          | MetricID                  | Unit         | Frequency |
-| ------------------------------------------------ | ------------------------- | ------------ | --------- |
-| Grayscale Basic Attention Token Trust            | bat_coin_per_share     | Native units | 1d        |
-| Grayscale Bitcoin Cash Trust                     | bch_coin_per_share     | Native units | 1d        |
-| Grayscale Bitcoin Trust                          | btc_coin_per_share     | Native units | 1d        |
-| Grayscale DeFi Fund                              | defi_coin_per_share    | Native units | 1d        |
-| Grayscale Digital Large Cap Fund                 | dlc_coin_per_share     | Native units | 1d        |
-| Grayscale Ethereum Classic Trust                 | etc_coin_per_share     | Native units | 1d        |
-| Grayscale Ethereum Trust                         | eth_coin_per_share     | Native units | 1d        |
-| Grayscale Ethereum Trust (ETHE)                  | ethe_coin_per_share    | Native units | 1d        |
-| Grayscale Ethereum Mini Trust                    | ethemini_coin_per_share | Native units | 1d       |
-| Grayscale Ethereum Premium Income ETF            | ethepq_coin_per_share  | Native units | 1d        |
-| Grayscale Filecoin Trust                         | fil_coin_per_share     | Native units | 1d        |
-| Grayscale AI Opportunities ETF                   | gai_coin_per_share     | Native units | 1d        |
-| Grayscale Bitcoin Trust (GBTC)                   | gbtc_coin_per_share    | Native units | 1d        |
-| Grayscale Bitcoin Mini Trust                     | gbtcmini_coin_per_share | Native units | 1d       |
-| Grayscale Bitcoin Premium Income ETF             | gbtcpq_coin_per_share  | Native units | 1d        |
-| Grayscale Smart Contract Platform ex-ETH ETF     | gscpxe_coin_per_share  | Native units | 1d        |
-| Grayscale Chainlink Trust                        | link_coin_per_share    | Native units | 1d        |
-| Grayscale Livepeer Trust                         | lpt_coin_per_share     | Native units | 1d        |
-| Grayscale Litecoin Trust                         | ltc_coin_per_share     | Native units | 1d        |
-| Grayscale Decentraland Trust                     | mana_coin_per_share    | Native units | 1d        |
-| Grayscale Solana Trust                           | sol_coin_per_share     | Native units | 1d        |
-| Grayscale Sui Trust                              | sui_coin_per_share     | Native units | 1d        |
-| Grayscale Bittensor Trust                        | tao_coin_per_share     | Native units | 1d        |
-| Grayscale Stellar Lumens Trust                   | xlm_coin_per_share     | Native units | 1d        |
-| Grayscale Zcash Trust                            | zec_coin_per_share     | Native units | 1d        |
-| Grayscale Horizen Trust                          | zen_coin_per_share     | Native units | 1d        |
+Coin per share is sourced directly from daily filings and disclosures published by Grayscale Investments. It reflects the number of units of the relevant digital asset attributable to each outstanding share of the investment product as of the close of business on each reporting day.
 
-## Details
+## Coverage
 
-This metric is only available for Grayscale's single asset investment products.
+Institution metrics are not currently displayed on coverage.coinmetrics.io.
+
+## API Endpoints
+
+The metrics are served through the following endpoints:
+
+* [/timeseries/institution-metrics](https://docs.coinmetrics.io/api/v4/#tag/Timeseries/operation/getTimeseriesInstitutionMetrics)
 
 ## Release History
 
 * Release Version. [Market Data Feed 2.4 (August 2021)](https://coinmetrics.io/cm-market-data-feed-v2-4-release-notes/)
-
-## See Also
-
-{% content-ref url="shares-outstanding.md" %}
-[shares-outstanding.md](shares-outstanding.md)
-{% endcontent-ref %}
-
-{% content-ref url="market-price.md" %}
-[market-price.md](market-price.md)
-{% endcontent-ref %}
-
-{% content-ref url="net-asset-value.md" %}
-[net-asset-value.md](net-asset-value.md)
-{% endcontent-ref %}
-
-{% content-ref url="total-assets.md" %}
-[total-assets.md](total-assets.md)
-{% endcontent-ref %}
