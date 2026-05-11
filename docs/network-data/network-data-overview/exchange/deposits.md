@@ -21,7 +21,7 @@ The sum of assets sent to an exchange that interval.
 | Binance Deposits (USD)            | FlowInBNBUSD | USD          | 1 block, 1 day |
 | Bitstamp Deposits (native units)  | FlowInBSPNtv | Native units | 1 block, 1 day |
 | Bitstamp Deposits (USD)           | FlowInBSPUSD | USD          | 1 block, 1 day |
-| Bittrex Deposits (native units)   | FlowInBTCNtv | Native units | 1 block, 1 day |
+| Bittrex Deposits (native units)   | FlowInBTXNtv | Native units | 1 block, 1 day |
 | Bittrex Deposit (USD)             | FlowInBTXUSD | USD          | 1 block, 1 day |
 | Bybit Deposit (native units)      | FlowInBITNtv | Native units | 1 day          |
 | Bybit Deposit (USD)               | FlowInBITUSD | USD          | 1 day          |

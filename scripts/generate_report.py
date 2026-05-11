@@ -313,39 +313,49 @@ def parse_gitleaks(report_path):
 
 
 def parse_junit_xml(report_path):
-    """Parse existing JUnit XML reports."""
+    """Parse existing JUnit XML reports.
+
+    In addition to <failure> elements (treated as errors), this also reads
+    <system-out> elements for lines prefixed with '[SUGGESTION] ', which are
+    emitted by validate_gitbook.py for metrics that are in metrics.json but
+    absent from the CM Catalog API (planned/inactive metrics that don't need
+    documentation yet).  Those lines are surfaced as suggestion-severity issues
+    so they remain visible in the HTML report without counting as failures.
+    """
     if not report_path.exists():
         return []
-    
+
     try:
         tree = ET.parse(report_path)
         root = tree.getroot()
-        
+
         issues = []
         for testcase in root.iter('testcase'):
+            test_name = testcase.get('name', '')
+
+            # --- Failure lines → errors ---
             failure = testcase.find('failure')
             if failure is not None:
-                test_name = testcase.get('name', '')
                 failure_text = failure.text
-                
+
                 if failure_text and failure_text.strip():
                     error_lines = [line.strip() for line in failure_text.strip().split('\n') if line.strip()]
-                    
+
                     for error_line in error_lines:
                         file_name = 'unknown'
-                        
+
                         if ': ' in error_line and ('.md' in error_line or 'file' in error_line.lower()):
                             parts = error_line.split(': ')
                             if len(parts) >= 2:
                                 potential_file = parts[-1].strip()
                                 if '/' in potential_file or '.md' in potential_file:
                                     file_name = potential_file
-                        
+
                         if file_name == 'unknown' and error_line.startswith('docs/'):
                             parts = error_line.split()
                             if parts:
                                 file_name = parts[0]
-                        
+
                         issues.append({
                             'file': file_name,
                             'line': '1',
@@ -364,7 +374,24 @@ def parse_junit_xml(report_path):
                         'message': failure.get('message', 'Test failed'),
                         'severity': 'error'
                     })
-        
+
+            # --- system-out lines prefixed with [SUGGESTION] → suggestions ---
+            system_out = testcase.find('system-out')
+            if system_out is not None and system_out.text:
+                prefix = '[SUGGESTION] '
+                for line in system_out.text.strip().split('\n'):
+                    line = line.strip()
+                    if line.startswith(prefix):
+                        message = line[len(prefix):]
+                        issues.append({
+                            'file': 'metrics.json',
+                            'line': '1',
+                            'column': '1',
+                            'rule': test_name,
+                            'message': message,
+                            'severity': 'suggestion'
+                        })
+
         return issues
     except (ET.ParseError, IOError) as e:
         print(f"Error parsing JUnit XML report: {e}")
