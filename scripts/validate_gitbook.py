@@ -555,6 +555,17 @@ def check_metrics_url_slugs(docs_dir):
         # Normalize slug: remove double slashes and strip trailing slash
         normalized = url_slug.replace('//', '/').rstrip('/')
 
+        # Reject slugs ending in /README — GitBook serves README.md files at
+        # the directory URL (e.g. /kri), not at /kri/readme, which returns 404.
+        # The slug should point to the directory instead (e.g. use 'kri' not 'kri/README').
+        if normalized.upper().endswith('/README'):
+            suggested = normalized.rsplit('/', 1)[0]
+            invalid.append(
+                f"{metric_name}: {url_slug} -> slug ends with /README which produces a "
+                f"broken GitBook URL; use '{suggested}' instead"
+            )
+            continue
+
         # Construct path: url_slug_doc -> docs/{url_slug_doc}.md
         file_path = docs_dir / f"{normalized}.md"
 
