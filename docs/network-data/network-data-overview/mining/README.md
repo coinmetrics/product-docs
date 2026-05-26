@@ -95,3 +95,8 @@
 * RevHashRateNtv
 * RevHashRateUSD
 * RevHashUSD
+
+
+[**Miner Entity**](entity.md)
+
+* MinerEntity

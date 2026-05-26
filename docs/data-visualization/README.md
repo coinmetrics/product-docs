@@ -20,13 +20,11 @@ All data is sourced from the CM v4 API.
 * **Reference Rates**: Specifically our daily 00:00 UTC, 12pm NYC, 4pm NYC, 10:30am London, 11:00am London, 3:15 Chicago
 * **Indexes (Daily Levels)**: Available through our CMBI product
 
-We also offer five external benchmarks sourced from the FRED API. This data is not endorsed or certified by the Federal Reserve Bank of St. Louis. These benchmarks include the
+We also offer three external benchmarks sourced from the FRED API. This data is not endorsed or certified by the Federal Reserve Bank of St. Louis. These benchmarks include the
 
-* S\&P 500 Index (http://fred.stlouisfed.org/series/SP500), which is an S\&P Dow Jones Indices LLC product; note the daily value for this index is as of 4pm NY time
-* London Bullion Market Index (http://fred.stlouisfed.org/series/GOLDAMGBD228NLBM), which is an ICE Benchmark Administration Limited product; note the daily value for this index is as of 10:30am London time
-* Trade Weighted US Dollar Index (http://fred.stlouisfed.org/seris/DTWEXBGS), which is a Board of Governors of the Federal Reserve System (US) product; note that the daily value for this index is 12:00pm NY time
-* CBOE Volatility Index (http://fred.stlouisfed.org/series/VIXCLS), which is a Chicago Board Options Exchange product; note that the daily value for this index is 3:15pm Chicago time
-* 1-Month London Interbank Offered Rate (LIBOR) (http://fred.stlousfed.org/series/USD1MTD156N), which is an ICE Benchmark Administration Limited product; note the daily value for this index is as of 11:00am London time
+* S\&P 500 Index (https://fred.stlouisfed.org/series/SP500), which is an S\&P Dow Jones Indices LLC product; note the daily value for this index is as of 4pm NY time
+* Trade Weighted US Dollar Index (https://fred.stlouisfed.org/series/DTWEXBGS), which is a Board of Governors of the Federal Reserve System (US) product; note that the daily value for this index is 12:00pm NY time
+* CBOE Volatility Index (https://fred.stlouisfed.org/series/VIXCLS), which is a Chicago Board Options Exchange product; note that the daily value for this index is 3:15pm Chicago time
 
 ## Getting Started
 
