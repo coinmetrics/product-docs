@@ -5,7 +5,7 @@ description: cmtv.coinmetrics.io
 # CMTV Charts (Labs)
 
 {% hint style="warning" %}
-CMTV Charts been released as a [CM Labs](https://docs.coinmetrics.io/cm-labs) project. Breaking changes may be introduced with minimal notice. Please exercise caution given the endpoint's experimental nature.
+CMTV Charts been released as a [CM Labs](https://docs.coinmetrics.io/packages/cm-labs) project. Breaking changes may be introduced with minimal notice. Please exercise caution given the endpoint's experimental nature.
 {% endhint %}
 
 ## Introduction
@@ -23,9 +23,9 @@ All data is sourced from the CM v4 API.
 
 We also offer four external benchmarks sourced from the FRED API. This data is not endorsed or certified by the Federal Reserve Bank of St. Louis. These benchmarks include the
 
-* S\&P 500 Index (http://fred.stlouisfed.org/series/SP500), which is an S\&P Dow Jones Indices LLC product; note the daily value for this index is as of 4pm NY time
-* Trade Weighted US Dollar Index (http://fred.stlouisfed.org/seris/DTWEXBGS), which is a Board of Governors of the Federal Reserve System (US) product; note that the daily value for this index is 12:00pm NY time
-* CBOE Volatility Index (http://fred.stlouisfed.org/series/VIXCLS), which is a Chicago Board Options Exchange product; note that the daily value for this index is 3:15pm Chicago time
+* S\&P 500 Index (https://fred.stlouisfed.org/series/SP500), which is an S\&P Dow Jones Indices LLC product; note the daily value for this index is as of 4pm NY time
+* Trade Weighted US Dollar Index (https://fred.stlouisfed.org/series/DTWEXBGS), which is a Board of Governors of the Federal Reserve System (US) product; note that the daily value for this index is 12:00pm NY time
+* CBOE Volatility Index (https://fred.stlouisfed.org/series/VIXCLS), which is a Chicago Board Options Exchange product; note that the daily value for this index is 3:15pm Chicago time
 
 ## Available Data History
 

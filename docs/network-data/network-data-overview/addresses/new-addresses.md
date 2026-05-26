@@ -30,7 +30,7 @@ The sum count of all unique addresses that were newly created and funded (e.g. h
 
 ### **Chart**
 
-[New Addr Cnt](https://docs.coinmetrics.io/asset-metrics/adresses/adrnewcnt) showcases all new addresses observed in the network over the previous day, and New Funded Addr Cnt is a subset of New Addr Cnt that only counts addresses with a balance greater than 0.
+[New Addr Cnt](https://coverage.coinmetrics.io/asset-metrics-v2/AdrNewCnt) showcases all new addresses observed in the network over the previous day, and New Funded Addr Cnt is a subset of New Addr Cnt that only counts addresses with a balance greater than 0.
 
 ### **Asset-Specific Details**
 
@@ -87,7 +87,7 @@ The sum count of all unique addresses that were newly created that interval.
 
 ### **Chart**
 
-New Addr Cnt showcases all new addresses observed in the network over the previous day, and [New Funded Addr Cnt](https://docs.coinmetrics.io/asset-metrics/adresses/adrnewbalcnt) is a subset of New Addr Cnt that only counts addresses with a balance greater than 0.
+New Addr Cnt showcases all new addresses observed in the network over the previous day, and [New Funded Addr Cnt](https://coverage.coinmetrics.io/asset-metrics-v2/AdrNewBalCnt) is a subset of New Addr Cnt that only counts addresses with a balance greater than 0.
 
 ### **Asset-Specific Details**
 

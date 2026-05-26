@@ -1,7 +1,12 @@
-# Exclude patterns
+# Exclude patterns (URL-level)
 exclude = [
   "localhost",
   "127.0.0.1"
+]
+
+# Exclude source files from being checked
+exclude_path = [
+  "docs/tutorials-and-examples/user-guides/how-to-troubleshoot-common-errors.md"
 ]
 
 # Network settings

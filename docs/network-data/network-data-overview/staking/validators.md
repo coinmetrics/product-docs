@@ -15,6 +15,11 @@
 * [Validators Pending Eligibility](validators.md#validatorpndinitcnt)
 * [Validator in Activation Queue](validators.md#validatorpndqedcnt)
 * [Full Participation Issuance](validators.md#validatorpndqedcnt-1)
+* [Staking Consolidations Count](validators.md#stkconsolidationcnt)
+* [Staking Consolidations Total](validators.md#stkconsolidationtotntv)
+* [Validator Consolidation Count](validators.md#validatorconsolidationcnt)
+* [Validator Consolidation Rate](validators.md#validatorconsolidationrate)
+* [Validator Total Consolidation Rate](validators.md#validatorconsolidationtotrate)
 
 ## Count of Senders to CL Contract <a href="#sendercntclcont" id="sendercntclcont"></a>
 
@@ -344,6 +349,98 @@ Maximum daily protocol issuance on the Ethereum consensus layer (beacon chain) a
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/IssFullParticipation" %}
+
+## Staking Consolidations Count <a href="#stkconsolidationcnt" id="stkconsolidationcnt"></a>
+
+### Definition
+
+The count of all consolidations executed in the interval.
+
+| Name                       | MetricID             | Unit           | Interval |
+| -------------------------- | -------------------- | -------------- | -------- |
+| Staking Consolidations Count | StkConsolidationCnt | Consolidations | 1 day    |
+
+### Details
+
+* Count of all validator consolidation requests executed on the Ethereum Consensus Layer during the interval.
+* Consolidations were introduced in the Pectra upgrade (EIP-7251), allowing multiple validator keys to be merged into a single validator with a higher effective balance.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/StkConsolidationCnt" %}
+
+## Staking Consolidations Total <a href="#stkconsolidationtotntv" id="stkconsolidationtotntv"></a>
+
+### Definition
+
+Total of all consolidations executed in the interval.
+
+| Name                          | MetricID                | Unit         | Interval |
+| ----------------------------- | ----------------------- | ------------ | -------- |
+| Staking Consolidations Total  | StkConsolidationTotNtv  | Native units | 1 day    |
+
+### Details
+
+* Total value (in native units) of all validator consolidations executed on the Ethereum Consensus Layer during the interval.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/StkConsolidationTotNtv" %}
+
+## Validator Consolidation Count <a href="#validatorconsolidationcnt" id="validatorconsolidationcnt"></a>
+
+### Definition
+
+The sum of all validators that had a consolidation request executed during the current interval.
+
+| Name                          | MetricID                  | Unit       | Interval |
+| ----------------------------- | ------------------------- | ---------- | -------- |
+| Validator Consolidation Count | ValidatorConsolidationCnt | Validators | 1 day    |
+
+### Details
+
+* Count of ETH Consensus Layer (CL) validators that were subject to a consolidation request during the interval.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorConsolidationCnt" %}
+
+## Validator Consolidation Rate <a href="#validatorconsolidationrate" id="validatorconsolidationrate"></a>
+
+### Definition
+
+The relative rate at which validators consolidated during the current interval.
+
+| Name                          | MetricID                   | Unit          | Interval |
+| ----------------------------- | -------------------------- | ------------- | -------- |
+| Validator Consolidation Rate  | ValidatorConsolidationRate | Dimensionless | 1 day    |
+
+### Details
+
+* Ratio of consolidated validators to total active validators during the interval.
+* Computed as `ValidatorConsolidationCnt / ValidatorCnt`.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorConsolidationRate" %}
+
+## Validator Total Consolidation Rate <a href="#validatorconsolidationtotrate" id="validatorconsolidationtotrate"></a>
+
+### Definition
+
+The relative rate at which validators consolidated since the activation of the Pectra fork.
+
+| Name                                  | MetricID                      | Unit          | Interval |
+| ------------------------------------- | ----------------------------- | ------------- | -------- |
+| Validator Total Consolidation Rate    | ValidatorConsolidationTotRate | Dimensionless | All time |
+
+### Details
+
+* Cumulative ratio of consolidated validators to total validators since the Pectra upgrade activated EIP-7251.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/ValidatorConsolidationTotRate" %}
 
 ## API Endpoints
 

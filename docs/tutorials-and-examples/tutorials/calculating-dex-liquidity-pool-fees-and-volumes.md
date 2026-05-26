@@ -221,7 +221,7 @@ pool_fees
 | 2 | 0.3  |
 | 3 | 1.0  |
 
-Due to the permissionless nature of provisioning a liquidity pool, users can easily add arbitrary ERC-20 tokens to the decentralized exchange. There are over 50,000 trading pairs available on Uniswap today. To prioritize only the most relevant and liquid markets, we cover the subset of markets where both tokens are part of Coin Metrics [reference rate coverage](https://docs.coinmetrics.io/asset-metrics/market/referenceratesusd).
+Due to the permissionless nature of provisioning a liquidity pool, users can easily add arbitrary ERC-20 tokens to the decentralized exchange. There are over 50,000 trading pairs available on Uniswap today. To prioritize only the most relevant and liquid markets, we cover the subset of markets where both tokens are part of Coin Metrics [reference rate coverage](https://coverage.coinmetrics.io/asset-metrics-v2/ReferenceRateUSD).
 
 ```python
 # Assets covered

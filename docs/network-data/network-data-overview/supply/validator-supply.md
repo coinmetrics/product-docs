@@ -5,6 +5,7 @@
 * [Supply Staked in Validators](validator-supply.md#splystkedntc)
 * [Active Staked Supply](validator-supply.md#splyactstkedntv)
 * [Total Staked Supply](validator-supply.md#splytotstkedntv)
+* [Average Supply Staked by Active Validators](validator-supply.md#splystkedactmeanntv)
 
 ## Supply Staked by Stakers <a href="#splystkedntc" id="splystkedntc"></a>
 
@@ -62,6 +63,25 @@ Sum of all balances held by all validators.
 ### Release History
 
 * Released September 2022.
+
+## Average Supply Staked by Active Validators <a href="#splystkedactmeanntv" id="splystkedactmeanntv"></a>
+
+### Definition
+
+The mean supply held across all active stakers.
+
+| Name                                            | MetricID            | Unit         | Interval |
+| ----------------------------------------------- | ------------------- | ------------ | -------- |
+| Average Supply Staked by Active Validators      | SplyStkedActMeanNtv | Native units | 1 day    |
+
+### Details
+
+* Mean staked supply per active validator, computed as `SplyActStkedNtv / ValidatorActOngCnt`.
+* Provides a per-validator view of average stake size, useful for tracking consolidation and effective balance trends.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/SplyStkedActMeanNtv" %}
 
 ## API Endpoints
 

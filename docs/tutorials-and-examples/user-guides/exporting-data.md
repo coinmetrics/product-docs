@@ -46,7 +46,7 @@ client.get_asset_metrics(
 ).export_to_json("sample_data.json")
 ```
 
-As of version 2025.9.17.17, exporting to JSON files using the Python API Client is as fast using a `curl` command. See these [release notes](https://github.com/coinmetrics/api-client-python/releases/tag/2025.9.17.17) for more on benchmarking.
+As of version 2025.9.17.17, exporting to JSON files using the Python API Client is as fast using a `curl` command. See these [release notes](https://github.com/coinmetrics/api-client-python/releases) for more on benchmarking.
 
 Exporting data can be sped up significantly by splitting the API calls to parallel threads.&#x20;
 

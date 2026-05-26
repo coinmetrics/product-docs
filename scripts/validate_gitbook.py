@@ -552,13 +552,21 @@ def check_metrics_url_slugs(docs_dir):
             warnings.append(f"{metric_name}: missing url_slug_doc")
             continue
         
+        # Normalize slug: remove double slashes and strip trailing slash
+        normalized = url_slug.replace('//', '/').rstrip('/')
+
         # Construct path: url_slug_doc -> docs/{url_slug_doc}.md
-        file_path = docs_dir / f"{url_slug}.md"
-        
+        file_path = docs_dir / f"{normalized}.md"
+
         if file_path.exists():
             valid.append(url_slug)
         else:
-            invalid.append(f"{metric_name}: {url_slug} -> {file_path.relative_to(docs_dir.parent)}")
+            # Fallback: treat slug as a directory and look for README.md
+            readme_path = docs_dir / normalized / "README.md"
+            if readme_path.exists():
+                valid.append(url_slug)
+            else:
+                invalid.append(f"{metric_name}: {url_slug} -> {file_path.relative_to(docs_dir.parent)}")
     
     return len(valid), invalid, warnings, None
 
