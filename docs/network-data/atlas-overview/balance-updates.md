@@ -30,7 +30,7 @@ The **Balance Updates** endpoint returns a list of accounts, which have the foll
 
 ## Multi-Denomination Assets
 
-Certain Atlas assets track activity across many independent sub-tokens rather than a single fixed denomination. For these assets, the `denomination` field in each balance update identifies the specific sub-token the update applies to.
+Certain Atlas assets track activity across many independent sub-tokens rather than a single fixed denomination. For these assets, the `denomination` field in each balance update identifies the specific sub-token the update applies to. The sub-token is identified by its contract address.
 
 When `denomination` is absent from a balance update, the update's denomination is the asset's default (its symbol, e.g. `btc`).
 
@@ -40,9 +40,11 @@ Morpho Vault assets (`MORPHO_VAULTS_ETH`, `MORPHO_VAULTS_BASE`, `MORPHO_VAULTS_A
 
 For these assets:
 
-- The `denomination` field contains the vault's contract address as a lowercase 40-character hex string (no `0x` prefix), e.g. `a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48`.
+- The `denomination` field contains the vault's contract address as a lowercase 40-character hex string (no `0x` prefix).
 - The `change`, `new_balance`, and `previous_balance` values are expressed in the vault's own share token units (scaled by that vault's decimals).
 - Balances across different denominations are not directly comparable because each vault's share token represents a different underlying asset.
+
+**Example:** The steakUSDC vault on Ethereum (`0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB`) appears as denomination `beef01735c132ada46aa9aa4c54623caa92a64cb` in balance updates for `MORPHO_VAULTS_ETH`.
 
 ### Filtering by Denomination
 
@@ -52,8 +54,8 @@ The balance updates endpoint accepts a `denominations` query parameter — a com
 /blockchain-v2/{asset}/balance-updates?denominations={vault_contract_address}
 ```
 
-For example, to retrieve only balance updates for a single Morpho vault on Ethereum:
+For example, to retrieve only balance updates for the steakUSDC vault on Ethereum:
 
 ```
-/blockchain-v2/morpho_vaults_eth/balance-updates?denominations=a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48
+/blockchain-v2/morpho_vaults_eth/balance-updates?denominations=beef01735c132ada46aa9aa4c54623caa92a64cb
 ```

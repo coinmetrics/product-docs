@@ -167,7 +167,7 @@ Taking this transaction that pays a fee of 0.25 BTC as an example, we have:
 
 ## Multi-Denomination Assets
 
-Most Atlas assets assign a single fixed denomination to every balance update — typically the asset symbol (e.g. `btc`, `eth`). However, certain assets track activity across many independent sub-tokens, each with its own contract address and decimal precision. For these assets, balance updates carry a `denomination` field that identifies which sub-token the update belongs to.
+Most Atlas assets assign a single fixed denomination to every balance update, typically the asset symbol (e.g. `btc`, `eth`). However, certain assets track activity across many independent sub-tokens, each with its own contract address and decimal precision. For these assets, balance updates carry a `denomination` field that identifies which sub-token the update belongs to. The denomination is the sub-token's contract address.
 
 When the `denomination` field is absent from a balance update, the denomination equals the asset's default (its symbol).
 
@@ -178,6 +178,8 @@ Morpho Vault assets (`MORPHO_VAULTS_ETH`, `MORPHO_VAULTS_BASE`, `MORPHO_VAULTS_A
 Because each vault's share token represents a distinct unit of account, balance updates for these assets always carry a `denomination` field: the vault's contract address as a lowercase 40-character hex string (no `0x` prefix).
 
 The `change`, `new_balance`, and `previous_balance` values are expressed in the vault's share token units. Balances across different vault denominations are not directly comparable.
+
+**Example:** The steakUSDC vault on Ethereum has contract address `0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB`. Balance updates for this vault in `MORPHO_VAULTS_ETH` carry `denomination: beef01735c132ada46aa9aa4c54623caa92a64cb`.
 
 See [Balance Updates](balance-updates.md#multi-denomination-assets) for details on the `denomination` field and the `denominations` filter parameter.
 
