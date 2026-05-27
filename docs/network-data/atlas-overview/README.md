@@ -216,6 +216,26 @@ If you need to download large amounts of data, i.e. more than 100k rows, we reco
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-05-27" %}
+## Added Morpho Vault Support
+
+Added Atlas support for MetaMorpho vault activity on Ethereum, Base, Arbitrum, Avalanche, and Optimism. Each asset aggregates all MetaMorpho ERC-4626 vault tokens deployed on the respective chain.
+
+Balance updates for these assets carry a `denomination` field set to the vault's contract address, reflecting each vault's distinct share token. See [Balance Updates](balance-updates.md#multi-denomination-assets) for details on the denomination field and filter parameter. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/atlas-v2).
+
+<details>
+
+<summary>Assets Added</summary>
+
+* MORPHO\_VAULTS\_ETH - Morpho Vaults on Ethereum
+* MORPHO\_VAULTS\_BASE - Morpho Vaults on Base
+* MORPHO\_VAULTS\_ARB - Morpho Vaults on Arbitrum
+* MORPHO\_VAULTS\_AVAXC - Morpho Vaults on Avalanche
+* MORPHO\_VAULTS\_OP - Morpho Vaults on Optimism
+
+</details>
+{% endupdate %}
+
 {% update date="2026-05-01" %}
 ## Added Stellar Token Support
 
