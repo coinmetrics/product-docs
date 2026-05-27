@@ -233,6 +233,8 @@ Balance updates for these assets carry a `denomination` field set to the vault's
 * MORPHO\_VAULTS\_AVAXC - Morpho Vaults on Avalanche
 * MORPHO\_VAULTS\_OP - Morpho Vaults on Optimism
 
+**Note:** Balance updates for these assets are denominated in vault shares, not in the underlying deposited asset. A vault share represents a proportional claim on the vault's total assets; its value in terms of the underlying asset changes over time as the vault accrues yield.
+
 </details>
 {% endupdate %}
 
