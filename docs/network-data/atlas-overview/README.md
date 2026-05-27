@@ -223,6 +223,8 @@ Added Atlas support for MetaMorpho vault activity on Ethereum, Base, Arbitrum, A
 
 Balance updates for these assets carry a `denomination` field set to the vault's contract address, reflecting each vault's distinct share token. See [Balance Updates](balance-updates.md#multi-denomination-assets) for details on the denomination field and filter parameter. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/atlas-v2).
 
+**Note:** Balance updates for these assets are denominated in vault shares, not in the underlying deposited asset. A vault share represents a proportional claim on the vault's total assets; its value in terms of the underlying asset changes over time as the vault accrues yield.
+
 <details>
 
 <summary>Assets Added</summary>
@@ -232,8 +234,6 @@ Balance updates for these assets carry a `denomination` field set to the vault's
 * MORPHO\_VAULTS\_ARB - Morpho Vaults on Arbitrum
 * MORPHO\_VAULTS\_AVAXC - Morpho Vaults on Avalanche
 * MORPHO\_VAULTS\_OP - Morpho Vaults on Optimism
-
-**Note:** Balance updates for these assets are denominated in vault shares, not in the underlying deposited asset. A vault share represents a proportional claim on the vault's total assets; its value in terms of the underlying asset changes over time as the vault accrues yield.
 
 </details>
 {% endupdate %}
