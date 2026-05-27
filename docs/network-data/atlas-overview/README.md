@@ -165,6 +165,22 @@ Taking this transaction that pays a fee of 0.25 BTC as an example, we have:
 }
 ```
 
+## Multi-Denomination Assets
+
+Most Atlas assets assign a single fixed denomination to every balance update — typically the asset symbol (e.g. `btc`, `eth`). However, certain assets track activity across many independent sub-tokens, each with its own contract address and decimal precision. For these assets, balance updates carry a `denomination` field that identifies which sub-token the update belongs to.
+
+When the `denomination` field is absent from a balance update, the denomination equals the asset's default (its symbol).
+
+### Morpho Vault Assets
+
+Morpho Vault assets (`MORPHO_VAULTS_ETH`, `MORPHO_VAULTS_BASE`, `MORPHO_VAULTS_ARB`, `MORPHO_VAULTS_AVAXC`, `MORPHO_VAULTS_OP`) aggregate ERC-4626 vault token activity across all MetaMorpho vaults deployed on the respective chain. Each vault is an independent ERC-20/ERC-4626 token that issues its own share tokens to depositors, with its own contract address and decimal configuration.
+
+Because each vault's share token represents a distinct unit of account, balance updates for these assets always carry a `denomination` field: the vault's contract address as a lowercase 40-character hex string (no `0x` prefix).
+
+The `change`, `new_balance`, and `previous_balance` values are expressed in the vault's share token units. Balances across different vault denominations are not directly comparable.
+
+See [Balance Updates](balance-updates.md#multi-denomination-assets) for details on the `denomination` field and the `denominations` filter parameter.
+
 ## API Endpoints
 
 The Atlas API endpoints are located under the common `/blockchain-v2` prefix. There are four primary data sets returned by the Atlas endpoints:

@@ -26,3 +26,34 @@ The **Balance Updates** endpoint returns a list of accounts, which have the foll
 | previous\_debit\_height                                                    | Block height of the last debit from this account (null if no prior debit)                                                                                         |
 | previous\_credit\_height                                                   | Block height of the last credit from this account (null if no prior credit)                                                                                       |
 | previous\_chain\_sequence\_number                                          | The positioning of the last transaction that took place for this account relative to all other transactions that have taken place on this chain                   |
+| denomination                                                               | The denomination of the balance update. Only present for assets that support multiple denominations, and only when the denomination differs from the asset's default. See [Multi-Denomination Assets](README.md#multi-denomination-assets). |
+
+## Multi-Denomination Assets
+
+Certain Atlas assets track activity across many independent sub-tokens rather than a single fixed denomination. For these assets, the `denomination` field in each balance update identifies the specific sub-token the update applies to.
+
+When `denomination` is absent from a balance update, the update's denomination is the asset's default (its symbol, e.g. `btc`).
+
+### Morpho Vault Assets
+
+Morpho Vault assets (`MORPHO_VAULTS_ETH`, `MORPHO_VAULTS_BASE`, `MORPHO_VAULTS_ARB`, `MORPHO_VAULTS_AVAXC`, `MORPHO_VAULTS_OP`) aggregate ERC-4626 vault token activity across all MetaMorpho vaults deployed on the respective chain. Each vault is an independent ERC-20 token with its own contract address and decimal precision.
+
+For these assets:
+
+- The `denomination` field contains the vault's contract address as a lowercase 40-character hex string (no `0x` prefix), e.g. `a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48`.
+- The `change`, `new_balance`, and `previous_balance` values are expressed in the vault's own share token units (scaled by that vault's decimals).
+- Balances across different denominations are not directly comparable because each vault's share token represents a different underlying asset.
+
+### Filtering by Denomination
+
+The balance updates endpoint accepts a `denominations` query parameter — a comma-separated list of denomination values — to return only balance updates for specific sub-tokens:
+
+```
+/blockchain-v2/{asset}/balance-updates?denominations={vault_contract_address}
+```
+
+For example, to retrieve only balance updates for a single Morpho vault on Ethereum:
+
+```
+/blockchain-v2/morpho_vaults_eth/balance-updates?denominations=a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48
+```
