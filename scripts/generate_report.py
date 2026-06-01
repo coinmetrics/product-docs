@@ -398,6 +398,26 @@ def parse_junit_xml(report_path):
         return []
 
 
+def get_skipped_tests(report_path):
+    """Return list of (test_name, message) for any skipped testcases in a JUnit XML."""
+    if not report_path.exists():
+        return []
+    try:
+        tree = ET.parse(report_path)
+        root = tree.getroot()
+        skipped = []
+        for testcase in root.iter('testcase'):
+            s = testcase.find('skipped')
+            if s is not None:
+                skipped.append((
+                    testcase.get('name', 'Unknown test'),
+                    s.get('message', 'Test was skipped')
+                ))
+        return skipped
+    except (ET.ParseError, IOError):
+        return []
+
+
 # Parser configuration for main() function
 PARSER_CONFIG = [
     ('markdownlint', 'parse_markdownlint', 'markdownlint.txt', 'markdownlint issues'),
@@ -900,6 +920,13 @@ def generate_html_header(timestamp):
             overflow-x: auto;
         }}
 
+        .skipped-banner {{ display: flex; align-items: flex-start; gap: 12px; background: #fffbeb; border: 1px solid #f59e0b; border-left: 4px solid #f59e0b; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px; color: #92400e; font-size: var(--font-sm); }}
+        body.dark-mode .skipped-banner {{ background: #451a03; border-color: #d97706; color: #fde68a; }}
+        .skipped-banner .banner-icon {{ font-size: 20px; flex-shrink: 0; margin-top: 1px; }}
+        .skipped-banner .banner-body {{ flex: 1; }}
+        .skipped-banner .banner-title {{ font-weight: 600; font-size: var(--font-base); margin-bottom: 4px; }}
+        .skipped-banner .banner-tests {{ margin-top: 6px; padding-left: 16px; }}
+        .skipped-banner .banner-tests li {{ margin-bottom: 2px; font-family: monospace; font-size: var(--font-sm); }}
         .zero-state {{ text-align: center; padding: 60px; color: var(--text-muted); }}
         .zero-state h3 {{ color: var(--text-main); font-size: var(--font-lg); letter-spacing: -0.01em; }}
         .zero-state p {{ font-size: var(--font-base); }}
@@ -1553,19 +1580,41 @@ def generate_html_footer():
 """
 
 
-def generate_html_report(all_issues):
+def generate_skipped_banner(skipped_tests):
+    """Generate a warning banner listing tests that were skipped due to missing tokens."""
+    if not skipped_tests:
+        return ''
+    items = ''.join(
+        f'<li><strong>{name}</strong> — {msg}</li>'
+        for name, msg in skipped_tests
+    )
+    return f"""
+        <div class="skipped-banner">
+            <div class="banner-icon">⚠️</div>
+            <div class="banner-body">
+                <div class="banner-title">Some tests were skipped — results may be incomplete</div>
+                The following checks require <code>GITLAB_TOKEN</code> (and <code>CM_API_KEY</code>
+                for catalog checks) to run. Set these environment variables and re-run the validator
+                to see full results.
+                <ul class="banner-tests">{items}</ul>
+            </div>
+        </div>"""
+
+
+def generate_html_report(all_issues, skipped_tests=None):
     """Generate HTML summary report."""
     # Prepare data
     by_source, by_file, by_rule = prepare_grouped_data(all_issues)
     severity_counts = calculate_severity_counts(all_issues)
     top_files = get_top_items(by_file, TOP_ITEMS_LIMIT)
     top_rules = get_top_items(by_rule, TOP_ITEMS_LIMIT)
-    
+
     timestamp = datetime.now().strftime('%B %d, %Y at %I:%M %p')
-    
+
     # Build HTML report
     html = generate_html_header(timestamp)
-    
+    html += generate_skipped_banner(skipped_tests or [])
+
     if len(all_issues) == 0:
         html += """
         <div class="zero-state">
@@ -1607,8 +1656,12 @@ def main():
     junit_path = reports_dir / 'junit.xml'
     junit_tree.write(junit_path, encoding='utf-8', xml_declaration=True)
     print(f"\nGenerated JUnit XML: {junit_path}")
-    
-    html = generate_html_report(all_issues)
+
+    skipped_tests = get_skipped_tests(reports_dir / 'gitbook-validation.xml')
+    if skipped_tests:
+        print(f"Warning: {len(skipped_tests)} GitBook validation test(s) were skipped (missing token)")
+
+    html = generate_html_report(all_issues, skipped_tests=skipped_tests)
     html_path = reports_dir / 'index.html'
     with open(html_path, 'w', encoding='utf-8') as f:
         f.write(html)

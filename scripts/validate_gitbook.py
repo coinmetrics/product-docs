@@ -699,6 +699,7 @@ def main():
         check_metrics_documented(docs_dir)
     if error:
         # If we can't fetch metrics, skip the test (don't fail)
+        tc.add_skipped_info(message=error)
         print(f"SKIPPED: Metrics check - {error}")
     else:
         total_count = (found_count + len(active_missing)
@@ -756,6 +757,7 @@ def main():
     valid_count, invalid_paths, warnings, error = check_metrics_url_slugs(docs_dir)
     if error:
         # If we can't fetch metrics, skip the test (don't fail)
+        tc.add_skipped_info(message=error)
         print(f"SKIPPED: Metrics URL slug check - {error}")
     else:
         # Report warnings for missing url_slug_doc (don't fail)
