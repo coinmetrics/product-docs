@@ -419,30 +419,6 @@ Each band covers a specific age range, where age is the number of days elapsed s
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/CapRealUSD1d" %}
 
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/CapRealUSD1w" %}
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/CapRealUSD1m" %}
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/CapRealUSD3m" %}
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/CapRealUSD6m" %}
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/CapRealUSD1y" %}
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/CapRealUSD2y" %}
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/CapRealUSD3y" %}
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/CapRealUSD4y" %}
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/CapRealUSD5y" %}
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/CapRealUSD7y" %}
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/CapRealUSD10y" %}
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/CapRealUSD10yPlus" %}
-
 ### API Endpoints
 
 Exhange Deposits metrics can be accessed using these endpoints:
