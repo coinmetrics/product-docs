@@ -414,8 +414,6 @@ Each band covers a specific age range, where age is the number of days elapsed s
 ### Asset-Specific Details
 
 * Currently only available for Bitcoin.
-* Zcash is excluded because its CapRealUSD includes shielded pool value not present in the UTXO set, which would break the sum-of-bands invariant.
-* Only applicable to UTXO-based protocols.
 
 ### Availability for Assets
 
