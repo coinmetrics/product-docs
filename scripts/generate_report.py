@@ -123,6 +123,11 @@ def parse_lychee(report_path):
             # GitBook-generated pre-signed R2 URLs for OpenAPI specs. These expire after
             # 48 hours and return 403, but the spec renders correctly on the live site
             # via GitBook's internal credentials. Not actionable from the docs side.
+        'live.blockcypher.com',   # Block explorer — blocks crawlers, works in browser
+        'mempool.space',          # Block explorer — blocks crawlers, works in browser
+        'blockchair.com',         # Block explorer — blocks crawlers, works in browser
+        'www.cmegroup.com',       # CME Group — blocks crawlers, works in browser
+        'dspace.unive.it',        # Academic repository — connection errors from crawler
     }
 
     # Files where all link errors are downgraded to suggestions, with a
