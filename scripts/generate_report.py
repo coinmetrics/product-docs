@@ -117,7 +117,8 @@ def parse_lychee(report_path):
     # These are authenticated or bot-blocked pages that return non-200 responses
     # when crawled by a link checker, but we still want visibility in the docs.
     INFO_DOMAINS = {
-        'atlas.coinmetrics.io',  # Requires login — 403 expected from crawler
+        'atlas.coinmetrics.io',   # Requires login — 403 expected from crawler
+        'fred.stlouisfed.org',    # Blocks automated crawlers but links are valid
     }
 
     # Files where all link errors are downgraded to suggestions, with a
@@ -244,7 +245,8 @@ def parse_lychee(report_path):
                 # --- All other domains ---
                 if domain in INFO_DOMAINS:
                     message = (
-                        f"Link requires browser authentication [{status_code}]: {url} - {status_text}"
+                        f"Cannot be checked automatically (bot-blocked) [{status_code}]: "
+                        f"{url} - {status_text}"
                     )
                     severity = 'suggestion'
                 else:
