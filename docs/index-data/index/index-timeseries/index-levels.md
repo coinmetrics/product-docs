@@ -10,7 +10,7 @@ Index levels represent the level of an index.&#x20;
 
 ## **Details**
 
-For more information on the various indexes and what the various index levels represent, please consult the [CMBI Single Asset Series Methodology](https://coinmetrics.io/cmbi-single-asset-methodology/), the [CMBI Multi Asset Series Methodology](https://coinmetrics.io/cmbi-multi-asset-series-methodology/), the [CMBI Momentum Series Methodology](https://coinmetrics.io/cmbi-momentum-series-methodology/), the [CMBI Mining Series Methodology](https://coinmetrics.io/cmbi-multi-asset-series-methodology/), and the [CMBI Total Market Series Methodology](https://coinmetrics.io/wp-content/uploads/2022/12/CMBI-Total-Market-Series-Methodology.pdf).&#x20;
+For more information on the various indexes and what the various index levels represent — including the CMBI Single Asset, Multi Asset, Momentum, Mining, and Total Market Series — please consult the [Coin Metrics Bletchley Indexes (CMBI) methodology documentation](../../coin-metrics-bletchley-indexes-cmbi/README.md).&#x20;
 
 Coin Metrics produces index values at the following frequencies:&#x20;
 
