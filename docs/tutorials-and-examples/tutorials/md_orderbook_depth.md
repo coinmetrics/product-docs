@@ -1,7 +1,5 @@
 # Examining Orderbook Depth
 
-![](https://5264302.fs1.hubspotusercontent-na1.net/hubfs/5264302/Demo%20Asset%20Resources/CM-Demo-orderbook_depth.png)
-
 Exchange order book data is one of the most foundational data types in the crypto asset industry— arguably, even more foundational than trades data, as two orders must be matched for a trade to occur. Order book data is useful for various entities, including market makers, systematic or quantitative traders, and funds studying trade execution patterns. The Coin Metrics **Market Data Feed** offering includes various API endpoints that allow users to retrieve order book snapshots and updates across a collection of top crypto exchanges.
 
 ### Resources
