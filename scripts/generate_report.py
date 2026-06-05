@@ -119,6 +119,10 @@ def parse_lychee(report_path):
     INFO_DOMAINS = {
         'atlas.coinmetrics.io',   # Requires login — 403 expected from crawler
         'fred.stlouisfed.org',    # Blocks automated crawlers but links are valid
+        'gitbook-x-prod-openapi.4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com',
+            # GitBook-generated pre-signed R2 URLs for OpenAPI specs. These expire after
+            # 48 hours and return 403, but the spec renders correctly on the live site
+            # via GitBook's internal credentials. Not actionable from the docs side.
     }
 
     # Files where all link errors are downgraded to suggestions, with a
