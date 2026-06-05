@@ -27,6 +27,45 @@ Details on the specific metrics are described in the pages linked in this sectio
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-06-05" %}
+## Expand CapMrktEstUSD to New Assets
+
+Added estimated market cap to the following new assets:
+
+<details>
+
+<summary>Estimated Market Cap added to the following assets:</summary>
+
+1. anime
+2. aurora
+3. b2
+4. cpool
+5. ctx
+6. cyber
+7. enso
+8. holo
+9. honey
+10. huma
+11. major
+12. meme
+13. mira
+14. mplx
+15. neon
+16. newt
+17. order
+18. paal
+19. plume
+20. prompt
+21. rats
+22. sats
+23. sundog
+24. tai
+25. waxl
+26. xai
+
+</details>
+{% endupdate %}
+
 {% update date="2026-05-01" %}
 ## Added Network Data Metrics for Stellar Tokens
 
