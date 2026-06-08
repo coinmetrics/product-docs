@@ -10,7 +10,7 @@ The net asset value (NAV) per share of an investment trust or fund in U.S. dolla
 
 ## Data Sources and Methodology
 
-Net asset value per share is calculated daily at 4 PM ET, based on reference price data from CoinDesk or equivalent pricing sources as specified in each product's governing documents. For NAV per share and AUM calculated in accordance with US GAAP methodology, see [Grayscale's GAAP page](https://grayscale.com/gaap-page/).
+Net asset value per share is calculated daily at 4 PM ET, based on reference price data from CoinDesk or equivalent pricing sources as specified in each product's governing documents. For NAV per share and AUM calculated in accordance with US GAAP methodology, see [Grayscale's GAAP page](https://www.grayscale.com/blog/general-updates/safety-security-and-transparency).
 
 ## Coverage
 

@@ -128,6 +128,7 @@ def parse_lychee(report_path):
         'blockchair.com',         # Block explorer — blocks crawlers, works in browser
         'www.cmegroup.com',       # CME Group — blocks crawlers, works in browser
         'dspace.unive.it',        # Academic repository — connection errors from crawler
+        'www.grayscale.com',      # Grayscale — blocks automated crawlers, works in browser
     }
 
     # Files where all link errors are downgraded to suggestions, with a
@@ -217,6 +218,24 @@ def parse_lychee(report_path):
 
                 # --- api.coinmetrics.io: re-verify with real API key ---
                 if domain == API_DOMAIN:
+                    # Skip bare base URLs (e.g. https://api.coinmetrics.io/v4) —
+                    # these appear in docs as informational references, not navigable
+                    # endpoints, and will always 404 when crawled directly.
+                    parsed_path = urllib.parse.urlparse(url).path.rstrip('/')
+                    if parsed_path in ('', '/v4'):
+                        message = (
+                            f"Base API URL (informational reference, not a navigable endpoint) "
+                            f"[{status_code}]: {url}"
+                        )
+                        issues.append({
+                            'file': file_path,
+                            'line': '1',
+                            'column': '1',
+                            'rule': 'Informational URL',
+                            'message': message,
+                            'severity': 'suggestion'
+                        })
+                        continue
                     if cm_api_key:
                         verified_code = reverify_api_url(url)
                         if verified_code is not None and 200 <= verified_code < 300:
@@ -1433,7 +1452,13 @@ def generate_details_sections(by_source):
                     </div>
                 """
         else:
-            for issue in issues:
+            # Sort so errors appear before warnings, then suggestions
+            sev_order = {'error': 0, 'warning': 1, 'suggestion': 2}
+            sorted_issues = sorted(
+                issues,
+                key=lambda i: sev_order.get(i.get('severity', 'error').lower(), 0)
+            )
+            for issue in sorted_issues:
                 sev = issue.get('severity', 'error').lower()
                 msg = issue.get('message', '').replace('<', '&lt;').replace('>', '&gt;')
                 loc = f"{issue['file']}:{issue['line']}"
