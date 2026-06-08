@@ -198,6 +198,21 @@ If you need to download large amounts of data, i.e. more than 100k rows, we reco
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-06-08" %}
+## Added Polkadot Asset Hub Support
+
+Added Atlas support for DOT, USDC, and USDt on the Polkadot Asset Hub parachain. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/atlas-v2).
+
+<details>
+
+<summary>Assets Added</summary>
+
+* DOT\_ASSETHUB - Polkadot Asset Hub
+* USDC\_ASSETHUB.DOT - USD Coin Asset Hub
+* USDT\_ASSETHUB.DOT - Tether USD Asset Hub
+
+</details>
+{% endupdate %}
 {% update date="2026-05-01" %}
 ## Added Stellar Token Support
 
