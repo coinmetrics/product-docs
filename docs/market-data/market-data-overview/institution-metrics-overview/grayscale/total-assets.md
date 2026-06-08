@@ -10,7 +10,7 @@ The total assets under management (AUM) of an investment trust or fund in U.S. d
 
 ## Data Sources and Methodology
 
-Total assets data is sourced directly from daily filings and disclosures published by Grayscale Investments. For AUM calculated in accordance with US GAAP methodology, see [Grayscale's GAAP page](https://grayscale.com/gaap-page/).
+Total assets data is sourced directly from daily filings and disclosures published by Grayscale Investments. For AUM calculated in accordance with US GAAP methodology, see [Grayscale's GAAP page](https://www.grayscale.com/blog/general-updates/safety-security-and-transparency).
 
 ## Coverage
 

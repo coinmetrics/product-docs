@@ -10,8 +10,6 @@ The very same property also makes it possible for network attacks, such as so-ca
 
 FARUM solves this problem by tracking the full spectrum of possible risks by making use of both conventional and unconventional data sources. Raw data on blockchain transactions across all supported networks is formatted in accordance with Coin Metric’s Universal Blockchain Data Model (UBDM), which is provisioned via the [Atlas API](https://coinmetrics.io/atlas/). In order to also provide alerts on unprocessed transactions, FARUM employs Coin Metric’s Mempool Collector, a low-latency mempool querying engine built from the ground up to maximize performance. These sources provide a complete view of both processed and unprocessed transactions from which network risk can be managed and alerts can be created.\\
 
-![Data Sources Supporting FARUM](https://lh6.googleusercontent.com/tbrLzx8p7\_ijfSK2gijy8av2Ap7MK2pKXW4bvYNPK9VRS4whGYd\_srEvbJfFxn-s4lma0pJsEzlomKUvW8283seoEcEUhdfGVJtCjmviGCBtdDXkzxv91ag6e51uQm1698mSvOo)
-
 Given the wide spectrum of risk vectors that must be covered, FARUM looks beyond transactional data flowing through a cryptoasset’s peer-to-peer network. Since observing mining pool protocols can provide a view on future blocks, additional data sources include the Mining Pool Collector, which connects to several mining pools via the Stratum protocol to obtain information about blocks being mined and/or impending network attacks. In order to evaluate potential attack vectors and/or ongoing attacks, FARUM employs many other collectors that will be described in this document.
 
 See:

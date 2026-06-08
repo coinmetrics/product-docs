@@ -8,7 +8,7 @@ Available to the community under the [Creative Commons](https://creativecommons.
 
 **Coin Metrics Community Metrics**(Community [API](https://docs.coinmetrics.io/access-our-data/api), [Data Visualization](../data-visualization/)) is a subset of our Network Data Pro and Market Data Pro data available for free for community use.
 
-**Atlas Community** (Community [API](https://docs.coinmetrics.io/api/v4/#tag/List-of-blockchain-entities), [Atlas Explorer](https://atlas.coinmetrics.io/)) is a limited history access to our Atlas data set for free use by the community. This is available for limited assets and 30 days of history.
+**Atlas Community** (Community [API](https://docs.coinmetrics.io/api/v4/#tag/List-of-blockchain-entities-v2), [Atlas Explorer](https://atlas.coinmetrics.io/)) is a limited history access to our Atlas data set for free use by the community. This is available for limited assets and 30 days of history.
 
 **Reference Rates Community** (Community[ API](https://docs.coinmetrics.io/access-our-data/api),[ Data Visualization](../data-visualization/),[ Pro Charts](../data-visualization/cmpro/)) provides access to all of our reference rates with a limited amount of history for our more granular resolutions. This is available and limited to the last 7 data points.
 
