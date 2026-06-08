@@ -201,7 +201,7 @@ If you need to download large amounts of data, i.e. more than 100k rows, we reco
 {% update date="2026-06-08" %}
 ## Added Polkadot Asset Hub Support
 
-Added Atlas support for DOT, USDC, and USDt on the Polkadot Asset Hub parachain. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/atlas-v2).
+Added Atlas support for DOT, USDC, and USDT on the Polkadot Asset Hub parachain. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/atlas-v2).
 
 <details>
 
