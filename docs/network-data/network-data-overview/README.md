@@ -30,7 +30,7 @@ Details on the specific metrics are described in the pages linked in this sectio
 {% update date="2026-06-09" %}
 ## Added Age-Band Realized Capitalization Metrics for Bitcoin
 
-Added 13 new metrics that decompose Bitcoin's realized capitalization by UTXO age. Each band captures the realized cap attributable to UTXOs within that age range, and the sum of all bands equals `CapRealUSD`. For full coverage details refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/CapRealUSD1d).
+Added 13 new metrics that decompose Bitcoin's realized capitalization by UTXO age. Each band captures the realized cap attributable to UTXOs within that age range, and the sum of all bands equals `CapRealUSD`. For full details on the methodology please refer to the [metric documentation page](market/market-capitalization.md#cap-real-age-bands). For full coverage details refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/CapRealUSD1d).
 
 <details>
 
@@ -51,12 +51,6 @@ Added 13 new metrics that decompose Bitcoin's realized capitalization by UTXO ag
 * `CapRealUSD10yPlus` - UTXOs aged 10+ years
 
 </details>
-{% endupdate %}
-
-{% update date="2026-05-25" %}
-## Added Network Data Metrics for BNB Smart Chain (Experimental)
-
-Added Network Data metrics for the BNB Smart Chain (`bnb_bsc`) at the 1d frequency on an experimental basis. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2/bnb_bsc).
 {% endupdate %}
 
 {% update date="2026-05-26" %}
@@ -157,6 +151,12 @@ Added Network Data metrics for tokenized Real World Asset (RWA) tokens on Ethere
 ## Added BUIDL\_SOL to Network Data Metrics
 
 Added metrics support for BlackRock's BUIDL tokenized money market fund on Solana (`buidl_sol`). For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2/buidl_sol).
+{% endupdate %}
+
+{% update date="2026-04-07" %}
+## Added Network Data Metrics for BNB Smart Chain (Experimental)
+
+Added Network Data metrics for the BNB Smart Chain (`bnb_bsc`) at the 1d frequency for a set of MVP metrics. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2/bnb_bsc).
 {% endupdate %}
 
 {% update date="2026-04-02" %}

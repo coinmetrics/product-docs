@@ -10,7 +10,7 @@
 * [Capitalization, MVRV, free float](market-capitalization.md#g)
 * [Capitalization, realized, USD](market-capitalization.md#h)
 * Estimated Market Cap Dominance
-* [Capitalization, realized, USD, age bands](market-capitalization.md#i)
+* [Capitalization, realized, USD, age bands](market-capitalization.md#cap-real-age-bands)
 
 ## Active Market Cap (1yr) (USD) <a href="#a" id="a"></a>
 
@@ -363,45 +363,45 @@ The relative share of the total crypto market cap for the asset in question, mea
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/CapMrktEstDomPct" %}
 
-## Realized Market Cap Age Bands (USD) <a href="#i" id="i"></a>
+## Realized Market Cap Age Bands (USD) <a href="#cap-real-age-bands" id="cap-real-age-bands"></a>
 
 ### Definition
 
 The sum USD value based on the USD closing price on the day that a native unit last moved, segmented by the time elapsed since that movement. Each band captures the portion of the Realized Market Cap attributable to native units whose most recent on-chain transaction falls within a specific age window.
 
-| Name | MetricID | Unit | Interval |
-| ---- | -------- | ---- | -------- |
-| Realized Cap (USD) 1 day Band | CapRealUSD1d | USD | 1 day |
-| Realized Cap (USD) 1 week Band | CapRealUSD1w | USD | 1 day |
-| Realized Cap (USD) 1 month Band | CapRealUSD1m | USD | 1 day |
-| Realized Cap (USD) 3 month Band | CapRealUSD3m | USD | 1 day |
-| Realized Cap (USD) 6 month Band | CapRealUSD6m | USD | 1 day |
-| Realized Cap (USD) 1 year Band | CapRealUSD1y | USD | 1 day |
-| Realized Cap (USD) 2 year Band | CapRealUSD2y | USD | 1 day |
-| Realized Cap (USD) 3 year Band | CapRealUSD3y | USD | 1 day |
-| Realized Cap (USD) 4 year Band | CapRealUSD4y | USD | 1 day |
-| Realized Cap (USD) 5 year Band | CapRealUSD5y | USD | 1 day |
-| Realized Cap (USD) 7 year Band | CapRealUSD7y | USD | 1 day |
-| Realized Cap (USD) 10 year Band | CapRealUSD10y | USD | 1 day |
-| Realized Cap (USD) 10 year+ Band | CapRealUSD10yPlus | USD | 1 day |
+| Name                             | MetricID          | Unit | Interval |
+| -------------------------------- | ----------------- | ---- | -------- |
+| Realized Cap (USD) 1 day Band    | CapRealUSD1d      | USD  | 1 day    |
+| Realized Cap (USD) 1 week Band   | CapRealUSD1w      | USD  | 1 day    |
+| Realized Cap (USD) 1 month Band  | CapRealUSD1m      | USD  | 1 day    |
+| Realized Cap (USD) 3 month Band  | CapRealUSD3m      | USD  | 1 day    |
+| Realized Cap (USD) 6 month Band  | CapRealUSD6m      | USD  | 1 day    |
+| Realized Cap (USD) 1 year Band   | CapRealUSD1y      | USD  | 1 day    |
+| Realized Cap (USD) 2 year Band   | CapRealUSD2y      | USD  | 1 day    |
+| Realized Cap (USD) 3 year Band   | CapRealUSD3y      | USD  | 1 day    |
+| Realized Cap (USD) 4 year Band   | CapRealUSD4y      | USD  | 1 day    |
+| Realized Cap (USD) 5 year Band   | CapRealUSD5y      | USD  | 1 day    |
+| Realized Cap (USD) 7 year Band   | CapRealUSD7y      | USD  | 1 day    |
+| Realized Cap (USD) 10 year Band  | CapRealUSD10y     | USD  | 1 day    |
+| Realized Cap (USD) 10 year+ Band | CapRealUSD10yPlus | USD  | 1 day    |
 
 Each band covers a specific age range, where age is the number of days elapsed since the UTXO was created (i.e., since the native unit last moved):
 
-| MetricID | Age Range (Days Since Last Movement) |
-| -------- | ------------------------------------ |
-| CapRealUSD1d | Less than 1 day |
-| CapRealUSD1w | 1 to 6 days |
-| CapRealUSD1m | 7 to 29 days |
-| CapRealUSD3m | 30 to 89 days |
-| CapRealUSD6m | 90 to 179 days |
-| CapRealUSD1y | 180 to 364 days |
-| CapRealUSD2y | 365 to 729 days |
-| CapRealUSD3y | 730 to 1,094 days |
-| CapRealUSD4y | 1,095 to 1,459 days |
-| CapRealUSD5y | 1,460 to 1,824 days |
-| CapRealUSD7y | 1,825 to 2,554 days |
-| CapRealUSD10y | 2,555 to 3,649 days |
-| CapRealUSD10yPlus | 3,650 days or more |
+| MetricID          | Age Range (Days Since Last Movement) |
+| ----------------- | ------------------------------------ |
+| CapRealUSD1d      | Less than 1 day                      |
+| CapRealUSD1w      | 1 to 6 days                          |
+| CapRealUSD1m      | 7 to 29 days                         |
+| CapRealUSD3m      | 30 to 89 days                        |
+| CapRealUSD6m      | 90 to 179 days                       |
+| CapRealUSD1y      | 180 to 364 days                      |
+| CapRealUSD2y      | 365 to 729 days                      |
+| CapRealUSD3y      | 730 to 1,094 days                    |
+| CapRealUSD4y      | 1,095 to 1,459 days                  |
+| CapRealUSD5y      | 1,460 to 1,824 days                  |
+| CapRealUSD7y      | 1,825 to 2,554 days                  |
+| CapRealUSD10y     | 2,555 to 3,649 days                  |
+| CapRealUSD10yPlus | 3,650 days or more                   |
 
 ### Details
 
