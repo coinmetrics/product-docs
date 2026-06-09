@@ -27,6 +27,73 @@ Details on the specific metrics are described in the pages linked in this sectio
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-06-09" %}
+## Added Age-Band Realized Capitalization Metrics for Bitcoin
+
+Added 13 new metrics that decompose Bitcoin's realized capitalization by UTXO age. Each band captures the realized cap attributable to UTXOs within that age range, and the sum of all bands equals `CapRealUSD`. For full coverage details refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/CapRealUSD1d).
+
+<details>
+
+<summary>Metrics Added:</summary>
+
+* `CapRealUSD1d` - UTXOs aged 0-1 days
+* `CapRealUSD1w` - UTXOs aged 1-7 days
+* `CapRealUSD1m` - UTXOs aged 7-30 days
+* `CapRealUSD3m` - UTXOs aged 30-90 days
+* `CapRealUSD6m` - UTXOs aged 90-180 days
+* `CapRealUSD1y` - UTXOs aged 180-365 days
+* `CapRealUSD2y` - UTXOs aged 1-2 years
+* `CapRealUSD3y` - UTXOs aged 2-3 years
+* `CapRealUSD4y` - UTXOs aged 3-4 years
+* `CapRealUSD5y` - UTXOs aged 4-5 years
+* `CapRealUSD7y` - UTXOs aged 5-7 years
+* `CapRealUSD10y` - UTXOs aged 7-10 years
+* `CapRealUSD10yPlus` - UTXOs aged 10+ years
+
+</details>
+{% endupdate %}
+
+{% update date="2026-06-09" %}
+## Added Network Data Metrics for BNB Smart Chain (Experimental)
+
+Added Network Data metrics for the BNB Smart Chain (`bnb_bsc`) at the 1d frequency on an experimental basis. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2/bnb_bsc).
+{% endupdate %}
+
+{% update date="2026-06-09" %}
+## Expanded CapMrktEstUSD to New Assets
+
+Added estimated market cap to the following new assets:
+
+<details>
+
+<summary>Estimated Market Cap added to the following assets:</summary>
+
+1. anime
+2. aurora
+3. b2
+4. cpool
+5. ctx
+6. cyber
+7. enso
+8. holo
+9. honey
+10. huma
+11. meme
+12. mira
+13. mplx
+14. neon
+15. newt
+16. order
+17. paal
+18. plume
+19. prompt
+20. sats
+21. sundog
+22. xai
+
+</details>
+{% endupdate %}
+
 {% update date="2026-05-01" %}
 ## Added Network Data Metrics for Stellar Tokens
 
