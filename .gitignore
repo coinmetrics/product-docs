@@ -54,3 +54,4 @@ test-reports/
 # Vale: Ignore downloaded style packages but keep custom config
 .vale/styles/*
 !.vale/styles/config/
+.gstack/
