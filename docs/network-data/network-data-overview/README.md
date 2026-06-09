@@ -53,13 +53,13 @@ Added 13 new metrics that decompose Bitcoin's realized capitalization by UTXO ag
 </details>
 {% endupdate %}
 
-{% update date="2026-06-09" %}
+{% update date="2026-05-25" %}
 ## Added Network Data Metrics for BNB Smart Chain (Experimental)
 
 Added Network Data metrics for the BNB Smart Chain (`bnb_bsc`) at the 1d frequency on an experimental basis. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2/bnb_bsc).
 {% endupdate %}
 
-{% update date="2026-06-09" %}
+{% update date="2026-05-26" %}
 ## Expanded CapMrktEstUSD to New Assets
 
 Added estimated market cap to the following new assets:
