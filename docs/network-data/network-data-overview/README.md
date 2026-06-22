@@ -27,6 +27,23 @@ Details on the specific metrics are described in the pages linked in this sectio
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-06-22" %}
+## Expanded Exchange Flows to New Stablecoins
+
+Released exchange flow metrics at the 1d and 1h frequency for four stablecoin assets on Ethereum. For details on the supported metrics please refer to the [exchange](exchange/ "mention") page. For details on Exchange Flow metric coverage please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInExNtv).
+
+<details>
+
+<summary>Assets Added:</summary>
+
+* DAI - Dai
+* USDE\_ETH - Ethena USDe ETH
+* USDG\_ETH - Global Dollar on Ethereum
+* USDS\_ETH - USDS on Ethereum
+
+</details>
+{% endupdate %}
+
 {% update date="2026-06-09" %}
 ## Added Age-Band Realized Capitalization Metrics for Bitcoin
 
