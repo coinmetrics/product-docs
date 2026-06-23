@@ -34,7 +34,7 @@ The total volume available on the order book at or within X% of the midprice, ex
 Futures markets follow a modified formula that takes into account the contract size:
 
 * $$\text{Liquidity Depth}_{X\%, USD} = \sum_{p \geq P_{\text{mid}} \times (1 - X\%)} V_{\text{bid}}(p) \times \text{Contract Size} \times P_{\text{ContractSizeAsset,USD}}  \quad \text{(for bids)}$$
-* $$\text{Liquidity Depth}_{X\%, USD} = \sum_{p \geq P_{\text{mid}} \times (1 + X\%)} V_{\text{ask}}(p) \times \text{Contract Size} \times P_{\text{ContractSizeAsset,USD}}  \quad \text{(for asks)}$$
+* $$\text{Liquidity Depth}_{X\%, USD} = \sum_{p \leq P_{\text{mid}} \times (1 + X\%)} V_{\text{ask}}(p) \times \text{Contract Size} \times P_{\text{ContractSizeAsset,USD}}  \quad \text{(for asks)}$$
 
 ## API Endpoints
 
@@ -109,7 +109,7 @@ A sample of the Order Book Depth, 2 Percent From Midprice, Ask, Native Units for
 
 * **`market`**: The id of the markets.
 * **`time`**: The time in ISO 8601 date-time format.
-* **`liquidity_depth_2_percent_bid_volume_usd`**: The sum of all bid orders with price within 2 percent from midprice in native units.
+* **`liquidity_depth_2_percent_bid_volume_usd`**: The sum of all bid orders with price within 2 percent from midprice in USD.
 
 ## Frequently Asked Questions
 

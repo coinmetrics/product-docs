@@ -65,6 +65,8 @@ $$
 
 This methodology allows us to construct a smooth curve even when specific target dates (e.g., exactly 90 days out) do not align with listed expiration cycles.
 
+The delta dimension uses the same variance interpolation approach: for a target delta between two bracketing contracts, the implied variance is linearly interpolated across the delta brackets (`variance = lower_var × (upper_delta - target) / (upper_delta - lower_delta) + upper_var × (target - lower_delta) / (upper_delta - lower_delta)`), then square-rooted to yield the implied volatility at the target delta.
+
 ### Valid Calculation Ranges
 
 Not all exchanges list options with expirations spanning the full range from 1 day to 1 year. To avoid extrapolation errors, we limit metric calculation to a valid range $$[T_{target,min}, T_{target,max}]$$ specific to each exchange-pair.

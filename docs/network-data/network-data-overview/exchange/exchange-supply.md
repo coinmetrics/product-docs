@@ -37,7 +37,7 @@ The sum held by an exchange at the end of that interval.
 | Gemini Supply (native units)     | SplyGEMNtv | Native units | 1 day    |
 | Gemini Supply (USD)              | SplyGEMUSD | USD          | 1 day    |
 | HitBTC Supply (native units)     | SplyHBTNtv | Native units | 1 day    |
-| BitBTC Supply (USD)              | SplyHBTUSD | USD          | 1 day    |
+| HitBTC Supply (USD)              | SplyHBTUSD | USD          | 1 day    |
 | Huobi Supply (native units)      | SplyHUONtv | Native units | 1 day    |
 | Huobi Supply (USD)               | SplyHUOUSD | USD          | 1 day    |
 | Korbit Supply (native units)     | SplyKORNtv | Native units | 1 day    |

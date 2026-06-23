@@ -94,7 +94,7 @@ The sum USD value of all revenue (fees plus newly issued native units) that day.
 
 ### API Endpoints
 
-Exhange Deposits metrics can be accessed using these endpoints:
+Revenue metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 

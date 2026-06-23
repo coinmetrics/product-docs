@@ -1,6 +1,6 @@
 # Liquidation Metrics
 
-The reported liquidation metrics are a sum of all reported volume in native units or U.S. Dollars of buy or sell orders that were used to close short positions under liquidation for a specific market in our coverage universe.
+The reported liquidation metrics are a sum of all reported volume in native units or U.S. Dollars of buy orders used to close short positions, and sell orders used to close long positions, under liquidation for a specific market in our coverage universe.
 
 ## Metrics
 
@@ -10,6 +10,7 @@ The reported liquidation metrics are a sum of all reported volume in native unit
 
 Liquidation metrics can be accessed using these endpoints:
 
+* `timeseries/asset-metrics`
 * `timeseries/exchange-metrics`
 * `timeseries/exchange-asset-metrics`
 * `timeseries/pair-metrics`

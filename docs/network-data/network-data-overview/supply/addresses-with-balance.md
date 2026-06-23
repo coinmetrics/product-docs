@@ -78,8 +78,8 @@ The sum of all native units being held in addresses whose balance was X native u
 | Name                                      | MetricID           | Unit         | Interval |
 | ----------------------------------------- | ------------------ | ------------ | -------- |
 | Val in Addrs w/ Bal ≥ .001 (native units) | SplyAdrBalNtv0.001 | Native units | 1 day    |
-| Val in Addrs w/ Bal ≥ .01 (native units)  | SplyAdrBalNtv0.001 | Native units | 1 day    |
-| Val in Addrs w/ Bal ≥ .001 (native units) | SplyAdrBalNtv0.1   | Native units | 1 day    |
+| Val in Addrs w/ Bal ≥ .01 (native units)  | SplyAdrBalNtv001   | Native units | 1 day    |
+| Val in Addrs w/ Bal ≥ .1 (native units)   | SplyAdrBalNtv01    | Native units | 1 day    |
 | Val in Addrs w/ Bal ≥ 1 (native units)    | SplyAdrBalNtv1     | Native units | 1 day    |
 | Val in Addrs w/ Bal ≥ 10 (native units)   | SplyAdrBalNtv10    | Native units | 1 day    |
 | Val in Addrs w/ Bal ≥ 100 (native units)  | SplyAdrBalNtv100   | Native units | 1 day    |
@@ -116,7 +116,7 @@ The sum of all native units being held by smart contracts.
 | Name                                          | MetricID    | Unit         | Interval |
 | --------------------------------------------- | ----------- | ------------ | -------- |
 | Supply Held by Smart Contracts (native units) | SplyContNtv | Native units | 1 day    |
-| Supply Held by Smart Contracts (USD)          | SplyContUSD | Native units | 1 day    |
+| Supply Held by Smart Contracts (USD)          | SplyContUSD | USD          | 1 day    |
 
 ### Availability for Assets
 

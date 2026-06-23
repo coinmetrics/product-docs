@@ -18,11 +18,11 @@ The sum of unique native units that transacted at least once in the trailing X t
 | 30 Day Active Supply                     | SplyAct30d  | Native units | 30 days  |
 | 90 Day Active Supply                     | SplyAct90d  | Native units | 90 days  |
 | 180 Day Active Supply                    | SplyAct180d | Native units | 180 days |
-| 1 Year Active Supply                     | SplyAct1Yr  | Native units | 1 Year   |
-| 2 Year Active Supply                     | SplyAct2Yr  | Native units | 2 Years  |
-| 3 Year Active Supply                     | SplyAct3Yr  | Native units | 3 Years  |
-| 4 Year Active Supply                     | SplyAct4Yr  | Native units | 4 Years  |
-| 5 Year Active Supply                     | SplyAct5Yr  | Native units | 5 Years  |
+| 1 Year Active Supply                     | SplyAct1yr  | Native units | 1 Year   |
+| 2 Year Active Supply                     | SplyAct2yr  | Native units | 2 Years  |
+| 3 Year Active Supply                     | SplyAct3yr  | Native units | 3 Years  |
+| 4 Year Active Supply                     | SplyAct4yr  | Native units | 4 Years  |
+| 5 Year Active Supply                     | SplyAct5yr  | Native units | 5 Years  |
 | Active Supply (transacted at least once) | SplyActEver | Native units | All time |
 
 ### Details

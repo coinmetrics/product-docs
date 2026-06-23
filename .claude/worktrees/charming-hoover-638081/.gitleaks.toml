@@ -1,0 +1,42 @@
+# Gitleaks configuration for documentation repository
+# This file configures secret detection for API keys, tokens, and credentials
+
+[extend]
+# Use Gitleaks' default ruleset (200+ built-in patterns)
+useDefault = true
+
+# Additional custom rules can be added here
+[[rules]]
+id = "coinmetrics-api-key"
+description = "Coin Metrics API Key"
+regex = '''(?i)(api[_-]?key\s*[=:]\s*['"]?[a-zA-Z0-9]{15,30}['"]?)'''
+tags = ["api", "coinmetrics"]
+
+[[rules]]
+id = "generic-api-key-url"
+description = "API key in URL parameter"
+regex = '''(?i)(api[_-]?key=)[a-zA-Z0-9]{10,}'''
+tags = ["api", "url"]
+
+[allowlist]
+description = "Global allowlist for false positives"
+regexes = [
+  # Common placeholder patterns in documentation
+  '''(?i)(YOUR[_-]?API[_-]?KEY|API[_-]?KEY[_-]?HERE|EXAMPLE[_-]?KEY)''',
+  '''(?i)(replace[_-]?with[_-]?your|insert[_-]?your)''',
+  '''(?i)(api[_-]?key.*placeholder|sample[_-]?api[_-]?key)''',
+  # Dummy/test keys with obvious patterns
+  '''(?i)(test[_-]?key|demo[_-]?key|fake[_-]?key|dummy[_-]?key)''',
+  '''(?i)(xxx+|yyy+|zzz+|aaa+|111+)''',
+  # Documentation examples with clear non-secret format
+  '''<API_KEY>''',
+  '''\$\{API_KEY\}''',
+  '''\{\{API_KEY\}\}''',
+]
+paths = [
+  # Skip test report files
+  '''test-reports/''',
+  # Skip OpenAPI spec file (contains example pagination tokens that look like secrets)
+  '''docs/.gitbook/assets/openapi.yaml''',
+]
+
