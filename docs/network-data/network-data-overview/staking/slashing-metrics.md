@@ -57,7 +57,7 @@ Count of attester slashing events.
 
 ### Definition
 
-Count of surrounding attestation slashing events.
+Count of attester slashing events.
 
 | Name                                             | MetricID          | Unit | Interval |
 | ------------------------------------------------ | ----------------- | ---- | -------- |
@@ -79,7 +79,7 @@ Count of surrounding attestation slashing events.
 
 ### Definition
 
-Count of proposer slashing events.
+Count of total number of slashing events.
 
 | Name                     | MetricID       | Unit | Interval |
 | ------------------------ | -------------- | ---- | -------- |
@@ -96,6 +96,26 @@ Count of proposer slashing events.
 ### Availability for Assets
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/SlashPropEvCnt" %}
+
+### Definition
+
+Count of attester slashing events.
+
+| Name                                             | MetricID          | Unit | Interval |
+| ------------------------------------------------ | ----------------- | ---- | -------- |
+| Count of Surrounding Attestation Slashing Events | SlashAttSurrEvCnt | N/A  | 1 minute |
+
+### Details
+
+* Count of the total Surrounding Attestation Slashing events enforced by the protocol in the last 1 minute
+
+### Release History
+
+* Released November 2023.
+
+### Availability for Assets
+
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/SlashAttSurrEvCnt" %}
 
 ## Total Slashing Events <a href="#slashevcnt" id="slashevcnt"></a>
 

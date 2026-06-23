@@ -106,7 +106,7 @@ This metric gives a proxy for an asset’s ownership fragmentation. If there’s
 
 ### Definition
 
-The sum product of age in full days and count of all unspent transaction outputs, summed across all UTXOs. Each UTXO contributes its age in days to the total. The unit is dimensionless (UTXO-count-days).
+The sum product of age in full days and value in native units of all unspent transaction outputs.
 
 | Name                                   | MetricID | Unit          | Interval |
 | -------------------------------------- | -------- | ------------- | -------- |

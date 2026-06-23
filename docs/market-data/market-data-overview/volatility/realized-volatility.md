@@ -26,7 +26,7 @@ $$
 
 Where $$RV$$is the realized volatility (annualized), $$N$$is the lookback window, $${s_i}$$ is the real-time reference rate price at time $$i$$, and $$T$$ is the time adjustment factor. Using an average return of 0 is standard in these calculations as it avoids misleading volatility numbers during sustained periods of substantially high or low return.
 
-The real-time reference rates are resampled to calculate returns over a 10 minute period, as this frequency captures the rapid nature of volatility in cryptocurrency markets. Volatility is then annualized by setting $$T=6⋅24⋅365$$, as crypto markets trade 24 hours a day each day of the year. Volatility can then be calculated on a rolling window with a specified lookback. Metrics with lookback windows of 60 days or longer use hourly returns rather than 10-minute returns.
+The real-time reference rates are resampled to calculate returns over a 10 minute period, as this frequency captures the rapid nature of volatility in cryptocurrency markets. Volatility is then annualized by setting $$T=6⋅24⋅365$$, as crypto markets trade 24 hours a day each day of the year. Volatility can then be calculated on a rolling window with a specified lookback.
 
 ## Coverage
 

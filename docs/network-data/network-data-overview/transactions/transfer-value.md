@@ -73,12 +73,13 @@ The sum of all native units or USD transferred by contract calls on that interva
 | Name                                    | MetricID            | Unit         | Interval |
 | --------------------------------------- | ------------------- | ------------ | -------- |
 | Xfer'd by Contract Calls (native units) | TxTfrValContCallNtv | Native units | 1 day    |
-| Xfer'd by Contract Calls (USD)          | TxTfrValContCallUSD | USD          | 1 day    |
+| Xfer'd by Contract Calls (USD)          | TxTfrValContCallUSD | Native units | 1 day    |
 
 #### Details
 
-* `TxTfrValContCallNtv` is the sum of native units transferred by successful contract calls that interval.
-* `TxTfrValContCallUSD` is the USD equivalent, computed as `TxTfrValContCallNtv × PriceUSD`.
+* `TxTrfValContCallNtv` is computed as TxTfrValAdjNtv / BlkSizeByte
+* `TxTrfValContCallUSD` is computed as TxTfrValAdjUSD / BlkSizeByte
+* This metric estimates the economical density of an asset.
 
 #### Asset Specific Details
 
@@ -135,7 +136,7 @@ The mean per transaction of the sum of all native units transferred multiplied b
 
 #### Details
 
-* Computed as TxTfrValDayDst / TxTfrCnt
+* Computed as TxTfrValDayDst / TxCnt
 
 #### Asset-Specific Details
 

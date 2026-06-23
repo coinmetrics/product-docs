@@ -207,7 +207,7 @@ The sum count of transactions using fully shielding privacy features that interv
   * Deshielding: all senders are unknown, all recipients are known
   * Mixed: some senders are unknown or/and some recipients are unknown
   * Transparent: all senders and recipients are known
-* This metric includes only fully shielded transactions, where both inputs and outputs are shielded.
+* This metric includes all transaction types except transparent
 
 ### Asset-Specific Details
 
@@ -226,7 +226,7 @@ The sum count of transactions using fully shielding privacy features that interv
 
 ### Definition
 
-The sum count of vote transactions that interval on Solana. A subset of TxCnt.
+The sum count of non-voting transactions that interval on Solana. A subset of TxCnt.
 
 | Name                      | MetricID  | Unit         | Interval |
 | ------------------------- | --------- | ------------ | -------- |
@@ -288,7 +288,7 @@ The sum count of MEV-enabled transactions that interval. An MEV-enabled transact
 
 ## API Endpoints
 
-Transaction metrics can be accessed using these endpoints:
+Token Transaction metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 

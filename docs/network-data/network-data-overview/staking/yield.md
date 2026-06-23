@@ -54,7 +54,7 @@ Annual real and nominal percentage rates and yields for active validators. A val
 
 ### Definition
 
-Annual real and nominal percentage rates and yields for active delegators. A delegator is a staker account that has entrusted its staked native assets to a validator to participate in network consensus.
+Annual real and nominal percentage rates and yields for active validators. A delegator is a staker account that has entrusted its staked native assets to a validator to participate in network consensus.
 
 | Name                                    | MetricID            | Unit          | Interval      |
 | --------------------------------------- | ------------------- | ------------- | ------------- |

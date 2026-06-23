@@ -16,11 +16,11 @@ The sum of all native units balances last active X days/years that became active
 | Supply Revived in Last 30 Days  | SplyRvv30d  | Native units | 30 days  |
 | Supply Revived in Last 90 Days  | SplyRvv90d  | Native units | 90 days  |
 | Supply Revived in Last 180 Days | SplyRvv180d | Native units | 180 days |
-| Supply Revived in Last 1 Year   | SplyRvv1yr  | Native units | 1 Year   |
-| Supply Revived in Last 2 Years  | SplyRvv2yr  | Native units | 2 Years  |
-| Supply Revived in Last 3 Years  | SplyRvv3yr  | Native units | 3 Years  |
-| Supply Revived in Last 4 Years  | SplyRvv4yr  | Native units | 4 Years  |
-| Supply Revived in Last 5 Years  | SplyRvv5yr  | Native units | 5 Years  |
+| Supply Revived in Last 1 Year   | SplyRvv1Yr  | Native units | 1 Year   |
+| Supply Revived in Last 2 Years  | SplyRvv2Yr  | Native units | 2 Years  |
+| Supply Revived in Last 3 Years  | SplyRvv3Yr  | Native units | 3 Years  |
+| Supply Revived in Last 4 Years  | SplyRvv4Yr  | Native units | 4 Years  |
+| Supply Revived in Last 5 Years  | SplyRvv5Yr  | Native units | 5 Years  |
 
 ### Details
 

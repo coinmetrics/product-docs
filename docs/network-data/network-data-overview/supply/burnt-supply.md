@@ -15,7 +15,7 @@ The concept of a Base Fee was introduced as part of [EIP-1559](https://notes.eth
 | Name                                 | MetricID     | Unit | Interval      |
 | ------------------------------------ | ------------ | ---- | ------------- |
 | Total Base Fees Burnt (USD)          | SplyBurntUSD | USD  | 1 day, 1 hour |
-| Total Base Fees Burnt (Native Units) | SplyBurntNtv | Native Units | 1 day, 1 hour |
+| Total Base Fees Burnt (Native Units) | SplyBurntNtv | USD  | 1 day, 1 hour |
 
 ### Details
 

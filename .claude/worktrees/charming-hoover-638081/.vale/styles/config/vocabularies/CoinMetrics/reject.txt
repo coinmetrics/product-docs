@@ -1,3 +1,0 @@
-# Add deprecated or banned terminology here
-# One term per line
-

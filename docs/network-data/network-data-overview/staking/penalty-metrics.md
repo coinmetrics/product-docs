@@ -28,7 +28,7 @@ Amount of tokens taken as penalty from Validators in native units.&#x20;
 
 ## API Endpoints
 
-Penalty metrics can be accessed using these endpoints:
+Flows metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 

@@ -1,3 +1,0 @@
-# Add technical terms, API names, company terminology, and acronyms here
-# One term per line
-

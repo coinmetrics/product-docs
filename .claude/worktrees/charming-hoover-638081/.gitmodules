@@ -1,3 +1,0 @@
-[submodule "submodules/api-client-python"]
-	path = submodules/api-client-python
-	url = https://gitlab.com/coinmetrics/data-delivery/api-client-python.git

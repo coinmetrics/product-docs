@@ -58,7 +58,7 @@ Sum of all balances held by all validators.
 
 ### Details
 
-* Sum of all actual balances held by validators whose active epoch range intersects the current interval. Unlike `SplyStkedNtv` and `SplyActStkedNtv`, this metric uses each validator's actual balance rather than effective balance.
+* Sum of all balances held by all validators, regardless of status (i.e. rewarded supply, slashed supply, etc.)
 
 ### Release History
 

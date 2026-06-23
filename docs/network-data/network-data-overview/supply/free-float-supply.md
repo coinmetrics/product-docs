@@ -50,7 +50,7 @@ Free Float Supply metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 
-and by passing in the metric ID's `SplyFF` in the `metrics` parameter.
+and by passing in the metric ID's `SplyBurnt*` in the `metrics` parameter.
 
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
