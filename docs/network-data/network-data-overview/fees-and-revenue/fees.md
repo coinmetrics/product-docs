@@ -268,7 +268,9 @@ The percentage of revenue derived from fees that interval. This is equal to the 
 
 ### Details
 
-* Computed as 100 \* FeeTotNtv / RevNtv
+* For most assets: computed as `100 × FeeTotNtv / RevNtv`
+* For Ethereum post-London hardfork (EIP-1559): computed as `100 × FeePrioTotNtv / RevNtv`, using priority fees only, since base fees are burned and do not accrue to validators.
+* For Solana: computed as `100 × (RevNtv − IssContNtv − FeeStorTotNtv) / RevNtv`
 
 ### Release History
 

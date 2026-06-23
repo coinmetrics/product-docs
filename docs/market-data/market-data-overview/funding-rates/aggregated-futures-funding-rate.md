@@ -19,7 +19,7 @@ These metrics have a publication frequency of once per hour and represent the av
 Most, but not all, exchanges pay out the funding rate every 8 hours. Thus, standardizing the funding rate period is a step needed for each of the calculation of the funding rate metrics. For a funding rate $$FR$$ with an period $$P$$, expressed in hours, the 8-hour funding rate $$FR_{8}$$ is calculated as follows:
 
 $$
-FR_{8} = \frac{P}{8} FR
+FR_{8} = \frac{8}{P} FR
 $$
 
 For a list of markets $$X$$, where each market $$m$$ has funding rate $$FR_{m}$$ and open interest $$OI_{m}$$ converted to U.S. dollars, the aggregate funding rate $$AFR_{X}$$ is calculated as:

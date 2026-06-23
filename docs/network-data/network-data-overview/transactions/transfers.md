@@ -57,7 +57,7 @@ The sum count of token transfers in that interval. Only non-zero transfers betwe
 
 ### Asset-Specific Details
 
-* For Ethereum, this metric counts all ERC-20 or ERC-721 contracts, as long as their transfers follow the ERC-20 or ERC-721 specification.
+* For Ethereum, this metric counts all ERC-20, ERC-721, or ERC-1155 contracts, as long as their transfers follow the ERC-20, ERC-721, or ERC-1155 specification.
 * For SOL, all tokens created by an official token program are considered.
 
 ### Release History
@@ -102,7 +102,7 @@ The mean USD value per byte transferred for all transfers that day removing nois
 
 ### Details
 
-* Computed as TxTfrValAdjNtv / BlkSizeByte
+* Computed as TxTfrValAdjUSD / BlkSizeByte
 * This metric estimates the economical density of an asset.
 
 ### Release History

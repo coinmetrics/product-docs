@@ -67,7 +67,7 @@ The sum count of data inscription transactions using blobs created that interval
 
 ### Definition
 
-The sum count of blob transactions sent to contracts or burn addresses in that interval. Burn addresses are address which contain more than 10 consecutive empty bytes in their binary representation.
+The sum count of blob transactions sent to contracts or burn addresses in that interval. Burn addresses are address which contain 10 or more consecutive empty bytes in their binary representation.
 
 <table><thead><tr><th width="257">Name</th><th>MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Blob Contract Tx Cnt</td><td>TxBlobContCnt</td><td>Transactions</td><td>1 day</td></tr></tbody></table>
 
@@ -93,7 +93,7 @@ Number of blob carrying transactions originating from L2 sequencers, included in
 
 ### API Endpoints
 
-Exhange Deposits metrics can be accessed using these endpoints:
+Blob Transaction metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 

@@ -233,8 +233,8 @@ The percent one-day change in supply. Also referred to as the daily inflation ra
 
 ### Details
 
-* $$InfPct=\frac{SplyCur(n-1)-SplyCur(n)}{SplyCur(n-1)}*100$$
-* $$InfPct[N]Avg=\frac{SplyCur(n-N)-SplyCur(n)}{SplyCur(n-N)}*100$$ where N is the days over which to average. This means that for a 30-Day average the formula would be: $$InfPct30dAvg=\frac{SplyCur(n-30d)-SplyCur(n)}{SplyCur(n-30d)}*100$$
+* $$InfPct=\frac{SplyCur(n)-SplyCur(n-1)}{SplyCur(n-1)}*100$$
+* $$InfPct[N]Avg=\frac{SplyCur(n)-SplyCur(n-N)}{SplyCur(n-N) \cdot N}*100$$ where N is the number of days over which to average. This yields the mean daily inflation rate over the prior N days. For example: $$InfPct30dAvg=\frac{SplyCur(n)-SplyCur(n-30d)}{SplyCur(n-30d) \cdot 30}*100$$
 
 ### Interpretation
 

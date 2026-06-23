@@ -93,7 +93,7 @@ The sum of all fees paid by tagged Layer 2 sequencers for blob space, shown in n
 
 ### Definition
 
-The sum of all fees paid by tagged Layer 2 sequencers for blob space, shown in native units and USD.
+The mean fee paid by tagged Layer 2 sequencers for blob space, shown in native units and USD.
 
 <table><thead><tr><th>Name</th><th width="216">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>Mean Blob Fees (layer 2, native units)</td><td>FeeBlobL2MeanNtv</td><td>Native units</td><td>1 day</td></tr><tr><td>Mean Blob Fees (layer 2, USD)</td><td>FeeBlobL2MeanUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Mean Blob Fees (Arbitrum, native units)</td><td>FeeBlobARBMeanNtv </td><td>Native units</td><td>1 day</td></tr><tr><td>Mean Blob Fees (Arbitrum, USD)</td><td>FeeBlobARBMeanUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Mean Blob Fees (Optimism, native units)</td><td>FeeBlobOPMeanNtv </td><td>Native units</td><td>1 day</td></tr><tr><td>Mean Blob Fees (Optimism, USD)</td><td>FeeBlobOPMeanUSD</td><td>USD</td><td>1 day</td></tr><tr><td>Mean Blob Fees (Base, native units)</td><td>FeeBlobBASEMeanNtv</td><td>Native units</td><td>1 day</td></tr><tr><td>Mean Blob Fees (Base, USD)</td><td>FeeBlobBASEMeanUSD</td><td>USD</td><td>1 day</td></tr></tbody></table>
 

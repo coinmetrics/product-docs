@@ -44,7 +44,7 @@ Consider the following example:
 * Address A was referred by a smart contract application, perhaps as user identifier, but it was not funded or otherwise engaged by the smart contract. Its balance is zero.
 * During that same interval, Address B received funds from an exhange for the first time. Its balance is 0.002.
 
-If the above was the only activity observed in the network during that interval, AdrNewCnt would showcase a value of 1. This value only aggregates activity that is economically relevant (Address B), and excludes non-monetary activity (Address A).
+If the above was the only activity observed in the network during that interval, AdrNewBalCnt would showcase a value of 1. This value only aggregates activity that is economically relevant (Address B), and excludes non-monetary activity (Address A).
 
 ### **Release History**
 

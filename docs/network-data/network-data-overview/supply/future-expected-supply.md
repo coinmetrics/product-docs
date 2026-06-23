@@ -39,7 +39,6 @@ The sum of all native units counting current supply and including all those expe
 | Name                                   | MetricID       | Unit         | Interval |
 | -------------------------------------- | -------------- | ------------ | -------- |
 | 10 Year Expected Supply (native units) | SplyExpFut10yr | Native units | 10 years |
-| 10 Year Expected Supply (native units) | SplyExpFut10yr | Native units | 10 years |
 
 ### Details
 

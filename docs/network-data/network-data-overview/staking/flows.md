@@ -50,7 +50,7 @@ Total deposits sent to the Consensus Layer (CL)
 
 ### Definition
 
-Total deposits sent to the Consensus Layer (CL)
+Total withdrawals from the Consensus Layer (CL)
 
 | Name                             | MetricID          | Unit         | Interval      |
 | -------------------------------- | ----------------- | ------------ | ------------- |
