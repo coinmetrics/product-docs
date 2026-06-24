@@ -57,7 +57,7 @@ The sum of the size (in bytes) of blob space used in that interval.
 
 ### Definition
 
-The mean gas limit per transaction that day.
+The cumulative sum of all blob space used since the inception of EIP-4844, in bytes.
 
 | Name                             | MetricID            | Unit  | Interval |
 | -------------------------------- | ------------------- | ----- | -------- |
@@ -132,7 +132,7 @@ The sum count of data inscription blobs created that interval that were included
 
 ### API Endpoints
 
-Exhange Deposits metrics can be accessed using these endpoints:
+Blob metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 

@@ -25,7 +25,7 @@ The sum count of contract calls executed across all transactions in that interva
 
 ### Asset-Specific Details
 
-* This metric is only available for SOL, ETH and ETC.
+* This metric is only available for SOL, ETH, ETC, and XTZ.
 
 ### Release History
 
@@ -79,7 +79,7 @@ The sum count of transactions that invoked a contract in that interval. Failed t
 
 ### Asset-Specific Details
 
-* This metric is only available for ETH and ETC.
+* This metric is only available for ETH, ETC, and XTZ.
 
 ### Release History
 
@@ -146,7 +146,7 @@ The sum count of contracts successfully destroyed across all transactions in tha
 
 ## API Endpoints
 
-Token Transaction metrics can be accessed using these endpoints:
+Contract Transaction metrics can be accessed using these endpoints:
 
 * `timeseries/asset-metrics`
 

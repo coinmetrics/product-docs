@@ -77,7 +77,7 @@ The net value sent or received by a mining entity in native units . A mining ent
 | Name                           | MetricID               | Unit         | Interval |
 | ------------------------------ | ---------------------- | ------------ | -------- |
 | Miner Net Flows (native units) | FlowMinerNet0HopAllNtv | Native units | 1 day    |
-| Miner Net Flows (native units) | FlowMinerNet0HopAllUSD | USD          | 1 day    |
+| Miner Net Flows (USD)          | FlowMinerNet0HopAllUSD | USD          | 1 day    |
 
 ### Details
 
@@ -126,7 +126,7 @@ The difference between the sum of block rewards, fees, and other transfers recei
 
 ### Definition
 
-The sum of block rewards, fees, and other transfers received by all mining entities during an interval, excluding transfers from another mining entity. A mining entity is defined as an address that has been credited from a transaction debiting the 'FEES' or 'ISSUANCE' accounts in accordance with Coin Metric’s Universal Blockchain Data Model (UBDM).
+The sum of block rewards, fees, and other transfers sent by all mining entities during an interval, excluding transfers from another mining entity. A mining entity is defined as an address that has been credited from a transaction debiting the 'FEES' or 'ISSUANCE' accounts in accordance with Coin Metric’s Universal Blockchain Data Model (UBDM).
 
 | Name                                | MetricID               | Unit         | Interval |
 | ----------------------------------- | ---------------------- | ------------ | -------- |

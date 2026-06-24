@@ -77,7 +77,7 @@ The sum count of unique addresses that were active in the network (either as a r
 
 ### Definition
 
-The sum count of unique addresses that were active in the network (as a recipient of a ledger change) that day. Individual destination addresses are counted. Individual addresses are not double-counted if previously active.
+The sum count of unique addresses that were active in the network (as a sender of a ledger change) that day. Individual destination addresses are counted. Individual addresses are not double-counted if previously active.
 
 ### **Details**
 

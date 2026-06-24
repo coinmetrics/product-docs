@@ -11,7 +11,7 @@
 
 ### Definition
 
-The sum count of transactions that resulted in any token (ERC-20 or ERC-721) activity in that interval. Only Transfer or Approval events are counted as activity. If a transaction results in more than 1 transfer or approval, it’s only counted once.
+The sum count of transactions that resulted in any token (ERC-20, ERC-721, or ERC-1155) activity in that interval. Only Transfer or Approval events are counted as activity. If a transaction results in more than 1 transfer or approval, it’s only counted once.
 
 | Name         | MetricID | Unit         | Interval |
 | ------------ | -------- | ------------ | -------- |
@@ -23,7 +23,7 @@ The sum count of transactions that resulted in any token (ERC-20 or ERC-721) act
 
 ### Asset-Specific Details
 
-* This metric is only available for ETH and ETC.
+* This metric is available for ETH, ETC, and SOL.
 
 ### Release History
 
