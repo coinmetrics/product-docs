@@ -164,7 +164,7 @@ The sum value of native units or USD transferred divided by the count of transfe
 #### Details
 
 * TxTfrValMeanNtv is computed as TxTfrValNtv / TxTfrCnt
-* TxTfrValMeanNtv is computed as TxTfrValMeanNtv \* PriceUSD
+* TxTfrValMeanUSD is computed as TxTfrValMeanNtv \* PriceUSD
 
 #### Asset-Specific Details
 

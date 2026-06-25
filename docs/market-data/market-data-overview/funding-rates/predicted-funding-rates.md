@@ -57,7 +57,7 @@ print(
 
 ## Example
 
-A sample of the funding rates data from the `binance-BTCUSDT-future` market from our [`/timeseries/market-funding-rates`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketFundingRates) API endpoint is provided below.
+A sample of the funding rates data from the `binance-BTCUSDT-future` market from our [`/timeseries/market-funding-rates-predicted`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketFundingRatesPredicted) API endpoint is provided below.
 
 ```
 {

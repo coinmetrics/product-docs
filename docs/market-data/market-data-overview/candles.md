@@ -112,26 +112,26 @@ An sample of the candles data from the `coinbase-btc-usd-spot` market from our [
     {
       "time": "2020-06-08T20:45:00.000000000Z",
       "market": "coinbase-btc-usd-spot",
-      "price_open": "9705.07999999999993",
-      "price_close": "9705.01000000000022",
-      "price_high": "9706.19000000000051",
+      "price_open": "9705.08",
+      "price_close": "9705.01",
+      "price_high": "9706.19",
       "price_low": "9705",
-      "vwap": "9705.1686505895068",
-      "volume": "16.8066639099999975",
-      "candle_usd_volume": "16.8066639099999975",
-      "candle_trades_count": "212"
+      "vwap": "9705.168650589509",
+      "volume": "16.80666391",
+      "candle_usd_volume": "163111.507700326099999995037675",
+      "candle_trades_count": "251"
     },
     {
       "time": "2020-06-08T20:50:00.000000000Z",
       "market": "coinbase-btc-usd-spot",
       "price_open": "9705",
-      "price_close": "9696.27000000000044",
+      "price_close": "9696.27",
       "price_high": "9705",
-      "price_low": "9695.71999999999935",
-      "vwap": "9698.38894423754937",
-      "volume": "14.7672128699999963",
-      "candle_usd_volume": "14.7672128699999963",
-      "candle_trades_count": "215"
+      "price_low": "9695.72",
+      "vwap": "9698.388944237546",
+      "volume": "14.76721287",
+      "candle_usd_volume": "143218.174035610399999753290121",
+      "candle_trades_count": "243"
     }
   ]
 }

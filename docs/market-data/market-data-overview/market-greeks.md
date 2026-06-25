@@ -92,7 +92,7 @@ A sample of the options greeks data from our [`/timeseries/market-greeks`](https
 ```
 
 * **`market`**: The id of the market. Market ids use the following naming convention for options markets: `exchangeName-optionsSymbol-option`
-* **`time`**: The time at which Coin Metrics queried the implied volatility data from an exchange in ISO 8601 date-time format. Always with nanoseconds precision.
+* **`time`**: The time at which Coin Metrics queried the greeks data from an exchange in ISO 8601 date-time format. Always with nanoseconds precision.
 * **`database_time`**: The timestamp when the data was saved in the database in ISO 8601 date-time format with nanoseconds precision. Always with nanoseconds precision.
 * **`exchange_time`**: The timestamp reported by the exchange. Can be null if the exchange does not report a timestamp.
 * **`vega`**: The first derivative of the option’s price to the volatility of the underlying asset’s price.

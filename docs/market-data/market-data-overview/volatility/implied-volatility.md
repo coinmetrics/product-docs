@@ -53,6 +53,8 @@ $$\sigma_{far}$$: The implied volatility of the closest ATM option expiring afte
 
 Note: Both $$\sigma_{near}$$ and $$\sigma_{far}$$ use `iv_mark` (the mark implied volatility), as opposed to `iv_bid` or `iv_ask`.
 
+Note: If no far-term option expiring after the target date is available, the near-term option's implied volatility is used directly without interpolation.
+
 **4. Time-Weighted Interpolation**\
 \
 To determine the synthetic volatility at exactly $$T_{target}$$, we calculate a weighted mean of $$\sigma_{near}$$ and $$\sigma_{far}$$. The weights are inversely proportional to the time difference between the option's expiration and the target date.\

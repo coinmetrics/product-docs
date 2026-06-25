@@ -15,7 +15,7 @@ Liquidation metrics can be accessed using these endpoints:
 * `timeseries/exchange-asset-metrics`
 * `timeseries/pair-metrics`
 
-and by passing in the `liquidation_reported_*` metrics in the `metrics` parameter.
+and by passing in the `liquidations_reported_*` metrics in the `metrics` parameter.
 
 {% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/exchange-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)

@@ -86,30 +86,30 @@ A sample of the Order Book Depth, 2 Percent From Midprice, Ask, Native Units for
   "data" : [ {
     "market" : "coinbase-btc-usd-spot",
     "time" : "2023-05-04T20:00:00.000000000Z",
-    "liquidity_depth_2_percent_ask_volume_units" : "9866859.984315595"
+    "liquidity_depth_2_percent_ask_volume_units" : "339.23704191999985"
   }, {
     "market" : "coinbase-btc-usd-spot",
     "time" : "2023-05-04T21:00:00.000000000Z",
-    "liquidity_depth_2_percent_ask_volume_units" : "10170729.085314134"
+    "liquidity_depth_2_percent_ask_volume_units" : "349.7956971499999"
   }, {
     "market" : "coinbase-btc-usd-spot",
     "time" : "2023-05-04T22:00:00.000000000Z",
-    "liquidity_depth_2_percent_ask_volume_units" : "10909944.294472648"
+    "liquidity_depth_2_percent_ask_volume_units" : "375.3624942200002"
   }, {
     "market" : "coinbase-btc-usd-spot",
     "time" : "2023-05-04T23:00:00.000000000Z",
-    "liquidity_depth_2_percent_ask_volume_units" : "10983104.902848331"
+    "liquidity_depth_2_percent_ask_volume_units" : "377.44144085999994"
   }, {
     "market" : "coinbase-btc-usd-spot",
     "time" : "2023-05-05T00:00:00.000000000Z",
-    "liquidity_depth_2_percent_ask_volume_units" : "11103789.859471431"
+    "liquidity_depth_2_percent_ask_volume_units" : "377.44144085999994"
   } ]
 }
 ```
 
 * **`market`**: The id of the markets.
 * **`time`**: The time in ISO 8601 date-time format.
-* **`liquidity_depth_2_percent_bid_volume_usd`**: The sum of all bid orders with price within 2 percent from midprice in USD.
+* **`liquidity_depth_2_percent_ask_volume_units`**: The sum of all ask orders with price within 2 percent from midprice in native units.
 
 ## Frequently Asked Questions
 
