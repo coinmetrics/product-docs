@@ -35,6 +35,7 @@ The mean rate at which miners are solving hashes that day. Hash rate is the spee
 | XMR            | (BlkCnt / 720) \* DiffMean \* 1000000                 | MH/s           |
 | ZEC            | ((DiffMean / 150) \* 8192) / 10^9 (block interval: 150s pre-Blossom hardfork at block 653600, 75s after) | GH/s           |
 | ETH, ETC       | (DiffMean / BlkIntMean) / 10^12                       | TH/s           |
+| DOGE           | (BlkCnt / 1440) \* DiffMean \* ((2^32 / 10^12) / 60) | TH/s           |
 
 ### Release History
 

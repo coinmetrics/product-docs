@@ -134,7 +134,7 @@ The values are in percent units. For example, if the value is 0.0076, it should 
 
 ### How often are the metrics calculated?
 
-The depth metrics are calculated once an hour.
+The slippage metrics are calculated once an hour.
 
 ## Release History
 

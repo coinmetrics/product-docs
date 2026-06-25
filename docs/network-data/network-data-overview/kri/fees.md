@@ -62,7 +62,7 @@ Bitcoin (BTC)
 
 **Definition**
 
-The sum value of all mempool transaction fees at a point in time in native units.
+The mean value of all mempool transaction fees at a point in time in native units.
 
 **Dictionary**
 
@@ -110,7 +110,7 @@ Bitcoin (BTC)
 
 **Definition**
 
-The sum value of all mempool transaction fees at a point in time in native units.
+The median value of all mempool transaction fees at a point in time in native units.
 
 **Dictionary**
 
