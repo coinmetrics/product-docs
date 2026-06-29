@@ -315,15 +315,6 @@
 * [Methodologies](reference-data/methodologies/README.md)
   * [Guiding Principles and Methodology for datonomy](reference-data/methodologies/guiding-principles-and-methodology-for-datonomy.md)
 
-## BITTENSOR
-
-* [Precog Methodology](bittensor/precog-methodology/README.md)
-  * [Point Forecast Evaluation](bittensor/precog-methodology/point-forecast-evaluation.md)
-  * [Interval Forecast Evaluation](bittensor/precog-methodology/interval-forecast-evaluation.md)
-  * [Interval Score Examples](bittensor/precog-methodology/interval-score-examples.md)
-  * [Miner Shares from Ranks](bittensor/precog-methodology/miner-shares-from-ranks.md)
-  * [Final Weight](bittensor/precog-methodology/final-weight.md)
-
 ## Resources
 
 * [FAQs](resources/faqs.md)
