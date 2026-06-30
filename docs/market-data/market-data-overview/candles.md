@@ -30,11 +30,21 @@ Coin Metrics calculates candles for **spot** and **future** and **option** marke
 
 ### Style #1
 
-{% content-ref url="https://app.gitbook.com/o/-MQCo4hL7kbGqmZBgS2j/s/xGor3eAHDOvRVXR87DIA/" %}
-[CM API Reference](https://app.gitbook.com/o/-MQCo4hL7kbGqmZBgS2j/s/xGor3eAHDOvRVXR87DIA/)
+{% content-ref url="https://app.gitbook.com/s/xGor3eAHDOvRVXR87DIA/timeseries/pair-candles" %}
+[Pair candles](https://app.gitbook.com/s/xGor3eAHDOvRVXR87DIA/timeseries/pair-candles)
+{% endcontent-ref %}
+
+{% content-ref url="https://app.gitbook.com/s/xGor3eAHDOvRVXR87DIA/timeseries/market-candles" %}
+[Market candles](https://app.gitbook.com/s/xGor3eAHDOvRVXR87DIA/timeseries/market-candles)
 {% endcontent-ref %}
 
 ### Style #2
+
+Style 2 - all endpoints in one page - can't link to distinct sections of page.  Maybe can be resolved by using normal links instead of internal page links.
+
+{% content-ref url="https://app.gitbook.com/s/nUye8Z54I397XuwnamFC/timeseries" %}
+[Timeseries](https://app.gitbook.com/s/nUye8Z54I397XuwnamFC/timeseries)
+{% endcontent-ref %}
 
 ### Current Style:
 
