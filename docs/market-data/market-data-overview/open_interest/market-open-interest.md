@@ -14,14 +14,15 @@ Each contract has a specified contract value that can be described by the size a
 
 Coin Metrics collects open interest in units of number of contracts and in units of U.S. dollars at one minute snapshot frequency. We collect open interest snapshots from **future** and **option** markets from exchanges that are listed on our exchange coverage universe.
 
-## API Endpoints
+The `contract_count` numbers Coin Metrics provides are reported directly from the exchanges. We do not perform standardization. As a result its possible there are differences in the value due to how each exchange chooses to report its own open interest.  For example, although most exchanges report one-sided open interest, some may report two-sided (notably, CME). Consult with the exchanges' documentation directly to confirm their conventions.
 
+## API Endpoints
 
 Market open interest can be accessed using the `timeseries/market-openinterest` for markets.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-open-interest" method="get" %}
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-open-interest" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}
@@ -53,7 +54,6 @@ print(
 ```
 {% endtab %}
 {% endtabs %}
-
 
 ## **Example**
 
@@ -101,7 +101,7 @@ For exchanges that report an actual timestamp that is not the time of the reques
 
 ### **Do you have open interest metrics for assets, exchanges, asset pairs, or exchange-asset pairs?**
 
-Yes! We calculate various types of total open interest for assets like `btc`, exchanges like `binance`, asset pairs like `btc-usd`, and exchange-asset pairs like `binance-btc`. For more information, please take a look at our [open interest metrics](open\_interest\_reported.md).
+Yes! We calculate various types of total open interest for assets like `btc`, exchanges like `binance`, asset pairs like `btc-usd`, and exchange-asset pairs like `binance-btc`. For more information, please take a look at our [open interest metrics](open_interest_reported.md).
 
 ## Release History
 
@@ -116,7 +116,7 @@ Coin Metrics also calculates several open interest metrics at the asset, exchang
 Please see the following pages on open interest below to learn more.
 
 {% content-ref url="open_interest_reported.md" %}
-[open\_interest\_reported.md](open\_interest\_reported.md)
+[open\_interest\_reported.md](open_interest_reported.md)
 {% endcontent-ref %}
 
 ## **Availability**
