@@ -1,6 +1,6 @@
 # Analyzing DeFi Protocol Balance Sheets
 
-![](https://5264302.fs1.hubspotusercontent-na1.net/hubfs/5264302/Demo%20Asset%20Resources/CM-Demo-balance\_sheets-Cover.png)
+![](https://5264302.fs1.hubspotusercontent-na1.net/hubfs/5264302/Demo%20Asset%20Resources/CM-Demo-balance_sheets-Cover.png)
 
 Decentralized Finance (DeFi) is a rapidly emerging ecosystem of applications and protocols used for trading, lending, and various other financial services. Rather than relying on centralized intermediaries, these protocols utilize permissionless blockchains such as Ethereum to conduct the majority of their activities and transactions on-chain. While these protocols offer an unprecedented level of transparency, complex smart contract code and overlapping on-chain transactions can be difficult to interpret. Coin Metrics **DeFi Balance Sheets** endpoint attempts to distill these operations into a traditional accounting format, presenting protocol assets and liabilities in an intuitive, easy-to-understand schema.
 
@@ -22,9 +22,7 @@ Download the entire notebook as either a jupyter notebook to run yourself or as 
 
 {% file src="../../.gitbook/assets/DEFI - Dex Data.ipynb" %}
 
-{% file src="../../.gitbook/assets/DEFI_dex_data (1).pdf" %}
-
-
+{% file src="../../.gitbook/assets/DEFI_dex_data (1) (1).pdf" %}
 
 ### Notebook Setup
 
@@ -244,8 +242,6 @@ plt.rcParams['font.size'] = 15.0
 
 <figure><img src="../../.gitbook/assets/DEFI_balance_sheets_top_7_tvl.png" alt=""><figcaption></figcaption></figure>
 
-
-
 ```python
 aave_v2_eth.index = (pd.to_datetime(aave_v2_eth.time)).dt.date
 aave_v2_eth["Total Value Locked (USD)"] = aave_v2_eth.tvl_total_usd.astype(float)
@@ -285,4 +281,3 @@ plt.gca().set_yticklabels(['${:,.2f}B'.format(x/1000000000) for x in plt.gca().g
 ```
 
 <figure><img src="../../.gitbook/assets/DEFI_balance_sheets_aave_v2_eth_tvl.png" alt=""><figcaption></figcaption></figure>
-
