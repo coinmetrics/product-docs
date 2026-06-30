@@ -1,6 +1,8 @@
 # Granular Insights On Chain Using Hourly Network Data Metrics
 
-![](https://5264302.fs1.hubspotusercontent-na1.net/hubfs/5264302/Demo%20Asset%20Resources/Demo%20Covers/CM-Demo-hourly_metrics-Cover.png)
+![](https://5264302.fs1.hubspotusercontent-na1.net/hubfs/5264302/Demo%20Asset%20Resources/Demo%20Covers/CM-Demo-hourly\_metrics-Cover.png)
+
+
 
 ### Resources
 
@@ -20,7 +22,9 @@ Download the entire notebook as either a jupyter notebook to run yourself or as 
 
 {% file src="../../.gitbook/assets/NDP - Hourly Metrics.ipynb" %}
 
-{% file src="../../.gitbook/assets/NDP - Hourly Metrics (1) (1).pdf" %}
+{% file src="../../.gitbook/assets/NDP - Hourly Metrics (1).pdf" %}
+
+
 
 #### Notebook Setup
 
@@ -274,6 +278,8 @@ plt.show()
 
 <figure><img src="../../.gitbook/assets/NDP_Hourly Metrics_Tx_Count_Supply_Burnt.png" alt=""><figcaption></figcaption></figure>
 
+
+
 ### BTC Block Interval vs. Mean Fee
 
 In contrast to Etheruem's predictable 12-second block time, Bitcoin's block interval is based on probabilistic factors— there's no way of knowing for sure when the next block will come in.
@@ -350,3 +356,4 @@ plt.show()
 ```
 
 <figure><img src="../../.gitbook/assets/NDP_Hourly_Metrics_Block_Interval_Median_Tx_Fee.png" alt=""><figcaption></figcaption></figure>
+
