@@ -16,6 +16,18 @@ Coin Metrics collects open interest in units of number of contracts and in units
 
 The `contract_count` numbers Coin Metrics provides are reported directly from the exchanges. We do not perform standardization. As a result its possible there are differences in the value due to how each exchange chooses to report its own open interest.  For example, although most exchanges report one-sided open interest, some may report two-sided (notably, CME). Consult with the exchanges' documentation directly to confirm their conventions.
 
+#### Deprecated Field: \`value\_usd\`
+
+Note: The `value_usd` field in this endpoint was previously calculated using hardcoded logic that no longer reflects current contract specifications across all exchanges.\
+\
+To address this, we have deprecated the `value_usd` field and introduced new, more accurate metrics available via the `/timeseries/market-metrics` endpoint.\
+\
+These two metrics should be used as a replacement for the `value_usd` field going forward:\
+\- `open_interest_reported_future_usd` to represent the notional value of open interest in U.S. dollars for futures markets\
+\- `open_interest_reported_option_notional_usd` to represent the notional value of open interest in U.S. dollars for options markets\
+\
+We also introduced `open_interest_reported_option_market_value_usd` to represent the market value of open interest in U.S. dollars for options markets.
+
 ## API Endpoints
 
 Market open interest can be accessed using the `timeseries/market-openinterest` for markets.
@@ -82,11 +94,11 @@ A sample of the futures open interest data from the `binance-BTCUSDT-future` mar
 }
 ```
 
-* **`market`**: The id of the market. Market ids use the following naming convention: `exchangeName-baseAsset-quoteAsset-spot` for spot markets, `exchangeName-futuresSymbol-future` for futures markets, and `exchangeName-optionsSymbol-option` for options markets. \\
-* **`time`**: The time at which Coin Metrics queried the open interest data from an exchange in ISO 8601 date-time format. Always with nanoseconds precision.\\
-* **`contract_count`**: The open interest denominated in number of contracts.\\
-* **`value_usd`**: The open interest denominated in U.S. dollars.\\
-* **`database_time`**: The timestamp when the data was saved in the database in ISO 8601 date-time format with nanoseconds precision. Always with nanoseconds precision.\\
+* **`market`**: The id of the market. Market ids use the following naming convention: `exchangeName-baseAsset-quoteAsset-spot` for spot markets, `exchangeName-futuresSymbol-future` for futures markets, and `exchangeName-optionsSymbol-option` for options markets.&#x20;
+* **`time`**: The time at which Coin Metrics queried the open interest data from an exchange in ISO 8601 date-time format. Always with nanoseconds precision.
+* **`contract_count`**: The open interest denominated in number of contracts.
+* ~~**`value_usd`**: The open interest denominated in U.S. dollars.~~ Deprecated. See note above
+* **`database_time`**: The timestamp when the data was saved in the database in ISO 8601 date-time format with nanoseconds precision. Always with nanoseconds precision.
 * **`exchange_time`**: The timestamp reported by the exchange. Can be null if the exchange does not report a timestamp.
 
 ## Frequently Asked Questions
