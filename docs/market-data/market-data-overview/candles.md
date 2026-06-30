@@ -14,7 +14,7 @@ Coin Metrics engineers several statistics based on trades data that occurred ove
 
 Candles are generated at regular time intervals and at a time granularity that is suitable for charting and analysis. For instance, several technical analysis indicators can be calculated using data in candles format.
 
-We produce our candles at `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d` intervals. Our candles are calculated directly from our [trades data](market-trades.md). We construct gapless candles which means that if there are no trades in a candle interval, we fill forward candles through time, setting the open, high, low, and close to the close of the previous candle, setting the vwap to the vwap of the previous candle, and setting the volume to zero. Candles are calculated in real-time and available immediately after the candle interval is complete.
+We produce our candles at `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d` intervals. Our candles are calculated directly from our [trades data](market-trades.md). We construct gapless candles which means that if there are no trades in a candle interval, we fill forward candles through time, setting the open, high, low, and close to the close of the previous candle, setting the vwap to the vwap of the previous candle, and setting the volume to zero. Candles are calculated in real-time and available immediately after the candle interval is complete.&#x20;
 
 We calculate candles using trades collected from exchanges rather than collecting candles directly reported from the exchange. This approach offers several advantages, such as allowing us to apply a consistent calculation methodology across exchanges to support cross-exchange analysis, and allows us to generate additional fields that are not typically published by exchanges, such as the volume converted to U.S. dollars, trade count, and volume-weighted average price.
 
@@ -27,22 +27,6 @@ To address the small number of missing trades and to maintain accuracy, we recal
 Coin Metrics calculates candles for **spot** and **future** and **option** markets from exchanges that are listed on our exchange coverage universe.
 
 ## API Endpoints
-
-### Style 1
-
-{% content-ref url="https://app.gitbook.com/s/xGor3eAHDOvRVXR87DIA/timeseries/pair-candles" %}
-[Pair candles](https://app.gitbook.com/s/xGor3eAHDOvRVXR87DIA/timeseries/pair-candles)
-{% endcontent-ref %}
-
-### Style 2
-
-Don't immediately see way to link to specific section of page if all endpoints are rendered together.&#x20;
-
-{% content-ref url="https://app.gitbook.com/s/nUye8Z54I397XuwnamFC/timeseries" %}
-[Timeseries](https://app.gitbook.com/s/nUye8Z54I397XuwnamFC/timeseries)
-{% endcontent-ref %}
-
-### Current Style:
 
 Candles can be accessed using the `timeseries/market-candles` or `timeseries/pair-candles` endpoint.
 

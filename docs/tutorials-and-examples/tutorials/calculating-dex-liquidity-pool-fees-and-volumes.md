@@ -22,7 +22,7 @@ Download the entire notebook as either a jupyter notebook to run yourself or as 
 
 {% file src="../../.gitbook/assets/DEFI - Dex Data.ipynb" %}
 
-{% file src="../../.gitbook/assets/DEFI_dex_data (1) (1).pdf" %}
+{% file src="../../.gitbook/assets/DEFI_dex_data (1).pdf" %}
 
 ### Setup
 
@@ -155,7 +155,7 @@ plt.xticks(fontweight='bold')
 plt.show()
 ```
 
-<figure><img src="../../.gitbook/assets/DEFI_dex_data_market_count (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DEFI_dex_data_market_count (1).png" alt=""><figcaption></figcaption></figure>
 
 ```python
 # Show fields
@@ -406,7 +406,7 @@ plt.show()
 
 ```
 
-<figure><img src="../../.gitbook/assets/DEFI_dex_data_buy_sells (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DEFI_dex_data_buy_sells (1).png" alt=""><figcaption></figcaption></figure>
 
 ```python
 pd.DataFrame(defi_trades.iloc[0])
@@ -477,7 +477,7 @@ plt.grid(color='black', linestyle='dotted')
 plt.show()
 ```
 
-<figure><img src="../../.gitbook/assets/DEFI_dex_data_buyers_per_hour (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DEFI_dex_data_buyers_per_hour (1).png" alt=""><figcaption></figcaption></figure>
 
 ```python
 # Unique buyer addresses
@@ -654,4 +654,4 @@ legend = vc.legend(fontsize=15, framealpha=0, bbox_to_anchor=(1.0, 1.2))
 vc.set_xlabel("");
 ```
 
-<figure><img src="../../.gitbook/assets/DEFI_dex_data_cex_dex_volume (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DEFI_dex_data_cex_dex_volume (1).png" alt=""><figcaption></figcaption></figure>
