@@ -125,7 +125,7 @@ rebuild_python_api_client_docs:
         # so any subsequent push is rejected with "HTTP Basic: Access
         # denied". Drop every extraheader before pushing with our own
         # token below.
-        git config --local --get-regexp '^http\..*\.extraheader$' \
+        { git config --local --get-regexp '^http\..*\.extraheader$' 2>/dev/null || true; } \
           | awk '{print $1}' \
           | while IFS= read -r key; do
               git config --local --unset-all "$key" || true
@@ -186,7 +186,7 @@ update_python_api_client_changelog:
         git commit -m "Update api-client-python changelog with latest upstream release"
         # See rebuild_python_api_client_docs for why we strip every
         # http.*.extraheader before pushing with our own token.
-        git config --local --get-regexp '^http\..*\.extraheader$' \
+        { git config --local --get-regexp '^http\..*\.extraheader$' 2>/dev/null || true; } \
           | awk '{print $1}' \
           | while IFS= read -r key; do
               git config --local --unset-all "$key" || true
