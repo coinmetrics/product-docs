@@ -198,6 +198,23 @@ If you need to download large amounts of data, i.e. more than 100k rows, we reco
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-07-02" %}
+## Added Morpho Vaults Support
+
+Added Atlas support for Morpho Vaults across five chains. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/atlas-v2).
+
+<details>
+
+<summary>Assets Added</summary>
+
+* morpho\_vaults\_arb - Morpho Vaults on Arbitrum
+* morpho\_vaults\_avaxc - Morpho Vaults on Avalanche
+* morpho\_vaults\_base - Morpho Vaults on Base
+* morpho\_vaults\_eth - Morpho Vaults on Ethereum
+* morpho\_vaults\_op - Morpho Vaults on Optimism
+
+</details>
+{% endupdate %}
 {% update date="2026-06-08" %}
 ## Added Polkadot Asset Hub Support
 
