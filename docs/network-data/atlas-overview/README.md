@@ -165,6 +165,24 @@ Taking this transaction that pays a fee of 0.25 BTC as an example, we have:
 }
 ```
 
+## Multi-Denomination Assets
+
+Most Atlas assets assign a single fixed denomination to every balance update, typically the asset symbol (e.g. `btc`, `eth`). However, certain assets track activity across many independent sub-tokens, each with its own contract address and decimal precision. For these assets, balance updates carry a `denomination` field that identifies which sub-token the update belongs to. The denomination is the sub-token's contract address.
+
+When the `denomination` field is absent from a balance update, the denomination equals the asset's default (its symbol).
+
+### Morpho Vault Assets
+
+Morpho Vault assets (`MORPHO_VAULTS_ETH`, `MORPHO_VAULTS_BASE`, `MORPHO_VAULTS_ARB`, `MORPHO_VAULTS_AVAXC`, `MORPHO_VAULTS_OP`) aggregate ERC-4626 vault token activity across all MetaMorpho vaults deployed on the respective chain. Each vault is an independent ERC-20/ERC-4626 token that issues its own share tokens to depositors, with its own contract address and decimal configuration.
+
+Because each vault's share token represents a distinct unit of account, balance updates for these assets always carry a `denomination` field: the vault's contract address as a lowercase 40-character hex string (no `0x` prefix).
+
+The `change`, `new_balance`, and `previous_balance` values are expressed in the vault's share token units. Balances across different vault denominations are not directly comparable.
+
+**Example:** The steakUSDC vault on Ethereum has contract address `0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB`. Balance updates for this vault in `MORPHO_VAULTS_ETH` carry `denomination: beef01735c132ada46aa9aa4c54623caa92a64cb`.
+
+See [Balance Updates](balance-updates.md#multi-denomination-assets) for details on the `denomination` field and the `denominations` filter parameter.
+
 ## API Endpoints
 
 The Atlas API endpoints are located under the common `/blockchain-v2` prefix. There are four primary data sets returned by the Atlas endpoints:
@@ -198,6 +216,27 @@ If you need to download large amounts of data, i.e. more than 100k rows, we reco
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-07-02" %}
+## Added Morpho Vault Support
+
+Added Atlas support for MetaMorpho vault activity on Ethereum, Base, Arbitrum, Avalanche, and Optimism. Each asset aggregates all MetaMorpho ERC-4626 vault tokens deployed on the respective chain.
+
+Balance updates for these assets carry a `denomination` field set to the vault's contract address, reflecting each vault's distinct share token. See [Balance Updates](balance-updates.md#multi-denomination-assets) for details on the denomination field and filter parameter. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/atlas-v2).
+
+**Note:** Balance updates for these assets are denominated in vault shares, not in the underlying deposited asset. A vault share represents a proportional claim on the vault's total assets; its value in terms of the underlying asset changes over time as the vault accrues yield.
+
+<details>
+
+<summary>Assets Added</summary>
+
+* MORPHO\_VAULTS\_ETH - Morpho Vaults on Ethereum
+* MORPHO\_VAULTS\_BASE - Morpho Vaults on Base
+* MORPHO\_VAULTS\_ARB - Morpho Vaults on Arbitrum
+* MORPHO\_VAULTS\_AVAXC - Morpho Vaults on Avalanche
+* MORPHO\_VAULTS\_OP - Morpho Vaults on Optimism
+
+</details>
+{% endupdate %}
 {% update date="2026-06-08" %}
 ## Added Polkadot Asset Hub Support
 
