@@ -15,12 +15,12 @@ The data can be accessed via the following endpoints:
 * A real-time streaming snapshot-then-updates feed is available over the websocket endpoint [`/timeseries-stream/market-orderbooks`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesStreamMarketOrderbooks)
 
 {% embed url="https://youtu.be/9F0a46Ztsec?feature=shared" %}
-Orderbooks Demo
+Order Books Demo
 {% endembed %}
 
 ### At a Glance
 
-<table data-full-width="true"><thead><tr><th>Data type</th><th>Entities</th><th width="159">Frequency / cadence</th><th>Unit</th><th>Primary endpoint</th><th>Coverage</th></tr></thead><tbody><tr><td>Order books (snapshots and updates)</td><td>Markets (spot, futures, options)</td><td><strong>Snapshots</strong>: every 10s (top-100 &#x26; within-10%-of-mid, major markets) and hourly (full book, all markets).<br><br><strong>Updates</strong>: event-driven</td><td>Price in quote currency; size in base asset (spot) or contracts (derivatives)</td><td><code>/timeseries/market-orderbooks</code> and <code>/timeseries-stream/market-orderbooks</code></td><td><a href="https://coverage.coinmetrics.io/market-orderbooks-v2">🔗</a></td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th>Data type</th><th>Entities</th><th width="159">Frequency / cadence</th><th>Unit</th><th>Primary endpoints</th><th>Coverage</th></tr></thead><tbody><tr><td>Order books (snapshots and updates)</td><td>Markets (spot, futures, options)</td><td><strong>Snapshots</strong>: every 10s (top-100 &#x26; within-10%-of-mid, major markets) and hourly (full book, all markets).<br><br><strong>Updates</strong>: event-driven</td><td>Price in quote currency; size in base asset (spot) or contracts (derivatives)</td><td><code>/timeseries/market-orderbooks</code> <br><br><code>/timeseries-stream/market-orderbooks</code></td><td><a href="https://coverage.coinmetrics.io/market-orderbooks-v2">🔗</a></td></tr></tbody></table>
 
 ### Schema
 
@@ -49,11 +49,17 @@ Each entry in `asks` / `bids` is an object:
 
 ### Methodology
 
-**Collection.** Coin Metrics operates real-time feed handlers that connect directly to each exchange's websocket (or REST, where required) and maintain a live, in-memory copy of every subscribed market's book. Exchanges that report level-3 (order-by-order) data are aggregated to **level-2** (one entry per price level) before the data enters the pipeline.
+#### Collection
 
-**Consolidation.** A streaming layer consolidates the per-exchange feeds into continuous, delta-encoded book streams with continuity guarantees across reconnects. A snapshot message carries the full set of price levels; a delta carries only the changed levels; a level whose size drops to `0` is removed from the book.
+Coin Metrics operates real-time feed handlers that connect directly to each exchange's websocket (or REST, where required) and maintain a live, in-memory copy of every subscribed market's book. Exchanges that report level-3 (order-by-order) data are aggregated to **level-2** (one entry per price level) before the data enters the pipeline.
 
-**Snapshots.** Coin Metrics stores three snapshot products:
+#### Consolidation
+
+A streaming layer consolidates the per-exchange feeds into continuous, delta-encoded book streams with continuity guarantees across reconnects. A snapshot message carries the full set of price levels; a delta carries only the changed levels; a level whose size drops to `0` is removed from the book.
+
+#### **Snapshots**
+
+Coin Metrics stores three snapshot products:
 
 * The top **100** bids and 100 asks, every **10 seconds**.
 * All levels **within 10% of the mid-price**, every **10 seconds**.
@@ -65,9 +71,13 @@ $$\left| p - \text{mid} \right| \le 0.1 \cdot \text{mid}, \qquad \text{mid} = \f
 
 All recent snapshots are served from a low-latency store and full history from durable long-term storage.
 
-**Updates (historical).** For supported exchanges, Coin Metrics also retains the full stream of snapshot and update rows, so order book history can be replayed rather than only consumed live. Request it on `/timeseries/market-orderbooks` with `dataset=updates`. This mode is currently available for full-depth books (`full_book` or `30000`), `granularity=raw`, `format=json_stream`, and `paging_from=start`, and only for supported exchanges. You can find supported exchanges via the `dataset` field in `/catalog-v2/market-orderbooks`.
+#### Historical updates
 
-**Reconstructing book state.** Update rows are absolute `[price, size]` values at a level (not deltas). A `size` of `0` removes the level. Rows are ordered by `time` (nanosecond precision). To maintain the book, treat every `type=snapshot` row as a complete state replacement, then apply subsequent `type=update` rows until the next snapshot:
+For supported exchanges, Coin Metrics also retains the full stream of snapshot and update rows, so order book history can be replayed rather than only consumed live. Request it on `/timeseries/market-orderbooks` with `dataset=updates`. This mode is currently available for full-depth books (`full_book` or `30000`), `granularity=raw`, `format=json_stream`, and `paging_from=start`, and only for supported exchanges. You can find supported exchanges via the `dataset` field in `/catalog-v2/market-orderbooks`.
+
+#### **Reconstructing book state**
+
+Update rows are absolute `[price, size]` values at a level (not deltas). A `size` of `0` removes the level. Rows are ordered by `time` (nanosecond precision). To maintain the book, treat every `type=snapshot` row as a complete state replacement, then apply subsequent `type=update` rows until the next snapshot:
 
 ```
 book = {}                          # price -> size, per side
@@ -85,7 +95,7 @@ The `start_with_snapshot=true`  parameter guarantees the response begins with a 
 
 Order books are available over HTTP at `/timeseries/market-orderbooks` (snapshots by default, historical updates via `dataset=updates`) and as a real-time websocket feed at `/timeseries-stream/market-orderbooks`.
 
-#### HTTP — snapshots
+#### Snapshots (HTTP)
 
 {% tabs %}
 {% tab title="Python Client" %}
@@ -124,7 +134,7 @@ print(response)
 {% endtab %}
 {% endtabs %}
 
-#### HTTP — historical updates
+#### Historical Updates (HTTP)
 
 To retrieve historical **updates** instead of snapshots, set `dataset=updates` (full depth, migrated markets). `start_with_snapshot=true` prepends a snapshot so you can initialize book state before applying updates:
 
@@ -153,7 +163,7 @@ curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-orderbooks?ma
 {% endtab %}
 {% endtabs %}
 
-#### Websocket — real-time stream
+#### Real-Time Stream (Websocket)
 
 The stream begins with a `snapshot` message. Subsequent messages are updates, interspersed with occasional further `snapshot` messages that fully replace the book. Maintain the book by loading each snapshot as a fresh state, then applying updates until the next one.
 
@@ -180,7 +190,7 @@ ws.onclose = () => console.log("closed")
 {% endtab %}
 {% endtabs %}
 
-Full parameter reference: see the **API Reference** for [`/timeseries/market-orderbooks`](https://docs.coinmetrics.io/api/v4/#tag/Timeseries/operation/getTimeseriesMarketOrderbooks) and [`/timeseries-stream/market-orderbooks`](https://docs.coinmetrics.io/api/v4/#tag/Timeseries-stream/operation/getTimeseriesStreamMarketOrderbooks).
+Full parameter reference: see the API Reference for [`/timeseries/market-orderbooks`](https://docs.coinmetrics.io/api/v4/#tag/Timeseries/operation/getTimeseriesMarketOrderbooks) and [`/timeseries-stream/market-orderbooks`](https://docs.coinmetrics.io/api/v4/#tag/Timeseries-stream/operation/getTimeseriesStreamMarketOrderbooks).
 
 ### Examples
 
@@ -291,37 +301,37 @@ Choose the shape that matches your question:
 * **Resolution.** Coin Metrics stores **level-2** order book data; exchanges that publish level-3 are aggregated to level-2 before storage.
 * **Per-exchange depth.** How many levels are available depends on what each exchange exposes. The table below shows the **approximate maximum depth** observed for each venue's most-liquid BTC market (measured 2026-07-02); actual levels vary by market and over time, and every snapshot is capped at 30,000 levels. See the [coverage page](https://coverage.coinmetrics.io/market-orderbooks-v2) for authoritative per-market availability.
 
-| Exchange               | Approx. depth  |
-| ---------------------- | -------------- |
-| Binance                | Full book      |
-| Binance.US             | Full book      |
-| bitbank                | \~200 levels   |
-| Bitfinex               | \~250 levels   |
-| bitFlyer               | Full book      |
-| Bitget                 | \~500 levels   |
-| BitMEX                 | Full book      |
-| Bitstamp               | Full book      |
-| Bullish                | \~200 levels   |
-| Bybit                  | \~1,000 levels |
-| CME                    | Full book      |
-| Coinbase               | Full book      |
-| Coinbase Derivatives   | Full book      |
-| Coinbase International | \~200 levels   |
-| Crypto.com             | \~50 levels    |
-| Deribit                | Full book      |
-| dYdX                   | Full book      |
-| Gate.io                | \~100 levels   |
-| Gemini                 | Full book      |
-| GFO-X                  | Full book      |
-| Huobi (HTX)            | \~150 levels   |
-| Hyperliquid            | \~20 levels    |
-| itBit                  | Full book      |
-| Kraken                 | Full book      |
-| KuCoin                 | Full book      |
-| LMAX                   | \~20 levels    |
-| MEXC                   | Full book      |
-| OKX                    | \~400 levels   |
-| Poloniex               | \~20 levels    |
+| Exchange               | Approximate Depth |
+| ---------------------- | ----------------- |
+| Binance                | Full book         |
+| Binance.US             | Full book         |
+| bitbank                | \~200 levels      |
+| Bitfinex               | \~250 levels      |
+| bitFlyer               | Full book         |
+| Bitget                 | \~500 levels      |
+| BitMEX                 | Full book         |
+| Bitstamp               | Full book         |
+| Bullish                | \~200 levels      |
+| Bybit                  | \~1,000 levels    |
+| CME                    | Full book         |
+| Coinbase               | Full book         |
+| Coinbase Derivatives   | Full book         |
+| Coinbase International | \~200 levels      |
+| Crypto.com             | \~50 levels       |
+| Deribit                | Full book         |
+| dYdX                   | Full book         |
+| Gate.io                | \~100 levels      |
+| Gemini                 | Full book         |
+| GFO-X                  | Full book         |
+| Huobi (HTX)            | \~150 levels      |
+| Hyperliquid            | \~20 levels       |
+| itBit                  | Full book         |
+| Kraken                 | Full book         |
+| KuCoin                 | Full book         |
+| LMAX                   | \~20 levels       |
+| MEXC                   | Full book         |
+| OKX                    | \~400 levels      |
+| Poloniex               | \~20 levels       |
 
 Coin Metrics also retains **historical** order book data for venues no longer collected: Bittrex (through 2024), CEX.IO (through 2025), ErisX (through 2025), FTX and FTX.US (through 2022), and Liquid (through 2023).
 
