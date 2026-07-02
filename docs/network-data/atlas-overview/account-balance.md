@@ -43,21 +43,7 @@ Morpho Vault assets (`MORPHO_VAULTS_ETH`, `MORPHO_VAULTS_BASE`, `MORPHO_VAULTS_A
 For these assets:
 
 - The `denomination` field contains the vault's contract address as a lowercase 40-character hex string (no `0x` prefix).
-- The `change`, `new_balance`, and `previous_balance` values are expressed in the vault's own share token units (scaled by that vault's decimals).
+- The `balance` fields are expressed in the vault's own share token units (scaled by that vault's decimals).
 - Balances across different denominations are not directly comparable because each vault's share token represents a different underlying asset.
 
 **Example:** The steakUSDC vault on Ethereum (`0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB`) appears as denomination `beef01735c132ada46aa9aa4c54623caa92a64cb` in balance updates for `MORPHO_VAULTS_ETH`.
-
-### Filtering by Denomination
-
-The account balance endpoint accepts a `denominations` query parameter (a comma-separated list of denomination values) to return only balance updates for specific sub-tokens:
-
-```
-/blockchain-v2/{asset}/accounts/{account}/balance-updates?denominations={vault_contract_address}
-```
-
-For example, to retrieve only balance updates for the steakUSDC vault on Ethereum:
-
-```
-/blockchain-v2/morpho_vaults_eth/accounts/{account}/balance-updates?denominations=beef01735c132ada46aa9aa4c54623caa92a64cb
-```

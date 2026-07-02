@@ -216,7 +216,7 @@ If you need to download large amounts of data, i.e. more than 100k rows, we reco
 ## Change Log
 
 {% updates format="full" %}
-{% update date="2026-07-02" %}
+{% update date="2026-06-22" %}
 ## Added Morpho Vault Support
 
 Added Atlas support for MetaMorpho vault activity on Ethereum, Base, Arbitrum, Avalanche, and Optimism. Each asset aggregates all MetaMorpho ERC-4626 vault tokens deployed on the respective chain.
