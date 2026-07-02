@@ -125,7 +125,7 @@ rebuild_python_api_client_docs:
         # so any subsequent push is rejected with "HTTP Basic: Access
         # denied". Drop every extraheader before pushing with our own
         # token below.
-        git config --local --get-regexp '^http\..*\.extraheader$' \
+        { git config --local --get-regexp '^http\..*\.extraheader$' 2>/dev/null || true; } \
           | awk '{print $1}' \
           | while IFS= read -r key; do
               git config --local --unset-all "$key" || true
@@ -142,6 +142,10 @@ rebuild_python_api_client_docs:
     # If upstream has not moved, the build produces no diff and the job
     # exits silently without opening an MR.
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    # Manual trigger from MR pipelines or MR source branch pipelines,
+    # useful for validating changes to this automation before merging.
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" || $CI_OPEN_MERGE_REQUESTS'
+      when: manual
     # Manual trigger from the master branch -- useful for forcing an
     # off-cycle rebuild after a known upstream release.
     - if: '$CI_COMMIT_BRANCH == "master"'
@@ -186,7 +190,7 @@ update_python_api_client_changelog:
         git commit -m "Update api-client-python changelog with latest upstream release"
         # See rebuild_python_api_client_docs for why we strip every
         # http.*.extraheader before pushing with our own token.
-        git config --local --get-regexp '^http\..*\.extraheader$' \
+        { git config --local --get-regexp '^http\..*\.extraheader$' 2>/dev/null || true; } \
           | awk '{print $1}' \
           | while IFS= read -r key; do
               git config --local --unset-all "$key" || true
@@ -204,6 +208,10 @@ update_python_api_client_changelog:
     # Scheduled run (optional): keeps the changelog from drifting if
     # nobody triggers the job manually. Mirrors the rebuild job.
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    # Manual trigger from MR pipelines or MR source branch pipelines,
+    # useful for validating changes to this automation before merging.
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" || $CI_OPEN_MERGE_REQUESTS'
+      when: manual
     # Manual trigger from master, the primary entry point.
     - if: '$CI_COMMIT_BRANCH == "master"'
       when: manual

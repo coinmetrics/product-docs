@@ -16,6 +16,8 @@ coinmetrics.api_client.CoinMetricsClient.get_market_orderbooks(
     timezone=None,
     limit_per_market=None,
     format='json_stream',
+    dataset=None,
+    start_with_snapshot=None,
 )
 ```
 
@@ -35,6 +37,8 @@ For more information on order books, see: [https://docs.coinmetrics.io/info/mark
   * **timezone** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- timezone of the start/end times in db format for example: "America/Chicago". Default value is "UTC". For more details check out API documentation page.
   * **limit_per_market** ([*int*](https://docs.python.org/3/library/functions.html#int)) -- How many entries *per market* the result should contain.
   * **format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Format of the response. Supported values are json, json_stream, csv. Default is json_stream. Setting format='json_stream' is generally more performant. page_size and paging_from is ignored when format='json_stream'.
+  * **dataset** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) -- Logical order book dataset to return. `snapshots` (default) returns snapshot rows only. `updates` returns snapshot and incremental update rows for migrated exchanges.
+  * **start_with_snapshot** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) -- Applies only when `dataset=updates`. When `true`, the response may include a snapshot from before `start_time` for order book state initialization. Ignored when `dataset=snapshots`.
 
 **Returns:**
 
