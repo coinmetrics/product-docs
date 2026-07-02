@@ -42,8 +42,8 @@ Data available at the market level is served through the API endpoints below, wh
 [funding-rates.md](funding-rates/funding-rates.md)
 {% endcontent-ref %}
 
-{% content-ref url="market-order-book.md" %}
-[market-order-book.md](market-order-book.md)
+{% content-ref url="order-books.md" %}
+[order-books.md](order-books.md)
 {% endcontent-ref %}
 
 {% content-ref url="quotes.md" %}
@@ -66,8 +66,8 @@ Data available at the market level is served through the API endpoints below, wh
 [market-greeks.md](market-greeks.md)
 {% endcontent-ref %}
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="broken-reference/" %}
+[broken-reference](broken-reference/)
 {% endcontent-ref %}
 
 ## Metrics Available at Market Level

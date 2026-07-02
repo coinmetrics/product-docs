@@ -1,7 +1,3 @@
----
-description: /timeseries/market-orderbooks
----
-
 # Order Books
 
 ### Overview
