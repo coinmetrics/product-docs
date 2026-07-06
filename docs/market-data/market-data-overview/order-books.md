@@ -16,7 +16,7 @@ Order Books Demo
 
 ### At a Glance
 
-<table data-full-width="true"><thead><tr><th>Data type</th><th>Entities</th><th width="159">Frequency / cadence</th><th>Unit</th><th>Primary endpoints</th><th>Coverage</th></tr></thead><tbody><tr><td>Order books (snapshots and updates)</td><td>Markets (spot, futures, options)</td><td><strong>Snapshots</strong>: every 10s (top-100 &#x26; within-10%-of-mid, major markets) and hourly (full book, all markets).<br><br><strong>Updates</strong>: event-driven</td><td>Price in quote currency; size in base asset (spot) or contracts (derivatives)</td><td><code>/timeseries/market-orderbooks</code> <br><br><code>/timeseries-stream/market-orderbooks</code></td><td><a href="https://coverage.coinmetrics.io/market-orderbooks-v2">🔗</a></td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th>Data type</th><th>Entities</th><th width="159">Frequency / cadence</th><th>Unit</th><th>Primary endpoints</th><th>Coverage</th></tr></thead><tbody><tr><td>Order books (snapshots and updates)</td><td>Markets (spot, futures, options)</td><td><strong>Snapshots</strong>: every 10s (top-100 &#x26; within-10%-of-mid, major markets) and hourly (full book, all markets).<br><br><strong>Updates</strong>: event-driven</td><td>Price in quote currency; size in base asset (spot) or contracts (derivatives)</td><td><code>/timeseries/market-orderbooks</code><br><br><code>/timeseries-stream/market-orderbooks</code></td><td><a href="https://coverage.coinmetrics.io/market-orderbooks-v2">🔗</a></td></tr></tbody></table>
 
 ### Schema
 
@@ -75,39 +75,39 @@ For supported exchanges, Coin Metrics also retains the full stream of snapshot a
 
 Update rows are absolute `[price, size]` values at a level (not deltas). A `size` of `0` removes the level. Rows are ordered by `time` (nanosecond precision). To maintain the book, treat every `type=snapshot` row as a complete state replacement, then apply subsequent `type=update` rows until the next snapshot:
 
-```text
+```
 book = {}                          # price -> size, per side
 for row in rows_ordered_by_time:
     if row.type == "snapshot":     # full state replacement
         book = load(row.asks, row.bids)
     else:                          # row.type == "update"
         for level in row.asks + row.bids:
-            book.remove(level.price) if level.size == 0 else book.set(level.price, level.size)
+            book.update(level.price) if level.size == 0 else book.set(level.price, level.size)
 ```
 
-The `start_with_snapshot=true`  parameter guarantees the response begins with a snapshot row,  possibly from _before_ the requested `start_time`, so a client can initialize state before applying the first update. Effectively, setting this parameter to true will override the user-specified `start_time` to a modified timestamp that represents the nearest snapshot's timestamp prior to specified `start_time`. Any updates that occur between the modified `start_time` and user-requested `start_time` are also sent. Timestamps are recorded and returned at nanosecond precision.
+The `start_with_snapshot=true` parameter guarantees the response begins with a snapshot row, possibly from _before_ the requested `start_time`, so a client can initialize state before applying the first update. Effectively, setting this parameter to true will override the user-specified `start_time` to a modified timestamp that represents the nearest snapshot's timestamp prior to specified `start_time`. Any updates that occur between the modified `start_time` and user-requested `start_time` are also sent. Timestamps are recorded and returned at nanosecond precision.
 
-Within the `updates` dataset, a fresh full snapshot is included at least once every **5 minutes** per market (and again whenever a market's collection restarts). Every `type=snapshot` row is therefore a clean re-synchronization point — combined with `start_with_snapshot=true`, you never need more than about five minutes of updates to rebuild the book from the nearest snapshot.
+Within the `updates` dataset, a fresh full snapshot is included at least once every **5 minutes** per market (and again whenever a market's collection restarts). Every `type=snapshot` row is therefore a clean re-synchronization point. Combined with `start_with_snapshot=true`, you never need more than about five minutes of updates to rebuild the book from the nearest snapshot.
 
 #### Redundancy and stream switching
 
-To stay resilient to exchange disconnects, feed-handler restarts, and pipeline outages, Coin Metrics collects each market over **multiple redundant streams** and treats one as active. If the active stream goes silent, disconnects, or falls behind a healthy alternative by more than a short timeout, collection automatically **fails over** to the healthy stream, and switches back to the primary once it recovers.
+To stay resilient to exchange disconnects, feed-handler restarts, and pipeline outages, Coin Metrics collects each market over multiple redundant streams and treats one as active. If the active stream goes silent, disconnects, or falls behind a healthy alternative by more than a short timeout, collection automatically fails over to the healthy stream, and switches back to the primary once it recovers.
 
-Across a failover the book is kept consistent in one of two ways: a synthetic **bridging delta** that reconciles the difference between the old and new stream, or a **fresh full snapshot** of the newly-active stream. A switch can therefore surface as an out-of-band snapshot — a `type=snapshot` row in the historical `updates` dataset, or a `snapshot` message on the websocket feed. This is why you should treat **every** snapshot as a complete state reset (as described above), not just the first one — the same handling applies whether you consume the real-time feed or replay the historical `updates` dataset.
+Across a failover the book is kept consistent in one of two ways: a synthetic bridging delta that reconciles the difference between the old and new stream, or a fresh full snapshot of the newly-active stream. A switch can therefore surface as an out-of-band snapshot — either a `type=snapshot` row in the historical `updates` dataset, or a `snapshot` message on the websocket feed. Therefore, users should treat **every** snapshot as a complete state reset (as described above). The same handling applies whether you consume the real-time feed or replay the historical `updates` dataset.
 
 #### Identifiers and timestamps
 
-**`coin_metrics_id`.** Every order book message carries a `coin_metrics_id` that uniquely identifies the observation. When an exchange publishes its own sequence number or message id, Coin Metrics preserves it as the `coin_metrics_id` — so you can order and de-duplicate messages exactly as the exchange does, detect gaps, and cross-reference against the exchange's native feed. When an exchange does not, Coin Metrics assigns its own identifier.
+**`coin_metrics_id`.** Every order book message carries a `coin_metrics_id` that uniquely identifies the observation. When an exchange publishes its own sequence number or message id, Coin Metrics preserves it as the `coin_metrics_id` so you can order and de-duplicate messages exactly as the exchange does, detect gaps, and cross-reference against the exchange's native feed. When an exchange does not, Coin Metrics assigns its own identifier.
 
 **Timestamps.** Each message can carry up to three timestamps:
 
-* `time` — the exchange-reported event time, for venues that publish a per-message timestamp. For venues that do not, `time` reflects the moment Coin Metrics received the message and equals `collect_time`.
-* `collect_time` — the wall-clock time on the collecting feed-handler host at the instant the message was received from the exchange.
-* `database_time` — when Coin Metrics persisted the observation.
+* `time` : the exchange-reported event time, for venues that publish a per-message timestamp. For venues that do not, `time` reflects the moment Coin Metrics received the message and equals `collect_time`.
+* `collect_time` : the wall-clock time on the collecting feed-handler host at the instant the message was received from the exchange.
+* `database_time` : when Coin Metrics persisted the observation.
 
-The two conventions are independent: a venue may preserve an exchange sequence yet still stamp `time` with receive time (for example, Binance.US and MEXC). A quick tell — if `time` equals `collect_time`, that venue does not supply its own event timestamp.
+The two conventions are independent: a venue may preserve an exchange sequence yet still stamp `time` with receive time. If `time` equals `collect_time`, it indicates the venue does not supply its own event timestamp.
 
-The table below summarizes both conventions per exchange, verified against live data (2026-07-02). Kraken and Crypto.com are shown split by feed because their spot and futures conventions differ; the other multi-feed venues we checked use the same conventions across spot and futures.
+The table below summarizes both conventions per exchange.
 
 | Exchange               | `coin_metrics_id`     | `time`              |
 | ---------------------- | --------------------- | ------------------- |
@@ -158,7 +158,6 @@ from coinmetrics.api_client import CoinMetricsClient
 client = CoinMetricsClient(os.environ["CM_API_KEY"])
 
 # Snapshots over a time range, fetched in parallel and returned as a DataFrame.
-# .parallel() defaults to max_workers=10 (capped at 10) and progress_bar=True.
 df = client.get_market_orderbooks(
     markets=["coinbase-btc-usd-spot"],
     start_time="2025-01-01",
@@ -423,11 +422,11 @@ Most exchanges do not report updates with that detail. They typically report a `
 
 #### What is the latency of your order book data?
 
-Latency — the gap between the exchange's event time and when Coin Metrics receives the message — varies substantially by exchange, so it is more useful as a range than a single figure. The fastest venues deliver in single-digit milliseconds, most sit in the tens to low hundreds of milliseconds, and the slowest reach several hundred milliseconds at the median.
+Latency, the gap between the exchange's event time and when Coin Metrics receives the message, varies substantially by exchange, so it is more useful as a range than a single figure. The fastest venues deliver in single-digit milliseconds, most sit in the tens to low hundreds of milliseconds, and the slowest reach several hundred milliseconds at the median.
 
-As a concrete example, `coinbase-btc-usd-spot` is among the fastest we collect: a median near 7 ms, a 95th percentile around 25 ms, and a 99th percentile around 80 ms.
+As a concrete example, Coinbase is among the fastest we collect: a median near 7 ms, a 95th percentile around 25 ms, and a 99th percentile around 80 ms.
 
-These figures compare the exchange's event timestamp with our receipt time; venues that do not stamp their own messages are excluded, since for them `time` is Coin Metrics' receive time.
+These figures compare the exchange's event timestamp with our receipt time. Venues that do not stamp their own messages are excluded, since for them `time` is Coin Metrics' receive time.
 
 #### Are your order book snapshots taken exactly on the second or hour?
 
