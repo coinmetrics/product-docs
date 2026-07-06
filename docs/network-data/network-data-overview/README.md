@@ -27,6 +27,12 @@ Details on the specific metrics are described in the pages linked in this sectio
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-07-06" %}
+## Expanded Estimated Market Cap Dominance to ETH
+
+Added the `CapMrktEstDomPct` metric for Ethereum, previously only available for Bitcoin. For full coverage details please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/CapMrktEstDomPct).
+{% endupdate %}
+
 {% update date="2026-06-22" %}
 ## Expanded Exchange Flows to New Stablecoins
 
