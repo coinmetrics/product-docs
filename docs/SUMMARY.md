@@ -10,6 +10,7 @@
     * [Getting Started With Futures Data](tutorials-and-examples/tutorials/md_futures_overview.md)
     * [Getting Started With Options Data](tutorials-and-examples/tutorials/md_futures_overview-1.md)
     * [Aggregating Options Data](tutorials-and-examples/tutorials/md_options_aggregation.md)
+    * [Reconstructing the Order Book from Snapshots and Updates](tutorials-and-examples/tutorials/order-book-updates.md)
     * [Examining Orderbook Depth](tutorials-and-examples/tutorials/md_orderbook_depth.md)
     * [Aggregating Orderbook Depth to Create Liquidity Metrics](tutorials-and-examples/tutorials/aggregating-orderbook-depth-to-create-liquidity-metrics.md)
     * [Comparing Stablecoin Prices Using Different Pricing Methods](tutorials-and-examples/tutorials/comparing-stablecoin-prices-using-different-pricing-methods.md)
