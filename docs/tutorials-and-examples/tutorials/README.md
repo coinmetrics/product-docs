@@ -81,6 +81,16 @@ Below are some demonstartion notebooks and videos based on the products used and
 
 **Personas**: Quant Trader, Market Analyst
 
+### [Reconstructing the Order Book from Snapshots and Updates](order-book-updates.md)
+
+**Products:** [Market Data](broken-reference/)
+
+**Summary:** This tutorial shows how Coin Metrics serves the order book three ways — historical snapshots, the full stream of historical updates, and a real-time websocket — and how one set of reconstruction code rebuilds the exact book across all of them. It streams a live sample, then replays that exact time window from the historical `updates` dataset, and derives best bid/ask, spread, and depth-near-mid for TCA, microstructure research, and backtests.
+
+**Use Cases**: Trading, Research, Execution & TCA
+
+**Personas**: Quant Trader, Market Microstructure Researcher, Developer
+
 ### [Examining Orderbook Depth](md_orderbook_depth.md)
 
 **Products:** [Market Data Feed](broken-reference/)
