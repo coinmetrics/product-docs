@@ -1,6 +1,6 @@
 # Order Books
 
-### Overview
+## Overview
 
 An order book is the set of outstanding buy orders (bids) and sell orders (asks) for a market, organized by price level. Each level's size is the amount of the base asset (for spot markets) or the number of contracts (for derivatives markets) available at that price. Coin Metrics serves this data in two complementary shapes: point-in-time snapshots of the book, and the full sequence of updates (individual level changes or deltas) that lets you reconstruct the state of the book at any arbitrary timestamp. Traders, market-microstructure researchers, and execution and trade cost analysis teams can use our order book data to study liquidity, depth, and short-term price formation.
 
@@ -14,25 +14,25 @@ The data can be accessed via the following endpoints:
 Order Books Demo
 {% endembed %}
 
-### At a Glance
+## At a Glance
 
-<table data-full-width="true"><thead><tr><th>Data type</th><th>Entities</th><th width="159">Frequency / cadence</th><th>Unit</th><th>Primary endpoints</th><th>Coverage</th></tr></thead><tbody><tr><td>Order books (snapshots and updates)</td><td>Markets (spot, futures, options)</td><td><strong>Snapshots</strong>: every 10s (top-100 &#x26; within-10%-of-mid, major markets) and hourly (full book, all markets).<br><br><strong>Updates</strong>: event-driven</td><td>Price in quote currency; size in base asset (spot) or contracts (derivatives)</td><td><code>/timeseries/market-orderbooks</code><br><br><code>/timeseries-stream/market-orderbooks</code></td><td><a href="https://coverage.coinmetrics.io/market-orderbooks-v2">🔗</a></td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th>Data type</th><th>Entities</th><th width="159">Frequency / cadence</th><th>Unit</th><th>Primary endpoints</th><th>Coverage</th></tr></thead><tbody><tr><td>Order books (snapshots and updates)</td><td>Markets (spot, futures, options)</td><td><strong>Snapshots</strong>: every 10s (top-100 &#x26; within-10%-of-mid, major markets) and hourly (full book, all markets).<br><br><strong>Updates</strong>: event-driven</td><td>Price in quote currency. Size in base asset (spot) or contracts (derivatives)</td><td><code>/timeseries/market-orderbooks</code><br><br><code>/timeseries-stream/market-orderbooks</code></td><td><a href="https://coverage.coinmetrics.io/market-orderbooks-v2">🔗</a></td></tr></tbody></table>
 
-### Schema
+## Schema
 
 One observation is a single order book message consisting of either a snapshot (a representation of the state of the book at a point in time) or an update (a set of changed levels). The table below is the response schema for `/timeseries/market-orderbooks`.
 
-| Field             | Type               | Description                                                                                                                                                       | Notes                                                                                                |
-| ----------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `market`          | string             | Unique name of the market. Market ids follow `exchange-base-quote-spot` for spot, `exchange-symbol-future` for futures, and `exchange-symbol-option` for options. |                                                                                                      |
-| `time`            | string (date-time) | Exchange-reported event time where the venue publishes one; otherwise Coin Metrics' receive time. ISO 8601, nanosecond precision.                                 |                                                                                                      |
-| `coin_metrics_id` | string             | Identifier of the order book observation. Preserves the exchange's sequence number where the exchange provides one; otherwise Coin Metrics-assigned.              |                                                                                                      |
-| `asks`            | array\[object]     | The ask (sell) orders on the book.                                                                                                                                | See sub-fields                                                                                       |
-| `bids`            | array\[object]     | The bid (buy) orders on the book.                                                                                                                                 | See sub-fields                                                                                       |
-| `database_time`   | string (date-time) | Time Coin Metrics stored the observation.                                                                                                                         | Returned by the HTTP endpoint (both datasets). Not present in websocket messages.                    |
-| `collect_time`    | string (date-time) | Feed-handler host clock when the message was received from the exchange.                                                                                          | Returned for `dataset=updates` rows and websocket messages. Absent from default `snapshot` rows.     |
-| `type`            | string             | `snapshot` or `update`.                                                                                                                                           | Present in `dataset=updates` responses and websocket messages. Absent from default `snapshots` rows. |
-| `cm_sequence_id`  | string             | Per-connection message sequence number for ordering a live stream.                                                                                                | Present in websocket messages only                                                                   |
+| Field | Type | Description | Notes |
+| --- | --- | --- | --- |
+| `market` | string | Unique name of the market. Market ids follow `exchange-base-quote-spot` for spot, `exchange-symbol-future` for futures, and `exchange-symbol-option` for options. | |
+| `time` | string (date-time) | Exchange-reported event time where the venue publishes one, otherwise Coin Metrics' receive time. ISO 8601, nanosecond precision. | |
+| `coin_metrics_id` | string | Identifier of the order book observation. Preserves the exchange's sequence number where the exchange provides one, otherwise Coin Metrics-assigned. See [Identifiers and timestamps](#identifiers-and-timestamps). | |
+| `asks` | array\[object] | The ask (sell) orders on the book. | See sub-fields |
+| `bids` | array\[object] | The bid (buy) orders on the book. | See sub-fields |
+| `database_time` | string (date-time) | Time Coin Metrics stored the observation. | Returned by the HTTP endpoint (both datasets). Not present in websocket messages. |
+| `collect_time` | string (date-time) | Feed-handler host clock when the message was received from the exchange. | Returned for `dataset=updates` rows and websocket messages. Absent from default `snapshot` rows. |
+| `type` | string | `snapshot` or `update`. See [Reconstructing book state](#reconstructing-book-state). | Present in `dataset=updates` responses and websocket messages. Absent from default `snapshots` rows. |
+| `cm_sequence_id` | string | Per-connection message sequence number for ordering a live stream. | Present in websocket messages only |
 
 Each entry in `asks` / `bids` is an object:
 
@@ -40,20 +40,20 @@ Each entry in `asks` / `bids` is an object:
 * **`size`** : string (decimal). The amount at that price, in units of the base asset (spot) or number of contracts (derivatives). In an **update**, a `size` of `0` means the level was removed (matched or cancelled).
 
 {% hint style="info" %}
-**Conventions.** Prices and sizes are returned as JSON **strings** to preserve precision. Timestamps are UTC ISO-8601 with nanosecond resolution. `time` is the exchange-reported event time where the venue publishes one (otherwise Coin Metrics' receive time); `collect_time` is the feed-handler host clock when the message was received; `database_time` is when Coin Metrics stored the observation. Units are per-field (see the table).
+**Conventions.** Prices and sizes are returned as JSON **strings** to preserve precision. Timestamps are UTC ISO-8601 with nanosecond resolution. `time` is the exchange-reported event time where the venue publishes one (otherwise Coin Metrics' receive time). `collect_time` is the feed-handler host clock when the message was received. `database_time` is when Coin Metrics stored the observation. Units are per-field (see the table).
 {% endhint %}
 
-### Methodology
+## Methodology
 
-#### Collection
+### Collection
 
 Coin Metrics operates real-time feed handlers that connect directly to each exchange's websocket (or REST, where required) and maintain a live, in-memory copy of every subscribed market's book. Exchanges that report level-3 (order-by-order) data are aggregated to **level-2** (one entry per price level) before the data enters the pipeline.
 
-#### Consolidation
+### Consolidation
 
-A streaming layer consolidates the per-exchange feeds into continuous, delta-encoded book streams with continuity guarantees across reconnects. A snapshot message carries the full set of price levels; a delta carries only the changed levels; a level whose size drops to `0` is removed from the book.
+A streaming layer consolidates the per-exchange feeds into continuous, delta-encoded book streams with continuity guarantees across reconnects. A snapshot message carries the full set of price levels. A delta carries only the changed levels. A level whose size drops to `0` is removed from the book.
 
-#### **Snapshots**
+### **Snapshots**
 
 Coin Metrics stores three snapshot products:
 
@@ -67,15 +67,15 @@ $$\left| p - \text{mid} \right| \le 0.1 \cdot \text{mid}, \qquad \text{mid} = \f
 
 All recent snapshots are served from a low-latency store and full history from durable long-term storage.
 
-#### Historical updates
+### Historical updates
 
-For supported exchanges, Coin Metrics also retains the full stream of snapshot and update rows, so order book history can be replayed rather than only consumed live. Request it on `/timeseries/market-orderbooks` with `dataset=updates`. This mode is currently available for full-depth books (`full_book` or `30000`), `granularity=raw`, `format=json_stream`, and `paging_from=start`, and only for supported exchanges. You can find supported exchanges via the `dataset` field in `/catalog-v2/market-orderbooks`. Because it serves a fixed, persisted sequence, `dataset=updates` is fully reproducible — the same market and time range returns the identical sequence of snapshot and update rows for every client and on every re-query.
+For supported exchanges, Coin Metrics also retains the full stream of snapshot and update rows, so order book history can be replayed rather than only consumed live. Request it on `/timeseries/market-orderbooks` with `dataset=updates`. This mode is currently available for full-depth books (`full_book` or `30000`), `granularity=raw`, `format=json_stream`, and `paging_from=start`, and only for supported exchanges. You can find supported exchanges via the `dataset` field in `/catalog-v2/market-orderbooks`. Because it serves a fixed, persisted sequence, `dataset=updates` is fully reproducible. The same market and time range returns the identical sequence of snapshot and update rows for every client and on every re-query.
 
-#### **Reconstructing book state**
+### **Reconstructing book state**
 
 Update rows are absolute `[price, size]` values at a level (not deltas). A `size` of `0` removes the level. Rows are ordered by `time` (nanosecond precision). To maintain the book, treat every `type=snapshot` row as a complete state replacement, then apply subsequent `type=update` rows until the next snapshot:
 
-```
+```text
 book = {}                          # price -> size, per side
 for row in rows_ordered_by_time:
     if row.type == "snapshot":     # full state replacement
@@ -89,13 +89,13 @@ The `start_with_snapshot=true` parameter guarantees the response begins with a s
 
 Within the `updates` dataset, a fresh full snapshot is included at least once every **5 minutes** per market (and again whenever a market's collection restarts). Every `type=snapshot` row is therefore a clean re-synchronization point. Combined with `start_with_snapshot=true`, you never need more than about five minutes of updates to rebuild the book from the nearest snapshot.
 
-#### Redundancy and stream switching
+### Redundancy and stream switching
 
 To stay resilient to exchange disconnects, feed-handler restarts, and pipeline outages, Coin Metrics collects each market over multiple redundant streams and treats one as active. If the active stream goes silent, disconnects, or falls behind a healthy alternative by more than a short timeout, collection automatically fails over to the healthy stream, and switches back to the primary once it recovers.
 
-Across a failover the book is kept consistent in one of two ways: a synthetic bridging delta that reconciles the difference between the old and new stream, or a fresh full snapshot of the newly-active stream. A switch can therefore surface as an out-of-band snapshot — either a `type=snapshot` row in the historical `updates` dataset, or a `snapshot` message on the websocket feed. Therefore, users should treat **every** snapshot as a complete state reset (as described above). The same handling applies whether you consume the real-time feed or replay the historical `updates` dataset.
+Across a failover the book is kept consistent in one of two ways: a synthetic bridging delta that reconciles the difference between the old and new stream, or a fresh full snapshot of the newly-active stream. A switch can therefore surface as an out-of-band snapshot, either a `type=snapshot` row in the historical `updates` dataset, or a `snapshot` message on the websocket feed. Therefore, users should treat **every** snapshot as a complete state reset (as described above). The same handling applies whether you consume the real-time feed or replay the historical `updates` dataset.
 
-#### Identifiers and timestamps
+### Identifiers and timestamps
 
 **`coin_metrics_id`.** Every order book message carries a `coin_metrics_id` that uniquely identifies the observation. When an exchange publishes its own sequence number or message id, Coin Metrics preserves it as the `coin_metrics_id` so you can order and de-duplicate messages exactly as the exchange does, detect gaps, and cross-reference against the exchange's native feed. When an exchange does not, Coin Metrics assigns its own identifier.
 
@@ -142,11 +142,11 @@ The table below summarizes both conventions per exchange.
 | OKX                    | Coin Metrics-assigned | Exchange event time |
 | Poloniex               | Coin Metrics-assigned | Exchange event time |
 
-### Accessing the Data
+## Accessing the Data
 
 Order books are available over HTTP at `/timeseries/market-orderbooks` (snapshots by default, historical updates via `dataset=updates`) and as a real-time websocket feed at `/timeseries-stream/market-orderbooks`.
 
-#### Snapshots (HTTP)
+### Snapshots (HTTP)
 
 {% tabs %}
 {% tab title="Python Client" %}
@@ -192,7 +192,7 @@ print(response)
 {% endtab %}
 {% endtabs %}
 
-#### Historical Updates (HTTP)
+### Historical Updates (HTTP)
 
 To retrieve historical **updates** instead of snapshots, set `dataset=updates` (full depth, supported markets). `start_with_snapshot=true` prepends a snapshot so you can initialize book state before applying updates:
 
@@ -226,7 +226,7 @@ curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-orderbooks?ma
 {% endtab %}
 {% endtabs %}
 
-#### Real-Time Stream (Websocket)
+### Real-Time Stream (Websocket)
 
 The stream begins with a `snapshot` message. Subsequent messages are updates, interspersed with occasional further `snapshot` messages that fully replace the book. Maintain the book by loading each snapshot as a fresh state, then applying updates until the next one.
 
@@ -255,11 +255,11 @@ ws.onclose = () => console.log("closed")
 
 Full parameter reference: see the API Reference for [`/timeseries/market-orderbooks`](https://docs.coinmetrics.io/api/v4/#tag/Timeseries/operation/getTimeseriesMarketOrderbooks) and [`/timeseries-stream/market-orderbooks`](https://docs.coinmetrics.io/api/v4/#tag/Timeseries-stream/operation/getTimeseriesStreamMarketOrderbooks).
 
-### Examples
+## Examples
 
 Bids and asks below are truncated to the top few levels for readability. The API returns full depth.
 
-#### Example — order book snapshot (`/timeseries/market-orderbooks`)
+### Example: order book snapshot (`/timeseries/market-orderbooks`)
 
 A snapshot of the `coinbase-btc-usd-spot` book from the default `snapshots` dataset ([browser](https://api.coinmetrics.io/v4/timeseries/market-orderbooks?markets=coinbase-btc-usd-spot\&limit_per_market=2\&paging_from=end\&api_key=YOUR_API_KEY)):
 
@@ -288,7 +288,7 @@ A snapshot of the `coinbase-btc-usd-spot` book from the default `snapshots` data
 }
 ```
 
-#### Example — historical order book updates (`/timeseries/market-orderbooks?dataset=updates`)
+### Example: historical order book updates (`/timeseries/market-orderbooks?dataset=updates`)
 
 Newline-delimited JSON (`format=json_stream`) from `coinbase-btc-usd-spot`: a leading `snapshot` row (from `start_with_snapshot=true`) followed by `update` rows. Note the update rows carrying `"size": "0"` indicating those levels were removed ([browser](https://api.coinmetrics.io/v4/timeseries/market-orderbooks?markets=coinbase-btc-usd-spot\&dataset=updates\&start_with_snapshot=true\&depth_limit=full_book\&granularity=raw\&format=json_stream\&paging_from=start\&start_time=2026-06-26T00:00:00.000000000Z\&api_key=YOUR_API_KEY)):
 
@@ -301,7 +301,7 @@ Newline-delimited JSON (`format=json_stream`) from `coinbase-btc-usd-spot`: a le
 {"market": "coinbase-btc-usd-spot", "time": "2026-06-26T00:00:10.050929000Z", "type": "update", "coin_metrics_id": "AAEDAAZVHMrLnXFCVEMtVVNE", "asks": [{"price": "61007.25", "size": "0"}], "bids": [], "database_time": "2026-06-26T00:00:25.681503511Z", "collect_time": "2026-06-26T00:00:10.056860000Z"}
 ```
 
-#### Example — real-time stream (`/timeseries-stream/market-orderbooks`)
+### Example: real-time stream (`/timeseries-stream/market-orderbooks`)
 
 Messages from `wss://api.coinmetrics.io/v4/timeseries-stream/market-orderbooks?markets=coinbase-btc-usd-spot`. The stream opens with a `snapshot` message (carrying a `cm_sequence_id`), then sends `update` messages:
 
@@ -344,11 +344,11 @@ Messages from `wss://api.coinmetrics.io/v4/timeseries-stream/market-orderbooks?m
 }
 ```
 
-### Coverage
+## Coverage
 
 {% embed url="https://coverage.coinmetrics.io/market-orderbooks-v2" %}
 
-### Usage
+## Usage
 
 Choose the shape that matches your question:
 
@@ -356,13 +356,13 @@ Choose the shape that matches your question:
 * **Historical updates** (`dataset=updates`) are best for tick-level book reconstruction, event studies, and backtests that need the book's exact state between snapshots. Combine a starting snapshot (`start_with_snapshot=true`) with the subsequent updates and apply them in `time` order.
 * **The websocket stream** is best for maintaining a live book in production: consume the opening snapshot, then apply updates as they arrive.
 
-### Limitations
+## Limitations
 
-* **Historical updates are limited.** `dataset=updates` is available only for supported exchanges, at **full depth** (`full_book` / `30000`), with `granularity=raw`, `format=json_stream`, and `paging_from=start`. Coverage begins when a market's updates history starts (many markets from 2026-06-26 onward). Additional historical data is available — please contact our team for more information.
+* **Historical updates are limited.** `dataset=updates` is available only for supported exchanges, at **full depth** (`full_book` / `30000`), with `granularity=raw`, `format=json_stream`, and `paging_from=start`. Coverage begins when a market's updates history starts (many markets from 2026-06-26 onward). Additional historical data is available. Please contact our team for more information.
 * **History cannot be backfilled from exchanges.** Order book data is rarely offered historically by exchanges, so coverage generally begins when Coin Metrics started collecting a market itself (with limited exceptions such as CME and some Binance history).
 * **Snapshot timing.** The `time` field lies exactly on the second (10-second products) or hour (full-book product), but the actual capture is close to and not exactly at that timestamp. `collect_time` records exchange receipt time where available.
-* **Resolution.** Coin Metrics stores **level-2** order book data; exchanges that publish level-3 are aggregated to level-2 before storage.
-* **Per-exchange depth.** How many levels are available depends on what each exchange exposes. The table below shows the **approximate maximum depth** observed for each venue's most-liquid BTC market (measured 2026-07-02); actual levels vary by market and over time, and every snapshot is capped at 30,000 levels. See the [coverage page](https://coverage.coinmetrics.io/market-orderbooks-v2) for authoritative per-market availability.
+* **Resolution.** Coin Metrics stores **level-2** order book data. Exchanges that publish level-3 are aggregated to level-2 before storage.
+* **Per-exchange depth.** How many levels are available depends on what each exchange exposes. The table below shows the **approximate maximum depth** observed for each venue's most-liquid BTC market (measured 2026-07-02). Actual levels vary by market and over time, and every snapshot is capped at 30,000 levels. See the [coverage page](https://coverage.coinmetrics.io/market-orderbooks-v2) for authoritative per-market availability.
 
 | Exchange               | Approximate Depth |
 | ---------------------- | ----------------- |
@@ -398,29 +398,29 @@ Choose the shape that matches your question:
 
 Coin Metrics also retains **historical** order book data for venues no longer collected: Bittrex (through 2024), CEX.IO (through 2025), ErisX (through 2025), FTX and FTX.US (through 2022), and Liquid (through 2023).
 
-### FAQ
+## FAQ
 
-#### What are order book snapshots and order book updates?
+### What are order book snapshots and order book updates?
 
-An **order book snapshot** represents the state of the order book at a specific point in time. It contains the price level and amount for each bid and ask in the book. Coin Metrics stores three snapshot types: the top 100 bids and asks every 10 seconds for major markets; all levels within 10% of the mid-price every 10 seconds for major markets; and a full-book snapshot every hour for all collected markets.
+An **order book snapshot** represents the state of the order book at a specific point in time. It contains the price level and amount for each bid and ask in the book. Coin Metrics stores three snapshot types: the top 100 bids and asks every 10 seconds for major markets, all levels within 10% of the mid-price every 10 seconds for major markets, and a full-book snapshot every hour for all collected markets.
 
 An **order book update** represents a single change to the book: the addition, change, or removal of a bid or ask. Exchanges typically report updates as a new `[side, price, size]` tuple where the size is the new absolute value (not a delta from the previous value). Coin Metrics serves updates in real time over the websocket feed and, for migrated markets, stores them historically so a snapshot plus subsequent updates can reconstruct the book at any moment.
 
-#### What is the difference between level 1, level 2, and level 3 order book data?
+### What is the difference between level 1, level 2, and level 3 order book data?
 
 These terms are commonly used, however, no standard definitions exist. We explain these terms in the context of our documentation and our product.
 
-**Level 1** refers to the top of the book — the best bid and best ask price and amount. It can be derived from our snapshots and is also served through the market quotes endpoint.
+**Level 1** refers to the top of the book, the best bid and best ask price and amount. It can be derived from our snapshots and is also served through the market quotes endpoint.
 
 **Level 2** refers to snapshots or updates where individual orders at the same price level are aggregated into one observation. Most exchanges serve level 2, and Coin Metrics stores level 2. If an exchange reports level 3, we aggregate it to level 2 before storing.
 
 **Level 3** refers to snapshots or updates where each individual order is present, with no aggregation at a price level. Only a small number of exchanges serve level 3.
 
-#### Do you offer order book updates in the form of new orders, cancels, and changes to existing orders?
+### Do you offer order book updates in the form of new orders, cancels, and changes to existing orders?
 
-Most exchanges do not report updates with that detail. They typically report a `[side, price, size]` tuple where the size is the new value, not the delta. Some of this information can be derived by observing the effect of an update: a tuple with `size` of `0` means the order was matched (if at the top of the book) or cancelled; a tuple with a `size` greater than the current size means an order was added or increased.
+Most exchanges do not report updates with that detail. They typically report a `[side, price, size]` tuple where the size is the new value, not the delta. Some of this information can be derived by observing the effect of an update: a tuple with `size` of `0` means the order was matched (if at the top of the book) or cancelled. A tuple with a `size` greater than the current size means an order was added or increased.
 
-#### What is the latency of your order book data?
+### What is the latency of your order book data?
 
 Latency, the gap between the exchange's event time and when Coin Metrics receives the message, varies substantially by exchange, so it is more useful as a range than a single figure. The fastest venues deliver in single-digit milliseconds, most sit in the tens to low hundreds of milliseconds, and the slowest reach several hundred milliseconds at the median.
 
@@ -428,18 +428,18 @@ As a concrete example, Coinbase is among the fastest we collect: a median near 7
 
 These figures compare the exchange's event timestamp with our receipt time. Venues that do not stamp their own messages are excluded, since for them `time` is Coin Metrics' receive time.
 
-#### Are your order book snapshots taken exactly on the second or hour?
+### Are your order book snapshots taken exactly on the second or hour?
 
 Our systems snapshot the order book at round timestamps, however the `time` field indicates the timestamp of the latest message received from the exchange prior to the round snapshot timestamp. Where available, `collect_time` records when the book was received from the exchange, and `time` represents the exchange-reported timestamp.
 
-#### How much order book history does Coin Metrics support?
+### How much order book history does Coin Metrics support?
 
-Generally it is not possible to collect order book history from exchanges directly — it is one of the data types very few exchanges offer history for, with exceptions such as CME and some limited Binance history. For this reason, historical coverage begins at the time we started collecting a market ourselves.
+Generally it is not possible to collect order book history from exchanges directly. It is one of the data types very few exchanges offer history for, with exceptions such as CME and some limited Binance history. For this reason, historical coverage begins at the time we started collecting a market ourselves.
 
-### Related
+## Related
 
-* [Market Quotes](quotes.md) — level-1 best bid/ask derived from the book.
-* [Market Trades](market-trades.md) — executed trades for the same markets.
-* [Order Book Depth](liquidity/order-book-depth.md) — depth-based liquidity metrics computed from order books.
-* [Examining Orderbook Depth](../../tutorials-and-examples/tutorials/md_orderbook_depth.md) — tutorial for querying and visualizing book depth.
-* [Aggregating Orderbook Depth to Create Liquidity Metrics](../../tutorials-and-examples/tutorials/aggregating-orderbook-depth-to-create-liquidity-metrics.md) — tutorial.
+* [Market Quotes](quotes.md): level-1 best bid/ask derived from the book.
+* [Market Trades](market-trades.md): executed trades for the same markets.
+* [Order Book Depth](liquidity/order-book-depth.md): depth-based liquidity metrics computed from order books.
+* [Examining Orderbook Depth](../../tutorials-and-examples/tutorials/md_orderbook_depth.md): tutorial for querying and visualizing book depth.
+* [Aggregating Orderbook Depth to Create Liquidity Metrics](../../tutorials-and-examples/tutorials/aggregating-orderbook-depth-to-create-liquidity-metrics.md): tutorial.

@@ -1,4 +1,5 @@
 redirects:
+  market-data/market-data-overview/market-metadata: market-data/market-data-overview/market-reference-data.md
   market-data/faqs: resources/faqs.md
   market-data/faqs/cm-prices-faqs: resources/faqs.md
   market-data/faqs/trusted-exchange-framework-faqs: resources/faqs.md

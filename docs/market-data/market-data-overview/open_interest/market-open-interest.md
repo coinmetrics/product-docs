@@ -10,7 +10,7 @@ Open interest represents the number of contracts that are currently outstanding 
 
 ## Details
 
-Each contract has a specified contract value that can be described by the size asset and contract size. For example, the contract value for `bitmex-XBTUSD-future` is `1 usd` and the contract value for `cme-BTCF1-future` is `5 btc`. For more information, please take a look at our page about [derivatives contract specifications](../market-metadata.md).
+Each contract has a specified contract value that can be described by the size asset and contract size. For example, the contract value for `bitmex-XBTUSD-future` is `1 usd` and the contract value for `cme-BTCF1-future` is `5 btc`. For more information, please take a look at our page about [derivatives contract specifications](../market-reference-data.md).
 
 Coin Metrics collects open interest in units of number of contracts and in units of U.S. dollars at one minute snapshot frequency. We collect open interest snapshots from **future** and **option** markets from exchanges that are listed on our exchange coverage universe.
 
