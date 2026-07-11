@@ -234,7 +234,8 @@
 
 * [Market Data Overview](market-data/market-data-overview/README.md)
   * [Basis](market-data/market-data-overview/basis.md)
-  * [Candles](market-data/market-data-overview/candles.md)
+  * [Market Candles](market-data/market-data-overview/market-candles.md)
+  * [Pair Candles](market-data/market-data-overview/pair-candles.md)
   * [Contract Prices](market-data/market-data-overview/market-contract-prices.md)
   * [Funding Rates](market-data/market-data-overview/funding-rates/README.md)
     * [Funding Rates](market-data/market-data-overview/funding-rates/funding-rates.md)

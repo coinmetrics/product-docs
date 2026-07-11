@@ -114,7 +114,7 @@ Next to the symbol entry window, you can adjust the chart type by selecting the 
 
 ![](<../../.gitbook/assets/Screen Shot 2020-12-28 at 9.50.08 PM.png>)
 
-The only data category with true candles is the [ExchCandles](../../market-data/market-data-overview/candles.md) category. Selecting Candles for the other data types will result in "manufactured candles". For instance, daily NYC close reference rates are created from the timeseries whereby the open price is the previous day's close price and the close price is the current day's close price. The High/Low are simply either the open or close (not the intraday high and low prices).
+The only data category with true candles is the [ExchCandles](../../market-data/market-data-overview/market-candles.md) category. Selecting Candles for the other data types will result in "manufactured candles". For instance, daily NYC close reference rates are created from the timeseries whereby the open price is the previous day's close price and the close price is the current day's close price. The High/Low are simply either the open or close (not the intraday high and low prices).
 
 ## Comparing Data
 

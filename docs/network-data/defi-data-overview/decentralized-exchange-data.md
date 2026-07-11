@@ -27,8 +27,8 @@ Many of our data types are available at the market level. For decentralized exch
 [market-trades.md](../../market-data/market-data-overview/market-trades.md)
 {% endcontent-ref %}
 
-{% content-ref url="../../market-data/market-data-overview/candles.md" %}
-[candles.md](../../market-data/market-data-overview/candles.md)
+{% content-ref url="../../market-data/market-data-overview/market-candles.md" %}
+[market-candles.md](../../market-data/market-data-overview/market-candles.md)
 {% endcontent-ref %}
 
 In addition to returning standard metadata such as the trade's size and price, DEX market entries in the catalog also contain several DeFi-specific fields:

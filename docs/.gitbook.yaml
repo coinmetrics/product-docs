@@ -1,5 +1,6 @@
 redirects:
   market-data/market-data-overview/market-metadata: market-data/market-data-overview/market-reference-data.md
+  market-data/market-data-overview/candles: market-data/market-data-overview/market-candles.md
   market-data/faqs: resources/faqs.md
   market-data/faqs/cm-prices-faqs: resources/faqs.md
   market-data/faqs/trusted-exchange-framework-faqs: resources/faqs.md
@@ -699,12 +700,12 @@ redirects:
   institution-metrics: market-data/market-data-overview/institution-metrics-overview/README.md
   market-data-timeseries/futures-funding-rates: market-data/market-data-overview/funding-rates/funding-rates.md
   market-data-timeseries/futures-liquidations: market-data/market-data-overview/liquidations/futures-liquidations.md
-  market-data-timeseries/market-candles: market-data/market-data-overview/candles.md
+  market-data-timeseries/market-candles: market-data/market-data-overview/market-candles.md
   market-data-timeseries/market-contracts: market-data/market-data-overview/market-contract-prices.md
   market-data-timeseries/market-greeks: market-data/market-data-overview/market-greeks.md
   market-data-timeseries/market-implied-volatility: market-data/market-data-overview/volatility/market-implied-volatility.md
   market-data-timeseries/market-metadata: market-data/market-data-overview/market-metadata/market-metadata.md
-  market-data-timeseries/market-orderbooks: market-data/market-data-overview/market-order-book.md
+  market-data-timeseries/market-orderbooks: market-data/market-data-overview/order-books.md
   market-data-timeseries/market-quotes: market-data/market-data-overview/quotes.md  # anchor #market removed: GitBook redirect targets do not resolve URL fragments
   market-data-timeseries/trades: market-data/market-data-overview/market-trades.md
   market-data/faqs/market-data-faqs: resources/faqs.md
@@ -760,7 +761,7 @@ redirects:
   market-metrics/liquidity/liquidity_slippage_5k_bid_percent: market-data/market-data-overview/liquidity/slippage.md
   on-chain-data/asset-metrics-faqs: resources/faqs.md
   on-chain-data/farum-overview: network-data/network-data-overview/kri/README.md
-  pair-data-timeseries/pair-candles: market-data/market-data-overview/candles.md
+  pair-data-timeseries/pair-candles: market-data/market-data-overview/pair-candles.md
   pair-metrics/open-interest/open_interest_reported_future_coin_margined_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
   pair-metrics/open-interest/open_interest_reported_future_nonperpetual_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
   pair-metrics/open-interest/open_interest_reported_future_perpetual_usd: market-data/market-data-overview/open_interest/open_interest_reported.md

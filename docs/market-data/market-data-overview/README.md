@@ -50,8 +50,12 @@ Data available at the market level is served through the API endpoints below, wh
 [quotes.md](quotes.md)
 {% endcontent-ref %}
 
-{% content-ref url="candles.md" %}
-[candles.md](candles.md)
+{% content-ref url="market-candles.md" %}
+[market-candles.md](market-candles.md)
+{% endcontent-ref %}
+
+{% content-ref url="pair-candles.md" %}
+[pair-candles.md](pair-candles.md)
 {% endcontent-ref %}
 
 {% content-ref url="market-contract-prices.md" %}
