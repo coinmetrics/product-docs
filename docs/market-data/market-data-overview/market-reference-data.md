@@ -445,6 +445,6 @@ Requesting `include=talos` adds a `settle_value_type` field to the `talos` mappi
 * [Order Books](order-books.md): order book snapshots and updates.
 * [Market Candles](market-candles.md): OHLCV candles.
 * [Pair Candles](pair-candles.md): OHLC candles for a cross-exchange asset pair.
-* [Contract Prices](market-contract-prices.md): index, mark, and settlement prices for derivatives.
+* [Market Contract Prices](market-contract-prices.md): index, mark, and settlement prices for derivatives.
 * [Funding Rates](funding-rates/funding-rates.md): funding rates for perpetual futures.
 * [Open Interest](open_interest/market-open-interest.md): open interest for derivatives.
