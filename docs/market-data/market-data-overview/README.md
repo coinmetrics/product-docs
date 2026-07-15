@@ -30,8 +30,8 @@ Data available at the market level is served through the API endpoints below, wh
 [market-trades.md](market-trades.md)
 {% endcontent-ref %}
 
-{% content-ref url="open_interest/market-open-interest.md" %}
-[market-open-interest.md](open_interest/market-open-interest.md)
+{% content-ref url="market-open-interest.md" %}
+[market-open-interest.md](market-open-interest.md)
 {% endcontent-ref %}
 
 {% content-ref url="market-liquidations.md" %}
@@ -80,8 +80,8 @@ Coin Metrics calculates several metrics for markets such as `coinbase-btc-usd-sp
 
 Metrics available at the market level are available through the [`/timeseries/market-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesMarketMetrics) API endpoint and specific metrics are described in the pages linked in this section:
 
-{% content-ref url="liquidations/" %}
-[liquidations](liquidations/)
+{% content-ref url="liquidation-metrics.md" %}
+[liquidation-metrics.md](liquidation-metrics.md)
 {% endcontent-ref %}
 
 {% content-ref url="liquidity/" %}
@@ -98,8 +98,8 @@ Metrics available at the asset level are available through the [`/timeseries/ass
 [reference\_rate.md](../reference-rates-overview/reference_rate.md)
 {% endcontent-ref %}
 
-{% content-ref url="open_interest/" %}
-[open\_interest](open_interest/)
+{% content-ref url="open_interest_reported.md" %}
+[open\_interest\_reported.md](open_interest_reported.md)
 {% endcontent-ref %}
 
 {% content-ref url="volume/" %}
@@ -112,8 +112,8 @@ Coin Metrics calculates several metrics for exchanges such as `coinbase`, `binan
 
 Metrics available at the exchange level are available through the [`/timeseries/exchange-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesExchangeMetrics) API endpoint and specific metrics are described in the pages linked in this section:
 
-{% content-ref url="open_interest/" %}
-[open\_interest](open_interest/)
+{% content-ref url="open_interest_reported.md" %}
+[open\_interest\_reported.md](open_interest_reported.md)
 {% endcontent-ref %}
 
 {% content-ref url="volume/" %}
@@ -130,12 +130,12 @@ Metrics available at the exchange-asset level are available through the [`/times
 [basis.md](basis.md)
 {% endcontent-ref %}
 
-{% content-ref url="liquidations/" %}
-[liquidations](liquidations/)
+{% content-ref url="liquidation-metrics.md" %}
+[liquidation-metrics.md](liquidation-metrics.md)
 {% endcontent-ref %}
 
-{% content-ref url="open_interest/" %}
-[open\_interest](open_interest/)
+{% content-ref url="open_interest_reported.md" %}
+[open\_interest\_reported.md](open_interest_reported.md)
 {% endcontent-ref %}
 
 {% content-ref url="volume/" %}
@@ -150,8 +150,8 @@ Metrics available at the asset pair level are
 
 available through the [`/timeseries/pair-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesPairMetrics) API endpoint and specific metrics are described in the pages linked in this section:
 
-{% content-ref url="open_interest/" %}
-[open\_interest](open_interest/)
+{% content-ref url="open_interest_reported.md" %}
+[open\_interest\_reported.md](open_interest_reported.md)
 {% endcontent-ref %}
 
 {% content-ref url="volume/" %}
@@ -164,7 +164,7 @@ CM Market Data Feed provides access to historical and real-time data from over 4
 
 Our most up-to-date exchange coverage can be viewed in our [CM Data Coverage Tool](https://coverage.coinmetrics.io/exchanges). Our coverage tool displays the total number of spot, futures and options markets, as well as the range of history available.
 
-The available exchanges and the metrics available for each exchange can be found by querying our [`/catalog/exchanges` ](https://docs.coinmetrics.io/api/v4#operation/getCatalogExchanges)or [`/catalog-all/exchanges` ](https://docs.coinmetrics.io/api/v4#operation/getCatalogAllExchanges)API endpoints.
+The available exchanges and the metrics available for each exchange can be found by querying our [`/catalog/exchanges`](https://docs.coinmetrics.io/api/v4#operation/getCatalogExchanges) or [`/catalog-all/exchanges`](https://docs.coinmetrics.io/api/v4#operation/getCatalogAllExchanges) API endpoints.
 
 Market data for these exchanges is served through our [market data endpoints](https://docs.coinmetrics.io/market-data/market-data-overview).
 
