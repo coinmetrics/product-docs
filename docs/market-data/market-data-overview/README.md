@@ -34,8 +34,8 @@ Data available at the market level is served through the API endpoints below, wh
 [market-open-interest.md](open_interest/market-open-interest.md)
 {% endcontent-ref %}
 
-{% content-ref url="liquidations/futures-liquidations.md" %}
-[futures-liquidations.md](liquidations/futures-liquidations.md)
+{% content-ref url="market-liquidations.md" %}
+[market-liquidations.md](market-liquidations.md)
 {% endcontent-ref %}
 
 {% content-ref url="funding-rates/funding-rates.md" %}

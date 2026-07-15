@@ -659,18 +659,18 @@ redirects:
   exchange-asset-metrics/open-interest/open_interest_reported_future_perpetual_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
   exchange-asset-metrics/open-interest/open_interest_reported_future_tether_margined_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
   exchange-asset-metrics/open-interest/open_interest_reported_future_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
-  exchange-metrics/liquidations/liquidations_reported_future_buy_units_1d: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  exchange-metrics/liquidations/liquidations_reported_future_buy_units_1h: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  exchange-metrics/liquidations/liquidations_reported_future_buy_units_5m: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  exchange-metrics/liquidations/liquidations_reported_future_buy_usd_1d: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  exchange-metrics/liquidations/liquidations_reported_future_buy_usd_1h: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  exchange-metrics/liquidations/liquidations_reported_future_buy_usd_5m: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  exchange-metrics/liquidations/liquidations_reported_future_sell_units_1d: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  exchange-metrics/liquidations/liquidations_reported_future_sell_units_1h: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  exchange-metrics/liquidations/liquidations_reported_future_sell_units_5m: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  exchange-metrics/liquidations/liquidations_reported_future_sell_usd_1d: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  exchange-metrics/liquidations/liquidations_reported_future_sell_usd_1h: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  exchange-metrics/liquidations/liquidations_reported_future_sell_usd_5m: market-data/market-data-overview/liquidations/liquidation-metrics.md
+  exchange-metrics/liquidations/liquidations_reported_future_buy_units_1d: market-data/market-data-overview/liquidation-metrics.md
+  exchange-metrics/liquidations/liquidations_reported_future_buy_units_1h: market-data/market-data-overview/liquidation-metrics.md
+  exchange-metrics/liquidations/liquidations_reported_future_buy_units_5m: market-data/market-data-overview/liquidation-metrics.md
+  exchange-metrics/liquidations/liquidations_reported_future_buy_usd_1d: market-data/market-data-overview/liquidation-metrics.md
+  exchange-metrics/liquidations/liquidations_reported_future_buy_usd_1h: market-data/market-data-overview/liquidation-metrics.md
+  exchange-metrics/liquidations/liquidations_reported_future_buy_usd_5m: market-data/market-data-overview/liquidation-metrics.md
+  exchange-metrics/liquidations/liquidations_reported_future_sell_units_1d: market-data/market-data-overview/liquidation-metrics.md
+  exchange-metrics/liquidations/liquidations_reported_future_sell_units_1h: market-data/market-data-overview/liquidation-metrics.md
+  exchange-metrics/liquidations/liquidations_reported_future_sell_units_5m: market-data/market-data-overview/liquidation-metrics.md
+  exchange-metrics/liquidations/liquidations_reported_future_sell_usd_1d: market-data/market-data-overview/liquidation-metrics.md
+  exchange-metrics/liquidations/liquidations_reported_future_sell_usd_1h: market-data/market-data-overview/liquidation-metrics.md
+  exchange-metrics/liquidations/liquidations_reported_future_sell_usd_5m: market-data/market-data-overview/liquidation-metrics.md
   exchange-metrics/open-interest/open_interest_reported_future_coin_margined_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
   exchange-metrics/open-interest/open_interest_reported_future_nonperpetual_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
   exchange-metrics/open-interest/open_interest_reported_future_perpetual_usd: market-data/market-data-overview/open_interest/open_interest_reported.md
@@ -699,7 +699,11 @@ redirects:
   intitution-metrics-overview/grayscale: market-data/market-data-overview/institution-metrics-overview/grayscale/README.md
   institution-metrics: market-data/market-data-overview/institution-metrics-overview/README.md
   market-data-timeseries/futures-funding-rates: market-data/market-data-overview/funding-rates/funding-rates.md
-  market-data-timeseries/futures-liquidations: market-data/market-data-overview/liquidations/futures-liquidations.md
+  market-data-timeseries/futures-liquidations: market-data/market-data-overview/market-liquidations.md
+  market-data/market-data-overview/liquidations/futures-liquidations: market-data/market-data-overview/market-liquidations.md
+  market-data/market-data-overview/liquidations/market-liquidations: market-data/market-data-overview/market-liquidations.md
+  market-data/market-data-overview/liquidations/liquidation-metrics: market-data/market-data-overview/liquidation-metrics.md
+  market-data/market-data-overview/liquidations: market-data/market-data-overview/market-liquidations.md
   market-data-timeseries/market-candles: market-data/market-data-overview/market-candles.md
   market-data-timeseries/market-contracts: market-data/market-data-overview/market-contract-prices.md
   market-data-timeseries/market-greeks: market-data/market-data-overview/market-greeks.md
@@ -709,18 +713,18 @@ redirects:
   market-data-timeseries/market-quotes: market-data/market-data-overview/quotes.md  # anchor #market removed: GitBook redirect targets do not resolve URL fragments
   market-data-timeseries/trades: market-data/market-data-overview/market-trades.md
   market-data/faqs/market-data-faqs: resources/faqs.md
-  market-metrics/liquidations/liquidations_reported_future_buy_units_1d: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  market-metrics/liquidations/liquidations_reported_future_buy_units_1h: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  market-metrics/liquidations/liquidations_reported_future_buy_units_5m: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  market-metrics/liquidations/liquidations_reported_future_buy_usd_1d: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  market-metrics/liquidations/liquidations_reported_future_buy_usd_1h: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  market-metrics/liquidations/liquidations_reported_future_buy_usd_5m: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  market-metrics/liquidations/liquidations_reported_future_sell_units_1d: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  market-metrics/liquidations/liquidations_reported_future_sell_units_1h: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  market-metrics/liquidations/liquidations_reported_future_sell_units_5m: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  market-metrics/liquidations/liquidations_reported_future_sell_usd_1d: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  market-metrics/liquidations/liquidations_reported_future_sell_usd_1h: market-data/market-data-overview/liquidations/liquidation-metrics.md
-  market-metrics/liquidations/liquidations_reported_future_sell_usd_5m: market-data/market-data-overview/liquidations/liquidation-metrics.md
+  market-metrics/liquidations/liquidations_reported_future_buy_units_1d: market-data/market-data-overview/liquidation-metrics.md
+  market-metrics/liquidations/liquidations_reported_future_buy_units_1h: market-data/market-data-overview/liquidation-metrics.md
+  market-metrics/liquidations/liquidations_reported_future_buy_units_5m: market-data/market-data-overview/liquidation-metrics.md
+  market-metrics/liquidations/liquidations_reported_future_buy_usd_1d: market-data/market-data-overview/liquidation-metrics.md
+  market-metrics/liquidations/liquidations_reported_future_buy_usd_1h: market-data/market-data-overview/liquidation-metrics.md
+  market-metrics/liquidations/liquidations_reported_future_buy_usd_5m: market-data/market-data-overview/liquidation-metrics.md
+  market-metrics/liquidations/liquidations_reported_future_sell_units_1d: market-data/market-data-overview/liquidation-metrics.md
+  market-metrics/liquidations/liquidations_reported_future_sell_units_1h: market-data/market-data-overview/liquidation-metrics.md
+  market-metrics/liquidations/liquidations_reported_future_sell_units_5m: market-data/market-data-overview/liquidation-metrics.md
+  market-metrics/liquidations/liquidations_reported_future_sell_usd_1d: market-data/market-data-overview/liquidation-metrics.md
+  market-metrics/liquidations/liquidations_reported_future_sell_usd_1h: market-data/market-data-overview/liquidation-metrics.md
+  market-metrics/liquidations/liquidations_reported_future_sell_usd_5m: market-data/market-data-overview/liquidation-metrics.md
   market-metrics/liquidity/liquidity_bid_ask_spread_percent: market-data/market-data-overview/liquidity/bid-ask-spread.md
   market-metrics/liquidity/liquidity_bid_ask_spread_percent_1d: market-data/market-data-overview/liquidity/bid-ask-spread.md
   market-metrics/liquidity/liquidity_bid_ask_spread_percent_1h: market-data/market-data-overview/liquidity/bid-ask-spread.md
