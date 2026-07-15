@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026.6.30.19
+
+<!-- Auto-generated stub for upstream commit d8f90e5; refine before merging. -->
+
+### Changed
+
+- PLAT-2188
+
 <!--
 Wording rules for changelog entries (apply when adding or refining entries,
 including stubs produced by scripts/update_api_client_python_changelog.py):
