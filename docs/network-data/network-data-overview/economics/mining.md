@@ -12,7 +12,7 @@
 
 The ratio of Miner Cap over Realized Cap at the end of that interval. Miner Cap represents all funds held by mining pools and miners and is calculated as the sum of SplyMiner0HopAllUSD (supply held by mining pools) and SplyMiner1HopAllUSD (supply held by miners). [Realized Cap](broken-reference) (CapRealUSD) is defined as the sum USD value based on the USD closing price on the day that a native unit last moved (i.e., last transacted) for all native units.
 
-| Name                             | IMetricD | Unit          | Interval |
+| Name                             | MetricID | Unit          | Interval |
 | -------------------------------- | -------- | ------------- | -------- |
 | Miner Cap to Realized Cap (MCRC) | MCRC     | Dimensionless | 1 day    |
 
@@ -48,7 +48,7 @@ Only applicable to assets for which we have SplyMiner0HopAllUSD (supply held by 
 
 ### Availability for Assets
 
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/MCTC" %}
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/MCRC" %}
 
 ## Miner Cap to Thermo Cap (MCTC) <a href="#mctc" id="mctc"></a>
 
@@ -92,7 +92,7 @@ Only applicable to assets for which we have SplyMiner0HopAllUSD (supply held by 
 
 ### Availability for Assets
 
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/MCRC" %}
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/MCTC" %}
 
 ## Miner Outflow to Miner Revenue <a href="#momr" id="momr"></a>
 
@@ -102,7 +102,7 @@ The ratio of Miner Outflows over Miner Revenue at the end of that interval. Mine
 
 | Name                      | MetricID                                                          | Unit          | Interval |
 | ------------------------- | ----------------------------------------------------------------- | ------------- | -------- |
-| Miner Cap to Realized Cap | [MOMR](https://coverage.coinmetrics.io/search-results?query=MOMR) | Dimensionless | 1 day    |
+| Miner Outflow to Miner Revenue | [MOMR](https://coverage.coinmetrics.io/search-results?query=MOMR) | Dimensionless | 1 day    |
 
 ### Details
 

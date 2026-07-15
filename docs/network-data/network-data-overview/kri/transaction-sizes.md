@@ -5,8 +5,8 @@
 * [Mempool Size (mempool\_size)](transaction-sizes.md#mempool\_size)
 * [Mempool Size Entered (mempool_size_entered)](transaction-sizes.md#mempool\_size\_entered)
 * [Mempool Size Left (mempool_size_left_1m)](transaction-sizes.md#mempool\_size\_left)
-* [Mempool vSize (mempool\_vsize\_entered\_1m)](transaction-sizes.md#mempool\_vsize)
-* [Mempool vSize Entered (mempool\_vsize)](transaction-sizes.md#mempool\_vsize\_entered)
+* [Mempool vSize (mempool\_vsize)](transaction-sizes.md#mempool\_vsize)
+* [Mempool vSize Entered (mempool\_vsize\_entered\_1m)](transaction-sizes.md#mempool\_vsize\_entered)
 * [Mempool vSize Left (mempool\_vsize\_left\_1m)](transaction-sizes.md#mempool\_vsize\_left)
 
 ## Mempool Size <a href="#mempool_size" id="mempool_size"></a>

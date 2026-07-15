@@ -23,7 +23,7 @@ The ratio of the network value (or market capitalization, current supply) divide
 
 ### Details
 
-* This metric uses the native units network value and adjusted transaction volume. It is therefore available at the asset’s genesis, unlike if it was using USD values.
+* NVTAdj uses the native units network value and adjusted transaction volume. It is therefore available at the asset’s genesis. NVTAdj90 uses USD values for both the market cap numerator and the adjusted transfer volume denominator.
 * It can be thought of as a rough P/E (price to earnings) ratio proxy for crypto assets.
 * First conceptualized by Willy Woo (2017) with the introduction of the network value to transactions (NVT) ratio, calculated as a cryptoasset’s market capitalization divided by its daily value transacted over the network. The logic behind the ratio is that value transacted over an asset’s network represents the utility of a cryptoasset. High values of the NVT ratio have detected bubbles and low values have indicated attractive entry points in the past.
 * NVTAdj90 is computed as the current market cap over the 90-day moving average of USD adjusted transfer volume.
@@ -87,7 +87,7 @@ NVT has been much discussed; in short, it compares market capitalization to on-c
 
 The ratio of the Realized Cap over Thermo Cap at the end of that interval. [Realized Cap](broken-reference/) (CapRealUSD) is defined as the sum USD value based on the USD closing price on the day that a native unit last moved (i.e., last transacted) for all native units. Thermo Cap is calculated as RevAllTimeUSD and it represents the USD value of all funds disbursed to miners at the time of issuance.
 
-| Name                              | IMetricD                                                          | Unit          | Interval |
+| Name                              | MetricID                                                          | Unit          | Interval |
 | --------------------------------- | ----------------------------------------------------------------- | ------------- | -------- |
 | Realized Cap to Thermo Cap (RCTC) | [RCTC](https://coverage.coinmetrics.io/search-results?query=RCTC) | Dimensionless | 1 day    |
 
@@ -132,8 +132,8 @@ The ratio of the network's realized value to its adjusted transfer value. Also r
 
 | Name                  | MetricID                                                                  | Unit          | Interval |
 | --------------------- | ------------------------------------------------------------------------- | ------------- | -------- |
-| RVT                   | [RVT](https://coverage.coinmetrics.io/search-results?query=RVTAdj90)      | Dimensionless | 1 day    |
-| RVT 90-day Moving Avg | [RVTAdj90](https://coverage.coinmetrics.io/search-results?query=RVTAdj90) | Dimensionless | 90 days  |
+| RVT                   | [RVTAdj](https://coverage.coinmetrics.io/search-results?query=RVTAdj)     | Dimensionless | 1 day    |
+| RVT 90-day Moving Avg | [RVTAdj90](https://coverage.coinmetrics.io/search-results?query=RVTAdj90) | Dimensionless | 1 day    |
 
 ### Details
 

@@ -1,21 +1,20 @@
 ---
-description: /blockchain-v2/{asset}/blocks/{block_hash}/transactions/{transaction_hash}
+description: /blockchain-v2/{asset}/blocks/{block_hash}/transactions/{txid}
 ---
 
 # Full Transaction Info for Block
 
-Adding a `block_hash`and a `transaction_hash`the prefix returns a block info and transaction info for a single transaction, including all balance updates for that transaction.
+Adding a `block_hash`and a `txid`the prefix returns a block info and transaction info for a single transaction, including all balance updates for that transaction.
 
 | Field                                        | Description                                                                                                                                                                                                                                                    |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | block\_hash                                  | Hash of that block (unique per block)                                                                                                                                                                                                                          |
 | parent\_block\_hash                          | Hash of the parent block (set to a string of 65 zeros for Genesis blocks)                                                                                                                                                                                      |
 | height                                       | Height of that block (number of confirmed blocks since Genesis block)                                                                                                                                                                                          |
-| transaction\_hash                            | Hash of transaction                                                                                                                                                                                                                                            |
+| txid                                         | Hash of transaction                                                                                                                                                                                                                                            |
 | consensus\_time                              | [Consensus timestamp](../../../atlas-overview/#consensus-timestamp); always increases monotonically                                                                                                                                                            |
 | miner\_time                                  | [Miner/producer timestamp](../../../atlas-overview/#miner-timestamps)                                                                                                                                                                                          |
 | n\_transactions                              | Number of transactions                                                                                                                                                                                                                                         |
-| n\_balance updates                           | Number of balance updates                                                                                                                                                                                                                                      |
 | difficulty                                   | Difficulty of the block                                                                                                                                                                                                                                        |
 | physical\_size                               | The physical size of a block in bytes                                                                                                                                                                                                                          |
 | consensus\_size                              | The stripped size of the block with Segregated Witness (signature) data                                                                                                                                                                                        |

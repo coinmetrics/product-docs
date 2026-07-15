@@ -57,6 +57,13 @@ Metrics that measure staking activity for Proof of Stake blockchains.
 * ValidatorPndInitCnt
 * ValidatorPndQedCnt
 * ValidatorRemCnt1d
+* StkConsolidationCnt
+* StkConsolidationTotNtv
+* StkElectraWithdrawalTotNtv
+* StkVirtualDepositTotNtv
+* ValidatorConsolidationCnt
+* ValidatorConsolidationRate
+* ValidatorConsolidationTotRate
 
 [**Yield**](yield.md)
 

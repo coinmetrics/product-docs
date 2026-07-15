@@ -158,7 +158,7 @@ Examples below show the latest observations for representative markets. Numeric 
 
 ### Example: perpetual future (`/timeseries/market-contract-prices`)
 
-The latest contract prices from `binance-BTCUSDT-future`. This market has no exchange-reported timestamp, so `exchange_time` is omitted ([browser](https://api.coinmetrics.io/v4/timeseries/market-contract-prices?markets=binance-BTCUSDT-future\&limit_per_market=3\&api_key=YOUR_API_KEY)):
+The latest contract prices from `binance-BTCUSDT-future`. This market has no exchange-reported timestamp over HTTP, so `exchange_time` is omitted ([browser](https://api.coinmetrics.io/v4/timeseries/market-contract-prices?markets=binance-BTCUSDT-future\&limit_per_market=3\&api_key=YOUR_API_KEY)):
 
 ```json
 {

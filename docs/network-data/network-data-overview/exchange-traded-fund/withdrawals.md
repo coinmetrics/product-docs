@@ -33,6 +33,8 @@ The sum of assets withdrawn from an ETF that interval.
 | VanEck Withdrawals (USD)                                        | FlowOutVANUSD     | USD          | 1 day    |
 | Valkyrie Withdrawals (native units)                             | FlowOutVLKNtv     | Native units | 1 day    |
 | Valkyrie Withdrawals (USD)                                      | FlowOutVLKUSD     | USD          | 1 day    |
+| 21Shares Withdrawals (native units)                             | FlowOutSRSNtv     | Native units | 1 day    |
+| 21Shares Withdrawals (USD)                                      | FlowOutSRSUSD     | USD          | 1 day    |
 | WisdomTree Withdrawals (native units)                           | FlowOutWDTNtv     | Native units | 1 day    |
 | WisdomTree Withdrawals (USD)                                    | FlowOutWDTUSD     | USD          | 1 day    |
 
@@ -54,9 +56,9 @@ The sum of assets withdrawn from an ETF that interval.
 
 ### Definition
 
-The sum count of transfers from any address belonging to an exchange in that interval. If the recipient address also belongs to the same exchange, the transfer is not counted.
+The sum count of transfers from any address belonging to an ETF in that interval. If the recipient address also belongs to the same ETF, the transfer is not counted.
 
-<table><thead><tr><th>Name</th><th width="181">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>ARK Invest Withdrawal Count</td><td>FlowTfrOutARKCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>BlackRock Withdrawal Count</td><td>FlowTfrOutBLKCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>Bitwise Withdrawal Count</td><td>FlowTfrOutBWSCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>Grayscale Withdrawal Count</td><td>FlowTfrOutGSCCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>Invesco Withdrawal Count</td><td>FlowTfrOutINVCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>Franklin Templeton Withdrawal Count</td><td>FlowTfrOutTMPCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>VanEck Withdrawal Count</td><td>FlowTfrOutVANCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>Valkyrie Withdrawal Count</td><td>FlowTfrOutVLKCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>WisdomTree Withdrawal Count</td><td>FlowTfrOutWDTCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>Exchange Traded Fund Withdrawal Count</td><td>FlowTfrFromEtfCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>Exchange Traded Fund Withdrawal Count, Incl EtoE</td><td>FlowTfrFromEtfInclCnt</td><td>Withdrawals</td><td>1 day</td></tr></tbody></table>
+<table><thead><tr><th>Name</th><th width="181">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>ARK Invest Withdrawal Count</td><td>FlowTfrOutARKCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>BlackRock Withdrawal Count</td><td>FlowTfrOutBLKCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>Bitwise Withdrawal Count</td><td>FlowTfrOutBWSCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>Grayscale Withdrawal Count</td><td>FlowTfrOutGSCCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>Invesco Withdrawal Count</td><td>FlowTfrOutINVCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>Franklin Templeton Withdrawal Count</td><td>FlowTfrOutTMPCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>VanEck Withdrawal Count</td><td>FlowTfrOutVANCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>Valkyrie Withdrawal Count</td><td>FlowTfrOutVLKCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>21Shares Withdrawal Count</td><td>FlowTfrOutSRSCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>WisdomTree Withdrawal Count</td><td>FlowTfrOutWDTCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>Exchange Traded Fund Withdrawal Count</td><td>FlowTfrFromEtfCnt</td><td>Withdrawals</td><td>1 day</td></tr><tr><td>Exchange Traded Fund Withdrawal Count, Incl EtoE</td><td>FlowTfrFromEtfInclCnt</td><td>Withdrawals</td><td>1 day</td></tr></tbody></table>
 
 ### Details
 

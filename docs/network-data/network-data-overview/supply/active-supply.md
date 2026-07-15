@@ -23,6 +23,7 @@ The sum of unique native units that transacted at least once in the trailing X t
 | 3 Year Active Supply                     | SplyAct3yr  | Native units | 3 Years  |
 | 4 Year Active Supply                     | SplyAct4yr  | Native units | 4 Years  |
 | 5 Year Active Supply                     | SplyAct5yr  | Native units | 5 Years  |
+| 10 Year Active Supply                    | SplyAct10yr | Native units | 10 Years |
 | Active Supply (transacted at least once) | SplyActEver | Native units | All time |
 
 ### Details

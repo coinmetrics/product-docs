@@ -205,7 +205,7 @@ Rate of Validators participating in each Epoch
 
 * Returns the percent of validation stake that participated in the time interval out of the total eligible validation stake that could have participated
 * Calculated for each epoch in the time period and aggregated across the time period.
-* Formula for each Epoch: `target attesting gwei / active gwei`&#x20;
+* Formula for each Epoch: `previousEpochTargetAttestingGwei / currentEpochActiveGwei` (using the previous epoch's attesting balance divided by the current epoch's active balance, averaged across epochs in the interval, and expressed as a percentage)
 
 ### Release History
 

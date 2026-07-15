@@ -50,12 +50,12 @@ Supply can be broken down in a variety of ways with Current supply representing 
 * SplyAdrBalUSD100K
 * SplyAdrBalUSD1M
 
-[**Burnt Supply**](revived-supply.md)
+[**Burnt Supply**](burnt-supply.md)
 
 * SplyBurntNtv
 * SplyBurntUSD
 
-[**Current Supply**](validator-supply.md)
+[**Current Supply**](current-supply.md)
 
 * NDF
 * SER

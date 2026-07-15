@@ -33,6 +33,8 @@ The sum of assets sent to an ETF that interval.
 | VanEck Deposits (USD)                                        | FlowInVANUSD     | USD          | 1 day    |
 | Valkyrie Deposits (native units)                             | FlowInVLKNtv     | Native units | 1 day    |
 | Valkyrie Deposits (USD)                                      | FlowInVLKUSD     | USD          | 1 day    |
+| 21Shares Deposits (native units)                             | FlowInSRSNtv     | Native units | 1 day    |
+| 21Shares Deposits (USD)                                      | FlowInSRSUSD     | USD          | 1 day    |
 | WisdomTree Deposits (native units)                           | FlowInWDTNtv     | Native units | 1 day    |
 | WisdomTree Deposits (USD)                                    | FlowInWDTUSD     | USD          | 1 day    |
 
@@ -44,7 +46,7 @@ The sum of assets sent to an ETF that interval.
 ### Asset-Specific Details
 
 * For Bitcoin, this metric excludes the effect of change outputs:
-  * If a transaction sends 90 BTC to exchange A but also withdraws 50 BTC from it, the flow is +40 BTC, not +90 BTC and -50 BTC.
+  * If a transaction sends 90 BTC to ETF A but also withdraws 50 BTC from it, the flow is +40 BTC, not +90 BTC and -50 BTC.
 
 ### Availability for Assets
 
@@ -56,7 +58,7 @@ The sum of assets sent to an ETF that interval.
 
 The sum count of transfers to any address belonging to an ETF in that interval. If the sender address also belongs to an ETF, the transfer is not counted.
 
-<table><thead><tr><th>Name</th><th width="181">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>ARK Invest Deposit Count</td><td>FlowTfrInARKCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>BlackRock Deposit Count</td><td>FlowTfrInBLKCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>Bitwise Deposit Count</td><td>FlowTfrInBWSCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>Grayscale Deposit Count</td><td>FlowTfrInGSCCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>Invesco Deposit Count</td><td>FlowTfrInINVCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>Franklin Templeton Deposit Count</td><td>FlowTfrInTMPCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>VanEck Deposit Count</td><td>FlowTfrInVANCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>Valkyrie Deposit Count</td><td>FlowTfrInVLKCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>WisdomTree Deposit Count</td><td>FlowTfrInWDTCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>Exchange Traded Fund Deposits Count</td><td>FlowTfrToEtfCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>Exchange Traded Fund Deposits Count, incl EtoE</td><td>FlowTfrToEtfInclCnt</td><td>Deposits</td><td>1 day</td></tr></tbody></table>
+<table><thead><tr><th>Name</th><th width="181">MetricID</th><th>Unit</th><th>Interval</th></tr></thead><tbody><tr><td>ARK Invest Deposit Count</td><td>FlowTfrInARKCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>BlackRock Deposit Count</td><td>FlowTfrInBLKCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>Bitwise Deposit Count</td><td>FlowTfrInBWSCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>Grayscale Deposit Count</td><td>FlowTfrInGSCCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>Invesco Deposit Count</td><td>FlowTfrInINVCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>Franklin Templeton Deposit Count</td><td>FlowTfrInTMPCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>VanEck Deposit Count</td><td>FlowTfrInVANCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>Valkyrie Deposit Count</td><td>FlowTfrInVLKCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>21Shares Deposit Count</td><td>FlowTfrInSRSCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>WisdomTree Deposit Count</td><td>FlowTfrInWDTCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>Exchange Traded Fund Deposits Count</td><td>FlowTfrToEtfCnt</td><td>Deposits</td><td>1 day</td></tr><tr><td>Exchange Traded Fund Deposits Count, incl EtoE</td><td>FlowTfrToEtfInclCnt</td><td>Deposits</td><td>1 day</td></tr></tbody></table>
 
 ### Details
 

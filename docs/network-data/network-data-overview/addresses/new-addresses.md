@@ -1,6 +1,6 @@
 # New Addresses
 
-## Address Balances
+## New Addresses
 
 Addresses that hold a balance of X amount for a given asset.
 
@@ -63,7 +63,7 @@ If the above was the only activity observed in the network during that interval,
 
 ### Availability for Assets
 
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/AdrActCnt" %}
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/AdrNewBalCnt" %}
 
 ## New Address Count <a href="#adrnewcnt" id="adrnewcnt"></a>
 
@@ -120,7 +120,7 @@ If the above was the only activity observed in the network during that interval,
 
 ### Availability for Assets
 
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/AdrActCnt" %}
+{% embed url="https://coverage.coinmetrics.io/asset-metrics/AdrNewCnt" %}
 
 ## API Endpoints
 

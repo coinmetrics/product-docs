@@ -106,7 +106,7 @@ The sum of fees paid to miners for the transactions included in each mined block
 
 | Name                 | MetricID    | Unit       | Interval |
 | -------------------- | ----------- | ---------- | -------- |
-| Miner Fees per block | block\_fees | Difficulty | 1 block  |
+| Miner Fees per block | block\_fees | Native Currency | 1 block  |
 
 **Methodology**
 

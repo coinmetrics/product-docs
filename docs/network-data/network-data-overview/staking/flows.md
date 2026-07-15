@@ -3,8 +3,8 @@
 ## Contents
 
 * [Flows](flows.md#flowtoclcont)
-* [Deposits to Consensus Layer](flows.md#flowtoclcont-1)
-* [Withdrawals from Consensus Layer](flows.md#flowtoclcont-2)
+* [Deposits to Consensus Layer](flows.md#stkdeposittotntv)
+* [Withdrawals from Consensus Layer](flows.md#stkwithdrawtotntv)
 
 ## Flows to CL Contract <a href="#flowtoclcont" id="flowtoclcont"></a>
 
@@ -28,7 +28,7 @@ Deposits sent to the Consensus Layer (CL) Contract.
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/FlowToCLCont" %}
 
-## Deposits to Consensus Layer <a href="#flowtoclcont" id="flowtoclcont"></a>
+## Deposits to Consensus Layer <a href="#stkdeposittotntv" id="stkdeposittotntv"></a>
 
 ### Definition
 
@@ -46,7 +46,7 @@ Total deposits sent to the Consensus Layer (CL)
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics-v2/StkDepositTotNtv" %}
 
-## Withdrawals from Consensus Layer <a href="#flowtoclcont" id="flowtoclcont"></a>
+## Withdrawals from Consensus Layer <a href="#stkwithdrawtotntv" id="stkwithdrawtotntv"></a>
 
 ### Definition
 

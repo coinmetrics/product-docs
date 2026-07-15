@@ -261,7 +261,7 @@ The percent change in supply over 1 year. Also referred to as the annual inflati
 ### Details
 
 * $$InfPctAnn=((1+\frac{InfPct}{100})^{365}-1)*100$$
-* $$InfPctAnn[N]Avg=(1+\frac{InfPct[N]Avg}{100})^{365}-1$$ where N is the days over which to average. This means that for a 30-Day average the formula would be: $$InfPctAnn30dAvg=(1+\frac{InfPct30dAvg}{100})^{365}-1$$
+* $$InfPctAnn[N]Avg=((1+\frac{InfPct[N]Avg}{100})^{365}-1)*100$$ where N is the days over which to average. This means that for a 30-Day average the formula would be: $$InfPctAnn30dAvg=((1+\frac{InfPct30dAvg}{100})^{365}-1)*100$$
 
 ### Availability for Assets
 

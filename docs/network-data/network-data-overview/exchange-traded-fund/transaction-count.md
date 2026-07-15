@@ -8,7 +8,7 @@
 
 ### Definition
 
-The sum count of transactions that involved any address belonging to an ETF, as a sender or recipient of a non-zero transfer of native units, in that interval. If a transaction involves multiple exchanges, it is only counted once.
+The sum count of transactions that involved any address belonging to an ETF, as a sender or recipient of a non-zero transfer of native units, in that interval. If a transaction involves multiple ETFs, it is only counted once.
 
 | Name                        | ID       | Unit         | Interval |
 | --------------------------- | -------- | ------------ | -------- |

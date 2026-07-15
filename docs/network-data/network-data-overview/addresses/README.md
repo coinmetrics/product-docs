@@ -17,8 +17,13 @@ Increases in the number of active addresses suggests more users of the network. 
 * WalActCnt
 * WalActRecCnt
 * WalActSentCnt
+* AdrActBlobCnt
+* AdrActBlobRecCnt
+* AdrActBlobSendCnt
+* AdrActUSD1Cnt
+* MevAdrActCnt
 
-[Active Addresses ](address-balances.md)
+[Address Balances](address-balances.md)
 
 * AdrBal1in100KCnt
 * AdrBal1in100MCnt
@@ -31,7 +36,7 @@ Increases in the number of active addresses suggests more users of the network. 
 * AdrBalCnt
 * AdrBalNtv0.001Cnt
 * AdrBalNtv0.01Cnt
-* AdrBalNtv0.01Cnt
+* AdrBalNtv0.1Cnt
 * AdrBalNtv100Cnt
 * AdrBalNtv100KCnt
 * AdrBalNtv10Cnt

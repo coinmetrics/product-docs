@@ -152,7 +152,7 @@ The previous 24 hours of open interest data is available through our community A
 | Bybit    |          24         |                     | 2021-05-01 |
 | CME      |          61         |                     | 2017-12-19 |
 | Deribit  |          67         |         7163        | 2020-07-27 |
-| FTX      |         1027        |                     | 2020-07-27 |
+| FTX (defunct) |         1027        |                     | 2020-07-27 |
 | Huobi    |         1673        |                     | 2020-07-27 |
 | Kraken   |          67         |                     | 2020-10-09 |
 | OKEx     |         1483        |                     | 2020-07-27 |

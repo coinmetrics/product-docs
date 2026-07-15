@@ -30,6 +30,8 @@ The sum held by an ETF at the end of that interval.
 | VanEck Supply (USD)                        | SplyVANUSD | USD          | 1 day    |
 | Valkyrie Supply (native units)             | SplyVLKNtv | Native units | 1 day    |
 | Valkyrie Supply (USD)                      | SplyVLKUSD | USD          | 1 day    |
+| 21Shares Supply (native units)             | SplySRSNtv | Native units | 1 day    |
+| 21Shares Supply (USD)                      | SplySRSUSD | USD          | 1 day    |
 | WisdomTree Supply (native units)           | SplyWDTNtv | Native units | 1 day    |
 | WisdomTree Supply (USD)                    | SplyWDTUSD | USD          | 1 day    |
 

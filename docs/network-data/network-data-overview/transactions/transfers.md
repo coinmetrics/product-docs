@@ -80,7 +80,7 @@ The mean size (in bytes) per transfer that interval.
 
 ### Details
 
-* Computed as BlkSizeByte / TxTfr
+* Computed as BlkSizeByte / TxTfrCnt
 
 ### Release History
 

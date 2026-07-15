@@ -27,6 +27,7 @@ Exchange On-Chain Supply, Deposits, Withdrawals and Net Flows can be found in th
 | Invesco             | INV |
 | Valkyrie            | VLK |
 | VanEck              | VAN |
+| 21Shares            | SRS |
 | WisdomTree          | WDT |
 | Bitwise             | BWS |
 | Aggregate ETF Flows | Etf |

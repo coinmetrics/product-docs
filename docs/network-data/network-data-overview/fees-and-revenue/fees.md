@@ -476,33 +476,6 @@ The sum gas limit of all transactions that day.
 
 {% embed url="https://coverage.coinmetrics.io/asset-metrics/GasLmtTx" %}
 
-## Mean Block Gas Limit <a href="#gaslmtblkmean" id="gaslmtblkmean"></a>
-
-### Definition
-
-The mean gas limit per block that day.
-
-| Name                 | MetricID      | Unit | Interval |
-| -------------------- | ------------- | ---- | -------- |
-| Mean Block Gas Limit | GasLmtBlkMean | Gas  | 1 day    |
-
-### Details
-
-* Computed as GasLmtBlk / BlkCnt
-* Gas is a dimensionless unit measuring the computational cost of operations for ETH-based assets. Each transaction spends gas when being processed.
-
-### Asset-Specific details
-
-* Only relevant for ETH and ETC.
-
-### Release History
-
-* Released in the 1.0 release of NDP
-
-### Availability for Assets
-
-{% embed url="https://coverage.coinmetrics.io/asset-metrics/GasLmtBlkMean" %}
-
 ## Mean Gas Limit per Tx <a href="#gaslmttxmean" id="gaslmttxmean"></a>
 
 ### Definition

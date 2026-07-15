@@ -7,7 +7,7 @@
 * [Median MEV Tips (FeeMevMedNtv, FeeMevMedUSD)](mev-fees.md#adractcont-2)
 * [Total Miner Tips Among MEV Transactions (FeePrioTotMevNtv, FeePrioTotMevUSD)](mev-fees.md#total-miner-tips-among-mev-transactions)
 * [Mean Miner Tips Among MEV Transactions (FeePrioMeanMevNtv, FeePrioMeanMevUSD)](mev-fees.md#mean-miner-tips-among-mev-transactions)
-* [Median Miner Tips Among MEV Transactions (FeePrioMeanMevNtv, FeePrioMeanMevUSD)](mev-fees.md#median-miner-tips-among-mev-transactions)
+* [Median Miner Tips Among MEV Transactions (FeePrioMedMevNtv, FeePrioMedMevUSD)](mev-fees.md#median-miner-tips-among-mev-transactions)
 * [Miner Revenue from MEV tips (%) (FeeMevRevPct)](mev-fees.md#miner-revenue-from-mev-tips)
 
 ## Total MEV Tips <a href="#adractcont" id="adractcont"></a>
