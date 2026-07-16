@@ -716,7 +716,7 @@ redirects:
   market-data-timeseries/market-contracts: market-data/market-data-overview/market-contract-prices.md
   market-data-timeseries/market-greeks: market-data/market-data-overview/market-greeks.md
   market-data-timeseries/market-implied-volatility: market-data/market-data-overview/volatility/market-implied-volatility.md
-  market-data-timeseries/market-metadata: market-data/market-data-overview/market-metadata/market-metadata.md
+  market-data-timeseries/market-metadata: market-data/market-data-overview/market-reference-data.md
   market-data-timeseries/market-orderbooks: market-data/market-data-overview/order-books.md
   market-data-timeseries/market-quotes: market-data/market-data-overview/quotes.md  # anchor #market removed: GitBook redirect targets do not resolve URL fragments
   market-data-timeseries/trades: market-data/market-data-overview/market-trades.md

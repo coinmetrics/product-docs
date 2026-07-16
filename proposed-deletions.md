@@ -31,7 +31,7 @@ The following files are orphaned (not in SUMMARY.md and not a redirect target) a
 | `docs/.gitbook/includes/ndp-metric-basics.md` | GitBook content snippet (partial) — may be intentionally excluded from nav |
 | `docs/.gitbook/includes/the-initial-universe-of-eli....md` | GitBook content snippet (partial) — may be intentionally excluded from nav |
 
-**Note:** `docs/market-data/market-data-overview/market-metadata/market-metadata.md` was previously listed here but is in fact reachable — it is the target of a `.gitbook.yaml` redirect (`market-data-timeseries/market-metadata`). It has been removed from this list.
+**Note:** `docs/market-data/market-data-overview/market-metadata/market-metadata.md` was deleted (2026-07-15). It had been superseded by `market-data/market-data-overview/market-reference-data.md`. Its only inbound reference was the `market-data-timeseries/market-metadata` `.gitbook.yaml` redirect, which was repointed to `market-reference-data.md` (matching the existing `market-data/market-data-overview/market-metadata` redirect) before removal, so the legacy URL still resolves.
 
 ---
 
