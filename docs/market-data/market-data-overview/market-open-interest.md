@@ -28,7 +28,7 @@ One observation is a single open interest snapshot for one market at one point i
 | `cm_sequence_id` | string | Per-connection message sequence number for ordering a live stream. Resets on reconnection. | Websocket messages only |
 
 {% hint style="warning" %}
-**`value_usd` is deprecated.** It was derived at collection time using per-exchange conversion logic that no longer reflects current contract specifications across all venues, so its values are unreliable and it is retained only for backward compatibility. For open interest denominated in U.S. dollars, use the reported open interest metrics instead: `open_interest_reported_future_usd` for futures notional, `open_interest_reported_option_notional_usd` for options notional, and `open_interest_reported_option_market_value_usd` for options market value. These are served on the `/timeseries/market-metrics` family and documented in [Reported Open Interest](open_interest_reported.md).
+**`value_usd` is deprecated.** It was derived at collection time using per-exchange conversion logic that no longer reflects current contract specifications across all venues, so its values are unreliable and it is retained only for backward compatibility. For open interest denominated in U.S. dollars, use the reported open interest metrics instead: `open_interest_reported_future_usd` for futures notional, `open_interest_reported_option_notional_usd` for options notional, and `open_interest_reported_option_market_value_usd` for options market value. These three are the direct per-market replacement, served on the `/timeseries/market-metrics` family. The full metric family, including perpetual, margin-asset, and call/put breakdowns, is also available aggregated by asset, exchange, exchange-asset, and pair. See [Open Interest Metrics](open-interest-metrics.md).
 {% endhint %}
 
 {% hint style="info" %}
@@ -79,7 +79,7 @@ Coin Metrics runs redundant collectors for resilience, so the same observation c
 
 The `value_usd` field was computed at collection time by converting the contract count into U.S. dollars with per-exchange logic (for example multiplying by a price and a contract size). That logic relied on assumptions that no longer hold uniformly across venues as contract specifications changed, so the field was deprecated. It is still returned for backward compatibility, but its values should not be relied on.
 
-For open interest in U.S. dollars, use the reported open interest metrics, which are computed from current contract specifications and reference rates and are aggregated by asset, exchange, exchange-asset, and pair. Futures are expressed as notional value, and options are expressed as both notional value and market value. See [Reported Open Interest](open_interest_reported.md) for the metric list and formulas.
+For open interest in U.S. dollars, use the reported open interest metrics, which are computed from current contract specifications and reference rates and are aggregated by asset, exchange, exchange-asset, and pair. Futures are expressed as notional value, and options are expressed as both notional value and market value. See [Open Interest Metrics](open-interest-metrics.md) for the metric list and formulas.
 
 ## Accessing the Data
 
@@ -257,7 +257,7 @@ Messages from `wss://api.coinmetrics.io/v4/timeseries-stream/market-openinterest
 * **Latest positioning.** Use `limit_per_market` for a quick "latest N" look at a market's current open interest, or a wildcard such as `*-future` to scan many markets at once.
 * **History and downsampling.** Use a `start_time` / `end_time` range with `.parallel(time_increment=…)` for backfills, and `granularity` (`1m`, `1h`, `1d`) to reduce the minute-level series to coarser bars.
 * **Real-time monitoring.** Use the websocket stream to track open interest live. Order messages within a connection by `cm_sequence_id`, which resets whenever the connection is re-established.
-* **U.S. dollar and aggregated open interest.** For open interest denominated in U.S. dollars, or aggregated by asset, exchange, exchange-asset, or pair, use the [Reported Open Interest](open_interest_reported.md) metrics rather than the deprecated `value_usd` field.
+* **U.S. dollar and aggregated open interest.** For open interest denominated in U.S. dollars, or aggregated by asset, exchange, exchange-asset, or pair, use the [Open Interest Metrics](open-interest-metrics.md) metrics rather than the deprecated `value_usd` field.
 * **Derivatives context.** Combine open interest with [Funding Rates](funding-rates/funding-rates.md) and [Market Liquidations](market-liquidations.md) on the same markets to study leverage build-up and unwind.
 
 ## Limitations
@@ -279,15 +279,15 @@ The `time` field is aligned to the minute. For most markets it is Coin Metrics' 
 
 ### How do I get open interest in U.S. dollars?
 
-Use the reported open interest metrics rather than the deprecated `value_usd` field. `open_interest_reported_future_usd` gives futures notional in U.S. dollars, `open_interest_reported_option_notional_usd` gives options notional, and `open_interest_reported_option_market_value_usd` gives options market value. These are served on the `/timeseries/market-metrics` family and documented in [Reported Open Interest](open_interest_reported.md).
+Use the reported open interest metrics rather than the deprecated `value_usd` field. `open_interest_reported_future_usd` gives futures notional in U.S. dollars, `open_interest_reported_option_notional_usd` gives options notional, and `open_interest_reported_option_market_value_usd` gives options market value. Those three are available per market on the `/timeseries/market-metrics` family. The full metric family, including perpetual, margin-asset, and call/put breakdowns, is also available aggregated by asset, exchange, exchange-asset, and pair. See [Open Interest Metrics](open-interest-metrics.md).
 
 ### Do you have open interest for assets, exchanges, asset pairs, or exchange-asset pairs?
 
-Yes. Coin Metrics calculates aggregated open interest metrics for assets (for example `btc`), exchanges (for example `binance`), asset pairs (for example `btc-usd`), and exchange-asset pairs (for example `binance-btc`). See [Reported Open Interest](open_interest_reported.md).
+Yes. Coin Metrics calculates aggregated open interest metrics for assets (for example `btc`), exchanges (for example `binance`), asset pairs (for example `btc-usd`), and exchange-asset pairs (for example `binance-btc`). See [Open Interest Metrics](open-interest-metrics.md).
 
 ## Related
 
-* [Reported Open Interest](open_interest_reported.md): open interest aggregated in U.S. dollars by asset, exchange, exchange-asset, and pair.
+* [Open Interest Metrics](open-interest-metrics.md): open interest aggregated in U.S. dollars by asset, exchange, exchange-asset, and pair.
 * [Market Reference Data](market-reference-data.md): per-market contract specifications, including `contract_size` and the size asset.
 * [Market Liquidations](market-liquidations.md): forced closes on the same derivatives markets.
 * [Funding Rates](funding-rates/funding-rates.md): perpetual-futures funding rates on the same markets.

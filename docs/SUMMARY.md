@@ -258,7 +258,7 @@
     * [Slippage](market-data/market-data-overview/liquidity/slippage.md)
   * [Market Reference Data](market-data/market-data-overview/market-reference-data.md)
   * [Market Open Interest](market-data/market-data-overview/market-open-interest.md)
-  * [Reported Open Interest](market-data/market-data-overview/open_interest_reported.md)
+  * [Open Interest Metrics](market-data/market-data-overview/open-interest-metrics.md)
   * [Order Books](market-data/market-data-overview/order-books.md)
   * [Market Quotes](market-data/market-data-overview/quotes.md)
   * [Aggregated Quotes](market-data/market-data-overview/aggregated-quotes.md)

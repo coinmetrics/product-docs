@@ -98,8 +98,8 @@ Metrics available at the asset level are available through the [`/timeseries/ass
 [reference\_rate.md](../reference-rates-overview/reference_rate.md)
 {% endcontent-ref %}
 
-{% content-ref url="open_interest_reported.md" %}
-[open\_interest\_reported.md](open_interest_reported.md)
+{% content-ref url="open-interest-metrics.md" %}
+[open-interest-metrics.md](open-interest-metrics.md)
 {% endcontent-ref %}
 
 {% content-ref url="volume/" %}
@@ -112,8 +112,8 @@ Coin Metrics calculates several metrics for exchanges such as `coinbase`, `binan
 
 Metrics available at the exchange level are available through the [`/timeseries/exchange-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesExchangeMetrics) API endpoint and specific metrics are described in the pages linked in this section:
 
-{% content-ref url="open_interest_reported.md" %}
-[open\_interest\_reported.md](open_interest_reported.md)
+{% content-ref url="open-interest-metrics.md" %}
+[open-interest-metrics.md](open-interest-metrics.md)
 {% endcontent-ref %}
 
 {% content-ref url="volume/" %}
@@ -134,8 +134,8 @@ Metrics available at the exchange-asset level are available through the [`/times
 [liquidation-metrics.md](liquidation-metrics.md)
 {% endcontent-ref %}
 
-{% content-ref url="open_interest_reported.md" %}
-[open\_interest\_reported.md](open_interest_reported.md)
+{% content-ref url="open-interest-metrics.md" %}
+[open-interest-metrics.md](open-interest-metrics.md)
 {% endcontent-ref %}
 
 {% content-ref url="volume/" %}
@@ -150,8 +150,8 @@ Metrics available at the asset pair level are
 
 available through the [`/timeseries/pair-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesPairMetrics) API endpoint and specific metrics are described in the pages linked in this section:
 
-{% content-ref url="open_interest_reported.md" %}
-[open\_interest\_reported.md](open_interest_reported.md)
+{% content-ref url="open-interest-metrics.md" %}
+[open-interest-metrics.md](open-interest-metrics.md)
 {% endcontent-ref %}
 
 {% content-ref url="volume/" %}
