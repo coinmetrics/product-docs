@@ -242,7 +242,7 @@
     * [Predicted Funding Rates](market-data/market-data-overview/funding-rates/predicted-funding-rates.md)
     * [Aggregated Futures Funding Rate](market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md)
     * [Cumulative Futures Funding Rate](market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate.md)
-  * [Greeks](market-data/market-data-overview/market-greeks.md)
+  * [Market Greeks](market-data/market-data-overview/market-greeks.md)
   * [Institution Metrics](market-data/market-data-overview/institution-metrics-overview/README.md)
     * [Grayscale](market-data/market-data-overview/institution-metrics-overview/grayscale/README.md)
       * [Shares Outstanding](market-data/market-data-overview/institution-metrics-overview/grayscale/shares-outstanding.md)
