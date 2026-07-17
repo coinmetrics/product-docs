@@ -216,6 +216,11 @@ If you need to download large amounts of data, i.e. more than 100k rows, we reco
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-07-15" %}
+## Added Polkadot Relay Chain Support
+
+Added Atlas support for DOT on the Polkadot Relay Chain (`dot_relay`), alongside existing Asset Hub coverage. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/atlas-v2).
+{% endupdate %}
 {% update date="2026-07-02" %}
 ## Added Morpho Vault Support
 
