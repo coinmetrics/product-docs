@@ -173,6 +173,7 @@
   * [Balance Updates](network-data/atlas-overview/balance-updates.md)
 * [Methodologies](network-data/methodologies/README.md)
   * [Normalizing Block Times](network-data/methodologies/normalizing-block-times.md)
+  * [Pairwise Flow Lookback Window](network-data/methodologies/pairwise-flow-lookback-window.md)
 * [DeFi Overview](network-data/defi-data-overview/README.md)
   * [Decentralized Exchange Data](network-data/defi-data-overview/decentralized-exchange-data.md)
   * [DeFi Balance Sheets](network-data/defi-data-overview/defi-balance-sheets-overview.md)
