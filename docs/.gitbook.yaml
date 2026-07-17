@@ -9,6 +9,7 @@ redirects:
   market-data/market-data-overview/open-interest: market-data/market-data-overview/market-open-interest.md
   market-data/market-data-overview/market-metadata: market-data/market-data-overview/market-reference-data.md
   market-data/market-data-overview/candles: market-data/market-data-overview/market-candles.md
+  market-data/market-data-overview/basis: market-data/market-data-overview/basis-metrics.md
   market-data/faqs: resources/faqs.md
   market-data/faqs/cm-prices-faqs: resources/faqs.md
   market-data/faqs/trusted-exchange-framework-faqs: resources/faqs.md
@@ -658,10 +659,10 @@ redirects:
   defi-balance-sheets/defi-balance-sheets-overview: network-data/defi-data-overview/defi-balance-sheets-overview.md
   defi-data/defi-data-overview: network-data/defi-data-overview/README.md
   defi-data/defi-faqs: network-data/defi-data-overview/faqs.md
-  exchange-asset-metrics/basis/basis_annualized_120d_exp: market-data/market-data-overview/basis.md
-  exchange-asset-metrics/basis/basis_annualized_30d_exp: market-data/market-data-overview/basis.md
-  exchange-asset-metrics/basis/basis_annualized_60d_exp: market-data/market-data-overview/basis.md
-  exchange-asset-metrics/basis/basis_annualized_90d_exp: market-data/market-data-overview/basis.md
+  exchange-asset-metrics/basis/basis_annualized_120d_exp: market-data/market-data-overview/basis-metrics.md
+  exchange-asset-metrics/basis/basis_annualized_30d_exp: market-data/market-data-overview/basis-metrics.md
+  exchange-asset-metrics/basis/basis_annualized_60d_exp: market-data/market-data-overview/basis-metrics.md
+  exchange-asset-metrics/basis/basis_annualized_90d_exp: market-data/market-data-overview/basis-metrics.md
   exchange-asset-metrics/open-interest/open_interest_reported_future_coin_margined_usd: market-data/market-data-overview/open-interest-metrics.md
   exchange-asset-metrics/open-interest/open_interest_reported_future_nonperpetual_usd: market-data/market-data-overview/open-interest-metrics.md
   exchange-asset-metrics/open-interest/open_interest_reported_future_perpetual_usd: market-data/market-data-overview/open-interest-metrics.md

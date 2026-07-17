@@ -233,7 +233,7 @@
 ## Market Data
 
 * [Market Data Overview](market-data/market-data-overview/README.md)
-  * [Basis](market-data/market-data-overview/basis.md)
+  * [Basis Metrics](market-data/market-data-overview/basis-metrics.md)
   * [Market Candles](market-data/market-data-overview/market-candles.md)
   * [Pair Candles](market-data/market-data-overview/pair-candles.md)
   * [Market Contract Prices](market-data/market-data-overview/market-contract-prices.md)
