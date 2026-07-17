@@ -12,7 +12,7 @@ Pairwise flow metrics measure the directional value moving from one tagged entit
 
 Each supported ordered entity pair emits three metrics, named with the pair's entity codes in place of `{EntityA}` and `{EntityB}`:
 
-<table data-full-width="true"><thead><tr><th width="360">Metric</th><th>Description</th><th>Frequency</th><th>Coverage</th></tr></thead><tbody><tr><td><code>FlowFrom{EntityA}To{EntityB}Ntv</code></td><td>Native-unit value attributed as flowing from EntityA to EntityB, including value routed through untagged intermediary wallets.</td><td>1d, 1h</td><td>🔗</td></tr><tr><td><code>FlowFrom{EntityA}To{EntityB}USD</code></td><td>USD value of the same flow, derived from the Ntv metric and the asset's reference rate.</td><td>1d, 1h</td><td>🔗</td></tr><tr><td><code>FlowTfrFrom{EntityA}To{EntityB}Cnt</code></td><td>Expected number of transfers attributed to this flow. An exact integer for direct entity-to-entity transfers, and a fractional expectation for value routed through untagged wallets.</td><td>1d, 1h</td><td>🔗</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th width="360">Metric</th><th>Description</th><th>Frequency</th><th>Coverage</th></tr></thead><tbody><tr><td><code>FlowFrom{EntityA}To{EntityB}Ntv</code></td><td>Native-unit value attributed as flowing from EntityA to EntityB, including value routed through untagged intermediary wallets.</td><td>1d, 1h</td><td>🔗</td></tr><tr><td><code>FlowFrom{EntityA}To{EntityB}USD</code></td><td>USD value of the same flow, derived from the Ntv metric and the asset's reference rate.</td><td>1d, 1h</td><td>🔗</td></tr><tr><td><code>FlowTfrFrom{EntityA}To{EntityB}Cnt</code></td><td>Expected number of transfers attributed to this flow, emitted as a whole transfer count. Direct entity-to-entity transfers contribute exact counts and value routed through untagged wallets contributes a fractional expected count; the two are summed and rounded to the nearest whole transfer, with any positive value below one rounded up to one.</td><td>1d, 1h</td><td>🔗</td></tr></tbody></table>
 
 As of the current release, supported pairs cover six major centralized exchanges (all ordered pairs among them) on USDC on Ethereum, computed from January 2026 onward. Coverage is expected to expand to more assets as more exchange endpoints are tagged for them.
 
@@ -44,7 +44,7 @@ Every tagged address, whether an exchange, a lending protocol, an ETF, a layer-2
 
 ### Transfer counts
 
-The transfer count metric is an exact integer for direct transfers and a fractional expected count for through-user attribution: each wallet-to-destination deposit contributes the source's attributed share at that hop.
+Direct transfers contribute an exact integer count, while through-user attribution contributes a fractional expected count in which each wallet-to-destination deposit adds the source's attributed share at that hop. The direct and through-user counts are summed, and the emitted metric is rounded to the nearest whole transfer (ties rounded up), except that any positive value below one is rounded up to one so a small but real attributed flow is never reported as zero.
 
 ### Hourly metrics and lookback
 
