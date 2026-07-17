@@ -81,6 +81,7 @@
     * [Deposits](network-data/network-data-overview/exchange/deposits.md)
     * [Exchange Supply](network-data/network-data-overview/exchange/exchange-supply.md)
     * [Net Flows](network-data/network-data-overview/exchange/net-flows.md)
+    * [Pairwise Flows](network-data/network-data-overview/exchange/pairwise-flows.md)
     * [Transaction Count](network-data/network-data-overview/exchange/transaction-count.md)
     * [Withdrawals](network-data/network-data-overview/exchange/withdrawals.md)
   * [Exchange Traded Fund](network-data/network-data-overview/exchange-traded-fund/README.md)
