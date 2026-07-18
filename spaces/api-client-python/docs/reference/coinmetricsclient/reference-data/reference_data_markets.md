@@ -12,6 +12,11 @@ coinmetrics.api_client.CoinMetricsClient.reference_data_markets(
     asset=None,
     symbol=None,
     include=None,
+    asset_class=None,
+    source_type=None,
+    cusip=None,
+    figi=None,
+    isin=None,
     page_size=None,
     paging_from=None,
     next_page_token=None,
@@ -30,6 +35,11 @@ Returns a list of markets metadata.
   * **asset** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Any asset of markets.
   * **symbol** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Symbol of derivative markets, full instrument name.
   * **include** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Comma-separated list of namespaces to include in response. Currently, the only supported value is talos.
+  * **asset_class** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Asset class of markets.
+  * **source_type** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Source type of exchange.
+  * **cusip** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- CUSIP identifier to filter markets.
+  * **figi** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- FIGI identifier to filter markets.
+  * **isin** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- ISIN identifier to filter markets.
   * **page_size** (*Optional* *[*[*int*](https://docs.python.org/3/library/functions.html#int) *]*) -- Number of items per single page of results.
   * **paging_from** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Where does the first page start, at the start of the interval or at the end.
   * **next_page_token** (*Optional* *[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *]*) -- Token for receiving the results from the next page of a query. Should not be used directly. To iterate through pages just use next_page_url response field.
