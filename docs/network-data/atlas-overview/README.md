@@ -216,6 +216,12 @@ If you need to download large amounts of data, i.e. more than 100k rows, we reco
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-07-15" %}
+## Added Polkadot Relay Chain Support
+
+Added Atlas support for DOT on the Polkadot Relay Chain (`dot_relay`), alongside existing Asset Hub coverage. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/atlas-v2).
+{% endupdate %}
+
 {% update date="2026-07-02" %}
 ## Added Morpho Vault Support
 
@@ -237,6 +243,7 @@ Balance updates for these assets carry a `denomination` field set to the vault's
 
 </details>
 {% endupdate %}
+
 {% update date="2026-06-08" %}
 ## Added Polkadot Asset Hub Support
 
@@ -252,6 +259,7 @@ Added Atlas support for DOT, USDC, and USDT on the Polkadot Asset Hub parachain.
 
 </details>
 {% endupdate %}
+
 {% update date="2026-05-01" %}
 ## Added Stellar Token Support
 
@@ -321,7 +329,7 @@ Added support for AZNX\_ETH (AstraZeneca xStock on Ethereum).
 {% update date="2026-02-27" %}
 ## Added xStock Tokenized Equities on Ethereum
 
-Added support for ~80 Backed Finance xStock tokenized equities on Ethereum.
+Added support for \~80 Backed Finance xStock tokenized equities on Ethereum.
 
 <details>
 
@@ -391,7 +399,7 @@ Added support for ~80 Backed Finance xStock tokenized equities on Ethereum.
 * QQQX\_ETH - Nasdaq 100 ETF xStock on Ethereum
 * SCHFX\_ETH - Schwab International ETF xStock on Ethereum
 * SLVX\_ETH - Silver ETF xStock on Ethereum
-* SPYX\_ETH - S&P 500 ETF xStock on Ethereum
+* SPYX\_ETH - S\&P 500 ETF xStock on Ethereum
 * STRCX\_ETH - Strategy xStock on Ethereum
 * TBLLX\_ETH - T-Bill xStock on Ethereum
 * TMOX\_ETH - Thermo Fisher xStock on Ethereum
@@ -406,7 +414,6 @@ Added support for ~80 Backed Finance xStock tokenized equities on Ethereum.
 * XOMX\_ETH - ExxonMobil xStock on Ethereum
 
 </details>
-
 {% endupdate %}
 
 {% update date="2026-02-18" %}
