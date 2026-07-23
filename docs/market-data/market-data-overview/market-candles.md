@@ -370,3 +370,4 @@ Candles are derived from trades, so a market's candle history matches its [trade
 * [Pair Candles](pair-candles.md): OHLC candles built from Coin Metrics' cross-exchange reference rate for an asset pair.
 * [Index Candles](../../index-data/index/index-timeseries/index-candles.md): OHLC candles for Coin Metrics indexes.
 * [Reported Volume](volume/volume_reported.md): exchange-reported trading volume.
+* [Look-ahead bias FAQ](../../resources/faqs.md#how-does-candle-recalculation-create-look-ahead-bias): how candle recalculation affects point-in-time-correct backtests.
