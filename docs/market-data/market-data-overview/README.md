@@ -126,8 +126,8 @@ Coin Metrics calculates several metrics for exchange-asset pairs such as `coinba
 
 Metrics available at the exchange-asset level are available through the [`/timeseries/exchange-asset-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesExchangeAssetMetrics) API endpoint and specific metrics are described in the pages linked in this section:
 
-{% content-ref url="basis.md" %}
-[basis.md](basis.md)
+{% content-ref url="/broken/pages/kTB7oozI5NOEyFTwqpj4" %}
+[Broken link](/broken/pages/kTB7oozI5NOEyFTwqpj4)
 {% endcontent-ref %}
 
 {% content-ref url="liquidation-metrics.md" %}

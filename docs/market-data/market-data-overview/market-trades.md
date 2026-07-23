@@ -19,39 +19,39 @@ One observation is a single executed trade. Every trade carries the common field
 
 ### Common fields (all markets)
 
-| Field | Type | Description | Notes |
-| --- | --- | --- | --- |
-| `market` | string | Unique name of the market. Spot markets follow `exchange-base-quote-spot`, futures follow `exchange-symbol-future`, and options follow `exchange-symbol-option`. DeFi markets follow `protocol_version_chain-pool-base-quote-spot`, for example `uniswap_v3_eth-1-usdc-weth-spot`. | Required |
-| `time` | string (date-time) | The exchange-reported event time. ISO 8601, nanosecond precision. | Required |
-| `coin_metrics_id` | string | Identifier of a trade, unique per exchange market. Uses the exchange-reported value when numeric, otherwise derived from the exchange's identifier (see [Identifiers](#identifiers)). | Required |
-| `amount` | string (decimal) | The amount of the base asset traded (or the number of contracts for derivatives). | Required |
-| `price` | string (decimal) | The price of the base asset, quoted in the quote asset, at which the trade executed (or the price of one contract for derivatives). | Required |
-| `side` | string | The taker (market order) side. `buy` means an incoming buy order removed an ask from the book. `sell` means an incoming sell order removed a bid. | Optional. Present where the taker side is known |
-| `database_time` | string (date-time) | The time Coin Metrics stored the observation. ISO 8601, nanosecond precision. | Returned by the HTTP endpoint. Not present in websocket messages |
-| `collect_time` | string (date-time) | The feed-handler host clock when the trade was received from the exchange. | Websocket messages only |
-| `cm_sequence_id` | string | Per-connection message sequence number for ordering a live stream. Resets on reconnection. | Websocket messages only |
+| Field             | Type               | Description                                                                                                                                                                                                                                                                        | Notes                                                            |
+| ----------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `market`          | string             | Unique name of the market. Spot markets follow `exchange-base-quote-spot`, futures follow `exchange-symbol-future`, and options follow `exchange-symbol-option`. DeFi markets follow `protocol_version_chain-pool-base-quote-spot`, for example `uniswap_v3_eth-1-usdc-weth-spot`. | Required                                                         |
+| `time`            | string (date-time) | The exchange-reported event time. ISO 8601, nanosecond precision.                                                                                                                                                                                                                  | Required                                                         |
+| `coin_metrics_id` | string             | Identifier of a trade, unique per exchange market. Uses the exchange-reported value when numeric, otherwise derived from the exchange's identifier (see [Identifiers](market-trades.md#identifiers)).                                                                              | Required                                                         |
+| `amount`          | string (decimal)   | The amount of the base asset traded (or the number of contracts for derivatives).                                                                                                                                                                                                  | Required                                                         |
+| `price`           | string (decimal)   | The price of the base asset, quoted in the quote asset, at which the trade executed (or the price of one contract for derivatives).                                                                                                                                                | Required                                                         |
+| `side`            | string             | The taker (market order) side. `buy` means an incoming buy order removed an ask from the book. `sell` means an incoming sell order removed a bid.                                                                                                                                  | Optional. Present where the taker side is known                  |
+| `database_time`   | string (date-time) | The time Coin Metrics stored the observation. ISO 8601, nanosecond precision.                                                                                                                                                                                                      | Returned by the HTTP endpoint. Not present in websocket messages |
+| `collect_time`    | string (date-time) | The feed-handler host clock when the trade was received from the exchange.                                                                                                                                                                                                         | Websocket messages only                                          |
+| `cm_sequence_id`  | string             | Per-connection message sequence number for ordering a live stream. Resets on reconnection.                                                                                                                                                                                         | Websocket messages only                                          |
 
 ### Derivatives fields (futures and options)
 
-| Field | Type | Description | Notes |
-| --- | --- | --- | --- |
-| `mark_price` | string (decimal) | The futures' or option's price calculated by the exchange for risk-management purposes. | Futures and options |
-| `index_price` | string (decimal) | An aggregate price derived from major exchanges, representative of the underlying asset's market-consensus price. | Futures and options |
-| `iv_trade` | string (decimal) | Implied volatility calculated from the trade price. | Options only |
-| `liquidation` | string | Indicates whether the maker side, taker side, or both sides of the trade are under liquidation. | Futures and options. Present on liquidation trades |
+| Field         | Type             | Description                                                                                                       | Notes                                              |
+| ------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| `mark_price`  | string (decimal) | The futures' or option's price calculated by the exchange for risk-management purposes.                           | Futures and options                                |
+| `index_price` | string (decimal) | An aggregate price derived from major exchanges, representative of the underlying asset's market-consensus price. | Futures and options                                |
+| `iv_trade`    | string (decimal) | Implied volatility calculated from the trade price.                                                               | Options only                                       |
+| `liquidation` | string           | Indicates whether the maker side, taker side, or both sides of the trade are under liquidation.                   | Futures and options. Present on liquidation trades |
 
 ### Decentralized exchange (DeFi) fields
 
-Populated for swaps on decentralized exchanges (see [Decentralized exchange (DeFi) trades](#decentralized-exchange-defi-trades)).
+Populated for swaps on decentralized exchanges (see [Decentralized exchange (DeFi) trades](market-trades.md#decentralized-exchange-defi-trades)).
 
-| Field | Type | Description | Notes |
-| --- | --- | --- | --- |
-| `block_hash` | string | Swap block hash. | Optional |
-| `block_height` | string (int64) | Swap block height. | Optional |
-| `txid` | string | Swap transaction ID. | Optional |
-| `initiator` | string | Swap transaction initiator. | Optional |
-| `sender` | string | Swap caller. | Optional |
-| `beneficiary` | string | Swap output receiver. | Optional |
+| Field          | Type           | Description                 | Notes    |
+| -------------- | -------------- | --------------------------- | -------- |
+| `block_hash`   | string         | Swap block hash.            | Optional |
+| `block_height` | string (int64) | Swap block height.          | Optional |
+| `txid`         | string         | Swap transaction ID.        | Optional |
+| `initiator`    | string         | Swap transaction initiator. | Optional |
+| `sender`       | string         | Swap caller.                | Optional |
+| `beneficiary`  | string         | Swap output receiver.       | Optional |
 
 {% hint style="info" %}
 **Conventions.** Prices and amounts are returned as JSON **strings** to preserve precision. Timestamps are UTC ISO-8601 with nanosecond resolution. `time` is the exchange-reported event time. `collect_time` is the feed-handler host clock when the trade was received (websocket feed). `database_time` is when Coin Metrics stored the observation (HTTP endpoint). `side` reflects the taker side. Units are per-field (see the table).
@@ -342,7 +342,7 @@ Messages from `wss://api.coinmetrics.io/v4/timeseries-stream/market-trades?marke
 
 ## Limitations
 
-* **Per-exchange history depth.** Coin Metrics collects the maximum backhistory each exchange permits. Some venues allow querying all historical trades. Others expose only a short recent window, for example the last ~1,000 trades, which bounds how far back that market's history extends.
+* **Per-exchange history depth.** Coin Metrics collects the maximum backhistory each exchange permits. Some venues allow querying all historical trades. Others expose only a short recent window, for example the last \~1,000 trades, which bounds how far back that market's history extends.
 * **DeFi confirmations.** For DeFi markets, `min_confirmations` (default `2`) controls how many blocks behind the chain tip trades are reported. Lower values reduce latency but increase the chance a trade is later reorganized out of the chain.
 
 ## FAQ
@@ -410,4 +410,4 @@ See the corresponding entry on the [Market Data FAQs page](../../resources/faqs.
 * [Market Candles](market-candles.md): OHLCV bars aggregated from trades.
 * [Market Liquidations](market-liquidations.md): forced trades on derivatives markets.
 * [Reported Volume](volume/volume_reported.md): exchange-reported trading volume.
-* [Look-ahead bias FAQ](../../resources/faqs.md#how-should-i-avoid-look-ahead-bias-when-running-simulated-backtests): using `time`, `collect_time`, and `database_time` for point-in-time-correct backtests.
+* [Look-ahead bias FAQ](../../resources/faqs.md#what-is-look-ahead-bias-and-how-do-i-avoid-it-in-a-backtest): using `time`, `collect_time`, and `database_time` for point-in-time-correct backtests.

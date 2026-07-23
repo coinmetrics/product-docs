@@ -10,7 +10,7 @@
 
 ### Definition
 
-The ratio of Miner Cap over Realized Cap at the end of that interval. Miner Cap represents all funds held by mining pools and miners and is calculated as the sum of SplyMiner0HopAllUSD (supply held by mining pools) and SplyMiner1HopAllUSD (supply held by miners). [Realized Cap](broken-reference) (CapRealUSD) is defined as the sum USD value based on the USD closing price on the day that a native unit last moved (i.e., last transacted) for all native units.
+The ratio of Miner Cap over Realized Cap at the end of that interval. Miner Cap represents all funds held by mining pools and miners and is calculated as the sum of SplyMiner0HopAllUSD (supply held by mining pools) and SplyMiner1HopAllUSD (supply held by miners). [Realized Cap](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/network-data-overview/economics/broken-reference/README.md) (CapRealUSD) is defined as the sum USD value based on the USD closing price on the day that a native unit last moved (i.e., last transacted) for all native units.
 
 | Name                             | IMetricD | Unit          | Interval |
 | -------------------------------- | -------- | ------------- | -------- |
@@ -19,7 +19,7 @@ The ratio of Miner Cap over Realized Cap at the end of that interval. Miner Cap 
 ### Details
 
 * This metric shows the ratio between the assets that miners hold in custody relative to the "cost basis" of the entire network.
-* Like [MVRV](broken-reference), it can be used to better understand the market cycle as it identifies moments where the value of the supply held by miners is higher than the cost basis of the entire network.
+* Like [MVRV](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/network-data-overview/economics/broken-reference/README.md), it can be used to better understand the market cycle as it identifies moments where the value of the supply held by miners is higher than the cost basis of the entire network.
 * Similarly, it may showcase when miners are capitulating and potentially selling at a loss.
 * Miners are speculators as they are naturally exposed to the price of the currency they are mining. As such, they collectively make buy or sell decisions that ultimately impact the market.
 
@@ -43,8 +43,8 @@ Only applicable to assets for which we have SplyMiner0HopAllUSD (supply held by 
 
 ### See Also:
 
-* [MCTC (Miner Cap / Thermo Cap)](../../economics/mctc.md)
-* [MVRV (Market Cap / Realized Market Cap)](broken-reference)
+* [MCTC (Miner Cap / Thermo Cap)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/economics/mctc.md)
+* [MVRV (Market Cap / Realized Market Cap)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/network-data-overview/economics/broken-reference/README.md)
 
 ### Availability for Assets
 
@@ -63,7 +63,7 @@ The ratio of Miner Cap relative to Thermo Cap at the end of that interval. Miner
 ### Details
 
 * This metric shows the ratio between the assets that miners hold in custody relative to the assets that miners have been issued by the protocol as mining rewards.
-* Like [MVRV](broken-reference), it can be used to better understand the market cycle as it identifies moments where the value of the supply held by miners is higher than what was issued to them.
+* Like [MVRV](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/network-data-overview/economics/broken-reference/README.md), it can be used to better understand the market cycle as it identifies moments where the value of the supply held by miners is higher than what was issued to them.
 * Similarly, it may showcase when miners are capitulating and potentially selling at a loss.
 * Miners are speculators as they are naturally exposed to the price of the currency they are mining. As such, they collectively make buy or sell decisions that ultimately impact the market.
 
@@ -87,8 +87,8 @@ Only applicable to assets for which we have SplyMiner0HopAllUSD (supply held by 
 
 ### See Also:
 
-* [MCRC (Market Cap / Realized Cap)](../../economics/mcrc.md)
-* [MVRV (Market Cap / Realized Market Cap)](broken-reference)
+* [MCRC (Market Cap / Realized Cap)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/economics/mcrc.md)
+* [MVRV (Market Cap / Realized Market Cap)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/network-data-overview/economics/broken-reference/README.md)
 
 ### Availability for Assets
 
@@ -128,8 +128,8 @@ Only applicable to assets for which we have SplyMiner0HopAllUSD (supply held by 
 
 ### See Also:
 
-* [MCTC (Miner Cap / Thermo Cap)](../../economics/mctc.md)
-* [MVRV (Market Cap / Realized Market Cap)](broken-reference)
+* [MCTC (Miner Cap / Thermo Cap)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/economics/mctc.md)
+* [MVRV (Market Cap / Realized Market Cap)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/network-data-overview/economics/broken-reference/README.md)
 
 ### Coverage
 
@@ -147,9 +147,9 @@ Address Balances can be accessed using these endpoints:
 
 and by passing in the metric ID's `MCRC` , `MCTC` and `MOMR` in the `metrics` parameter.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}

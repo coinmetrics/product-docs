@@ -23,19 +23,19 @@ Market candles demo (dYdX)
 
 One observation is a single candle for one market and one interval. Every candle carries the same fields regardless of market type (spot, futures, options, or DeFi). The websocket feed carries the same fields and adds a `cm_sequence_id`. The columns below are the response schema for `/timeseries/market-candles`.
 
-| Field | Type | Description | Notes |
-| --- | --- | --- | --- |
-| `market` | string | Unique name of the market. Spot markets follow `exchange-base-quote-spot`, futures follow `exchange-symbol-future`, and options follow `exchange-symbol-option`. | Required |
-| `time` | string (date-time) | The start of the candle interval. ISO 8601, nanosecond precision. | Required. Interval start (see [Interval timing](#interval-timing)) |
-| `price_open` | string (decimal) | The price of the first trade in the interval. | Required |
-| `price_high` | string (decimal) | The highest trade price in the interval. | Required |
-| `price_low` | string (decimal) | The lowest trade price in the interval. | Required |
-| `price_close` | string (decimal) | The price of the last trade in the interval. | Required |
-| `vwap` | string (decimal) | The volume-weighted average price over the interval. | Required |
-| `volume` | string (decimal) | Total traded volume in the interval, in base-asset units (or the number of contracts for derivatives). | Required |
-| `candle_usd_volume` | string (decimal) | Total traded volume in the interval, converted to US dollars. | Required. See [Volume in US dollars](#volume-in-us-dollars) |
-| `candle_trades_count` | string (int64) | The number of trades in the interval. | Required. `0` on gap-filled candles (see [Gapless candles](#gapless-candles)) |
-| `cm_sequence_id` | string | Per-connection message sequence number for ordering a live stream. Resets on reconnection. | Websocket messages only |
+| Field                 | Type               | Description                                                                                                                                                      | Notes                                                                                          |
+| --------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `market`              | string             | Unique name of the market. Spot markets follow `exchange-base-quote-spot`, futures follow `exchange-symbol-future`, and options follow `exchange-symbol-option`. | Required                                                                                       |
+| `time`                | string (date-time) | The start of the candle interval. ISO 8601, nanosecond precision.                                                                                                | Required. Interval start (see [Interval timing](market-candles.md#interval-timing))            |
+| `price_open`          | string (decimal)   | The price of the first trade in the interval.                                                                                                                    | Required                                                                                       |
+| `price_high`          | string (decimal)   | The highest trade price in the interval.                                                                                                                         | Required                                                                                       |
+| `price_low`           | string (decimal)   | The lowest trade price in the interval.                                                                                                                          | Required                                                                                       |
+| `price_close`         | string (decimal)   | The price of the last trade in the interval.                                                                                                                     | Required                                                                                       |
+| `vwap`                | string (decimal)   | The volume-weighted average price over the interval.                                                                                                             | Required                                                                                       |
+| `volume`              | string (decimal)   | Total traded volume in the interval, in base-asset units (or the number of contracts for derivatives).                                                           | Required                                                                                       |
+| `candle_usd_volume`   | string (decimal)   | Total traded volume in the interval, converted to US dollars.                                                                                                    | Required. See [Volume in US dollars](market-candles.md#volume-in-us-dollars)                   |
+| `candle_trades_count` | string (int64)     | The number of trades in the interval.                                                                                                                            | Required. `0` on gap-filled candles (see [Gapless candles](market-candles.md#gapless-candles)) |
+| `cm_sequence_id`      | string             | Per-connection message sequence number for ordering a live stream. Resets on reconnection.                                                                       | Websocket messages only                                                                        |
 
 {% hint style="info" %}
 **Conventions.** Prices and volumes are returned as JSON **strings** to preserve precision. Timestamps are UTC ISO-8601 with nanosecond resolution. `time` marks the **start** of the candle interval, not its end. Units are per-field: prices are in the quote asset, `volume` is in base-asset units (contracts for derivatives), and `candle_usd_volume` is in US dollars. The websocket feed adds a per-connection `cm_sequence_id` for ordering.
@@ -61,7 +61,7 @@ Candles at intervals longer than one minute (5m, 10m, 15m, 30m, 1h, 4h, 1d) are 
 
 ### Interval timing
 
-A candle's `time` is the **start** of its interval. For example, a one-minute candle stamped `06:01:00` covers trades from `06:01:00` up to (but not including) `06:02:00`. Daily candles are bucketed in UTC by default. The `timezone` and `1d-HH:00` parameters can move that daily boundary to a different time or time zone (see [Custom daily boundaries](#custom-daily-boundaries-offsets-and-time-zones)), and the returned timestamps are always UTC.
+A candle's `time` is the **start** of its interval. For example, a one-minute candle stamped `06:01:00` covers trades from `06:01:00` up to (but not including) `06:02:00`. Daily candles are bucketed in UTC by default. The `timezone` and `1d-HH:00` parameters can move that daily boundary to a different time or time zone (see [Custom daily boundaries](market-candles.md#custom-daily-boundaries-offsets-and-time-zones)), and the returned timestamps are always UTC.
 
 ### Custom daily boundaries (offsets and time zones)
 
@@ -182,7 +182,7 @@ print(response)
 {% endtab %}
 {% endtabs %}
 
-The `markets` parameter accepts a comma-separated list or wildcard patterns such as `coinbase-*`, `binance-*-spot`, or `*-USDT-future`, so you can query many markets in one call. Supported `frequency` values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, and `1d-HH:00` for a daily candle whose boundary is offset to a whole hour and time zone (see [Custom daily boundaries](#custom-daily-boundaries-offsets-and-time-zones)).
+The `markets` parameter accepts a comma-separated list or wildcard patterns such as `coinbase-*`, `binance-*-spot`, or `*-USDT-future`, so you can query many markets in one call. Supported `frequency` values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, and `1d-HH:00` for a daily candle whose boundary is offset to a whole hour and time zone (see [Custom daily boundaries](market-candles.md#custom-daily-boundaries-offsets-and-time-zones)).
 
 ### Real-Time Stream (Websocket)
 
@@ -338,7 +338,7 @@ No. Coin Metrics calculates candles from the individual trades it collects, rath
 
 ### How do I get daily candles that close at a specific time zone, such as a 4 PM New York close?
 
-Use the `timezone` parameter, plus a `1d-HH:00` offset when the boundary is not midnight. `frequency=1d&timezone=Asia/Tokyo` aligns each daily candle to Tokyo midnight, and `frequency=1d-16:00&timezone=America/New_York` (or the shorthand `frequency=1d-ny-close`) produces daily candles that run from 4:00 PM to 4:00 PM New York time. The offset must be a whole hour (`HH:00`), and the returned `time` values stay in UTC. See [Custom daily boundaries](#custom-daily-boundaries-offsets-and-time-zones) for details.
+Use the `timezone` parameter, plus a `1d-HH:00` offset when the boundary is not midnight. `frequency=1d&timezone=Asia/Tokyo` aligns each daily candle to Tokyo midnight, and `frequency=1d-16:00&timezone=America/New_York` (or the shorthand `frequency=1d-ny-close`) produces daily candles that run from 4:00 PM to 4:00 PM New York time. The offset must be a whole hour (`HH:00`), and the returned `time` values stay in UTC. See [Custom daily boundaries](market-candles.md#custom-daily-boundaries-offsets-and-time-zones) for details.
 
 ### Why does a candle show a flat price and zero volume?
 
@@ -354,7 +354,7 @@ A candle's `volume` is the sum of the base-asset amounts of every trade Coin Met
 
 ### How is `candle_usd_volume` calculated?
 
-It is the interval's volume valued in US dollars. For markets quoted in US dollars or a US-dollar stablecoin the conversion follows from the traded prices, and otherwise Coin Metrics derives a US-dollar price from related market prices and reference rates. Derivatives conversions also account for the contract size. See [Volume in US dollars](#volume-in-us-dollars) for the formulas.
+It is the interval's volume valued in US dollars. For markets quoted in US dollars or a US-dollar stablecoin the conversion follows from the traded prices, and otherwise Coin Metrics derives a US-dollar price from related market prices and reference rates. Derivatives conversions also account for the contract size. See [Volume in US dollars](market-candles.md#volume-in-us-dollars) for the formulas.
 
 ### Why did a recent candle change after I first queried it?
 
@@ -370,4 +370,4 @@ Candles are derived from trades, so a market's candle history matches its [trade
 * [Pair Candles](pair-candles.md): OHLC candles built from Coin Metrics' cross-exchange reference rate for an asset pair.
 * [Index Candles](../../index-data/index/index-timeseries/index-candles.md): OHLC candles for Coin Metrics indexes.
 * [Reported Volume](volume/volume_reported.md): exchange-reported trading volume.
-* [Look-ahead bias FAQ](../../resources/faqs.md#how-should-i-avoid-look-ahead-bias-when-running-simulated-backtests): how candle recalculation affects point-in-time-correct backtests.
+* [Look-ahead bias FAQ](../../resources/faqs.md#how-does-candle-recalculation-create-look-ahead-bias): how candle recalculation affects point-in-time-correct backtests.

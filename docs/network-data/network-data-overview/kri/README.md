@@ -14,7 +14,7 @@ Given the wide spectrum of risk vectors that must be covered, FARUM looks beyond
 
 See:
 
-* [Network Risk Overview](../key-risk-indicator-kri-feed/broken-reference/)
+* [Network Risk Overview](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/network-data-overview/key-risk-indicator-kri-feed/broken-reference/README.md)
 
 [**Block Attributes**](block-attributes.md)
 

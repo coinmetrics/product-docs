@@ -55,7 +55,7 @@ The ratio of the value transferred (i.e., the aggregate "size" of all transfers)
 
 ### Details
 
-* [Xfer'd Value (native units)](../../transactions/txtfrvalntv.md) for trailing 1 year / [Current Supply (native units)](broken-reference)
+* [Xfer'd Value (native units)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/transactions/txtfrvalntv.md) for trailing 1 year / [Current Supply (native units)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/network-data-overview/transactions/broken-reference/README.md)
 
 ### Release History
 
@@ -81,11 +81,11 @@ The ratio of the adjusted value transferred (i.e., the aggregate "size" of all t
 
 ### Details
 
-* [Xfer'd Val, Adj (native units)](../../transactions/txtfrvaladjntv.md) for trailing 1 year / [Current Supply (native units)](broken-reference)
+* [Xfer'd Val, Adj (native units)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/transactions/txtfrvaladjntv.md) for trailing 1 year / [Current Supply (native units)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/network-data-overview/transactions/broken-reference/README.md)
 
 ### Chart
 
-![https://charts.coinmetrics.io/network-data/#576](../../../.gitbook/assets/Velocity\_1\_Yr,\_Adjusted.png)
+![https://charts.coinmetrics.io/network-data/#576](../../../.gitbook/assets/Velocity_1_Yr,_Adjusted.png)
 
 ### Release History
 
@@ -97,7 +97,7 @@ Velocity​ is a measurement of the rate at which an asset is exchanged. It can 
 
 ### See Also
 
-* [1 Year Current Supply Velocity](../../transactions/velcur1yr.md)
+* [1 Year Current Supply Velocity](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/transactions/velcur1yr.md)
 
 ### Availability for Assets
 
@@ -111,9 +111,9 @@ Token Transaction metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `VelAct1yr`, `VelActAdj1yr`, etc. in the `metrics` parameter.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}

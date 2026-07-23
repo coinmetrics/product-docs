@@ -41,8 +41,6 @@ Responses can be returned in the following formats, in order of how fast they're
 * A list (`DataCollection.to_list()`)
 * A dataframe (`DataCollection.to_dataframe()`)
 
-
-
 ### Parallelization
 
 API requests can be parallelized by calling `.parallel()` on a `DataCollection` object. Requests can be partitioned in the following ways:
@@ -143,6 +141,8 @@ exchanges_reference = client.reference_data_exchanges().to_list()
 
 market_candles_spot = client.get_market_candles(markets=[f'{exchange}-*-spot' for exchange['exchange'] in exchanges_reference], limit_per_market=10)
 ```
+
+Parallelization does **not** work for a wildcarded variable. `.parallel()` requires the parallelized variable to be **explicitly stated** in order to be chunked into parallel calls. If you need to get a set of all valid entities, you must use the reference\_data or catalog methods.
 
 #### Persisting Large Data Requests
 
