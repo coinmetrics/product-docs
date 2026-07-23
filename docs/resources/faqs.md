@@ -476,76 +476,15 @@ Coin Metrics has the ability to make the short delay extremely short or to elimi
 
 <summary>How should I avoid look-ahead bias when running simulated backtests?</summary>
 
-Look-ahead bias is the error of using information in a backtest or simulation that would not actually have been available at the moment being simulated. It is one of the most common ways a research result fails to reproduce in production: a strategy looks profitable because it quietly consumed data that only became knowable later.
+Look-ahead bias is using information in a backtest that was not actually available at the moment being simulated, which makes a strategy look better in research than it can perform live. It arises because observations are collected, revised, and finalized over time: an exchange stamps a trade with an event time, but Coin Metrics becomes aware of it slightly later, and some observations are corrected or backfilled well after the fact.
 
-Certain data types can be subject to look-ahead bias because observations are collected, revised, and finalized over time. An exchange stamps a trade with an event time, but Coin Metrics does not become aware of it until slightly later, and some observations are corrected or arrive out of band well after the fact. A dataset queried today reflects everything Coin Metrics now knows, not what it knew at any earlier instant. A point-in-time-correct backtest reconstructs the latter.
+To reconstruct what was knowable at a given instant, gate on the collection timestamp rather than the event time. `time` is the exchange-reported event time, not when the observation became available. `collect_time` (websocket feed) is when Coin Metrics received the message, and `database_time` (HTTP endpoints) is when it was persisted and became queryable. A point-in-time-correct backtest for decision time *T* should admit only observations whose `collect_time` or `database_time` is at or before *T*, not those whose `time` is.
 
-Generally, Coin Metrics provides three timestamps so that users can eliminate the impact of look-ahead bias in their simulations. `time` is when an event happened on the exchange, generally using the exchange-reported timestamp, not when the observation became available to consume. We also offer `collect_time` (in websocket API endpoints) or `database_time` (served from HTTP API endpoints) to reconstruct what was knowable at a given instant. A few practical rules:
+A few related behaviors to account for:
 
-1. **Gate on collection time, not event time.** Admit an observation into the simulation only if its `collect_time` (stream) or `database_time` (HTTP) is at or before the simulated decision time, not merely its `time`.
-2. **Match your research input to your production input.** If production consumes the real-time stream, research against the stream (or against history filtered to real-time availability), so the backtest does not benefit from trades or corrections that only historical collection captured.
-3. **Treat recent candles as provisional.** Coin Metrics produces candles from collected trades. While more than 99 percent of trades are collected in real-time with minimal latency, a small number of trades can be backfilled via a delayed process. Coin Metrics calculates candles in real-time and recalculates candles based on a fixed interval to include any delayed trades. Assume any candle within roughly three hours of your simulated "now" (about twenty minutes for options and decentralized-exchange spot) may still be recalculated, and do not rely on the finalized value being available at interval close.
-4. **Allow for revisions and reorgs.** Do not assume a very recent DeFi swap is final, and be aware that reference rates and indexes can be revised in limited historical windows.
-5. **Account for latency, not just collection order.** Even a live trade is not actionable at its exchange `time`. it is actionable at `collect_time` plus your own downstream processing delay.
-
-The questions below expand on each of these.
-
-</details>
-
-<details>
-
-<summary>How do time, collect_time, and database_time differ, and how do I tell when Coin Metrics became aware of an observation?</summary>
-
-A single observation can carry up to three timestamps, and they answer different questions:
-
-* **`time`** — the exchange-reported event time: when the trade executed, the quote changed, or the snapshot was taken, according to the venue. This is the timestamp you index on for analysis, but it says nothing about when the observation became available.
-* **`collect_time`** — the feed-handler host clock at the instant the message was received from the exchange. Present on the **real-time websocket feed**. This is the earliest moment Coin Metrics was aware of the observation.
-* **`database_time`** — when Coin Metrics persisted the observation to its database. Returned by the **HTTP (historical) endpoints**. This is when the observation became queryable through the API.
-
-For point-in-time correctness, `time` is the wrong field to gate on. Take the appropriate collection timestamp instead: for anything queried over HTTP, the observation was knowable at `database_time`; for anything consumed from the real-time stream, Coin Metrics received it at `collect_time`, typically milliseconds after the exchange's `time`. A point-in-time-correct backtest for decision time *T* admits only observations whose collection timestamp is at or before *T*, not those whose `time` is at or before *T*. The difference between the two is exactly the window in which look-ahead bias hides.
-
-Latency varies substantially by venue: the fastest exchanges deliver in single-digit milliseconds, most sit in the tens to low hundreds of milliseconds, and the slowest reach a few hundred milliseconds at the median. For venues that do not stamp their own messages, `time` *is* Coin Metrics' receive time, so there is no independent event time to compare against. See the [Trades](../market-data/market-data-overview/market-trades.md) and [Order Books](../market-data/market-data-overview/order-books.md) pages for per-data-type latency figures.
-
-</details>
-
-<details>
-
-<summary>Why can the real-time trades stream contain fewer trades than the historical dataset?</summary>
-
-Coin Metrics collects trades two ways, and they populate the same historical dataset:
-
-* **Real-time collection** — feed handlers connected directly to each exchange's websocket record every trade as it happens.
-* **Historical collection** — where an exchange permits querying past trades, Coin Metrics backfills that history.
-
-The **historical dataset served over HTTP is the union of both**, deduplicated across multiple redundant collector instances on a composite key of exchange, market, and trade id. The **real-time stream is only what the live feed handlers observed**. As a result, the stream can be a strict subset of the full historical dataset for the same market and time range: a trade dropped during a websocket disconnect, one that a redundant collector caught but the streamed instance missed, or one that only the exchange's historical endpoint returned will be absent from what you saw live but present when you later query history.
-
-This is a look-ahead-bias trap in reverse. If you research a strategy against the **full historical dataset** but your production system consumes the **real-time stream**, your backtest is trained on a slightly more complete picture than the live system will ever have. To match production, either backtest against the stream (or against history filtered to what was available in real time via `collect_time`), or accept that the live feed will occasionally be marginally thinner than history. The gap is small but non-zero, and it is largest exactly when it matters most — during volatile periods when disconnects and late arrivals cluster.
-
-</details>
-
-<details>
-
-<summary>How does candle recalculation create look-ahead bias?</summary>
-
-Coin Metrics builds candles from collected trades and publishes them within a few seconds of an interval closing, but a small number of trades can still arrive later. To account for them, Coin Metrics continuously re-verifies recently published candles over a **rolling window of roughly three hours** and recalculates any interval whose trade contents changed. About **twenty minutes after an interval closes**, the API serves the finalized candle in place of the initial real-time one. (Option and decentralized-exchange spot candles are published on a delay of about twenty minutes to begin with.)
-
-The consequence for backtesting: the candle you query for a given interval *today* is the finalized value, which may differ slightly from the value that was actually available seconds after the interval closed. A strategy that acts on a candle at its close but uses the finalized figure is consuming trades that had not yet been collected at that moment — classic look-ahead bias. If you need to simulate acting on candles in real time, either consume the candle stream and record what it delivered at publication, or treat any candle from within the last ~3 hours of your simulated "now" as provisional. See [Market Candles](../market-data/market-data-overview/market-candles.md) for details.
-
-</details>
-
-<details>
-
-<summary>What other Coin Metrics behaviors can introduce look-ahead bias?</summary>
-
-Several collection and calculation behaviors mean a value queried today may not reflect what was knowable at the historical timestamp it carries:
-
-* **Backfilled market history.** When a new market lists, or when Coin Metrics extends a market's history from an exchange's historical endpoint, that data lands in the dataset stamped with its original `time` but was not available in real time. A market's early history can therefore appear "as if" it had always been there. Coverage and backfill depth vary by exchange.
-* **Near-tip DeFi trades and reorgs.** For decentralized-exchange swaps, a very recent trade near the chain tip can be removed by a block reorganization. The `min_confirmations` parameter trades latency against this risk. A backtest that consumes swaps at the chain tip assumes finality that did not yet exist.
-* **Order book snapshot timing.** Snapshots are stamped with the exchange event `time` of the most recent update captured before the round 10-second or hourly mark, while `database_time` is stamped when the snapshot is persisted just after the mark. Gate on the collection timestamp, not the snapshot `time`, when reconstructing availability.
-* **Derived and aggregated metrics run on delayed inputs.** Metrics built on top of candles or reference rates inherit their delays. For example, basis metrics are recalculated from delayed candle data, so an observation reflects the market as of a short delay before its timestamp rather than the live tick.
-* **Reference rate and index revisions.** Reference rates and single-asset indexes have published revision policies under which Coin Metrics occasionally recalculates limited portions of history to improve quality. A revised historical value differs from the value originally printed at that timestamp. See the [Coin Metrics Prices Policies](../market-data/methodologies/coin-metrics-prices-policies.md).
-* **Reference-data changes applied retroactively.** Asset and market metadata (for example, an asset ticker rename) can change and be reflected across historical records. An analysis keyed on a current identifier may not correspond to how that market was labeled at the historical moment being studied.
-* **Gapless candles.** A flat, zero-volume candle is filled forward from the prior close to give an unbroken series; it represents no trading in the interval, not a live observation. Do not treat the carried-forward price as a fresh market print.
+* **The real-time stream is a subset of history.** Coin Metrics builds the historical dataset from both real-time and backfilled (historical) collection, deduplicated across redundant collectors. The real-time stream is only what the live feed handlers saw, so it can be slightly thinner than the full historical dataset. If production consumes the stream, research against the stream (or history filtered by `collect_time`) so the backtest does not benefit from trades that only historical collection captured.
+* **Recent candles are provisional.** Candles are computed from trades and recalculated over a rolling window of roughly three hours to absorb late-arriving trades, so a candle queried today can differ from the value available at its close. Treat any candle within ~3 hours of your simulated "now" as not-yet-final. Candles without the impact of late-arriving trades can be reconstructed from trades gated on the collection timestamp.
+* **Backfill, revisions, and reorgs.** Backfilled market history, occasional reference-rate and index revisions, retroactive reference-data changes (such as ticker renames), and near-tip DeFi swaps removed by block reorgs all mean a value queried today may not match what was knowable at its timestamp. Any revisions to our data are rare and details of any revisions are published to our [Status Page](https://status.coinmetrics.io/).
 
 </details>
 

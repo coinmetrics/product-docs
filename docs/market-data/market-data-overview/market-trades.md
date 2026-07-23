@@ -410,4 +410,4 @@ See the corresponding entry on the [Market Data FAQs page](../../resources/faqs.
 * [Market Candles](market-candles.md): OHLCV bars aggregated from trades.
 * [Market Liquidations](market-liquidations.md): forced trades on derivatives markets.
 * [Reported Volume](volume/volume_reported.md): exchange-reported trading volume.
-* [Look-ahead bias FAQ](../../resources/faqs.md#what-is-look-ahead-bias-and-how-do-i-avoid-it-in-a-backtest): using `time`, `collect_time`, and `database_time` for point-in-time-correct backtests.
+* [Look-ahead bias FAQ](../../resources/faqs.md#how-should-i-avoid-look-ahead-bias-when-running-simulated-backtests): using `time`, `collect_time`, and `database_time` for point-in-time-correct backtests.
