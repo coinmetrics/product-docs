@@ -474,19 +474,19 @@ Coin Metrics has the ability to make the short delay extremely short or to elimi
 
 <details>
 
-<summary>What is look-ahead bias, and how do I avoid it in a backtest?</summary>
+<summary>How should I avoid look-ahead bias when running simulated backtests?</summary>
 
-Look-ahead bias (also written lookahead bias) is the error of using information in a backtest or simulation that would not actually have been available at the moment being simulated. It is one of the most common ways a research result fails to reproduce in production: a strategy looks profitable because it quietly consumed data that only became knowable later.
+Look-ahead bias is the error of using information in a backtest or simulation that would not actually have been available at the moment being simulated. It is one of the most common ways a research result fails to reproduce in production: a strategy looks profitable because it quietly consumed data that only became knowable later.
 
-Crypto market data is especially prone to this because observations are collected, revised, and finalized over time. An exchange stamps a trade with an event time, but Coin Metrics does not become aware of it until slightly later, and some observations are corrected or arrive out of band well after the fact. A dataset queried today reflects everything Coin Metrics now knows, not what it knew at any earlier instant. A point-in-time-correct backtest reconstructs the latter.
+Certain data types can be subject to look-ahead bias because observations are collected, revised, and finalized over time. An exchange stamps a trade with an event time, but Coin Metrics does not become aware of it until slightly later, and some observations are corrected or arrive out of band well after the fact. A dataset queried today reflects everything Coin Metrics now knows, not what it knew at any earlier instant. A point-in-time-correct backtest reconstructs the latter.
 
-The short version: `time` is when an event happened on the exchange, not when the observation became available to consume. Use `collect_time` (real-time feed) or `database_time` (HTTP) to reconstruct what was knowable at a given instant, and treat recent candles, backfilled history, and near-tip DeFi trades as provisional. A few practical rules:
+Generally, Coin Metrics provides three timestamps so that users can eliminate the impact of look-ahead bias in their simulations. `time` is when an event happened on the exchange, generally using the exchange-reported timestamp, not when the observation became available to consume. We also offer `collect_time` (in websocket API endpoints) or `database_time` (served from HTTP API endpoints) to reconstruct what was knowable at a given instant. A few practical rules:
 
 1. **Gate on collection time, not event time.** Admit an observation into the simulation only if its `collect_time` (stream) or `database_time` (HTTP) is at or before the simulated decision time, not merely its `time`.
 2. **Match your research input to your production input.** If production consumes the real-time stream, research against the stream (or against history filtered to real-time availability), so the backtest does not benefit from trades or corrections that only historical collection captured.
-3. **Treat recent candles as provisional.** Assume any candle within roughly three hours of your simulated "now" (about twenty minutes for options and decentralized-exchange spot) may still be recalculated, and do not rely on the finalized value being available at interval close.
+3. **Treat recent candles as provisional.** Coin Metrics produces candles from collected trades. While more than 99 percent of trades are collected in real-time with minimal latency, a small number of trades can be backfilled via a delayed process. Coin Metrics calculates candles in real-time and recalculates candles based on a fixed interval to include any delayed trades. Assume any candle within roughly three hours of your simulated "now" (about twenty minutes for options and decentralized-exchange spot) may still be recalculated, and do not rely on the finalized value being available at interval close.
 4. **Allow for revisions and reorgs.** Do not assume a very recent DeFi swap is final, and be aware that reference rates and indexes can be revised in limited historical windows.
-5. **Account for latency, not just collection order.** Even a live trade is not actionable at its exchange `time`; it is actionable at `collect_time` plus your own downstream processing delay.
+5. **Account for latency, not just collection order.** Even a live trade is not actionable at its exchange `time`. it is actionable at `collect_time` plus your own downstream processing delay.
 
 The questions below expand on each of these.
 
