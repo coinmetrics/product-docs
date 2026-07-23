@@ -10,6 +10,7 @@ This page contains frequently asked questions about Coin Metrics data products, 
 * [Prices](faqs.md#prices)
 * [Indexes](faqs.md#indexes)
 * [Reference Data](faqs.md#reference-data)
+* [Token Migrations and Rebrandings](faqs.md#token-migrations-and-rebrandings)
 
 ***
 
@@ -960,7 +961,52 @@ MSCI will, at minimum, review the taxonomy structure annually. This review will 
 
 The datonomy Advisory Board is Co-Chaired by MSCI, Goldman Sachs and Coin Metrics with membership open to select industry participants and experts on an invitation basis as agreed to by the Co-Chairs. The Advisory Board provides expert Input that MSCI may use as a source of information in connection with administering the Taxonomy, including information and insight with respect to industry trends, technologies and any other information relating to the Taxonomy. The Advisory Board members will also review and provide feedback on asset coverage universe, asset classifications, consultations, and Taxonomy structure evolution on an as-needed basis.
 
+</details>
+
+[⬆️ Back to top](faqs.md#faqs)
+
 ***
+
+## Token Migrations and Rebrandings
+
+<details>
+
+<summary>How does Coin Metrics handle token migrations, swaps, and rebrandings?</summary>
+
+Projects periodically change the form or the name of their asset. How Coin Metrics represents the event depends on whether anything actually changed on-chain. There are two distinct cases.
+
+**Case 1 — A genuine token migration or swap.** If the project migrates from one token to another — for example, deploying a new smart contract, migrating from one token standard to another, or moving to a different blockchain entirely — then the old and new forms are two separate tokens on-chain, each with its own contract or ledger. In these cases Coin Metrics creates **two separate assets** in our data model, because from an on-chain perspective they genuinely are two distinct tokens. The two assets frequently co-exist for a long time, as holders migrate gradually and venues list the new token while the old one continues to trade.
+
+For as long as we continue to receive sufficient input data for the old token from the exchanges in our coverage universe, we continue to produce data for it. The old asset is not deleted or back-filled onto the new one; each asset carries its own independent history. This is the same principle behind, for example, `usdt_eth` and `usdt_sol` existing as separate assets — different on-chain forms are tracked independently.
+
+**Case 2 — A pure rebranding (name and/or ticker change only).** If there is no on-chain migration and the change is purely cosmetic — the project renames the asset and/or its ticker, but the underlying token, contract, blockchain, and units are unchanged — then Coin Metrics does **not** create a second asset. We simply relabel the existing asset: the display name and ticker are updated, and all data that has ever been produced for that asset remains available without interruption. Units map 1:1 across the change because it is the same token.
+
+To avoid breaking existing integrations, the **legacy ticker remains an accepted alias** and continues to resolve in API queries after a rebranding.
+
+If you are unsure which case applies to a specific event, we publish the details for each migration or rebranding to our [Status Page](https://status.coinmetrics.io/), and you can always reach out to us at info@coinmetrics.io.
+
+</details>
+
+<details>
+
+<summary>When an asset is renamed or rebranded, what happens to my historical data across each data type?</summary>
+
+This applies to **Case 2** above — a pure name and/or ticker change with no on-chain token swap. Because it is the same underlying asset, most data types preserve continuous history under the new ticker, while a few are re-keyed at the cutover and require querying the legacy ticker for earlier history until a later unification.
+
+For a given rebranding, we will always confirm the exact effective time and the affected tickers in the corresponding notice on our [Status Page](https://status.coinmetrics.io/). In general:
+
+* **Reference Data** (assets, markets, pairs) — ✅ **Seamless.** Relabeled to the new ticker; identifiers move from the old ticker to the new one. Legacy identifiers continue to resolve.
+* **Market Data** (spot trades, candles, quotes, order books) — ✅ **Seamless.** Continuous history; queryable under both the new and legacy identifiers.
+* **Principal Market Price** — ✅ **Seamless.** Continuous history.
+* **Indexes** (incl. CMBI Single- and Multi-Asset Indexes) — ✅ **Seamless.** Index levels continue uninterrupted; the renamed asset replaces its prior name as a constituent.
+* **Reference Rates** — ⚠️ **Split at cutover.** The new series begins at the effective time; earlier history remains available under the legacy ticker until a later unification.
+* **Asset & Market Metrics** — ⚠️ **Split at cutover.** The new ticker applies from the effective time onward; pre-rebrand history remains under the legacy ticker.
+* **Derivatives** (futures, perpetuals) — 🆕 **New series.** New contracts appear as venues relist them under the new name; existing contracts remain as separate historical series.
+
+**What you may need to do:**
+
+* Update any display labels for the asset in your applications.
+* For a **continuous Reference Rate or Metrics series that spans the rebrand**, query the legacy ticker for data before the effective time and the new ticker from that time forward. We will notify you once the two series are unified.
 
 </details>
 
