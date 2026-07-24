@@ -7,7 +7,7 @@ Funding rates are periodic payments exchanged between the long and short holders
 Coin Metrics collects funding rates from perpetual futures markets across its exchange coverage universe and serves them as a per-market time series over the HTTP endpoint [`/timeseries/market-funding-rates`](https://docs.coinmetrics.io/api/v4/#operation/getTimeseriesMarketFundingRates).
 
 {% hint style="info" %}
-**Realized, not predicted.** This page covers the **realized** funding rate: the rate actually calculated over the previous funding interval and used to determine the funding payment. Some exchanges also publish a forward estimate of the next rate, which they may call the predicted, real-time, or next funding rate. For that series, see [Predicted Funding Rates](predicted-funding-rates.md).
+**Realized, not predicted.** This page covers the **realized** funding rate: the rate actually calculated over the previous funding interval and used to determine the funding payment. Some exchanges also publish a forward estimate of the next rate, which they may call the predicted, real-time, or next funding rate. For that series, see [Market Funding Rates Predicted](market-funding-rates-predicted.md).
 {% endhint %}
 
 ## At a Glance
@@ -218,7 +218,7 @@ The latest funding rates for `kraken-PF_XBTUSD-future`, where the rate applies e
 ## Limitations
 
 * **Conventions vary by exchange.** Each venue sets its own funding mechanism, `period`, and `interval`, so raw rates are not comparable across venues until they are put on a common basis. Annualize using the `period` before comparing (see [Period, interval, and annualization](#period-interval-and-annualization)).
-* **Realized rate only.** This series is the rate calculated over the previous interval. For the forward estimate of the next rate, use [Predicted Funding Rates](predicted-funding-rates.md).
+* **Realized rate only.** This series is the rate calculated over the previous interval. For the forward estimate of the next rate, use [Market Funding Rates Predicted](market-funding-rates-predicted.md).
 * **Zero and near-zero rates are valid.** Some venues can report a funding rate of `0`. For example, Bitfinex does not require a funding payment when the average spread over the funding period stays within a small band, so long stretches of `0` are expected rather than missing data.
 * **Snapshot venues are transformed into a series.** For exchanges that publish only a current-rate snapshot rather than a time series, Coin Metrics reconstructs the series with one observation per funding interval (see [Timestamps and timeseries normalization](#timestamps-and-timeseries-normalization)).
 
@@ -248,7 +248,7 @@ Bitfinex allows a `0` funding rate. Under [Bitfinex's funding rate methodology](
 
 ## Related
 
-* [Predicted Funding Rates](predicted-funding-rates.md): the forward estimate of the next funding rate for a market.
+* [Market Funding Rates Predicted](market-funding-rates-predicted.md): the forward estimate of the next funding rate for a market.
 * [Aggregated Futures Funding Rate](aggregated-futures-funding-rate.md): a coverage-wide aggregated funding rate across markets.
 * [Cumulative Futures Funding Rate](cumulative-futures-funding-rate.md): funding rates accumulated over time.
 * [Market Open Interest](market-open-interest.md): outstanding contracts on the same derivatives markets.

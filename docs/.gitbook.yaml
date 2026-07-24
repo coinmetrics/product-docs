@@ -13,7 +13,8 @@ redirects:
   market-data/market-data-overview/funding-rates/funding-rates: market-data/market-data-overview/market-funding-rates.md
   market-data/market-data-overview/funding-rates: market-data/market-data-overview/market-funding-rates.md
   market-data/market-data-overview/funding-rates/market-funding-rates: market-data/market-data-overview/market-funding-rates.md
-  market-data/market-data-overview/funding-rates/predicted-funding-rates: market-data/market-data-overview/predicted-funding-rates.md
+  market-data/market-data-overview/funding-rates/predicted-funding-rates: market-data/market-data-overview/market-funding-rates-predicted.md
+  market-data/market-data-overview/predicted-funding-rates: market-data/market-data-overview/market-funding-rates-predicted.md
   market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate: market-data/market-data-overview/aggregated-futures-funding-rate.md
   market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate: market-data/market-data-overview/cumulative-futures-funding-rate.md
   market-data/faqs: resources/faqs.md

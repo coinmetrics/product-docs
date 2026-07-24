@@ -238,7 +238,7 @@
   * [Pair Candles](market-data/market-data-overview/pair-candles.md)
   * [Market Contract Prices](market-data/market-data-overview/market-contract-prices.md)
   * [Market Funding Rates](market-data/market-data-overview/market-funding-rates.md)
-  * [Predicted Funding Rates](market-data/market-data-overview/predicted-funding-rates.md)
+  * [Market Funding Rates Predicted](market-data/market-data-overview/market-funding-rates-predicted.md)
   * [Aggregated Futures Funding Rate](market-data/market-data-overview/aggregated-futures-funding-rate.md)
   * [Cumulative Futures Funding Rate](market-data/market-data-overview/cumulative-futures-funding-rate.md)
   * [Market Greeks](market-data/market-data-overview/market-greeks.md)
