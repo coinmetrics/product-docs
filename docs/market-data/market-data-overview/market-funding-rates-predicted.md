@@ -186,7 +186,6 @@ The predicted funding rate is sampled once per minute for the perpetual futures 
 ## Related
 
 * [Market Funding Rates](market-funding-rates.md): the realized funding rate calculated over the previous interval and used to settle the payment.
-* [Aggregated Futures Funding Rate](aggregated-futures-funding-rate.md): a coverage-wide aggregated funding rate across markets.
-* [Cumulative Futures Funding Rate](cumulative-futures-funding-rate.md): funding rates accumulated over time.
+* [Funding Rate Metrics](funding-rate-metrics.md): the open-interest-weighted aggregate and cumulative funding rate across markets, by asset and exchange-asset.
 * [Market Open Interest](market-open-interest.md): outstanding contracts on the same derivatives markets.
 * [Market Liquidations](market-liquidations.md): forced closes on the same derivatives markets.

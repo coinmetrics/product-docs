@@ -213,7 +213,7 @@ The latest funding rates for `kraken-PF_XBTUSD-future`, where the rate applies e
 * **History and backfill.** Use a `start_time` / `end_time` range with `.parallel(time_increment=…)` to pull long histories efficiently.
 * **Cross-venue comparison.** Convert rates to a common basis before comparing, using the `period` field to annualize (see [Period, interval, and annualization](#period-interval-and-annualization)).
 * **Positioning and sentiment.** Read the sign and magnitude of the rate to see which side is paying and how strong the imbalance is.
-* **Derivatives context.** Combine funding with [Market Open Interest](market-open-interest.md) and [Market Liquidations](market-liquidations.md) on the same markets to study leverage build-up and unwind, and with the [Aggregated Futures Funding Rate](aggregated-futures-funding-rate.md) for a coverage-wide view.
+* **Derivatives context.** Combine funding with [Market Open Interest](market-open-interest.md) and [Market Liquidations](market-liquidations.md) on the same markets to study leverage build-up and unwind, and with the [Funding Rate Metrics](funding-rate-metrics.md) for a coverage-wide view.
 
 ## Limitations
 
@@ -249,7 +249,6 @@ Bitfinex allows a `0` funding rate. Under [Bitfinex's funding rate methodology](
 ## Related
 
 * [Market Funding Rates Predicted](market-funding-rates-predicted.md): the forward estimate of the next funding rate for a market.
-* [Aggregated Futures Funding Rate](aggregated-futures-funding-rate.md): a coverage-wide aggregated funding rate across markets.
-* [Cumulative Futures Funding Rate](cumulative-futures-funding-rate.md): funding rates accumulated over time.
+* [Funding Rate Metrics](funding-rate-metrics.md): the open-interest-weighted aggregate and cumulative funding rate across markets, by asset and exchange-asset.
 * [Market Open Interest](market-open-interest.md): outstanding contracts on the same derivatives markets.
 * [Market Liquidations](market-liquidations.md): forced closes on the same derivatives markets.

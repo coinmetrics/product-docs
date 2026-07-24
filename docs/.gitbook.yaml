@@ -15,8 +15,10 @@ redirects:
   market-data/market-data-overview/funding-rates/market-funding-rates: market-data/market-data-overview/market-funding-rates.md
   market-data/market-data-overview/funding-rates/predicted-funding-rates: market-data/market-data-overview/market-funding-rates-predicted.md
   market-data/market-data-overview/predicted-funding-rates: market-data/market-data-overview/market-funding-rates-predicted.md
-  market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate: market-data/market-data-overview/aggregated-futures-funding-rate.md
-  market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate: market-data/market-data-overview/cumulative-futures-funding-rate.md
+  market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate: market-data/market-data-overview/funding-rate-metrics.md
+  market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate: market-data/market-data-overview/funding-rate-metrics.md
+  market-data/market-data-overview/aggregated-futures-funding-rate: market-data/market-data-overview/funding-rate-metrics.md
+  market-data/market-data-overview/cumulative-futures-funding-rate: market-data/market-data-overview/funding-rate-metrics.md
   market-data/faqs: resources/faqs.md
   market-data/faqs/cm-prices-faqs: resources/faqs.md
   market-data/faqs/trusted-exchange-framework-faqs: resources/faqs.md
@@ -273,27 +275,27 @@ redirects:
   asset-metrics/market/capmvrvcur: network-data/network-data-overview/market/market-capitalization.md
   asset-metrics/market/capmvrvff: network-data/network-data-overview/market/market-capitalization.md
   asset-metrics/market/caprealusd: network-data/network-data-overview/market/market-capitalization.md
-  asset-metrics/market/futures_aggregate_funding: market-data/market-data-overview/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_all_margin_1y_period: market-data/market-data-overview/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_all_margin_30d_period: market-data/market-data-overview/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_all_margin_8h_period: market-data/market-data-overview/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_1d_period: market-data/market-data-overview/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_1y_period: market-data/market-data-overview/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_30d_period: market-data/market-data-overview/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_8h_period: market-data/market-data-overview/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_1d_period: market-data/market-data-overview/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_1y_period: market-data/market-data-overview/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_30d_period: market-data/market-data-overview/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_8h_period: market-data/market-data-overview/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_all_margin_1d: market-data/market-data-overview/cumulative-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_all_margin_30d: market-data/market-data-overview/cumulative-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_all_margin_7d: market-data/market-data-overview/cumulative-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_coin_margin_1d: market-data/market-data-overview/cumulative-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_coin_margin_30d: market-data/market-data-overview/cumulative-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_coin_margin_7d: market-data/market-data-overview/cumulative-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_usd_margin_1d: market-data/market-data-overview/cumulative-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_usd_margin_30d: market-data/market-data-overview/cumulative-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_usd_margin_7d: market-data/market-data-overview/cumulative-futures-funding-rate.md
+  asset-metrics/market/futures_aggregate_funding: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_all_margin_1y_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_all_margin_30d_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_all_margin_8h_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_1d_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_1y_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_30d_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_8h_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_1d_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_1y_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_30d_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_8h_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_all_margin_1d: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_all_margin_30d: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_all_margin_7d: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_coin_margin_1d: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_coin_margin_30d: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_coin_margin_7d: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_usd_margin_1d: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_usd_margin_30d: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_usd_margin_7d: market-data/market-data-overview/funding-rate-metrics.md
   asset-metrics/market/pricebtc: network-data/network-data-overview/market/price.md
   asset-metrics/market/priceusd: network-data/network-data-overview/market/price.md
   asset-metrics/market/principal_market_price_usd: market-data/reference-rates-overview/principal_market_price_usd.md

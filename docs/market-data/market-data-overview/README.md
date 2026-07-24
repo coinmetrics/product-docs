@@ -70,10 +70,6 @@ Data available at the market level is served through the API endpoints below, wh
 [market-greeks.md](market-greeks.md)
 {% endcontent-ref %}
 
-{% content-ref url="broken-reference/" %}
-[broken-reference](broken-reference/)
-{% endcontent-ref %}
-
 ## Metrics Available at Market Level
 
 Coin Metrics calculates several metrics for markets such as `coinbase-btc-usd-spot` and `binance-BTCUSDT-future`. The asset coverage can be found by querying our [`/catalog/market-metrics`](https://docs.coinmetrics.io/api/v4#operation/getCatalogMarketMetrics) or [`/catalog-all/market-metrics`](https://docs.coinmetrics.io/api/v4#operation/getCatalogAllMarketMetrics) API endpoints.
@@ -96,6 +92,10 @@ Metrics available at the asset level are available through the [`/timeseries/ass
 
 {% content-ref url="../reference-rates-overview/reference_rate.md" %}
 [reference\_rate.md](../reference-rates-overview/reference_rate.md)
+{% endcontent-ref %}
+
+{% content-ref url="funding-rate-metrics.md" %}
+[funding-rate-metrics.md](funding-rate-metrics.md)
 {% endcontent-ref %}
 
 {% content-ref url="open-interest-metrics.md" %}
@@ -126,8 +126,12 @@ Coin Metrics calculates several metrics for exchange-asset pairs such as `coinba
 
 Metrics available at the exchange-asset level are available through the [`/timeseries/exchange-asset-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesExchangeAssetMetrics) API endpoint and specific metrics are described in the pages linked in this section:
 
-{% content-ref url="/broken/pages/kTB7oozI5NOEyFTwqpj4" %}
-[Broken link](/broken/pages/kTB7oozI5NOEyFTwqpj4)
+{% content-ref url="basis-metrics.md" %}
+[basis-metrics.md](basis-metrics.md)
+{% endcontent-ref %}
+
+{% content-ref url="funding-rate-metrics.md" %}
+[funding-rate-metrics.md](funding-rate-metrics.md)
 {% endcontent-ref %}
 
 {% content-ref url="liquidation-metrics.md" %}
