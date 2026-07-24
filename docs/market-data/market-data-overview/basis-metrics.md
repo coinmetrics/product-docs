@@ -221,4 +221,4 @@ The spot leg is the Coin Metrics reference rate for the asset in US dollars. See
 - [Reference Rate](../reference-rates-overview/reference_rate.md): the spot price used as the denominator in the basis calculation.
 - [Market Candles](market-candles.md): the futures candle close prices the basis is computed from.
 - [Open Interest Metrics](open-interest-metrics.md): another exchange-asset derivatives metric.
-- [Funding Rates](funding-rates/README.md): the perpetual-swap analogue of futures-curve carry.
+- [Funding Rates](market-funding-rates.md): the perpetual-swap analogue of futures-curve carry.

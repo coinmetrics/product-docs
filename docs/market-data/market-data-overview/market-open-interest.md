@@ -258,7 +258,7 @@ Messages from `wss://api.coinmetrics.io/v4/timeseries-stream/market-openinterest
 * **History and downsampling.** Use a `start_time` / `end_time` range with `.parallel(time_increment=…)` for backfills, and `granularity` (`1m`, `1h`, `1d`) to reduce the minute-level series to coarser bars.
 * **Real-time monitoring.** Use the websocket stream to track open interest live. Order messages within a connection by `cm_sequence_id`, which resets whenever the connection is re-established.
 * **U.S. dollar and aggregated open interest.** For open interest denominated in U.S. dollars, or aggregated by asset, exchange, exchange-asset, or pair, use the [Open Interest Metrics](open-interest-metrics.md) metrics rather than the deprecated `value_usd` field.
-* **Derivatives context.** Combine open interest with [Funding Rates](funding-rates/funding-rates.md) and [Market Liquidations](market-liquidations.md) on the same markets to study leverage build-up and unwind.
+* **Derivatives context.** Combine open interest with [Funding Rates](market-funding-rates.md) and [Market Liquidations](market-liquidations.md) on the same markets to study leverage build-up and unwind.
 
 ## Limitations
 
@@ -290,5 +290,5 @@ Yes. Coin Metrics calculates aggregated open interest metrics for assets (for ex
 * [Open Interest Metrics](open-interest-metrics.md): open interest aggregated in U.S. dollars by asset, exchange, exchange-asset, and pair.
 * [Market Reference Data](market-reference-data.md): per-market contract specifications, including `contract_size` and the size asset.
 * [Market Liquidations](market-liquidations.md): forced closes on the same derivatives markets.
-* [Funding Rates](funding-rates/funding-rates.md): perpetual-futures funding rates on the same markets.
+* [Funding Rates](market-funding-rates.md): perpetual-futures funding rates on the same markets.
 * [Exploring Options, Open Interest, and Volatility Data](../../tutorials-and-examples/tutorials/exploring-options-open-interest-and-volatility-data.md): a worked example that pulls and charts open interest.

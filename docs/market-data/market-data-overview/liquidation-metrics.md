@@ -260,7 +260,7 @@ Reported buy liquidations for the pair `btc-usd` ([browser](https://api.coinmetr
 * **Forced deleveraging.** Read how much leveraged positioning was force-closed on an asset, an exchange, an exchange-asset, or a pair over each interval, rather than tracking individual events.
 * **Squeeze direction.** Compare the `buy` and `sell` variants to see whether shorts or longs are being liquidated. A spike in sell liquidations points to longs being flushed out, and a spike in buy liquidations to shorts being flushed out.
 * **Cross-venue comparison.** Use the U.S. dollar variants to compare liquidation activity across assets and exchanges on a common unit.
-* **Market-stress context.** Combine with the raw per-event [Market Liquidations](market-liquidations.md), [Open Interest Metrics](open-interest-metrics.md), and [Funding Rates](funding-rates/funding-rates.md) to study leverage build-up and unwind.
+* **Market-stress context.** Combine with the raw per-event [Market Liquidations](market-liquidations.md), [Open Interest Metrics](open-interest-metrics.md), and [Funding Rates](market-funding-rates.md) to study leverage build-up and unwind.
 
 ## Limitations
 
@@ -293,5 +293,5 @@ These metrics are the aggregated, converted form of the per-event liquidation da
 * [Market Liquidations](market-liquidations.md): the raw, per-event liquidation data that these metrics aggregate.
 * [Obtaining Futures Market Liquidations](../../tutorials-and-examples/tutorials/obtaining-futures-market-liquidations.md): a worked tutorial for pulling liquidation data.
 * [Open Interest Metrics](open-interest-metrics.md): reported open interest aggregated over the same entities.
-* [Funding Rates](funding-rates/funding-rates.md): perpetual-futures funding rates on the same markets.
+* [Funding Rates](market-funding-rates.md): perpetual-futures funding rates on the same markets.
 * [Reference Rate](../reference-rates-overview/reference_rate.md): the U.S. dollar reference rates used in the conversion.

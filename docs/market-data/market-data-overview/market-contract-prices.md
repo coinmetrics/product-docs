@@ -291,4 +291,4 @@ Coin Metrics stores one observation per market per minute, and `time` is aligned
 * [Market Reference Data](market-reference-data.md): contract specifications and the final `settlement_price` for expired contracts.
 * [Market Trades](market-trades.md): executed trades, which for derivatives also carry `mark_price` and `index_price`.
 * [Market Open Interest](market-open-interest.md): the number of outstanding contracts on derivatives markets.
-* [Funding Rates](funding-rates/funding-rates.md): periodic payments that keep perpetual futures aligned to the index price.
+* [Funding Rates](market-funding-rates.md): periodic payments that keep perpetual futures aligned to the index price.

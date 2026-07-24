@@ -10,7 +10,7 @@ Funding rates are a mechanism used by exchanges to keep the price of perpetual f
 
 Many exchanges report two different funding rates. The realized funding rate represents the actual funding rate calculated over the previous funding interval that is used in determining the funding payment. The predicted funding rate is the current estimate of what the funding rate will be at the end of the current funding interval. Some exchanges refer to the predicted funding rate as the real-time funding rate or the next funding rate.
 
-Coin Metrics uses the term "funding rate" to refer to the realized funding rate that typically updates once every 8 hours for most exchanges, and the term "predicted funding rate" to refer to the funding rate that represents the estimated funding rate at the end of the current funding interval that updates in real-time. For more information on the realized funding rate, please see [Market Funding Rates](funding-rates.md).
+Coin Metrics uses the term "funding rate" to refer to the realized funding rate that typically updates once every 8 hours for most exchanges, and the term "predicted funding rate" to refer to the funding rate that represents the estimated funding rate at the end of the current funding interval that updates in real-time. For more information on the realized funding rate, please see [Market Funding Rates](market-funding-rates.md).
 
 ## Details
 
@@ -20,8 +20,8 @@ The calculation and interpretation of the predicted funding rate is identical to
 
 Funding rates can be accessed using the `timeseries/market-funding-rates-predicted` endpoint.
 
-{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/market-funding-rates-predicted" method="get" %}
-[openapi.yaml](../../../.gitbook/assets/openapi.yaml)
+{% openapi src="../../.gitbook/assets/openapi.yaml" path="/timeseries/market-funding-rates-predicted" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endopenapi %}
 
 {% tabs %}

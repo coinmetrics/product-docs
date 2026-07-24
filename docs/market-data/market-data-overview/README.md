@@ -38,8 +38,8 @@ Data available at the market level is served through the API endpoints below, wh
 [market-liquidations.md](market-liquidations.md)
 {% endcontent-ref %}
 
-{% content-ref url="funding-rates/funding-rates.md" %}
-[funding-rates.md](funding-rates/funding-rates.md)
+{% content-ref url="market-funding-rates.md" %}
+[funding-rates.md](market-funding-rates.md)
 {% endcontent-ref %}
 
 {% content-ref url="order-books.md" %}

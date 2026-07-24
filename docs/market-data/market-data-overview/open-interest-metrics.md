@@ -324,7 +324,7 @@ Reported options open interest for the exchange `deribit`, showing both valuatio
 * **Futures versus options.** Compare `open_interest_reported_future_usd` against `open_interest_reported_option_notional_usd` and `open_interest_reported_option_market_value_usd` to see how positioning is split between the two instrument types.
 * **Perpetual versus dated.** Use `open_interest_reported_future_perpetual_usd` and `open_interest_reported_future_nonperpetual_usd` to separate perpetual swap positioning from expiring futures.
 * **Collateral mix.** Use the `tether_margined`, `usdc_margined`, and `coin_margined` variants to study how open interest is collateralized across stablecoin-margined and coin-margined markets.
-* **Derivatives context.** Combine with the raw per-market [Market Open Interest](market-open-interest.md), [Funding Rates](funding-rates/funding-rates.md), and [Market Liquidations](market-liquidations.md) to study leverage build-up and unwind.
+* **Derivatives context.** Combine with the raw per-market [Market Open Interest](market-open-interest.md), [Funding Rates](market-funding-rates.md), and [Market Liquidations](market-liquidations.md) to study leverage build-up and unwind.
 
 ## Limitations
 
@@ -363,5 +363,5 @@ Yes, in two forms. The number of outstanding contracts for a single market is a 
 * [Market Reference Data](market-reference-data.md): per-market contract specifications, including contract size and the size and margin assets used in the conversion.
 * [Reference Rate](../reference-rates-overview/reference_rate.md): the U.S. dollar reference rates used to convert open interest to dollars.
 * [Liquidation Metrics](liquidation-metrics.md): reported liquidation volumes aggregated over the same entities.
-* [Funding Rates](funding-rates/funding-rates.md): perpetual-futures funding rates on the same markets.
+* [Funding Rates](market-funding-rates.md): perpetual-futures funding rates on the same markets.
 * [Exploring Options, Open Interest, and Volatility Data](../../tutorials-and-examples/tutorials/exploring-options-open-interest-and-volatility-data.md): a worked example that pulls and charts open interest.
