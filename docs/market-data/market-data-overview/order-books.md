@@ -440,6 +440,6 @@ Generally it is not possible to collect order book history from exchanges direct
 
 * [Market Quotes](quotes.md): level-1 best bid/ask derived from the book.
 * [Market Trades](market-trades.md): executed trades for the same markets.
-* [Order Book Depth](liquidity/order-book-depth.md): depth-based liquidity metrics computed from order books.
+* [Liquidity Metrics](liquidity-metrics.md): bid-ask spread, order book depth, and slippage metrics computed from order books.
 * [Examining Orderbook Depth](../../tutorials-and-examples/tutorials/md_orderbook_depth.md): tutorial for querying and visualizing book depth.
 * [Aggregating Orderbook Depth to Create Liquidity Metrics](../../tutorials-and-examples/tutorials/aggregating-orderbook-depth-to-create-liquidity-metrics.md): tutorial.
