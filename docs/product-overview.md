@@ -4,7 +4,7 @@ description: An Overview of the Coin Metrics Data Universe
 
 # Product Overview
 
-Below is video by our Solutions Engineer providing an overview of the Coin Metrics Products and Data types. To learn more about each of the products check out the Product Overview Pages.&#x20;
+Below is video by our Solutions Engineer providing an overview of the Coin Metrics Products and Data types. To learn more about each of the products check out the Product Overview Pages.
 
 {% embed url="https://www.youtube.com/embed/kvGHbbkl_Wg?si=4sdp3Dy9OWYeMzHl" %}
 High Level Data Overview
@@ -31,7 +31,7 @@ High Level Data Overview
 * **Reference Rates** provide prices calculated in U.S. Dollars and Euros for several assets using a transparent and independent methodology, robust to manipulation and derived from high-quality constituent markets. This data is available through our [API](access-our-data/api/) (`timeseries/asset-metrics` endpoint) and also in our [Data Visualization](data-visualization/) and [CM Pro Charts](data-visualization/cmpro/).
 * **Reference Rates Community** (Community [API](access-our-data/api/), [Data Visualization](data-visualization/), [Pro Charts](data-visualization/cmpro/)) provides access to all of our reference rates with a limited amount of history for our more granular resolutions. For more info on our Community terms and offerings see our [Labs](https://coinmetrics.io/cm-labs/) page
 
-## [Indexes](broken-reference/)
+## [Indexes](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/broken-reference/README.md)
 
 ### [Coin Metrics Bletchley Indexes (CMBI)](https://coinmetrics.io/cm-indexes/)
 

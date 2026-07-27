@@ -103,7 +103,7 @@ print(df)
 
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-contract-prices?markets=binance-BTCUSDT-future&limit_per_market=5&api_key=$CM_API_KEY"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-contract-prices?markets=binance-BTCUSDT-future&limit_per_market=5&page_size=10000&api_key=$CM_API_KEY"
 ```
 {% endtab %}
 
@@ -114,7 +114,7 @@ import os, requests
 response = requests.get(
     "https://api.coinmetrics.io/v4/timeseries/market-contract-prices",
     params={"markets": "binance-BTCUSDT-future", "limit_per_market": 5,
-            "api_key": os.environ["CM_API_KEY"]},
+            "page_size": 10000, "api_key": os.environ["CM_API_KEY"]},
 ).json()
 print(response)
 ```
@@ -291,4 +291,4 @@ Coin Metrics stores one observation per market per minute, and `time` is aligned
 * [Market Reference Data](market-reference-data.md): contract specifications and the final `settlement_price` for expired contracts.
 * [Market Trades](market-trades.md): executed trades, which for derivatives also carry `mark_price` and `index_price`.
 * [Market Open Interest](market-open-interest.md): the number of outstanding contracts on derivatives markets.
-* [Funding Rates](funding-rates/funding-rates.md): periodic payments that keep perpetual futures aligned to the index price.
+* [Funding Rates](market-funding-rates.md): periodic payments that keep perpetual futures aligned to the index price.

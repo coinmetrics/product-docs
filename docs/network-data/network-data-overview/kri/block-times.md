@@ -2,8 +2,8 @@
 
 ## Contents
 
-* [Time between blocks (time\_inter\_block )](block-times.md#time\_inter\_block)
-* [Time Since Last Block (time\_since\_last\_block)](block-times.md#time\_since\_last\_block)
+* [Time between blocks (time\_inter\_block )](block-times.md#time_inter_block)
+* [Time Since Last Block (time\_since\_last\_block)](block-times.md#time_since_last_block)
 
 ## Time between blocks <a href="#time_inter_block" id="time_inter_block"></a>
 
@@ -43,7 +43,7 @@ The time elapsed between the current time and the last block at the tip of the c
 
 **Methodology**
 
-The metric is computed as the time difference between the arrival of the block at the chain tip as seen by our nodes, and the current time. As a timestamp for the block at the chain tip this metric uses the concept of miner\_time (for more on the differences between miner\_time and consensus\_time refer to our [wiki article](../../../on-chain-data/methodologies/on-chain-basics.md) on normalizing timestamps). For Bitcoin, miner\_time can be set arbitrarily by miners which can impact the value of this metric.
+The metric is computed as the time difference between the arrival of the block at the chain tip as seen by our nodes, and the current time. As a timestamp for the block at the chain tip this metric uses the concept of miner\_time (for more on the differences between miner\_time and consensus\_time refer to our [wiki article](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/on-chain-data/methodologies/on-chain-basics.md) on normalizing timestamps). For Bitcoin, miner\_time can be set arbitrarily by miners which can impact the value of this metric.
 
 **Available Assets**
 
@@ -61,9 +61,9 @@ Block time metrics can be accessed using these endpoints:
 
 and by passing in the metric ID's `time_*` in the `metrics` parameter.
 
-{% swagger src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
+{% openapi src="../../../.gitbook/assets/openapi.yaml" path="/timeseries/asset-metrics" method="get" %}
 [openapi.yaml](../../../.gitbook/assets/openapi.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 {% tabs %}
 {% tab title="Shell" %}

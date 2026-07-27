@@ -122,7 +122,7 @@ print(df)
 
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-liquidations?markets=binance-BTCUSDT-future&limit_per_market=5&api_key=$CM_API_KEY"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-liquidations?markets=binance-BTCUSDT-future&limit_per_market=5&page_size=10000&api_key=$CM_API_KEY"
 ```
 {% endtab %}
 
@@ -133,7 +133,7 @@ import os, requests
 response = requests.get(
     "https://api.coinmetrics.io/v4/timeseries/market-liquidations",
     params={"markets": "binance-BTCUSDT-future", "limit_per_market": 5,
-            "api_key": os.environ["CM_API_KEY"]},
+            "page_size": 10000, "api_key": os.environ["CM_API_KEY"]},
 ).json()
 print(response)
 ```
@@ -284,5 +284,5 @@ Yes. The `markets` parameter accepts wildcards such as `binance-*`, `*-USDT-futu
 * [Liquidation Metrics](liquidation-metrics.md): liquidation volume aggregated to 5-minute, hourly, and daily bars in native units and U.S. dollars.
 * [Market Trades](market-trades.md): executed trades, including a `liquidation` flag on derivatives trades.
 * [Market Open Interest](market-open-interest.md): outstanding derivatives positions on the same markets.
-* [Funding Rates](funding-rates/funding-rates.md): perpetual-futures funding rates on the same markets.
+* [Funding Rates](market-funding-rates.md): perpetual-futures funding rates on the same markets.
 * [Obtaining Futures Market Liquidations](../../tutorials-and-examples/tutorials/obtaining-futures-market-liquidations.md): a worked example that pulls and charts liquidations.

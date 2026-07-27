@@ -27,15 +27,15 @@ The mean rate at which miners are solving hashes that day. Hash rate is the spee
 
 <figure><img src="../../../.gitbook/assets/Coin_Metrics_Network_Data_2022-09-15T15-37.png" alt=""><figcaption><p>Source: CM Network Data Charts</p></figcaption></figure>
 
-| Asset          | Formula                                               | Hash Rate Unit |
-| -------------- | ----------------------------------------------------- | -------------- |
-| BTC, BCH, BSV  | (BlkCnt / 144) \* DiffMean \* ((2^32 / 10^12) / 600)) | TH/s           |
-| DASH, BTG, VTC | Daily chainwork / 86400 / 10^9                        | GH/s           |
-| LTC            | (BlkCnt / 576) \* DiffMean \* ((2^32 / 10^12) / 150)) | TH/s           |
-| XMR            | (BlkCnt / 720) \* DiffMean \* 1000000                 | MH/s           |
+| Asset          | Formula                                                                                                  | Hash Rate Unit |
+| -------------- | -------------------------------------------------------------------------------------------------------- | -------------- |
+| BTC, BCH, BSV  | (BlkCnt / 144) \* DiffMean \* ((2^32 / 10^12) / 600))                                                    | TH/s           |
+| DASH, BTG, VTC | Daily chainwork / 86400 / 10^9                                                                           | GH/s           |
+| LTC            | (BlkCnt / 576) \* DiffMean \* ((2^32 / 10^12) / 150))                                                    | TH/s           |
+| XMR            | (BlkCnt / 720) \* DiffMean \* 1000000                                                                    | MH/s           |
 | ZEC            | ((DiffMean / 150) \* 8192) / 10^9 (block interval: 150s pre-Blossom hardfork at block 653600, 75s after) | GH/s           |
-| ETH, ETC       | (DiffMean / BlkIntMean) / 10^12                       | TH/s           |
-| DOGE           | (BlkCnt / 1440) \* DiffMean \* ((2^32 / 10^12) / 60) | TH/s           |
+| ETH, ETC       | (DiffMean / BlkIntMean) / 10^12                                                                          | TH/s           |
+| DOGE           | (BlkCnt / 1440) \* DiffMean \* ((2^32 / 10^12) / 60)                                                     | TH/s           |
 
 ### Release History
 
@@ -47,7 +47,7 @@ Given that proof-of-work cryptocurrencies share a great variety of algorithms, w
 
 ### See Also
 
-* [Mean Hash Rate, 30 Day](../../mining/hashrate30d.md)
+* [Mean Hash Rate, 30 Day](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/mining/hashrate30d.md)
 
 ### Availability for Assets
 
@@ -73,7 +73,7 @@ The mean rate at which miners are solving hashes over the last 30 days. Hash rat
 
 ### See Also
 
-* [Mean Hash Rate](../../mining/hashrate.md)
+* [Mean Hash Rate](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/mining/hashrate.md)
 
 ### Availability for Assets
 

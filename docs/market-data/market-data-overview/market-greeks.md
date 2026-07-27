@@ -14,14 +14,14 @@ Each row is one option market's greeks at a point in time. Values are returned a
 
 | Field | Type | Description | Notes |
 | --- | --- | --- | --- |
-| `market` | string | Unique name of the market. Option market ids follow the convention `exchangeName-optionsSymbol-option`. | Required |
+| `market` | string | Unique name of the market. Option markets follow the `exchange-symbol-option` convention (for example `deribit-BTC-25SEP26-100000-C-option`), where the symbol is the exchange-reported symbol. | Required |
 | `time` | string (date-time) | The observation time in ISO 8601 date-time format, aligned to the start of the minute (it is `exchange_time` truncated to the minute). Always nanosecond precision. | Required. See [Timestamps](#timestamps) |
 | `delta` | string (decimal) | The first derivative of the option's price with respect to the underlying asset's price. | Optional |
 | `gamma` | string (decimal) | The second derivative of the option's price with respect to the underlying asset's price. | Optional |
 | `vega` | string (decimal) | The first derivative of the option's price with respect to the volatility of the underlying asset's price. | Optional |
 | `theta` | string (decimal) | The first derivative of the option's price with respect to the passage of time. | Optional |
 | `rho` | string (decimal) | The first derivative of the option's price with respect to the risk-free interest rate. | Optional. Reported by only some venues, otherwise null. See [Sourcing](#sourcing-exchange-reported-greeks) |
-| `exchange_time` | string (date-time) | The full-precision timestamp of the observation. For venues that provide their own ticker timestamp this is the exchange's time, otherwise it reflects when the value was collected. Can be null. | Optional. See [Timestamps](#timestamps) |
+| `exchange_time` | string (date-time) | The full-precision timestamp of the observation. For venues that timestamp their own data this is the exchange's time, otherwise it reflects when the value was collected. Can be null. | Optional. See [Timestamps](#timestamps) |
 | `database_time` | string (date-time) | The time Coin Metrics saved the observation to the database, in ISO 8601 date-time format with nanosecond precision. | Required |
 
 {% hint style="info" %}
@@ -34,17 +34,17 @@ Market greeks are sourced from exchanges and delivered with minimal processing. 
 
 ### Sourcing: exchange-reported greeks
 
-Greeks are collected directly from each option exchange's ticker feed and passed through unchanged. Coin Metrics does not recompute greeks with its own pricing model. Each value is stored verbatim as the exchange reports it, as a high-precision decimal, with no scaling or rounding applied. Because the values originate with the exchange, the exact set of greeks provided varies by venue. In particular, `rho` is reported by only some venues and is null elsewhere. The unit conventions behind each greek (for example whether theta is expressed per day and vega per one percentage point of volatility) are also defined by the reporting exchange and can differ across venues.
+Greeks are collected directly from each option exchange and passed through unchanged. Coin Metrics does not recompute greeks with its own pricing model. Each value is stored verbatim as the exchange reports it, as a high-precision decimal, with no scaling or rounding applied. Because the values originate with the exchange, the exact set of greeks provided varies by venue. In particular, `rho` is reported by only some venues and is null elsewhere. The unit conventions behind each greek (for example whether theta is expressed per day and vega per one percentage point of volatility) are also defined by the reporting exchange and can differ across venues.
 
 ### Collection cadence and deduplication
 
-Each option market's ticker is collected on an ongoing basis. Coin Metrics deduplicates the collected observations so that at most one record is kept per market per minute: the first observation seen within a given minute is retained and later observations in that same minute are discarded. As a result, the raw series contains at most one row per market per minute, and `time` is aligned to the minute.
+Coin Metrics collects data for each option market on an ongoing basis. Coin Metrics deduplicates the collected observations so that at most one record is kept per market per minute: the first observation seen within a given minute is retained and later observations in that same minute are discarded. As a result, the raw series contains at most one row per market per minute, and `time` is aligned to the minute.
 
 ### Timestamps
 
 Three timestamps accompany every observation, and they are derived from one another rather than being independent.
 
-`exchange_time` is the full-precision timestamp of the observation. When a venue stamps its ticker with its own time, `exchange_time` carries that exchange time. For venues that do not, it reflects the moment Coin Metrics collected the value. Treat it as the precise time of the observation, but not necessarily as the exchange's own clock for every venue.
+`exchange_time` is the full-precision timestamp of the observation. When a venue stamps its data with its own time, `exchange_time` carries that exchange time. For venues that do not, it reflects the moment Coin Metrics collected the value. Treat it as the precise time of the observation, but not necessarily as the exchange's own clock for every venue.
 
 `time` is `exchange_time` truncated to the start of its minute (the seconds and sub-seconds are zeroed). Because at most one observation is retained per market per minute (the first one seen in that minute, see [Collection cadence and deduplication](#collection-cadence-and-deduplication)), `time` labels the minute while `exchange_time` shows where within that minute the retained observation actually fell. Use `time` to order and join the series (its values are exactly one minute apart), and `exchange_time` when you need the precise moment.
 
@@ -73,9 +73,9 @@ client = CoinMetricsClient(os.environ["CM_API_KEY"])
 
 df = (
     client.get_market_greeks(
-        markets=["deribit-BTC-20JUL26-72000-C-option"],
-        start_time="2026-07-16",
-        end_time="2026-07-17",
+        markets=["deribit-BTC-25SEP26-100000-C-option"],
+        start_time="2026-07-26",
+        end_time="2026-07-27",
         format="json_stream",
     )
     .parallel(time_increment=timedelta(days=1))
@@ -87,7 +87,7 @@ print(df)
 
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-greeks?markets=deribit-BTC-20JUL26-72000-C-option&start_time=2026-07-16&end_time=2026-07-17&api_key=$CM_API_KEY"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-greeks?markets=deribit-BTC-25SEP26-100000-C-option&start_time=2026-07-26&end_time=2026-07-27&page_size=10000&api_key=$CM_API_KEY"
 ```
 {% endtab %}
 
@@ -98,12 +98,15 @@ import requests
 
 url = "https://api.coinmetrics.io/v4/timeseries/market-greeks"
 params = {
-    "markets": "deribit-BTC-20JUL26-72000-C-option",
-    "start_time": "2026-07-16",
-    "end_time": "2026-07-17",
+    "markets": "deribit-BTC-25SEP26-100000-C-option",
+    "start_time": "2026-07-26",
+    "end_time": "2026-07-27",
+    "page_size": 10000,
     "api_key": os.environ["CM_API_KEY"],
 }
-print(requests.get(url, params=params).json())
+data = requests.get(url, params=params).json()["data"]
+print(f"{len(data)} observations")
+print(data[0])
 ```
 {% endtab %}
 {% endtabs %}
@@ -116,43 +119,43 @@ Full parameter reference: see the API Reference for [`/timeseries/market-greeks`
 
 ### Example: Deribit BTC option greeks
 
-The rows below are consecutive one-minute observations for the `deribit-BTC-20JUL26-72000-C-option` market. This is a Deribit option, so every greek including `rho` and the exchange-reported `exchange_time` is populated. [Open in browser ↗](https://api.coinmetrics.io/v4/timeseries/market-greeks?markets=deribit-BTC-20JUL26-72000-C-option&limit_per_market=3&api_key=YOUR_API_KEY)
+The rows below are consecutive one-minute observations for the `deribit-BTC-25SEP26-100000-C-option` market. This is a Deribit option, so every greek including `rho` and the exchange-reported `exchange_time` is populated. [Open in browser ↗](https://api.coinmetrics.io/v4/timeseries/market-greeks?markets=deribit-BTC-25SEP26-100000-C-option&limit_per_market=3&api_key=YOUR_API_KEY)
 
 ```json
 {
   "data": [
     {
-      "market": "deribit-BTC-20JUL26-72000-C-option",
-      "time": "2026-07-16T14:29:00.000000000Z",
-      "database_time": "2026-07-16T14:29:02.970981000Z",
-      "vega": "1.00642",
-      "theta": "-4.64139",
-      "rho": "0.03499",
-      "delta": "0.00536",
-      "gamma": "0.00001",
-      "exchange_time": "2026-07-16T14:29:01.202000000Z"
+      "market": "deribit-BTC-25SEP26-100000-C-option",
+      "time": "2026-07-27T17:54:00.000000000Z",
+      "database_time": "2026-07-27T17:54:19.509602000Z",
+      "vega": "9.54172",
+      "theta": "-3.68632",
+      "rho": "1.42171",
+      "delta": "0.0142",
+      "gamma": "0",
+      "exchange_time": "2026-07-27T17:54:17.518000000Z"
     },
     {
-      "market": "deribit-BTC-20JUL26-72000-C-option",
-      "time": "2026-07-16T14:30:00.000000000Z",
-      "database_time": "2026-07-16T14:30:01.884768000Z",
-      "vega": "1.02137",
-      "theta": "-4.76075",
-      "rho": "0.03557",
-      "delta": "0.00545",
-      "gamma": "0.00001",
-      "exchange_time": "2026-07-16T14:30:00.636000000Z"
+      "market": "deribit-BTC-25SEP26-100000-C-option",
+      "time": "2026-07-27T17:55:00.000000000Z",
+      "database_time": "2026-07-27T17:55:18.540605000Z",
+      "vega": "9.58259",
+      "theta": "-3.70236",
+      "rho": "1.42865",
+      "delta": "0.01426",
+      "gamma": "0",
+      "exchange_time": "2026-07-27T17:55:16.950000000Z"
     },
     {
-      "market": "deribit-BTC-20JUL26-72000-C-option",
-      "time": "2026-07-16T14:31:00.000000000Z",
-      "database_time": "2026-07-16T14:31:03.022917000Z",
-      "vega": "0.98698",
-      "theta": "-4.57026",
-      "rho": "0.03423",
-      "delta": "0.00525",
-      "gamma": "0.00001",
-      "exchange_time": "2026-07-16T14:31:02.516000000Z"
+      "market": "deribit-BTC-25SEP26-100000-C-option",
+      "time": "2026-07-27T17:56:00.000000000Z",
+      "database_time": "2026-07-27T17:56:18.571049000Z",
+      "vega": "9.57395",
+      "theta": "-3.69915",
+      "rho": "1.42718",
+      "delta": "0.01425",
+      "gamma": "0",
+      "exchange_time": "2026-07-27T17:56:17.380000000Z"
     }
   ]
 }
@@ -193,10 +196,10 @@ Observations are collected continuously and deduplicated to at most one per mark
 
 ### What is the difference between `time` and `exchange_time`?
 
-`time` is `exchange_time` truncated to the start of the minute, and it is the field to sort or join on (its values are exactly one minute apart). `exchange_time` is the full-precision timestamp of the retained observation, so it falls somewhere within the minute labeled by `time`. For venues that provide their own ticker timestamp, `exchange_time` is the exchange's clock. For others, it reflects the collection time.
+`time` is `exchange_time` truncated to the start of the minute, and it is the field to sort or join on (its values are exactly one minute apart). `exchange_time` is the full-precision timestamp of the retained observation, so it falls somewhere within the minute labeled by `time`. For venues that timestamp their own data, `exchange_time` is the exchange's clock. For others, it reflects the collection time.
 
 ## Related
 
 * [Market Contract Prices](market-contract-prices.md): mark, index, and estimated settlement prices for the same option and futures markets.
-* [Market Implied Volatility](volatility/market-implied-volatility.md): exchange-reported implied volatility for option markets.
+* [Market Implied Volatility](market-implied-volatility.md): exchange-reported implied volatility for option markets.
 * [Market Open Interest](market-open-interest.md): open contracts outstanding for derivatives markets.

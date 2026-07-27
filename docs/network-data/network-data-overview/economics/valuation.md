@@ -72,8 +72,8 @@ NVT has been much discussed; in short, it compares market capitalization to on-c
 
 ### See Also
 
-* [NVT](../../economics/nvtadj.md)
-* [Free Float NVT 90-day Moving Avg](../../economics/nvtadjff90.md)
+* [NVT](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/economics/nvtadj.md)
+* [Free Float NVT 90-day Moving Avg](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/economics/nvtadjff90.md)
 
 ### Availability for Assets
 
@@ -85,7 +85,7 @@ NVT has been much discussed; in short, it compares market capitalization to on-c
 
 ### Definition
 
-The ratio of the Realized Cap over Thermo Cap at the end of that interval. [Realized Cap](broken-reference/) (CapRealUSD) is defined as the sum USD value based on the USD closing price on the day that a native unit last moved (i.e., last transacted) for all native units. Thermo Cap is calculated as RevAllTimeUSD and it represents the USD value of all funds disbursed to miners at the time of issuance.
+The ratio of the Realized Cap over Thermo Cap at the end of that interval. [Realized Cap](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/network-data-overview/economics/broken-reference/README.md) (CapRealUSD) is defined as the sum USD value based on the USD closing price on the day that a native unit last moved (i.e., last transacted) for all native units. Thermo Cap is calculated as RevAllTimeUSD and it represents the USD value of all funds disbursed to miners at the time of issuance.
 
 | Name                              | IMetricD                                                          | Unit          | Interval |
 | --------------------------------- | ----------------------------------------------------------------- | ------------- | -------- |
@@ -93,7 +93,7 @@ The ratio of the Realized Cap over Thermo Cap at the end of that interval. [Real
 
 ### Details
 
-* Like [MVRV](broken-reference/), RCTC can be used to better understand the market cycle as it identifies the ralationship between the network's overall cost basis (CapRealUSD) relative to the USD amount issued to miners by the protocol (RevAllTimeUSD).
+* Like [MVRV](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/network-data-overview/economics/broken-reference/README.md), RCTC can be used to better understand the market cycle as it identifies the ralationship between the network's overall cost basis (CapRealUSD) relative to the USD amount issued to miners by the protocol (RevAllTimeUSD).
 * When evaluating market tops, RCTC provides a view on the realization of profits relative to the liquidity that is being issued to miners.
 * Miners are speculators as they are naturally exposed to the price of the currency they are mining. As such, they collectively make buy or sell decisions that ultimately impact the market.
 
@@ -117,8 +117,8 @@ Only applicable to assets for which we have RevAllTimeUSD and CapRealUSD.
 
 ### See Also:
 
-* [MCRC (Market Cap / Realized Cap)](../../economics/miner-cap-to-realized-cap-mcrc.md)
-* [MVRV (Market Cap / Realized Market Cap)](broken-reference/)
+* [MCRC (Market Cap / Realized Cap)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/economics/miner-cap-to-realized-cap-mcrc.md)
+* [MVRV (Market Cap / Realized Market Cap)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/network-data-overview/economics/broken-reference/README.md)
 
 ### Availability for Assets
 
@@ -153,8 +153,8 @@ RVT can be a slower moving, higher conviction signal tuned to the macro sentimen
 
 ### See Also
 
-* [Realized Market Cap (USD)](broken-reference/)
-* [RVT 90-day Moving Avg](../../economics/rvtadj90.md)
+* [Realized Market Cap (USD)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/network-data-overview/economics/broken-reference/README.md)
+* [RVT 90-day Moving Avg](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/economics/rvtadj90.md)
 
 ### Availability for Assets
 

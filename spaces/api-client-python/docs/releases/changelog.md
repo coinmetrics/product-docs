@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026.7.15.21
+
+<!-- Auto-generated stub for upstream commit bfc3b47; refine before merging. -->
+
+### Changed
+
+- MD-5897 Add asset_class, source_type, and identifier (CUSIP/FIGI/ISIN) filters to markets catalog
+
 <!--
 Wording rules for changelog entries (apply when adding or refining entries,
 including stubs produced by scripts/update_api_client_python_changelog.py):

@@ -38,8 +38,8 @@ Data available at the market level is served through the API endpoints below, wh
 [market-liquidations.md](market-liquidations.md)
 {% endcontent-ref %}
 
-{% content-ref url="funding-rates/funding-rates.md" %}
-[funding-rates.md](funding-rates/funding-rates.md)
+{% content-ref url="market-funding-rates.md" %}
+[funding-rates.md](market-funding-rates.md)
 {% endcontent-ref %}
 
 {% content-ref url="order-books.md" %}
@@ -62,16 +62,12 @@ Data available at the market level is served through the API endpoints below, wh
 [market-contract-prices.md](market-contract-prices.md)
 {% endcontent-ref %}
 
-{% content-ref url="volatility/market-implied-volatility.md" %}
-[market-implied-volatility.md](volatility/market-implied-volatility.md)
+{% content-ref url="market-implied-volatility.md" %}
+[market-implied-volatility.md](market-implied-volatility.md)
 {% endcontent-ref %}
 
 {% content-ref url="market-greeks.md" %}
 [market-greeks.md](market-greeks.md)
-{% endcontent-ref %}
-
-{% content-ref url="broken-reference/" %}
-[broken-reference](broken-reference/)
 {% endcontent-ref %}
 
 ## Metrics Available at Market Level
@@ -96,6 +92,10 @@ Metrics available at the asset level are available through the [`/timeseries/ass
 
 {% content-ref url="../reference-rates-overview/reference_rate.md" %}
 [reference\_rate.md](../reference-rates-overview/reference_rate.md)
+{% endcontent-ref %}
+
+{% content-ref url="funding-rate-metrics.md" %}
+[funding-rate-metrics.md](funding-rate-metrics.md)
 {% endcontent-ref %}
 
 {% content-ref url="open-interest-metrics.md" %}
@@ -126,8 +126,12 @@ Coin Metrics calculates several metrics for exchange-asset pairs such as `coinba
 
 Metrics available at the exchange-asset level are available through the [`/timeseries/exchange-asset-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesExchangeAssetMetrics) API endpoint and specific metrics are described in the pages linked in this section:
 
-{% content-ref url="basis.md" %}
-[basis.md](basis.md)
+{% content-ref url="basis-metrics.md" %}
+[basis-metrics.md](basis-metrics.md)
+{% endcontent-ref %}
+
+{% content-ref url="funding-rate-metrics.md" %}
+[funding-rate-metrics.md](funding-rate-metrics.md)
 {% endcontent-ref %}
 
 {% content-ref url="liquidation-metrics.md" %}
@@ -170,10 +174,10 @@ Market data for these exchanges is served through our [market data endpoints](ht
 
 ## Metrics Available at Institution Level
 
-Coin Metrics calculates several metrics for institutions such as `grayscale`. The institution coverage can be found by querying our [`/catalog/institutions`](https://docs.coinmetrics.io/api/v4#operation/getCatalogInstitutions) or [`/catalog-all/institutions`](https://docs.coinmetrics.io/api/v4#operation/getCatalogAllInstitutions) API endpoints.
+Coin Metrics collects daily fund-level metrics for institutions such as `grayscale`. The institution coverage can be found by querying our [`/catalog-v2/institution-metrics`](https://docs.coinmetrics.io/api/v4/#operation/getCatalogV2InstitutionMetrics) or [`/catalog-all-v2/institution-metrics`](https://docs.coinmetrics.io/api/v4/#operation/getCatalogAllV2InstitutionMetrics) API endpoints.
 
-Metrics available at the institution level is available through the [`/timeseries/institution-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesInstitutionMetrics) API endpoint and specific metrics are described in the pages linked in this section:
+Metrics available at the institution level are served through the [`/timeseries/institution-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesInstitutionMetrics) API endpoint and are described on the page linked in this section:
 
-{% content-ref url="institution-metrics-overview/grayscale/" %}
-[grayscale](institution-metrics-overview/grayscale/)
+{% content-ref url="institution-metrics.md" %}
+[institution-metrics.md](institution-metrics.md)
 {% endcontent-ref %}

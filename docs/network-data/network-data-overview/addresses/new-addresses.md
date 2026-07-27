@@ -56,10 +56,10 @@ If the above was the only activity observed in the network during that interval,
 
 ### **See Also**
 
-* [New Addr Cnt](../../addresses/adrnewcnt.md)
+* [New Addr Cnt](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/addresses/adrnewcnt.md)
 * [Address](../../on-chain-basics.md#address)
-* [Active Addresses (Received)](../../addresses/adractreccnt.md)
-* [Active Addresses (Sent)](../../addresses/adractsentcnt.md)
+* [Active Addresses (Received)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/addresses/adractreccnt.md)
+* [Active Addresses (Sent)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/addresses/adractsentcnt.md)
 
 ### Availability for Assets
 
@@ -113,10 +113,10 @@ If the above was the only activity observed in the network during that interval,
 
 ### **See Also**
 
-* [New Funded Addr Cnt](../../addresses/adrnewbalcnt.md)
+* [New Funded Addr Cnt](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/addresses/adrnewbalcnt.md)
 * [Address](../../on-chain-basics.md#address)
-* [Active Addresses (Received)](../../addresses/adractreccnt.md)
-* [Active Addresses (Sent)](../../addresses/adractsentcnt.md)
+* [Active Addresses (Received)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/addresses/adractreccnt.md)
+* [Active Addresses (Sent)](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/addresses/adractsentcnt.md)
 
 ### Availability for Assets
 

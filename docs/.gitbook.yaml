@@ -9,6 +9,28 @@ redirects:
   market-data/market-data-overview/open-interest: market-data/market-data-overview/market-open-interest.md
   market-data/market-data-overview/market-metadata: market-data/market-data-overview/market-reference-data.md
   market-data/market-data-overview/candles: market-data/market-data-overview/market-candles.md
+  market-data/market-data-overview/basis: market-data/market-data-overview/basis-metrics.md
+  market-data/market-data-overview/funding-rates/funding-rates: market-data/market-data-overview/market-funding-rates.md
+  market-data/market-data-overview/funding-rates: market-data/market-data-overview/market-funding-rates.md
+  market-data/market-data-overview/funding-rates/market-funding-rates: market-data/market-data-overview/market-funding-rates.md
+  market-data/market-data-overview/funding-rates/predicted-funding-rates: market-data/market-data-overview/market-funding-rates-predicted.md
+  market-data/market-data-overview/predicted-funding-rates: market-data/market-data-overview/market-funding-rates-predicted.md
+  market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate: market-data/market-data-overview/funding-rate-metrics.md
+  market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate: market-data/market-data-overview/funding-rate-metrics.md
+  market-data/market-data-overview/aggregated-futures-funding-rate: market-data/market-data-overview/funding-rate-metrics.md
+  market-data/market-data-overview/cumulative-futures-funding-rate: market-data/market-data-overview/funding-rate-metrics.md
+  market-data/market-data-overview/volatility/market-implied-volatility: market-data/market-data-overview/market-implied-volatility.md
+  market-data/market-data-overview/institution-metrics-overview/grayscale/shares-outstanding: market-data/market-data-overview/institution-metrics.md
+  market-data/market-data-overview/institution-metrics-overview/grayscale/market-price: market-data/market-data-overview/institution-metrics.md
+  market-data/market-data-overview/institution-metrics-overview/grayscale/net-asset-value: market-data/market-data-overview/institution-metrics.md
+  market-data/market-data-overview/institution-metrics-overview/grayscale/coin-per-share: market-data/market-data-overview/institution-metrics.md
+  market-data/market-data-overview/institution-metrics-overview/grayscale/total-assets: market-data/market-data-overview/institution-metrics.md
+  market-data/market-data-overview/institution-metrics-overview/grayscale: market-data/market-data-overview/institution-metrics.md
+  market-data/market-data-overview/institution-metrics-overview: market-data/market-data-overview/institution-metrics.md
+  market-data/market-data-overview/liquidity/bid-ask-spread: market-data/market-data-overview/liquidity-metrics.md
+  market-data/market-data-overview/liquidity/order-book-depth: market-data/market-data-overview/liquidity-metrics.md
+  market-data/market-data-overview/liquidity/slippage: market-data/market-data-overview/liquidity-metrics.md
+  market-data/market-data-overview/liquidity: market-data/market-data-overview/liquidity-metrics.md
   market-data/faqs: resources/faqs.md
   market-data/faqs/cm-prices-faqs: resources/faqs.md
   market-data/faqs/trusted-exchange-framework-faqs: resources/faqs.md
@@ -265,27 +287,27 @@ redirects:
   asset-metrics/market/capmvrvcur: network-data/network-data-overview/market/market-capitalization.md
   asset-metrics/market/capmvrvff: network-data/network-data-overview/market/market-capitalization.md
   asset-metrics/market/caprealusd: network-data/network-data-overview/market/market-capitalization.md
-  asset-metrics/market/futures_aggregate_funding: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_all_margin_1y_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_all_margin_30d_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_all_margin_8h_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_1d_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_1y_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_30d_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_8h_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_1d_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_1y_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_30d_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_8h_period: market-data/market-data-overview/funding-rates/aggregated-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_all_margin_1d: market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_all_margin_30d: market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_all_margin_7d: market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_coin_margin_1d: market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_coin_margin_30d: market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_coin_margin_7d: market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_usd_margin_1d: market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_usd_margin_30d: market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate.md
-  asset-metrics/market/futures_cumulative_funding_rate_usd_margin_7d: market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate.md
+  asset-metrics/market/futures_aggregate_funding: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_all_margin_1y_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_all_margin_30d_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_all_margin_8h_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_1d_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_1y_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_30d_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_coin_margin_8h_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_1d_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_1y_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_30d_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_aggregate_funding_rate_usd_margin_8h_period: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_all_margin_1d: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_all_margin_30d: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_all_margin_7d: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_coin_margin_1d: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_coin_margin_30d: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_coin_margin_7d: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_usd_margin_1d: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_usd_margin_30d: market-data/market-data-overview/funding-rate-metrics.md
+  asset-metrics/market/futures_cumulative_funding_rate_usd_margin_7d: market-data/market-data-overview/funding-rate-metrics.md
   asset-metrics/market/pricebtc: network-data/network-data-overview/market/price.md
   asset-metrics/market/priceusd: network-data/network-data-overview/market/price.md
   asset-metrics/market/principal_market_price_usd: market-data/reference-rates-overview/principal_market_price_usd.md
@@ -658,10 +680,10 @@ redirects:
   defi-balance-sheets/defi-balance-sheets-overview: network-data/defi-data-overview/defi-balance-sheets-overview.md
   defi-data/defi-data-overview: network-data/defi-data-overview/README.md
   defi-data/defi-faqs: network-data/defi-data-overview/faqs.md
-  exchange-asset-metrics/basis/basis_annualized_120d_exp: market-data/market-data-overview/basis.md
-  exchange-asset-metrics/basis/basis_annualized_30d_exp: market-data/market-data-overview/basis.md
-  exchange-asset-metrics/basis/basis_annualized_60d_exp: market-data/market-data-overview/basis.md
-  exchange-asset-metrics/basis/basis_annualized_90d_exp: market-data/market-data-overview/basis.md
+  exchange-asset-metrics/basis/basis_annualized_120d_exp: market-data/market-data-overview/basis-metrics.md
+  exchange-asset-metrics/basis/basis_annualized_30d_exp: market-data/market-data-overview/basis-metrics.md
+  exchange-asset-metrics/basis/basis_annualized_60d_exp: market-data/market-data-overview/basis-metrics.md
+  exchange-asset-metrics/basis/basis_annualized_90d_exp: market-data/market-data-overview/basis-metrics.md
   exchange-asset-metrics/open-interest/open_interest_reported_future_coin_margined_usd: market-data/market-data-overview/open-interest-metrics.md
   exchange-asset-metrics/open-interest/open_interest_reported_future_nonperpetual_usd: market-data/market-data-overview/open-interest-metrics.md
   exchange-asset-metrics/open-interest/open_interest_reported_future_perpetual_usd: market-data/market-data-overview/open-interest-metrics.md
@@ -699,14 +721,14 @@ redirects:
   indexes-timeseries/index-candles: index-data/index/index-timeseries/index-candles.md
   indexes-timeseries/index-constituents: index-data/index/index-timeseries/index-constituents.md
   indexes-timeseries/index-levels: index-data/index/index-timeseries/index-levels.md
-  intitution-metrics-overview/grayscale/coin-per-share: market-data/market-data-overview/institution-metrics-overview/grayscale/coin-per-share.md
-  intitution-metrics-overview/grayscale/market-price: market-data/market-data-overview/institution-metrics-overview/grayscale/market-price.md
-  intitution-metrics-overview/grayscale/net-asset-value: market-data/market-data-overview/institution-metrics-overview/grayscale/net-asset-value.md
-  intitution-metrics-overview/grayscale/shares-outstanding: market-data/market-data-overview/institution-metrics-overview/grayscale/shares-outstanding.md
-  intitution-metrics-overview/grayscale/total-assets: market-data/market-data-overview/institution-metrics-overview/grayscale/total-assets.md
-  intitution-metrics-overview/grayscale: market-data/market-data-overview/institution-metrics-overview/grayscale/README.md
-  institution-metrics: market-data/market-data-overview/institution-metrics-overview/README.md
-  market-data-timeseries/futures-funding-rates: market-data/market-data-overview/funding-rates/funding-rates.md
+  intitution-metrics-overview/grayscale/coin-per-share: market-data/market-data-overview/institution-metrics.md
+  intitution-metrics-overview/grayscale/market-price: market-data/market-data-overview/institution-metrics.md
+  intitution-metrics-overview/grayscale/net-asset-value: market-data/market-data-overview/institution-metrics.md
+  intitution-metrics-overview/grayscale/shares-outstanding: market-data/market-data-overview/institution-metrics.md
+  intitution-metrics-overview/grayscale/total-assets: market-data/market-data-overview/institution-metrics.md
+  intitution-metrics-overview/grayscale: market-data/market-data-overview/institution-metrics.md
+  institution-metrics: market-data/market-data-overview/institution-metrics.md
+  market-data-timeseries/futures-funding-rates: market-data/market-data-overview/market-funding-rates.md
   market-data-timeseries/futures-liquidations: market-data/market-data-overview/market-liquidations.md
   market-data/market-data-overview/liquidations/futures-liquidations: market-data/market-data-overview/market-liquidations.md
   market-data/market-data-overview/liquidations/market-liquidations: market-data/market-data-overview/market-liquidations.md
@@ -715,7 +737,7 @@ redirects:
   market-data-timeseries/market-candles: market-data/market-data-overview/market-candles.md
   market-data-timeseries/market-contracts: market-data/market-data-overview/market-contract-prices.md
   market-data-timeseries/market-greeks: market-data/market-data-overview/market-greeks.md
-  market-data-timeseries/market-implied-volatility: market-data/market-data-overview/volatility/market-implied-volatility.md
+  market-data-timeseries/market-implied-volatility: market-data/market-data-overview/market-implied-volatility.md
   market-data-timeseries/market-metadata: market-data/market-data-overview/market-reference-data.md
   market-data-timeseries/market-orderbooks: market-data/market-data-overview/order-books.md
   market-data-timeseries/market-quotes: market-data/market-data-overview/quotes.md  # anchor #market removed: GitBook redirect targets do not resolve URL fragments
@@ -733,44 +755,44 @@ redirects:
   market-metrics/liquidations/liquidations_reported_future_sell_usd_1d: market-data/market-data-overview/liquidation-metrics.md
   market-metrics/liquidations/liquidations_reported_future_sell_usd_1h: market-data/market-data-overview/liquidation-metrics.md
   market-metrics/liquidations/liquidations_reported_future_sell_usd_5m: market-data/market-data-overview/liquidation-metrics.md
-  market-metrics/liquidity/liquidity_bid_ask_spread_percent: market-data/market-data-overview/liquidity/bid-ask-spread.md
-  market-metrics/liquidity/liquidity_bid_ask_spread_percent_1d: market-data/market-data-overview/liquidity/bid-ask-spread.md
-  market-metrics/liquidity/liquidity_bid_ask_spread_percent_1h: market-data/market-data-overview/liquidity/bid-ask-spread.md
-  market-metrics/liquidity/liquidity_bid_ask_spread_percent_1m: market-data/market-data-overview/liquidity/bid-ask-spread.md
-  market-metrics/liquidity/liquidity_depth_0_1_percent_ask_volume_units: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_0_1_percent_ask_volume_usd: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_0_1_percent_bid_volume_units: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_0_1_percent_bid_volume_usd: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_10_percent_ask_volume_units: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_10_percent_ask_volume_usd: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_10_percent_bid_volume_units: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_10_percent_bid_volume_usd: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_1_percent_ask_volume_units: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_1_percent_ask_volume_usd: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_1_percent_bid_volume_units: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_1_percent_bid_volume_usd: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_2_percent_ask_volume_units: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_2_percent_ask_volume_usd: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_2_percent_bid_volume_units: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_2_percent_bid_volume_usd: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_5_percent_ask_volume_units: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_5_percent_ask_volume_usd: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_5_percent_bid_volume_units: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_5_percent_bid_volume_usd: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_depth_percent_bid_volume_usd: market-data/market-data-overview/liquidity/order-book-depth.md
-  market-metrics/liquidity/liquidity_slippage: market-data/market-data-overview/liquidity/slippage.md
-  market-metrics/liquidity/liquidity_slippage_100k_ask_percent: market-data/market-data-overview/liquidity/slippage.md
-  market-metrics/liquidity/liquidity_slippage_100k_bid_percent: market-data/market-data-overview/liquidity/slippage.md
-  market-metrics/liquidity/liquidity_slippage_10k_ask_percent: market-data/market-data-overview/liquidity/slippage.md
-  market-metrics/liquidity/liquidity_slippage_10k_bid_percent: market-data/market-data-overview/liquidity/slippage.md
-  market-metrics/liquidity/liquidity_slippage_1k_ask_percent: market-data/market-data-overview/liquidity/slippage.md
-  market-metrics/liquidity/liquidity_slippage_1k_bid_percent: market-data/market-data-overview/liquidity/slippage.md
-  market-metrics/liquidity/liquidity_slippage_1m_ask_percent: market-data/market-data-overview/liquidity/slippage.md
-  market-metrics/liquidity/liquidity_slippage_1m_bid_percent: market-data/market-data-overview/liquidity/slippage.md
-  market-metrics/liquidity/liquidity_slippage_50k_ask_percent: market-data/market-data-overview/liquidity/slippage.md
-  market-metrics/liquidity/liquidity_slippage_50k_bid_percent: market-data/market-data-overview/liquidity/slippage.md
-  market-metrics/liquidity/liquidity_slippage_5k_ask_percent: market-data/market-data-overview/liquidity/slippage.md
-  market-metrics/liquidity/liquidity_slippage_5k_bid_percent: market-data/market-data-overview/liquidity/slippage.md
+  market-metrics/liquidity/liquidity_bid_ask_spread_percent: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_bid_ask_spread_percent_1d: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_bid_ask_spread_percent_1h: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_bid_ask_spread_percent_1m: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_0_1_percent_ask_volume_units: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_0_1_percent_ask_volume_usd: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_0_1_percent_bid_volume_units: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_0_1_percent_bid_volume_usd: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_10_percent_ask_volume_units: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_10_percent_ask_volume_usd: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_10_percent_bid_volume_units: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_10_percent_bid_volume_usd: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_1_percent_ask_volume_units: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_1_percent_ask_volume_usd: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_1_percent_bid_volume_units: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_1_percent_bid_volume_usd: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_2_percent_ask_volume_units: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_2_percent_ask_volume_usd: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_2_percent_bid_volume_units: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_2_percent_bid_volume_usd: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_5_percent_ask_volume_units: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_5_percent_ask_volume_usd: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_5_percent_bid_volume_units: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_5_percent_bid_volume_usd: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_depth_percent_bid_volume_usd: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_slippage: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_slippage_100k_ask_percent: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_slippage_100k_bid_percent: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_slippage_10k_ask_percent: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_slippage_10k_bid_percent: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_slippage_1k_ask_percent: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_slippage_1k_bid_percent: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_slippage_1m_ask_percent: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_slippage_1m_bid_percent: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_slippage_50k_ask_percent: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_slippage_50k_bid_percent: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_slippage_5k_ask_percent: market-data/market-data-overview/liquidity-metrics.md
+  market-metrics/liquidity/liquidity_slippage_5k_bid_percent: market-data/market-data-overview/liquidity-metrics.md
   on-chain-data/asset-metrics-faqs: resources/faqs.md
   on-chain-data/farum-overview: network-data/network-data-overview/kri/README.md
   pair-data-timeseries/pair-candles: market-data/market-data-overview/pair-candles.md

@@ -180,7 +180,7 @@ The Puell Multiple provides insight into market cycles from a mining revenue per
 
 ### See Also
 
-* [Puell Multiple, Revenue](../../supply/miner-revenue.md#puellmulrev)
+* [Puell Multiple, Revenue](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/supply/miner-revenue.md#puellmulrev)
 
 ### Availability for Assets
 
@@ -211,7 +211,7 @@ The Puell Multiple provides insight into market cycles from a mining revenue per
 
 ### See Also
 
-* [Puell Multiple, Revenue](../../supply/miner-revenue.md#puellmulrev)
+* [Puell Multiple, Revenue](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/network-data/supply/miner-revenue.md#puellmulrev)
 
 ### Availability for Assets
 

@@ -1,4 +1,4 @@
-# Getting Started
+# Getting Started with Coin Metrics Data
 
 Welcome! Follow the steps below to get started with using Coin Metrics data.
 
@@ -82,8 +82,8 @@ Coin Metrics data is divided into the following types of data:
 
 [index](index-data/index/ "mention")
 
-[Broken link](broken-reference "mention")
+[https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/broken-reference/README.md](https://gitlab.com/coinmetrics/front-end/knowledge-base/-/blob/master/docs/broken-reference/README.md "mention")
 
 More information on each dataset can be found in their respective sections. You can find different metrics or data types by navigating the sidebar e.g. Market Data Overview > Volume > Trusted Volume, Network Data Overview > Addresses > Active Addresses.
 
-Coin Metrics data is heavily featured in our research at [https://coinmetrics.io/insights/](https://coinmetrics.io/insights/). You can subscribe to our weekly newsletter State of the Network at [https://coinmetrics.substack.com/](https://coinmetrics.substack.com/).&#x20;
+Coin Metrics data is heavily featured in our research at [https://coinmetrics.io/insights/](https://coinmetrics.io/insights/). You can subscribe to our weekly newsletter State of the Network at [https://coinmetrics.substack.com/](https://coinmetrics.substack.com/).
