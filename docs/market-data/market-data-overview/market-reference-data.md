@@ -441,9 +441,9 @@ Requesting `include=talos` adds a `settle_value_type` field to the `talos` mappi
 
 ## Related
 
-* [Trades](market-trades.md): tick-level trade data for these markets.
-* [Quotes](quotes.md): top-of-book quote data.
-* [Order Books](order-books.md): order book snapshots and updates.
+* [Market Trades](market-trades.md): tick-level trade data for these markets.
+* [Market Quotes](market-quotes.md): top-of-book quote data.
+* [Market Order Books](market-order-books.md): order book snapshots and updates.
 * [Market Candles](market-candles.md): OHLCV candles.
 * [Pair Candles](pair-candles.md): OHLC candles for a cross-exchange asset pair.
 * [Market Contract Prices](market-contract-prices.md): index, mark, and settlement prices for derivatives.

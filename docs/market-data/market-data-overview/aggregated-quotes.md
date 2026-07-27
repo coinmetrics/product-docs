@@ -9,7 +9,7 @@ Aggregated quotes are served in real time over two websocket endpoints:
 * Pair quotes over [`/timeseries-stream/pair-quotes`](https://docs.coinmetrics.io/api/v4/#operation/getTimeseriesStreamPairQuotes)
 * Asset quotes over [`/timeseries-stream/asset-quotes`](https://docs.coinmetrics.io/api/v4/#operation/getTimeseriesStreamAssetQuotes)
 
-For the per-market building block these are computed from, see [Market Quotes](quotes.md).
+For the per-market building block these are computed from, see [Market Quotes](market-quotes.md).
 
 ## At a Glance
 
@@ -228,6 +228,6 @@ The websocket streams send a new message up to roughly once every 250 millisecon
 
 ## Related
 
-* [Market Quotes](quotes.md): the per-market best bid and best ask these aggregates are built from.
-* [Order Books](order-books.md): the full order book that market quotes are derived from.
+* [Market Quotes](market-quotes.md): the per-market best bid and best ask these aggregates are built from.
+* [Market Order Books](market-order-books.md): the full order book that market quotes are derived from.
 * [Market Trades](market-trades.md): executed trades for the same markets.
