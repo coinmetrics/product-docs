@@ -174,10 +174,10 @@ Market data for these exchanges is served through our [market data endpoints](ht
 
 ## Metrics Available at Institution Level
 
-Coin Metrics calculates several metrics for institutions such as `grayscale`. The institution coverage can be found by querying our [`/catalog/institutions`](https://docs.coinmetrics.io/api/v4#operation/getCatalogInstitutions) or [`/catalog-all/institutions`](https://docs.coinmetrics.io/api/v4#operation/getCatalogAllInstitutions) API endpoints.
+Coin Metrics collects daily fund-level metrics for institutions such as `grayscale`. The institution coverage can be found by querying our [`/catalog-v2/institution-metrics`](https://docs.coinmetrics.io/api/v4/#operation/getCatalogV2InstitutionMetrics) or [`/catalog-all-v2/institution-metrics`](https://docs.coinmetrics.io/api/v4/#operation/getCatalogAllV2InstitutionMetrics) API endpoints.
 
-Metrics available at the institution level is available through the [`/timeseries/institution-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesInstitutionMetrics) API endpoint and specific metrics are described in the pages linked in this section:
+Metrics available at the institution level are served through the [`/timeseries/institution-metrics`](https://docs.coinmetrics.io/api/v4#operation/getTimeseriesInstitutionMetrics) API endpoint and are described on the page linked in this section:
 
-{% content-ref url="institution-metrics-overview/grayscale/" %}
-[grayscale](institution-metrics-overview/grayscale/)
+{% content-ref url="institution-metrics.md" %}
+[institution-metrics.md](institution-metrics.md)
 {% endcontent-ref %}

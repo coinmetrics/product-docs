@@ -19,6 +19,13 @@ redirects:
   market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate: market-data/market-data-overview/funding-rate-metrics.md
   market-data/market-data-overview/aggregated-futures-funding-rate: market-data/market-data-overview/funding-rate-metrics.md
   market-data/market-data-overview/cumulative-futures-funding-rate: market-data/market-data-overview/funding-rate-metrics.md
+  market-data/market-data-overview/institution-metrics-overview/grayscale/shares-outstanding: market-data/market-data-overview/institution-metrics.md
+  market-data/market-data-overview/institution-metrics-overview/grayscale/market-price: market-data/market-data-overview/institution-metrics.md
+  market-data/market-data-overview/institution-metrics-overview/grayscale/net-asset-value: market-data/market-data-overview/institution-metrics.md
+  market-data/market-data-overview/institution-metrics-overview/grayscale/coin-per-share: market-data/market-data-overview/institution-metrics.md
+  market-data/market-data-overview/institution-metrics-overview/grayscale/total-assets: market-data/market-data-overview/institution-metrics.md
+  market-data/market-data-overview/institution-metrics-overview/grayscale: market-data/market-data-overview/institution-metrics.md
+  market-data/market-data-overview/institution-metrics-overview: market-data/market-data-overview/institution-metrics.md
   market-data/market-data-overview/liquidity/bid-ask-spread: market-data/market-data-overview/liquidity-metrics.md
   market-data/market-data-overview/liquidity/order-book-depth: market-data/market-data-overview/liquidity-metrics.md
   market-data/market-data-overview/liquidity/slippage: market-data/market-data-overview/liquidity-metrics.md
@@ -713,13 +720,13 @@ redirects:
   indexes-timeseries/index-candles: index-data/index/index-timeseries/index-candles.md
   indexes-timeseries/index-constituents: index-data/index/index-timeseries/index-constituents.md
   indexes-timeseries/index-levels: index-data/index/index-timeseries/index-levels.md
-  intitution-metrics-overview/grayscale/coin-per-share: market-data/market-data-overview/institution-metrics-overview/grayscale/coin-per-share.md
-  intitution-metrics-overview/grayscale/market-price: market-data/market-data-overview/institution-metrics-overview/grayscale/market-price.md
-  intitution-metrics-overview/grayscale/net-asset-value: market-data/market-data-overview/institution-metrics-overview/grayscale/net-asset-value.md
-  intitution-metrics-overview/grayscale/shares-outstanding: market-data/market-data-overview/institution-metrics-overview/grayscale/shares-outstanding.md
-  intitution-metrics-overview/grayscale/total-assets: market-data/market-data-overview/institution-metrics-overview/grayscale/total-assets.md
-  intitution-metrics-overview/grayscale: market-data/market-data-overview/institution-metrics-overview/grayscale/README.md
-  institution-metrics: market-data/market-data-overview/institution-metrics-overview/README.md
+  intitution-metrics-overview/grayscale/coin-per-share: market-data/market-data-overview/institution-metrics.md
+  intitution-metrics-overview/grayscale/market-price: market-data/market-data-overview/institution-metrics.md
+  intitution-metrics-overview/grayscale/net-asset-value: market-data/market-data-overview/institution-metrics.md
+  intitution-metrics-overview/grayscale/shares-outstanding: market-data/market-data-overview/institution-metrics.md
+  intitution-metrics-overview/grayscale/total-assets: market-data/market-data-overview/institution-metrics.md
+  intitution-metrics-overview/grayscale: market-data/market-data-overview/institution-metrics.md
+  institution-metrics: market-data/market-data-overview/institution-metrics.md
   market-data-timeseries/futures-funding-rates: market-data/market-data-overview/market-funding-rates.md
   market-data-timeseries/futures-liquidations: market-data/market-data-overview/market-liquidations.md
   market-data/market-data-overview/liquidations/futures-liquidations: market-data/market-data-overview/market-liquidations.md
