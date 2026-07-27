@@ -116,7 +116,7 @@ print(df)
 
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-openinterest?markets=binance-BTCUSDT-future&limit_per_market=5&api_key=$CM_API_KEY"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-openinterest?markets=binance-BTCUSDT-future&limit_per_market=5&page_size=10000&api_key=$CM_API_KEY"
 ```
 {% endtab %}
 
@@ -127,7 +127,7 @@ import os, requests
 response = requests.get(
     "https://api.coinmetrics.io/v4/timeseries/market-openinterest",
     params={"markets": "binance-BTCUSDT-future", "limit_per_market": 5,
-            "api_key": os.environ["CM_API_KEY"]},
+            "page_size": 10000, "api_key": os.environ["CM_API_KEY"]},
 ).json()
 print(response)
 ```

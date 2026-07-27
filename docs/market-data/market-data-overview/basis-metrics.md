@@ -120,7 +120,7 @@ print(df)
 
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?metrics=basis_annualized_30d_exp&exchange_assets=binance-btc&frequency=1d&pretty=true&api_key=$CM_API_KEY"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/exchange-asset-metrics?metrics=basis_annualized_30d_exp&exchange_assets=binance-btc&frequency=1d&pretty=true&page_size=10000&api_key=$CM_API_KEY"
 ```
 {% endtab %}
 
@@ -134,11 +134,12 @@ params = {
     "metrics": "basis_annualized_30d_exp",
     "exchange_assets": "binance-btc",
     "frequency": "1d",
-    "pretty": "true",
+    "page_size": 10000,
     "api_key": os.environ["CM_API_KEY"],
 }
-response = requests.get(url, params=params).json()
-print(response)
+data = requests.get(url, params=params).json()["data"]
+print(f"{len(data)} observations")
+print(data[0])
 ```
 {% endtab %}
 {% endtabs %}

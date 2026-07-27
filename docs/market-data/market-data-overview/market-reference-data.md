@@ -207,7 +207,7 @@ options = client.reference_data_markets(type="option").to_dataframe()
 
 {% tab title="Shell" %}
 ```bash
-curl --compressed "https://api.coinmetrics.io/v4/reference-data/markets?markets=coinbase-btc-usd-spot,binance-BTCUSDT-future&api_key=$CM_API_KEY"
+curl --compressed "https://api.coinmetrics.io/v4/reference-data/markets?markets=coinbase-btc-usd-spot,binance-BTCUSDT-future&page_size=10000&api_key=$CM_API_KEY"
 ```
 {% endtab %}
 
@@ -219,6 +219,7 @@ import requests
 url = "https://api.coinmetrics.io/v4/reference-data/markets"
 params = {
     "markets": "coinbase-btc-usd-spot,binance-BTCUSDT-future",
+    "page_size": 10000,
     "api_key": os.environ["CM_API_KEY"],
 }
 print(requests.get(url, params=params).json())

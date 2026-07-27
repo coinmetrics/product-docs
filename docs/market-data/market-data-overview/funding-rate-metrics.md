@@ -119,7 +119,7 @@ print(df)
 
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=futures_aggregate_funding_rate_all_margin_8h_period&frequency=1h&limit_per_asset=3&api_key=$CM_API_KEY"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=futures_aggregate_funding_rate_all_margin_8h_period&frequency=1h&limit_per_asset=3&page_size=10000&api_key=$CM_API_KEY"
 ```
 {% endtab %}
 
@@ -131,7 +131,7 @@ response = requests.get(
     "https://api.coinmetrics.io/v4/timeseries/asset-metrics",
     params={"assets": "btc", "metrics": "futures_aggregate_funding_rate_all_margin_8h_period",
             "frequency": "1h", "limit_per_asset": 3,
-            "api_key": os.environ["CM_API_KEY"]},
+            "page_size": 10000, "api_key": os.environ["CM_API_KEY"]},
 ).json()
 print(response)
 ```

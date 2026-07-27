@@ -19,6 +19,7 @@ redirects:
   market-data/market-data-overview/funding-rates/cumulative-futures-funding-rate: market-data/market-data-overview/funding-rate-metrics.md
   market-data/market-data-overview/aggregated-futures-funding-rate: market-data/market-data-overview/funding-rate-metrics.md
   market-data/market-data-overview/cumulative-futures-funding-rate: market-data/market-data-overview/funding-rate-metrics.md
+  market-data/market-data-overview/volatility/market-implied-volatility: market-data/market-data-overview/market-implied-volatility.md
   market-data/market-data-overview/institution-metrics-overview/grayscale/shares-outstanding: market-data/market-data-overview/institution-metrics.md
   market-data/market-data-overview/institution-metrics-overview/grayscale/market-price: market-data/market-data-overview/institution-metrics.md
   market-data/market-data-overview/institution-metrics-overview/grayscale/net-asset-value: market-data/market-data-overview/institution-metrics.md
@@ -736,7 +737,7 @@ redirects:
   market-data-timeseries/market-candles: market-data/market-data-overview/market-candles.md
   market-data-timeseries/market-contracts: market-data/market-data-overview/market-contract-prices.md
   market-data-timeseries/market-greeks: market-data/market-data-overview/market-greeks.md
-  market-data-timeseries/market-implied-volatility: market-data/market-data-overview/volatility/market-implied-volatility.md
+  market-data-timeseries/market-implied-volatility: market-data/market-data-overview/market-implied-volatility.md
   market-data-timeseries/market-metadata: market-data/market-data-overview/market-reference-data.md
   market-data-timeseries/market-orderbooks: market-data/market-data-overview/order-books.md
   market-data-timeseries/market-quotes: market-data/market-data-overview/quotes.md  # anchor #market removed: GitBook redirect targets do not resolve URL fragments

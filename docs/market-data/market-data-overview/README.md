@@ -62,8 +62,8 @@ Data available at the market level is served through the API endpoints below, wh
 [market-contract-prices.md](market-contract-prices.md)
 {% endcontent-ref %}
 
-{% content-ref url="volatility/market-implied-volatility.md" %}
-[market-implied-volatility.md](volatility/market-implied-volatility.md)
+{% content-ref url="market-implied-volatility.md" %}
+[market-implied-volatility.md](market-implied-volatility.md)
 {% endcontent-ref %}
 
 {% content-ref url="market-greeks.md" %}

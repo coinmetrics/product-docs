@@ -115,7 +115,7 @@ print(df)
 
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/institution-metrics?institutions=grayscale&metrics=gbtc_total_assets,gbtc_shares_outstanding,gbtc_net_asset_value,gbtc_market_price,gbtc_coin_per_share&frequency=1d&limit_per_institution=3&api_key=$CM_API_KEY"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/institution-metrics?institutions=grayscale&metrics=gbtc_total_assets,gbtc_shares_outstanding,gbtc_net_asset_value,gbtc_market_price,gbtc_coin_per_share&frequency=1d&limit_per_institution=3&page_size=10000&api_key=$CM_API_KEY"
 ```
 {% endtab %}
 
@@ -128,7 +128,7 @@ response = requests.get(
     params={"institutions": "grayscale",
             "metrics": "gbtc_total_assets,gbtc_shares_outstanding,gbtc_net_asset_value,gbtc_market_price,gbtc_coin_per_share",
             "frequency": "1d", "limit_per_institution": 3,
-            "api_key": os.environ["CM_API_KEY"]},
+            "page_size": 10000, "api_key": os.environ["CM_API_KEY"]},
 ).json()
 print(response)
 ```
@@ -235,7 +235,7 @@ print(df)
 
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/catalog-all-v2/institution-metrics?institutions=grayscale&page_size=1000&api_key=$CM_API_KEY"
+curl --compressed "https://api.coinmetrics.io/v4/catalog-all-v2/institution-metrics?institutions=grayscale&page_size=10000&api_key=$CM_API_KEY"
 ```
 {% endtab %}
 {% endtabs %}

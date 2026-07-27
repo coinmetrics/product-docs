@@ -12,7 +12,7 @@ Coin Metrics samples the predicted rate from each venue's perpetual futures mark
 
 ## At a Glance
 
-<table data-full-width="true"><thead><tr><th>Data type</th><th>Entities</th><th width="159">Frequency / cadence</th><th>Unit</th><th>Primary endpoint</th><th>Coverage</th></tr></thead><tbody><tr><td>Predicted (real-time) perpetual-futures funding rates</td><td>Markets (perpetual futures)</td><td>Sampled once per minute per market from the exchange's real-time futures ticker</td><td>Funding rate as a decimal fraction over the funding period (for example <code>0.0010</code> = 0.10%)</td><td><code>/timeseries/market-funding-rates-predicted</code></td><td><a href="https://coverage.coinmetrics.io/market-funding-rates-predicted-v2">🔗</a></td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th>Data type</th><th>Entities</th><th width="159">Frequency / cadence</th><th>Unit</th><th>Primary endpoint</th><th>Coverage</th></tr></thead><tbody><tr><td>Predicted (real-time) perpetual-futures funding rates</td><td>Markets (perpetual futures)</td><td>Sampled once per minute per market from the exchange's real-time estimate</td><td>Funding rate as a decimal fraction over the funding period (for example <code>0.0010</code> = 0.10%)</td><td><code>/timeseries/market-funding-rates-predicted</code></td><td><a href="https://coverage.coinmetrics.io/market-funding-rates-predicted-v2">🔗</a></td></tr></tbody></table>
 
 ## Schema
 
@@ -32,11 +32,11 @@ One observation is the predicted funding rate for one market sampled at one poin
 
 ## Methodology
 
-The predicted rate is not re-derived by Coin Metrics. Each exchange publishes a real-time estimate of the next funding rate on its perpetual futures ticker, and Coin Metrics records that estimate as a harmonized per-market time series. The mechanics below cover how the estimate is sampled, how it is signed and denominated, how it converges to the realized rate, and how observations are timestamped.
+The predicted rate is not re-derived by Coin Metrics. Each exchange publishes a real-time estimate of the next funding rate for its perpetual futures markets, and Coin Metrics records that estimate as a harmonized per-market time series. The mechanics below cover how the estimate is sampled, how it is signed and denominated, how it converges to the realized rate, and how observations are timestamped.
 
 ### Collection and sampling
 
-Coin Metrics reads the predicted rate from each venue's real-time futures ticker feed, where the current estimate of the next funding rate is published alongside the mark and index prices. The feed updates continuously, and Coin Metrics stores at most one observation per market per minute: samples are keyed by market and by the sample time truncated to the minute, so the first estimate seen within each minute is kept and later estimates in the same minute are not stored again. This is why the `time` field always falls on a whole-minute boundary and why the effective sampling frequency is once per minute for every market in the coverage universe.
+Coin Metrics reads the predicted rate directly from each venue, where the current estimate of the next funding rate is published alongside the mark and index prices. That estimate updates continuously, and Coin Metrics stores at most one observation per market per minute: samples are keyed by market and by the sample time truncated to the minute, so the first estimate seen within each minute is kept and later estimates in the same minute are not stored again. This is why the `time` field always falls on a whole-minute boundary and why the effective sampling frequency is once per minute for every market in the coverage universe.
 
 Only perpetual futures markets carry a predicted rate. Observations without a published estimate are not stored.
 
@@ -89,7 +89,7 @@ print(df)
 
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-funding-rates-predicted?markets=binance-BTCUSDT-future&limit_per_market=5&api_key=$CM_API_KEY"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-funding-rates-predicted?markets=binance-BTCUSDT-future&limit_per_market=5&page_size=10000&api_key=$CM_API_KEY"
 ```
 {% endtab %}
 
@@ -100,7 +100,7 @@ import os, requests
 response = requests.get(
     "https://api.coinmetrics.io/v4/timeseries/market-funding-rates-predicted",
     params={"markets": "binance-BTCUSDT-future", "limit_per_market": 5,
-            "api_key": os.environ["CM_API_KEY"]},
+            "page_size": 10000, "api_key": os.environ["CM_API_KEY"]},
 ).json()
 print(response)
 ```
@@ -173,7 +173,7 @@ The realized funding rate is calculated over the previous funding interval and i
 
 ### What is the sampling frequency of the predicted funding rates?
 
-The predicted funding rate is sampled once per minute for the perpetual futures markets in the coverage universe. The exchange ticker updates more frequently, but Coin Metrics stores at most one observation per market per minute, so `time` always falls on a whole-minute boundary.
+The predicted funding rate is sampled once per minute for the perpetual futures markets in the coverage universe. The exchange updates its estimate more frequently, but Coin Metrics stores at most one observation per market per minute, so `time` always falls on a whole-minute boundary.
 
 ### What does the `rate_time` field represent?
 

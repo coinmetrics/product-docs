@@ -7,7 +7,7 @@ Please follow these rules to use API most efficiently and get the best API perfo
 The rules are sorted in the priority order. The first ones make the biggest impact.
 
 * Ensure that your HTTP client sends the proper request headers to enable HTTP compression. Your HTTP request should have an "Accept-Encoding: gzip" header.
-* Use the line-delimited JSON format (`format=json_stream`) if it's supported by an API endpoint (currently only catalog-v2 functions) instead of the default format=json. That format allows you to avoid paging so you can quickly request all data using only one HTTP request without facing page\_size limitations (10k elements per page) and related difficulties.
+* Use the line-delimited JSON format (`format=json_stream`) instead of the default `format=json`. It is supported across the timeseries, reference-data, and catalog-v2 endpoints. That format allows you to avoid paging so you can quickly request all data using only one HTTP request without facing page\_size limitations (10k elements per page) and related difficulties. The response is returned as `application/x-ndjson`, which is one JSON object per line rather than a single JSON document, so parse it a line at a time instead of passing the whole body to a JSON parser.
 * If you have to use the format=json (default value), strive to use the `paging_from=start` query parameter instead of `paging_from=end` (default value). It always produces faster responses.
 * Instead of sending individual requests for different entities, combine them in a single request using commas. For example, `assets=btc,eth&metrics=ReferenceRateUSD,ReferenceRateEUR`. However, avoid combining two lists, e.g. a list of assets and a list of metrics.
 * Strive to use limit\_per\_\<entity> query parameters if you want to fetch recent metric values for multiple entities (for example, assets, markets, indexes) at the same time. For example, if you want to request recent reference rates for a set of assets, use the following request: `https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc,eth&frequency=1m&metrics=ReferenceRateUSD&limit_per_asset=1&page_size=2&api_key=<key>`. Note that `page_size` must be greater or equal to the number of requested entities (assets) multiplied by `limit_per_<entity>` value.
@@ -22,7 +22,7 @@ The Python API Client can be optimized in many ways to speed up your queries.
 
 ### Page Size
 
-Queries can be made much faster by increasing the `page_size` parameter. The higher the page\_size, the faster the query, with a maximum of `page_size=10000`
+Queries can be made much faster by increasing the `page_size` parameter. The higher the page\_size, the faster the query, with a maximum of `page_size=10000`. The default is 100, so a request that does not set `page_size` and does not follow `next_page_url` returns only the first 100 records of the result set.
 
 ### Data Formats
 

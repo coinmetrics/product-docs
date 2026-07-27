@@ -8,23 +8,23 @@ This page covers three families, all served for markets on the same endpoint. **
 
 ## At a Glance
 
-<table data-full-width="true"><thead><tr><th>Data type</th><th>Entities</th><th width="159">Frequency / cadence</th><th>Unit</th><th>Primary endpoint</th><th>Coverage</th></tr></thead><tbody><tr><td>Order book liquidity metrics (bid-ask spread, order book depth, slippage)</td><td>Markets (spot and futures)</td><td>Bid-ask spread at 1m, 1h, and 1d. Order book depth and slippage at 1h</td><td>Dimensionless (percent) for spread and slippage. Native units or USD for depth</td><td><code>/timeseries/market-metrics</code></td><td><a href="https://coverage.coinmetrics.io/search-results?query=liquidity_%2A">🔗</a></td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th>Data type</th><th>Entities</th><th width="159">Frequency / cadence</th><th>Unit</th><th>Primary endpoint</th><th>Coverage</th></tr></thead><tbody><tr><td>Order book liquidity metrics (bid-ask spread, order book depth, slippage)</td><td>Markets (spot and futures)</td><td>Bid-ask spread at 1m, 1h, and 1d. Order book depth and slippage at 1h</td><td>Dimensionless (percent) for spread and slippage. Native units or USD for depth</td><td><code>/timeseries/market-metrics</code></td><td><a href="https://docs.coinmetrics.io/api/v4/#operation/getCatalogAllV2MarketMetrics">🔗</a></td></tr></tbody></table>
 
 ## Metrics
 
-There are 125 liquidity metrics: 3 bid-ask spread, 80 order book depth, and 42 slippage. Depth and slippage are generated combinatorially, so they are documented below by naming convention with the full list of available parameter values, rather than as one row per metric. Substitute a value from the parameter list into the placeholder to get a valid metric name. Use the coverage links to browse the resolved list and check per-market availability.
+There are 125 liquidity metrics: 3 bid-ask spread, 80 order book depth, and 42 slippage. Depth and slippage are generated combinatorially, so they are documented below by naming convention with the full list of available parameter values, rather than as one row per metric. Substitute a value from the parameter list into the placeholder to get a valid metric name. To browse the resolved list and check per-market availability, query the catalog as shown under [Coverage](#coverage).
 
 ### Bid-ask spread
 
 The mean bid-ask spread over the interval, expressed as a percent of the midprice (see [Methodology](#bid-ask-spread-calculation)). Each metric is published only at the frequency named in its own suffix, so `liquidity_bid_ask_spread_percent_1h` must be requested with `frequency=1h`.
 
-<table data-full-width="true"><thead><tr><th width="470">Metric</th><th>Description</th><th width="90">Unit</th><th width="90">Frequency</th><th width="90">Coverage</th></tr></thead><tbody><tr><td><code>liquidity_bid_ask_spread_percent_1m</code></td><td>The mean bid-ask spread over a 1 minute window as a percent of midprice.</td><td>Dimensionless</td><td>1m</td><td><a href="https://coverage.coinmetrics.io/market-metrics-v2/liquidity_bid_ask_spread_percent_1m">🔗</a></td></tr><tr><td><code>liquidity_bid_ask_spread_percent_1h</code></td><td>The mean bid-ask spread over a 1 hour window as a percent of midprice.</td><td>Dimensionless</td><td>1h</td><td><a href="https://coverage.coinmetrics.io/market-metrics-v2/liquidity_bid_ask_spread_percent_1h">🔗</a></td></tr><tr><td><code>liquidity_bid_ask_spread_percent_1d</code></td><td>The mean bid-ask spread over a 1 day window as a percent of midprice.</td><td>Dimensionless</td><td>1d</td><td><a href="https://coverage.coinmetrics.io/market-metrics-v2/liquidity_bid_ask_spread_percent_1d">🔗</a></td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th width="470">Metric</th><th>Description</th><th width="90">Unit</th><th width="90">Frequency</th></tr></thead><tbody><tr><td><code>liquidity_bid_ask_spread_percent_1m</code></td><td>The mean bid-ask spread over a 1 minute window as a percent of midprice.</td><td>Dimensionless</td><td>1m</td></tr><tr><td><code>liquidity_bid_ask_spread_percent_1h</code></td><td>The mean bid-ask spread over a 1 hour window as a percent of midprice.</td><td>Dimensionless</td><td>1h</td></tr><tr><td><code>liquidity_bid_ask_spread_percent_1d</code></td><td>The mean bid-ask spread over a 1 day window as a percent of midprice.</td><td>Dimensionless</td><td>1d</td></tr></tbody></table>
 
 ### Order book depth
 
 The cumulative resting volume within `{X}` percent of the midprice, reported separately for the bid and the ask side and in two units (see [Methodology](#order-book-depth-calculation)). All 80 metrics are hourly.
 
-<table data-full-width="true"><thead><tr><th width="470">Metric</th><th>Description</th><th width="120">Unit</th><th width="90">Frequency</th><th width="90">Coverage</th></tr></thead><tbody><tr><td><code>liquidity_depth_{X}_percent_ask_volume_units</code></td><td>The sum of all ask orders with price within X percent from midprice, in native units.</td><td>Native Units</td><td>1h</td><td><a href="https://coverage.coinmetrics.io/search-results?query=liquidity_depth_%2A">🔗</a></td></tr><tr><td><code>liquidity_depth_{X}_percent_bid_volume_units</code></td><td>The sum of all bid orders with price within X percent from midprice, in native units.</td><td>Native Units</td><td>1h</td><td><a href="https://coverage.coinmetrics.io/search-results?query=liquidity_depth_%2A">🔗</a></td></tr><tr><td><code>liquidity_depth_{X}_percent_ask_volume_usd</code></td><td>The sum of all ask orders with price within X percent from midprice, where the order amount is converted to USD.</td><td>USD</td><td>1h</td><td><a href="https://coverage.coinmetrics.io/search-results?query=liquidity_depth_%2A">🔗</a></td></tr><tr><td><code>liquidity_depth_{X}_percent_bid_volume_usd</code></td><td>The sum of all bid orders with price within X percent from midprice, where the order amount is converted to USD.</td><td>USD</td><td>1h</td><td><a href="https://coverage.coinmetrics.io/search-results?query=liquidity_depth_%2A">🔗</a></td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th width="470">Metric</th><th>Description</th><th width="120">Unit</th><th width="90">Frequency</th></tr></thead><tbody><tr><td><code>liquidity_depth_{X}_percent_ask_volume_units</code></td><td>The sum of all ask orders with price within X percent from midprice, in native units.</td><td>Native Units</td><td>1h</td></tr><tr><td><code>liquidity_depth_{X}_percent_bid_volume_units</code></td><td>The sum of all bid orders with price within X percent from midprice, in native units.</td><td>Native Units</td><td>1h</td></tr><tr><td><code>liquidity_depth_{X}_percent_ask_volume_usd</code></td><td>The sum of all ask orders with price within X percent from midprice, where the order amount is converted to USD.</td><td>USD</td><td>1h</td></tr><tr><td><code>liquidity_depth_{X}_percent_bid_volume_usd</code></td><td>The sum of all bid orders with price within X percent from midprice, where the order amount is converted to USD.</td><td>USD</td><td>1h</td></tr></tbody></table>
 
 `{X}` is the distance from the midprice in percent, and takes 20 values. A decimal point is written as an underscore, so 0.1 percent is `0_1` and 1.5 percent is `1_5`, while whole percentages carry no decimal at all, so 1 percent is `1` and 10 percent is `10`:
 
@@ -36,7 +36,7 @@ For example, `liquidity_depth_0_5_percent_bid_volume_usd` is the U.S. dollar val
 
 The price slippage incurred by a market order of `{S}` U.S. dollars, as a percent of the midprice (see [Methodology](#slippage-calculation)). Ask metrics price a market **buy** and bid metrics price a market **sell**. All 42 metrics are hourly.
 
-<table data-full-width="true"><thead><tr><th width="470">Metric</th><th>Description</th><th width="120">Unit</th><th width="90">Frequency</th><th width="90">Coverage</th></tr></thead><tbody><tr><td><code>liquidity_slippage_{S}_ask_percent</code></td><td>The price slippage for a market buy order of S U.S. dollars as a percent of midprice.</td><td>Dimensionless</td><td>1h</td><td><a href="https://coverage.coinmetrics.io/search-results?query=liquidity_slippage_%2A">🔗</a></td></tr><tr><td><code>liquidity_slippage_{S}_bid_percent</code></td><td>The price slippage for a market sell order of S U.S. dollars as a percent of midprice.</td><td>Dimensionless</td><td>1h</td><td><a href="https://coverage.coinmetrics.io/search-results?query=liquidity_slippage_%2A">🔗</a></td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th width="470">Metric</th><th>Description</th><th width="120">Unit</th><th width="90">Frequency</th></tr></thead><tbody><tr><td><code>liquidity_slippage_{S}_ask_percent</code></td><td>The price slippage for a market buy order of S U.S. dollars as a percent of midprice.</td><td>Dimensionless</td><td>1h</td></tr><tr><td><code>liquidity_slippage_{S}_bid_percent</code></td><td>The price slippage for a market sell order of S U.S. dollars as a percent of midprice.</td><td>Dimensionless</td><td>1h</td></tr></tbody></table>
 
 `{S}` is the notional order size in U.S. dollars, written with a `K` or `M` suffix, and takes 21 values:
 
@@ -162,7 +162,7 @@ print(df)
 
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-metrics?markets=coinbase-btc-usd-spot&metrics=liquidity_bid_ask_spread_percent_1h,liquidity_depth_2_percent_ask_volume_usd,liquidity_slippage_100K_ask_percent&frequency=1h&limit_per_market=3&api_key=$CM_API_KEY"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/market-metrics?markets=coinbase-btc-usd-spot&metrics=liquidity_bid_ask_spread_percent_1h,liquidity_depth_2_percent_ask_volume_usd,liquidity_slippage_100K_ask_percent&frequency=1h&limit_per_market=3&page_size=10000&api_key=$CM_API_KEY"
 ```
 {% endtab %}
 
@@ -175,7 +175,7 @@ response = requests.get(
     params={"markets": "coinbase-btc-usd-spot",
             "metrics": "liquidity_bid_ask_spread_percent_1h,liquidity_depth_2_percent_ask_volume_usd,liquidity_slippage_100K_ask_percent",
             "frequency": "1h", "limit_per_market": 3,
-            "api_key": os.environ["CM_API_KEY"]},
+            "page_size": 10000, "api_key": os.environ["CM_API_KEY"]},
 ).json()
 print(response)
 ```
@@ -286,19 +286,41 @@ The slippage on a $100,000 market buy in `coinbase-btc-usd-spot`, as a percent o
 
 ## Coverage
 
-Coverage is published per metric. The family searches below resolve to every metric in each family, with the markets and history available for each.
+Market metrics are not published on coverage.coinmetrics.io. Availability is read from the catalog instead, which reports every market and metric together with the frequency and the first and last timestamp each one has data. This is the authoritative list of what exists and over what period, and it stays current as markets are added and retired.
 
-### Bid-ask spread coverage
+* [`/catalog-all-v2/market-metrics`](https://docs.coinmetrics.io/api/v4/#operation/getCatalogAllV2MarketMetrics): complete availability, independent of the requesting key.
+* [`/catalog-v2/market-metrics`](https://docs.coinmetrics.io/api/v4/#operation/getCatalogV2MarketMetrics): the same view, restricted to what a key is entitled to.
+* [`/reference-data/market-metrics`](https://docs.coinmetrics.io/api/v4/#operation/getReferenceDataMarketMetrics): descriptive metadata, being the display name, description, and unit of a metric.
 
-{% embed url="https://coverage.coinmetrics.io/search-results?query=liquidity_bid_ask_spread_%2A" %}
+Because the three families do not share a frequency or a market list, query the catalog for a specific market before building against it rather than assuming a metric exists there.
 
-### Order book depth coverage
+The families also do not share a history start. Order book depth and slippage begin on 2021-05-01, while bid-ask spread begins on 2022-09-12, so a study spanning all three is limited to the shorter window. These are the earliest timestamps across all markets; any individual market starts no earlier than its own listing, and often considerably later.
 
-{% embed url="https://coverage.coinmetrics.io/search-results?query=liquidity_depth_%2A" %}
+{% tabs %}
+{% tab title="Python Client" %}
+```python
+import os
+from coinmetrics.api_client import CoinMetricsClient
 
-### Slippage coverage
+client = CoinMetricsClient(os.environ["CM_API_KEY"])
 
-{% embed url="https://coverage.coinmetrics.io/search-results?query=liquidity_slippage_%2A" %}
+# Every liquidity metric available for one market, with its date range.
+df = client.catalog_full_market_metrics_v2(
+    markets=["coinbase-btc-usd-spot"]
+).to_dataframe()
+
+print(df[df["metric"].str.startswith("liquidity_")])
+```
+{% endtab %}
+
+{% tab title="Shell" %}
+```shell
+curl --compressed "https://api.coinmetrics.io/v4/catalog-all-v2/market-metrics?markets=coinbase-btc-usd-spot&page_size=10000&api_key=$CM_API_KEY"
+```
+{% endtab %}
+{% endtabs %}
+
+To go the other way and list every market carrying a given metric, pass `metrics` instead of `markets`. Omitting both returns the full catalog, which is large enough that it should be paged through rather than fetched in one call.
 
 ## Usage
 
