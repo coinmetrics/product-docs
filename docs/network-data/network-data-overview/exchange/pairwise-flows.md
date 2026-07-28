@@ -14,7 +14,7 @@ Each supported ordered entity pair emits three metrics, named with the pair's en
 
 <table data-full-width="true"><thead><tr><th width="360">Metric</th><th>Description</th><th>Frequency</th><th>Coverage</th></tr></thead><tbody><tr><td><code>FlowFrom{EntityA}To{EntityB}Ntv</code></td><td>Native-unit value attributed as flowing from EntityA to EntityB, including value routed through untagged intermediary wallets for up to two hops.</td><td>1d, 1h</td><td><a href="https://coverage.coinmetrics.io/asset-metrics-v2/FlowFromCBSToBNBNtv">🔗</a></td></tr><tr><td><code>FlowFrom{EntityA}To{EntityB}USD</code></td><td>USD value of the same flow, derived from the Ntv metric and the asset's reference rate.</td><td>1d, 1h</td><td><a href="https://coverage.coinmetrics.io/asset-metrics-v2/FlowFromCBSToBNBUSD">🔗</a></td></tr><tr><td><code>FlowTfrFrom{EntityA}To{EntityB}Cnt</code></td><td>Expected number of transfers attributed to this flow, emitted as a whole transfer count. Direct entity-to-entity transfers contribute exact counts and value routed through untagged wallets contributes a fractional expected count; the two are summed and rounded to the nearest whole transfer, with any positive value below one rounded up to one.</td><td>1d, 1h</td><td><a href="https://coverage.coinmetrics.io/asset-metrics-v2/FlowTfrFromCBSToBNBCnt">🔗</a></td></tr></tbody></table>
 
-As of the current release, supported pairs cover six major centralized exchanges (all ordered pairs among them) on USDC on Ethereum. The data spans from genesis up to the present.
+As of the current release, supported pairs cover six major centralized exchanges — **30 ordered pairs** among them — on USDC on Ethereum. Each pair emits the three metrics above, for **90** metrics in total. The data spans from genesis up to the present. See [Supported pairs](#supported-pairs) for the entity codes and pair matrix.
 
 ## Methodology
 
@@ -93,3 +93,22 @@ print(response)
 {% endtabs %}
 
 Full parameter reference: see the API Reference for [`/timeseries/asset-metrics`](https://docs.coinmetrics.io/api/v4/#operation/getTimeseriesAssetMetrics).
+
+## Supported pairs
+
+Pairwise flow metrics are available for every ordered pair among the following six exchanges. Self-pairs (an exchange to itself) are not included.
+
+| Exchange | Code |
+| -------- | ---- |
+| Binance  | BNB  |
+| Bybit    | BIT  |
+| Coinbase | CBS  |
+| Kraken   | KRK  |
+| KuCoin   | KCN  |
+| OKX      | OKX  |
+
+Metric names use these codes in place of `{EntityA}` and `{EntityB}`. For example, Coinbase to Binance native units is `FlowFromCBSToBNBNtv`.
+
+The grid below shows every supported direction. Rows are the source exchange; columns are the destination. A filled cell is an available ordered pair.
+
+<table data-full-width="true"><thead><tr><th></th><th>BNB</th><th>BIT</th><th>CBS</th><th>KRK</th><th>KCN</th><th>OKX</th></tr></thead><tbody><tr><td><strong>BNB</strong></td><td></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td><strong>BIT</strong></td><td>●</td><td></td><td>●</td><td>●</td><td>●</td><td>●</td></tr><tr><td><strong>CBS</strong></td><td>●</td><td>●</td><td></td><td>●</td><td>●</td><td>●</td></tr><tr><td><strong>KRK</strong></td><td>●</td><td>●</td><td>●</td><td></td><td>●</td><td>●</td></tr><tr><td><strong>KCN</strong></td><td>●</td><td>●</td><td>●</td><td>●</td><td></td><td>●</td></tr><tr><td><strong>OKX</strong></td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td></td></tr></tbody></table>
