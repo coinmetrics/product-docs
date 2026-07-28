@@ -9,6 +9,8 @@ redirects:
   market-data/market-data-overview/open-interest: market-data/market-data-overview/market-open-interest.md
   market-data/market-data-overview/market-metadata: market-data/market-data-overview/market-reference-data.md
   market-data/market-data-overview/candles: market-data/market-data-overview/market-candles.md
+  market-data/market-data-overview/quotes: market-data/market-data-overview/market-quotes.md
+  market-data/market-data-overview/order-books: market-data/market-data-overview/market-order-books.md
   market-data/market-data-overview/basis: market-data/market-data-overview/basis-metrics.md
   market-data/market-data-overview/funding-rates/funding-rates: market-data/market-data-overview/market-funding-rates.md
   market-data/market-data-overview/funding-rates: market-data/market-data-overview/market-funding-rates.md
@@ -739,8 +741,8 @@ redirects:
   market-data-timeseries/market-greeks: market-data/market-data-overview/market-greeks.md
   market-data-timeseries/market-implied-volatility: market-data/market-data-overview/market-implied-volatility.md
   market-data-timeseries/market-metadata: market-data/market-data-overview/market-reference-data.md
-  market-data-timeseries/market-orderbooks: market-data/market-data-overview/order-books.md
-  market-data-timeseries/market-quotes: market-data/market-data-overview/quotes.md  # anchor #market removed: GitBook redirect targets do not resolve URL fragments
+  market-data-timeseries/market-orderbooks: market-data/market-data-overview/market-order-books.md
+  market-data-timeseries/market-quotes: market-data/market-data-overview/market-quotes.md  # anchor #market removed: GitBook redirect targets do not resolve URL fragments
   market-data-timeseries/trades: market-data/market-data-overview/market-trades.md
   market-data/faqs/market-data-faqs: resources/faqs.md
   market-metrics/liquidations/liquidations_reported_future_buy_units_1d: market-data/market-data-overview/liquidation-metrics.md
@@ -819,5 +821,5 @@ redirects:
   tagging-data/tagging-meta-data: network-data/tagging-meta-data.md
   taxonomy/taxonomy-for-assets: reference-data/datonomy-overview/taxonomy-for-assets.md
   taxonomy/taxonomy-metadata-for-assets: reference-data/datonomy-overview/taxonomy-metadata-for-assets.md
-  timeseries-stream/asset-quotes: market-data/market-data-overview/quotes.md  # anchor #asset removed: GitBook redirect targets do not resolve URL fragments
-  timeseries-stream/pair-quotes: market-data/market-data-overview/quotes.md  # anchor #pair removed: GitBook redirect targets do not resolve URL fragments
+  timeseries-stream/asset-quotes: market-data/market-data-overview/market-quotes.md  # anchor #asset removed: GitBook redirect targets do not resolve URL fragments
+  timeseries-stream/pair-quotes: market-data/market-data-overview/market-quotes.md  # anchor #pair removed: GitBook redirect targets do not resolve URL fragments

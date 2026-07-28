@@ -9,7 +9,7 @@ Coin Metrics serves market quotes in two complementary forms:
 * A historical series over the HTTP endpoint [`/timeseries/market-quotes`](https://docs.coinmetrics.io/api/v4/#operation/getTimeseriesMarketQuotes), derived from stored order book snapshots.
 * A real-time top-of-book feed over the websocket endpoint [`/timeseries-stream/market-quotes`](https://docs.coinmetrics.io/api/v4/#operation/getTimeseriesStreamMarketQuotes).
 
-Because quotes are the level-1 view of the book, most collection and coverage questions are answered on the [Order Books](order-books.md) page.
+Because quotes are the level-1 view of the book, most collection and coverage questions are answered on the [Market Order Books](market-order-books.md) page.
 
 ## At a Glance
 
@@ -44,7 +44,7 @@ The websocket feed is a dedicated top-of-book feed. Coin Metrics collects each m
 
 ### Historical series
 
-The HTTP series is derived from stored order book snapshots. For each snapshot, Coin Metrics takes the single best bid and best ask (level-1) and serves them as a quote. As a result, the historical series follows the order book snapshot cadence rather than every top-of-book change: for major markets, snapshots are taken every 10 seconds. Each observation carries the exchange event time of the most recent update captured before the snapshot mark, so `time` typically falls a fraction of a second before each round 10-second mark rather than exactly on it. For the full mechanics of snapshot collection, cadence, and coverage, see the [Order Books](order-books.md) page.
+The HTTP series is derived from stored order book snapshots. For each snapshot, Coin Metrics takes the single best bid and best ask (level-1) and serves them as a quote. As a result, the historical series follows the order book snapshot cadence rather than every top-of-book change: for major markets, snapshots are taken every 10 seconds. Each observation carries the exchange event time of the most recent update captured before the snapshot mark, so `time` typically falls a fraction of a second before each round 10-second mark rather than exactly on it. For the full mechanics of snapshot collection, cadence, and coverage, see the [Market Order Books](market-order-books.md) page.
 
 ### One-sided books
 
@@ -54,7 +54,7 @@ When one side of the book is empty, that side's price and size are omitted from 
 
 `coin_metrics_id` uniquely identifies the observation. When an exchange publishes its own sequence number or message id, Coin Metrics preserves it so you can order and de-duplicate messages exactly as the exchange does. When an exchange does not, Coin Metrics assigns its own identifier. For the HTTP series, `coin_metrics_id` is the identifier of the underlying order book snapshot the quote was taken from.
 
-`time` is the exchange-reported event time for venues that publish a per-message timestamp. For venues that do not, `time` reflects the moment Coin Metrics received the message. The per-exchange breakdown of identifier and timestamp conventions is documented in the [Order Books](order-books.md#identifiers-and-timestamps) page and applies to quotes as well, since both are produced from the same collection.
+`time` is the exchange-reported event time for venues that publish a per-message timestamp. For venues that do not, `time` reflects the moment Coin Metrics received the message. The per-exchange breakdown of identifier and timestamp conventions is documented in the [Market Order Books](market-order-books.md#identifiers-and-timestamps) page and applies to quotes as well, since both are produced from the same collection.
 
 ## Accessing the Data
 
@@ -204,27 +204,27 @@ Choose the endpoint that matches your question:
 
 * **The HTTP series** is best for historical analysis, backtests, and periodic top-of-book or spread series. It follows the snapshot cadence, so it samples the top of book rather than capturing every change.
 * **The websocket stream** is best for maintaining a live best bid and best ask in production. It publishes on every top-of-book change and is the right source for tick-level quote data.
-* **Historical tick-level quotes.** The HTTP series is sampled at the snapshot cadence. To reconstruct every top-of-book change over a past period rather than the 10-second samples, use the order book updates dataset for supported markets. Request `/timeseries/market-orderbooks` with `dataset=updates`, reconstruct the book from the updates, and read the best bid and best ask after each update. See [Order Books](order-books.md).
+* **Historical tick-level quotes.** The HTTP series is sampled at the snapshot cadence. To reconstruct every top-of-book change over a past period rather than the 10-second samples, use the order book updates dataset for supported markets. Request `/timeseries/market-orderbooks` with `dataset=updates`, reconstruct the book from the updates, and read the best bid and best ask after each update. See [Market Order Books](market-order-books.md).
 
-For the full order book behind these quotes, use [Order Books](order-books.md). For a cross-exchange consolidated quote for a pair or asset, use [Aggregated Quotes](aggregated-quotes.md).
+For the full order book behind these quotes, use [Market Order Books](market-order-books.md). For a cross-exchange consolidated quote for a pair or asset, use [Aggregated Quotes](aggregated-quotes.md).
 
 ## Limitations
 
-* **The HTTP series samples the book.** It is derived from order book snapshots (every 10 seconds for major markets), so it does not capture every intermediate top-of-book change. For every change in real time, use the websocket stream. For every change historically, reconstruct level-1 (best bid and ask) from the order book updates dataset by requesting `/timeseries/market-orderbooks` with `dataset=updates` for supported markets. See [Order Books](order-books.md).
+* **The HTTP series samples the book.** It is derived from order book snapshots (every 10 seconds for major markets), so it does not capture every intermediate top-of-book change. For every change in real time, use the websocket stream. For every change historically, reconstruct level-1 (best bid and ask) from the order book updates dataset by requesting `/timeseries/market-orderbooks` with `dataset=updates` for supported markets. See [Market Order Books](market-order-books.md).
 * **One-sided books.** When a side of the book is empty, that side is omitted unless you request `include_one_sided`.
 * **History follows order book collection.** Quotes cannot be backfilled from exchanges beyond the order book history Coin Metrics collected, so coverage generally begins when Coin Metrics started collecting a market. See the [coverage page](https://coverage.coinmetrics.io/market-quotes-v2) for authoritative per-market availability.
 
 ## FAQ
 
-Because market quotes are derived from order book data, many questions about collection, latency, snapshot timing, and history are answered on the [Order Books](order-books.md) page.
+Because market quotes are derived from order book data, many questions about collection, latency, snapshot timing, and history are answered on the [Market Order Books](market-order-books.md) page.
 
-{% content-ref url="order-books.md" %}
-[order-books.md](order-books.md)
+{% content-ref url="market-order-books.md" %}
+[market-order-books.md](market-order-books.md)
 {% endcontent-ref %}
 
 ### How do market quotes relate to order book data?
 
-A market quote is the level-1 (top-of-book) view of the order book: the single best bid and best ask. The HTTP series is derived by taking the top level of stored order book snapshots. Order Books serves the full depth, the historical updates, and the real-time book stream. See [Order Books](order-books.md).
+A market quote is the level-1 (top-of-book) view of the order book: the single best bid and best ask. The HTTP series is derived by taking the top level of stored order book snapshots. Market Order Books serves the full depth, the historical updates, and the real-time book stream. See [Market Order Books](market-order-books.md).
 
 ### What is the difference between the HTTP endpoint and the websocket stream?
 
@@ -232,6 +232,6 @@ The HTTP endpoint returns a historical series derived from order book snapshots,
 
 ## Related
 
-* [Order Books](order-books.md): the full order book that market quotes are the level-1 view of.
+* [Market Order Books](market-order-books.md): the full order book that market quotes are the level-1 view of.
 * [Aggregated Quotes](aggregated-quotes.md): cross-exchange consolidated quotes for a pair or asset, built from market quotes.
 * [Market Trades](market-trades.md): executed trades for the same markets.

@@ -336,7 +336,7 @@ To go the other way and list every market carrying a given metric, pass `metrics
 * **Depth and slippage are hourly point-in-time readings.** Each value describes one snapshot rather than an average over the hour, so an unusually thin or thick book at the moment of the snapshot is reported as-is. The bid-ask spread metrics are averages and do not have this property.
 * **The spread average weights quote updates, not time.** Each quote update in the interval counts once regardless of how long it stood, so a market that requotes rapidly during a brief dislocation can pull the average further than the duration of that dislocation alone would suggest. Markets also differ in how often they requote, so observation counts behind two equal-looking values are not necessarily comparable.
 * **Missing values are returned as nulls, not as absent rows.** A market with an insufficient book still appears in the response for that timestamp with a null value, so consumers should handle nulls rather than assume every returned row carries a number.
-* **Values are capped by what each exchange publishes.** Metrics can only see the levels a venue exposes. Venues that publish a shallow book, such as only the top levels, produce nulls at the wider bands and larger order sizes. See the per-exchange depth table in [Order Books](order-books.md#limitations).
+* **Values are capped by what each exchange publishes.** Metrics can only see the levels a venue exposes. Venues that publish a shallow book, such as only the top levels, produce nulls at the wider bands and larger order sizes. See the per-exchange depth table in [Market Order Books](market-order-books.md#limitations).
 * **Slippage assumes an instantaneous fill against resting liquidity.** It does not model fees, latency, market impact, hidden or iceberg orders, or liquidity that would replenish while the order works. Treat it as a lower bound on the true cost of a large order.
 * **Depth counts resting orders, not committed liquidity.** Orders inside a band can be cancelled before they are ever executable.
 * **The most recent hour can be revised.** Late-arriving books cause each hourly run to recompute the previous hour.
@@ -351,7 +351,7 @@ They are already scaled to percent. A value of `0.0076` should be read as 0.0076
 
 ### Why are some depth and slippage values missing?
 
-Coin Metrics computes these from order book snapshots, and takes the deepest and most complete book each exchange offers, but the depth exchanges publish varies widely. If a book does not reach the requested band, or does not hold enough size to fill the requested order, the observation is published as null rather than as a partial total. This is deliberate, so that a shallow book is visible as missing rather than being silently reported as a low reading. If you need a non-null value, choose a narrower band or a smaller order size. Some venues publish only the top 20 or 100 levels, so a large share of nulls is expected there. See [Order Books](order-books.md#limitations) for the depth available per exchange.
+Coin Metrics computes these from order book snapshots, and takes the deepest and most complete book each exchange offers, but the depth exchanges publish varies widely. If a book does not reach the requested band, or does not hold enough size to fill the requested order, the observation is published as null rather than as a partial total. This is deliberate, so that a shallow book is visible as missing rather than being silently reported as a low reading. If you need a non-null value, choose a narrower band or a smaller order size. Some venues publish only the top 20 or 100 levels, so a large share of nulls is expected there. See [Market Order Books](market-order-books.md#limitations) for the depth available per exchange.
 
 ### Why is the bid-ask spread available at 1m but depth and slippage only at 1h?
 
@@ -375,8 +375,8 @@ The resting size is quoted in contracts and is scaled by the contract size befor
 
 ## Related
 
-* [Order Books](order-books.md): the raw order book snapshots these metrics are computed from, including the per-exchange depth available.
-* [Market Quotes](quotes.md): the level-1 best bid and ask series that the bid-ask spread metrics sample.
+* [Market Order Books](market-order-books.md): the raw order book snapshots these metrics are computed from, including the per-exchange depth available.
+* [Market Quotes](market-quotes.md): the level-1 best bid and ask series that the bid-ask spread metrics sample.
 * [Aggregated Quotes](aggregated-quotes.md): a consolidated cross-exchange best bid and ask for a pair or asset.
 * [Market Candles](market-candles.md): trade-derived price and volume bars for the same markets.
 * [Volume](volume/README.md): executed trading volume, the activity counterpart to resting liquidity.

@@ -1,4 +1,4 @@
-# Trades
+# Market Trades
 
 ## Overview
 
@@ -405,8 +405,8 @@ See the corresponding entry on the [Market Data FAQs page](../../resources/faqs.
 
 ## Related
 
-* [Market Quotes](quotes.md): level-1 best bid/ask for the same markets.
-* [Order Books](order-books.md): the full depth of resting orders that trades execute against.
+* [Market Quotes](market-quotes.md): level-1 best bid/ask for the same markets.
+* [Market Order Books](market-order-books.md): the full depth of resting orders that trades execute against.
 * [Market Candles](market-candles.md): OHLCV bars aggregated from trades.
 * [Market Liquidations](market-liquidations.md): forced trades on derivatives markets.
 * [Reported Volume](volume/volume_reported.md): exchange-reported trading volume.

@@ -42,12 +42,12 @@ Data available at the market level is served through the API endpoints below, wh
 [funding-rates.md](market-funding-rates.md)
 {% endcontent-ref %}
 
-{% content-ref url="order-books.md" %}
-[order-books.md](order-books.md)
+{% content-ref url="market-order-books.md" %}
+[market-order-books.md](market-order-books.md)
 {% endcontent-ref %}
 
-{% content-ref url="quotes.md" %}
-[quotes.md](quotes.md)
+{% content-ref url="market-quotes.md" %}
+[market-quotes.md](market-quotes.md)
 {% endcontent-ref %}
 
 {% content-ref url="market-candles.md" %}
