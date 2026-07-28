@@ -42,9 +42,11 @@ Every tagged address, whether an exchange, a lending protocol, an ETF, a layer-2
 
 Direct transfers contribute an exact integer count, while through-user attribution contributes a fractional expected count in which each wallet-to-destination deposit adds the source's attributed share at that hop. The direct and through-user counts are summed, and the emitted metric is rounded to the nearest whole transfer (ties rounded up), except that any positive value below one is rounded up to one so a small but real attributed flow is never reported as zero.
 
-### Hourly metrics and lookback
+### Lookback window
 
-Multi-hop chains can span more than one hour, since an intermediary wallet may hold funds for a period before forwarding them. The 1-hour metrics account for this using a trailing lookback window so these chains are still attributed correctly, while only deposits landing inside the target hour are counted toward that hour's value. Each deposit is counted in exactly one interval, though its source attribution can reach back across the lookback window.
+Multi-hop chains can span more than one interval, since an intermediary wallet may hold funds for a period before forwarding them. Both the 1-hour and 1-day metrics account for this using a trailing lookback window so these chains are still attributed correctly, while only deposits landing inside the target interval are counted toward that interval's value. Each deposit is counted in exactly one interval, though its source attribution can reach back across the lookback window.
+
+For more information, see [Pairwise Flow Lookback Window](../../../methodologies/pairwise-flow-lookback-window.md).
 
 ## Accessing the Data
 
