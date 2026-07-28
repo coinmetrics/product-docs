@@ -2,7 +2,7 @@
 
 ## Overview
 
-Pairwise flow metrics measure the directional value moving from one tagged entity to another, for example from Coinbase to Binance. Each metric covers a specific ordered pair of entities and includes value that moves indirectly through untagged intermediary wallets, not only direct transfers between the two entities. Fund flow analysts and researchers use these metrics to track capital movement between exchanges without tracing individual transaction chains themselves.
+Pairwise flow metrics measure the directional value moving from one tagged entity to another, for example from Coinbase to Binance. Each metric covers a specific ordered pair of entities and includes value that moves indirectly through untagged intermediary wallets for up to two hops, not only direct transfers between the two entities. These metrics can be used to track capital movement between exchanges.
 
 ## At a Glance
 
@@ -12,13 +12,9 @@ Pairwise flow metrics measure the directional value moving from one tagged entit
 
 Each supported ordered entity pair emits three metrics, named with the pair's entity codes in place of `{EntityA}` and `{EntityB}`:
 
-<table data-full-width="true"><thead><tr><th width="360">Metric</th><th>Description</th><th>Frequency</th><th>Coverage</th></tr></thead><tbody><tr><td><code>FlowFrom{EntityA}To{EntityB}Ntv</code></td><td>Native-unit value attributed as flowing from EntityA to EntityB, including value routed through untagged intermediary wallets.</td><td>1d, 1h</td><td>🔗</td></tr><tr><td><code>FlowFrom{EntityA}To{EntityB}USD</code></td><td>USD value of the same flow, derived from the Ntv metric and the asset's reference rate.</td><td>1d, 1h</td><td>🔗</td></tr><tr><td><code>FlowTfrFrom{EntityA}To{EntityB}Cnt</code></td><td>Expected number of transfers attributed to this flow, emitted as a whole transfer count. Direct entity-to-entity transfers contribute exact counts and value routed through untagged wallets contributes a fractional expected count; the two are summed and rounded to the nearest whole transfer, with any positive value below one rounded up to one.</td><td>1d, 1h</td><td>🔗</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th width="360">Metric</th><th>Description</th><th>Frequency</th><th>Coverage</th></tr></thead><tbody><tr><td><code>FlowFrom{EntityA}To{EntityB}Ntv</code></td><td>Native-unit value attributed as flowing from EntityA to EntityB, including value routed through untagged intermediary wallets for up to two hops.</td><td>1d, 1h</td><td>🔗</td></tr><tr><td><code>FlowFrom{EntityA}To{EntityB}USD</code></td><td>USD value of the same flow, derived from the Ntv metric and the asset's reference rate.</td><td>1d, 1h</td><td>🔗</td></tr><tr><td><code>FlowTfrFrom{EntityA}To{EntityB}Cnt</code></td><td>Expected number of transfers attributed to this flow, emitted as a whole transfer count. Direct entity-to-entity transfers contribute exact counts and value routed through untagged wallets contributes a fractional expected count; the two are summed and rounded to the nearest whole transfer, with any positive value below one rounded up to one.</td><td>1d, 1h</td><td>🔗</td></tr></tbody></table>
 
-As of the current release, supported pairs cover six major centralized exchanges (all ordered pairs among them) on USDC on Ethereum, computed from January 2026 onward. Coverage is expected to expand to more assets as more exchange endpoints are tagged for them.
-
-{% hint style="info" %}
-**Conventions.** Decimals are returned as JSON strings to preserve precision. Timestamps are UTC ISO-8601 with nanosecond resolution. `time` is the interval start.
-{% endhint %}
+As of the current release, supported pairs cover six major centralized exchanges (all ordered pairs among them) on USDC on Ethereum. The data spans from genesis up to the present.
 
 ## Methodology
 
@@ -108,8 +104,8 @@ REVIEWER: the embed below uses the standard metric-family wildcard pattern, but 
 
 ## Limitations
 
-* Scoped narrowly at launch: computed only for USDC on Ethereum, and only from January 2026 onward.
-* Attribution requires both entities in a pair to have tagged addresses for the asset in question. Coverage expands as more exchange endpoints are tagged for additional assets.
+* Scoped narrowly at launch: computed only for USDC on Ethereum.
+* Attribution requires both entities in a pair to have tagged addresses for the asset in question.
 * Attribution is aggregate within the computation window: transfer ordering inside a window is not used to assert that a specific deposit caused a specific later withdrawal.
 
 ## Reviewer Notes
