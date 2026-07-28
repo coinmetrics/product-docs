@@ -22,7 +22,7 @@ Each pairwise flow combines two attribution paths over the metric's interval.
 
 ### Direct transfers
 
-A transfer sent directly from an address belonging to the source entity to an address belonging to the destination entity is counted in full, with an exact integer transfer count.
+A transfer sent directly from an address belonging to the source entity to an address belonging to the destination entity is counted in full, with an exact integer transfer count. Transfers with a negative native-unit amount are included when summing flow values, but they do not contribute to the transfer count.
 
 ### Through-user attribution
 
@@ -58,7 +58,7 @@ client = CoinMetricsClient(api_key)
 
 print(
     client.get_asset_metrics(
-        assets="usdc",
+        assets="usdc_eth",
         metrics=["FlowFromCBSToBNBNtv", "FlowFromCBSToBNBUSD", "FlowTfrFromCBSToBNBCnt"],
         frequency="1d",
     ).to_dataframe()
@@ -68,7 +68,7 @@ print(
 
 {% tab title="Shell" %}
 ```shell
-curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=usdc&metrics=FlowFromCBSToBNBNtv,FlowFromCBSToBNBUSD,FlowTfrFromCBSToBNBCnt&frequency=1d&api_key=<your_key>"
+curl --compressed "https://api.coinmetrics.io/v4/timeseries/asset-metrics?assets=usdc_eth&metrics=FlowFromCBSToBNBNtv,FlowFromCBSToBNBUSD,FlowTfrFromCBSToBNBCnt&frequency=1d&api_key=<your_key>"
 ```
 {% endtab %}
 
@@ -79,7 +79,7 @@ import requests
 response = requests.get(
     "https://api.coinmetrics.io/v4/timeseries/asset-metrics",
     params={
-        "assets": "usdc",
+        "assets": "usdc_eth",
         "metrics": "FlowFromCBSToBNBNtv,FlowFromCBSToBNBUSD,FlowTfrFromCBSToBNBCnt",
         "frequency": "1d",
         "api_key": "YOUR_API_KEY",
@@ -91,30 +91,3 @@ print(response)
 {% endtabs %}
 
 Full parameter reference: see the API Reference for [`/timeseries/asset-metrics`](https://docs.coinmetrics.io/api/v4/#operation/getTimeseriesAssetMetrics).
-
-## Examples
-
-REVIEWER: no live examples generated in this draft. This session's fetch ran with `--no-live` because no API key was configured, so catalog rows and example JSON must be regenerated before publishing (see Reviewer Notes).
-
-## Coverage
-
-REVIEWER: the embed below uses the standard metric-family wildcard pattern, but that pattern assumes an underscore-separated metric stem (as in `volume_reported_%2A`) and these metric names have no underscore after `FlowFrom`. Verify the actual coverage search query or dedicated coverage page before publishing.
-
-{% embed url="https://coverage.coinmetrics.io/search-results?query=FlowFrom_%2A" %}
-
-## Limitations
-
-* Scoped narrowly at launch: computed only for USDC on Ethereum.
-* Attribution requires both entities in a pair to have tagged addresses for the asset in question.
-* Attribution is aggregate within the computation window: transfer ordering inside a window is not used to assert that a specific deposit caused a specific later withdrawal.
-
-## Reviewer Notes
-
-* [ ] Proposed `SUMMARY.md` entry: `* [Pairwise Flows](network-data/network-data-overview/exchange/pairwise-flows.md)`, added under the existing "Exchange" section alongside Deposits, Withdrawals, and Net Flows.
-* [ ] `live fetch disabled (--no-live): catalog metadata and live examples omitted.` (fetch tool warning — `CM_API_KEY` was not present in `data-tools/.env` during this session). Before publishing: add a key, rerun the fetch tool, and fill in the Metrics catalog rows (per-pair descriptions/coverage) and the Examples section with live JSON.
-* [ ] Coverage query pattern needs verification: the standard `{family}_%2A` wildcard assumes an underscore after the family stem (as used by `volume_reported_%2A`); these metric names (`FlowFromCBSToBNBNtv`, etc.) don't have one after `FlowFrom`. Confirm the working coverage search query, or find/request a dedicated coverage page, before publishing.
-* [ ] The published spec download (`docs.coinmetrics.io/api/static/openapi.yaml`) was unreachable from this session (proxy error) and the repo fallback path in `data-tools` doesn't exist; params/doc_url above were generated instead from the OpenAPI spec vendored in the `knowledge-base` repo's `api-client-python` submodule. Confirm this matches the currently published spec.
-* [ ] Confirm the complete, currently-activated list of entity pairs and their public ticker codes against `reference-data/catalog-v2` before publishing (this draft names Coinbase, Binance, Bybit, Kraken, OKEx, and KuCoin as the six exchanges, all ordered pairs, based on the reviewed commit's activation config). Note that the same commit also registered metric names for a couple of additional pairs and for aggregate exchange/lending categories that were **not** activated for customers, and those should not be documented as available.
-* [ ] SME to review the Methodology section (haircut formula, boundary/hop-depth description) for accuracy and to confirm it's appropriately external-facing.
-* [ ] Source file paths (internal, for SME reference only): `factory/src/main/kotlin/io/coinmetrics/metrics/Erc20PairwiseFlowMetrics.kt`, `factory/src/main/kotlin/io/coinmetrics/metrics/PairwiseFlowAttribution.kt`, `factory/src/main/resources/pairwise_flow_relationships.yaml`, `resources/src/main/resources/metrics.json`, `factory/src/main/resources/customer_available_metrics.yaml` (all in the `network-data` repo, commit `2b9f6d11e5d0ff60c566fbc191138c4f347d3faf`, "ND-8138: Implement pairwise flows").
-* [ ] Confirm whether existing `FlowIn*`/`FlowTfrIn*` deposit metrics (documented in `deposits.md`) and this new pairwise family should cross-link under `## Related` once this page is otherwise finalized.
