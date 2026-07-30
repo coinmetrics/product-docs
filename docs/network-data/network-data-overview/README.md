@@ -27,6 +27,12 @@ Details on the specific metrics are described in the pages linked in this sectio
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-07-30" %}
+## Added Pairwise Flow Metrics for USDC
+
+Released directional pairwise flow metrics capturing value moving between tagged entities (e.g. Coinbase, Binance, Bitfinex, Kraken, OKX, KuCoin), including value that passes through untagged intermediary wallets before reaching its destination. Available at the 1d and 1h frequency for USDC on Ethereum. For details on the supported metrics please refer to the [pairwise-flows.md](exchange/pairwise-flows.md "mention") page. For details on asset coverage please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/FlowFromCBSToBNBNtv).
+{% endupdate %}
+
 {% update date="2026-07-06" %}
 ## Expanded Estimated Market Cap Dominance to ETH
 
