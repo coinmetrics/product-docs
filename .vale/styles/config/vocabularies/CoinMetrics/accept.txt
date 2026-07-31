@@ -1,3 +1,46 @@
 # Add technical terms, API names, company terminology, and acronyms here
 # One term per line
 
+Coin Metrics
+Talos
+
+# GitBook macro keywords, which appear in the rendered source of every page
+endhint
+endtab
+endtabs
+endcontent-ref
+endopenapi
+
+# Cloud Delivery: storage and file formats
+Parquet
+PyArrow
+Snappy
+Hive
+DuckDB
+boto3
+s3fs
+
+# Cloud Delivery: platforms and services
+Snowflake
+Snowpipe
+Athena
+Databricks
+Iceberg
+
+# Exchange and venue names
+Coinbase
+Binance
+Bitstamp
+Bitfinex
+Kraken
+Deribit
+Bullish
+
+# General technical vocabulary
+cron
+runbook
+onboarding
+hardcode
+rescanning
+websockets
+SDKs
