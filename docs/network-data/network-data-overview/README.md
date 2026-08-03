@@ -30,17 +30,23 @@ Details on the specific metrics are described in the pages linked in this sectio
 {% update date="2026-08-03" %}
 ## Added Network Data Metrics for New Solana Tokens
 
-Added Network Data metrics for five new Solana tokens. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
+Added Network Data metrics for 11 new Solana tokens. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
 
 <details>
 
 <summary>Assets Added</summary>
 
-* HUMA\_SOL - Huma Finance on Solana
+* ARX\_SOL - Arcium SPL Token on Solana
+* BP\_BACKPACK\_SOL - Backpack on Solana
+* ECOR\_ECORPAY\_SOL - Ecorpay Token on Solana
 * HOME\_SOL - Home on Solana
-* PUMP\_SOL - Pump on Solana
-* WLFI\_SOL - World Liberty Financial on Solana
+* HUMA\_SOL - Huma Finance on Solana
+* LAYER\_SOLAYER\_SOL - Solayer on Solana
 * MET\_METEORA\_SOL - Meteora on Solana
+* PST\_PAYFI\_SOL - PayFi Strategy Token on Solana
+* PUMP\_SOL - Pump on Solana
+* WET\_HUMIDIFI\_SOL - HumidiFi on Solana
+* WLFI\_SOL - World Liberty Financial on Solana
 
 </details>
 {% endupdate %}
