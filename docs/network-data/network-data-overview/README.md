@@ -27,6 +27,46 @@ Details on the specific metrics are described in the pages linked in this sectio
 ## Change Log
 
 {% updates format="full" %}
+{% update date="2026-08-03" %}
+## Expanded CapMrktEstUSD to New Assets
+
+Added estimated market cap to the following new assets:
+
+<details>
+
+<summary>Estimated Market Cap added to the following assets:</summary>
+
+1. aztec
+2. based
+3. bill
+4. birb
+5. blend
+6. bob\_buildonbitcoin
+7. brev
+8. ctr
+9. esp
+10. fight
+11. fogo
+12. imu
+13. ir
+14. mega
+15. mezo
+16. opg
+17. rls
+18. rnbw
+19. robo
+20. scor
+21. thq
+22. tria
+23. u
+24. us
+25. usat
+26. vooi
+27. zama
+
+</details>
+{% endupdate %}
+
 {% update date="2026-07-30" %}
 ## Added Pairwise Flow Metrics for USDC
 
