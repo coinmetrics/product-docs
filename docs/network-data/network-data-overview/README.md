@@ -28,7 +28,7 @@ Details on the specific metrics are described in the pages linked in this sectio
 
 {% updates format="full" %}
 {% update date="2026-08-03" %}
-## Added Network Data Metrics for New Solana Tokens
+### Added Network Data Metrics for New Solana Tokens
 
 Added Network Data metrics for 11 new Solana tokens. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
 
@@ -52,7 +52,7 @@ Added Network Data metrics for 11 new Solana tokens. For full asset coverage det
 {% endupdate %}
 
 {% update date="2026-08-03" %}
-## Expanded CapMrktEstUSD to New Assets
+### Expanded CapMrktEstUSD to New Assets
 
 Added estimated market cap to the following new assets:
 
@@ -92,19 +92,19 @@ Added estimated market cap to the following new assets:
 {% endupdate %}
 
 {% update date="2026-07-30" %}
-## Added Pairwise Flow Metrics for USDC
+### Added Pairwise Flow Metrics for USDC
 
 Released directional pairwise flow metrics capturing value moving between tagged entities (e.g. Coinbase, Binance, Bitfinex, Kraken, OKX, KuCoin), including value that passes through untagged intermediary wallets before reaching its destination. Available at the 1d and 1h frequency for USDC on Ethereum. For details on the supported metrics please refer to the [pairwise-flows.md](exchange/pairwise-flows.md "mention") page. For details on asset coverage please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/FlowFromCBSToBNBNtv).
 {% endupdate %}
 
 {% update date="2026-07-06" %}
-## Expanded Estimated Market Cap Dominance to ETH
+### Expanded Estimated Market Cap Dominance to ETH
 
 Added the `CapMrktEstDomPct` metric for Ethereum, previously only available for Bitcoin. For full coverage details please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/CapMrktEstDomPct).
 {% endupdate %}
 
 {% update date="2026-06-22" %}
-## Expanded Exchange Flows to New Stablecoins
+### Expanded Exchange Flows to New Stablecoins
 
 Released exchange flow metrics at the 1d and 1h frequency for four stablecoin assets on Ethereum. For details on the supported metrics please refer to the [exchange](exchange/ "mention") page. For details on Exchange Flow metric coverage please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInExNtv).
 
@@ -121,7 +121,7 @@ Released exchange flow metrics at the 1d and 1h frequency for four stablecoin as
 {% endupdate %}
 
 {% update date="2026-06-09" %}
-## Added Age-Band Realized Capitalization Metrics for Bitcoin
+### Added Age-Band Realized Capitalization Metrics for Bitcoin
 
 Added 13 new metrics that decompose Bitcoin's realized capitalization by UTXO age. Each band captures the realized cap attributable to UTXOs within that age range, and the sum of all bands equals `CapRealUSD`. For full details on the methodology please refer to the [metric documentation page](market/market-capitalization.md#cap-real-age-bands). For full coverage details refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/CapRealUSD1d).
 
@@ -147,7 +147,7 @@ Added 13 new metrics that decompose Bitcoin's realized capitalization by UTXO ag
 {% endupdate %}
 
 {% update date="2026-05-26" %}
-## Expanded CapMrktEstUSD to New Assets
+### Expanded CapMrktEstUSD to New Assets
 
 Added estimated market cap to the following new assets:
 
@@ -182,7 +182,7 @@ Added estimated market cap to the following new assets:
 {% endupdate %}
 
 {% update date="2026-05-01" %}
-## Added Network Data Metrics for Stellar Tokens
+### Added Network Data Metrics for Stellar Tokens
 
 Added Network Data metrics at the 1d frequency for 10 Stellar-based tokens, including stablecoins and tokenized real-world assets. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
 
@@ -207,19 +207,19 @@ Additionally, added support for aggregated tickers benji & wtgxx. benji aggregat
 {% endupdate %}
 
 {% update date="2026-05-01" %}
-## Expanded Exchange Flows to 1h for USDC on Base and USD1
+### Expanded Exchange Flows to 1h for USDC on Base and USD1
 
 Expanded exchange flow metrics for **usdc\_base.eth** and **usd1\_eth** to the 1h frequency. For details on Exchange Flow metric coverage please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInExNtv).
 {% endupdate %}
 
 {% update date="2026-04-23" %}
-## Expanded Exchange Flows to new Stablecoins
+### Expanded Exchange Flows to new Stablecoins
 
 Released exchange flows for **usdc\_base.eth** and **usd1\_eth** at the 1d frequency. For details on the supported metrics please refer to the [exchange](exchange/ "mention")page. For details on Exchange Flow metric coverage please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInExNtv).
 {% endupdate %}
 
 {% update date="2026-04-22" %}
-## Added Tokenized RWA Assets on Ethereum to ND Metrics
+### Added Tokenized RWA Assets on Ethereum to ND Metrics
 
 Added Network Data metrics for tokenized Real World Asset (RWA) tokens on Ethereum, including tokenized US Treasury funds and money market funds. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
 
@@ -241,25 +241,25 @@ Added Network Data metrics for tokenized Real World Asset (RWA) tokens on Ethere
 {% endupdate %}
 
 {% update date="2026-04-16" %}
-## Added BUIDL\_SOL to Network Data Metrics
+### Added BUIDL\_SOL to Network Data Metrics
 
 Added metrics support for BlackRock's BUIDL tokenized money market fund on Solana (`buidl_sol`). For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2/buidl_sol).
 {% endupdate %}
 
 {% update date="2026-04-07" %}
-## Added Network Data Metrics for BNB Smart Chain (Experimental)
+### Added Network Data Metrics for BNB Smart Chain (Experimental)
 
 Added Network Data metrics for the BNB Smart Chain (`bnb_bsc`) at the 1d frequency for a set of MVP metrics. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2/bnb_bsc).
 {% endupdate %}
 
 {% update date="2026-04-02" %}
-## Added Huobi Exchange Flows for ETH
+### Added Huobi Exchange Flows for ETH
 
 Released exchange flow metrics for ETH on the Huobi (HTX) exchange. For details on the supported metrics please refer to the [exchange](exchange/ "mention") page. For details on Exchange Flow metric coverage please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInExNtv).
 {% endupdate %}
 
 {% update date="2026-04-02" %}
-## Expand CapMrktEstUSD to New Assets
+### Expand CapMrktEstUSD to New Assets
 
 Added estimated market cap to the following new assets:
 
@@ -279,7 +279,7 @@ Added estimated market cap to the following new assets:
 {% endupdate %}
 
 {% update date="2026-04-01" %}
-## Added xStocks on Ethereum to ND Metrics
+### Added xStocks on Ethereum to ND Metrics
 
 Added Network Data metrics for xStock tokenized equities on Ethereum for 79 new assets. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
 
@@ -371,7 +371,7 @@ Added Network Data metrics for xStock tokenized equities on Ethereum for 79 new 
 {% endupdate %}
 
 {% update date="2026-03-31" %}
-## Expanded CapMrktEstUSD to 150+ New Assets
+### Expanded CapMrktEstUSD to 150+ New Assets
 
 Added estimated market cap to over 150 new assets.
 
@@ -540,7 +540,7 @@ zrx
 {% endupdate %}
 
 {% update date="2026-03-16" %}
-## Added XRP Token Metrics
+### Added XRP Token Metrics
 
 Added Network Data metrics support for tokens on the XRP Ledger. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/assets-v2).
 
@@ -559,43 +559,43 @@ Added Network Data metrics support for tokens on the XRP Ledger. For full asset 
 {% endupdate %}
 
 {% update date="2026-03-10" %}
-## Extended Economically Active Addresses to BTC
+### Extended Economically Active Addresses to BTC
 
 Extended the `AdrActUSD1Cnt` metric to Bitcoin, capturing addresses that transacted at least 1 USD in a single transfer. This metric was previously available for Ethereum and Solana. For full details refer to the [documentation](https://docs.coinmetrics.io/network-data/network-data-overview/addresses/active-addresses#economically-active-addresses). For full coverage details refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/AdrActUSD1Cnt).
 {% endupdate %}
 
 {% update date="2026-02-24" %}
-## Added Economically Relevant Addresses
+### Added Economically Relevant Addresses
 
 Added a new metric for Ethereum and Solana that captures the count of economically relevant addresses, defined as any address that transacted at least 1 USD in a single transfer - **`AdrActUSD1Cnt`**. For full details and examples refer to the [documentation](https://docs.coinmetrics.io/network-data/network-data-overview/addresses/active-addresses#economically-active-addresses). For full coverage details refer to the coverage page [here](https://coverage.coinmetrics.io/asset-metrics-v2/AdrActUSD1Cnt).
 {% endupdate %}
 
 {% update date="2026-02-17" %}
-## Release Hourly Exchange and ETF Flow Metrics
+### Release Hourly Exchange and ETF Flow Metrics
 
 Expanded our exchange flow and BTC ETF coverage with hourly flows metrics for all existing assets and exchanges/ETFs. For the full list of exchange please refer to our [Exchange coverage](exchange/#on-chain-exchange-coverage) and for a full coverage of our ETF coverage please refer to our [ETF Coverage](exchange-traded-fund/#on-chain-etf-coverage). For details on asset coverage for Exchange Flows and ETF Flows metric please refer to our coverage page ([Exchanges](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInExNtv), [ETFs](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInEtfNtv))
 {% endupdate %}
 
 {% update date="2026-01-19" %}
-## Released Exchange Flows for USDT\_ETH
+### Released Exchange Flows for USDT\_ETH
 
 Released exchange flows for the usdt\_eth asset at the 1d frequency. For details on the supported metrics please refer to the [exchange](exchange/ "mention")page. For details on Exchange Flow metric coverage please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInExNtv).
 {% endupdate %}
 
 {% update date="2026-01-12" %}
-## $FLOW asset categorized as experimental
+### $FLOW asset categorized as experimental
 
 All `flow` assets and metrics have been categorized as experimental due to ongoing issues with reliably of the nodes. This imacts the `flow`, `flow_evm` and `flow_native` tickers.
 {% endupdate %}
 
 {% update date="2026-01-08" %}
-## Added Real Time Exchange Flows for ERC20s
+### Added Real Time Exchange Flows for ERC20s
 
 Added block by block support for Exchange flow metrics for USDC\_ETH & PYUSD\_ETH. For details on Exchange Flow metric coverage please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInExNtv). For details on exchange metrics please refer to the [exchange](exchange/ "mention")documentation page.
 {% endupdate %}
 
 {% update date="2026-01-05" %}
-## Expand CapMrktEstUSD to new Assets
+### Expand CapMrktEstUSD to new Assets
 
 Added estimated market cap to new assets
 
@@ -627,7 +627,7 @@ Added estimated market cap to new assets
 {% endupdate %}
 
 {% update date="2025-12-08" %}
-## Added CapMrktEstUSD for 85 New Asset
+### Added CapMrktEstUSD for 85 New Asset
 
 Added Estimated Market Cap for 85 new assets to fill out top 500 by market cap.
 
@@ -725,7 +725,7 @@ zbcn
 {% endupdate %}
 
 {% update date="2025-12-03" %}
-## Added xStocks on Solana to ND Metrics
+### Added xStocks on Solana to ND Metrics
 
 Added xStocks on Solana to Network Data Metrics.
 
@@ -751,13 +751,13 @@ Added xStocks on Solana to Network Data Metrics.
 {% endupdate %}
 
 {% update date="2025-11-19" %}
-## Release Exchange Flows for USDC & PYUSD on Ethereum
+### Release Exchange Flows for USDC & PYUSD on Ethereum
 
 Added Exchange flow metrics for USDC\_ETH and PYUSD\_ETH at the daily frequency. For details on Exchange Flow metric coverage please refer to the [coverage page](https://coverage.coinmetrics.io/asset-metrics-v2/FlowInExNtv). For details on exchange metrics please refer to the [exchange](exchange/ "mention")documentation page.
 {% endupdate %}
 
 {% update date="2025-11-10" %}
-## Added New Assets to ND Metrics
+### Added New Assets to ND Metrics
 
 <details>
 
