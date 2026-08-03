@@ -217,13 +217,13 @@ If you need to download large amounts of data, i.e. more than 100k rows, we reco
 
 {% updates format="full" %}
 {% update date="2026-07-15" %}
-## Added Polkadot Relay Chain Support
+### Added Polkadot Relay Chain Support
 
 Added Atlas support for DOT on the Polkadot Relay Chain (`dot_relay`), alongside existing Asset Hub coverage. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/atlas-v2).
 {% endupdate %}
 
 {% update date="2026-07-02" %}
-## Added Morpho Vault Support
+### Added Morpho Vault Support
 
 Added Atlas support for MetaMorpho vault activity on Ethereum, Base, Arbitrum, Avalanche, and Optimism. Each asset aggregates all MetaMorpho ERC-4626 vault tokens deployed on the respective chain.
 
@@ -245,7 +245,7 @@ Balance updates for these assets carry a `denomination` field set to the vault's
 {% endupdate %}
 
 {% update date="2026-06-08" %}
-## Added Polkadot Asset Hub Support
+### Added Polkadot Asset Hub Support
 
 Added Atlas support for DOT, USDC, and USDT on the Polkadot Asset Hub parachain. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/atlas-v2).
 
@@ -261,7 +261,7 @@ Added Atlas support for DOT, USDC, and USDT on the Polkadot Asset Hub parachain.
 {% endupdate %}
 
 {% update date="2026-05-01" %}
-## Added Stellar Token Support
+### Added Stellar Token Support
 
 Added Atlas support for 10 Stellar-based tokens, including major stablecoins and tokenized real-world assets. For full asset coverage details refer to the [coverage page](https://coverage.coinmetrics.io/atlas-v2).
 
@@ -284,7 +284,7 @@ Added Atlas support for 10 Stellar-based tokens, including major stablecoins and
 {% endupdate %}
 
 {% update date="2026-03-23" %}
-## Added US Treasury Tokens
+### Added US Treasury Tokens
 
 Added support for US Treasury tokens on ETH + OUSG\_XRP
 
@@ -304,7 +304,7 @@ Added support for US Treasury tokens on ETH + OUSG\_XRP
 {% endupdate %}
 
 {% update date="2026-03-18" %}
-## Added Tokenized Treasury and Money Market Fund Tokens
+### Added Tokenized Treasury and Money Market Fund Tokens
 
 Added support for four additional tokenized Real World Asset tokens on Ethereum.
 
@@ -321,13 +321,13 @@ Added support for four additional tokenized Real World Asset tokens on Ethereum.
 {% endupdate %}
 
 {% update date="2026-03-11" %}
-## Added AstraZeneca xStock on Ethereum
+### Added AstraZeneca xStock on Ethereum
 
 Added support for AZNX\_ETH (AstraZeneca xStock on Ethereum).
 {% endupdate %}
 
 {% update date="2026-02-27" %}
-## Added xStock Tokenized Equities on Ethereum
+### Added xStock Tokenized Equities on Ethereum
 
 Added support for \~80 Backed Finance xStock tokenized equities on Ethereum.
 
@@ -417,13 +417,13 @@ Added support for \~80 Backed Finance xStock tokenized equities on Ethereum.
 {% endupdate %}
 
 {% update date="2026-02-18" %}
-## Added SoFi USD on Ethereum
+### Added SoFi USD on Ethereum
 
 Added support for SOFID\_ETH (SoFi USD on Ethereum).
 {% endupdate %}
 
 {% update date="2026-02-10" %}
-## Added XRP Token Support to Atlas
+### Added XRP Token Support to Atlas
 
 Added support for five XRP-based tokens to Atlas (blockchain-v2 endpoints).
 
